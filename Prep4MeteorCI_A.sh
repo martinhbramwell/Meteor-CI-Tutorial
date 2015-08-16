@@ -60,7 +60,7 @@ explain "#  Java 7 is required by Nightwatch.
 \n#  By proceeding with this step you accept the license agreement, implicitly."
 if [ $? -eq 0 ]; then
   echo -e # -- Get PPAs for Oracle Java 7 and update APT --
-  add-apt-repository -y ppa:webupd8team/sublime-text-3
+  add-apt-repository -y ppa:webupd8team/java
   apt-get update
 
   echo -e # -- Install Oracle Java 7 -- 
@@ -76,7 +76,8 @@ explain "#  This tutorial expects to use the Sublime Text 3 editor.
 \n#  this group of commands."
 if [ $? -eq 0 ]; then
   echo -e # -- Get PPAs for Sublime Text editor --
-  add-apt-repository -y ppa:webupd8team/java
+  add-apt-repository -y ppa:webupd8team/sublime-text-3
+  apt-get update
   echo -e # -- Install Sublime Text editor --
   apt-get install -y sublime-text-installer
 fi
