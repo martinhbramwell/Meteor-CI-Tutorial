@@ -2,7 +2,7 @@
 #
 
 if [[ $EUID -eq 0 ]]; then
-   echo -e "This script SHOULD NOT be run with 'sudo' (as root). " 
+   echo -e "This script SHOULD NOT be run with 'sudo' (as root). "
    exit 1
 fi
 
@@ -36,7 +36,7 @@ echo -e "#"
 echo -e "############################################################################"
 read -p "Hit <enter> ::  " -n 1 -r USER_ANSWER
 
-if ! getUserData; then 
+if ! getUserData; then
     echo -e "#####################################################################"
     echo -e "#   The rest of this script will fail without correct values for : "
     echo -e "#    - project name"
@@ -50,13 +50,13 @@ fi;
 
 
 explain "#   Configure git for use with GitHub.
-\n#   
+\n#
 \n#  In this step we set up the local git tool kit to communicate correctly with GitHub.
 \n#  "
 if [ $? -eq 0 ]; then
 
   echo -e "#   -- Configuring git ... "
-  
+
   git config --global user.email "${YOUR_NAME}"
   git config --global user.name "${YOUR_EMAIL}"
   git config --global push.default simple
@@ -81,7 +81,7 @@ explain "#   Create SSH keys directory if it does not exist.
 \n#
 \n#  This script requires you to have an SSH private key.
 \n#  If the file '~/.ssh/id_rsa' exists, then this command group will do nothing.
-\n#  Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa' into 
+\n#  Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa' into
 \n#  which you can paste your private key."
 if [ $? -eq 0 ]; then
   SET_UP_SSH=true;
@@ -119,7 +119,7 @@ fi
 
 
 explain "#   Install Meteor
-\n#   
+\n#
 \n#  In this step we simply run Meteor's installation
 \n#  It takes a while, so you might want to do it in a separate terminal window.
 \n#  The command to run is :
@@ -133,7 +133,7 @@ if [ $? -eq 0 ]; then
     read -p "  'y' or 'n' ::  " -n 1 -r USER_ANSWER
     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
     if [[ "X${CHOICE}X" == "XnX" ]];
-    then 
+    then
       INSTALLMETEOR=false;
     fi;
   fi
@@ -150,12 +150,12 @@ METEOR_PORT=3000
 
 
 explain "#   Create a meteor project.
-\n#   
-\n#   Here we create a container directory called '${PARENT_DIR}' and   
+\n#
+\n#   Here we create a container directory called '${PARENT_DIR}' and
 \n#   inside it we start a Meteor project called '${PROJECT_NAME}'
-\n#   
+\n#
 \n#   When prompted, test meteor in a separate terminal window.
-\n#   
+\n#
 \n#  "
 if [ $? -eq 0 ]; then
   # Make a projects directory
@@ -190,7 +190,7 @@ fi
 
 
 explain "#   Add Meteor application development support files
-\n#   
+\n#
 \n#   In this step we create some of the project meta data files :
 \n#    -  LICENSE
 \n#    -  README.md
@@ -234,7 +234,7 @@ GITIG
   cat << RDME > README.md
 # ${PROJECT_NAME}
 
-A bare minimum app and package for running TinyTest and NightWatch in CircleCI 
+A bare minimum app and package for running TinyTest and NightWatch in CircleCI
 RDME
 
   # wget https://raw.githubusercontent.com/airbnb/javascript/master/packages/eslint-config-airbnb/.eslintrc
@@ -264,15 +264,15 @@ fi
 
 
 explain "#   Create our GitHub repository.
-\n#   
+\n#
 \n#   In this step we :
 \n#    -  initialize a local .git repository
 \n#    -  add all the files to the local repo and commit
 \n#    -  establish our GitHub project as the remote repository
 \n#    -  push our new files to GitHub
-\n#   
+\n#
 \n#   This step is NOT idempotent. If the project has already been pushed to
-\n#   GitHub you will get errors.  If so, the easiest thing to do is 
+\n#   GitHub you will get errors.  If so, the easiest thing to do is
 \n#   eliminate the project from GitHub and run this step again.
 \n#  "
 if [ $? -eq 0 ]; then
@@ -300,7 +300,7 @@ explain "#  Create a package and TinyTest it.
 \n#  Meteor makes this very easy. Two commands and we have a unit tested package.
 \n#  - meteor create --package yours:skeleton
 \n#  - meteor test-packages
-\n#  
+\n#
 \n#  Notice the newly added files.  These will also have to be pushed to GitHub.
 \n#  "
 if [ $? -eq 0 ]; then
@@ -351,12 +351,12 @@ explain "#  Add a test runner for getting TinyTest ouput on the command line
 \n#
 \n#  TinyTest pretty prints its results in the browser.  This is useless for continuous integration.
 \n#  We need to have test results on the command line
-\n#  
+\n#
 \n#  The GitHub repo . . .
 \n#   https://github.com/warehouseman/meteor-tinytest-runner
 \n#  . . . has a wrapper tool that drives a browser with Selenium and collects the results in
 \n#   text format.  The installer deletes itself after preparing the files for immediate use.
-\n#  
+\n#
 \n#  "
 if [ $? -eq 0 ]; then
 
@@ -389,10 +389,10 @@ fi
 explain "#  Add a CircleCI configuration file and push to GitHub
 \n#
 \n#  On the previous commit, CircelCI recognized the project's existence but did not
-\n#  know what to do with it.  Now, we have a test runner, and with the addition of a 
-\n#  'circle.yml' configuration file committing the project to GitHub will cause 
+\n#  know what to do with it.  Now, we have a test runner, and with the addition of a
+\n#  'circle.yml' configuration file committing the project to GitHub will cause
 \n#  an automatic rebuild.
-\n#  
+\n#
 \n#  "
 if [ $? -eq 0 ]; then
 
@@ -402,7 +402,7 @@ if [ $? -eq 0 ]; then
   mv example_circle.yml circle.yml
 
   git add packages
-  git add circle.yml 
+  git add circle.yml
   git add tests
   git commit -am 'Added package and package testing'
   git push -u origin master
@@ -427,19 +427,29 @@ fi
 explain "#  Install 'bunyan'
 \n#
 \n#  Bunyan is a logging package with the special advantage of writing
-\n#  run-time logs as JSON. This makes subsequent analysis and long-term 
+\n#  run-time logs as JSON. This makes subsequent analysis and long-term
 \n#  storage of production system logs much more efficient.
-\n#  
+\n#
 \n#  It is in two parts :
 \n#   - a local node module to replace 'console.log'
-\n#   - a global module that reads Bunyan JSON and reformats for different uses, including stdout.  
-\n#  
+\n#   - a global module that reads Bunyan JSON and reformats for different uses, including stdout.
+\n#
 \n#  We must first ensure that root has not taken ownership of the local .npm directory.
+\n#
+\n#  For ongoing server side logging during development or production we need a permanent home
+\n#  for the logs.  The standard place for that in Ubuntu is /var/log.  So wee also need to
+\n#  create a directory for Meteor with suitable permissions.
+\n#
 \n#  "
 if [ $? -eq 0 ]; then
 
   sudo chown -R ${USER}:${USER} ~/.npm
   sudo npm install -y --global --prefix /usr bunyan
+
+  LOG_DIR="/var/log/meteor"
+  sudo mkdir -p ${LOG_DIR}
+  sudo chown ${USER}:${USER} ${LOG_DIR}
+  sudo chmod ug+rwx ${LOG_DIR}
 
 fi
 
@@ -449,20 +459,20 @@ fi
 explain "#  Prepare for NightWatch testing.
 \n#
 \n#  Nightwatch tests applications end-to-end by directly controlling the
-\n#  browser.  Meteor has full support for TinyTests running as part of 
-\n#  Meteor itself, but NightWatch has no such support and runs in its own 
-\n#  NodeJS process apart from Meteor's NodeJs process.  It can even run 
+\n#  browser.  Meteor has full support for TinyTests running as part of
+\n#  Meteor itself, but NightWatch has no such support and runs in its own
+\n#  NodeJS process apart from Meteor's NodeJs process.  It can even run
 \n#  on a different machine.
-\n#  
+\n#
 \n#  To install we pull this file stored in GitHub ...
-\n#   wget -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/master/meteor-nightwatch-runner.run  
+\n#   wget -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/master/meteor-nightwatch-runner.run
 \n#  ... make it executable and then run it.
-\n#  
-\n#  The installer prepares a Nightwatch test directory and then deletes 
-\n#  itself, leaving only what's necessary. It includes a sample 'circle.yml' 
+\n#
+\n#  The installer prepares a Nightwatch test directory and then deletes
+\n#  itself, leaving only what's necessary. It includes a sample 'circle.yml'
 \n#  that expects the TinyTest runner to have been installed first; it will run
 \n#  TinyTests and Nightwatch tests in CircleCI one after the other.
-\n#  
+\n#
 \n#  "
 if [ $? -eq 0 ]; then
 
@@ -470,7 +480,7 @@ if [ $? -eq 0 ]; then
   pushd ${PROJECT_NAME}
 
   wget -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/master/meteor-nightwatch-runner.run
-  chmod ug+x meteor-nightwatch-runner.run 
+  chmod ug+x meteor-nightwatch-runner.run
 
   ./meteor-nightwatch-runner.run
 
@@ -479,10 +489,10 @@ fi
 
 explain "#  Run NightWatch testing.
 \n#
-\n#  Nightwatch and Meteor are separate.  This command group starts Meteor   
-\n#  in a background process, and then starts the Nightwatch Test Runner to   
+\n#  Nightwatch and Meteor are separate.  This command group starts Meteor
+\n#  in a background process, and then starts the Nightwatch Test Runner to
 \n#  try the simple sanity check test -- 'Does the main page have a <body> tag?'.
-\n#  
+\n#
 \n#  "
 if [ $? -eq 0 ]; then
 
@@ -515,12 +525,12 @@ fi
 
 explain "#  Push Nightwatch testing to GitHub (and CircleCI)
 \n#
-\n#  We are ready for the final stage: TinyTest & Nightwatch testing run in 
+\n#  We are ready for the final stage: TinyTest & Nightwatch testing run in
 \n#  a single pass of continuous integration in CircelCI.
-\n#  
-\n#  The Nightwatch 'circle.yml' includes set up of TinyTest, so it can overwrite the   
+\n#
+\n#  The Nightwatch 'circle.yml' includes set up of TinyTest, so it can overwrite the
 \n#  one created earlier.
-\n#  
+\n#
 \n#  "
 if [ $? -eq 0 ]; then
 
@@ -542,9 +552,9 @@ echo -e "\nDone.";
 exit 0;
 
 
-# explain "#  
+# explain "#
 # \n#
-# \n#  
+# \n#
 # \n#  "
 # if [ $? -eq 0 ]; then
 
@@ -556,7 +566,6 @@ exit 0;
 #   popd
 
 # fi
-
 
 
 echo "Done.";
