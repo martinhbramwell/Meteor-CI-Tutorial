@@ -237,8 +237,9 @@ GITIG
 A bare minimum app and package for running TinyTest and NightWatch in CircleCI
 RDME
 
-  # wget https://raw.githubusercontent.com/airbnb/javascript/master/packages/eslint-config-airbnb/.eslintrc
-  wget -N https://raw.githubusercontent.com/meteor/meteor/devel/scripts/admin/eslint/.eslintrc
+  wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
+  # wget -N https://raw.githubusercontent.com/airbnb/javascript/master/packages/eslint-config-airbnb/.eslintrc
+  # wget -N https://raw.githubusercontent.com/meteor/meteor/devel/scripts/admin/eslint/.eslintrc
 
   sudo chown -R ${USER}:${USER} .
   ls -la
