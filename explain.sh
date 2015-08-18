@@ -2,7 +2,7 @@
 #
 
 
-FRAME=$(printf "%-80s" "~"); 
+FRAME=$(printf "%-80s" "~");
 function explain()
 {
   echo -e "\n\n\n\n# ${FRAME// /\~}"
@@ -11,13 +11,13 @@ function explain()
 	if [ "X${AUTORUN}X" == "XaX" ]; then return 0; fi;
 	echo -e "Type '\e[1;34ma\e[0mll\e[1;34m<enter>\e[0m' if you want to execute the rest of the script without pausing."
 	echo -e "Type '\e[1;34mn\e[0mo\e[1;34m<enter>\e[0m' to skip the group of related commands."
-	echo -e "Hit '\e[1;34m<enter>\e[0m' to execute the group, '\e[1;34mq\e[0m' OR '\e[1;34m<ctrl-c>\e[0m' to quit"
+	echo -e "Hit '\e[1;34my\e[0m'  or '\e[1;34m<enter>\e[0m' to execute the group, '\e[1;34mq\e[0m' OR '\e[1;34m<ctrl-c>\e[0m' to quit"
 	read -p "  'a', 'n' or <enter> ::  " -n 1 -r USER_ANSWER
 
 	CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
 #	echo X${CHOICE}X
 	if [ "X${CHOICE}X" == "XnX" ]; then return 1; fi;
-  if [[ "X${CHOICE}X" == "XqX" ]]; then echo ""; exit 0; fi;
+  if [ "X${CHOICE}X" == "XqX" ]; then echo ""; exit 0; fi;
 	AUTORUN=${CHOICE};
 	return 0;
 }
@@ -72,14 +72,14 @@ function getUserData()
 
     read -ep "Is this correct? (y/n/q) ::  " -n 1 -r USER_ANSWER
     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
-    if [[ "X${CHOICE}X" == "XqX" ]]; then 
+    if [[ "X${CHOICE}X" == "XqX" ]]; then
       echo skip out
-      return 1; 
+      return 1;
     fi;
     echo "  "
   done
   saveUserData
-  return 
+  return
 }
 
 source udata.sh

@@ -8,6 +8,22 @@ fi
 
 source ./explain.sh
 
+function existingMeteor() {
+
+  EXISTING_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print $2}')
+  if [[  ${EXISTING_METEOR_PID} -gt 0  ]]; then
+    echo ""
+    echo ""
+    echo "A Meteor process was started earlier.  Find it and stop it."
+    echo "If you cannot find it, in a separate terminal window, stop it now with :"
+    echo "   kill -9 ${EXISTING_METEOR_PID}"
+    echo ""
+    echo -e "After you have stopped the old Meteor process hit <enter> to start the new one.  "
+    read -n 1 -r USER_ANSWER
+  fi
+
+}
+
 
 echo -e ""
 echo -e ""
@@ -60,17 +76,6 @@ if [ $? -eq 0 ]; then
   git config --global user.email "${YOUR_NAME}"
   git config --global user.name "${YOUR_EMAIL}"
   git config --global push.default simple
-
-  echo -e "#########################################################################################"
-  echo -e "#   "
-  echo -e "#   The next steps are :"
-  echo -e "#   "
-  echo -e "#    1. Log in to GitHub and create a project with the exact name '${PROJECT_NAME}'"
-  echo -e "#       Don't set any other values. We'll do that automatically."
-  echo -e "#    2. Log in to CircleCI and set it to monitor project '${PROJECT_NAME}' for rebuilding."
-  echo -e "#   "
-  echo -e "#########################################################################################"
-  read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
 
 fi
 
@@ -163,25 +168,71 @@ if [ $? -eq 0 ]; then
 
   pushd ~/${PARENT_DIR}
 
-  # Start a Meteor project
-  meteor create ${PROJECT_NAME}
-  pushd ${PROJECT_NAME}
+
+  BUILD_IT=true
+  if [[ -d ~/${PARENT_DIR}/${PROJECT_NAME} ]]; then
+    echo "";
+    echo "";
+    echo "The project, '${PROJECT_NAME}', was created earlier.
+            You can delete it and [r]ecreate it OR [s]kip this step."
+    read -p "  'r' or 's' ::  " -n 1 -r USER_ANSWER
+    CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+    if [[ "X${CHOICE}X" == "XsX" ]]; then
+      BUILD_IT=false
+    else
+      echo "";
+      echo "Deleting old ${PROJECT_NAME}. . . ";
+      rm -fr ${PROJECT_NAME}
+    fi;
+    echo ""
+  fi
+
+  if ${BUILD_IT}; then
+
+    echo "creating project ${PROJECT_NAME} . . . ";
+    # Start a Meteor project
+    meteor create ${PROJECT_NAME}
+
+  else
+    echo "Skipped";
+  fi
+
+  ls -la ${PROJECT_NAME}
+  popd
+
+
+fi
+
+
+
+explain "#   Check the meteor project will work
+\n#
+\n#   If Meteor is not already running, it will start up ${PROJECT_NAME} now.
+\n#   If Meteor IS already running, you will need to stop it.
+\n#
+\n#   When prompted, test meteor in a browser.
+\n#
+\n#  "
+if [ $? -eq 0 ]; then
+
+  existingMeteor
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}
 
   meteor &
-
-  ls -la
 
   echo -e "#########################################################################################"
   echo -e "#   Meteor is now starting up as a background process."
   echo -e "#   In a browser, please open the URL -- http://localhost:${METEOR_PORT}/ --"
   echo -e "#    to confirm that it is working."
   echo -e "#########################################################################################"
-  echo -e "Hit <enter> after you have confirmed that Meteor is working on port ${METEOR_PORT} ::  "
+  echo -e "After you have confirmed that Meteor is working on port ${METEOR_PORT} hit <enter> to STOP IT and go on to next step.  "
   read -n 1 -r USER_ANSWER
+
+  echo -e "Stopping Meteor process . . . "
 
   kill -9 $(jobs -p)
 
-  popd
   popd
 
 fi
@@ -241,7 +292,6 @@ RDME
   # wget -N https://raw.githubusercontent.com/airbnb/javascript/master/packages/eslint-config-airbnb/.eslintrc
   # wget -N https://raw.githubusercontent.com/meteor/meteor/devel/scripts/admin/eslint/.eslintrc
 
-  sudo chown -R ${USER}:${USER} .
   ls -la
 
   popd
@@ -278,6 +328,17 @@ explain "#   Create our GitHub repository.
 \n#  "
 if [ $? -eq 0 ]; then
 
+  echo -e "#########################################################################################"
+  echo -e "#   "
+  echo -e "#   The next steps are :"
+  echo -e "#   "
+  echo -e "#    1. Log in to GitHub and create a project with the exact name '${PROJECT_NAME}'"
+  echo -e "#       Don't set any other values. We'll do that automatically."
+  echo -e "#    2. Log in to CircleCI and set it to monitor project '${PROJECT_NAME}' for rebuilding."
+  echo -e "#   "
+  echo -e "#########################################################################################"
+  read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+
   pushd ~/${PARENT_DIR}
   pushd ${PROJECT_NAME}
 
@@ -305,6 +366,8 @@ explain "#  Create a package and TinyTest it.
 \n#  Notice the newly added files.  These will also have to be pushed to GitHub.
 \n#  "
 if [ $? -eq 0 ]; then
+
+  existingMeteor
 
   pushd ~/${PARENT_DIR}
   pushd ${PROJECT_NAME}
@@ -338,6 +401,10 @@ explain "#  Install 'selenium-webdriver'
 \n#
 \n#  Selenium Webdriver is required for the next step.
 \n#  We must first ensure that root has not taken ownership of the local .npm directory.
+\n#
+\n#  You will need your password to enable the [ch]ange [own]er command.
+\n#  sudo chown -R ${USER}:${USER} ~/.npm
+\n#
 \n#  "
 if [ $? -eq 0 ]; then
 
@@ -348,7 +415,7 @@ fi
 
 
 
-explain "#  Add a test runner for getting TinyTest ouput on the command line
+explain "#  Add a test runner for getting TinyTest output on the command line
 \n#
 \n#  TinyTest pretty prints its results in the browser.  This is useless for continuous integration.
 \n#  We need to have test results on the command line
@@ -360,6 +427,8 @@ explain "#  Add a test runner for getting TinyTest ouput on the command line
 \n#
 \n#  "
 if [ $? -eq 0 ]; then
+
+  existingMeteor
 
   pushd ~/${PARENT_DIR}
   pushd ${PROJECT_NAME}
@@ -389,7 +458,7 @@ fi
 
 explain "#  Add a CircleCI configuration file and push to GitHub
 \n#
-\n#  On the previous commit, CircelCI recognized the project's existence but did not
+\n#  On the previous commit, CircleCI recognized the project's existence but did not
 \n#  know what to do with it.  Now, we have a test runner, and with the addition of a
 \n#  'circle.yml' configuration file committing the project to GitHub will cause
 \n#  an automatic rebuild.
@@ -409,14 +478,14 @@ if [ $? -eq 0 ]; then
   git push -u origin master
 
   echo -e "#########################################################################################"
-  echo -e "#   Open your CircelCI site and explore the most recent build.  In the build section you "
+  echo -e "#   Open your CircleCI site and explore the most recent build.  In the build section you "
   echo -e "#   should find the same lines as before when we ran the test runner locally : "
   echo -e "#   [INFO] http://127.0.0.1:4096/packages/test-in-console.js?59dde1f. . . 07b3f499 75:17 S: tinytest - example "
   echo -e "#    "
   echo -e "#   Notice the execution time. Rebuild, and notice how the test is faster thanks to "
   echo -e "#   caching of dependencies"
   echo -e "#########################################################################################"
-  echo -e "Hit <enter> after you have confirmed that CircelCI ran successful tests ::  "
+  echo -e "Hit <enter> after you have confirmed that CircleCI ran successful tests ::  "
   read -n 1 -r USER_ANSWER
   popd
   popd
@@ -497,6 +566,8 @@ explain "#  Run NightWatch testing.
 \n#  "
 if [ $? -eq 0 ]; then
 
+  existingMeteor
+
   pushd ~/${PARENT_DIR}
   pushd ${PROJECT_NAME}
 
@@ -527,7 +598,7 @@ fi
 explain "#  Push Nightwatch testing to GitHub (and CircleCI)
 \n#
 \n#  We are ready for the final stage: TinyTest & Nightwatch testing run in
-\n#  a single pass of continuous integration in CircelCI.
+\n#  a single pass of continuous integration in CircleCI.
 \n#
 \n#  The Nightwatch 'circle.yml' includes set up of TinyTest, so it can overwrite the
 \n#  one created earlier.
