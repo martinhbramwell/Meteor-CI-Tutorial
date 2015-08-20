@@ -111,7 +111,7 @@ fi
 
 
 
-PARENT_DIR="projects"
+export PARENT_DIR=projects
 METEOR_PORT=3000
 
 

@@ -80,8 +80,7 @@ curl https://install.meteor.com/ | sh
 
 #### Create a Meteor project.
 
-Here we create a container directory called '${PARENT_DIR}' and
-inside it we start a Meteor project called '${PROJECT_NAME}'
+Here we create a container directory called ```${PARENT_DIR}``` and inside it we start a Meteor project called ```${PROJECT_NAME}```
 
 If the project was created earlier you'll be invited to delete it and start a new one.
 
@@ -260,8 +259,7 @@ The installer deletes itself after preparing the files for immediate use.
 
 On the preliminary commit, CircleCI recognized the project's existence but did not know what to do with it.
 
-Now, we have a test runner, and with the addition of a 'circle.yml' configuration file committing the project to GitHub will cause
-an automatic rebuild.
+Now, we have a test runner, and with the addition of a 'circle.yml' configuration file committing the project to GitHub will cause an automatic rebuild.
 
 
 <!-- -->]
@@ -297,11 +295,7 @@ For ongoing server side logging during development or production we need a perma
 
 #### Prepare for NightWatch testing.
 
-Nightwatch tests applications end-to-end by directly controlling the
-browser.  Meteor has full support for TinyTests running as part of
-Meteor itself, but NightWatch has no such support and runs in its own
-NodeJS process apart from Meteor's NodeJs process.  It can even run
-on a different machine.
+Nightwatch tests applications end-to-end by directly controlling the browser.  Meteor has full support for TinyTests running as part of Meteor itself, but NightWatch has no such support and runs in its own NodeJS process apart from Meteor's NodeJs process.  It can even run on a different machine.
 
 To install: pull this file out of GitHub
 ```terminal
@@ -309,10 +303,7 @@ wget -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/master/mete
 ```
 then make make it executable and run it.
 
-The installer prepares a Nightwatch test directory and then deletes
-itself, leaving only what's necessary. It includes a sample 'circle.yml'
-that expects the TinyTest runner to have been installed first; it will run
-TinyTests and Nightwatch tests in CircleCI one after the other.
+The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample 'circle.yml' that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
 
 
 <!-- -->]
@@ -340,8 +331,7 @@ This command group starts Meteor in a background process, and then starts the Ni
 
 #### Push Nightwatch testing to GitHub (and CircleCI)
 
-We are ready for the final stage: TinyTest & Nightwatch testing run in
-a single pass of continuous integration in CircleCI.
+We are ready for the final stage: TinyTest & Nightwatch testing run in a single pass of continuous integration in CircleCI.
 
 The Nightwatch 'circle.yml' includes set up of TinyTest, so it can overwrite the one created earlier.
 

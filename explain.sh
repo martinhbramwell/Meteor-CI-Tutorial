@@ -11,7 +11,7 @@ NC='\033[0m' # No Color
 function highlight()
 {
   echo -en ${PURPLE};
-  cat $1 | sed '1,/o 0 o/d;/<!-- -->]/,$d' | fold -w 60 -s;
+  cat $1 | awk '{while(match($0,"[$]{[^}]*}")) {var=substr($0,RSTART+2,RLENGTH -3);gsub("[$]{"var"}",ENVIRON[var])}}1' | sed '1,/o 0 o/d;/<!-- -->]/,$d' | fold -w 60 -s;
   echo -en ${NC};
 }
 
