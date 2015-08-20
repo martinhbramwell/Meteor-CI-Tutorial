@@ -97,15 +97,13 @@ name: Check Meteor Works
 
 #### Check the meteor project will work
 
-If Meteor is not already running, it will start up ${PROJECT_NAME} now.
+If Meteor is not already running, it will start up ```${PROJECT_NAME}``` now.
 
 If Meteor IS already running, you will need to stop it.
 
-When prompted, test meteor in a browser.
+**When prompted**, test meteor in a browser.
 
-```
-https://localhost:3000/
-```
+[localhost:3000](http://localhost:3000/)
 
 When you continue to the next step Meteor will be killed automatically.
 
@@ -163,8 +161,8 @@ In this step we create a repository in GitHub project source hosting.
 
 The steps are :
 
- - Log in to GitHub and create a project with the exact name '${PROJECT_NAME}'. Don't set any other values. We'll do that automatically.
- - Log in to CircleCI and set it to monitor project '${PROJECT_NAME}' for rebuilding.
+ - Log in to GitHub and create a project with the exact name ```${PROJECT_NAME}```. Don't set any other values. We'll do that automatically.
+ - Log in to CircleCI and set it to monitor project ```${PROJECT_NAME}``` for rebuilding.
 
 
 <!-- -->]
@@ -182,6 +180,8 @@ In this step we :
  -  add all the files to the local repo and commit
  -  establish our GitHub project as the remote repository
  -  push our new files to GitHub
+
+SSH may ask you to confirm GitHub's PK fingerprint.
 
 This step is NOT idempotent.
 
@@ -204,7 +204,7 @@ Meteor makes this very easy. Two commands and we have a unit tested package.
 
 Meteor will start up as a background process in TinyTest mode.
 
-In a browser, open the URL [localhost:3000](/http://localhost:${METEOR_PORT}/) to confirm that it is working.
+In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm that it is working.
 
 Notice the files newly added under the package directory.  These will also have to be pushed to GitHub.
 
@@ -259,7 +259,7 @@ The installer deletes itself after preparing the files for immediate use.
 
 On the preliminary commit, CircleCI recognized the project's existence but did not know what to do with it.
 
-Now, we have a test runner, and with the addition of a 'circle.yml' configuration file committing the project to GitHub will cause an automatic rebuild.
+Now, we have a test runner, and with the addition of a ```circle.yml``` configuration file committing the project to GitHub will cause an automatic rebuild.
 
 
 <!-- -->]
@@ -303,7 +303,7 @@ wget -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/master/mete
 ```
 then make make it executable and run it.
 
-The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample 'circle.yml' that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
+The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample ```circle.yml``` that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
 
 
 <!-- -->]
@@ -333,7 +333,7 @@ This command group starts Meteor in a background process, and then starts the Ni
 
 We are ready for the final stage: TinyTest & Nightwatch testing run in a single pass of continuous integration in CircleCI.
 
-The Nightwatch 'circle.yml' includes set up of TinyTest, so it can overwrite the one created earlier.
+The Nightwatch ```circle.yml``` includes set up of TinyTest, so it can overwrite the one created earlier.
 
 
 <!-- -->]
@@ -379,20 +379,175 @@ then save it and observe the command line logs and the browser console
 
 Meteor supports 'npm' modules with the package NPM. 
 
-Edit ```'skeleton-tests.js'``` again ...
+Edit ```'skeleton-tests.js'``` again adding :
 
-echo -e - - - >[ const Bunyan = require('bunyan'); ]< - - - 
-X   // Write your tests here!
-X   // Here is an example.
-X   Tinytest.add('example', function sanity(test) {
-X     console.log(\"ºººººººººººººººººººººººººººººººººººººº\");
-X     test.equal(true, true);
-X   });
+```const Bunyan = require('bunyan');```
 
-   ... save, and observe the command line logs and the browser console
+```javascript
+const Bunyan = require('bunyan');  //  ADD! <--
+// Write your tests here!
+// Here is an example.
+Tinytest.add("example", function sanity(test) {
+    console.log("ººº Yoo Hoo ººº");
+    test.equal(true, true);
+});
+```
 
-   The NodeJS command on its own, will not work.  We need the NPM package.
+... save, and observe the command line logs and the browser console. The NodeJS command on its own, **will not work**.  We need the Npm package, so instead try this :
 
+```const Bunyan = Npm.require('bunyan');```
+
+
+
+<!-- -->]
+---
+.left-column[
+  ### Specify Npm modules
+]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### We have to specify every Npm requirement explicitly.
+
+The Npm package preloads NodeJS modules specified in a package.js file. 
+
+Add this block ...
+
+```
+Npm.depends({
+  "bunyan": "1.4.0",
+});
+```
+
+at the bottom of the file ```'package.js'```
+
+```javascript
+Package.onTest(function(api) {
+  api.use('tinytest');
+  api.use('yours:skeleton');
+  api.addFiles(['skeleton-tests.js'], ['server']);
+});
+
+Npm.depends({                 //  ADD! <--
+  "bunyan": "1.4.0",
+});
+```
+
+   ... save, and observe the command line logs and the browser console.
+
+<!-- -->]
+---
+.left-column[
+  ### Add Bunyan Logging
+]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Now we can add logging
+
+Edit ```'skeleton-tests.js'``` again adding ```const Logger = Bunyan.createLogger({ "name": "ci4meteor" });``` and ```const Logger = Bunyan.createLogger({ "name": "ci4meteor" });``` as shown.
+
+```javascript
+const Bunyan = Npm.require('bunyan');
+const Logger = Bunyan.createLogger({ "name": "ci4meteor" });  //  ADD! <--
+
+Tinytest.add("example", function sanity(test) {
+    Logger.info("ººº Yoo Hoo ººº");                           //  ADD! <--
+    console.log("ººº Yoo Hoo ººº");
+    test.equal(true, true);
+});
+```
+
+   ... save, and observe the command line logs and the browser console.
+
+<!-- -->]
+---
+.left-column[
+  ### Goodbye Console
+]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Now we can get rid of the console alothogether
+
+Edit ```'skeleton-tests.js'``` again and delete the line ```console.log("ººº Yoo Hoo ººº");```
+
+```javascript
+const Bunyan = Npm.require('bunyan');
+const Logger = Bunyan.createLogger({ "name": "ci4meteor" });
+// Write your tests here!
+// Here is an example.
+Tinytest.add("example", function sanity(test) {
+    Logger.info("ººº Yoo Hoo ººº");
+//    console.log("ººº Yoo Hoo ººº");
+    test.equal(true, true);
+});
+```
+
+Stop your Meteor service and restart with this command :
+```terminal
+meteor test-packages | bunyan
+```
+
+<!-- -->]
+---
+.left-column[
+  ### 
+]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### title
+
+body
+
+<!-- -->]
+---
+.left-column[
+  ### 
+]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### title
+
+body
+
+<!-- -->]
+---
+.left-column[
+  ### 
+]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### title
+
+body
+
+<!-- -->]
+---
+.left-column[
+  ### 
+]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### title
+
+body
+
+<!-- -->]
+---
+.left-column[
+  ### 
+]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### title
+
+body
 
 <!-- -->]
 ---

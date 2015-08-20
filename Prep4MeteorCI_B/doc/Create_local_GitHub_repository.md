@@ -13,6 +13,8 @@ In this step we :
  -  establish our GitHub project as the remote repository
  -  push our new files to GitHub
 
+SSH may ask you to confirm GitHub's PK fingerprint.
+
 This step is NOT idempotent.
 
 If the project has already been pushed to GitHub you might get errors. If so, the easiest thing to do is eliminate the project from GitHub and run this step again.

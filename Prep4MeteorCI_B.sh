@@ -402,6 +402,8 @@ if [ $? -eq 0 ]; then
   chmod ug+x meteor-nightwatch-runner.run
 
   ./meteor-nightwatch-runner.run
+  popd
+  popd
 
 fi
 
@@ -461,58 +463,34 @@ echo ""
 highlight ${DOCS}/Observe_ordinary_console_logging.md
 read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
 
-echo -e ""
-echo -e ""
-echo -e "# # #  Observe ordinary console logging."
-echo -e "#    "
-echo -e "#  Here we see one of the advantages of TinyTest in the browser: quickly seeing TDD results in a tight loop."
-echo -e "#"
-echo -e "#  Run the command ..."
-echo -e "#"
-echo -e "#   - - - >[ meteor test-packages  ]< - - - "
-echo -e "#"
-echo -e "#  ... and then in the browser open :"
-echo -e "#"
-echo -e "#   - - - >[ http://localhost:3000  ]< - - - "
-echo -e "#"
-echo -e "#  To the file 'packages/skeleton/skeleton-tests.js' add ..."
-echo -e "#    "
-echo -e "    // Write your tests here!"
-echo -e "    // Here is an example."
-echo -e "    Tinytest.add('example', function sanity(test) {"
-echo -e "- - - >[ console.log(\"ºººººººººººººººººººººººººººººººººººººº\"); ]< - - - "
-echo -e "      test.equal(true, true);"
-echo -e "    });"
-echo -e "#    "
-echo -e "#   ... save, and observe the command line logs and the browser console"
-echo -e ""
-echo -e "Hit any key to continue. "
-read -n 1 -r USER_ANSWER
+echo ""
+echo ""
+highlight ${DOCS}/Add_an_NPM_module_to_your_package.md
+read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+
+echo ""
+echo ""
+highlight ${DOCS}/Specify_Npm_modules.md
+read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+
+echo ""
+echo ""
+highlight ${DOCS}/dummy.md
+read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+
+echo ""
+echo ""
+highlight ${DOCS}/dummy.md
+read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
 
 
-echo -e ""
-echo -e ""
-echo -e "# # # Add an NPM module to your package."
-echo -e "#    "
-echo -e "#  Meteor supports 'npm' modules with the package NPM. "
-echo -e "#"
-echo -e "#  Edit 'skeleton-tests.js' again ..."
-echo -e "#    "
-echo -e "- - - >[ const Bunyan = require('bunyan'); ]< - - - "
-echo -e "    // Write your tests here!"
-echo -e "    // Here is an example."
-echo -e "    Tinytest.add('example', function sanity(test) {"
-echo -e "      console.log(\"ºººººººººººººººººººººººººººººººººººººº\");"
-echo -e "      test.equal(true, true);"
-echo -e "    });"
-echo -e "#    "
-echo -e "#   ... save, and observe the command line logs and the browser console"
-echo -e "#    "
-echo -e "#   The NodeJS command on its own, will not work.  We need the NPM package."
-echo -e "#    "
-echo -e ""
-echo -e "Hit any key to continue. "
-read -n 1 -r USER_ANSWER
+# echo ""
+# echo ""
+# highlight ${DOCS}/dummy.md
+# read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+
+
+
 
 echo -e "\nDone.";
 exit 0;

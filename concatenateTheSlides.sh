@@ -39,6 +39,19 @@ cat doc/Run_NightWatch_testing.md >> concatenatedSlides.MD
 cat doc/Push_Nightwatch_testing_to_GitHub_and_CircleCI.md >> concatenatedSlides.MD
 cat doc/Observe_ordinary_console_logging.md >> concatenatedSlides.MD
 cat doc/Add_an_NPM_module_to_your_package.md >> concatenatedSlides.MD
+cat doc/Specify_Npm_modules.md >> concatenatedSlides.MD
+cat doc/Add_Bunyan_Logging.md >> concatenatedSlides.MD
+cat doc/Goodbye_console.md >> concatenatedSlides.MD
+
+
+cat doc/dummy.md >> concatenatedSlides.MD
+cat doc/dummy.md >> concatenatedSlides.MD
+cat doc/dummy.md >> concatenatedSlides.MD
+cat doc/dummy.md >> concatenatedSlides.MD
+cat doc/dummy.md >> concatenatedSlides.MD
+# cat doc/dummy.md >> concatenatedSlides.MD
+
+
 
 cat doc/Fin.md >> concatenatedSlides.MD
 popd

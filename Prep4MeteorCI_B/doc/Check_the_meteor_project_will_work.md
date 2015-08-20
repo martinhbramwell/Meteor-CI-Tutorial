@@ -9,15 +9,13 @@ name: Check Meteor Works
 
 #### Check the meteor project will work
 
-If Meteor is not already running, it will start up ${PROJECT_NAME} now.
+If Meteor is not already running, it will start up ```${PROJECT_NAME}``` now.
 
 If Meteor IS already running, you will need to stop it.
 
-When prompted, test meteor in a browser.
+**When prompted**, test meteor in a browser.
 
-```
-https://localhost:3000/
-```
+[localhost:3000](http://localhost:3000/)
 
 When you continue to the next step Meteor will be killed automatically.
 

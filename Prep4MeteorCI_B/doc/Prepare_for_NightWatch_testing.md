@@ -15,7 +15,7 @@ wget -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/master/mete
 ```
 then make make it executable and run it.
 
-The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample 'circle.yml' that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
+The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample ```circle.yml``` that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
 
 
 <!-- -->]

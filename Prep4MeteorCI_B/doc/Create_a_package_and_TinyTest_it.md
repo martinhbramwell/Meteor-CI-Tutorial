@@ -14,7 +14,7 @@ Meteor makes this very easy. Two commands and we have a unit tested package.
 
 Meteor will start up as a background process in TinyTest mode.
 
-In a browser, open the URL [localhost:3000](/http://localhost:${METEOR_PORT}/) to confirm that it is working.
+In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm that it is working.
 
 Notice the files newly added under the package directory.  These will also have to be pushed to GitHub.
 
