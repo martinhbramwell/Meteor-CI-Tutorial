@@ -1,11 +1,37 @@
 #!/bin/bash
 #
+echo -e ""
+echo -e ""
+echo -e "# # # Add an NPM module to your package."
+echo -e "#    "
+echo -e "#  Meteor supports 'npm' modules with the package NPM. "
+echo -e "#"
+echo -e "#  Edit 'skeleton-tests.js' again ..."
+echo -e "#    "
+echo -e "- - - >[ const Bunyan = require('bunyan'); ]< - - - "
+echo -e "    // Write your tests here!"
+echo -e "    // Here is an example."
+echo -e "    Tinytest.add('example', function sanity(test) {"
+echo -e "      console.log(\"ºººººººººººººººººººººººººººººººººººººº\");"
+echo -e "      test.equal(true, true);"
+echo -e "    });"
+echo -e "#    "
+echo -e "#   ... save, and observe the command line logs and the browser console"
+echo -e "#    "
+echo -e "#   The NodeJS command on its own, will not work.  We need the NPM package."
+echo -e "#    "
+echo -e ""
+echo -e "Hit any key to continue. "
+read -n 1 -r USER_ANSWER
+
+echo -e "\nDone.";
+exit 0;
+
 if [[ $EUID -eq 0 ]]; then
    echo -e "This script SHOULD NOT be run with 'sudo' (as root). "
    exit 1
 fi
 
-DOCS="./Prep4MeteorCI_B/doc"
 source ./explain.sh
 
 function existingMeteor() {
@@ -24,7 +50,32 @@ function existingMeteor() {
 
 }
 
-highlight ${DOCS}/Introduction.md
+
+echo -e ""
+echo -e ""
+echo -e ""
+echo -e ""
+echo -e ""
+echo -e "############################################################################"
+echo -e "#"
+echo -e "#   These scripts prepare the way for you to get started easily with"
+echo -e "#   Meteor package development, testing, documenting, code style"
+echo -e "#   linting and continuous integration"
+echo -e "#"
+echo -e "#   They are designed for a small (10GB) Xubuntu 14.04 virtual machine."
+echo -e "#   They have not been tested in any other environment since the idea is"
+echo -e "#   to provide clear proven instructions that can be adapted easily to"
+echo -e "#   other circumstances."
+echo -e "#"
+echo -e "#   The scripts are 'idempotent' -- you can run them repeatedly without"
+echo -e "#   adverse consequences."
+echo -e "#"
+echo -e "#   The first script 'Prep4MeteorCI_A.sh' sets up all necessary preconditions"
+echo -e "#   for the second script.  The second one 'Prep4MeteorCI_B.sh' takes you "
+echo -e "#   through the entir process of preparing a Meteor project and package with "
+echo -e "#   all the previously mentioned application development support tools.."
+echo -e "#"
+echo -e "############################################################################"
 read -p "Hit <enter> ::  " -n 1 -r USER_ANSWER
 
 if ! getUserData; then
@@ -40,7 +91,10 @@ fi;
 
 
 
-explain ${DOCS}/Configure_git_for_GitHub.md
+explain "#   Configure git for use with GitHub.
+\n#
+\n#  In this step we set up the local git tool kit to communicate correctly with GitHub.
+\n#  "
 if [ $? -eq 0 ]; then
 
   echo -e "#   -- Configuring git ... "
@@ -54,7 +108,12 @@ fi
 AUTORUN="";
 
 
-explain ${DOCS}/Create_SSH_keys_directory_if_not_exist.md
+explain "#   Create SSH keys directory if it does not exist.
+\n#
+\n#  This script requires you to have an SSH private key.
+\n#  If the file '~/.ssh/id_rsa' exists, then this command group will do nothing.
+\n#  Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa' into
+\n#  which you can paste your private key."
 if [ $? -eq 0 ]; then
   SET_UP_SSH=true;
   if [ -f ~/.ssh/id_rsa ]; then SET_UP_SSH=false;  fi
@@ -90,7 +149,13 @@ fi
 
 
 
-explain ${DOCS}/Install_Meteor.md
+explain "#   Install Meteor
+\n#
+\n#  In this step we simply run Meteor's installation
+\n#  It takes a while, so you might want to do it in a separate terminal window.
+\n#  The command to run is :
+\n#  -    curl https://install.meteor.com/ | sh
+\n#  "
 if [ $? -eq 0 ]; then
   INSTALLMETEOR=true
   if [[ $(meteor --version) =~ .*Meteor.* ]]
@@ -115,7 +180,14 @@ PARENT_DIR="projects"
 METEOR_PORT=3000
 
 
-explain ${DOCS}/Create_Meteor_project.md
+explain "#   Create a meteor project.
+\n#
+\n#   Here we create a container directory called '${PARENT_DIR}' and
+\n#   inside it we start a Meteor project called '${PROJECT_NAME}'
+\n#
+\n#   When prompted, test meteor in a separate terminal window.
+\n#
+\n#  "
 if [ $? -eq 0 ]; then
   # Make a projects directory
   mkdir -p ~/${PARENT_DIR}
@@ -159,7 +231,14 @@ fi
 
 
 
-explain ${DOCS}/Check_the_meteor_project_will_work.md
+explain "#   Check the meteor project will work
+\n#
+\n#   If Meteor is not already running, it will start up ${PROJECT_NAME} now.
+\n#   If Meteor IS already running, you will need to stop it.
+\n#
+\n#   When prompted, test meteor in a browser.
+\n#
+\n#  "
 if [ $? -eq 0 ]; then
 
   existingMeteor
@@ -187,7 +266,14 @@ fi
 
 
 
-explain ${DOCS}/Add_Meteor_application_development_support_files.md
+explain "#   Add Meteor application development support files
+\n#
+\n#   In this step we create some of the project meta data files :
+\n#    -  LICENSE
+\n#    -  README.md
+\n#    -  .gitignore
+\n#    -  .eslintrc
+\n#  "
 if [ $? -eq 0 ]; then
 
   pushd ~/${PARENT_DIR}
@@ -237,21 +323,47 @@ RDME
   popd
   popd
 
+  echo -e ""
+  echo -e ""
+  echo -e "######################################################################"
+  echo -e "#"
+  echo -e "#  Configure Sublime Text to use the '.eslintrc' file for hinting about coding style contraventions :"
+  echo -e "#  Go to Preferences >> Package Control"
+  echo -e "#  In Package Control type : install package"
+  echo -e "#  Install these two packages :"
+  echo -e "#   - '\e[1;34mSublimeLinter\e[0m'"
+  echo -e "#   - '\e[1;34mSublimeLinter-contrib-eslint\e[0m'"
+  echo -e "#"
+  echo -e "######################################################################"
+
 fi
 
-echo ""
-echo ""
-highlight ${DOCS}/Configure_Sublime_Text_to_use_ESLint.md
-read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
-
-echo ""
-echo ""
-highlight ${DOCS}/Create_remote_GitHub_repository.md
-read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
 
 
-explain ${DOCS}/Create_local_GitHub_repository.md
+explain "#   Create our GitHub repository.
+\n#
+\n#   In this step we :
+\n#    -  initialize a local .git repository
+\n#    -  add all the files to the local repo and commit
+\n#    -  establish our GitHub project as the remote repository
+\n#    -  push our new files to GitHub
+\n#
+\n#   This step is NOT idempotent. If the project has already been pushed to
+\n#   GitHub you will get errors.  If so, the easiest thing to do is
+\n#   eliminate the project from GitHub and run this step again.
+\n#  "
 if [ $? -eq 0 ]; then
+
+  echo -e "#########################################################################################"
+  echo -e "#   "
+  echo -e "#   The next steps are :"
+  echo -e "#   "
+  echo -e "#    1. Log in to GitHub and create a project with the exact name '${PROJECT_NAME}'"
+  echo -e "#       Don't set any other values. We'll do that automatically."
+  echo -e "#    2. Log in to CircleCI and set it to monitor project '${PROJECT_NAME}' for rebuilding."
+  echo -e "#   "
+  echo -e "#########################################################################################"
+  read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
 
   pushd ~/${PARENT_DIR}
   pushd ${PROJECT_NAME}
@@ -271,7 +383,14 @@ fi
 
 
 
-explain ${DOCS}/Create_a_package_and_TinyTest_it.md
+explain "#  Create a package and TinyTest it.
+\n#
+\n#  Meteor makes this very easy. Two commands and we have a unit tested package.
+\n#  - meteor create --package yours:skeleton
+\n#  - meteor test-packages
+\n#
+\n#  Notice the newly added files.  These will also have to be pushed to GitHub.
+\n#  "
 if [ $? -eq 0 ]; then
 
   existingMeteor
@@ -304,7 +423,15 @@ fi
 
 
 
-explain ${DOCS}/Install_Selenium_Webdriver.md
+explain "#  Install 'selenium-webdriver'
+\n#
+\n#  Selenium Webdriver is required for the next step.
+\n#  We must first ensure that root has not taken ownership of the local .npm directory.
+\n#
+\n#  You will need your password to enable the [ch]ange [own]er command.
+\n#  sudo chown -R ${USER}:${USER} ~/.npm
+\n#
+\n#  "
 if [ $? -eq 0 ]; then
 
   sudo chown -R ${USER}:${USER} ~/.npm
@@ -314,7 +441,17 @@ fi
 
 
 
-explain ${DOCS}/Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md
+explain "#  Add a test runner for getting TinyTest output on the command line
+\n#
+\n#  TinyTest pretty prints its results in the browser.  This is useless for continuous integration.
+\n#  We need to have test results on the command line
+\n#
+\n#  The GitHub repo . . .
+\n#   https://github.com/warehouseman/meteor-tinytest-runner
+\n#  . . . has a wrapper tool that drives a browser with Selenium and collects the results in
+\n#   text format.  The installer deletes itself after preparing the files for immediate use.
+\n#
+\n#  "
 if [ $? -eq 0 ]; then
 
   existingMeteor
@@ -345,7 +482,14 @@ fi
 
 
 
-explain ${DOCS}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md
+explain "#  Add a CircleCI configuration file and push to GitHub
+\n#
+\n#  On the previous commit, CircleCI recognized the project's existence but did not
+\n#  know what to do with it.  Now, we have a test runner, and with the addition of a
+\n#  'circle.yml' configuration file committing the project to GitHub will cause
+\n#  an automatic rebuild.
+\n#
+\n#  "
 if [ $? -eq 0 ]; then
 
   pushd ~/${PARENT_DIR}
@@ -376,7 +520,23 @@ fi
 
 
 
-explain ${DOCS}/Install_Bunyan_Globally.md
+explain "#  Install 'bunyan'
+\n#
+\n#  Bunyan is a logging package with the special advantage of writing
+\n#  run-time logs as JSON. This makes subsequent analysis and long-term
+\n#  storage of production system logs much more efficient.
+\n#
+\n#  It is in two parts :
+\n#   - a local node module to replace 'console.log'
+\n#   - a global module that reads Bunyan JSON and reformats for different uses, including stdout.
+\n#
+\n#  We must first ensure that root has not taken ownership of the local .npm directory.
+\n#
+\n#  For ongoing server side logging during development or production we need a permanent home
+\n#  for the logs.  The standard place for that in Ubuntu is /var/log.  So wee also need to
+\n#  create a directory for Meteor with suitable permissions.
+\n#
+\n#  "
 if [ $? -eq 0 ]; then
 
   sudo chown -R ${USER}:${USER} ~/.npm
@@ -392,7 +552,24 @@ fi
 
 
 
-explain ${DOCS}/Prepare_for_NightWatch_testing.md
+explain "#  Prepare for NightWatch testing.
+\n#
+\n#  Nightwatch tests applications end-to-end by directly controlling the
+\n#  browser.  Meteor has full support for TinyTests running as part of
+\n#  Meteor itself, but NightWatch has no such support and runs in its own
+\n#  NodeJS process apart from Meteor's NodeJs process.  It can even run
+\n#  on a different machine.
+\n#
+\n#  To install we pull this file stored in GitHub ...
+\n#   wget -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/master/meteor-nightwatch-runner.run
+\n#  ... make it executable and then run it.
+\n#
+\n#  The installer prepares a Nightwatch test directory and then deletes
+\n#  itself, leaving only what's necessary. It includes a sample 'circle.yml'
+\n#  that expects the TinyTest runner to have been installed first; it will run
+\n#  TinyTests and Nightwatch tests in CircleCI one after the other.
+\n#
+\n#  "
 if [ $? -eq 0 ]; then
 
   pushd ~/${PARENT_DIR}
@@ -406,7 +583,13 @@ if [ $? -eq 0 ]; then
 fi
 
 
-explain ${DOCS}/Run_NightWatch_testing.md
+explain "#  Run NightWatch testing.
+\n#
+\n#  Nightwatch and Meteor are separate.  This command group starts Meteor
+\n#  in a background process, and then starts the Nightwatch Test Runner to
+\n#  try the simple sanity check test -- 'Does the main page have a <body> tag?'.
+\n#
+\n#  "
 if [ $? -eq 0 ]; then
 
   existingMeteor
@@ -438,7 +621,15 @@ fi
 
 
 
-explain ${DOCS}/Push_Nightwatch_testing_to_GitHub_and_CircleCI.md
+explain "#  Push Nightwatch testing to GitHub (and CircleCI)
+\n#
+\n#  We are ready for the final stage: TinyTest & Nightwatch testing run in
+\n#  a single pass of continuous integration in CircleCI.
+\n#
+\n#  The Nightwatch 'circle.yml' includes set up of TinyTest, so it can overwrite the
+\n#  one created earlier.
+\n#
+\n#  "
 if [ $? -eq 0 ]; then
 
   pushd ~/${PARENT_DIR}
@@ -454,12 +645,6 @@ if [ $? -eq 0 ]; then
   popd
 
 fi
-
-
-echo ""
-echo ""
-highlight ${DOCS}/Observe_ordinary_console_logging.md
-read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
 
 echo -e ""
 echo -e ""
@@ -490,34 +675,7 @@ echo -e "Hit any key to continue. "
 read -n 1 -r USER_ANSWER
 
 
-echo -e ""
-echo -e ""
-echo -e "# # # Add an NPM module to your package."
-echo -e "#    "
-echo -e "#  Meteor supports 'npm' modules with the package NPM. "
-echo -e "#"
-echo -e "#  Edit 'skeleton-tests.js' again ..."
-echo -e "#    "
-echo -e "- - - >[ const Bunyan = require('bunyan'); ]< - - - "
-echo -e "    // Write your tests here!"
-echo -e "    // Here is an example."
-echo -e "    Tinytest.add('example', function sanity(test) {"
-echo -e "      console.log(\"ºººººººººººººººººººººººººººººººººººººº\");"
-echo -e "      test.equal(true, true);"
-echo -e "    });"
-echo -e "#    "
-echo -e "#   ... save, and observe the command line logs and the browser console"
-echo -e "#    "
-echo -e "#   The NodeJS command on its own, will not work.  We need the NPM package."
-echo -e "#    "
-echo -e ""
-echo -e "Hit any key to continue. "
-read -n 1 -r USER_ANSWER
-
-echo -e "\nDone.";
-exit 0;
-
-# explain "#  FIXME
+# explain "#
 # \n#
 # \n#
 # \n#  "

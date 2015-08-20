@@ -1,0 +1,25 @@
+---
+.left-column[
+  ### Prepare Sublime Text (Step #1)
+]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+### (Optional) Preparation of Sublime Text 
+#### First step
+
+We need Sublime Text 3 configured as follows :
+
+ - Find Sublime Text in 'Accesories', add it to the panel and start it up.
+ - Go to View >> Show Console
+ - Paste the following into ST3's console :
+
+.small[
+```terminal
+# - - - snip - - - 
+import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+# - - - snip - - - 
+
+```
+]
+]

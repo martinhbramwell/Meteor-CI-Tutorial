@@ -1,0 +1,18 @@
+---
+.left-column[
+  ### Install other tools 
+]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Some basic tools ...
+
+This sequence installs the following dependencies, if they're not already present :
+- 'build-essential' and 'libssl-dev' for selenium webdriver 
+- 'libappindicator1' for chrome 
+- 'curl' for Meteor 
+- 'tree' for demo convenience 
+- 'git' and 'ssh' for version control
+
+
+]

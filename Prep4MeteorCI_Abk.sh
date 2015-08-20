@@ -14,7 +14,6 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 DOCS="./Prep4MeteorCI_A/doc"
-
 # sudo tee /etc/apt/apt.conf.d/02proxy > /dev/null <<APTPRXY
 # Acquire::http::Proxy { "http://192.168.122.1:3142"; };
 # Acquire::http::Proxy { deb.nodesource.com DIRECT; };
