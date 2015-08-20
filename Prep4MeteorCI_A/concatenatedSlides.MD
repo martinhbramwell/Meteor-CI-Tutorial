@@ -1,6 +1,6 @@
 layout: false
 .left-column[
-  ### INTRODUCTION
+  ### Part A INTRODUCTION
 ]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -15,7 +15,7 @@ The first script 'Prep4MeteorCI_A.sh' sets up all necessary preconditions for th
 
 The second one 'Prep4MeteorCI_B.sh' takes you  through the entire process of preparing a Meteor project and package with  all the previously mentioned application development support tools.
 
-]
+<!-- -->]
 ---
 layout: false
 .left-column[
@@ -36,7 +36,7 @@ Normally, the PPA installer will prompt you to accept Oracle's license.  If you 
 
      you accept the license agreement, implicitly!
 
-]
+<!-- -->]
 ---
 .left-column[
   ### Install Sublime Text 3 editor. 
@@ -55,7 +55,7 @@ Steps performed :
 If you just want to quickly follow the tutorial then *do* execute this group of commands.
 
 
-]
+<!-- -->]
 ---
 .left-column[
   ### Install other tools 
@@ -69,11 +69,11 @@ This sequence installs the following dependencies, if they're not already presen
 - 'build-essential' and 'libssl-dev' for selenium webdriver 
 - 'libappindicator1' for chrome 
 - 'curl' for Meteor 
-- 'tree' for demo convenience 
 - 'git' and 'ssh' for version control
+- 'tree' for demo convenience 
 
 
-]
+<!-- -->]
 ---
 .left-column[
   ### Install NodeJS
@@ -90,7 +90,7 @@ You must have NodeJS to do Nightwatch testing.
 It can run on a separate computer from Meteor, (but we'll do it all in this one).
 
 
-]
+<!-- -->]
 ---
 .left-column[
   ### Install Selenium Web Driver
@@ -104,7 +104,7 @@ Nightwatch leverages Selenium, which has drivers for the major browsers.
 
 The Chrome driver is the most convenient.
 
-]
+<!-- -->]
 ---
 .left-column[
   ### Set Up Linting
@@ -122,7 +122,9 @@ ECMA Script linter :
   - preferred by Facebook, AirBnB and many other big names
 
 Learn more : [ESLint](http://eslint.org/docs/about/)
-]
+
+
+<!-- -->]
 ---
 .left-column[
   ### Prepare Sublime Text (Step #1)
@@ -135,7 +137,7 @@ Learn more : [ESLint](http://eslint.org/docs/about/)
 
 We need Sublime Text 3 configured as follows :
 
- - Find Sublime Text in 'Accesories', add it to the panel and start it up.
+ - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
  - Go to View >> Show Console
  - Paste the following into ST3's console :
 
@@ -147,7 +149,9 @@ import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7
 
 ```
 ]
-]
+
+
+<!-- -->]
 ---
 .left-column[
   ### Prepare Sublime Text (Step #2)
@@ -163,13 +167,14 @@ import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7
  - Install these two packages :
    - 'MarkDownEditing'
    - 'SideBarEnhancements'
- - In Preferences >> Color Scheme >> Color Scheme >> Default --> pick 'IDLE'
+ - In Preferences 
+   - Color Scheme 
+     - Color Scheme - Default --> pick ```IDLE```
 
-
-]
+<!-- -->]
 ---
 .left-column[
-  ### End Of Part #A
+  ### End Of Part A
 ]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -180,7 +185,8 @@ The previous section require 'sudo' at nearly every step.
 
 The next section must run **without** sudo.
 
+[Part B](../Prep4MeteorCI_B/index.html)
 [](Prep4MeteorCI_B)
 
 
-]
+<!-- -->]

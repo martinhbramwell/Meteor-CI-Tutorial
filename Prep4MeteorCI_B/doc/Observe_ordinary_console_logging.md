@@ -20,10 +20,10 @@ To the file ```packages/skeleton/skeleton-tests.js``` add the following
 ```javascript
 // Write your tests here!
 // Here is an example.
-Tinytest.add('example', function sanity(test) {
-    console.log(\"ºººººººººººººººººººººººººººººººººººººº\");
+Tinytest.add("example", function sanity(test) {
+    console.log("ººº Yoo Hoo ººº"); //  ADD! <--
     test.equal(true, true);
-    });
+});
 ```
 then save it and observe the command line logs and the browser console
 

@@ -18,4 +18,4 @@ Normally, the PPA installer will prompt you to accept Oracle's license.  If you 
 
      you accept the license agreement, implicitly!
 
-]
+<!-- -->]

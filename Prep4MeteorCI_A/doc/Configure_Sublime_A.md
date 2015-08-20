@@ -10,7 +10,7 @@
 
 We need Sublime Text 3 configured as follows :
 
- - Find Sublime Text in 'Accesories', add it to the panel and start it up.
+ - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
  - Go to View >> Show Console
  - Paste the following into ST3's console :
 
@@ -22,4 +22,6 @@ import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7
 
 ```
 ]
-]
+
+
+<!-- -->]

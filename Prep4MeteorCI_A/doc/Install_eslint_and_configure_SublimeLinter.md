@@ -15,4 +15,6 @@ ECMA Script linter :
   - preferred by Facebook, AirBnB and many other big names
 
 Learn more : [ESLint](http://eslint.org/docs/about/)
-]
+
+
+<!-- -->]

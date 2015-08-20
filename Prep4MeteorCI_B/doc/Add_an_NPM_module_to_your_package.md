@@ -1,17 +1,15 @@
 ---
 .left-column[
-  ### 
+  ### NPM module
 ]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### title
+#### Add an NPM module to your package.
 
- # # Add an NPM module to your package.
+Meteor supports 'npm' modules with the package NPM. 
 
-  Meteor supports 'npm' modules with the package NPM. 
-
-  Edit 'skeleton-tests.js' again ...
+Edit ```'skeleton-tests.js'``` again ...
 
 echo -e - - - >[ const Bunyan = require('bunyan'); ]< - - - 
 X   // Write your tests here!

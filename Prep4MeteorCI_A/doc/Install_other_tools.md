@@ -11,8 +11,8 @@ This sequence installs the following dependencies, if they're not already presen
 - 'build-essential' and 'libssl-dev' for selenium webdriver 
 - 'libappindicator1' for chrome 
 - 'curl' for Meteor 
-- 'tree' for demo convenience 
 - 'git' and 'ssh' for version control
+- 'tree' for demo convenience 
 
 
-]
+<!-- -->]

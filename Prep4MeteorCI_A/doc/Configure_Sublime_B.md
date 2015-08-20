@@ -13,7 +13,8 @@
  - Install these two packages :
    - 'MarkDownEditing'
    - 'SideBarEnhancements'
- - In Preferences >> Color Scheme >> Color Scheme >> Default --> pick 'IDLE'
+ - In Preferences 
+   - Color Scheme 
+     - Color Scheme - Default --> pick ```IDLE```
 
-
-]
+<!-- -->]

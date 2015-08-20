@@ -11,4 +11,4 @@ Nightwatch leverages Selenium, which has drivers for the major browsers.
 
 The Chrome driver is the most convenient.
 
-]
+<!-- -->]

@@ -1,6 +1,6 @@
 layout: false
 .left-column[
-  ### INTRODUCTION
+  ### PART B INTRODUCTION
 ]
 .right-column[
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -369,10 +369,10 @@ To the file ```packages/skeleton/skeleton-tests.js``` add the following
 ```javascript
 // Write your tests here!
 // Here is an example.
-Tinytest.add('example', function sanity(test) {
-    console.log(\"ºººººººººººººººººººººººººººººººººººººº\");
+Tinytest.add("example", function sanity(test) {
+    console.log("ººº Yoo Hoo ººº"); //  ADD! <--
     test.equal(true, true);
-    });
+});
 ```
 then save it and observe the command line logs and the browser console
 
@@ -380,30 +380,28 @@ then save it and observe the command line logs and the browser console
 <!-- -->]
 ---
 .left-column[
-  ### 
+  ### NPM module
 ]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### title
+#### Add an NPM module to your package.
 
- # # Add an NPM module to your package."
+Meteor supports 'npm' modules with the package NPM. 
 
-  Meteor supports 'npm' modules with the package NPM. "
+Edit ```'skeleton-tests.js'``` again ...
 
-  Edit 'skeleton-tests.js' again ..."
+echo -e - - - >[ const Bunyan = require('bunyan'); ]< - - - 
+X   // Write your tests here!
+X   // Here is an example.
+X   Tinytest.add('example', function sanity(test) {
+X     console.log(\"ºººººººººººººººººººººººººººººººººººººº\");
+X     test.equal(true, true);
+X   });
 
-echo -e "- - - >[ const Bunyan = require('bunyan'); ]< - - - "
-X   // Write your tests here!"
-X   // Here is an example."
-X   Tinytest.add('example', function sanity(test) {"
-X     console.log(\"ºººººººººººººººººººººººººººººººººººººº\");"
-X     test.equal(true, true);"
-X   });"
+   ... save, and observe the command line logs and the browser console
 
-   ... save, and observe the command line logs and the browser console"
-
-   The NodeJS command on its own, will not work.  We need the NPM package."
+   The NodeJS command on its own, will not work.  We need the NPM package.
 
 
 <!-- -->]

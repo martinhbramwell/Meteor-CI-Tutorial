@@ -1,6 +1,6 @@
 layout: false
 .left-column[
-  ### INTRODUCTION
+  ### Part A INTRODUCTION
 ]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -15,4 +15,4 @@ The first script 'Prep4MeteorCI_A.sh' sets up all necessary preconditions for th
 
 The second one 'Prep4MeteorCI_B.sh' takes you  through the entire process of preparing a Meteor project and package with  all the previously mentioned application development support tools.
 
-]
+<!-- -->]
