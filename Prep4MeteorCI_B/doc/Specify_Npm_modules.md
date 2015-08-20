@@ -23,7 +23,7 @@ at the bottom of the file ```'package.js'```
 Package.onTest(function(api) {
   api.use('tinytest');
   api.use('yours:skeleton');
-  api.addFiles(['skeleton-tests.js'], ['server']);
+  api.addFiles('skeleton-tests.js');
 });
 
 Npm.depends({                 //  ADD! <--

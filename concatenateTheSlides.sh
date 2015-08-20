@@ -40,13 +40,19 @@ cat doc/Push_Nightwatch_testing_to_GitHub_and_CircleCI.md >> concatenatedSlides.
 cat doc/Observe_ordinary_console_logging.md >> concatenatedSlides.MD
 cat doc/Add_an_NPM_module_to_your_package.md >> concatenatedSlides.MD
 cat doc/Specify_Npm_modules.md >> concatenatedSlides.MD
+cat doc/Bunyan_Server_Side_OnlyLogging.md >> concatenatedSlides.MD
 cat doc/Add_Bunyan_Logging.md >> concatenatedSlides.MD
 cat doc/Goodbye_console.md >> concatenatedSlides.MD
+cat doc/Refactor_Bunyan_InstantiationA.md >> concatenatedSlides.MD
+cat doc/Refactor_Bunyan_InstantiationB.md >> concatenatedSlides.MD
+cat doc/Another_NodeJS_moduleA.md >> concatenatedSlides.MD
+cat doc/Another_NodeJS_moduleB.md >> concatenatedSlides.MD
+cat doc/The_Async_ProblemA.md >> concatenatedSlides.MD
+cat doc/The_Async_ProblemB.md >> concatenatedSlides.MD
+cat doc/The_Async_ProblemC.md >> concatenatedSlides.MD
 
 
-cat doc/dummy.md >> concatenatedSlides.MD
-cat doc/dummy.md >> concatenatedSlides.MD
-cat doc/dummy.md >> concatenatedSlides.MD
+
 cat doc/dummy.md >> concatenatedSlides.MD
 cat doc/dummy.md >> concatenatedSlides.MD
 # cat doc/dummy.md >> concatenatedSlides.MD
