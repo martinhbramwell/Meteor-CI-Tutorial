@@ -1,0 +1,1 @@
+echo "Committing gh-pages"
