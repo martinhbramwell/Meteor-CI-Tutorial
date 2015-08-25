@@ -1,4 +1,13 @@
 echo "Prepared message : "
-echo $0
-echo $1
-exit 1
+exit
+cat $1
+git checkout gh-pages
+git checkout master -- index.html
+git checkout master -- Prep4MeteorCI_A/index.html
+git checkout master -- Prep4MeteorCI_A/concatenatedSlides.MD
+git checkout master -- Prep4MeteorCI_B/index.html
+git checkout master -- Prep4MeteorCI_B/concatenatedSlides.MD
+git commit -am $($1)
+git push
+git checkout master
+

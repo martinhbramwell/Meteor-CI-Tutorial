@@ -1,5 +1,18 @@
 #!/bin/bash
 #
+## This section ensures that the generated documetation will be pushed 
+## to GitHub not only as version control but also as the website
+## (viewed at http://martinhbramwell.github.io/Meteor-CI-Tutorial/)
+SOURCE_SCRIPT=". ./gitHooksUseCommitMsg.sh"
+HOOK_SCRIPT=.git/hooks/commit-msg
+CNT=$(grep -c "${SOURCE_SCRIPT}" ${HOOK_SCRIPT})
+if [[ ${CNT} -lt 1 ]]; 
+then 
+  echo ${SOURCE_SCRIPT} >> ${HOOK_SCRIPT};
+fi;
+# cat ${HOOK_SCRIPT} 
+
+## Package slideshow part A
 declare -a PART_A_FILENAMES=(
   Introduction.md
   Java_7_is_required_by_Nightwatch.md
@@ -25,6 +38,7 @@ done
 popd
 
 #
+## Package slideshow part A
 declare -a PART_B_FILENAMES=(
   Introduction.md
   Configure_git_for_GitHub.md
