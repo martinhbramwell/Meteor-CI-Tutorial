@@ -1,5 +1,4 @@
 echo "Prepared message : "
-exit
 cat $1
 git stash
 git checkout gh-pages
@@ -11,4 +10,4 @@ git checkout master -- Prep4MeteorCI_B/concatenatedSlides.MD
 git commit -am $($1)
 git push
 git checkout master
-git stash apply
+git stash
