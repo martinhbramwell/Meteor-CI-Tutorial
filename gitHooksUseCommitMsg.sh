@@ -1,3 +1,4 @@
+exit
 echo "Prepared message : "
 git stash
 echo "Stashed"
@@ -9,7 +10,8 @@ git checkout master -- Prep4MeteorCI_A/index.html
 git checkout master -- Prep4MeteorCI_A/concatenatedSlides.MD
 git checkout master -- Prep4MeteorCI_B/index.html
 git checkout master -- Prep4MeteorCI_B/concatenatedSlides.MD
-echo "Pulled all"
+echo "Pulled all.  Committing with message : 
+$1"
 git commit -am $(cat $1)
 echo "Committed"
 git push

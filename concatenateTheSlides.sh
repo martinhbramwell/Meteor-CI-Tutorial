@@ -3,14 +3,14 @@
 ## This section ensures that the generated documetation will be pushed 
 ## to GitHub not only as version control but also as the website
 ## (viewed at http://martinhbramwell.github.io/Meteor-CI-Tutorial/)
-SOURCE_SCRIPT=". ./gitHooksUseCommitMsg.sh"
-HOOK_SCRIPT=.git/hooks/commit-msg
-CNT=$(grep -c "${SOURCE_SCRIPT}" ${HOOK_SCRIPT})
-if [[ ${CNT} -lt 1 ]]; 
-then 
-  echo ${SOURCE_SCRIPT} >> ${HOOK_SCRIPT};
-fi;
-# cat ${HOOK_SCRIPT} 
+# SOURCE_SCRIPT=". ./gitHooksUseCommitMsg.sh"
+# HOOK_SCRIPT=.git/hooks/commit-msg
+# CNT=$(grep -c "${SOURCE_SCRIPT}" ${HOOK_SCRIPT})
+# if [[ ${CNT} -lt 1 ]]; 
+# then 
+#   echo ${SOURCE_SCRIPT} >> ${HOOK_SCRIPT};
+# fi;
+# # cat ${HOOK_SCRIPT} 
 
 ## Package slideshow part A
 declare -a PART_A_FILENAMES=(
@@ -82,3 +82,25 @@ do
 done
 
 popd
+
+echo "Prepared message : "
+git stash
+echo "Stashed"
+git checkout gh-pages
+echo "On branch gh-pages"
+git checkout master -- index.html
+echo "Pulled index.html"
+git checkout master -- Prep4MeteorCI_A/index.html
+git checkout master -- Prep4MeteorCI_A/concatenatedSlides.MD
+git checkout master -- Prep4MeteorCI_B/index.html
+git checkout master -- Prep4MeteorCI_B/concatenatedSlides.MD
+echo "Pulled all.  Committing with message : 
+$1"
+git commit -am $(cat $1)
+echo "Committed"
+git push
+echo "Pushed"
+git checkout master
+echo "- - - back on branch master - - -"
+git stash apply
+echo "Reverted stash"
