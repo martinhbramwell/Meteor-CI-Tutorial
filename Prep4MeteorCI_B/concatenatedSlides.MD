@@ -739,46 +739,9 @@ So this line ...
 ```javascript
   api.export(["Logger", "PetStore"]);
 ```
-Not that they names are in an array.
+Note that their names are in an array.
 
 Continues ...
-
-
-<!-- -->]
----
-.left-column[
-  ### 
-]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### title
-
-body
-
-<!-- -->]
----
-.left-column[
-  ### 
-]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### title
-
-body
-
-<!-- -->]
----
-.left-column[
-  ### End Of Part #B
-]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### Fin
-
-Thank you!
 
 
 <!-- -->]
