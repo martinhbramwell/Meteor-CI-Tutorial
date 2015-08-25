@@ -20,7 +20,7 @@ So this line ...
 ```javascript
   api.export(["Logger", "PetStore"]);
 ```
-Note that they names are in an array.
+Note that their names are in an array.
 
 Continues ...
 
