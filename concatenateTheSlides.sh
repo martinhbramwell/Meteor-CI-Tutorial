@@ -103,12 +103,7 @@ done
 
 popd
 
-if  ${SKIP} ;  then
-  echo "Don't do it!";
-else
-  echo "Do it!";
-fi
-exit
+if  ${SKIP} ;  then  exit 0; fi;
 
 git stash
 echo "Stashed"
@@ -120,12 +115,8 @@ git checkout master -- Prep4MeteorCI_A/index.html
 git checkout master -- Prep4MeteorCI_A/concatenatedSlides.MD
 git checkout master -- Prep4MeteorCI_B/index.html
 git checkout master -- Prep4MeteorCI_B/concatenatedSlides.MD
-echo "Pulled all.  Committing with message : 
-$1"
-RSLT=$(git commit -a)
-echo "result ${RSLT}"
-exit
-
+echo "Pulled all."
+git commit -a
 echo "Committed"
 git push
 echo "Pushed"
