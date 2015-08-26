@@ -31,6 +31,9 @@ Steps performed :
  - identify user email
  - use simple push
 
+      git config --global user.name "${YOUR_EMAIL}"
+      git config --global user.email "${YOUR_NAME}"
+      git config --global push.default simple
 
 <!-- -->]
 ---
