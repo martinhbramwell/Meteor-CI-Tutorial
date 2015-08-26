@@ -1,7 +1,7 @@
 layout: false
 .left-column[
   ### PART B INTRODUCTION
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -19,7 +19,7 @@ You should not need to use 'sudo' for this part.  Everything should happen in yo
 ---
 .left-column[
   ### Configure git for GitHub
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -41,7 +41,7 @@ Steps performed :
 ---
 .left-column[
   ### Prepare SSH directory
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -61,7 +61,7 @@ You'll need to paste your SSH credentials into each of the empty files
 ---
 .left-column[
   ### Install Meteor
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -81,7 +81,7 @@ curl https://install.meteor.com/ | sh
 ---
 .left-column[
   ### Create Meteor Project
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -99,7 +99,7 @@ name: Check Meteor Works
 
 .left-column[
   ### Check Meteor Works
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -121,7 +121,7 @@ When you continue to the next step Meteor will be killed automatically.
 ---
 .left-column[
   ### Meteor App Metadata
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -141,7 +141,7 @@ The .eslintrc file is borrowed from the project [warehouseman:meteor-swagger-cli
 ---
 .left-column[
   ### ESLint for ST3
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -162,7 +162,7 @@ Steps to perform :
 ---
 .left-column[
   ### GitHub Repo
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -181,7 +181,7 @@ The steps are :
 ---
 .left-column[
   ### Local GitHub Repo
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -204,7 +204,7 @@ If the project has already been pushed to GitHub you might get errors. If so, th
 ---
 .left-column[
   ### Test a Meteor Package
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -227,7 +227,7 @@ Notice the files newly added under the package directory.  These will also have 
 ---
 .left-column[
   ### Selenium Web Driver
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -247,7 +247,7 @@ sudo chown -R ${USER}:${USER} ~/.npm
 ---
 .left-column[
   ### Runner for TinyTest
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -267,7 +267,7 @@ The installer deletes itself after preparing the files for immediate use.
 ---
 .left-column[
   ### Configure CircleCI 
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -283,7 +283,7 @@ Now, we have a test runner, and with the addition of a ```circle.yml``` configur
 ---
 .left-column[
   ### Install Bunyan
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -307,7 +307,7 @@ For ongoing server side logging during development or production we need a perma
 ---
 .left-column[
   ### Set Up Nightwatch
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -329,7 +329,7 @@ The installer prepares a Nightwatch test directory and then deletes itself, leav
 ---
 .left-column[
   ### Run NightWatch
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -345,7 +345,7 @@ This command group starts Meteor in a background process, and then starts the Ni
 ---
 .left-column[
   ### Commit Nightwatch
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -361,7 +361,7 @@ The Nightwatch ```circle.yml``` includes set up of TinyTest, so it can overwrite
 ---
 .left-column[
   ### Console.log is bad!
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -393,7 +393,7 @@ then save it and observe the command line logs and the browser console
 ---
 .left-column[
   ### NPM module
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -426,7 +426,7 @@ Tinytest.add("example", function sanity(test) {
 ---
 .left-column[
   ### Specify Npm modules
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -463,7 +463,7 @@ Npm.depends({                 //  ADD! <--
 ---
 .left-column[
   ### Server Only
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -494,7 +494,7 @@ Npm.depends({
 ---
 .left-column[
   ### Add Bunyan Logging
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -520,7 +520,7 @@ Tinytest.add("example", function sanity(test) {
 ---
 .left-column[
   ### Goodbye Console
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -545,7 +545,7 @@ Tinytest.add("example", function sanity(test) {
 ---
 .left-column[
   ### Refactor Bunyan (A)
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -582,7 +582,7 @@ Continues ...
 ---
 .left-column[
   ### Refactor Bunyan (B)
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -614,7 +614,7 @@ tail -f /var/log/meteor/ci4meteor.log  | bunyan
 ---
 .left-column[
   ### Another NodeJS Module (A)
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -652,7 +652,7 @@ Continues ...
 ---
 .left-column[
   ### Another NodeJS Module (B)
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -686,7 +686,7 @@ Continues ...
 ---
 .left-column[
   ### The Async Problem (A)
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -720,7 +720,7 @@ Continues ...
 ---
 .left-column[
   ### The Async Problem (A)
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -753,7 +753,7 @@ Continues ...
 ---
 .left-column[
   ### The Async Problem (A)
-.footnote[.red.bold[] [Back to TOC](/)] 
+.footnote[.red.bold[] [Back to TOC](..)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
