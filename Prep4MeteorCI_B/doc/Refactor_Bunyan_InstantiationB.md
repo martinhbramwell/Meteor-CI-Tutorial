@@ -1,7 +1,8 @@
 ---
 .left-column[
   ### Refactor Bunyan (B)
-]
+.footnote[.red.bold[] [Back to TOC](/)] 
+<!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 

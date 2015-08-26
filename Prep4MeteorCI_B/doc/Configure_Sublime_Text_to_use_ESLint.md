@@ -1,7 +1,8 @@
 ---
 .left-column[
   ### ESLint for ST3
-]
+.footnote[.red.bold[] [Back to TOC](/)] 
+<!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 

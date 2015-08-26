@@ -1,7 +1,8 @@
 ---
 .left-column[
   ### Meteor App Metadata
-]
+.footnote[.red.bold[] [Back to TOC](/)] 
+<!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
