@@ -17,7 +17,7 @@ You should not need to use 'sudo' for this part.  Everything should happen in yo
 <!-- -->]
 ---
 .left-column[
-  ### Configure git
+  ### Configure git for GitHub
 ]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
