@@ -1,5 +1,25 @@
 #!/bin/bash
 #
+SKIP=true;
+if [[ "X$1X" == "XyX" ]]; then
+  SKIP=false;
+elif [[ "X$1X" != "XnX" ]]; then 
+  echo -e ""
+  echo -e "Usage : "
+  echo -e " - '$0 y' generate documentation and commit to gh-pages branch"
+  echo -e " - '$0 n' generate documentation only"
+  echo -e ""
+  echo -e "Hit '<enter>' to generate documentation without commit"
+  echo -e "Hit 'y' now to generate documentation and commit to gh-pages branch"
+  echo -e "Hit 'q' to quit"
+  read -p " 'y' to commit ::  " -n 1 -r USER_ANSWER
+  CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+  echo ""
+  if [ "X${CHOICE}X" == "XqX" ]; then exit 0; fi;
+  if [ "X${CHOICE}X" == "XyX" ]; then SKIP=false; fi;
+fi;
+
+
 ## This section ensures that the generated documetation will be pushed 
 ## to GitHub not only as version control but also as the website
 ## (viewed at http://martinhbramwell.github.io/Meteor-CI-Tutorial/)
@@ -83,7 +103,13 @@ done
 
 popd
 
-echo "Prepared message : "
+if  ${SKIP} ;  then
+  echo "Don't do it!";
+else
+  echo "Do it!";
+fi
+exit
+
 git stash
 echo "Stashed"
 git checkout gh-pages
@@ -96,7 +122,10 @@ git checkout master -- Prep4MeteorCI_B/index.html
 git checkout master -- Prep4MeteorCI_B/concatenatedSlides.MD
 echo "Pulled all.  Committing with message : 
 $1"
-git commit -am $(cat $1)
+RSLT=$(git commit -a)
+echo "result ${RSLT}"
+exit
+
 echo "Committed"
 git push
 echo "Pushed"
