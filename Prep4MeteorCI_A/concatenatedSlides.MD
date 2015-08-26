@@ -2,8 +2,9 @@ layout: false
 .left-column[
   ### Part A INTRODUCTION
 
+
 .footnote[.red.bold[] [Back to TOC](/)] 
-]
+<!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -17,14 +18,13 @@ The first script 'Prep4MeteorCI_A.sh' sets up all necessary preconditions for th
 
 The second one 'Prep4MeteorCI_B.sh' takes you  through the entire process of preparing a Meteor project and package with  all the previously mentioned application development support tools.
 
-[TOC](/)
 <!-- -->]
 ---
 layout: false
 .left-column[
   ### Java required
 .footnote[.red.bold[] [Back to TOC](/)] 
-]
+<!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -44,7 +44,8 @@ Normally, the PPA installer will prompt you to accept Oracle's license.  If you 
 ---
 .left-column[
   ### Install Sublime Text 3 editor. 
-]
+.footnote[.red.bold[] [Back to TOC](/)] 
+<!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -63,7 +64,8 @@ If you just want to quickly follow the tutorial then *do* execute this group of 
 ---
 .left-column[
   ### Install other tools 
-]
+.footnote[.red.bold[] [Back to TOC](/)] 
+<!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -81,7 +83,8 @@ This sequence installs the following dependencies, if they're not already presen
 ---
 .left-column[
   ### Install NodeJS
-]
+.footnote[.red.bold[] [Back to TOC](/)] 
+<!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -98,7 +101,8 @@ It can run on a separate computer from Meteor, (but we'll do it all in this one)
 ---
 .left-column[
   ### Install Selenium Web Driver
-]
+.footnote[.red.bold[] [Back to TOC](/)] 
+<!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -112,7 +116,8 @@ The Chrome driver is the most convenient.
 ---
 .left-column[
   ### Set Up Linting
-]
+.footnote[.red.bold[] [Back to TOC](/)] 
+<!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -132,7 +137,8 @@ Learn more : [ESLint](http://eslint.org/docs/about/)
 ---
 .left-column[
   ### Prepare Sublime Text (Step #1)
-]
+.footnote[.red.bold[] [Back to TOC](/)] 
+<!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -159,7 +165,8 @@ import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7
 ---
 .left-column[
   ### Prepare Sublime Text (Step #2)
-]
+.footnote[.red.bold[] [Back to TOC](/)] 
+<!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -179,7 +186,8 @@ import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7
 ---
 .left-column[
   ### End Of Part A
-]
+.footnote[.red.bold[] [Back to TOC](/)] 
+<!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
