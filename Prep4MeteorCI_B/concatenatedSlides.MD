@@ -27,9 +27,9 @@ You should not need to use 'sudo' for this part.  Everything should happen in yo
 In this step we set up the local git tool kit to communicate correctly with GitHub.
 
 Steps performed :
- - identify user name
- - identify user email
- - use simple push
+- identify user name
+- identify user email
+- use simple push
 
         git config --global user.name "${YOUR_EMAIL}"
         git config --global user.email "${YOUR_NAME}"
