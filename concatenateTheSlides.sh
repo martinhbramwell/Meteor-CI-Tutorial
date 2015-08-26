@@ -1,5 +1,26 @@
 #!/bin/bash
 #
+declare -a PART_A_FILENAMES=(
+  copyofIntroduction.md
+)
+
+pushd Prep4MeteorCI_A
+
+## now loop through the above array
+for idx in "${PART_A_FILENAMES[@]}"
+do
+   sed -i '0,/]/{s|]|.footnote[.red.bold[] [Back to TOC](/)] \
+<!-- -->]|}' doc/${idx}
+done
+
+popd
+
+#     sed -i '0,/]/{s|]|".footnote[.red.bold[] [Back to TOC](/)]
+# <!-- -->]"|}' doc/${idx}
+
+
+exit
+
 SKIP=true;
 if [[ "X$1X" == "XyX" ]]; then
   SKIP=false;
