@@ -12,7 +12,7 @@ elif [[ "X$1X" != "XnX" ]]; then
   echo -e "Hit '<enter>' to generate documentation without commit"
   echo -e "Hit 'y' now to generate documentation and commit to gh-pages branch"
   echo -e "Hit 'q' to quit"
-  read -p " 'y' to commit ::  " -n 1 -r USER_ANSWER
+  read -p " 'y', 'q' or '<enter>' ::  " -n 1 -r USER_ANSWER
   CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
   echo ""
   if [ "X${CHOICE}X" == "XqX" ]; then exit 0; fi;
@@ -105,18 +105,20 @@ popd
 
 if  ${SKIP} ;  then  exit 0; fi;
 
+tar zcvf pack.tar.gz index.html \
+Prep4MeteorCI_A/index.html \
+Prep4MeteorCI_A/concatenatedSlides.MD \
+Prep4MeteorCI_B/index.html \
+Prep4MeteorCI_B/concatenatedSlides.MD
+
 git stash
 echo "Stashed"
 git checkout gh-pages
 echo "On branch gh-pages"
-git checkout master -- index.html
-echo "Pulled index.html"
-git checkout master -- Prep4MeteorCI_A/index.html
-git checkout master -- Prep4MeteorCI_A/concatenatedSlides.MD
-git checkout master -- Prep4MeteorCI_B/index.html
-git checkout master -- Prep4MeteorCI_B/concatenatedSlides.MD
-echo "Pulled all."
-git commit -a
+tar zxvf pack.tar.gz
+rm -f pack.tar.gz
+echo "Unpacked all."
+git commit -am "Automatic commit. See master for details."
 echo "Committed"
 git push
 echo "Pushed"
@@ -124,3 +126,4 @@ git checkout master
 echo "- - - back on branch master - - -"
 git stash apply
 echo "Reverted stash"
+
