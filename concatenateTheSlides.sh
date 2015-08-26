@@ -33,17 +33,37 @@
 #   The_Async_ProblemB.md
 #   The_Async_ProblemC.md
 # )
-
 # pushd Prep4MeteorCI_B
 
-# ## now loop through the above array
 # for idx in "${PART_B_FILENAMES[@]}"
 # do
-#    sed -i '0,/]/{s|]|.footnote[.red.bold[] [Back to TOC](/)] \
-# <!-- -->]|}' doc/${idx}
+#    sed -i 's|TOC](/)|TOC](..)|g' doc/${idx}
 # done
 
 # popd
+
+# declare -a PART_A_FILENAMES=(
+#   Introduction.md
+#   Java_7_is_required_by_Nightwatch.md
+#   This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md
+#   Install_other_tools.md
+#   Install_NodeJS.md
+#   Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome.md
+#   Install_eslint_and_configure_SublimeLinter.md
+#   Configure_Sublime_A.md
+#   Configure_Sublime_B.md
+#   Fin.md
+# )
+# pushd Prep4MeteorCI_A
+
+# for idx in "${PART_A_FILENAMES[@]}"
+# do
+#    sed -i 's|TOC](/)|TOC](..)|g' doc/${idx}
+# done
+
+# popd
+# exit
+
 
 SKIP=true;
 if [[ "X$1X" == "XyX" ]]; then
