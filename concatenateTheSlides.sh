@@ -158,9 +158,7 @@ popd
 if  ${SKIP} ;  then  exit 0; fi;
 
 tar zcvf pack.tar.gz index.html \
-PrepareTheMachine/index.html \
 PrepareTheMachine/concatenatedSlides.MD \
-UnitTestThePackage/index.html \
 UnitTestThePackage/concatenatedSlides.MD
 
 git stash
