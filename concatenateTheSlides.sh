@@ -37,7 +37,7 @@
 
 # for idx in "${UnitTestThePackage_FILENAMES[@]}"
 # do
-#    sed -i 's|TOC](/)|TOC](..)|g' doc/${idx}
+#    sed -i 's|TOC](..)|TOC](./)|g' doc/${idx}
 # done
 
 # popd
@@ -58,7 +58,7 @@
 
 # for idx in "${PrepareTheMachine_FILENAMES[@]}"
 # do
-#    sed -i 's|TOC](/)|TOC](..)|g' doc/${idx}
+#    sed -i 's|TOC](..)|TOC](./)|g' doc/${idx}
 # done
 
 # popd

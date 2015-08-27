@@ -1,7 +1,7 @@
 layout: false
 .left-column[
   ### PART B INTRODUCTION
-.footnote[.red.bold[] [Back to TOC](..)] 
+.footnote[.red.bold[] [Back to TOC](./)] 
 <!-- -->]
 .right-column[
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~

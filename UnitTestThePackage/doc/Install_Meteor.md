@@ -1,7 +1,7 @@
 ---
 .left-column[
   ### Install Meteor
-.footnote[.red.bold[] [Back to TOC](..)] 
+.footnote[.red.bold[] [Back to TOC](./)] 
 <!-- -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
