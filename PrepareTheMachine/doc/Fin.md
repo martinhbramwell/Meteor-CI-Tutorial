@@ -12,8 +12,7 @@ The previous section require 'sudo' at nearly every step.
 
 The next section must run **without** sudo.
 
-[Part B](../Prep4MeteorCI_B/index.html)
-[](Prep4MeteorCI_B)
+[Unit Test the Package](./?part=B)
 
 
 <!-- -->]
