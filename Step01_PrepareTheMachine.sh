@@ -13,7 +13,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-DOCS="./Prep4MeteorCI_A/doc"
+DOCS="./PrepareTheMachine/doc"
 
 # sudo tee /etc/apt/apt.conf.d/02proxy > /dev/null <<APTPRXY
 # Acquire::http::Proxy { "http://192.168.122.1:3142"; };
