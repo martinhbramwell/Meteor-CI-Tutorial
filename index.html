@@ -3,29 +3,81 @@
   <head>
     <title>Title</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
     </script>
-    <!-- 
-    <ins class="adsbygoogle"
-       style="display:inline-block;width:300px;height:600px"
-       data-ad-client="ca-pub-7072964173126749"
-       data-ad-slot="6705426315">
-    </ins>
-     -->
+    <script>
+      var getLocation = function(href) {
+          var lnk = document.createElement("a");
+          lnk.href = href;
+          return lnk;
+      };
+      var sections = {
+        A: "PrepareTheMachine",
+        B: "UnitTestThePackage",
+        C: "EndToEndTestThePackage",
+      };
+
+    </script>
+
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+
   </head>
   <body>
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:728px;height:90px"
-         data-ad-client="ca-pub-7072964173126749"
-         data-ad-slot="1681627511">
-    </ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    <hr />
-    <h1>Preparations for Meteor Continuous Integration</h1>
-    <ul>
-      <li><a href="./Prep4MeteorCI_A/index.html">Part A</a>  Global installs requiring 'sudo'. Can run to completion without intervention.</li>
-      <li><a href="./Prep4MeteorCI_B/index.html">Part B</a>  'home' directory installs and manual steps. </li>
-    </ul>
+    <div ID="SlideShows" style="display:none;">
+    </div>
+    <div ID="Introduction" style="display:none;">
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:728px;height:90px"
+           data-ad-client="ca-pub-7072964173126749"
+           data-ad-slot="1681627511">
+      </ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      <hr />
+
+      <h1>Getting Started with Meteor Continuous Integration</h1>
+
+      <p><strong>These scripts, and explanatory slideshows, prepare the way for you to get started easily with Meteor package development, testing, documenting, code style linting and continuous integration</strong></p>
+      <p>They are designed for small (10GB) Xubuntu 14.04 virtual machines. They have not been tested in any other environment since the idea is to provide clear proven instructions that can be adapted easily to other circumstances.</p>
+      <p>Except where indicated, the scripts are 'idempotent' -- you can run them repeatedly without adverse consequences.</p>
+      <p>The goal is to help Meteor developers put together a complete <strong>continuous integration</strong> work environment with :
+      <ul>
+        <li>application</li>
+        <li>packages</li>
+        <li>version control</li>
+        <li>logging</li>
+        <li>documentation</li>
+        <li>code quality assurance tests</li>
+        <li>deployment</li>
+      </ul>
+      <h2><a href="./index.html?part=A">Prepare the Machine</a></h2>
+      <p>Start off with a fresh Ubuntu 14.04 LTS virtual machine and install all the platform dependencies.  These are global installs requiring 'sudo'.  Subsequent stages should not require 'sudo'. The script shown can run to completion without intervention, or stop at intermediate steps to view explanations.</p>
+      <h2><a href="./index.html?part=B">Unit Test the Package</a></h2>
+      <p>The manual steps in a project directory to begin testing with a version controlled Meteor package.</p>
+      <h2><a href="./index.html?part=C">Create the Package</a></h2>
+      <p>The manual steps in a project directory to begin testing with a version controlled Meteor package.</p>
+    </div>
+    <script>
+      var part = getLocation(window.location.href).search.replace('?part=', '').replace('/', '');
+      var blockId = part in sections ? 'SlideShows' : 'Introduction';
+      console.debug('Block = ' + blockId);
+      var slideShowID = sections[part];
+      console.debug('slideShowID = ' + slideShowID);
+
+      var block = document.getElementById(blockId);
+      block.style.display = "block";
+
+      if (  blockId === 'SlideShows'  ) {
+        var slideshow = remark.create({
+          sourceUrl: './' + slideShowID + '/concatenatedSlides.MD',
+          navigation: {
+            scroll: true,
+            touch: true,
+            click: false,
+          },
+        });
+      };
+    </script>
   </body>
 </html>

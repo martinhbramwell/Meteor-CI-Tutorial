@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# declare -a PART_B_FILENAMES=(
+# declare -a UnitTestThePackage_FILENAMES=(
 #   Introduction.md
 #   Configure_git_for_GitHub.md
 #   Create_SSH_keys_directory_if_not_exist.md
@@ -33,16 +33,16 @@
 #   The_Async_ProblemB.md
 #   The_Async_ProblemC.md
 # )
-# pushd Prep4MeteorCI_B
+# pushd UnitTestThePackage
 
-# for idx in "${PART_B_FILENAMES[@]}"
+# for idx in "${UnitTestThePackage_FILENAMES[@]}"
 # do
 #    sed -i 's|TOC](/)|TOC](..)|g' doc/${idx}
 # done
 
 # popd
 
-# declare -a PART_A_FILENAMES=(
+# declare -a PrepareTheMachine_FILENAMES=(
 #   Introduction.md
 #   Java_7_is_required_by_Nightwatch.md
 #   This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md
@@ -54,9 +54,9 @@
 #   Configure_Sublime_B.md
 #   Fin.md
 # )
-# pushd Prep4MeteorCI_A
+# pushd PrepareTheMachine
 
-# for idx in "${PART_A_FILENAMES[@]}"
+# for idx in "${PrepareTheMachine_FILENAMES[@]}"
 # do
 #    sed -i 's|TOC](/)|TOC](..)|g' doc/${idx}
 # done
@@ -85,7 +85,7 @@ elif [[ "X$1X" != "XnX" ]]; then
 fi;
 
 ## Package slideshow part A
-declare -a PART_A_FILENAMES=(
+declare -a PrepareTheMachine_FILENAMES=(
   Introduction.md
   Java_7_is_required_by_Nightwatch.md
   This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md
@@ -98,11 +98,11 @@ declare -a PART_A_FILENAMES=(
   Fin.md
 )
 
-pushd Prep4MeteorCI_A
+pushd PrepareTheMachine
 rm -f concatenatedSlides.MD
 
 ## now loop through the above array
-for idx in "${PART_A_FILENAMES[@]}"
+for idx in "${PrepareTheMachine_FILENAMES[@]}"
 do
    cat doc/${idx} >> concatenatedSlides.MD
 done
@@ -111,7 +111,7 @@ popd
 
 #
 ## Package slideshow part A
-declare -a PART_B_FILENAMES=(
+declare -a UnitTestThePackage_FILENAMES=(
   Introduction.md
   Configure_git_for_GitHub.md
   Create_SSH_keys_directory_if_not_exist.md
@@ -145,10 +145,10 @@ declare -a PART_B_FILENAMES=(
   The_Async_ProblemC.md
 )
 
-pushd Prep4MeteorCI_B
+pushd UnitTestThePackage
 rm -f concatenatedSlides.MD
 
-for idx in "${PART_B_FILENAMES[@]}"
+for idx in "${UnitTestThePackage_FILENAMES[@]}"
 do
    cat doc/${idx} >> concatenatedSlides.MD
 done
@@ -158,10 +158,10 @@ popd
 if  ${SKIP} ;  then  exit 0; fi;
 
 tar zcvf pack.tar.gz index.html \
-Prep4MeteorCI_A/index.html \
-Prep4MeteorCI_A/concatenatedSlides.MD \
-Prep4MeteorCI_B/index.html \
-Prep4MeteorCI_B/concatenatedSlides.MD
+PrepareTheMachine/index.html \
+PrepareTheMachine/concatenatedSlides.MD \
+UnitTestThePackage/index.html \
+UnitTestThePackage/concatenatedSlides.MD
 
 git stash
 echo "Stashed"
