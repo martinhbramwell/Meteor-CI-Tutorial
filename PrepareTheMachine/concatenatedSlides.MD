@@ -25,14 +25,13 @@ layout: false
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Java 7 is required by Nightwatch. 
+Java 7 is required by Selenium which is required by Nightwatch.  Selenium seems to hold the strategic high ground when it comes to testing web applications, so like it, or not, you gotta install Java.
 
 Steps performed :
  - Gets the [PPA](https://en.wikipedia.org/wiki/Personal_Package_Archive) for [Oracle Java](http://www.oracle.com/technetwork/indexes/downloads/index.html?ssSourceSiteId=ocomen)
  - installs it
 
-**Note : **
-
-Normally, the PPA installer will prompt you to accept Oracle's license.  If you run this step . . . **you accept the license agreement, implicitly!**
+**Legal Notice** : Normally, the PPA installer will prompt you to accept Oracle's license.  If you run this step . . . **you accept the license agreement, implicitly!**
 
 ##### Commands
 ```terminal
@@ -51,13 +50,13 @@ Normally, the PPA installer will prompt you to accept Oracle's license.  If you 
 
 #### This tutorial uses Sublime Text 3.
 
-It also expects to be run in a virtual machine; for later destruction.
+It also expects to be run in a virtual machine; for later destruction.  You most likely have your own preferred test editor.  This will show the general principle of simultaneous editor and CI linting.
  
 Steps performed :
- - Gets the [PPA](https://en.wikipedia.org/wiki/Personal_Package_Archive) for [Sublime Text 3](http://www.sublimetext.com/3)
+ - gets the [PPA](https://en.wikipedia.org/wiki/Personal_Package_Archive) for [Sublime Text 3](http://www.sublimetext.com/3)
  - installs it. 
  
-If you just want to quickly follow the tutorial then *do* execute this group of commands.
+If you just want to quickly follow the tutorial then *do* execute this group of commands, otherwise install your usual editor/IDE.  Slimetits ain't bad, tho'.
 ##### Commands
 ```terminal
   add-apt-repository -y ppa:webupd8team/sublime-text-3
@@ -120,6 +119,27 @@ It can run on a separate computer from [Meteor](https://www.meteor.com/), (but w
 <!-- -->]
 ---
 .left-column[
+  ### Selenium Web Driver for NodeJS
+.footnote[.red.bold[] [Back to TOC](./)] 
+<!-- -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Install 'selenium-webdriver' in NodeJS
+
+The [NodeJS](https://nodejs.org/) module [Selenium Webdriver](https://github.com/SeleniumHQ/selenium) is required for running Meteor TinyTest on the command line, rather than in a browser.  **Note**: The next step after this one installs a different Seleniun driver.
+
+We must first ensure that root has not taken ownership of the local .npm directory *(that can happen if you ran npm with sudo when you didn't need to)*.
+##### Commands
+```terminal
+sudo chown -R ${USER}:${USER} ~/.npm
+npm install -y --prefix ${HOME} selenium-webdriver
+```
+
+
+<!-- -->]
+---
+.left-column[
   ### Install Selenium Web Driver
 .footnote[.red.bold[] [Back to TOC](./)] 
 <!-- -->]
@@ -130,7 +150,7 @@ It can run on a separate computer from [Meteor](https://www.meteor.com/), (but w
 
 [Nightwatch](http://nightwatchjs.org/) leverages [Selenium](http://www.seleniumhq.org/), which has drivers for the major browsers.
 
-The [Chrome Driver](https://code.google.com/p/selenium/wiki/ChromeDriver) is the most convenient.
+The [Chrome Driver](https://code.google.com/p/selenium/wiki/ChromeDriver) is the most convenient.  **Note**: This is not the Selenium Webdriver for NodeJS installed in the previous step.
 ##### Commands
 ```terminal
 wget http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
@@ -151,14 +171,11 @@ dpkg -i google-chrome-stable_current_amd64.deb
 
 #### Install “eslint” and configure Sublime Text 3.
 
-Linting : detects code style contraventions, and traps many
-  hard to debug errors before they happen.
+Linting detects code style contraventions, improves maintainability, and flags many hard-to-debug errors before they happen.
 
-ECMA Script linter : 
+[ECMA Script linter](http://eslint.org/docs/about/) : 
   - thorough Linter for ECMA Script 6 and earlier
   - preferred by Facebook, AirBnB and many other big names
-
-Learn more : [ESLint](http://eslint.org/docs/about/)
 ##### Commands
 ```terminal
 npm install -gy eslint
@@ -177,13 +194,13 @@ npm install -gy babel-eslint
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 ### (Optional) Preparation of Sublime Text 
-#### First step
+#### First step - add '[Package Control](https://packagecontrol.io/)'
 
 We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
 
  - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
  - Go to View >> Show Console
- - Paste the following into ST3's console :
+ - Paste the following installer for [Package Control](https://packagecontrol.io/) into ST3's console :
 
 .small[
 ```terminal
@@ -205,7 +222,7 @@ import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 ### (Optional) Preparation of Sublime Text 
-#### Second step
+#### Second step - Use '[Package Control](https://packagecontrol.io/)' to install more packages.
 
  - Go to Preferences >> Package Control
  - In Package Control type : install package
