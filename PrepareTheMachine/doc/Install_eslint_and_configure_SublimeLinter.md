@@ -8,14 +8,11 @@
 
 #### Install “eslint” and configure Sublime Text 3.
 
-Linting : detects code style contraventions, and traps many
-  hard to debug errors before they happen.
+Linting detects code style contraventions, improves maintainability, and flags many hard-to-debug errors before they happen.
 
-ECMA Script linter : 
+[ECMA Script linter](http://eslint.org/docs/about/) : 
   - thorough Linter for ECMA Script 6 and earlier
   - preferred by Facebook, AirBnB and many other big names
-
-Learn more : [ESLint](http://eslint.org/docs/about/)
 ##### Commands
 ```terminal
 npm install -gy eslint

@@ -10,7 +10,7 @@
 
 [Nightwatch](http://nightwatchjs.org/) leverages [Selenium](http://www.seleniumhq.org/), which has drivers for the major browsers.
 
-The [Chrome Driver](https://code.google.com/p/selenium/wiki/ChromeDriver) is the most convenient.
+The [Chrome Driver](https://code.google.com/p/selenium/wiki/ChromeDriver) is the most convenient.  **Note**: This is not the Selenium Webdriver for NodeJS installed in the previous step.
 ##### Commands
 ```terminal
 wget http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip

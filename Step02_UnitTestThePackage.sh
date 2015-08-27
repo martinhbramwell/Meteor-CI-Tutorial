@@ -304,16 +304,6 @@ fi
 
 
 
-explain ${DOCS}/Install_Selenium_Webdriver.md
-if [ $? -eq 0 ]; then
-
-  sudo chown -R ${USER}:${USER} ~/.npm
-  npm install -y --prefix /home/yourself selenium-webdriver
-
-fi
-
-
-
 explain ${DOCS}/Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md
 if [ $? -eq 0 ]; then
 

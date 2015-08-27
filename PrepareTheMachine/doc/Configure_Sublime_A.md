@@ -7,13 +7,13 @@
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 ### (Optional) Preparation of Sublime Text 
-#### First step
+#### First step - add '[Package Control](https://packagecontrol.io/)'
 
 We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
 
  - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
  - Go to View >> Show Console
- - Paste the following into ST3's console :
+ - Paste the following installer for [Package Control](https://packagecontrol.io/) into ST3's console :
 
 .small[
 ```terminal

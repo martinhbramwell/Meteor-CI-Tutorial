@@ -7,10 +7,10 @@
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 ### (Optional) Preparation of Sublime Text 
-#### Second step
+#### Second step - Use '[Package Control](https://packagecontrol.io/)' to install more packages.
 
  - Go to Preferences >> Package Control
- - In Package Control type : install package
+ - In Package Control select : install package
  - Install these two packages :
    - 'MarkDownEditing'
    - 'SideBarEnhancements'

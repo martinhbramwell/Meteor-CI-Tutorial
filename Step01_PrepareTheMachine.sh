@@ -48,6 +48,9 @@ if [ $? -eq 0 ]; then
   apt-get -y install oracle-java7-installer
 fi
 
+
+
+
 explain ${DOCS}/This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md
 if [ $? -eq 0 ]; then
   echo -e # -- Get PPAs for Sublime Text editor --
@@ -56,6 +59,9 @@ if [ $? -eq 0 ]; then
   echo -e # -- Install Sublime Text editor --
   apt-get install -y sublime-text-installer
 fi
+
+
+
 
 explain ${DOCS}/Install_other_tools.md
 if [ $? -eq 0 ]; then
@@ -66,6 +72,8 @@ if [ $? -eq 0 ]; then
   apt-get install -y git ssh                     # for version control
 fi
 
+
+
 explain ${DOCS}/Install_NodeJS.md
 if [ $? -eq 0 ]; then
   pushd /tmp
@@ -74,6 +82,19 @@ if [ $? -eq 0 ]; then
   apt-get -y autoremove
   popd
 fi
+
+
+
+
+explain ${DOCS}/Install_Selenium_Webdriver_In_NodeJS.md
+if [ $? -eq 0 ]; then
+
+  sudo chown -R ${USER}:${USER} ~/.npm
+  npm install -y --prefix $HOME selenium-webdriver
+
+fi
+
+
 
 
 explain ${DOCS}/Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome.md
@@ -93,6 +114,10 @@ if [ $? -eq 0 ]; then
 
   popd
 fi
+
+
+
+
 
 explain ${DOCS}/Install_eslint_and_configure_SublimeLinter.md
 if [ $? -eq 0 ]; then
