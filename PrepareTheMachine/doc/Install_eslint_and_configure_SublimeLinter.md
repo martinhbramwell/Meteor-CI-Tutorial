@@ -16,6 +16,12 @@ ECMA Script linter :
   - preferred by Facebook, AirBnB and many other big names
 
 Learn more : [ESLint](http://eslint.org/docs/about/)
+##### Commands
+```terminal
+npm install -gy eslint
+npm install -gy eslint-plugin-react
+npm install -gy babel-eslint
+```
 
 
 <!-- -->]

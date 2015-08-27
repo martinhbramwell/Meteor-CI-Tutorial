@@ -102,7 +102,10 @@ function getUserData()
   return
 }
 
-source udata.sh
+if [ -f ./udata.sh ]; then
+  source ./udata.sh
+  echo "Project name : ${PROJECT_NAME}"
+fi
 
 #############################
 

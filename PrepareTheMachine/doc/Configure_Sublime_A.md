@@ -9,7 +9,7 @@
 ### (Optional) Preparation of Sublime Text 
 #### First step
 
-We need Sublime Text 3 configured as follows :
+We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
 
  - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
  - Go to View >> Show Console

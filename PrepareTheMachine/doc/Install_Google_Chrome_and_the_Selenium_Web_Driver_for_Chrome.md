@@ -8,8 +8,16 @@
 
 #### Install Google Chrome and the Selenium Web Driver for Chrome.
 
-Nightwatch leverages Selenium, which has drivers for the major browsers.
+[Nightwatch](http://nightwatchjs.org/) leverages [Selenium](http://www.seleniumhq.org/), which has drivers for the major browsers.
 
-The Chrome driver is the most convenient.
+The [Chrome Driver](https://code.google.com/p/selenium/wiki/ChromeDriver) is the most convenient.
+##### Commands
+```terminal
+wget http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
+unzip -o chromedriver_linux64.zip -d /usr/local/bin
+chmod a+rx /usr/local/bin/chromedriver
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dpkg -i google-chrome-stable_current_amd64.deb
+```
 
 <!-- -->]
