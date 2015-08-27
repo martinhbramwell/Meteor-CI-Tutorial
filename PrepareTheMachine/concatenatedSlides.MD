@@ -8,15 +8,11 @@ layout: false
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-These scripts prepare the way for you to get started easily with Meteor package development, testing, documenting, code style linting and continuous integration
+These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration
 
-They are designed for a small (10GB) Xubuntu 14.04 virtual machine. They have not been tested in any other environment since the idea is to provide clear proven instructions that can be adapted easily to other circumstances.
+This first script, 'Step01_PrepareTheMachine.sh', sets up all necessary preconditions for the second script.  As much as possible, this first step handles all tasks that require root access.
 
-Except where indicated, the scripts are 'idempotent' -- you can run them repeatedly without adverse consequences.
-
-The first script 'Prep4MeteorCI_A.sh' sets up all necessary preconditions for the second script.
-
-The second one 'Prep4MeteorCI_B.sh' takes you  through the entire process of preparing a Meteor project and package with  all the previously mentioned application development support tools.
+You can hit the 'a' key at any of the pause points to have it run **a**ll the remaining steps without further interruption.
 
 <!-- -->]
 ---
@@ -31,15 +27,19 @@ layout: false
 #### Java 7 is required by Nightwatch. 
 
 Steps performed :
- - Gets the PPA for Oracle Java
+ - Gets the [PPA](https://en.wikipedia.org/wiki/Personal_Package_Archive) for [Oracle Java](http://www.oracle.com/technetwork/indexes/downloads/index.html?ssSourceSiteId=ocomen)
  - installs it
 
 **Note : **
 
-Normally, the PPA installer will prompt you to accept Oracle's license.  If you run this step . . . 
+Normally, the PPA installer will prompt you to accept Oracle's license.  If you run this step . . . **you accept the license agreement, implicitly!**
 
-     you accept the license agreement, implicitly!
-
+##### Commands
+```terminal
+  add-apt-repository -y ppa:webupd8team/java
+  apt-get update
+  apt-get -y install oracle-java7-installer
+```
 <!-- -->]
 ---
 .left-column[
@@ -49,7 +49,7 @@ Normally, the PPA installer will prompt you to accept Oracle's license.  If you 
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### This tutorial expects you to edit with Sublime Text 3.
+#### This tutorial uses Sublime Text 3.
 
 It also expects to be run in a virtual machine; for later destruction.
  
@@ -58,7 +58,12 @@ Steps performed :
  - installs it. 
  
 If you just want to quickly follow the tutorial then *do* execute this group of commands.
-
+##### Commands
+```terminal
+  add-apt-repository -y ppa:webupd8team/sublime-text-3
+  apt-get update
+  apt-get install -y sublime-text-installer
+```
 
 <!-- -->]
 ---
@@ -72,11 +77,20 @@ If you just want to quickly follow the tutorial then *do* execute this group of 
 #### Some basic tools ...
 
 This sequence installs the following dependencies, if they're not already present :
-- 'build-essential' and 'libssl-dev' for selenium webdriver 
-- 'libappindicator1' for chrome 
-- 'curl' for Meteor 
-- 'git' and 'ssh' for version control
+- 'build-essential' and 'libssl-dev' are required by [Selenium Webdriver](http://www.seleniumhq.org/projects/webdriver/)
+- 'libappindicator1' for [Chrome](https://www.google.com/chrome/browser/desktop/)
+- '[curl](http://curl.haxx.se/)' for [Meteor](https://www.meteor.com/)
+- '[git](https://git-scm.com/)' and '[ssh](http://www.openssh.com/)' for version control
 - 'tree' for demo convenience 
+
+##### Commands
+```terminal
+  apt-get install -y build-essential libssl-dev  # for selenium webdriver
+  apt-get install -y libappindicator1            # for chrome
+  apt-get install -y curl                        # for Meteor
+  apt-get install -y tree                        # for demo convenience
+  apt-get install -y git ssh                     # for version control
+```
 
 
 <!-- -->]
@@ -90,11 +104,17 @@ This sequence installs the following dependencies, if they're not already presen
 
 #### NodeJS
 
-Nightwatch is a NodeJS utility.
+[Nightwatch](http://nightwatchjs.org/) is a [NodeJS](https://nodejs.org/) utility.
 
 You must have NodeJS to do Nightwatch testing.
 
-It can run on a separate computer from Meteor, (but we'll do it all in this one).
+It can run on a separate computer from [Meteor](https://www.meteor.com/), (but we'll do it all in this one).
+##### Commands
+```terminal
+  curl -sL https://deb.nodesource.com/setup | sudo bash -
+  apt-get install -y nodejs
+  apt-get -y autoremove
+```
 
 
 <!-- -->]
@@ -108,9 +128,17 @@ It can run on a separate computer from Meteor, (but we'll do it all in this one)
 
 #### Install Google Chrome and the Selenium Web Driver for Chrome.
 
-Nightwatch leverages Selenium, which has drivers for the major browsers.
+[Nightwatch](http://nightwatchjs.org/) leverages [Selenium](http://www.seleniumhq.org/), which has drivers for the major browsers.
 
-The Chrome driver is the most convenient.
+The [Chrome Driver](https://code.google.com/p/selenium/wiki/ChromeDriver) is the most convenient.
+##### Commands
+```terminal
+wget http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
+unzip -o chromedriver_linux64.zip -d /usr/local/bin
+chmod a+rx /usr/local/bin/chromedriver
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dpkg -i google-chrome-stable_current_amd64.deb
+```
 
 <!-- -->]
 ---
@@ -131,6 +159,12 @@ ECMA Script linter :
   - preferred by Facebook, AirBnB and many other big names
 
 Learn more : [ESLint](http://eslint.org/docs/about/)
+##### Commands
+```terminal
+npm install -gy eslint
+npm install -gy eslint-plugin-react
+npm install -gy babel-eslint
+```
 
 
 <!-- -->]
@@ -145,7 +179,7 @@ Learn more : [ESLint](http://eslint.org/docs/about/)
 ### (Optional) Preparation of Sublime Text 
 #### First step
 
-We need Sublime Text 3 configured as follows :
+We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
 
  - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
  - Go to View >> Show Console
