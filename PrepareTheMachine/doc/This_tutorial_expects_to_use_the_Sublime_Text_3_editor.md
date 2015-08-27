@@ -11,7 +11,7 @@
 It also expects to be run in a virtual machine; for later destruction.
  
 Steps performed :
- - Gets the PPA for Sublime Text 3
+ - Gets the [PPA](https://en.wikipedia.org/wiki/Personal_Package_Archive) for [Sublime Text 3](http://www.sublimetext.com/3)
  - installs it. 
  
 If you just want to quickly follow the tutorial then *do* execute this group of commands.
