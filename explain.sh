@@ -14,7 +14,7 @@ function highlight()
   cat $1 | \
   awk '{while(match($0,"[$]{[^}]*}")) {var=substr($0,RSTART+2,RLENGTH -3);gsub("[$]{"var"}",ENVIRON[var])}}1' | \
   sed '1,/o 0 o/d;/<!-- -->]/,$d' | \
-  sed 's|\(\[\)\([a-z A-Z0-9]*\)\(\]([a-zA-Z0-9/:._-?=]*)\)|\2 |g' | \
+  sed "s|\(\[\)\([a-z A-Z0-9'.]*\)\(\]([a-zA-Z0-9/:._-?=]*)\)|\2 |g" | \
   fold -w 80 -s;
   echo -en ${NC};
 }

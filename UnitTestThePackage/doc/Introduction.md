@@ -10,9 +10,9 @@ These scripts will get you started easily with Meteor package development, testi
 
 The previous script, 'Step01_PrepareTheMachine.sh', set up necessary preconditions for the second script, basically all tasks that require root access. 
 
-This one, 'Step02_UnitTestThePackage.sh', prepares an actual Meteor project and package with all the previously mentioned application development support tools.
+This one, 'Step02_UnitTestThePackage.sh', prepares a Meteor project with an embedded package ready for testing with TinyTest using the first few of the previously mentioned application development support tools.
 
-You should not need to use 'sudo' for this part.  Everything should happen in your HOME diectory.
+You should not need to use 'sudo' for this or any of the later parts.  Everything should happen in your HOME diectory.
 
 
 <!-- -->]

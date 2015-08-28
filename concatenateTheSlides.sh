@@ -2,6 +2,7 @@
 #
 # declare -a UnitTestThePackage_FILENAMES=(
 #   Introduction.md
+#   Set_Up_Project_Names.md
 #   Configure_git_for_GitHub.md
 #   Create_SSH_keys_directory_if_not_exist.md
 #   Install_Meteor.md
@@ -114,6 +115,7 @@ popd
 ## Package slideshow part A
 declare -a UnitTestThePackage_FILENAMES=(
   Introduction.md
+  Set_Up_Project_Names.md
   Configure_git_for_GitHub.md
   Create_SSH_keys_directory_if_not_exist.md
   Install_Meteor.md

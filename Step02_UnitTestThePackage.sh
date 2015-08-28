@@ -5,7 +5,7 @@ if [[ $EUID -eq 0 ]]; then
    exit 1
 fi
 
-DOCS="./Prep4MeteorCI_B/doc"
+DOCS="./UnitTestThePackage/doc"
 source ./explain.sh
 
 function existingMeteor() {
@@ -27,6 +27,9 @@ function existingMeteor() {
 highlight ${DOCS}/Introduction.md
 read -p "Hit <enter> ::  " -n 1 -r USER_ANSWER
 
+AUTORUN=a
+explain ${DOCS}/Set_Up_Project_Names.md
+AUTORUN=
 if ! getUserData; then
     echo -e "#####################################################################"
     echo -e "#   The rest of this script will fail without correct values for : "

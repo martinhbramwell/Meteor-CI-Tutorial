@@ -12,7 +12,7 @@ The previous section require 'sudo' at nearly every step.
 
 The next section must run **without** sudo.
 
-[Unit Test the Package](./?part=B)
+[Unit Test a Package](./?part=B)
 
 
 <!-- -->]

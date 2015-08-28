@@ -10,10 +10,29 @@ These scripts will get you started easily with Meteor package development, testi
 
 The previous script, 'Step01_PrepareTheMachine.sh', set up necessary preconditions for the second script, basically all tasks that require root access. 
 
-This one, 'Step02_UnitTestThePackage.sh', prepares an actual Meteor project and package with all the previously mentioned application development support tools.
+This one, 'Step02_UnitTestThePackage.sh', prepares a Meteor project with an embedded package ready for testing with TinyTest using the first few of the previously mentioned application development support tools.
 
-You should not need to use 'sudo' for this part.  Everything should happen in your HOME diectory.
+You should not need to use 'sudo' for this or any of the later parts.  Everything should happen in your HOME diectory.
 
+
+<!-- -->]
+---
+.left-column[
+  ### Set Up Project Names
+.footnote[.red.bold[] [Back to TOC](./)] 
+<!-- -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Set up identifiers required by GitHub
+
+This step writes some names you specify to a file.  You won't have to repeat this.
+
+You will be asked to supply the following details :
+ - The exact project name for use in GitHub
+ - The exact name for the GitHub organization
+ - The project owner name to use to publish it in GitHub
+ - The email address for the project owner in GitHub
 
 <!-- -->]
 ---
@@ -55,7 +74,7 @@ If the file '~/.ssh/id_rsa' exists, then this command group will do nothing.
 
 Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa' 
 
-You'll need to paste your SSH credentials into each of the empty files
+You'll need to paste your SSH credentials into each of the empty files. This assumes you only need to copy them in from some other GitHub project.  Getting them for the first time is beyond the scope of this tutorial.  You should follow [GitHub's getting started documents.](https://help.github.com/articles/generating-ssh-keys/)
 
 
 <!-- -->]
