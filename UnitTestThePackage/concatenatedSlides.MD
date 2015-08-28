@@ -6,14 +6,33 @@ layout: false
 .right-column[
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-These scripts prepare the way for you to get started easily with Meteor package development, testing, documenting, code style linting and continuous integration
+These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration.
 
-The previous script, 'Prep4MeteorCI_A.sh', prepared a virtual machine with the system wide requirements for continuous integration with Meteor.
+The previous script, 'Step01_PrepareTheMachine.sh', set up necessary preconditions for the second script, basically all tasks that require root access. 
 
-This one, 'Prep4MeteorCI_B.sh', prepares an actual Meteor project and package with all the previously mentioned application development support tools.
+This one, 'Step02_UnitTestThePackage.sh', prepares a Meteor project with an embedded package ready for testing with TinyTest using the first few of the previously mentioned application development support tools.
 
-You should not need to use 'sudo' for this part.  Everything should happen in your HOME diectory.
+You should not need to use 'sudo' for this or any of the later parts.  Everything should happen in your HOME diectory.
 
+
+<!-- -->]
+---
+.left-column[
+  ### Set Up Project Names
+.footnote[.red.bold[] [Back to TOC](./)] 
+<!-- -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Set up identifiers required by GitHub
+
+This step writes some names you specify to a file.  You won't have to repeat this.
+
+You will be asked to supply the following details :
+ - The exact project name for use in GitHub
+ - The exact name for the GitHub organization
+ - The project owner name to use to publish it in GitHub
+ - The email address for the project owner in GitHub
 
 <!-- -->]
 ---
@@ -26,17 +45,18 @@ You should not need to use 'sudo' for this part.  Everything should happen in yo
 
 #### Configure git for use with GitHub.
 
-In this step we set up the local git tool kit to communicate correctly with GitHub.
+In this step we set up the local git tool kit to communicate correctly with GitHub, per [their getting started guide](https://help.github.com/articles/set-up-git/).
 
 Steps performed :
 - identify user name
 - identify user email
 - use simple push
 
-        git config --global user.name "${YOUR_EMAIL}"
-        git config --global user.email "${YOUR_NAME}"
-        git config --global push.default simple
-
+```terminal
+git config --global user.name "${YOUR_EMAIL}"
+git config --global user.email "${YOUR_NAME}"
+git config --global push.default simple
+```
 <!-- -->]
 ---
 .left-column[
@@ -54,7 +74,7 @@ If the file '~/.ssh/id_rsa' exists, then this command group will do nothing.
 
 Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa' 
 
-You'll need to paste your SSH credentials into each of the empty files
+You'll need to paste your SSH credentials into each of the empty files. This assumes you only need to copy them in from some other GitHub project.  Getting them for the first time is beyond the scope of this tutorial.  You should follow [GitHub's getting started documents.](https://help.github.com/articles/generating-ssh-keys/)
 
 
 <!-- -->]
