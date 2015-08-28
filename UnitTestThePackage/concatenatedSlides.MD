@@ -6,11 +6,11 @@ layout: false
 .right-column[
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-These scripts prepare the way for you to get started easily with Meteor package development, testing, documenting, code style linting and continuous integration
+These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration.
 
-The previous script, 'Prep4MeteorCI_A.sh', prepared a virtual machine with the system wide requirements for continuous integration with Meteor.
+The previous script, 'Step01_PrepareTheMachine.sh', set up necessary preconditions for the second script, basically all tasks that require root access. 
 
-This one, 'Prep4MeteorCI_B.sh', prepares an actual Meteor project and package with all the previously mentioned application development support tools.
+This one, 'Step02_UnitTestThePackage.sh', prepares an actual Meteor project and package with all the previously mentioned application development support tools.
 
 You should not need to use 'sudo' for this part.  Everything should happen in your HOME diectory.
 
@@ -26,17 +26,18 @@ You should not need to use 'sudo' for this part.  Everything should happen in yo
 
 #### Configure git for use with GitHub.
 
-In this step we set up the local git tool kit to communicate correctly with GitHub.
+In this step we set up the local git tool kit to communicate correctly with GitHub, per [their getting started guide](https://help.github.com/articles/set-up-git/).
 
 Steps performed :
 - identify user name
 - identify user email
 - use simple push
 
-        git config --global user.name "${YOUR_EMAIL}"
-        git config --global user.email "${YOUR_NAME}"
-        git config --global push.default simple
-
+```terminal
+git config --global user.name "${YOUR_EMAIL}"
+git config --global user.email "${YOUR_NAME}"
+git config --global push.default simple
+```
 <!-- -->]
 ---
 .left-column[

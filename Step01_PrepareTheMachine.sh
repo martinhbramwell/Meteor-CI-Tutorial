@@ -27,10 +27,13 @@ source ./explain.sh
 
 highlight ${DOCS}/Introduction.md
 echo ""
-echo "To view the documentation fragments in you browser do the following"
-echo " - execute : ./concatenateTheSlides.sh"
-echo " - execute : python -m SimpleHTTPServer 8080"
-echo " - launch your browser and open : http://localhost:8080/"
+echo "To view this embedded documentation as a browser slideshow choose one of the following options:"
+echo " A) Open your browser to http://martinhbramwell.github.io/Meteor-CI-Tutorial/"
+echo " B) If you have Python in your machine (you have '${PYVER}') you can do :"
+echo " - execute : ./concatenateTheSlides.sh n"
+echo " - then execute : python -m SimpleHTTPServer 8080"
+echo " - then launch your browser and open : http://localhost:8080/"
+echo " C) If you already know Meteor, you can just stuff a copy of this directory in the 'public' directory of a Meteor app."
 echo ""
 read -p "Hit <enter> ::  " -n 1 -r REPLY
 
