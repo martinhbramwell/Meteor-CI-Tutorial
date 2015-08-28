@@ -225,7 +225,7 @@ import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7
 #### Second step - Use '[Package Control](https://packagecontrol.io/)' to install more packages.
 
  - Go to Preferences >> Package Control
- - In Package Control type : install package
+ - In Package Control select : install package
  - Install these two packages :
    - 'MarkDownEditing'
    - 'SideBarEnhancements'
