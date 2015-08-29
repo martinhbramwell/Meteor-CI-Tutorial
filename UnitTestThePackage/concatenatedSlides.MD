@@ -90,8 +90,7 @@ You'll need to paste your SSH credentials into each of the empty files. This ass
 
 In this step we simply run Meteor's installation
 
-The command run is :
-
+##### Commands
 ```terminal
 curl https://install.meteor.com/ | sh
 ```
@@ -111,7 +110,11 @@ curl https://install.meteor.com/ | sh
 Here we create a container directory called ```${PARENT_DIR}``` and inside it we start a Meteor project called ```${PROJECT_NAME}```
 
 If the project was created earlier you'll be invited to delete it and start a new one.
-
+##### Commands
+```terminal
+mkdir -p ~/${PARENT_DIR}
+meteor create ${PROJECT_NAME}
+```
 
 <!-- -->]
 ---
@@ -122,7 +125,7 @@ name: Check Meteor Works
 .footnote[.red.bold[] [Back to TOC](./)] 
 <!-- -->]
 .right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Check the meteor project will work
 
@@ -132,10 +135,14 @@ If Meteor IS already running, you will need to stop it.
 
 **When prompted**, test meteor in a browser.
 
-[localhost:3000](http://localhost:3000/)
+[http://localhost:3000/](http://localhost:3000/)
 
 When you continue to the next step Meteor will be killed automatically.
-
+#####Commands
+```terminal
+A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print $2}')
+echo $A_METEOR_PID
+```
 
 <!-- -->]
 ---
@@ -155,7 +162,10 @@ In this step we create some of the project meta data files :
  -  .eslintrc
 
 The .eslintrc file is borrowed from the project [warehouseman:meteor-swagger-client](https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc)
-
+#####Commands
+```terminal
+wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
+```
 
 <!-- -->]
 ---
@@ -195,6 +205,9 @@ The steps are :
 
  - Log in to GitHub and create a project with the exact name ```${PROJECT_NAME}```. Don't set any other values. We'll do that automatically.
  - Log in to CircleCI and set it to monitor project ```${PROJECT_NAME}``` for rebuilding.
+
+Some steps are more understandable if you watch the video series mentioned on the Table of Contents page.
+
 
 
 <!-- -->]

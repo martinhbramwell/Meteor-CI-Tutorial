@@ -14,7 +14,7 @@ function highlight()
   cat $1 | \
   awk '{while(match($0,"[$]{[^}]*}")) {var=substr($0,RSTART+2,RLENGTH -3);gsub("[$]{"var"}",ENVIRON[var])}}1' | \
   sed '1,/o 0 o/d;/<!-- -->]/,$d' | \
-  sed "s|\(\[\)\([a-z A-Z0-9'.]*\)\(\]([a-zA-Z0-9/:._-?=]*)\)|\2 |g" | \
+  sed "s|\(\[\)\([a-z A-Z0-9'.:/]*\)\(\]([a-zA-Z0-9/:._-?=]*)\)|\2 |g" | \
   fold -w 80 -s;
   echo -en ${NC};
 }
@@ -63,7 +63,6 @@ function getUserData()
 
   if [ -f ./udata.sh ]; then
     source ./udata.sh
-    echo "Project name : ${PROJECT_NAME}"
   else
     export PROJECT_NAME=""
     export GITHUB_ORGANIZATION_NAME=""
@@ -75,18 +74,6 @@ function getUserData()
   CHOICE="n"
   while [[ ! "X${CHOICE}X" == "XyX" ]]
   do
-    echo -e "\n Please supply the following details :\n";
-    read -p "The exact project name for use in GitHub :: " -e -i "${PROJECT_NAME}" INPUT
-    if [ ! "X${INPUT}X" == "XX" ]; then PROJECT_NAME=${INPUT}; fi;
-
-    read -p "The exact name for the GitHub organization :: " -e -i "${GITHUB_ORGANIZATION_NAME}" INPUT
-    if [ ! "X${INPUT}X" == "XX" ]; then GITHUB_ORGANIZATION_NAME=${INPUT}; fi;
-
-    read -p "The project owner name to use to publish it in GitHub :: " -e -i "${YOUR_NAME}" INPUT
-    if [ ! "X${INPUT}X" == "XX" ]; then YOUR_NAME=${INPUT}; fi;
-
-    read -p "The email address for the project owner in GitHub :: " -e -i "${YOUR_EMAIL}" INPUT
-    if [ ! "X${INPUT}X" == "XX" ]; then YOUR_EMAIL=${INPUT}; fi;
 
     echo -e "\n\n# ${FRAME// /\~}"
     echo "Project name : ${PROJECT_NAME}"
@@ -99,6 +86,21 @@ function getUserData()
     if [[ "X${CHOICE}X" == "XqX" ]]; then
       echo skip out
       return 1;
+    elif [[ ! "X${CHOICE}X" == "XyX" ]]; then
+
+      echo -e "\n Please supply the following details :\n";
+      read -p "The exact project name for use in GitHub :: " -e -i "${PROJECT_NAME}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then PROJECT_NAME=${INPUT}; fi;
+
+      read -p "The exact name for the GitHub organization :: " -e -i "${GITHUB_ORGANIZATION_NAME}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then GITHUB_ORGANIZATION_NAME=${INPUT}; fi;
+
+      read -p "The project owner name to use to publish it in GitHub :: " -e -i "${YOUR_NAME}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then YOUR_NAME=${INPUT}; fi;
+
+      read -p "The email address for the project owner in GitHub :: " -e -i "${YOUR_EMAIL}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then YOUR_EMAIL=${INPUT}; fi;
+
     fi;
     echo "  "
   done

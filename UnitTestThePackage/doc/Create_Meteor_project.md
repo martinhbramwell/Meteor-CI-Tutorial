@@ -11,6 +11,10 @@
 Here we create a container directory called ```${PARENT_DIR}``` and inside it we start a Meteor project called ```${PROJECT_NAME}```
 
 If the project was created earlier you'll be invited to delete it and start a new one.
-
+##### Commands
+```terminal
+mkdir -p ~/${PARENT_DIR}
+meteor create ${PROJECT_NAME}
+```
 
 <!-- -->]
