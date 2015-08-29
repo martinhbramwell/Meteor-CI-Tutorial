@@ -188,8 +188,7 @@ if [ $? -eq 0 ]; then
 fi
 
 
-
-
+export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc"
 explain ${DOCS}/Add_Meteor_application_development_support_files.md
 if [ $? -eq 0 ]; then
 
