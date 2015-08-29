@@ -163,8 +163,12 @@ tar zcvf pack.tar.gz index.html \
 PrepareTheMachine/concatenatedSlides.MD \
 UnitTestThePackage/concatenatedSlides.MD
 
-git stash
-echo "Stashed"
+export STASH_CREATED=$(git stash) && echo $STASH_CREATED
+if [[ "${STASH_CREATED}" != "No local changes to save" ]];
+then
+  echo ""
+  echo "Changes to master branch have been stashed"
+fi;
 git checkout gh-pages
 echo "On branch gh-pages"
 tar zxvf pack.tar.gz
@@ -176,6 +180,12 @@ git push
 echo "Pushed"
 git checkout master
 echo "- - - back on branch master - - -"
-git stash apply
-echo "Reverted stash"
+if [[ "${STASH_CREATED}" != "No local changes to save" ]];
+then
+  git stash apply;
+  echo "Reverted stash"
+else
+  echo "No stash to restore";
+fi;
+
 
