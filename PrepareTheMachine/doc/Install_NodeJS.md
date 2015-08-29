@@ -2,7 +2,7 @@
 .left-column[
   ### Install NodeJS
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -21,4 +21,4 @@ It can run on a separate computer from [Meteor](https://www.meteor.com/), (but w
 ```
 
 
-<!-- -->]
+<!-- B -->]

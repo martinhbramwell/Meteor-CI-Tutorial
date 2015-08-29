@@ -2,7 +2,7 @@
 .left-column[
   ### Console.log is bad!
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -29,4 +29,4 @@ Tinytest.add("example", function sanity(test) {
 then save it and observe the command line logs and the browser console
 
 
-<!-- -->]
+<!-- B -->]

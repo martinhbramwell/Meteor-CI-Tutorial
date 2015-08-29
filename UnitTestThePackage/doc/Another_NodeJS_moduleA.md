@@ -2,7 +2,7 @@
 .left-column[
   ### Another NodeJS Module (A)
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -35,4 +35,4 @@ Npm.depends({
 Continues ...
 
 
-<!-- -->]
+<!-- B -->]

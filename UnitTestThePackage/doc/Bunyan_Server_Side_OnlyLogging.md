@@ -2,7 +2,7 @@
 .left-column[
   ### Server Only
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -28,4 +28,4 @@ Npm.depends({
 
    ... save, and observe the command line logs and the browser console.
 
-<!-- -->]
+<!-- B -->]

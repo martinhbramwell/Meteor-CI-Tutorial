@@ -2,7 +2,7 @@
 .left-column[
   ### Configure CircleCI 
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -13,4 +13,4 @@ On the preliminary commit, CircleCI recognized the project's existence but did n
 Now, we have a test runner, and with the addition of a ```circle.yml``` configuration file committing the project to GitHub will cause an automatic rebuild.
 
 
-<!-- -->]
+<!-- B -->]

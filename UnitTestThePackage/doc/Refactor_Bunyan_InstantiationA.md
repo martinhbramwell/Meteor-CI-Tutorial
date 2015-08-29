@@ -2,7 +2,7 @@
 .left-column[
   ### Refactor Bunyan (A)
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -34,4 +34,4 @@ Tinytest.add("example", function sanity(test) {
 Continues ...
 
 
-<!-- -->]
+<!-- B -->]

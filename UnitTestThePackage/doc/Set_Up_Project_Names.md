@@ -2,7 +2,7 @@
 .left-column[
   ### Set Up Project Names
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -16,4 +16,4 @@ You will be asked to supply the following details :
  - The project owner name to use to publish it in GitHub
  - The email address for the project owner in GitHub
 
-<!-- -->]
+<!-- B -->]

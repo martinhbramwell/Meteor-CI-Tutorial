@@ -2,7 +2,7 @@
 .left-column[
   ### Runner for TinyTest
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -17,4 +17,4 @@ The GitHub repo [warehouseman:meteor-tinytest-runner](https://github.com/warehou
 The installer deletes itself after preparing the files for immediate use.
 
 
-<!-- -->]
+<!-- B -->]

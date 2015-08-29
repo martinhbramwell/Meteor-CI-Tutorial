@@ -2,7 +2,7 @@
 .left-column[
   ### Install Sublime Text 3 editor. 
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -22,4 +22,4 @@ If you just want to quickly follow the tutorial then *do* execute this group of 
   apt-get install -y sublime-text-installer
 ```
 
-<!-- -->]
+<!-- B -->]

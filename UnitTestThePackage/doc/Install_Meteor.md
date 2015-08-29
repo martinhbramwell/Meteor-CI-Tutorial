@@ -2,7 +2,7 @@
 .left-column[
   ### Install Meteor
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -16,4 +16,4 @@ curl https://install.meteor.com/ | sh
 ```
 
 
-<!-- -->]
+<!-- B -->]

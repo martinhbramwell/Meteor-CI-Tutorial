@@ -2,7 +2,7 @@
 .left-column[
   ### The Async Problem (A)
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -30,4 +30,4 @@ PetStore is now a proxy for the remote server.
 Continues ...
 
 
-<!-- -->]
+<!-- B -->]

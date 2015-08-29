@@ -2,7 +2,7 @@
 .left-column[
   ### Selenium Web Driver for NodeJS
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -18,4 +18,4 @@ npm install -y --prefix ${HOME} selenium-webdriver
 ```
 
 
-<!-- -->]
+<!-- B -->]

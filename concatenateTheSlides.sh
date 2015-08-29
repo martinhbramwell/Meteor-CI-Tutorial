@@ -42,28 +42,73 @@
 
 # popd
 
-# declare -a PrepareTheMachine_FILENAMES=(
-#   Introduction.md
-#   Java_7_is_required_by_Nightwatch.md
-#   This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md
-#   Install_other_tools.md
-#   Install_NodeJS.md
-#   Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome.md
-#   Install_Selenium_Webdriver_In_NodeJS.md
-#   Install_eslint_and_configure_SublimeLinter.md
-#   Configure_Sublime_A.md
-#   Configure_Sublime_B.md
-#   Fin.md
-# )
-# pushd PrepareTheMachine
+declare -a FILEPATHS=(
+  "UnitTestThePackage|Introduction.md"
+  "UnitTestThePackage|Set_Up_Project_Names.md"
+  "UnitTestThePackage|Configure_git_for_GitHub.md"
+  "UnitTestThePackage|Create_SSH_keys_directory_if_not_exist.md"
+  "UnitTestThePackage|Install_Meteor.md"
+  "UnitTestThePackage|Create_Meteor_project.md"
+  "UnitTestThePackage|Check_the_meteor_project_will_work.md"
+  "UnitTestThePackage|Add_Meteor_application_development_support_files.md"
+  "UnitTestThePackage|Configure_Sublime_Text_to_use_ESLint.md"
+  "UnitTestThePackage|Create_remote_GitHub_repository.md"
+  "UnitTestThePackage|Create_local_GitHub_repository.md"
+  "UnitTestThePackage|Create_a_package_and_TinyTest_it.md"
+  "UnitTestThePackage|Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md"
+  "UnitTestThePackage|Add_a_CircleCI_configuration_file_and_push_to_GitHub.md"
+  "UnitTestThePackage|Install_Bunyan_Globally.md"
+  "UnitTestThePackage|Prepare_for_NightWatch_testing.md"
+  "UnitTestThePackage|Run_NightWatch_testing.md"
+  "UnitTestThePackage|Push_Nightwatch_testing_to_GitHub_and_CircleCI.md"
+  "UnitTestThePackage|Observe_ordinary_console_logging.md"
+  "UnitTestThePackage|Add_an_NPM_module_to_your_package.md"
+  "UnitTestThePackage|Specify_Npm_modules.md"
+  "UnitTestThePackage|Bunyan_Server_Side_OnlyLogging.md"
+  "UnitTestThePackage|Add_Bunyan_Logging.md"
+  "UnitTestThePackage|Goodbye_console.md"
+  "UnitTestThePackage|Refactor_Bunyan_InstantiationA.md"
+  "UnitTestThePackage|Refactor_Bunyan_InstantiationB.md"
+  "UnitTestThePackage|Another_NodeJS_moduleA.md"
+  "UnitTestThePackage|Another_NodeJS_moduleB.md"
+  "UnitTestThePackage|The_Async_ProblemA.md"
+  "UnitTestThePackage|The_Async_ProblemB.md"
+  "UnitTestThePackage|The_Async_ProblemC.md"
+  "UnitTestThePackage|Fin.md"
+  "PrepareTheMachine|Introduction.md"
+  "PrepareTheMachine|Java_7_is_required_by_Nightwatch.md"
+  "PrepareTheMachine|This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md"
+  "PrepareTheMachine|Install_other_tools.md"
+  "PrepareTheMachine|Install_NodeJS.md"
+  "PrepareTheMachine|Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome.md"
+  "PrepareTheMachine|Install_Selenium_Webdriver_In_NodeJS.md"
+  "PrepareTheMachine|Install_eslint_and_configure_SublimeLinter.md"
+  "PrepareTheMachine|Configure_Sublime_A.md"
+  "PrepareTheMachine|Configure_Sublime_B.md"
+  "PrepareTheMachine|Fin.md"
+)
 
-# for idx in "${PrepareTheMachine_FILENAMES[@]}"
-# do
-#    sed -i 's|TOC](..)|TOC](./)|g' doc/${idx}
-# done
+for idx_d in "${FILEPATHS[@]}"
+do
+  FP="${idx_d}"
+  FPA=(${FP//|/ })
+  AFP="${FPA[0]}/doc/${FPA[1]}"
+  sed -i '0,/<!-- -->]/s|<!-- -->]|<!-- B -->]|' ${AFP}
+done
+exit
 
-# popd
-# exit
+pushd PrepareTheMachine
+
+declare -a PrepareTheMachine_FILENAMES=(
+)
+pushd PrepareTheMachine
+
+for idx in "${PrepareTheMachine_FILENAMES[@]}"
+do
+done
+
+popd
+exit
 
 
 SKIP=true;

@@ -2,7 +2,7 @@
 .left-column[
   ### Prepare Sublime Text (Step #2)
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -18,4 +18,4 @@
    - Color Scheme 
      - Color Scheme - Default --> pick ```IDLE```
 
-<!-- -->]
+<!-- B -->]

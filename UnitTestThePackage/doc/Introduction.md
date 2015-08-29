@@ -2,7 +2,7 @@ layout: false
 .left-column[
   ### PART B INTRODUCTION
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -15,4 +15,4 @@ This one, 'Step02_UnitTestThePackage.sh', prepares a Meteor project with an embe
 You should not need to use 'sudo' for this or any of the later parts.  Everything should happen in your HOME diectory.
 
 
-<!-- -->]
+<!-- B -->]

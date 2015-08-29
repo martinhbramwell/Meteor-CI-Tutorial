@@ -2,7 +2,7 @@
 .left-column[
   ### Add Bunyan Logging
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -23,4 +23,4 @@ Tinytest.add("example", function sanity(test) {
 
    ... save, and observe the command line logs and the browser console.
 
-<!-- -->]
+<!-- B -->]

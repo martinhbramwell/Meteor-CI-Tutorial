@@ -4,7 +4,7 @@ layout: false
 
 
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -14,4 +14,4 @@ This first script, 'Step01_PrepareTheMachine.sh', sets up all necessary precondi
 
 You can hit the 'a' key at any of the pause points to have it run **a**ll the remaining steps without further interruption.
 
-<!-- -->]
+<!-- B -->]

@@ -2,7 +2,7 @@
 .left-column[
   ### The Async Problem (A)
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -26,4 +26,4 @@ Note that their names are in an array.
 Continues ...
 
 
-<!-- -->]
+<!-- B -->]

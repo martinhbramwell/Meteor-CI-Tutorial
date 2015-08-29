@@ -2,7 +2,7 @@
 .left-column[
   ### Test a Meteor Package
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -20,4 +20,4 @@ In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm t
 Notice the files newly added under the package directory.  These will also have to be pushed to GitHub.
 
 
-<!-- -->]
+<!-- B -->]

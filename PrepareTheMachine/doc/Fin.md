@@ -2,7 +2,7 @@
 .left-column[
   ### End Of Part A
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -15,4 +15,4 @@ The next section must run **without** sudo.
 [Unit Test a Package](./?part=B)
 
 
-<!-- -->]
+<!-- B -->]

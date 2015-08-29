@@ -2,7 +2,7 @@
 .left-column[
   ### Set Up Linting
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -21,4 +21,4 @@ npm install -gy babel-eslint
 ```
 
 
-<!-- -->]
+<!-- B -->]

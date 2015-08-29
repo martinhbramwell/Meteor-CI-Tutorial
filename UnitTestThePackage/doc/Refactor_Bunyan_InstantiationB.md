@@ -2,7 +2,7 @@
 .left-column[
   ### Refactor Bunyan (B)
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -29,4 +29,4 @@ In a new terminal window run
 tail -f /var/log/meteor/ci4meteor.log  | bunyan
 ```
 
-<!-- -->]
+<!-- B -->]

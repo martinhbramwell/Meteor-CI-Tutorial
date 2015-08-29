@@ -1,7 +1,8 @@
 ---
 .left-column[
-  ### End Of Part #B
-]
+  ### End Of Part B
+.footnote[.red.bold[] [Back to TOC](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -10,4 +11,4 @@
 Thank you!
 
 
-<!-- -->]
+<!-- B -->]

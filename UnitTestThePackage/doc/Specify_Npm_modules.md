@@ -2,7 +2,7 @@
 .left-column[
   ### Specify Npm modules
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -34,4 +34,4 @@ Npm.depends({                 //  ADD! <--
 
    ... save, and observe the command line logs and the browser console.
 
-<!-- -->]
+<!-- B -->]

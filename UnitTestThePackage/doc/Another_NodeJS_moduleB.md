@@ -2,7 +2,7 @@
 .left-column[
   ### Another NodeJS Module (B)
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -31,4 +31,4 @@ const swagger = new Client({
 Continues ...
 
 
-<!-- -->]
+<!-- B -->]

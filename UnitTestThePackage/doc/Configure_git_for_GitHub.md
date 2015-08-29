@@ -2,7 +2,7 @@
 .left-column[
   ### Configure git for GitHub
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -20,4 +20,4 @@ git config --global user.name "${YOUR_EMAIL}"
 git config --global user.email "${YOUR_NAME}"
 git config --global push.default simple
 ```
-<!-- -->]
+<!-- B -->]

@@ -2,7 +2,7 @@
 .left-column[
   ### GitHub Repo
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -19,4 +19,4 @@ Some steps are more understandable if you watch the video series mentioned on th
 
 
 
-<!-- -->]
+<!-- B -->]

@@ -2,7 +2,7 @@
 .left-column[
   ### ESLint for ST3
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -18,4 +18,4 @@ Steps to perform :
    - 'SublimeLinter'
    - 'SublimeLinter-contrib-eslint'
 
-<!-- -->]
+<!-- B -->]

@@ -2,7 +2,7 @@
 .left-column[
   ### The Async Problem (A)
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -31,4 +31,4 @@ _How do we get it?__
 Continues ...
 
 
-<!-- -->]
+<!-- B -->]

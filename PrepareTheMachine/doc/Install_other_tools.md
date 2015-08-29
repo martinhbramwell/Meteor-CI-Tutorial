@@ -2,7 +2,7 @@
 .left-column[
   ### Install other tools 
 .footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -25,4 +25,4 @@ This sequence installs the following dependencies, if they're not already presen
 ```
 
 
-<!-- -->]
+<!-- B -->]
