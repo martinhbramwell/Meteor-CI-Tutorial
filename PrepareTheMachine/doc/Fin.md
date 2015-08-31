@@ -1,16 +1,16 @@
 ---
 .left-column[
   ### End Of Part A
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Got to the next section
 
-The previous section require 'sudo' at nearly every step.
+The previous section required 'sudo' at nearly every step.
 
-The next section must run **without** sudo.
+This. and following sections, on the other hand, must run **without** sudo.
 
 [Unit Test a Package](./?part=B)
 

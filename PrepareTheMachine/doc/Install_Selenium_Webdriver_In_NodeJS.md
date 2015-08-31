@@ -1,7 +1,7 @@
 ---
 .left-column[
   ### Selenium Web Driver for NodeJS
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -18,4 +18,7 @@ npm install -y --prefix ${HOME} selenium-webdriver
 ```
 
 
-<!-- B -->]
+<!-- Code for this begins at line #94 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L94" target="_blank">Code for this step.</a>] ]
+]

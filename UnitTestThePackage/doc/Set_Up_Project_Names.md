@@ -1,7 +1,7 @@
 ---
 .left-column[
   ### Set Up Project Names
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~

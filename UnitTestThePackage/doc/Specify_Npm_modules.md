@@ -1,7 +1,7 @@
 ---
 .left-column[
   ### Specify Npm modules
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~

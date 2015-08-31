@@ -1,7 +1,7 @@
 layout: false
 .left-column[
   ### PART B INTRODUCTION
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -12,7 +12,7 @@ The previous script, 'Step01_PrepareTheMachine.sh', set up necessary preconditio
 
 This one, 'Step02_UnitTestThePackage.sh', prepares a Meteor project with an embedded package ready for testing with TinyTest using the first few of the previously mentioned application development support tools.
 
-You should not need to use 'sudo' for this or any of the later parts.  Everything should happen in your HOME diectory.
+You should not need to use 'sudo' for this or any of the later parts.  Everything should happen in your HOME directory.
 
 
 <!-- B -->]

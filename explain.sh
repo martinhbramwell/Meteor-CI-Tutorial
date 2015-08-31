@@ -13,7 +13,7 @@ function highlight()
   echo -en ${PURPLE};
   envsubst < $1 | \
   awk '{while(match($0,"[$]{[^}]*}")) {var=substr($0,RSTART+2,RLENGTH -3);gsub("[$]{"var"}",ENVIRON[var])}}1' | \
-  sed '1,/o 0 o/d;/<!-- -->]/,$d' | \
+  sed '1,/o 0 o/d;/<!-- B -->/,$d' | \
   sed "s|\(\[\)\([a-z A-Z0-9'.:/]*\)\(\]([a-zA-Z0-9/:._-?=]*)\)|\2 |g" | \
   fold -w 90 -s;
   echo -en ${NC};

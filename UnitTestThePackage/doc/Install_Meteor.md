@@ -1,7 +1,7 @@
 ---
 .left-column[
   ### Install Meteor
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -16,4 +16,7 @@ curl https://install.meteor.com/ | sh
 ```
 
 
-<!-- B -->]
+<!-- Code for this begins at line #98 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L98" target="_blank">Code for this step.</a>] ]
+]

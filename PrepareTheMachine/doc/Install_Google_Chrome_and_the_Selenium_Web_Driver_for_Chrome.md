@@ -1,7 +1,7 @@
 ---
 .left-column[
   ### Install Selenium Web Driver
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -20,4 +20,7 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
 ```
 
-<!-- B -->]
+<!-- Code for this begins at line #105 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L105" target="_blank">Code for this step.</a>] ]
+]

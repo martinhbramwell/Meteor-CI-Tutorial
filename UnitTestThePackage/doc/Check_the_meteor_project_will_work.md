@@ -3,7 +3,7 @@ name: Check Meteor Works
 
 .left-column[
   ### Check Meteor Works
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -25,4 +25,7 @@ A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print $2}')
 echo $A_METEOR_PID
 ```
 
-<!-- B -->]
+<!-- Code for this begins at line #167 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L167" target="_blank">Code for this step.</a>] ]
+]

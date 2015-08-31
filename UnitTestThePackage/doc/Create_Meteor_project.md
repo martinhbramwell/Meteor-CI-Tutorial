@@ -1,7 +1,7 @@
 ---
 .left-column[
   ### Create Meteor Project
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -17,4 +17,7 @@ mkdir -p ~/${PARENT_DIR}
 meteor create ${PROJECT_NAME}
 ```
 
-<!-- B -->]
+<!-- Code for this begins at line #123 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L123" target="_blank">Code for this step.</a>] ]
+]

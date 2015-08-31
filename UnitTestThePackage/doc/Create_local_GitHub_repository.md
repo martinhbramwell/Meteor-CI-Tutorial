@@ -1,7 +1,7 @@
 ---
 .left-column[
   ### Local GitHub Repo
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -20,4 +20,7 @@ This step is NOT idempotent.
 
 If the project has already been pushed to GitHub you might get errors. If so, the easiest thing to do is eliminate the project from GitHub and run this step again.
 
-<!-- B -->]
+<!-- Code for this begins at line #257 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L257" target="_blank">Code for this step.</a>] ]
+]

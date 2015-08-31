@@ -43,7 +43,7 @@ fi;
 
 
 
-explain ${DOCS}/Configure_git_for_GitHub.md
+explain ${DOCS}/Configure_git_for_GitHub.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
 
   echo -e "#   -- Configuring git ... "
@@ -57,7 +57,7 @@ fi
 AUTORUN="";
 
 
-explain ${DOCS}/Create_SSH_keys_directory_if_not_exist.md
+explain ${DOCS}/Create_SSH_keys_directory_if_not_exist.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
   SET_UP_SSH=true;
   if [ -f ~/.ssh/id_rsa ]; then SET_UP_SSH=false;  fi
@@ -93,7 +93,7 @@ fi
 
 
 
-explain ${DOCS}/Install_Meteor.md
+explain ${DOCS}/Install_Meteor.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
   INSTALLMETEOR=true
   if [[ $(meteor --version) =~ .*Meteor.* ]]
@@ -118,7 +118,7 @@ export PARENT_DIR=projects
 METEOR_PORT=3000
 
 
-explain ${DOCS}/Create_Meteor_project.md
+explain ${DOCS}/Create_Meteor_project.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
   # Make a projects directory
   mkdir -p ~/${PARENT_DIR}
@@ -162,7 +162,7 @@ fi
 
 
 
-explain ${DOCS}/Check_the_meteor_project_will_work.md
+explain ${DOCS}/Check_the_meteor_project_will_work.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
 
   existingMeteor
@@ -189,7 +189,7 @@ fi
 
 
 export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc"
-explain ${DOCS}/Add_Meteor_application_development_support_files.md
+explain ${DOCS}/Add_Meteor_application_development_support_files.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
 
   pushd ~/${PARENT_DIR}
@@ -252,7 +252,7 @@ highlight ${DOCS}/Create_remote_GitHub_repository.md
 read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
 
 
-explain ${DOCS}/Create_local_GitHub_repository.md
+explain ${DOCS}/Create_local_GitHub_repository.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
 
   pushd ~/${PARENT_DIR}
@@ -273,7 +273,7 @@ fi
 
 
 
-explain ${DOCS}/Create_a_package_and_TinyTest_it.md
+explain ${DOCS}/Create_a_package_and_TinyTest_it.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
 
   existingMeteor
@@ -306,7 +306,7 @@ fi
 
 
 
-explain ${DOCS}/Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md
+explain ${DOCS}/Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
 
   existingMeteor
@@ -337,7 +337,7 @@ fi
 
 
 
-explain ${DOCS}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md
+explain ${DOCS}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
 
   pushd ~/${PARENT_DIR}
@@ -368,7 +368,7 @@ fi
 
 
 
-explain ${DOCS}/Install_Bunyan_Globally.md
+explain ${DOCS}/Install_Bunyan_Globally.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
 
   sudo chown -R ${USER}:${USER} ~/.npm
@@ -384,7 +384,7 @@ fi
 
 
 
-explain ${DOCS}/Prepare_for_NightWatch_testing.md
+explain ${DOCS}/Prepare_for_NightWatch_testing.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
 
   pushd ~/${PARENT_DIR}
@@ -400,7 +400,7 @@ if [ $? -eq 0 ]; then
 fi
 
 
-explain ${DOCS}/Run_NightWatch_testing.md
+explain ${DOCS}/Run_NightWatch_testing.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
 
   existingMeteor
@@ -432,7 +432,7 @@ fi
 
 
 
-explain ${DOCS}/Push_Nightwatch_testing_to_GitHub_and_CircleCI.md
+explain ${DOCS}/Push_Nightwatch_testing_to_GitHub_and_CircleCI.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
 
   pushd ~/${PARENT_DIR}

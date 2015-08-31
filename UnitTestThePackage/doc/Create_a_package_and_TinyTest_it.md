@@ -1,7 +1,7 @@
 ---
 .left-column[
   ### Test a Meteor Package
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -20,4 +20,7 @@ In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm t
 Notice the files newly added under the package directory.  These will also have to be pushed to GitHub.
 
 
-<!-- B -->]
+<!-- Code for this begins at line #278 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L278" target="_blank">Code for this step.</a>] ]
+]

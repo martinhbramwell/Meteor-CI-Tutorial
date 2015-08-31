@@ -1,8 +1,8 @@
 layout: false
 .left-column[
   ### PART B INTRODUCTION
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -12,15 +12,15 @@ The previous script, 'Step01_PrepareTheMachine.sh', set up necessary preconditio
 
 This one, 'Step02_UnitTestThePackage.sh', prepares a Meteor project with an embedded package ready for testing with TinyTest using the first few of the previously mentioned application development support tools.
 
-You should not need to use 'sudo' for this or any of the later parts.  Everything should happen in your HOME diectory.
+You should not need to use 'sudo' for this or any of the later parts.  Everything should happen in your HOME directory.
 
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### Set Up Project Names
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -34,12 +34,12 @@ You will be asked to supply the following details :
  - The project owner name to use to publish it in GitHub
  - The email address for the project owner in GitHub
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### Configure git for GitHub
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -57,12 +57,15 @@ git config --global user.name "${YOUR_EMAIL}"
 git config --global user.email "${YOUR_NAME}"
 git config --global push.default simple
 ```
-<!-- -->]
+<!-- Code for this begins at line #48 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L48" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Prepare SSH directory
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -77,12 +80,15 @@ Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa'
 You'll need to paste your SSH credentials into each of the empty files. This assumes you only need to copy them in from some other GitHub project.  Getting them for the first time is beyond the scope of this tutorial.  You should follow [GitHub's getting started documents.](https://help.github.com/articles/generating-ssh-keys/)
 
 
-<!-- -->]
+<!-- Code for this begins at line #62 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L62" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Install Meteor
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -96,12 +102,15 @@ curl https://install.meteor.com/ | sh
 ```
 
 
-<!-- -->]
+<!-- Code for this begins at line #98 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L98" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Create Meteor Project
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -116,14 +125,17 @@ mkdir -p ~/${PARENT_DIR}
 meteor create ${PROJECT_NAME}
 ```
 
-<!-- -->]
+<!-- Code for this begins at line #123 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L123" target="_blank">Code for this step.</a>] ]
+]
 ---
 name: Check Meteor Works
 
 .left-column[
   ### Check Meteor Works
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -144,12 +156,15 @@ A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print $2}')
 echo $A_METEOR_PID
 ```
 
-<!-- -->]
+<!-- Code for this begins at line #167 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L167" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Meteor App Metadata
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -167,12 +182,15 @@ The .eslintrc file is borrowed from the project [warehouseman:meteor-swagger-cli
 wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
 ```
 
-<!-- -->]
+<!-- Code for this begins at line #194 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L194" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### ESLint for ST3
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -188,12 +206,12 @@ Steps to perform :
    - 'SublimeLinter'
    - 'SublimeLinter-contrib-eslint'
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### GitHub Repo
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -210,12 +228,12 @@ Some steps are more understandable if you watch the video series mentioned on th
 
 
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### Local GitHub Repo
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -233,12 +251,15 @@ This step is NOT idempotent.
 
 If the project has already been pushed to GitHub you might get errors. If so, the easiest thing to do is eliminate the project from GitHub and run this step again.
 
-<!-- -->]
+<!-- Code for this begins at line #257 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L257" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Test a Meteor Package
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -256,12 +277,15 @@ In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm t
 Notice the files newly added under the package directory.  These will also have to be pushed to GitHub.
 
 
-<!-- -->]
+<!-- Code for this begins at line #278 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L278" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Runner for TinyTest
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -276,12 +300,15 @@ The GitHub repo [warehouseman:meteor-tinytest-runner](https://github.com/warehou
 The installer deletes itself after preparing the files for immediate use.
 
 
-<!-- -->]
+<!-- Code for this begins at line #311 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L311" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Configure CircleCI 
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -292,12 +319,15 @@ On the preliminary commit, CircleCI recognized the project's existence but did n
 Now, we have a test runner, and with the addition of a ```circle.yml``` configuration file committing the project to GitHub will cause an automatic rebuild.
 
 
-<!-- -->]
+<!-- Code for this begins at line #342 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L342" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Install Bunyan
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -316,12 +346,15 @@ It is in two parts :
 For ongoing server side logging during development or production we need a permanent home for the logs.  The standard place for that in Ubuntu is ```/var/log/```.  So we also need to create a directory for Meteor with suitable permissions.
 
 
-<!-- -->]
+<!-- Code for this begins at line #373 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L373" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Set Up Nightwatch
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -338,12 +371,15 @@ then make make it executable and run it.
 The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample ```circle.yml``` that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
 
 
-<!-- -->]
+<!-- Code for this begins at line #389 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L389" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Run NightWatch
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -354,12 +390,15 @@ Nightwatch and Meteor are separate.
 This command group starts Meteor in a background process, and then starts the Nightwatch Test Runner to try the simple sanity check test, "Does the main page have a <body> tag?".
 
 
-<!-- -->]
+<!-- Code for this begins at line #405 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L405" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Commit Nightwatch
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -370,12 +409,15 @@ We are ready for the final stage: TinyTest & Nightwatch testing run in a single 
 The Nightwatch ```circle.yml``` includes set up of TinyTest, so it can overwrite the one created earlier.
 
 
-<!-- -->]
+<!-- Code for this begins at line #437 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L437" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Console.log is bad!
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -402,12 +444,12 @@ Tinytest.add("example", function sanity(test) {
 then save it and observe the command line logs and the browser console
 
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### NPM module
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -435,12 +477,12 @@ Tinytest.add("example", function sanity(test) {
 
 
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### Specify Npm modules
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -472,12 +514,12 @@ Npm.depends({                 //  ADD! <--
 
    ... save, and observe the command line logs and the browser console.
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### Server Only
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -503,12 +545,12 @@ Npm.depends({
 
    ... save, and observe the command line logs and the browser console.
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### Add Bunyan Logging
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -529,12 +571,12 @@ Tinytest.add("example", function sanity(test) {
 
    ... save, and observe the command line logs and the browser console.
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### Goodbye Console
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -554,12 +596,12 @@ Tinytest.add("example", function sanity(test) {
 ```
 
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### Refactor Bunyan (A)
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -591,12 +633,12 @@ Tinytest.add("example", function sanity(test) {
 Continues ...
 
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### Refactor Bunyan (B)
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -623,12 +665,12 @@ In a new terminal window run
 tail -f /var/log/meteor/ci4meteor.log  | bunyan
 ```
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### Another NodeJS Module (A)
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -661,12 +703,12 @@ Npm.depends({
 Continues ...
 
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### Another NodeJS Module (B)
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -695,12 +737,12 @@ const swagger = new Client({
 Continues ...
 
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### The Async Problem (A)
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -729,12 +771,12 @@ _How do we get it?__
 Continues ...
 
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### The Async Problem (A)
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -762,12 +804,12 @@ PetStore is now a proxy for the remote server.
 Continues ...
 
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### The Async Problem (A)
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -791,4 +833,18 @@ Note that their names are in an array.
 Continues ...
 
 
-<!-- -->]
+<!-- B -->]
+---
+.left-column[
+  ### End Of Part B
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Fin
+
+Thank you!
+
+
+<!-- B -->]

@@ -2,7 +2,7 @@
 layout: false
 .left-column[
   ### Java required
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -22,4 +22,7 @@ Steps performed :
   apt-get update
   apt-get -y install oracle-java7-installer
 ```
-<!-- B -->]
+<!-- Code for this begins at line #44 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L44" target="_blank">Code for this step.</a>] ]
+]

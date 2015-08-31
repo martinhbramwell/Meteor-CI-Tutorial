@@ -25,7 +25,7 @@ DOCS="./PrepareTheMachine/doc"
 
 source ./explain.sh
 
-highlight ${DOCS}/Introduction.md
+highlight ${DOCS}/Introduction.md #X
 echo ""
 echo "To view this embedded documentation as a browser slideshow choose one of the following options:"
 echo " A) Open your browser to http://martinhbramwell.github.io/Meteor-CI-Tutorial/"
@@ -39,7 +39,7 @@ read -p "Hit <enter> ::  " -n 1 -r REPLY
 
 
 AUTORUN="";
-explain ${DOCS}/Java_7_is_required_by_Nightwatch.md
+explain ${DOCS}/Java_7_is_required_by_Nightwatch.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
   echo -e # -- Get PPAs for Oracle Java 7 and update APT --
   add-apt-repository -y ppa:webupd8team/java
@@ -54,7 +54,7 @@ fi
 
 
 
-explain ${DOCS}/This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md
+explain ${DOCS}/This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
   echo -e # -- Get PPAs for Sublime Text editor --
   add-apt-repository -y ppa:webupd8team/sublime-text-3
@@ -66,7 +66,7 @@ fi
 
 
 
-explain ${DOCS}/Install_other_tools.md
+explain ${DOCS}/Install_other_tools.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
   apt-get install -y build-essential libssl-dev  # for selenium webdriver
   apt-get install -y libappindicator1            # for chrome
@@ -77,7 +77,7 @@ fi
 
 
 
-explain ${DOCS}/Install_NodeJS.md
+explain ${DOCS}/Install_NodeJS.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
   pushd /tmp
   curl -sL https://deb.nodesource.com/setup | sudo bash -
@@ -89,7 +89,7 @@ fi
 
 
 
-explain ${DOCS}/Install_Selenium_Webdriver_In_NodeJS.md
+explain ${DOCS}/Install_Selenium_Webdriver_In_NodeJS.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
 
   sudo chown -R ${USER}:${USER} ~/.npm
@@ -100,7 +100,7 @@ fi
 
 
 
-explain ${DOCS}/Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome.md
+explain ${DOCS}/Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
   pushd /tmp
 
@@ -122,7 +122,7 @@ fi
 
 
 
-explain ${DOCS}/Install_eslint_and_configure_SublimeLinter.md
+explain ${DOCS}/Install_eslint_and_configure_SublimeLinter.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
   npm install -gy eslint
   npm install -gy eslint-plugin-react

@@ -1,7 +1,7 @@
 ---
 .left-column[
   ### Install Sublime Text 3 editor. 
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -22,4 +22,7 @@ If you just want to quickly follow the tutorial then *do* execute this group of 
   apt-get install -y sublime-text-installer
 ```
 
-<!-- B -->]
+<!-- Code for this begins at line #59 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L59" target="_blank">Code for this step.</a>] ]
+]

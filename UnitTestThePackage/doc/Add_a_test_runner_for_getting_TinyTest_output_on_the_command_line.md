@@ -1,7 +1,7 @@
 ---
 .left-column[
   ### Runner for TinyTest
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -17,4 +17,7 @@ The GitHub repo [warehouseman:meteor-tinytest-runner](https://github.com/warehou
 The installer deletes itself after preparing the files for immediate use.
 
 
-<!-- B -->]
+<!-- Code for this begins at line #311 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L311" target="_blank">Code for this step.</a>] ]
+]

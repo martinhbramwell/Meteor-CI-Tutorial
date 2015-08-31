@@ -1,7 +1,7 @@
 ---
 .left-column[
   ### Install other tools 
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -25,4 +25,7 @@ This sequence installs the following dependencies, if they're not already presen
 ```
 
 
-<!-- B -->]
+<!-- Code for this begins at line #71 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L71" target="_blank">Code for this step.</a>] ]
+]

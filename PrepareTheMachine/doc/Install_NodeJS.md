@@ -1,7 +1,7 @@
 ---
 .left-column[
   ### Install NodeJS
-.footnote[.red.bold[] [Back to TOC](./)] 
+.footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -21,4 +21,7 @@ It can run on a separate computer from [Meteor](https://www.meteor.com/), (but w
 ```
 
 
-<!-- B -->]
+<!-- Code for this begins at line #82 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L82" target="_blank">Code for this step.</a>] ]
+]
