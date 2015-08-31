@@ -3,8 +3,8 @@ layout: false
   ### Part A INTRODUCTION
 
 
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -14,13 +14,13 @@ This first script, 'Step01_PrepareTheMachine.sh', sets up all necessary precondi
 
 You can hit the 'a' key at any of the pause points to have it run **a**ll the remaining steps without further interruption.
 
-<!-- -->]
+<!-- B -->]
 ---
 layout: false
 .left-column[
   ### Java required
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -39,12 +39,15 @@ Steps performed :
   apt-get update
   apt-get -y install oracle-java7-installer
 ```
-<!-- -->]
+<!-- Code for this begins at line #44 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L44" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Install Sublime Text 3 editor. 
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -64,12 +67,15 @@ If you just want to quickly follow the tutorial then *do* execute this group of 
   apt-get install -y sublime-text-installer
 ```
 
-<!-- -->]
+<!-- Code for this begins at line #59 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L59" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Install other tools 
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -92,12 +98,15 @@ This sequence installs the following dependencies, if they're not already presen
 ```
 
 
-<!-- -->]
+<!-- Code for this begins at line #71 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L71" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Install NodeJS
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -116,33 +125,15 @@ It can run on a separate computer from [Meteor](https://www.meteor.com/), (but w
 ```
 
 
-<!-- -->]
----
-.left-column[
-  ### Selenium Web Driver for NodeJS
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### Install 'selenium-webdriver' in NodeJS
-
-The [NodeJS](https://nodejs.org/) module [Selenium Webdriver](https://github.com/SeleniumHQ/selenium) is required for running Meteor TinyTest on the command line, rather than in a browser.  **Note**: The next step after this one installs a different Seleniun driver.
-
-We must first ensure that root has not taken ownership of the local .npm directory *(that can happen if you ran npm with sudo when you didn't need to)*.
-##### Commands
-```terminal
-sudo chown -R ${USER}:${USER} ~/.npm
-npm install -y --prefix ${HOME} selenium-webdriver
-```
-
-
-<!-- -->]
+<!-- Code for this begins at line #82 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L82" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Install Selenium Web Driver
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -160,12 +151,39 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
 ```
 
-<!-- -->]
+<!-- Code for this begins at line #105 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L105" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Selenium Web Driver for NodeJS
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Install 'selenium-webdriver' in NodeJS
+
+The [NodeJS](https://nodejs.org/) module [Selenium Webdriver](https://github.com/SeleniumHQ/selenium) is required for running Meteor TinyTest on the command line, rather than in a browser.  **Note**: The next step after this one installs a different Seleniun driver.
+
+We must first ensure that root has not taken ownership of the local .npm directory *(that can happen if you ran npm with sudo when you didn't need to)*.
+##### Commands
+```terminal
+sudo chown -R ${USER}:${USER} ~/.npm
+npm install -y --prefix ${HOME} selenium-webdriver
+```
+
+
+<!-- Code for this begins at line #94 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L94" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Set Up Linting
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -184,12 +202,15 @@ npm install -gy babel-eslint
 ```
 
 
-<!-- -->]
+<!-- Code for this begins at line #127 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L127" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Prepare Sublime Text (Step #1)
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -212,12 +233,12 @@ import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7
 ]
 
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### Prepare Sublime Text (Step #2)
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
@@ -233,22 +254,22 @@ import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7
    - Color Scheme 
      - Color Scheme - Default --> pick ```IDLE```
 
-<!-- -->]
+<!-- B -->]
 ---
 .left-column[
   ### End Of Part A
-.footnote[.red.bold[] [Back to TOC](./)] 
-<!-- -->]
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Got to the next section
 
-The previous section require 'sudo' at nearly every step.
+The previous section required 'sudo' at nearly every step.
 
-The next section must run **without** sudo.
+This. and following sections, on the other hand, must run **without** sudo.
 
 [Unit Test a Package](./?part=B)
 
 
-<!-- -->]
+<!-- B -->]
