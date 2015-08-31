@@ -368,21 +368,6 @@ fi
 
 
 
-explain ${DOCS}/Install_Bunyan_Globally.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
-
-  sudo chown -R ${USER}:${USER} ~/.npm
-  sudo npm install -y --global --prefix /usr bunyan
-
-  LOG_DIR="/var/log/meteor"
-  sudo mkdir -p ${LOG_DIR}
-  sudo chown ${USER}:${USER} ${LOG_DIR}
-  sudo chmod ug+rwx ${LOG_DIR}
-
-fi
-
-
-
 
 explain ${DOCS}/Prepare_for_NightWatch_testing.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
