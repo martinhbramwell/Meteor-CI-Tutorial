@@ -6,7 +6,7 @@
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Install “eslint” and configure Sublime Text 3.
+#### Install “eslint”.
 
 Linting detects code style contraventions, improves maintainability, and flags many hard-to-debug errors before they happen.
 

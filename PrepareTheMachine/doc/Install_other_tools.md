@@ -13,15 +13,15 @@ This sequence installs the following dependencies, if they're not already presen
 - 'libappindicator1' for [Chrome](https://www.google.com/chrome/browser/desktop/)
 - '[curl](http://curl.haxx.se/)' for [Meteor](https://www.meteor.com/)
 - '[git](https://git-scm.com/)' and '[ssh](http://www.openssh.com/)' for version control
-- 'tree' for demo convenience 
+- 'tree' and '[pip](https://pypi.python.org/pypi/pip)' for demo convenience 
 
 ##### Commands
 ```terminal
   apt-get install -y build-essential libssl-dev  # for selenium webdriver
   apt-get install -y libappindicator1            # for chrome
   apt-get install -y curl                        # for Meteor
-  apt-get install -y tree                        # for demo convenience
   apt-get install -y git ssh                     # for version control
+  apt-get install -y tree python-pip            # for demo convenience
 ```
 
 

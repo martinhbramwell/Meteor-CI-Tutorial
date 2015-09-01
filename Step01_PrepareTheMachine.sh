@@ -54,25 +54,13 @@ fi
 
 
 
-explain ${DOCS}/This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
-  echo -e # -- Get PPAs for Sublime Text editor --
-  add-apt-repository -y ppa:webupd8team/sublime-text-3
-  apt-get update
-  echo -e # -- Install Sublime Text editor --
-  apt-get install -y sublime-text-installer
-fi
-
-
-
-
 explain ${DOCS}/Install_other_tools.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
   apt-get install -y build-essential libssl-dev  # for selenium webdriver
   apt-get install -y libappindicator1            # for chrome
   apt-get install -y curl                        # for Meteor
-  apt-get install -y tree                        # for demo convenience
   apt-get install -y git ssh                     # for version control
+  apt-get install -y tree  python-pip            # for demo convenience
 fi
 
 
@@ -136,16 +124,37 @@ fi
 
 
 
+explain ${DOCS}/This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md # CODE_BLOCK
+if [ $? -eq 0 ]; then
+  echo -e # -- Get PPAs for Sublime Text editor --
+  add-apt-repository -y ppa:webupd8team/sublime-text-3
+  apt-get update
+  echo -e # -- Install Sublime Text editor --
+  apt-get install -y sublime-text-installer
+  echo -e # -- Install HTML parser for obtaining installer for ST3 Package Control --
+  pip install -y beautifulsoup4 requests
+fi
 
-explain ${DOCS}/Install_eslint_and_configure_SublimeLinter.md # CODE_BLOCK
+
+
+
+
+explain ${DOCS}/Install_eslint.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
   npm install -gy eslint
   npm install -gy eslint-plugin-react
   npm install -gy babel-eslint
 fi
 
+
+export ST3URL="https://packagecontrol.io/installation#st3";
 highlight ${DOCS}/Configure_Sublime_A.md
+echo "";
+echo "If there is no networking error, then the following text will be the snippet obtained from  : ${ST3URL}";
+python -c "import requests;from bs4 import BeautifulSoup;print '>>>\n';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"
+echo "";
 read -p "Hit <enter> ::  " -n 1 -r REPLY
+
 
 highlight ${DOCS}/Configure_Sublime_B.md
 

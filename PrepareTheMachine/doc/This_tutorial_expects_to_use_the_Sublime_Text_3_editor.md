@@ -20,6 +20,7 @@ If you just want to quickly follow the tutorial then *do* execute this group of 
   add-apt-repository -y ppa:webupd8team/sublime-text-3
   apt-get update
   apt-get install -y sublime-text-installer
+  pip install -y beautifulsoup4 requests
 ```
 
 <!-- Code for this begins at line #59 -->

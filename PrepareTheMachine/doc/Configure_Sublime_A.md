@@ -11,18 +11,14 @@
 
 We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
 
+ - In your browser, go to the [Package Control installer URL](https://packagecontrol.io/installation)
+ - Copy the code snippet for **Sublime Text 3**
  - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
  - Go to View >> Show Console
- - Paste the following installer for [Package Control](https://packagecontrol.io/) into ST3's console :
-
-.small[
+ - Paste the snippet into ST3's console, hit enter and respond to the prompts.
+#####Commands
 ```terminal
-# - - - snip - - - 
-import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
-# - - - snip - - - 
-
+export ST3URL="https://packagecontrol.io/installation#st3";
+python -c "import requests;from bs4 import BeautifulSoup;print '';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '';"
 ```
-]
-
-
 <!-- B -->]
