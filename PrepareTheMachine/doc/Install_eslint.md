@@ -21,7 +21,7 @@ npm install -gy babel-eslint
 ```
 
 
-<!-- Code for this begins at line #127 -->
+<!-- Code for this begins at line #144-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L127" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#144" target="_blank">Code for this step.</a>] ]
 ]

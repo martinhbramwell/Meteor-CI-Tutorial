@@ -57,9 +57,9 @@ git config --global user.name "${YOUR_EMAIL}"
 git config --global user.email "${YOUR_NAME}"
 git config --global push.default simple
 ```
-<!-- Code for this begins at line #48 -->
+<!-- Code for this begins at line #48-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L48" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#48" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -80,9 +80,9 @@ Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa'
 You'll need to paste your SSH credentials into each of the empty files. This assumes you only need to copy them in from some other GitHub project.  Getting them for the first time is beyond the scope of this tutorial.  You should follow [GitHub's getting started documents.](https://help.github.com/articles/generating-ssh-keys/)
 
 
-<!-- Code for this begins at line #62 -->
+<!-- Code for this begins at line #62-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L62" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#62" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -102,9 +102,9 @@ curl https://install.meteor.com/ | sh
 ```
 
 
-<!-- Code for this begins at line #98 -->
+<!-- Code for this begins at line #98-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L98" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#98" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -125,9 +125,9 @@ mkdir -p ~/${PARENT_DIR}
 meteor create ${PROJECT_NAME}
 ```
 
-<!-- Code for this begins at line #123 -->
+<!-- Code for this begins at line #123-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L123" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#123" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: Check Meteor Works
@@ -156,9 +156,9 @@ A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print $2}')
 echo $A_METEOR_PID
 ```
 
-<!-- Code for this begins at line #167 -->
+<!-- Code for this begins at line #167-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L167" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#167" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -182,9 +182,9 @@ The .eslintrc file is borrowed from the project [warehouseman:meteor-swagger-cli
 wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
 ```
 
-<!-- Code for this begins at line #194 -->
+<!-- Code for this begins at line #194-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L194" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#194" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -251,9 +251,9 @@ This step is NOT idempotent.
 
 If the project has already been pushed to GitHub you might get errors. If so, the easiest thing to do is eliminate the project from GitHub and run this step again.
 
-<!-- Code for this begins at line #257 -->
+<!-- Code for this begins at line #257-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L257" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#257" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -277,9 +277,9 @@ In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm t
 Notice the files newly added under the package directory.  These will also have to be pushed to GitHub.
 
 
-<!-- Code for this begins at line #278 -->
+<!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L278" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#278" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -300,9 +300,9 @@ The GitHub repo [warehouseman:meteor-tinytest-runner](https://github.com/warehou
 The installer deletes itself after preparing the files for immediate use.
 
 
-<!-- Code for this begins at line #311 -->
+<!-- Code for this begins at line #311-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L311" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#311" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -319,9 +319,9 @@ On the preliminary commit, CircleCI recognized the project's existence but did n
 Now, we have a test runner, and with the addition of a ```circle.yml``` configuration file committing the project to GitHub will cause an automatic rebuild.
 
 
-<!-- Code for this begins at line #342 -->
+<!-- Code for this begins at line #342-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L342" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#342" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -344,9 +344,9 @@ then make make it executable and run it.
 The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample ```circle.yml``` that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
 
 
-<!-- Code for this begins at line #389 -->
+<!-- Code for this begins at line #374-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L389" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#374" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -363,9 +363,9 @@ Nightwatch and Meteor are separate.
 This command group starts Meteor in a background process, and then starts the Nightwatch Test Runner to try the simple sanity check test, "Does the main page have a <body> tag?".
 
 
-<!-- Code for this begins at line #405 -->
+<!-- Code for this begins at line #390-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L405" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#390" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -382,9 +382,9 @@ We are ready for the final stage: TinyTest & Nightwatch testing run in a single 
 The Nightwatch ```circle.yml``` includes set up of TinyTest, so it can overwrite the one created earlier.
 
 
-<!-- Code for this begins at line #437 -->
+<!-- Code for this begins at line #422-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L437" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#422" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

@@ -19,6 +19,9 @@ We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
 #####Commands
 ```terminal
 export ST3URL="https://packagecontrol.io/installation#st3";
-python -c "import requests;from bs4 import BeautifulSoup;print '';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '';"
+python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"
 ```
-<!-- B -->]
+<!-- Code for this begins at line #153-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#153" target="_blank">Code for this step.</a>] ]
+]

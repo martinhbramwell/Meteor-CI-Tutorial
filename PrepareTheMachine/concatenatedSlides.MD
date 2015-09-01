@@ -14,6 +14,8 @@ This first script, 'Step01_PrepareTheMachine.sh', sets up all necessary precondi
 
 You can hit the 'a' key at any of the pause points to have it run **a**ll the remaining steps without further interruption.
 
+(Yes, ```apt-get update``` gets called too often.)
+
 <!-- B -->]
 ---
 layout: false
@@ -39,9 +41,9 @@ Steps performed :
   apt-get update
   apt-get -y install oracle-java7-installer
 ```
-<!-- Code for this begins at line #44 -->
+<!-- Code for this begins at line #44-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L44" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#44" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -70,9 +72,9 @@ This sequence installs the following dependencies, if they're not already presen
 ```
 
 
-<!-- Code for this begins at line #71 -->
+<!-- Code for this begins at line #59-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L71" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#59" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -97,9 +99,9 @@ It can run on a separate computer from [Meteor](https://www.meteor.com/), (but w
 ```
 
 
-<!-- Code for this begins at line #82 -->
+<!-- Code for this begins at line #70-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L82" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#70" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -123,9 +125,9 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
 ```
 
-<!-- Code for this begins at line #105 -->
+<!-- Code for this begins at line #93-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L105" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#93" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -150,9 +152,9 @@ It is in two parts :
 For ongoing server side logging during development or production we need a permanent home for the logs.  The standard place for that in Ubuntu is ```/var/log/```.  So we also need to create a directory for Meteor with suitable permissions.
 
 
-<!-- Code for this begins at line #373 -->
+<!-- Code for this begins at line #113-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L373" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#113" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -174,9 +176,9 @@ npm install -y --prefix ${HOME} selenium-webdriver
 ```
 
 
-<!-- Code for this begins at line #94 -->
+<!-- Code for this begins at line #82-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L94" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#82" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -203,9 +205,9 @@ If you just want to quickly follow the tutorial then *do* execute this group of 
   pip install -y beautifulsoup4 requests
 ```
 
-<!-- Code for this begins at line #59 -->
+<!-- Code for this begins at line #129-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L59" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#129" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -230,9 +232,9 @@ npm install -gy babel-eslint
 ```
 
 
-<!-- Code for this begins at line #127 -->
+<!-- Code for this begins at line #144-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L127" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#144" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -255,9 +257,12 @@ We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
 #####Commands
 ```terminal
 export ST3URL="https://packagecontrol.io/installation#st3";
-python -c "import requests;from bs4 import BeautifulSoup;print '';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '';"
+python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"
 ```
-<!-- B -->]
+<!-- Code for this begins at line #153-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#153" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Prepare Sublime Text (Step #2)

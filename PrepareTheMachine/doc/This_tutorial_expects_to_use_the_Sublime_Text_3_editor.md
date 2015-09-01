@@ -23,7 +23,7 @@ If you just want to quickly follow the tutorial then *do* execute this group of 
   pip install -y beautifulsoup4 requests
 ```
 
-<!-- Code for this begins at line #59 -->
+<!-- Code for this begins at line #129-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L59" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#129" target="_blank">Code for this step.</a>] ]
 ]

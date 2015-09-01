@@ -16,7 +16,7 @@ curl https://install.meteor.com/ | sh
 ```
 
 
-<!-- Code for this begins at line #98 -->
+<!-- Code for this begins at line #98-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L98" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#98" target="_blank">Code for this step.</a>] ]
 ]

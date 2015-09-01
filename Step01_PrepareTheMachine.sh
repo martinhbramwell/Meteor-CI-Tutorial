@@ -148,7 +148,7 @@ fi
 
 
 export ST3URL="https://packagecontrol.io/installation#st3";
-highlight ${DOCS}/Configure_Sublime_A.md
+highlight ${DOCS}/Configure_Sublime_A.md # CODE_BLOCK
 echo "";
 echo "If there is no networking error, then the following text will be the snippet obtained from  : ${ST3URL}";
 python -c "import requests;from bs4 import BeautifulSoup;print '>>>\n';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"

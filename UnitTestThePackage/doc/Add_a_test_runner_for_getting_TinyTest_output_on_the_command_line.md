@@ -17,7 +17,7 @@ The GitHub repo [warehouseman:meteor-tinytest-runner](https://github.com/warehou
 The installer deletes itself after preparing the files for immediate use.
 
 
-<!-- Code for this begins at line #311 -->
+<!-- Code for this begins at line #311-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L311" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#311" target="_blank">Code for this step.</a>] ]
 ]

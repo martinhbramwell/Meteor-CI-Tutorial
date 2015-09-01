@@ -20,7 +20,7 @@ In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm t
 Notice the files newly added under the package directory.  These will also have to be pushed to GitHub.
 
 
-<!-- Code for this begins at line #278 -->
+<!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L278" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#278" target="_blank">Code for this step.</a>] ]
 ]

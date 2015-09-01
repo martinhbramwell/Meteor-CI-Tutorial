@@ -82,23 +82,35 @@ do
   AFP="${FPA[1]}/doc/${FPA[2]}"
   SCRIPT_FILE="${FPA[0]}${FPA[1]}.sh"
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  # LNUM=$(grep -nr "${FPA[2]}.*CODE_BLOCK" ${SCRIPT_FILE}  | cut -d : -f 1)
-  # if [[ "${LNUM}" -gt 0 ]]; then
-  #   LNUM=$((LNUM+2))
-  #   export PATTERN='<!-- B -->]'
-  #   echo "Old : ${PATTERN}"
-  #   export REPLACEMENT='<!-- Code for this begins at line #'
-  #   REPLACEMENT="${REPLACEMENT}${LNUM}"
-  #   REPLACEMENT=${REPLACEMENT}' -->\n<!-- B -->'
-  #   REPLACEMENT=${REPLACEMENT}'\n.center[.footnote[.red.bold[] <a href="'
-  #   REPLACEMENT="${REPLACEMENT}${GITHUB_DIR}${SCRIPT_FILE}#L${LNUM}"
-  #   REPLACEMENT=${REPLACEMENT}'" target="_blank">Code for this step.</a>] ]'
-  #   REPLACEMENT=${REPLACEMENT}'\n]'
-  #   echo "New : ${REPLACEMENT}"
-  #   echo "File : ${AFP}"
-  #   echo "# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-  #   sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
-  # fi
+#    Find line number of relevant code and add hyperlink at bttom of slide
+#    Expect a flag "CODEBLOCK", otherwise skip this file, and check the next one..
+  LNUM=$(grep -nr "${FPA[2]}.*CODE_BLOCK" ${SCRIPT_FILE}  | cut -d : -f 1)
+  if [[ "${LNUM}" -gt 0 ]]; then
+    LNUM=$((LNUM+2))
+    export PATTERN='<!-- B -->]'
+    echo "Old : ${PATTERN}"
+    export REPLACEMENT='<!-- Code for this begins at line #'
+    REPLACEMENT="${REPLACEMENT}${LNUM}"
+    REPLACEMENT=${REPLACEMENT}' -->\n<!-- B -->'
+    REPLACEMENT=${REPLACEMENT}'\n.center[.footnote[.red.bold[] <a href="'
+    REPLACEMENT="${REPLACEMENT}${GITHUB_DIR}${SCRIPT_FILE}#L${LNUM}"
+    REPLACEMENT=${REPLACEMENT}'" target="_blank">Code for this step.</a>] ]'
+    REPLACEMENT=${REPLACEMENT}'\n]'
+    echo "New : ${REPLACEMENT}"
+    echo "File : ${AFP}"
+    echo "# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
+    export PATTERN='#L[0-9]*'
+    echo "Old : ${PATTERN}"
+    export REPLACEMENT="#${LNUM}"
+    echo "New : ${REPLACEMENT}"
+    sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
+    export PATTERN='line #[0-9]* '
+    echo "Old : ${PATTERN}"
+    export REPLACEMENT="line #${LNUM}"
+    echo "New : ${REPLACEMENT}"
+    sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
+   fi
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   cat ${AFP} >> ${FPA[1]}/concatenatedSlides.MD
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
