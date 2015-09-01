@@ -102,7 +102,7 @@ do
     sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
     export PATTERN='#L[0-9]*'
     echo "Old : ${PATTERN}"
-    export REPLACEMENT="#${LNUM}"
+    export REPLACEMENT="#L${LNUM}"
     echo "New : ${REPLACEMENT}"
     sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
     export PATTERN='line #[0-9]* '

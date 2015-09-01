@@ -15,5 +15,5 @@ Now, we have a test runner, and with the addition of a ```circle.yml``` configur
 
 <!-- Code for this begins at line #342-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#342" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L342" target="_blank">Code for this step.</a>] ]
 ]
