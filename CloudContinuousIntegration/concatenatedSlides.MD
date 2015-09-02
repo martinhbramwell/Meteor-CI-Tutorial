@@ -22,7 +22,7 @@ git push -u origin master
 
 <!-- Code for this begins at line #342-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L18" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step03_CloudContinuousIntegration.sh#L18" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -47,7 +47,7 @@ The installer prepares a Nightwatch test directory and then deletes itself, leav
 
 <!-- Code for this begins at line #374-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L51" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step03_CloudContinuousIntegration.sh#L51" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -66,7 +66,7 @@ This command group starts Meteor in a background process, and then starts the Ni
 
 <!-- Code for this begins at line #390-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L67" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step03_CloudContinuousIntegration.sh#L67" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -85,7 +85,7 @@ The Nightwatch ```circle.yml``` includes set up of TinyTest, so it can overwrite
 
 <!-- Code for this begins at line #422-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L99" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step03_CloudContinuousIntegration.sh#L99" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
