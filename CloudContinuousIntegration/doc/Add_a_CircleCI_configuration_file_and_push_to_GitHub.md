@@ -22,5 +22,5 @@ git push -u origin master
 
 <!-- Code for this begins at line #342-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L18" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step03_CloudContinuousIntegration.sh#L18" target="_blank">Code for this step.</a>] ]
 ]
