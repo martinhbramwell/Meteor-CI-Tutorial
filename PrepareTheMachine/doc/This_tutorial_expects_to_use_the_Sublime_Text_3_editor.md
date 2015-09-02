@@ -25,5 +25,5 @@ If you just want to quickly follow the tutorial then *do* execute this group of 
 
 <!-- Code for this begins at line #129-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L130" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L131" target="_blank">Code for this step.</a>] ]
 ]

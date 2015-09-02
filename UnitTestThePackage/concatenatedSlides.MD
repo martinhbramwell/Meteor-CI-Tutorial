@@ -255,7 +255,7 @@ git push -u origin master
 
 <!-- Code for this begins at line #257-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L242" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L243" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -269,19 +269,21 @@ git push -u origin master
 
 Meteor makes this very easy. Two commands and we have a unit tested package.
 
-- meteor create --package yours:skeleton
-- meteor test-packages
-
 Meteor will start up as a background process in TinyTest mode.
 
 In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm that it is working.
 
 Notice the files newly added under the package directory.  These will also have to be pushed to GitHub.
-
+#####Commands
+```terminal
+meteor create --package yours:skeleton
+meteor test-packages &
+tree
+```
 
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L263" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L264" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -304,7 +306,7 @@ The installer deletes itself after preparing the files for immediate use.
 
 <!-- Code for this begins at line #311-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L296" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L297" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

@@ -105,6 +105,30 @@ It can run on a separate computer from [Meteor](https://www.meteor.com/), (but w
 ]
 ---
 .left-column[
+  ### Selenium Web Driver for NodeJS
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Install 'selenium-webdriver' in NodeJS
+
+The [NodeJS](https://nodejs.org/) module [Selenium Webdriver](https://github.com/SeleniumHQ/selenium) is required for running Meteor TinyTest on the command line, rather than in a browser.  **Note**: The next step after this one installs a different Seleniun driver.
+
+We must first ensure that root has not taken ownership of the local .npm directory *(that can happen if you ran npm with sudo when you didn't need to)*.
+##### Commands
+```terminal
+sudo chown -R ${USER}:${USER} ~/.npm
+npm install -y --prefix ${HOME} selenium-webdriver
+```
+
+
+<!-- Code for this begins at line #82-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L83" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
   ### Install Selenium Web Driver
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
@@ -127,7 +151,7 @@ dpkg -i google-chrome-stable_current_amd64.deb
 
 <!-- Code for this begins at line #93-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L94" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L95" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -154,31 +178,7 @@ For ongoing server side logging during development or production we need a perma
 
 <!-- Code for this begins at line #113-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L114" target="_blank">Code for this step.</a>] ]
-]
----
-.left-column[
-  ### Selenium Web Driver for NodeJS
-.footnote[.red.bold[] [Table of Contents](./)] 
-<!-- H -->]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### Install 'selenium-webdriver' in NodeJS
-
-The [NodeJS](https://nodejs.org/) module [Selenium Webdriver](https://github.com/SeleniumHQ/selenium) is required for running Meteor TinyTest on the command line, rather than in a browser.  **Note**: The next step after this one installs a different Seleniun driver.
-
-We must first ensure that root has not taken ownership of the local .npm directory *(that can happen if you ran npm with sudo when you didn't need to)*.
-##### Commands
-```terminal
-sudo chown -R ${USER}:${USER} ~/.npm
-npm install -y --prefix ${HOME} selenium-webdriver
-```
-
-
-<!-- Code for this begins at line #82-->
-<!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L83" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L115" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -207,7 +207,7 @@ If you just want to quickly follow the tutorial then *do* execute this group of 
 
 <!-- Code for this begins at line #129-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L130" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L131" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -234,7 +234,7 @@ npm install -gy babel-eslint
 
 <!-- Code for this begins at line #144-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L145" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L146" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -262,7 +262,7 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 ```
 <!-- Code for this begins at line #153-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L155" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L156" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

@@ -81,6 +81,7 @@ fi
 explain ${DOCS}/Install_Selenium_Webdriver_In_NodeJS.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
 
+  mkdir -p ~/.npm
   sudo chown -R ${USER}:${USER} ~/.npm
   npm install -y --prefix $HOME selenium-webdriver
 

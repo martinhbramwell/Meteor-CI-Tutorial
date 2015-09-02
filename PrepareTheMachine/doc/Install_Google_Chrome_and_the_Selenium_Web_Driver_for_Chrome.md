@@ -22,5 +22,5 @@ dpkg -i google-chrome-stable_current_amd64.deb
 
 <!-- Code for this begins at line #93-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L94" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L95" target="_blank">Code for this step.</a>] ]
 ]
