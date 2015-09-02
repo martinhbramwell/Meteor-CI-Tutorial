@@ -33,6 +33,7 @@ declare -a FILEPATHS=(
   "Step01_|PrepareTheMachine|Configure_Sublime_A.md"
   "Step01_|PrepareTheMachine|Configure_Sublime_B.md"
   "Step01_|PrepareTheMachine|Fin.md"
+  
   "Step02_|UnitTestThePackage|Introduction.md"
   "Step02_|UnitTestThePackage|Set_Up_Project_Names.md"
   "Step02_|UnitTestThePackage|Configure_git_for_GitHub.md"
@@ -46,24 +47,27 @@ declare -a FILEPATHS=(
   "Step02_|UnitTestThePackage|Create_local_GitHub_repository.md"
   "Step02_|UnitTestThePackage|Create_a_package_and_TinyTest_it.md"
   "Step02_|UnitTestThePackage|Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md"
-  "Step02_|UnitTestThePackage|Add_a_CircleCI_configuration_file_and_push_to_GitHub.md"
-  "Step02_|UnitTestThePackage|Prepare_for_NightWatch_testing.md"
-  "Step02_|UnitTestThePackage|Run_NightWatch_testing.md"
-  "Step02_|UnitTestThePackage|Push_Nightwatch_testing_to_GitHub_and_CircleCI.md"
-  "Step02_|UnitTestThePackage|Observe_ordinary_console_logging.md"
-  "Step02_|UnitTestThePackage|Add_an_NPM_module_to_your_package.md"
-  "Step02_|UnitTestThePackage|Specify_Npm_modules.md"
-  "Step02_|UnitTestThePackage|Bunyan_Server_Side_OnlyLogging.md"
-  "Step02_|UnitTestThePackage|Add_Bunyan_Logging.md"
-  "Step02_|UnitTestThePackage|Goodbye_console.md"
-  "Step02_|UnitTestThePackage|Refactor_Bunyan_InstantiationA.md"
-  "Step02_|UnitTestThePackage|Refactor_Bunyan_InstantiationB.md"
-  "Step02_|UnitTestThePackage|Another_NodeJS_moduleA.md"
-  "Step02_|UnitTestThePackage|Another_NodeJS_moduleB.md"
-  "Step02_|UnitTestThePackage|The_Async_ProblemA.md"
-  "Step02_|UnitTestThePackage|The_Async_ProblemB.md"
-  "Step02_|UnitTestThePackage|The_Async_ProblemC.md"
   "Step02_|UnitTestThePackage|Fin.md"
+
+
+  "Step03_|CloudContinuousIntegration|Add_a_CircleCI_configuration_file_and_push_to_GitHub.md"
+  "Step03_|CloudContinuousIntegration|Prepare_for_NightWatch_testing.md"
+  "Step03_|CloudContinuousIntegration|Run_NightWatch_testing.md"
+  "Step03_|CloudContinuousIntegration|Push_Nightwatch_testing_to_GitHub_and_CircleCI.md"
+  "Step03_|CloudContinuousIntegration|Add_an_NPM_module_to_your_package.md"
+  "Step03_|CloudContinuousIntegration|Specify_Npm_modules.md"
+  "Step03_|CloudContinuousIntegration|Bunyan_Server_Side_OnlyLogging.md"
+  "Step03_|CloudContinuousIntegration|Add_Bunyan_Logging.md"
+  "Step03_|CloudContinuousIntegration|Observe_ordinary_console_logging.md"
+  "Step03_|CloudContinuousIntegration|Goodbye_console.md"
+  "Step03_|CloudContinuousIntegration|Refactor_Bunyan_InstantiationA.md"
+  "Step03_|CloudContinuousIntegration|Refactor_Bunyan_InstantiationB.md"
+  "Step03_|CloudContinuousIntegration|Another_NodeJS_moduleA.md"
+  "Step03_|CloudContinuousIntegration|Another_NodeJS_moduleB.md"
+  "Step03_|CloudContinuousIntegration|The_Async_ProblemA.md"
+  "Step03_|CloudContinuousIntegration|The_Async_ProblemB.md"
+  "Step03_|CloudContinuousIntegration|The_Async_ProblemC.md"
+  "Step03_|CloudContinuousIntegration|Fin.md"
 )
 
 for idx_d in "${FILEPATHS[@]}"
@@ -123,7 +127,8 @@ if  ${SKIP} ;  then  exit 0; fi;
 tar zcvf pack.tar.gz index.html \
 styles.css \
 PrepareTheMachine/concatenatedSlides.MD \
-UnitTestThePackage/concatenatedSlides.MD
+UnitTestThePackage/concatenatedSlides.MD \
+CloudContinuousIntegration/concatenatedSlides.MD
 
 export STASH_CREATED=$(git stash) && echo $STASH_CREATED
 if [[ "${STASH_CREATED}" != "No local changes to save" ]];

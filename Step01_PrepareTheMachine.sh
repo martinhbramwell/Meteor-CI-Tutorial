@@ -24,6 +24,7 @@ DOCS="./PrepareTheMachine/doc"
 # sudo sed -i -e 's/XubTahr-updateMe/meteor_ci/g' /etc/hostname
 
 source ./explain.sh
+source ./util.sh
 
 highlight ${DOCS}/Introduction.md #X
 echo ""
@@ -132,7 +133,7 @@ if [ $? -eq 0 ]; then
   echo -e # -- Install Sublime Text editor --
   apt-get install -y sublime-text-installer
   echo -e # -- Install HTML parser for obtaining installer for ST3 Package Control --
-  pip install -y beautifulsoup4 requests
+  pip install beautifulsoup4 requests
 fi
 
 
@@ -146,6 +147,7 @@ if [ $? -eq 0 ]; then
   npm install -gy babel-eslint
 fi
 
+chown -R ${USER}:${USER} ~/.npm
 
 export ST3URL="https://packagecontrol.io/installation#st3";
 highlight ${DOCS}/Configure_Sublime_A.md # CODE_BLOCK
@@ -158,6 +160,8 @@ read -p "Hit <enter> ::  " -n 1 -r REPLY
 
 highlight ${DOCS}/Configure_Sublime_B.md
 
-echo "Done.";
+echo ""
+echo -e "\nDone.  Now start up ./Step02_UnitTestThePackage.sh";
+
 exit 0;
 

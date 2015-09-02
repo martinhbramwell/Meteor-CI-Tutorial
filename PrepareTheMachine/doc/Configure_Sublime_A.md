@@ -14,8 +14,9 @@ We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
  - In your browser, go to the [Package Control installer URL](https://packagecontrol.io/installation)
  - Copy the code snippet for **Sublime Text 3**
  - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
- - Go to View >> Show Console
+ - Go to View >> Show Console, to open the Console
  - Paste the snippet into ST3's console, hit enter and respond to the prompts.
+ - Go to View >> Hide Console, to close the Console
 #####Commands
 ```terminal
 export ST3URL="https://packagecontrol.io/installation#st3";
@@ -23,5 +24,5 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 ```
 <!-- Code for this begins at line #153-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L153" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L155" target="_blank">Code for this step.</a>] ]
 ]

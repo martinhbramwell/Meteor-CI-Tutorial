@@ -7,22 +7,7 @@ fi
 
 DOCS="./UnitTestThePackage/doc"
 source ./explain.sh
-
-function existingMeteor() {
-
-  EXISTING_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print $2}')
-  if [[  ${EXISTING_METEOR_PID} -gt 0  ]]; then
-    echo ""
-    echo ""
-    echo "A Meteor process was started earlier.  Find it and stop it."
-    echo "If you cannot find it, in a separate terminal window, stop it now with :"
-    echo "   kill -9 ${EXISTING_METEOR_PID}"
-    echo ""
-    echo -e "After you have stopped the old Meteor process hit <enter> to start the new one.  "
-    read -n 1 -r USER_ANSWER
-  fi
-
-}
+source ./util.sh
 
 highlight ${DOCS}/Introduction.md
 read -p "Hit <enter> ::  " -n 1 -r USER_ANSWER
@@ -241,6 +226,7 @@ RDME
 
 fi
 
+
 echo ""
 echo ""
 highlight ${DOCS}/Configure_Sublime_Text_to_use_ESLint.md
@@ -316,7 +302,6 @@ if [ $? -eq 0 ]; then
 
   wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
   chmod ug+x meteor-tinytest-runner.run
-  sudo chown -R ${USER}:${USER} ~/.npm
   ./meteor-tinytest-runner.run
   ./tests/tinyTests/test-all.sh
   echo -e "#########################################################################################"
@@ -334,159 +319,8 @@ if [ $? -eq 0 ]; then
   popd
 
 fi
-
-
-
-explain ${DOCS}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
-
-  pushd ~/${PARENT_DIR}
-  pushd ${PROJECT_NAME}
-
-  mv example_circle.yml circle.yml
-
-  git add packages
-  git add circle.yml
-  git add tests
-  git commit -am 'Added package and package testing'
-  git push -u origin master
-
-  echo -e "#########################################################################################"
-  echo -e "#   Open your CircleCI site and explore the most recent build.  In the build section you "
-  echo -e "#   should find the same lines as before when we ran the test runner locally : "
-  echo -e "#   [INFO] http://127.0.0.1:4096/packages/test-in-console.js?59dde1f. . . 07b3f499 75:17 S: tinytest - example "
-  echo -e "#    "
-  echo -e "#   Notice the execution time. Rebuild, and notice how the test is faster thanks to "
-  echo -e "#   caching of dependencies"
-  echo -e "#########################################################################################"
-  echo -e "Hit <enter> after you have confirmed that CircleCI ran successful tests ::  "
-  read -n 1 -r USER_ANSWER
-  popd
-  popd
-
-fi
-
-
-
-
-explain ${DOCS}/Prepare_for_NightWatch_testing.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
-
-  pushd ~/${PARENT_DIR}
-  pushd ${PROJECT_NAME}
-
-  wget -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/master/meteor-nightwatch-runner.run
-  chmod ug+x meteor-nightwatch-runner.run
-
-  ./meteor-nightwatch-runner.run
-  popd
-  popd
-
-fi
-
-
-explain ${DOCS}/Run_NightWatch_testing.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
-
-  existingMeteor
-
-  pushd ~/${PARENT_DIR}
-  pushd ${PROJECT_NAME}
-
-  meteor &  #  Running meteor in the background
-  ./tests/nightwatch/runTests.js | bunyan
-  kill -9 $(jobs -p)
-
-  echo -e "#########################################################################################"
-  echo -e "#   You ought to see lines similar to these : "
-  echo -e "#  "
-  echo -e "#   [2015-08-16T16:26:46.081Z]  INFO: demo/11123 on PkgTestDemo: Running:  Layout and Static Pages"
-  echo -e "#   [2015-08-16T16:26:51.343Z]  INFO: demo/11123 on PkgTestDemo: ✔ Testing if element <body> is present."
-  echo -e "#   [2015-08-16T16:26:51.934Z]  INFO: demo/11123 on PkgTestDemo: OK. 1 assertions passed. (5.851s)"
-  echo -e "#   [2015-08-16T16:26:51.936Z]  INFO: demo/11123 on PkgTestDemo: "
-  echo -e "#   [2015-08-16T16:26:51.936Z]  INFO: demo/11123 on PkgTestDemo: OK. 1 assertion passed. (6.554s)"
-  echo -e "#   [2015-08-16T16:26:52.253Z]  INFO: demo/11123 on PkgTestDemo: Finished!  Nightwatch ran all the tests!"
-  echo -e "#    "
-  echo -e "#########################################################################################"
-  echo -e "Hit <enter> after you have confirmed that you have these results ::  "
-  read -n 1 -r USER_ANSWER
-  popd
-  popd
-
-fi
-
-
-
-explain ${DOCS}/Push_Nightwatch_testing_to_GitHub_and_CircleCI.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
-
-  pushd ~/${PARENT_DIR}
-  pushd ${PROJECT_NAME}
-
-  cp tests/nightwatch/config/example_circle.yml circle.yml
-
-  git add tests/nightwatch
-  git commit -am 'Added Nightwatch testing'
-  git push -u origin master
-
-  popd
-  popd
-
-fi
-
-
 echo ""
-echo ""
-highlight ${DOCS}/Observe_ordinary_console_logging.md
-read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+echo -e "\nDone.  Now start up ./Step03_CloudContinuousIntegration.sh";
 
-echo ""
-echo ""
-highlight ${DOCS}/Add_an_NPM_module_to_your_package.md
-read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
-
-echo ""
-echo ""
-highlight ${DOCS}/Specify_Npm_modules.md
-read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
-
-echo ""
-echo ""
-highlight ${DOCS}/dummy.md
-read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
-
-echo ""
-echo ""
-highlight ${DOCS}/dummy.md
-read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
-
-
-# echo ""
-# echo ""
-# highlight ${DOCS}/dummy.md
-# read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
-
-
-
-
-echo -e "\nDone.";
 exit 0;
 
-# explain "#  FIXME
-# \n#
-# \n#
-# \n#  "
-# if [ $? -eq 0 ]; then
-
-#   pushd ~/${PARENT_DIR}
-#   pushd ${PROJECT_NAME}
-
-
-#   popd
-#   popd
-
-# fi
-
-
-echo "Done.";
-exit 0;

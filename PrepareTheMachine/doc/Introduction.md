@@ -14,6 +14,6 @@ This first script, 'Step01_PrepareTheMachine.sh', sets up all necessary precondi
 
 You can hit the 'a' key at any of the pause points to have it run **a**ll the remaining steps without further interruption.
 
-(Yes, ```apt-get update``` gets called too often.)
+(Yes, ```apt-get update``` gets called too often; the point is to show each step separately and clearly.)
 
 <!-- B -->]
