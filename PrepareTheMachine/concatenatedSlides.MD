@@ -14,7 +14,7 @@ This first script, 'Step01_PrepareTheMachine.sh', sets up all necessary precondi
 
 You can hit the 'a' key at any of the pause points to have it run **a**ll the remaining steps without further interruption.
 
-(Yes, ```apt-get update``` gets called too often.)
+(Yes, ```apt-get update``` gets called too often; the point is to show each step separately and clearly.)
 
 <!-- B -->]
 ---
@@ -43,7 +43,7 @@ Steps performed :
 ```
 <!-- Code for this begins at line #44-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L44" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L45" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -74,7 +74,7 @@ This sequence installs the following dependencies, if they're not already presen
 
 <!-- Code for this begins at line #59-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L59" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L60" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -101,7 +101,31 @@ It can run on a separate computer from [Meteor](https://www.meteor.com/), (but w
 
 <!-- Code for this begins at line #70-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L70" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L71" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Selenium Web Driver for NodeJS
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Install 'selenium-webdriver' in NodeJS
+
+The [NodeJS](https://nodejs.org/) module [Selenium Webdriver](https://github.com/SeleniumHQ/selenium) is required for running Meteor TinyTest on the command line, rather than in a browser.  **Note**: The next step after this one installs a different Seleniun driver.
+
+We must first ensure that root has not taken ownership of the local .npm directory *(that can happen if you ran npm with sudo when you didn't need to)*.
+##### Commands
+```terminal
+sudo chown -R ${USER}:${USER} ~/.npm
+npm install -y --prefix ${HOME} selenium-webdriver
+```
+
+
+<!-- Code for this begins at line #82-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L83" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -127,7 +151,7 @@ dpkg -i google-chrome-stable_current_amd64.deb
 
 <!-- Code for this begins at line #93-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L93" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L95" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -154,31 +178,7 @@ For ongoing server side logging during development or production we need a perma
 
 <!-- Code for this begins at line #113-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L113" target="_blank">Code for this step.</a>] ]
-]
----
-.left-column[
-  ### Selenium Web Driver for NodeJS
-.footnote[.red.bold[] [Table of Contents](./)] 
-<!-- H -->]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### Install 'selenium-webdriver' in NodeJS
-
-The [NodeJS](https://nodejs.org/) module [Selenium Webdriver](https://github.com/SeleniumHQ/selenium) is required for running Meteor TinyTest on the command line, rather than in a browser.  **Note**: The next step after this one installs a different Seleniun driver.
-
-We must first ensure that root has not taken ownership of the local .npm directory *(that can happen if you ran npm with sudo when you didn't need to)*.
-##### Commands
-```terminal
-sudo chown -R ${USER}:${USER} ~/.npm
-npm install -y --prefix ${HOME} selenium-webdriver
-```
-
-
-<!-- Code for this begins at line #82-->
-<!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L82" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L115" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -207,7 +207,7 @@ If you just want to quickly follow the tutorial then *do* execute this group of 
 
 <!-- Code for this begins at line #129-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L129" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L131" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -234,7 +234,7 @@ npm install -gy babel-eslint
 
 <!-- Code for this begins at line #144-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L144" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L146" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -252,8 +252,9 @@ We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
  - In your browser, go to the [Package Control installer URL](https://packagecontrol.io/installation)
  - Copy the code snippet for **Sublime Text 3**
  - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
- - Go to View >> Show Console
+ - Go to View >> Show Console, to open the Console
  - Paste the snippet into ST3's console, hit enter and respond to the prompts.
+ - Go to View >> Hide Console, to close the Console
 #####Commands
 ```terminal
 export ST3URL="https://packagecontrol.io/installation#st3";
@@ -261,7 +262,7 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 ```
 <!-- Code for this begins at line #153-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L153" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L156" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -286,19 +287,21 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 <!-- B -->]
 ---
 .left-column[
-  ### End Of Part A
+  ### End Of Part #1 - Prepare the Machine
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Got to the next section
+#### Go to the next section ...
 
-The previous section required 'sudo' at nearly every step.
+The preceding section required 'sudo' at nearly every step. Following sections, on the other hand, must run **without** sudo.
 
-This. and following sections, on the other hand, must run **without** sudo.
+Your virtual machine should now have all necessary system wide installations.
 
-[Unit Test a Package](./?part=B)
+The next part will guide you through the minimal basic set up tasks of a Meteor developer's work station with linting, unit testing and version control.
+
+[Part #2 - Unit Test a Package](./?part=B)
 
 
 <!-- B -->]
