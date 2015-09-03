@@ -39,45 +39,6 @@ if [ $? -eq 0 ]; then
 
 fi
 
-AUTORUN="";
-
-
-explain ${DOCS}/Create_SSH_keys_directory_if_not_exist.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
-  SET_UP_SSH=true;
-  if [ -f ~/.ssh/id_rsa ]; then SET_UP_SSH=false;  fi
-  if [ -f ~/.ssh/id_rsa.pub ]; then SET_UP_SSH=false;  fi
-  if [ -f ~/.ssh/authorized_keys ]; then SET_UP_SSH=false;  fi
-
-  if [ ${SET_UP_SSH} == true ]; then
-    echo "Setting up SSH directory";
-    mkdir -p ~/.ssh
-    chmod 700 ~/.ssh
-    touch ~/.ssh/authorized_keys                               #  Edit to add allowed connections
-    touch ~/.ssh/id_rsa                                        #  Edit to add private key
-    touch ~/.ssh/id_rsa.pub                                    #  Edit to add public key
-    chmod 600 ~/.ssh/authorized_keys
-    chmod 600 ~/.ssh/id_rsa
-    chmod 644 ~/.ssh/id_rsa.pub
-    ls -la ~/.ssh
-
-    echo -e "#########################################################################################"
-    echo -e "#   The necessary files have been created and permissions set correctly."
-    echo -e "#   Please provide the correct content for the three files listed above"
-    echo -e "#########################################################################################"
-    read -p "Hit <enter> ::  " -n 1 -r USER_ANSWER
-
-  else
-    echo -e "#########################################################################################"
-    echo -e "#   Found SSH artifacts already present.  Will NOT set up SSH."
-    echo -e "#   Please ensure you have a correctly configured SSH directory for use with GitHub."
-    echo -e "#   Visit :  https://help.github.com/articles/generating-ssh-keys/"
-    echo -e "#########################################################################################"
-  fi
-fi
-
-
-
 explain ${DOCS}/Install_Meteor.md # CODE_BLOCK
 if [ $? -eq 0 ]; then
   INSTALLMETEOR=true
@@ -236,6 +197,45 @@ echo ""
 echo ""
 highlight ${DOCS}/Create_remote_GitHub_repository.md
 read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+
+
+AUTORUN="";
+
+
+explain ${DOCS}/Create_SSH_keys_directory_if_not_exist.md # CODE_BLOCK
+if [ $? -eq 0 ]; then
+  SET_UP_SSH=true;
+  if [ -f ~/.ssh/id_rsa ]; then SET_UP_SSH=false;  fi
+  if [ -f ~/.ssh/id_rsa.pub ]; then SET_UP_SSH=false;  fi
+  if [ -f ~/.ssh/authorized_keys ]; then SET_UP_SSH=false;  fi
+
+  if [ ${SET_UP_SSH} == true ]; then
+    echo "Setting up SSH directory";
+    mkdir -p ~/.ssh
+    chmod 700 ~/.ssh
+    touch ~/.ssh/authorized_keys                               #  Edit to add allowed connections
+    touch ~/.ssh/id_rsa                                        #  Edit to add private key
+    touch ~/.ssh/id_rsa.pub                                    #  Edit to add public key
+    chmod 600 ~/.ssh/authorized_keys
+    chmod 600 ~/.ssh/id_rsa
+    chmod 644 ~/.ssh/id_rsa.pub
+    ls -la ~/.ssh
+
+    echo -e "#########################################################################################"
+    echo -e "#   The necessary files have been created and permissions set correctly."
+    echo -e "#   Please provide the correct content for the three files listed above"
+    echo -e "#########################################################################################"
+    read -p "Hit <enter> ::  " -n 1 -r USER_ANSWER
+
+  else
+    echo -e "#########################################################################################"
+    echo -e "#   Found SSH artifacts already present.  Will NOT set up SSH."
+    echo -e "#   Please ensure you have a correctly configured SSH directory for use with GitHub."
+    echo -e "#   Visit :  https://help.github.com/articles/generating-ssh-keys/"
+    echo -e "#########################################################################################"
+  fi
+fi
+
 
 
 explain ${DOCS}/Create_local_GitHub_repository.md # CODE_BLOCK

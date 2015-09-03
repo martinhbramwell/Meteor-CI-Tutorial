@@ -13,6 +13,8 @@ Linting detects code style contraventions, improves maintainability, and flags m
 [ECMA Script linter](http://eslint.org/docs/about/) : 
   - thorough Linter for ECMA Script 6 and earlier
   - preferred by Facebook, AirBnB and many other big names
+
+
 ##### Commands
 ```terminal
 npm install -gy eslint
