@@ -224,6 +224,8 @@ Linting detects code style contraventions, improves maintainability, and flags m
 [ECMA Script linter](http://eslint.org/docs/about/) : 
   - thorough Linter for ECMA Script 6 and earlier
   - preferred by Facebook, AirBnB and many other big names
+
+
 ##### Commands
 ```terminal
 npm install -gy eslint
@@ -262,7 +264,7 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 ```
 <!-- Code for this begins at line #153-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L156" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L160" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

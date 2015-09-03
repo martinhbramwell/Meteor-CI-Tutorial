@@ -63,29 +63,6 @@ git config --global push.default simple
 ]
 ---
 .left-column[
-  ### Prepare SSH directory
-.footnote[.red.bold[] [Table of Contents](./)] 
-<!-- H -->]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### Create SSH keys directory if it does not exist.
- 
-This script requires you to have an SSH private key!
-
-If the file '~/.ssh/id_rsa' exists, then this command group will do nothing.
-
-Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa' 
-
-You'll need to paste your SSH credentials into each of the empty files. This assumes you only need to copy them in from some other GitHub project.  Getting them for the first time is beyond the scope of this tutorial.  You should follow [GitHub's getting started documents.](https://help.github.com/articles/generating-ssh-keys/)
-
-
-<!-- Code for this begins at line #62-->
-<!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L47" target="_blank">Code for this step.</a>] ]
-]
----
-.left-column[
   ### Install Meteor
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
@@ -104,7 +81,7 @@ curl https://install.meteor.com/ | sh
 
 <!-- Code for this begins at line #98-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L83" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L44" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -127,7 +104,7 @@ meteor create ${PROJECT_NAME}
 
 <!-- Code for this begins at line #123-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L108" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L69" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: Check Meteor Works
@@ -158,7 +135,7 @@ echo $A_METEOR_PID
 
 <!-- Code for this begins at line #167-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L152" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L113" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -184,7 +161,7 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/mas
 
 <!-- Code for this begins at line #194-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L179" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L140" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -229,6 +206,29 @@ Some steps are more understandable if you watch the video series mentioned on th
 
 
 <!-- B -->]
+---
+.left-column[
+  ### Prepare SSH directory
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Create SSH keys directory if it does not exist.
+ 
+This script requires you to have an SSH private key!
+
+If the file '~/.ssh/id_rsa' exists, then this command group will do nothing.
+
+Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa' 
+
+You'll need to paste your SSH credentials into each of the empty files. This assumes you only need to copy them in from some other GitHub project.  Getting them for the first time is beyond the scope of this tutorial.  You should follow [GitHub's getting started documents.](https://help.github.com/articles/generating-ssh-keys/)
+
+
+<!-- Code for this begins at line #62-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L207" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Local GitHub Repo
