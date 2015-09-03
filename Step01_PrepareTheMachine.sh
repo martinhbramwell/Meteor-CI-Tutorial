@@ -148,7 +148,11 @@ if [ $? -eq 0 ]; then
   npm install -gy babel-eslint
 fi
 
+export BIN_DIR=/usr/local/bin
 chown -R ${USER}:${USER} ~/.npm
+mkdir -p ${BIN_DIR}
+touch ${BIN_DIR}/meteor
+chown ${USER}:${USER} ${BIN_DIR}/meteor
 
 export ST3URL="https://packagecontrol.io/installation#st3";
 highlight ${DOCS}/Configure_Sublime_A.md # CODE_BLOCK
