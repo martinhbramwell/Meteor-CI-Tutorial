@@ -14,6 +14,7 @@ Steps performed :
 - identify user name
 - identify user email
 - use simple push
+
 #####Commands
 ```terminal
 git config --global user.name "${YOUR_EMAIL}"

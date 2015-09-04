@@ -15,5 +15,5 @@ This command group starts Meteor in a background process, and then starts the Ni
 
 <!-- Code for this begins at line #390-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step03_CloudContinuousIntegration.sh#L67" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step03_CloudContinuousIntegration.sh#L66" target="_blank">Code for this step.</a>] ]
 ]

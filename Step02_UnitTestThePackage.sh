@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 #
 if [[ $EUID -eq 0 ]]; then
    echo -e "This script SHOULD NOT be run with 'sudo' (as root). "
@@ -9,12 +10,11 @@ DOCS="./UnitTestThePackage/doc"
 source ./explain.sh
 source ./util.sh
 
-highlight ${DOCS}/Introduction.md
-read -p "Hit <enter> ::  " -n 1 -r USER_ANSWER
+explain ${DOCS}/Introduction.md
 
-AUTORUN=a
-explain ${DOCS}/Set_Up_Project_Names.md
-AUTORUN=
+RUN_RULE=a
+explain ${DOCS}/Set_Up_Project_Names.md MORE_ACTION
+RUN_RULE=
 if ! getUserData; then
     echo -e "#####################################################################"
     echo -e "#   The rest of this script will fail without correct values for : "
@@ -28,8 +28,8 @@ fi;
 
 
 
-explain ${DOCS}/Configure_git_for_GitHub.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/Configure_git_for_GitHub.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
 
   echo -e "#   -- Configuring git ... "
 
@@ -39,8 +39,8 @@ if [ $? -eq 0 ]; then
 
 fi
 
-explain ${DOCS}/Install_Meteor.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/Install_Meteor.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
   INSTALLMETEOR=true
   if [[ $(meteor --version) =~ .*Meteor.* ]]
   then
@@ -64,8 +64,8 @@ export PARENT_DIR=projects
 METEOR_PORT=3000
 
 
-explain ${DOCS}/Create_Meteor_project.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/Create_Meteor_project.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
   # Make a projects directory
   mkdir -p ~/${PARENT_DIR}
 
@@ -108,8 +108,8 @@ fi
 
 
 
-explain ${DOCS}/Check_the_meteor_project_will_work.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/Check_the_meteor_project_will_work.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
 
   existingMeteor
 
@@ -135,8 +135,8 @@ fi
 
 
 export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc"
-explain ${DOCS}/Add_Meteor_application_development_support_files.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/Add_Meteor_application_development_support_files.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}
   pushd ${PROJECT_NAME}
@@ -188,22 +188,33 @@ RDME
 fi
 
 
-echo ""
-echo ""
-highlight ${DOCS}/Configure_Sublime_Text_to_use_ESLint.md
-read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
 
 echo ""
 echo ""
-highlight ${DOCS}/Create_remote_GitHub_repository.md
-read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+explain ${DOCS}/Try_ESLint_from_the_Command_Line.md
+
+echo ""
+echo ""
+explain ${DOCS}/Configure_Sublime_Text_to_use_ESLint.md
+
+echo ""
+echo ""
+explain ${DOCS}/Try_ESLint_in_Sublime_Text.md
+
+echo ""
+echo ""
+explain ${DOCS}/Customize_ESLint_in_Sublime_Text.md
+
+echo ""
+echo ""
+explain ${DOCS}/Create_remote_GitHub_repository.md
 
 
-AUTORUN="";
+RUN_RULE="";
 
 
-explain ${DOCS}/Create_SSH_keys_directory_if_not_exist.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/Create_SSH_keys_directory_if_not_exist.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
   SET_UP_SSH=true;
   if [ -f ~/.ssh/id_rsa ]; then SET_UP_SSH=false;  fi
   if [ -f ~/.ssh/id_rsa.pub ]; then SET_UP_SSH=false;  fi
@@ -238,8 +249,8 @@ fi
 
 
 
-explain ${DOCS}/Create_local_GitHub_repository.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/Create_local_GitHub_repository.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}
   pushd ${PROJECT_NAME}
@@ -259,8 +270,8 @@ fi
 
 
 
-explain ${DOCS}/Create_a_package_and_TinyTest_it.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/Create_a_package_and_TinyTest_it.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
 
   existingMeteor
 
@@ -292,8 +303,8 @@ fi
 
 
 
-explain ${DOCS}/Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
 
   existingMeteor
 
@@ -319,6 +330,9 @@ if [ $? -eq 0 ]; then
   popd
 
 fi
+
+## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain 
+
 echo ""
 echo -e "\nDone.  Now start up ./Step03_CloudContinuousIntegration.sh";
 

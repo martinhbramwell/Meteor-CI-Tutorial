@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 #
 
 MINFREESPACE=1500000
@@ -26,7 +27,7 @@ DOCS="./PrepareTheMachine/doc"
 source ./explain.sh
 source ./util.sh
 
-highlight ${DOCS}/Introduction.md #X
+highlight ${DOCS}/Introduction.md # explain
 echo ""
 echo "To view this embedded documentation as a browser slideshow choose one of the following options:"
 echo " A) Open your browser to http://martinhbramwell.github.io/Meteor-CI-Tutorial/"
@@ -39,9 +40,9 @@ echo ""
 read -p "Hit <enter> ::  " -n 1 -r REPLY
 
 
-AUTORUN="";
-explain ${DOCS}/Java_7_is_required_by_Nightwatch.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+RUN_RULE="";
+explain ${DOCS}/Java_7_is_required_by_Nightwatch.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
   echo -e # -- Get PPAs for Oracle Java 7 and update APT --
   add-apt-repository -y ppa:webupd8team/java
   apt-get update
@@ -55,8 +56,8 @@ fi
 
 
 
-explain ${DOCS}/Install_other_tools.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/Install_other_tools.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
   apt-get install -y build-essential libssl-dev  # for selenium webdriver
   apt-get install -y libappindicator1            # for chrome
   apt-get install -y curl                        # for Meteor
@@ -66,8 +67,8 @@ fi
 
 
 
-explain ${DOCS}/Install_NodeJS.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/Install_NodeJS.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
   pushd /tmp
   curl -sL https://deb.nodesource.com/setup | sudo bash -
   apt-get install -y nodejs
@@ -78,8 +79,8 @@ fi
 
 
 
-explain ${DOCS}/Install_Selenium_Webdriver_In_NodeJS.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/Install_Selenium_Webdriver_In_NodeJS.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
 
   mkdir -p ~/.npm
   sudo chown -R ${USER}:${USER} ~/.npm
@@ -90,8 +91,8 @@ fi
 
 
 
-explain ${DOCS}/Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
   pushd /tmp
 
   # Install 'chromedriver'
@@ -110,8 +111,8 @@ fi
 
 
 
-explain ${DOCS}/Install_Bunyan_Globally.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/Install_Bunyan_Globally.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
 
   sudo chown -R ${USER}:${USER} ~/.npm
   sudo npm install -y --global --prefix /usr bunyan
@@ -126,8 +127,8 @@ fi
 
 
 
-explain ${DOCS}/This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
   echo -e # -- Get PPAs for Sublime Text editor --
   add-apt-repository -y ppa:webupd8team/sublime-text-3
   apt-get update
@@ -141,8 +142,8 @@ fi
 
 
 
-explain ${DOCS}/Install_eslint.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+explain ${DOCS}/Install_eslint.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
   npm install -gy eslint
   npm install -gy eslint-plugin-react
   npm install -gy babel-eslint
@@ -155,7 +156,7 @@ touch ${BIN_DIR}/meteor
 chown ${USER}:${USER} ${BIN_DIR}/meteor
 
 export ST3URL="https://packagecontrol.io/installation#st3";
-highlight ${DOCS}/Configure_Sublime_A.md # CODE_BLOCK
+highlight ${DOCS}/Configure_Sublime_A.md # CODE_BLOCK explain
 echo "";
 echo "If there is no networking error, then the following text will be the snippet obtained from  : ${ST3URL}";
 python -c "import requests;from bs4 import BeautifulSoup;print '>>>\n';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"
@@ -163,7 +164,8 @@ echo "";
 read -p "Hit <enter> ::  " -n 1 -r REPLY
 
 
-highlight ${DOCS}/Configure_Sublime_B.md
+highlight ${DOCS}/Configure_Sublime_B.md # explain 
+## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain 
 
 echo ""
 echo -e "\nDone.  Now start up ./Step02_UnitTestThePackage.sh";

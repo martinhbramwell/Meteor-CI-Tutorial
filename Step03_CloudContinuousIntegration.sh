@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 #
 if [[ $EUID -eq 0 ]]; then
    echo -e "This script SHOULD NOT be run with 'sudo' (as root). "
@@ -9,12 +10,10 @@ DOCS="./CloudContinuousIntegration/doc"
 source ./explain.sh
 source ./util.sh
 
-highlight ${DOCS}/Introduction.md
-read -p "Hit <enter> ::  " -n 1 -r USER_ANSWER
-
+explain ${DOCS}/Introduction.md
 
 explain ${DOCS}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}
   pushd ${PROJECT_NAME}
@@ -47,7 +46,7 @@ fi
 
 
 explain ${DOCS}/Prepare_for_NightWatch_testing.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}
   pushd ${PROJECT_NAME}
@@ -63,7 +62,7 @@ fi
 
 
 explain ${DOCS}/Run_NightWatch_testing.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+if [ "${RUN_RULE}" != "n" ]; then
 
   existingMeteor
 
@@ -95,7 +94,7 @@ fi
 
 
 explain ${DOCS}/Push_Nightwatch_testing_to_GitHub_and_CircleCI.md # CODE_BLOCK
-if [ $? -eq 0 ]; then
+if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}
   pushd ${PROJECT_NAME}
@@ -114,34 +113,73 @@ fi
 
 echo ""
 echo ""
-highlight ${DOCS}/Observe_ordinary_console_logging.md
-read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+explain ${DOCS}/Add_an_NPM_module_to_your_package.md
 
 echo ""
 echo ""
-highlight ${DOCS}/Add_an_NPM_module_to_your_package.md
-read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+explain ${DOCS}/Specify_Npm_modules.md
 
 echo ""
 echo ""
-highlight ${DOCS}/Specify_Npm_modules.md
-read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+explain ${DOCS}/Bunyan_Server_Side_OnlyLogging.md
 
 echo ""
 echo ""
-highlight ${DOCS}/dummy.md
-read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+explain ${DOCS}/Add_Bunyan_Logging.md
 
 echo ""
 echo ""
-highlight ${DOCS}/dummy.md
-read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+explain ${DOCS}/Observe_ordinary_console_logging.md
+
+echo ""
+echo ""
+explain ${DOCS}/Goodbye_console.md
+
+echo ""
+echo ""
+explain ${DOCS}/Refactor_Bunyan_InstantiationA.md
+
+echo ""
+echo ""
+explain ${DOCS}/Refactor_Bunyan_InstantiationB.md
+
+echo ""
+echo ""
+explain ${DOCS}/Another_NodeJS_moduleA.md
+
+echo ""
+echo ""
+explain ${DOCS}/Another_NodeJS_moduleB.md
+
+echo ""
+echo ""
+explain ${DOCS}/The_Async_ProblemA.md
+
+echo ""
+echo ""
+explain ${DOCS}/The_Async_ProblemB.md
+
+echo ""
+echo ""
+explain ${DOCS}/The_Async_ProblemC.md
+
+## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain 
+
+echo ""
+echo ""
+explain \
+${DOCS}/dummy.md
+
+echo ""
+echo ""
+explain  \
+${DOCS}/dummy.md
 
 
 # echo ""
 # echo ""
-# highlight ${DOCS}/dummy.md
-# read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+# explain  \
+# ${DOCS}/dummy.md
 
 
 

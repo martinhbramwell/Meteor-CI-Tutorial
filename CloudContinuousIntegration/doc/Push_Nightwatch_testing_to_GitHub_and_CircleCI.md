@@ -15,5 +15,5 @@ The Nightwatch ```circle.yml``` includes set up of TinyTest, so it can overwrite
 
 <!-- Code for this begins at line #422-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step03_CloudContinuousIntegration.sh#L99" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step03_CloudContinuousIntegration.sh#L98" target="_blank">Code for this step.</a>] ]
 ]

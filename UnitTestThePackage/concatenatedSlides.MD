@@ -51,6 +51,7 @@ Steps performed :
 - identify user name
 - identify user email
 - use simple push
+
 #####Commands
 ```terminal
 git config --global user.name "${YOUR_EMAIL}"
@@ -165,6 +166,33 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/mas
 ]
 ---
 .left-column[
+  ### Command Line ESLint 
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Use ESLint on the Command Line
+
+In a terminal session execute these commands:
+```terminal
+cd ~/projects/${PROJECT_NAME}/
+eslint ./packages/skeleton/skeleton-tests.js
+```
+
+The result should look like this :
+```ruby
+packages/skeleton/skeleton-tests.js
+ 3:14 error   Strings must use doublequote                 quotes
+ 3:25 warning Missing function expression name             func-names
+ 3:33 error   Unexpected space before function parentheses space-before-function-paren
+
+✖ 3 problems (2 errors, 1 warning)
+```
+
+<!-- B -->]
+---
+.left-column[
   ### ESLint for ST3
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
@@ -183,6 +211,52 @@ Steps to perform :
    - 'SublimeLinter'
    - 'SublimeLinter-contrib-eslint'
 
+<!-- B -->]
+---
+.left-column[
+  ### Sublime ESLint
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Reconfigure the '.eslintrc' file
+
+In Sublime Text :
+1. go to the menu ```File >> Open Folder```
+2. find the our project ```~/projects/${PROJECT_NAME}``` and open it
+3. begin editing the file ```.eslintc```
+4. search for ```/rules/quotes```
+5. change 'double' to 'single'.
+
+```JSON
+    'quotes': [
+      2, 'double', 'avoid-escape'    // http://eslint.org/docs/rules/quotes
+    ],
+```
+<!-- B -->]
+---
+.left-column[
+  ### Sublime ESLint
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Reconfigure the '.eslintrc' file
+
+In Sublime Text :
+1. go to the menu ```File >> Open Folder```
+2. find our project ```~/projects/${PROJECT_NAME}``` and open it
+3. begin editing the file ```.eslintc```
+4. search for ```/rules/quotes```
+5. change 'double' to 'single'.
+
+```JSON
+    'quotes': [
+      2, 'double', 'avoid-escape'    // http://eslint.org/docs/rules/quotes
+    ],
+```
 <!-- B -->]
 ---
 .left-column[
@@ -227,7 +301,7 @@ You'll need to paste your SSH credentials into each of the empty files. This ass
 
 <!-- Code for this begins at line #62-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L207" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L218" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -255,7 +329,7 @@ git push -u origin master
 
 <!-- Code for this begins at line #257-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L243" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L254" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -283,7 +357,7 @@ tree
 
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L264" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L275" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -306,7 +380,7 @@ The installer deletes itself after preparing the files for immediate use.
 
 <!-- Code for this begins at line #311-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L297" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L308" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
