@@ -24,6 +24,13 @@ DOCS="./PrepareTheMachine/doc"
 # sudo sed -i -e 's/XubTahr-updateMe/meteor_ci/g' /etc/hosts
 # sudo sed -i -e 's/XubTahr-updateMe/meteor_ci/g' /etc/hostname
 
+# qemu-img resize /var/lib/libvirt/images/xxxxx.img +1G
+
+# wget -O Meteor-CI-Tutorial.zip https://github.com/martinhbramwell/Meteor-CI-Tutorial/archive/master.zip
+# unzip Meteor-CI-Tutorial.zip 
+# mv Meteor-CI-Tutorial-master/ Meteor-CI-Tutorial
+
+
 source ./explain.sh
 source ./util.sh
 

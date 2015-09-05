@@ -17,15 +17,15 @@ This sequence installs the following dependencies, if they're not already presen
 
 ##### Commands
 ```terminal
-  apt-get install -y build-essential libssl-dev  # for selenium webdriver
-  apt-get install -y libappindicator1            # for chrome
-  apt-get install -y curl                        # for Meteor
-  apt-get install -y git ssh                     # for version control
-  apt-get install -y tree python-pip            # for demo convenience
+apt-get install -y build-essential libssl-dev  # for selenium webdriver
+apt-get install -y libappindicator1            # for chrome
+apt-get install -y curl                        # for Meteor
+apt-get install -y git ssh                     # for version control
+apt-get install -y tree python-pip             # for demo convenience
 ```
 
 
 <!-- Code for this begins at line #59-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L61" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L68" target="_blank">Code for this step.</a>] ]
 ]

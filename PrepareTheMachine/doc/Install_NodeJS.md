@@ -15,13 +15,13 @@ You must have NodeJS to do Nightwatch testing.
 It can run on a separate computer from [Meteor](https://www.meteor.com/), (but we'll do it all in this one).
 ##### Commands
 ```terminal
-  curl -sL https://deb.nodesource.com/setup | sudo bash -
-  apt-get install -y nodejs
-  apt-get -y autoremove
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+apt-get install -y nodejs
+apt-get -y autoremove
 ```
 
 
 <!-- Code for this begins at line #70-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L72" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L79" target="_blank">Code for this step.</a>] ]
 ]

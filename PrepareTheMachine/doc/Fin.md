@@ -1,6 +1,6 @@
 ---
 .left-column[
-  ### End Of Part #1 - Prepare the Machine
+  ### End Of Part #1
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[

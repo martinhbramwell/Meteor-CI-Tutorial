@@ -6,7 +6,7 @@
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-### (Optional) Preparation of Sublime Text 
+### Preparation of Sublime Text 
 #### Second step - Use '[Package Control](https://packagecontrol.io/)' to install more packages.
 
  - Go to Preferences >> Package Control
@@ -14,7 +14,7 @@
  - Install these two packages :
    - 'MarkDownEditing'
    - 'SideBarEnhancements'
- - In Preferences 
+ - (Optional) In Preferences 
    - Color Scheme 
      - Color Scheme - Default --> pick ```IDLE```
 
