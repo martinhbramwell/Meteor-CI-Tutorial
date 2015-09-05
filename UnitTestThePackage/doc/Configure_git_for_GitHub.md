@@ -11,9 +11,10 @@
 In this step we set up the local git tool kit to communicate correctly with GitHub, per [their getting started guide](https://help.github.com/articles/set-up-git/).
 
 Steps performed :
-- identify user name
-- identify user email
-- use simple push
+ - identify user name
+ - identify user email
+ - use simple push
+
 
 #####Commands
 ```terminal

@@ -25,5 +25,5 @@ pip install -y beautifulsoup4 requests
 
 <!-- Code for this begins at line #129-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L139" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L141" target="_blank">Code for this step.</a>] ]
 ]
