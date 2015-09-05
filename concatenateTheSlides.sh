@@ -7,16 +7,10 @@ for filename in ./Step*.sh; do
   while read -r line; do
     FN=$(echo "${line}" | sed 's/\.md.*/.md/g')
     FN=$(echo "${FN}" | sed 's/.*DOCS}\///g')
-#    FN=$(echo "${line}" | sed '1,/\.md.*/s/\.md.*/.md/g')
-#    FN=$(echo "${FN}" | sed '1,/.*DOCS}\//s/.*DOCS}\//g')
-    echo "${PT}${FN}";
+#    echo "Processing the file :: ${PT}${FN}";
     FILEPATHS+=("${PT}${FN}");
   done < <(grep -E 'explain.*DOCS|DOCS.*explain'  ${filename})
 done
-
-PRT=$(echo ${TRY} | sed '1,/\.md.*/s/\.md.*/.md/g')
-PRT=$(echo ${PRT} | sed '1,/\.sh:.*OCS}\//s/\.sh:.*OCS}\//|/g')
-PRT=$(echo ${PRT} | sed '1,/_/s/_/_|/g')
 
 SKIP=true;
 if [[ "X$1X" == "XyX" ]]; then

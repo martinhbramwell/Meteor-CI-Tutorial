@@ -14,6 +14,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+SUDOUSER=$(who am i | awk '{print $1}')
+
 DOCS="./PrepareTheMachine/doc"
 
 # sudo tee /etc/apt/apt.conf.d/02proxy > /dev/null <<APTPRXY
@@ -92,7 +94,7 @@ explain ${DOCS}/Install_Selenium_Webdriver_In_NodeJS.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   mkdir -p ~/.npm
-  sudo chown -R ${USER}:${USER} ~/.npm
+  sudo chown -R ${SUDOUSER}:${SUDOUSER} ~/.npm
   npm install -y --prefix $HOME selenium-webdriver
 
 fi
@@ -123,12 +125,12 @@ fi
 explain ${DOCS}/Install_Bunyan_Globally.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  sudo chown -R ${USER}:${USER} ~/.npm
+  sudo chown -R ${SUDOUSER}:${SUDOUSER} ~/.npm
   sudo npm install -y --global --prefix /usr bunyan
 
   LOG_DIR="/var/log/meteor"
   sudo mkdir -p ${LOG_DIR}
-  sudo chown ${USER}:${USER} ${LOG_DIR}
+  sudo chown ${SUDOUSER}:${SUDOUSER} ${LOG_DIR}
   sudo chmod ug+rwx ${LOG_DIR}
 
 fi
@@ -159,10 +161,10 @@ if [ "${RUN_RULE}" != "n" ]; then
 fi
 
 export BIN_DIR=/usr/local/bin
-chown -R ${USER}:${USER} ~/.npm
+chown -R ${SUDOUSER}:${SUDOUSER} ~/.npm
 mkdir -p ${BIN_DIR}
 touch ${BIN_DIR}/meteor
-chown ${USER}:${USER} ${BIN_DIR}/meteor
+chown -R ${SUDOUSER}:${SUDOUSER} ${BIN_DIR}
 
 export ST3URL="https://packagecontrol.io/installation#st3";
 highlight ${DOCS}/Configure_Sublime_A.md # CODE_BLOCK explain
