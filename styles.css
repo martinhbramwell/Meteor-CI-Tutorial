@@ -109,3 +109,13 @@ code {
   float: right;
   padding-top: 1em;
 }
+.console {
+  font-family:Courier;
+ color: #00006B;
+  background: #F5FFFF;
+  border: 3px double #CCCCCC;
+  padding: 10px;
+}
+.pwd {
+ color: #8F2400;
+}

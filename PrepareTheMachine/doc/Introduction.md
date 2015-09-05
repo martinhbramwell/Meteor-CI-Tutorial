@@ -12,7 +12,7 @@ These scripts will get you started easily with Meteor package development, testi
 
 This first script, run with . . .  
 ```terminal
-Step01_PrepareTheMachine.sh
+sudo ./Step01_PrepareTheMachine.sh
 ```
 . . . sets up all necessary preconditions for the second script.  As much as possible, this first step handles all tasks that require root access.
 
