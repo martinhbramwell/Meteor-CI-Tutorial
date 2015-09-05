@@ -10,7 +10,11 @@ layout: false
 
 These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration.
 
-This first script, 'Step01_PrepareTheMachine.sh', sets up all necessary preconditions for the second script.  As much as possible, this first step handles all tasks that require root access.
+This first script, run with . . .  
+```terminal
+Step01_PrepareTheMachine.sh
+```
+. . . sets up all necessary preconditions for the second script.  As much as possible, this first step handles all tasks that require root access.
 
 You can hit the 'a' key at any of the pause points to have it run **a**ll the remaining steps without further interruption.
 
@@ -43,7 +47,7 @@ Steps performed :
 ```
 <!-- Code for this begins at line #44-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L45" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L53" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -64,17 +68,17 @@ This sequence installs the following dependencies, if they're not already presen
 
 ##### Commands
 ```terminal
-  apt-get install -y build-essential libssl-dev  # for selenium webdriver
-  apt-get install -y libappindicator1            # for chrome
-  apt-get install -y curl                        # for Meteor
-  apt-get install -y git ssh                     # for version control
-  apt-get install -y tree python-pip            # for demo convenience
+apt-get install -y build-essential libssl-dev  # for selenium webdriver
+apt-get install -y libappindicator1            # for chrome
+apt-get install -y curl                        # for Meteor
+apt-get install -y git ssh                     # for version control
+apt-get install -y tree python-pip             # for demo convenience
 ```
 
 
 <!-- Code for this begins at line #59-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L60" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L68" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -93,15 +97,15 @@ You must have NodeJS to do Nightwatch testing.
 It can run on a separate computer from [Meteor](https://www.meteor.com/), (but we'll do it all in this one).
 ##### Commands
 ```terminal
-  curl -sL https://deb.nodesource.com/setup | sudo bash -
-  apt-get install -y nodejs
-  apt-get -y autoremove
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+apt-get install -y nodejs
+apt-get -y autoremove
 ```
 
 
 <!-- Code for this begins at line #70-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L71" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L79" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -125,7 +129,7 @@ npm install -y --prefix ${HOME} selenium-webdriver
 
 <!-- Code for this begins at line #82-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L83" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L91" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -151,7 +155,7 @@ dpkg -i google-chrome-stable_current_amd64.deb
 
 <!-- Code for this begins at line #93-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L95" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L103" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -178,7 +182,7 @@ For ongoing server side logging during development or production we need a perma
 
 <!-- Code for this begins at line #113-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L115" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L123" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -190,7 +194,7 @@ For ongoing server side logging during development or production we need a perma
 
 #### This tutorial uses Sublime Text 3.
 
-It also expects to be run in a virtual machine; for later destruction.  You most likely have your own preferred test editor.  This will show the general principle of simultaneous editor and CI linting.
+It also expects to be run in a virtual machine; for later destruction.  While you likely have your own preferred text editor, this will introduce the general idea of in-editor linting, which you can then adapt to your own taste.
  
 Steps performed :
  - gets the [PPA](https://en.wikipedia.org/wiki/Personal_Package_Archive) for [Sublime Text 3](http://www.sublimetext.com/3)
@@ -199,15 +203,15 @@ Steps performed :
 If you just want to quickly follow the tutorial then *do* execute this group of commands, otherwise install your usual editor/IDE.  Slimetits ain't bad, tho'.
 ##### Commands
 ```terminal
-  add-apt-repository -y ppa:webupd8team/sublime-text-3
-  apt-get update
-  apt-get install -y sublime-text-installer
-  pip install -y beautifulsoup4 requests
+add-apt-repository -y ppa:webupd8team/sublime-text-3
+apt-get update
+apt-get install -y sublime-text-installer
+pip install -y beautifulsoup4 requests
 ```
 
 <!-- Code for this begins at line #129-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L131" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L139" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -236,7 +240,7 @@ npm install -gy babel-eslint
 
 <!-- Code for this begins at line #144-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L146" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L154" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -246,7 +250,7 @@ npm install -gy babel-eslint
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-### (Optional) Preparation of Sublime Text 
+### Preparation of Sublime Text 
 #### First step - add '[Package Control](https://packagecontrol.io/)'
 
 We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
@@ -255,8 +259,9 @@ We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
  - Copy the code snippet for **Sublime Text 3**
  - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
  - Go to View >> Show Console, to open the Console
- - Paste the snippet into ST3's console, hit enter and respond to the prompts.
+ - Paste the snippet into ST3's console, hit enter and respond to the two prompts.
  - Go to View >> Hide Console, to close the Console
+
 #####Commands
 ```terminal
 export ST3URL="https://packagecontrol.io/installation#st3";
@@ -264,7 +269,7 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 ```
 <!-- Code for this begins at line #153-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L160" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L168" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -274,7 +279,7 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-### (Optional) Preparation of Sublime Text 
+### Preparation of Sublime Text 
 #### Second step - Use '[Package Control](https://packagecontrol.io/)' to install more packages.
 
  - Go to Preferences >> Package Control
@@ -282,14 +287,14 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
  - Install these two packages :
    - 'MarkDownEditing'
    - 'SideBarEnhancements'
- - In Preferences 
+ - (Optional) In Preferences 
    - Color Scheme 
      - Color Scheme - Default --> pick ```IDLE```
 
 <!-- B -->]
 ---
 .left-column[
-  ### End Of Part #1 - Prepare the Machine
+  ### End Of Part #1
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
