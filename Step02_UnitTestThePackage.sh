@@ -191,22 +191,6 @@ fi
 
 echo ""
 echo ""
-explain ${DOCS}/Try_ESLint_from_the_Command_Line.md
-
-echo ""
-echo ""
-explain ${DOCS}/Configure_Sublime_Text_to_use_ESLint.md
-
-echo ""
-echo ""
-explain ${DOCS}/Try_ESLint_in_Sublime_Text.md
-
-echo ""
-echo ""
-explain ${DOCS}/Customize_ESLint_in_Sublime_Text.md
-
-echo ""
-echo ""
 explain ${DOCS}/Create_remote_GitHub_repository.md
 
 
@@ -302,7 +286,6 @@ if [ "${RUN_RULE}" != "n" ]; then
 fi
 
 
-
 explain ${DOCS}/Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
@@ -330,6 +313,24 @@ if [ "${RUN_RULE}" != "n" ]; then
   popd
 
 fi
+
+
+echo ""
+echo ""
+explain ${DOCS}/Try_ESLint_from_the_Command_Line.md
+
+echo ""
+echo ""
+explain ${DOCS}/Configure_Sublime_Text_to_use_ESLint.md
+
+echo ""
+echo ""
+explain ${DOCS}/Try_ESLint_in_Sublime_Text.md
+
+echo ""
+echo ""
+explain ${DOCS}/Customize_ESLint_in_Sublime_Text.md
+
 
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain 
 

@@ -42,7 +42,7 @@ highlight ${DOCS}/Introduction.md # explain
 echo ""
 echo "To view this embedded documentation as a browser slideshow choose one of the following options:"
 echo " A) Open your browser to http://martinhbramwell.github.io/Meteor-CI-Tutorial/"
-echo " B) If you have Python in your machine (you have '${PYVER}') you can do :"
+echo " B) If you have Python in your machine (you have '$(python -c "import sys;t='{v[0]}.{v[1]}'.format(v=list(sys.version_info[:2]));sys.stdout.write(t)";)') you can do :"
 echo " - execute : ./concatenateTheSlides.sh n"
 echo " - then execute : python -m SimpleHTTPServer 8080"
 echo " - then launch your browser and open : http://localhost:8080/"
@@ -165,6 +165,7 @@ chown -R ${SUDOUSER}:${SUDOUSER} ~/.npm
 mkdir -p ${BIN_DIR}
 touch ${BIN_DIR}/meteor
 chown -R ${SUDOUSER}:${SUDOUSER} ${BIN_DIR}
+chmod -R a+w ${BIN_DIR}
 
 export ST3URL="https://packagecontrol.io/installation#st3";
 highlight ${DOCS}/Configure_Sublime_A.md # CODE_BLOCK explain
