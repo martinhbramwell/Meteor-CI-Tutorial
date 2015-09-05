@@ -29,12 +29,12 @@
     </div>
     <div ID="Introduction" style="display:none; margin-left:55px; margin-right:55px;">
       <!--
-      -->
       <ins class="adsbygoogle"
            style="display:inline-block;width:728px;height:90px"
            data-ad-client="ca-pub-7072964173126749"
            data-ad-slot="1681627511">
       </ins>
+      -->
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       <br />If you find this tutorial series helpful you can <b>help it get better</b>: disable AdBlock for this URL and check out what our sponsors provide.
       <hr />
@@ -63,7 +63,34 @@
       <p>You will prepare a Meteor project with an embedded package ready for testing with TinyTest using some of the application development support tools installed in the previous section. It includes the minimal basic set up tasks of a Meteor developer's work station with linting, unit testing and version control.</p>
       <h2><a target="_blank" href="./index.html?part=C">Cloud Continuous Integration</a></h2>
       <p>This section expands on your workstation toolbox to include working with continuous integration in the cloud. </p>
-      <h2>Links</a></h2>
+      <h2>First steps</h2>
+      <p>To begin, you will need to obtain the tutorial.  Open up a terminal window, then copy'n paste these commands into it:
+      <p class="console">
+              export URI="https://github.com/martinhbramwell"
+        <br />export TUT="Meteor-CI-Tutorial"
+        <br />export FILE="archive/master.zip"
+        <br />
+        <br />echo "Downloading : \n${URI}/${TUT}/${FILE}"
+        <br />echo " &nbsp; &nbsp; &nbsp; &nbsp;  as : ${TUT}.zip"
+        <br />
+        <br />wget -O ${TUT}.zip ${URI}/${TUT}/${FILE}
+        <br />unzip ${TUT}.zip 
+        <br />mv ${TUT}-master ${TUT}
+        <br />cd ${TUT}
+        <br />
+        <br /># Ready to run the first script :
+        <br /># &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  sudo ./Step01_PrepareTheMachine.sh
+        <br /> 
+        <br /> 
+      </p>
+      <p>The result should look like <a target="_blank" href="./dldrslt.html">this</a>.</p>
+      <p>Then you can run the first script with: </p>
+      <p class="console">
+              sudo ./Step01_PrepareTheMachine.sh
+        <br /> 
+        <br /> 
+      </p>
+      <h2>Links</h2>
       <p>
         <ul>
           <li>Tutorial source code - <a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial">https://github.com/martinhbramwell/Meteor-CI-Tutorial/</a></li>
@@ -77,12 +104,14 @@
         </ul>
       </p>
       <hr />
-      This tutorial has been possible in part by :<br />
+      This tutorial has been made possible, in part,  by :<br />
+      <!--
       <ins class="adsbygoogle"
            style="display:inline-block;width:728px;height:90px"
            data-ad-client="ca-pub-7072964173126749"
            data-ad-slot="1681627511">
       </ins>
+      -->
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
     <script>
