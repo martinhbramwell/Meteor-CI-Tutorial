@@ -47,7 +47,7 @@ Steps performed :
 ```
 <!-- Code for this begins at line #44-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L55" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L57" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -78,7 +78,7 @@ apt-get install -y tree python-pip             # for demo convenience
 
 <!-- Code for this begins at line #59-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L70" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L72" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -105,7 +105,7 @@ apt-get -y autoremove
 
 <!-- Code for this begins at line #70-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L81" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L83" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -129,7 +129,7 @@ npm install -y --prefix ${HOME} selenium-webdriver
 
 <!-- Code for this begins at line #82-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L93" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L95" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -155,7 +155,7 @@ dpkg -i google-chrome-stable_current_amd64.deb
 
 <!-- Code for this begins at line #93-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L105" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L107" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -182,7 +182,7 @@ For ongoing server side logging during development or production we need a perma
 
 <!-- Code for this begins at line #113-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L125" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L127" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -211,7 +211,7 @@ pip install -y beautifulsoup4 requests
 
 <!-- Code for this begins at line #129-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L141" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L143" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -240,7 +240,7 @@ npm install -gy babel-eslint
 
 <!-- Code for this begins at line #144-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L156" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L158" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -269,7 +269,7 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 ```
 <!-- Code for this begins at line #153-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L170" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L172" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
