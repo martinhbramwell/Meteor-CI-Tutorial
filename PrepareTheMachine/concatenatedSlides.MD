@@ -250,7 +250,7 @@ npm install -gy babel-eslint
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-### (Preparation of Sublime Text 
+### Preparation of Sublime Text 
 #### First step - add '[Package Control](https://packagecontrol.io/)'
 
 We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
@@ -259,7 +259,7 @@ We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
  - Copy the code snippet for **Sublime Text 3**
  - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
  - Go to View >> Show Console, to open the Console
- - Paste the snippet into ST3's console, hit enter and respond to the prompts.
+ - Paste the snippet into ST3's console, hit enter and respond to the two prompts.
  - Go to View >> Hide Console, to close the Console
 
 #####Commands
@@ -279,7 +279,7 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-### (Optional) Preparation of Sublime Text 
+### Preparation of Sublime Text 
 #### Second step - Use '[Package Control](https://packagecontrol.io/)' to install more packages.
 
  - Go to Preferences >> Package Control
@@ -287,14 +287,14 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
  - Install these two packages :
    - 'MarkDownEditing'
    - 'SideBarEnhancements'
- - In Preferences 
+ - (Optional) In Preferences 
    - Color Scheme 
      - Color Scheme - Default --> pick ```IDLE```
 
 <!-- B -->]
 ---
 .left-column[
-  ### End Of Part #1 - Prepare the Machine
+  ### End Of Part #1
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
