@@ -23,7 +23,7 @@ li p { line-height: 1.25em; }
 a, a > code {
   color: rgb(16, 61, 160);
   text-decoration: underline;
-  font-size: .7em;
+  font-size: .9em;
 }
 code {
   background: #e7e8e2;
