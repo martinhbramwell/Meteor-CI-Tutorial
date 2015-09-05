@@ -156,8 +156,11 @@ done
 
 if  ${SKIP} ;  then  exit 0; fi;
 
+git log -1 --pretty=%B > gitlog.txt
+
 tar zcvf pack.tar.gz index.html \
 styles.css \
+gitlog.txt \
 PrepareTheMachine/concatenatedSlides.MD \
 UnitTestThePackage/concatenatedSlides.MD \
 CloudContinuousIntegration/concatenatedSlides.MD
@@ -172,8 +175,9 @@ git checkout gh-pages
 echo "On branch gh-pages"
 tar zxvf pack.tar.gz
 rm -f pack.tar.gz
+MSG=$(cat gitlog.txt)
 echo "Unpacked all."
-git commit -am "Automatic commit. See master for details."
+git commit -am "${MSG}"
 echo "Committed"
 git push
 echo "Pushed"
