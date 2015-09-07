@@ -331,6 +331,9 @@ echo ""
 echo ""
 explain ${DOCS}/Try_ESLint_in_Sublime_Text.md
 
+echo ""
+echo ""
+explain ${DOCS}/Try_ESLint_Command_Line_Again.md
 
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain 
 

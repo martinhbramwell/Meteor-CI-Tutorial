@@ -365,6 +365,7 @@ In Sublime Text :
 ```
 6. save the file :  ```File >> Save```
 
+You have reconfigured the ESLint rule ```'quotes'```.  The complete lits of configurable rules is available from <a target="blank" href="http://eslint.org/docs/rules/">eslint.org</a>
 <!-- B -->]
 ---
 .left-column[
@@ -378,7 +379,7 @@ In Sublime Text :
 
 In Sublime Text, make sure you're editing the same project as you opened in the previous slide, then :
 1. begin editing the file ```skeleton-tests.js```
-2. click on line '3' and notice the status bar has a warning and an error
+2. click on line '3' and notice the status bar has a warning ```func-names``` and an error ```space-before-function-paren```
 3. adding ```checkSanity``` after the key word ```function``` corrects both defects
 
 ```javascript
@@ -386,9 +387,25 @@ Tinytest.add('example', function checkSanity(test) {
   test.equal(true, true);
 });
 ```
-["UseESLintOnTheCommandLine"](#UseESLintOnTheCommandLine)
-[index.html#UseESLintOnTheCommandLine][1]
-[1]: slideshow.html#UseESLintOnTheCommandLine
+
+<!-- B -->]
+---
+.left-column[
+  ### Command Line ESLint
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Test again for code-quality defects
+
+Return to the command line and rerun . . . 
+```terminal
+eslint ./packages/skeleton/skeleton-tests.js
+```
+. . . as you did for the earlier step ["Command Line ESLint"](#UseESLintOnTheCommandLine).
+
+Great!  All clean!
 <!-- B -->]
 ---
 .left-column[
