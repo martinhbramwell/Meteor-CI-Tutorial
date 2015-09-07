@@ -357,7 +357,7 @@ In Sublime Text :
 2. find and open our project ```~/projects/${PROJECT_NAME}```
 3. begin editing the file ```.eslintrc```
 4. search for ```/rules/quotes```
-5. change 'double' to 'single' 
+5. change 'double' to 'single'
 ```JSON
     'quotes': [
       2, 'single', 'avoid-escape'    // http://eslint.org/docs/rules/quotes
