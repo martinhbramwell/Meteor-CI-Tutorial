@@ -1,4 +1,5 @@
 ---
+name: UseESLintOnTheCommandLine
 .left-column[
   ### Command Line ESLint 
 .footnote[.red.bold[] [Table of Contents](./)] 

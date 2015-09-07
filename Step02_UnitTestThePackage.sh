@@ -325,11 +325,11 @@ explain ${DOCS}/Configure_Sublime_Text_to_use_ESLint.md
 
 echo ""
 echo ""
-explain ${DOCS}/Try_ESLint_in_Sublime_Text.md
+explain ${DOCS}/Customize_ESLint_in_Sublime_Text.md
 
 echo ""
 echo ""
-explain ${DOCS}/Customize_ESLint_in_Sublime_Text.md
+explain ${DOCS}/Try_ESLint_in_Sublime_Text.md
 
 
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain 

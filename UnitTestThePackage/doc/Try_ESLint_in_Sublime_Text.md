@@ -6,18 +6,19 @@
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Reconfigure the '.eslintrc' file
+#### Correct the indicated code-quality defects
 
-In Sublime Text :
-1. go to the menu ```File >> Open Folder```
-2. find the our project ```~/projects/${PROJECT_NAME}``` and open it
-3. begin editing the file ```.eslintc```
-4. search for ```/rules/quotes```
-5. change 'double' to 'single'.
+In Sublime Text, make sure you're editing the same project as you opened in the previous slide, then :
+1. begin editing the file ```skeleton-tests.js```
+2. click on line '3' and notice the status bar has a warning and an error
+3. adding ```checkSanity``` after the key word ```function``` corrects both defects
 
-```JSON
-    'quotes': [
-      2, 'double', 'avoid-escape'    // http://eslint.org/docs/rules/quotes
-    ],
+```javascript
+Tinytest.add('example', function checkSanity(test) {
+  test.equal(true, true);
+});
 ```
+["UseESLintOnTheCommandLine"](#UseESLintOnTheCommandLine)
+[index.html#UseESLintOnTheCommandLine][1]
+[1]: slideshow.html#UseESLintOnTheCommandLine
 <!-- B -->]

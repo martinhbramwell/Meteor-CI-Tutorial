@@ -294,6 +294,7 @@ The installer deletes itself after preparing the files for immediate use.
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L291" target="_blank">Code for this step.</a>] ]
 ]
 ---
+name: UseESLintOnTheCommandLine
 .left-column[
   ### Command Line ESLint 
 .footnote[.red.bold[] [Table of Contents](./)] 
@@ -349,20 +350,21 @@ Steps to perform :
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Reconfigure the '.eslintrc' file
+#### Customize the '.eslintrc' file
 
 In Sublime Text :
 1. go to the menu ```File >> Open Folder```
-2. find the our project ```~/projects/${PROJECT_NAME}``` and open it
-3. begin editing the file ```.eslintc```
+2. find and open our project ```~/projects/${PROJECT_NAME}```
+3. begin editing the file ```.eslintrc```
 4. search for ```/rules/quotes```
-5. change 'double' to 'single'.
-
+5. change 'double' to 'single' 
 ```JSON
     'quotes': [
-      2, 'double', 'avoid-escape'    // http://eslint.org/docs/rules/quotes
+      2, 'single', 'avoid-escape'    // http://eslint.org/docs/rules/quotes
     ],
 ```
+6. save the file :  ```File >> Save```
+
 <!-- B -->]
 ---
 .left-column[
@@ -372,20 +374,21 @@ In Sublime Text :
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Reconfigure the '.eslintrc' file
+#### Correct the indicated code-quality defects
 
-In Sublime Text :
-1. go to the menu ```File >> Open Folder```
-2. find our project ```~/projects/${PROJECT_NAME}``` and open it
-3. begin editing the file ```.eslintc```
-4. search for ```/rules/quotes```
-5. change 'double' to 'single'.
+In Sublime Text, make sure you're editing the same project as you opened in the previous slide, then :
+1. begin editing the file ```skeleton-tests.js```
+2. click on line '3' and notice the status bar has a warning and an error
+3. adding ```checkSanity``` after the key word ```function``` corrects both defects
 
-```JSON
-    'quotes': [
-      2, 'double', 'avoid-escape'    // http://eslint.org/docs/rules/quotes
-    ],
+```javascript
+Tinytest.add('example', function checkSanity(test) {
+  test.equal(true, true);
+});
 ```
+["UseESLintOnTheCommandLine"](#UseESLintOnTheCommandLine)
+[index.html#UseESLintOnTheCommandLine][1]
+[1]: slideshow.html#UseESLintOnTheCommandLine
 <!-- B -->]
 ---
 .left-column[
