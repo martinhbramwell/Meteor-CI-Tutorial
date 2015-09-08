@@ -215,35 +215,6 @@ pip install -y beautifulsoup4 requests
 ]
 ---
 .left-column[
-  ### Set Up Linting
-.footnote[.red.bold[] [Table of Contents](./)] 
-<!-- H -->]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### Install “eslint”.
-
-Linting detects code style contraventions, improves maintainability, and flags many hard-to-debug errors before they happen.
-
-[ECMA Script linter](http://eslint.org/docs/about/) : 
-  - thorough Linter for ECMA Script 6 and earlier
-  - preferred by Facebook, AirBnB and many other big names
-
-
-##### Commands
-```terminal
-npm install -gy eslint
-npm install -gy eslint-plugin-react
-npm install -gy babel-eslint
-```
-
-
-<!-- Code for this begins at line #144-->
-<!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L158" target="_blank">Code for this step.</a>] ]
-]
----
-.left-column[
   ### Prepare Sublime Text (Step #1)
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
@@ -269,7 +240,7 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 ```
 <!-- Code for this begins at line #153-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L173" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L166" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -292,6 +263,61 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
      - Color Scheme - Default --> pick ```IDLE```
 
 <!-- B -->]
+---
+.left-column[
+  ### Set Up Linting
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Install “eslint”.
+
+Linting detects code style contraventions, improves maintainability, and flags many hard-to-debug errors before they happen.
+
+[ECMA Script linter](http://eslint.org/docs/about/) : 
+  - thorough Linter for ECMA Script 6 and earlier
+  - preferred by Facebook, AirBnB and many other big names
+
+
+##### Commands
+```terminal
+npm install -gy eslint
+npm install -gy eslint-plugin-react
+npm install -gy babel-eslint
+```
+
+There is a closely realted ESLint package for Sublime Text.  We will install it in the next section.
+<!-- Code for this begins at line #144-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L177" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Set Up Automatic Documentation
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Install “JSDoc”.
+
+JSDoc can generate a very sophisticated documentation web site for you, directly from annotations you make in your code.  When you use JSDoc together with an annotations package in your text editor, documenting your work simply becomes an integral part in how you think about it.
+
+[jsdoc.org](http://usejsdoc.org/) : 
+  - very detailed and complete documentation generator
+  - used by Google for controlling data types in <a href="https://developers.google.com/closure/compiler/docs/js-for-compiler" target="_blank">their JavaScript compiler.</a>
+
+##### Commands
+```terminal
+npm install -g jsdoc
+```
+
+There is a closely related JSDoc package for Sublime Text, which we will install in the next section.
+<!-- Code for this begins at line #144-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L185" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### End Of Part #1

@@ -365,6 +365,7 @@ In Sublime Text :
 ```
 6. save the file :  ```File >> Save```
 
+You have reconfigured the ESLint rule ```'quotes'```.  The complete list of configurable rules is available from <a target="blank" href="http://eslint.org/docs/rules/">eslint.org</a>
 <!-- B -->]
 ---
 .left-column[
@@ -378,7 +379,7 @@ In Sublime Text :
 
 In Sublime Text, make sure you're editing the same project as you opened in the previous slide, then :
 1. begin editing the file ```skeleton-tests.js```
-2. click on line '3' and notice the status bar has a warning and an error
+2. click on line '3' and notice the status bar has a warning ```func-names``` and an error ```space-before-function-paren```
 3. adding ```checkSanity``` after the key word ```function``` corrects both defects
 
 ```javascript
@@ -386,9 +387,96 @@ Tinytest.add('example', function checkSanity(test) {
   test.equal(true, true);
 });
 ```
-["UseESLintOnTheCommandLine"](#UseESLintOnTheCommandLine)
-[index.html#UseESLintOnTheCommandLine][1]
-[1]: slideshow.html#UseESLintOnTheCommandLine
+
+<!-- B -->]
+---
+.left-column[
+  ### Command Line ESLint
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Test again for code-quality defects
+
+Return to the command line and rerun . . . 
+```terminal
+eslint ./packages/skeleton/skeleton-tests.js
+```
+. . . as you did for the earlier step ["Command Line ESLint"](#UseESLintOnTheCommandLine).
+
+Great!  All clean!
+<!-- B -->]
+---
+name: UseESLintOnTheCommandLine
+.left-column[
+  ### Command Line jsDoc (Step #1)
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Use jsDoc on the Command Line
+
+In a terminal session execute these commands:
+```terminal
+cd ~/projects/${PROJECT_NAME}/
+jsdoc -d=./packages/skeleton/doc ./packages/skeleton
+tree -L 3 ./packages/skeleton
+```
+The result should look like this :
+```ruby
+yourself@YourVM:~/projects/yourProj$ tree -L 3 ./packages/skeleton
+./packages/skeleton
+├── docs
+│   ├── files.html
+│   ├── index.html
+│   └── symbols
+│       ├── _global_.html
+│       └── src
+├── package.js
+      :  etc
+      :  etc
+```
+continued ...
+<!-- B -->]
+---
+name: UseESLintOnTheCommandLine
+.left-column[
+  ### Command Line jsDoc (Step #2)
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Use jsDoc on the Command Line
+... continuing.
+
+If you open the index file ```file:///home/yourself/projects/yourProj/packages/skeleton/docs/index.html``` in your browser you will see something like :
+
+ ![this](http://i.imgur.com/FBWR5wO.png)
+
+<!-- B -->]
+---
+.left-column[
+  ### jsDoc for ST3
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Configure Sublime Text to assist with jsDoc annotation
+
+Now we add ```DocBlockr``` to Sublime Text.  [DocBlockr](https://github.com/spadgos/sublime-jsdocs) goes beyond jsDocs and helps add documentation annotations for many other languages than just JavaScript. 
+
+Steps to perform :
+
+ - Go to Preferences >> Package Control
+ - In Package Control type : install package
+ - Install 'DocBlockr'
+
+
+
 <!-- B -->]
 ---
 .left-column[
