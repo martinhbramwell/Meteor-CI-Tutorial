@@ -153,13 +153,6 @@ fi
 
 
 
-explain ${DOCS}/Install_eslint.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then
-  npm install -gy eslint
-  npm install -gy eslint-plugin-react
-  npm install -gy babel-eslint
-fi
-
 export BIN_DIR=/usr/local/bin
 chown -R ${SUDOUSER}:${SUDOUSER} ~/.npm
 mkdir -p ${BIN_DIR}
@@ -177,6 +170,21 @@ read -p "Hit <enter> ::  " -n 1 -r REPLY
 
 
 highlight ${DOCS}/Configure_Sublime_B.md # explain 
+
+
+explain ${DOCS}/Install_eslint.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+  npm install -gy eslint
+  npm install -gy eslint-plugin-react
+  npm install -gy babel-eslint
+fi
+
+
+explain ${DOCS}/Install_jsdoc.md ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+  npm install -g jsdoc
+fi
+
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain 
 
 echo ""

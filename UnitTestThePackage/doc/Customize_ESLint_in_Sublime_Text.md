@@ -21,5 +21,5 @@ In Sublime Text :
 ```
 6. save the file :  ```File >> Save```
 
-You have reconfigured the ESLint rule ```'quotes'```.  The complete lits of configurable rules is available from <a target="blank" href="http://eslint.org/docs/rules/">eslint.org</a>
+You have reconfigured the ESLint rule ```'quotes'```.  The complete list of configurable rules is available from <a target="blank" href="http://eslint.org/docs/rules/">eslint.org</a>
 <!-- B -->]

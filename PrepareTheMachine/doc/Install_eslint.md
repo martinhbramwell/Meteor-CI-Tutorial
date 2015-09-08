@@ -22,8 +22,8 @@ npm install -gy eslint-plugin-react
 npm install -gy babel-eslint
 ```
 
-
+There is a closely realted ESLint package for Sublime Text.  We will install it in the next section.
 <!-- Code for this begins at line #144-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L158" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step01_PrepareTheMachine.sh#L177" target="_blank">Code for this step.</a>] ]
 ]

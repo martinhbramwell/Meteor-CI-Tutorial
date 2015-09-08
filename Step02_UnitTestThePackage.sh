@@ -335,6 +335,19 @@ echo ""
 echo ""
 explain ${DOCS}/Try_ESLint_Command_Line_Again.md
 
+echo ""
+echo ""
+explain ${DOCS}/Try_jsDoc_from_the_Command_Line_A.md
+
+echo ""
+echo ""
+explain ${DOCS}/Try_jsDoc_from_the_Command_Line_B.md
+
+echo ""
+echo ""
+explain ${DOCS}/Configure_Sublime_Text_to_use_jsDoc.md
+
+
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain 
 
 echo ""
