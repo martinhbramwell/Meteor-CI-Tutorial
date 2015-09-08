@@ -254,7 +254,53 @@ fi
 
 
 
-explain ${DOCS}/Create_a_package_and_TinyTest_it.md MORE_ACTION # CODE_BLOCK
+explain ${DOCS}/Create_a_package_A.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  export PACKAGE_DIRS=~/projects/packages
+  mkdir -p ${PACKAGE_DIRS}
+  export HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGE_DIRS} ~/.profile)
+  [[ ${HAS_PACKAGE_DIRS} -lt 1 ]] && echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile
+
+fi
+
+
+
+
+explain ${DOCS}/Create_a_package_B.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  pushd ~/${PARENT_DIR}
+  pushd ${PROJECT_NAME}
+
+  meteor create --package yourself:yourpackage
+
+  popd
+  popd
+
+fi
+
+
+
+
+
+explain ${DOCS}/Create_a_package_C.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  pushd ~/${PARENT_DIR}
+  pushd ${PROJECT_NAME}
+
+  meteor create --package yourself:yourpackage
+
+  popd
+  popd
+
+fi
+
+
+
+
+explain ${DOCS}/TinyTest_a_package.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   existingMeteor
@@ -262,7 +308,6 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd ~/${PARENT_DIR}
   pushd ${PROJECT_NAME}
 
-  meteor create --package yours:skeleton
   meteor test-packages &
 
   tree

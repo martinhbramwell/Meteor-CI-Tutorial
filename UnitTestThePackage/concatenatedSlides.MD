@@ -244,13 +244,95 @@ git push -u origin master
 ]
 ---
 .left-column[
+  ### Create a Meteor Package
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Create a Meteor package.
+
+Meteor makes creating a package very easy, but it's deceptive if you aim for the flexibility of "package only applications".  If packages are to be reusable, they need their own independent version control, which means they need a directory outside of the project, whose location is defined by Meteor's shell variable ```PACKAGE_DIRS```.
+
+To create self-sufficient packages, begin by defining ```PACKAGE_DIRS```, as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
+#####Commands
+```terminal
+export PACKAGE_DIRS=~/projects/packages
+mkdir -p ${PACKAGE_DIRS}/yourself
+mkdir -p ${PACKAGE_DIRS}/somebodyelse
+echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile
+```
+Continued . . . 
+<!-- Code for this begins at line #278-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L259" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Create a Meteor Package
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Create a "self-sufficient" Meteor package.
+
+... continuing.
+
+Now that Meteor can find your packages, you can create one and install it in your project :
+1. step into the directory you created earlier
+2. use ```meteor create``` to create your package
+3. use ```add``` to add the package to your project
+4. use ```list``` to confirm the package was added.
+
+#####Commands
+```terminal
+cd ${PACKAGE_DIRS}/yourself
+meteor create --package yourself:yourpackage
+cd ~/projects/${PROJECT_NAME}
+meteor add yourself:yourpackage
+meteor list
+```
+Your package will be part of your project's run time, but not part of it at edit time. That's next . . .
+<!-- Code for this begins at line #278-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L272" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Create a Meteor Package
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Altering your Meteor package.
+
+One disadvantage of keeping packages outside your project directory is that you lose Meteor's automatic refresh on saving changes.
+
+That's easily fixed.  You simply need to establish a symbolic link from your packages directory to the real package :
+1. step into the packages directory of your project
+2. create a symbolic link
+
+#####Commands
+```terminal
+cd ~/projects/${PROJECT_NAME}
+ln -s ${PACKAGE_DIRS}/yourself/yourpackage ./packages/yourpackage
+```
+For editing purposes your package now appears to be part of your project.
+<!-- Code for this begins at line #278-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L289" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
   ### Test a Meteor Package
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Create a package and TinyTest it.
+#### TinyTest a package.
 
 Meteor makes this very easy. Two commands and we have a unit tested package.
 
@@ -268,7 +350,7 @@ tree
 
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L259" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L305" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -291,7 +373,7 @@ The installer deletes itself after preparing the files for immediate use.
 
 <!-- Code for this begins at line #311-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L291" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L336" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: UseESLintOnTheCommandLine
