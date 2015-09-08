@@ -266,20 +266,16 @@ fi
 
 
 
-
 explain ${DOCS}/Create_a_package_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR}
-  pushd ${PROJECT_NAME}
-
+  cd ${PACKAGE_DIRS}/yourself
   meteor create --package yourself:yourpackage
-
-  popd
-  popd
+  cd ~/projects/${PROJECT_NAME}
+  meteor add yourself:yourpackage
+  meteor list
 
 fi
-
 
 
 
@@ -287,13 +283,8 @@ fi
 explain ${DOCS}/Create_a_package_C.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR}
-  pushd ${PROJECT_NAME}
-
-  meteor create --package yourself:yourpackage
-
-  popd
-  popd
+  cd ~/projects/${PROJECT_NAME}
+  ln -s ${PACKAGE_DIRS}/yourself/yourpackage ./packages/yourpackage
 
 fi
 
