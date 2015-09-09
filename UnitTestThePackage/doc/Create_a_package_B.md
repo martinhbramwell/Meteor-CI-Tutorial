@@ -1,6 +1,6 @@
 ---
 .left-column[
-  ### Create a Meteor Package
+  ### Create Meteor Packages
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[

@@ -1,12 +1,12 @@
 ---
 .left-column[
-  ### Create a Meteor Package
+  ### Create Meteor Packages
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Altering your Meteor package.
+#### Working on your Meteor package.
 
 One disadvantage of keeping packages outside your project directory is that you lose Meteor's automatic refresh on saving changes.
 
@@ -16,8 +16,8 @@ That's easily fixed.  You simply need to establish a symbolic link from your pac
 
 #####Commands
 ```terminal
-cd ~/projects/${PROJECT_NAME}
-ln -s ${PACKAGE_DIRS}/yourself/yourpackage ./packages/yourpackage
+cd ~/projects/${PROJECT_NAME}/packages
+ln -s ${PACKAGE_DIRS}/yourself/yourpackage yourpackage
 ```
 For editing purposes your package now appears to be part of your project.
 <!-- Code for this begins at line #278-->

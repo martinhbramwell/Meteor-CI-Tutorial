@@ -254,7 +254,7 @@ fi
 
 
 
-export PACKAGES=~/projects/packages
+export PACKAGES=~/${PARENT_DIR}/packages
 export PACKAGE_DIRS=${PACKAGES}/somebodyelse:${PACKAGES}/yourself
 
 explain ${DOCS}/Create_a_package_A.md MORE_ACTION # CODE_BLOCK
@@ -303,7 +303,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   echo -e "Reviewing installed packages . . . \n\n"
 
-  pushd ~/projects/${PROJECT_NAME}
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}
   INSTALL_PACKAGE=true;
   meteor list > pkgs.txt;
   echo -e "Currently installed packages :"
@@ -339,9 +339,9 @@ fi
 explain ${DOCS}/Create_a_package_C.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  mkdir -p ~/projects/${PROJECT_NAME}/packages
-  pushd ~/projects/${PROJECT_NAME}/packages
-  ln -s ${PACKAGE_DIRS}/${PACKAGE_DEVELOPER}/${PACKAGE_NAME} ${PACKAGE_NAME}
+  mkdir -p ~/${PARENT_DIR}/${PROJECT_NAME}/packages
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
+  ln -s ${PACKAGES}/${PACKAGE_DEVELOPER}/${PACKAGE_NAME} ${PACKAGE_NAME}
   popd
 
 fi
@@ -354,8 +354,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   existingMeteor
 
-  pushd ~/${PARENT_DIR}
-  pushd ${PROJECT_NAME}
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}
 
   meteor test-packages &
 
@@ -374,7 +373,6 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   kill -9 $(jobs -p)
 
-  popd
   popd
 
 fi
