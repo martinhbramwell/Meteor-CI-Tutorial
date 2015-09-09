@@ -277,7 +277,9 @@ if [ "${RUN_RULE}" != "n" ]; then
   cd ${PACKAGES}/${PACKAGE_DEVELOPER};
 
   CREATE_PACKAGE=true;
-  if [[ $(grep -c "name.*${PACKAGE_DEVELOPER}:${PACKAGE_NAME}" ${PACKAGE_NAME}/package.js ) -gt 0 ]]; then
+  if [[ -d ${PACKAGE_NAME}
+     && -f ${PACKAGE_NAME}/package.js
+     &&    $(grep -c "name.*${PACKAGE_DEVELOPER}:${PACKAGE_NAME}" ${PACKAGE_NAME}/package.js ) -gt 0 ]]; then
 
     echo "The package, '${PACKAGE_DEVELOPER}:${PACKAGE_NAME}', was created earlier.
             You can delete it and [r]ecreate it OR [s]kip this step."
