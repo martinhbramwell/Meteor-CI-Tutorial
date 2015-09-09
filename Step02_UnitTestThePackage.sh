@@ -274,7 +274,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   PACKAGE_DEVELOPER="yourself";
   PACKAGE_NAME="yourpackage";
-  cd ${PACKAGES}/${PACKAGE_DEVELOPER};
+  pushd ${PACKAGES}/${PACKAGE_DEVELOPER};
 
   CREATE_PACKAGE=true;
   if [[ -d ${PACKAGE_NAME}
@@ -296,9 +296,11 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   fi;
 
-  ${CREATE_PACKAGE} && meteor create --package yourself:yourpackage;
+  popd
 
-  cd ~/projects/${PROJECT_NAME}
+  ${CREATE_PACKAGE} && meteor create --package "${PACKAGE_DEVELOPER}:${PACKAGE_NAME}";
+
+  pushd ~/projects/${PROJECT_NAME}
   INSTALL_PACKAGE=true;
   meteor list > pkgs.txt;
   echo -e "Currently installed packages :"
@@ -324,6 +326,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   ${INSTALL_PACKAGE} && meteor add "${PACKAGE_DEVELOPER}:${PACKAGE_NAME}";
   ${INSTALL_PACKAGE} && meteor list;
 
+  popd
 
 fi
 
