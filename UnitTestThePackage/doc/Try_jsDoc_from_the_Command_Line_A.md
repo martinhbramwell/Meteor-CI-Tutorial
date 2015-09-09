@@ -9,13 +9,7 @@ name: UseESLintOnTheCommandLine
 
 #### Use jsDoc on the Command Line
 
-In a terminal session execute these commands:
-```terminal
-cd ~/projects/${PROJECT_NAME}/
-jsdoc -d=./packages/yourpackage/doc ./packages/yourpackage
-tree -L 3 ./packages/yourpackage
-```
-The result should look like this :
+JSDoc creates a documentation web site, in a directory you specify, like this :
 ```ruby
 yourself@YourVM:~/projects/yourProj$ tree -L 3 ./packages/yourpackage
 ./packages/yourpackage
@@ -28,6 +22,11 @@ yourself@YourVM:~/projects/yourProj$ tree -L 3 ./packages/yourpackage
 ├── package.js
       :  etc
       :  etc
+```
+##### Commands
+```terminal
+jsdoc -d=./packages/yourpackage/docs ./packages/yourpackage
+tree -L 3 ./packages/yourpackage
 ```
 continued ...
 <!-- B -->]

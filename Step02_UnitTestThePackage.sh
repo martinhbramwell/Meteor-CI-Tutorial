@@ -409,7 +409,14 @@ fi
 
 echo ""
 echo ""
-explain ${DOCS}/Try_ESLint_from_the_Command_Line.md
+explain ${DOCS}/Try_ESLint_from_the_Command_Line.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  cd ~/projects/${PROJECT_NAME}/
+  eslint ./packages/yourpackage/yourpackage-tests.js
+
+fi
+
 
 echo ""
 echo ""
