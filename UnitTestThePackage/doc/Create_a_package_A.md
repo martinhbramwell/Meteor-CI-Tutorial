@@ -8,15 +8,17 @@
 
 #### Create a Meteor package.
 
-Meteor makes creating a package very easy, but it's deceptive if you aim for the flexibility of "package only applications".  If packages are to be reusable, they need their own independent version control, which means they need a directory outside of the project, whose location is defined by Meteor's shell variable ```PACKAGE_DIRS```.
+If you aim for "package only applications", if packages are to be reusable, your packages need independent version control, and hence a directory outside of the project, located by Meteor's shell variable ```PACKAGE_DIRS```.
 
-To create self-sufficient packages, begin by defining ```PACKAGE_DIRS```, as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
-#####Commands
+To create self-sufficient packages, begin by defining it as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
+##### Commands
 ```terminal
-export PACKAGE_DIRS=~/projects/packages
-mkdir -p ${PACKAGE_DIRS}/yourself
-mkdir -p ${PACKAGE_DIRS}/somebodyelse
-echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile
+export PACKAGES=~/projects/packages;
+export PACKAGE_DIRS=${PACKAGES}/somebodyelse:${PACKAGES}/yourself;
+mkdir -p ${PACKAGES}/yourself; mkdir -p ${PACKAGES}/somebodyelse;
+export HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.profile);
+[[ ${HAS_PACKAGE_DIRS} -lt 1 ]] && echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile;
+source ~/.profile;
 ```
 Continued . . . 
 <!-- Code for this begins at line #278-->

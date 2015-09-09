@@ -252,15 +252,17 @@ git push -u origin master
 
 #### Create a Meteor package.
 
-Meteor makes creating a package very easy, but it's deceptive if you aim for the flexibility of "package only applications".  If packages are to be reusable, they need their own independent version control, which means they need a directory outside of the project, whose location is defined by Meteor's shell variable ```PACKAGE_DIRS```.
+If you aim for "package only applications", if packages are to be reusable, your packages need independent version control, and hence a directory outside of the project, located by Meteor's shell variable ```PACKAGE_DIRS```.
 
-To create self-sufficient packages, begin by defining ```PACKAGE_DIRS```, as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
-#####Commands
+To create self-sufficient packages, begin by defining it as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
+##### Commands
 ```terminal
-export PACKAGE_DIRS=~/projects/packages
-mkdir -p ${PACKAGE_DIRS}/yourself
-mkdir -p ${PACKAGE_DIRS}/somebodyelse
-echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile
+export PACKAGES=~/projects/packages;
+export PACKAGE_DIRS=${PACKAGES}/somebodyelse:${PACKAGES}/yourself;
+mkdir -p ${PACKAGES}/yourself; mkdir -p ${PACKAGES}/somebodyelse;
+export HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.profile);
+[[ ${HAS_PACKAGE_DIRS} -lt 1 ]] && echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile;
+source ~/.profile;
 ```
 Continued . . . 
 <!-- Code for this begins at line #278-->
@@ -296,7 +298,7 @@ meteor list
 Your package will be part of your project's run time, but not part of it at edit time. That's next . . .
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L273" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L274" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -322,7 +324,7 @@ ln -s ${PACKAGE_DIRS}/yourself/yourpackage ./packages/yourpackage
 For editing purposes your package now appears to be part of your project.
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L287" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L288" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -350,7 +352,7 @@ tree
 
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L298" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L299" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -373,7 +375,7 @@ The installer deletes itself after preparing the files for immediate use.
 
 <!-- Code for this begins at line #311-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L329" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L330" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: UseESLintOnTheCommandLine
