@@ -244,13 +244,13 @@ git push -u origin master
 ]
 ---
 .left-column[
-  ### Create a Meteor Package
+  ### Create Meteor Packages
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Create a Meteor package.
+#### Create a Meteor package development directory.
 
 If you aim for "package only applications", if packages are to be reusable, your packages need independent version control, and hence a directory outside of the project, located by Meteor's shell variable ```PACKAGE_DIRS```.
 
@@ -271,7 +271,7 @@ Continued . . .
 ]
 ---
 .left-column[
-  ### Create a Meteor Package
+  ### Create Meteor Packages
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -302,13 +302,13 @@ Your package will be part of your project's run time, but not part of it at edit
 ]
 ---
 .left-column[
-  ### Create a Meteor Package
+  ### Create Meteor Packages
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Altering your Meteor package.
+#### Working on your Meteor package.
 
 One disadvantage of keeping packages outside your project directory is that you lose Meteor's automatic refresh on saving changes.
 
@@ -318,8 +318,8 @@ That's easily fixed.  You simply need to establish a symbolic link from your pac
 
 #####Commands
 ```terminal
-cd ~/projects/${PROJECT_NAME}
-ln -s ${PACKAGE_DIRS}/yourself/yourpackage ./packages/yourpackage
+cd ~/projects/${PROJECT_NAME}/packages
+ln -s ${PACKAGE_DIRS}/yourself/yourpackage yourpackage
 ```
 For editing purposes your package now appears to be part of your project.
 <!-- Code for this begins at line #278-->
@@ -336,16 +336,14 @@ For editing purposes your package now appears to be part of your project.
 
 #### TinyTest a package.
 
-Meteor makes this very easy. Two commands and we have a unit tested package.
+Meteor makes unit testing packages very easy. A single commands and we have  unit tested our package.
 
 Meteor will start up as a background process in TinyTest mode.
 
 In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm that it is working.
 
-Notice the files newly added under the package directory.  These will also have to be pushed to GitHub.
 #####Commands
 ```terminal
-meteor create --package yours:skeleton
 meteor test-packages &
 tree
 ```
@@ -375,7 +373,7 @@ The installer deletes itself after preparing the files for immediate use.
 
 <!-- Code for this begins at line #311-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L385" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L383" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: UseESLintOnTheCommandLine
