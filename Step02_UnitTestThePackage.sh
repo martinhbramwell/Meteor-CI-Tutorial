@@ -296,9 +296,9 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   fi;
 
-  popd
-
   ${CREATE_PACKAGE} && meteor create --package "${PACKAGE_DEVELOPER}:${PACKAGE_NAME}";
+
+  popd
 
   pushd ~/projects/${PROJECT_NAME}
   INSTALL_PACKAGE=true;
