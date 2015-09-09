@@ -384,11 +384,7 @@ name: UseESLintOnTheCommandLine
 
 #### Use ESLint on the Command Line
 
-In a terminal session execute these commands:
-```terminal
-cd ~/projects/${PROJECT_NAME}/
-eslint ./packages/yourpackage/yourpackage-tests.js
-```
+We are ready with ESLint for the command line, and will have it for Sublime Text.  Both have advantages: the command line lists all code quality deficiencies which we need for continuous integration and editor based linting helps ensure code quality as we type.
 
 The result should look like this :
 ```ruby
@@ -399,8 +395,16 @@ packages/yourpackage/yourpackage-tests.js
 
 ✖ 3 problems (2 errors, 1 warning)
 ```
+##### Commands
+```terminal
+cd ~/projects/${PROJECT_NAME}/
+eslint ./packages/yourpackage/yourpackage-tests.js
+```
 
-<!-- B -->]
+<!-- Code for this begins at line #414-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L414" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### ESLint for ST3
@@ -445,7 +449,7 @@ In Sublime Text :
 ```
 6. save the file :  ```File >> Save```
 
-You have reconfigured the ESLint rule ```'quotes'```.  The complete list of configurable rules is available from <a target="blank" href="http://eslint.org/docs/rules/">eslint.org</a>
+You have reconfigured the ESLint rule ```'quotes'```.  The complete list of configurable rules is available from <a target="blank" href="http://eslint.org/docs/rules/">eslint.org rules documentation</a>
 <!-- B -->]
 ---
 .left-column[
@@ -501,13 +505,7 @@ name: UseESLintOnTheCommandLine
 
 #### Use jsDoc on the Command Line
 
-In a terminal session execute these commands:
-```terminal
-cd ~/projects/${PROJECT_NAME}/
-jsdoc -d=./packages/yourpackage/doc ./packages/yourpackage
-tree -L 3 ./packages/yourpackage
-```
-The result should look like this :
+JSDoc creates a documentation web site, in a directory you specify, like this :
 ```ruby
 yourself@YourVM:~/projects/yourProj$ tree -L 3 ./packages/yourpackage
 ./packages/yourpackage
@@ -520,6 +518,11 @@ yourself@YourVM:~/projects/yourProj$ tree -L 3 ./packages/yourpackage
 ├── package.js
       :  etc
       :  etc
+```
+##### Commands
+```terminal
+jsdoc -d=./packages/yourpackage/docs ./packages/yourpackage
+tree -L 3 ./packages/yourpackage
 ```
 continued ...
 <!-- B -->]
