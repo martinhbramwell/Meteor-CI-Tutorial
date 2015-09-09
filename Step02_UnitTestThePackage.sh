@@ -254,26 +254,27 @@ fi
 
 
 
+export PACKAGES=~/projects/packages
+export PACKAGE_DIRS=${PACKAGES}/somebodyelse:${PACKAGES}/yourself
+
 explain ${DOCS}/Create_a_package_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  export PACKAGES=~/projects/packages
-  export PACKAGE_DIRS=${PACKAGES}/somebodyelse:${PACKAGES}/yourself
   mkdir -p ${PACKAGES}/yourself
   mkdir -p ${PACKAGES}/somebodyelse
-  export HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.profile)
+  HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.profile)
   [[ ${HAS_PACKAGE_DIRS} -lt 1 ]] && echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile
   source ~/.profile
 
 fi
 
 
+export PACKAGE_DEVELOPER="yourself";
+export PACKAGE_NAME="yourpackage";
 
 explain ${DOCS}/Create_a_package_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  PACKAGE_DEVELOPER="yourself";
-  PACKAGE_NAME="yourpackage";
   pushd ${PACKAGES}/${PACKAGE_DEVELOPER};
 
   CREATE_PACKAGE=true;
@@ -299,6 +300,8 @@ if [ "${RUN_RULE}" != "n" ]; then
   ${CREATE_PACKAGE} && meteor create --package "${PACKAGE_DEVELOPER}:${PACKAGE_NAME}";
 
   popd
+
+  echo -e "Reviewing installed packages . . . \n\n"
 
   pushd ~/projects/${PROJECT_NAME}
   INSTALL_PACKAGE=true;
@@ -336,8 +339,10 @@ fi
 explain ${DOCS}/Create_a_package_C.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  cd ~/projects/${PROJECT_NAME}
-  ln -s ${PACKAGE_DIRS}/yourself/yourpackage ./packages/yourpackage
+  mkdir -p ~/projects/${PROJECT_NAME}/packages
+  pushd ~/projects/${PROJECT_NAME}/packages
+  ln -s ${PACKAGE_DIRS}/${PACKAGE_DEVELOPER}/${PACKAGE_NAME} ${PACKAGE_NAME}
+  popd
 
 fi
 
