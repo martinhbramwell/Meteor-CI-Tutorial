@@ -258,9 +258,11 @@ explain ${DOCS}/Create_a_package_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   export PACKAGE_DIRS=~/projects/packages
-  mkdir -p ${PACKAGE_DIRS}
+  mkdir -p ${PACKAGE_DIRS}/yourself
+  mkdir -p ${PACKAGE_DIRS}/somebodyelse
   export HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGE_DIRS} ~/.profile)
   [[ ${HAS_PACKAGE_DIRS} -lt 1 ]] && echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile
+  source ~/.profile
 
 fi
 
