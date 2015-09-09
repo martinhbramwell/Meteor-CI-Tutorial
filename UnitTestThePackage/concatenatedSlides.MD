@@ -289,7 +289,7 @@ Now that Meteor can find your packages, you can create one and install it in you
 
 #####Commands
 ```terminal
-cd ${PACKAGE_DIRS}/yourself
+cd ~/projects/packages/yourself
 meteor create --package yourself:yourpackage
 cd ~/projects/${PROJECT_NAME}
 meteor add yourself:yourpackage
@@ -324,7 +324,7 @@ ln -s ${PACKAGE_DIRS}/yourself/yourpackage ./packages/yourpackage
 For editing purposes your package now appears to be part of your project.
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L288" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L333" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -352,7 +352,7 @@ tree
 
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L299" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L344" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -375,7 +375,7 @@ The installer deletes itself after preparing the files for immediate use.
 
 <!-- Code for this begins at line #311-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L330" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L375" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: UseESLintOnTheCommandLine
