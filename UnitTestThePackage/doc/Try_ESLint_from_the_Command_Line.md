@@ -12,12 +12,12 @@ name: UseESLintOnTheCommandLine
 In a terminal session execute these commands:
 ```terminal
 cd ~/projects/${PROJECT_NAME}/
-eslint ./packages/skeleton/skeleton-tests.js
+eslint ./packages/yourpackage/yourpackage-tests.js
 ```
 
 The result should look like this :
 ```ruby
-packages/skeleton/skeleton-tests.js
+packages/yourpackage/yourpackage-tests.js
  3:14 error   Strings must use doublequote                 quotes
  3:25 warning Missing function expression name             func-names
  3:33 error   Unexpected space before function parentheses space-before-function-paren

@@ -336,7 +336,7 @@ For editing purposes your package now appears to be part of your project.
 
 #### TinyTest a package.
 
-Meteor makes unit testing packages very easy. A single commands and we have  unit tested our package.
+Meteor makes unit testing packages very easy. A single command and we have  unit tested our package.
 
 Meteor will start up as a background process in TinyTest mode.
 
@@ -347,7 +347,7 @@ In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm t
 meteor test-packages &
 tree
 ```
-
+To stop Meteor, hit ```<enter>``` after you have confirmed that it ran successful tests.
 <!-- Code for this begins at line #278-->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L354" target="_blank">Code for this step.</a>] ]
@@ -362,13 +362,11 @@ tree
 
 #### Add a test runner for getting TinyTest output on the command line
 
-TinyTest pretty prints its results in the browser.  This is useless for continuous integration.
-
-We need to have test results on the command line.
+TinyTest pretty prints its results in the browser but, this is useless for continuous integration!  We must have test results on the command line.
 
 The GitHub repo [warehouseman:meteor-tinytest-runner](https://github.com/warehouseman/meteor-tinytest-runner) has a wrapper tool that drives a browser with Selenium and collects the results in text format.
 
-The installer deletes itself after preparing the files for immediate use.
+(Note : The installer for the test runner deletes itself after preparing the files for immediate use.)
 
 
 <!-- Code for this begins at line #311-->
@@ -389,12 +387,12 @@ name: UseESLintOnTheCommandLine
 In a terminal session execute these commands:
 ```terminal
 cd ~/projects/${PROJECT_NAME}/
-eslint ./packages/skeleton/skeleton-tests.js
+eslint ./packages/yourpackage/yourpackage-tests.js
 ```
 
 The result should look like this :
 ```ruby
-packages/skeleton/skeleton-tests.js
+packages/yourpackage/yourpackage-tests.js
  3:14 error   Strings must use doublequote                 quotes
  3:25 warning Missing function expression name             func-names
  3:33 error   Unexpected space before function parentheses space-before-function-paren
@@ -460,7 +458,7 @@ You have reconfigured the ESLint rule ```'quotes'```.  The complete list of conf
 #### Correct the indicated code-quality defects
 
 In Sublime Text, make sure you're editing the same project as you opened in the previous slide, then :
-1. begin editing the file ```skeleton-tests.js```
+1. begin editing the file ```yourpackage-tests.js```
 2. click on line '3' and notice the status bar has a warning ```func-names``` and an error ```space-before-function-paren```
 3. adding ```checkSanity``` after the key word ```function``` corrects both defects
 
@@ -483,7 +481,7 @@ Tinytest.add('example', function checkSanity(test) {
 
 Return to the command line and rerun . . . 
 ```terminal
-eslint ./packages/skeleton/skeleton-tests.js
+eslint ./packages/yourpackage/yourpackage-tests.js
 ```
 . . . as you did for the earlier step ["Command Line ESLint"](#UseESLintOnTheCommandLine).
 
@@ -503,13 +501,13 @@ name: UseESLintOnTheCommandLine
 In a terminal session execute these commands:
 ```terminal
 cd ~/projects/${PROJECT_NAME}/
-jsdoc -d=./packages/skeleton/doc ./packages/skeleton
-tree -L 3 ./packages/skeleton
+jsdoc -d=./packages/yourpackage/doc ./packages/yourpackage
+tree -L 3 ./packages/yourpackage
 ```
 The result should look like this :
 ```ruby
-yourself@YourVM:~/projects/yourProj$ tree -L 3 ./packages/skeleton
-./packages/skeleton
+yourself@YourVM:~/projects/yourProj$ tree -L 3 ./packages/yourpackage
+./packages/yourpackage
 ├── docs
 │   ├── files.html
 │   ├── index.html
@@ -534,7 +532,7 @@ name: UseESLintOnTheCommandLine
 #### Use jsDoc on the Command Line
 ... continuing.
 
-If you open the index file ```file:///home/yourself/projects/yourProj/packages/skeleton/docs/index.html``` in your browser you will see something like :
+If you open the index file ```file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html``` in your browser you will see something like :
 
  ![this](http://i.imgur.com/FBWR5wO.png)
 

@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'yours:skeleton',
+  name: 'yourself:yourpackage',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: '',
@@ -12,14 +12,14 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.3');
-  api.addFiles('skeleton.js', ['server']);
+  api.addFiles('yourpackage.js', ['server']);
 });
 
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('yours:skeleton');
+  api.use('yourself:yourpackage');
   api.addFiles(
-    ["logger.js", 'skeleton.js', 'skeleton-tests.js'],
+    ["logger.js", 'yourpackage.js', 'yourpackage-tests.js'],
     ['server']
   );
   api.export(["Logger", "PetStore"]);

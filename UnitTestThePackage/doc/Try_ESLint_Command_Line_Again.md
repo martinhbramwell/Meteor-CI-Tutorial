@@ -10,7 +10,7 @@
 
 Return to the command line and rerun . . . 
 ```terminal
-eslint ./packages/skeleton/skeleton-tests.js
+eslint ./packages/yourpackage/yourpackage-tests.js
 ```
 . . . as you did for the earlier step ["Command Line ESLint"](#UseESLintOnTheCommandLine).
 

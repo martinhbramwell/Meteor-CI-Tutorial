@@ -10,7 +10,7 @@ name: UseESLintOnTheCommandLine
 #### Use jsDoc on the Command Line
 ... continuing.
 
-If you open the index file ```file:///home/yourself/projects/yourProj/packages/skeleton/docs/index.html``` in your browser you will see something like :
+If you open the index file ```file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html``` in your browser you will see something like :
 
  ![this](http://i.imgur.com/FBWR5wO.png)
 

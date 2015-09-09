@@ -8,7 +8,7 @@
 
 #### Meteor is Incompatible With NodeJS  (Part A)
 
-Examining the code ```'skeleton.js'``` we see :
+Examining the code ```'yourpackage.js'``` we see :
 ```javascript
 const swagger = new Client({
   url: swaggerSpecURL,

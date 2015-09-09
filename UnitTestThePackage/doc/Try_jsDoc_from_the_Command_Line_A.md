@@ -12,13 +12,13 @@ name: UseESLintOnTheCommandLine
 In a terminal session execute these commands:
 ```terminal
 cd ~/projects/${PROJECT_NAME}/
-jsdoc -d=./packages/skeleton/doc ./packages/skeleton
-tree -L 3 ./packages/skeleton
+jsdoc -d=./packages/yourpackage/doc ./packages/yourpackage
+tree -L 3 ./packages/yourpackage
 ```
 The result should look like this :
 ```ruby
-yourself@YourVM:~/projects/yourProj$ tree -L 3 ./packages/skeleton
-./packages/skeleton
+yourself@YourVM:~/projects/yourProj$ tree -L 3 ./packages/yourpackage
+./packages/yourpackage
 ├── docs
 │   ├── files.html
 │   ├── index.html

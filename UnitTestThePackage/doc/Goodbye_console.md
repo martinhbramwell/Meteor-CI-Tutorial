@@ -8,7 +8,7 @@
 
 #### We can get rid of the console altogether
 
-Edit ```'skeleton-tests.js'``` again and delete the line ```console.log("ººº Yoo Hoo ººº");```
+Edit ```'yourpackage-tests.js'``` again and delete the line ```console.log("ººº Yoo Hoo ººº");```
 
 ```javascript
 const Bunyan = Npm.require('bunyan');

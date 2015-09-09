@@ -12,15 +12,15 @@
 
 In ```package.js``` change this ...
 ```javascript
-api.use('yours:skeleton');
-api.addFiles(['skeleton-tests.js'], ['server']);
+api.use('yourself:yourpackage');
+api.addFiles(['yourpackage-tests.js'], ['server']);
 ```
 ... to look like this ...
 ```javascript
-api.use('yours:skeleton');
+api.use('yourself:yourpackage');
 api.export("Logger");           //  ADD! <--
 api.addFiles(                   //  EDIT! <--
-  ["logger.js", 'skeleton-tests.js'],
+  ["logger.js", 'yourpackage-tests.js'],
   ['server']
 );   //  EDIT! <--
 ```
