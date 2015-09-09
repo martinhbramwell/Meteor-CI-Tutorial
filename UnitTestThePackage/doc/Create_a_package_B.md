@@ -18,7 +18,7 @@ Now that Meteor can find your packages, you can create one and install it in you
 
 #####Commands
 ```terminal
-cd ${PACKAGE_DIRS}/yourself
+cd ~/projects/packages/yourself
 meteor create --package yourself:yourpackage
 cd ~/projects/${PROJECT_NAME}
 meteor add yourself:yourpackage

@@ -272,11 +272,56 @@ fi
 explain ${DOCS}/Create_a_package_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  cd ${PACKAGE_DIRS}/yourself
-  meteor create --package yourself:yourpackage
+  PACKAGE_DEVELOPER="yourself";
+  PACKAGE_NAME="yourpackage";
+  cd ${PACKAGES}/${PACKAGE_DEVELOPER};
+
+  CREATE_PACKAGE=true;
+  if [[ $(grep -c "name.*${PACKAGE_DEVELOPER}:${PACKAGE_NAME}" ${PACKAGE_NAME}/package.js ) -gt 0 ]]; then
+
+    echo "The package, '${PACKAGE_DEVELOPER}:${PACKAGE_NAME}', was created earlier.
+            You can delete it and [r]ecreate it OR [s]kip this step."
+    read -p "  'r' or 's' ::  " -n 1 -r USER_ANSWER
+    CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+    if [[ "X${CHOICE}X" == "XsX" ]]; then
+      CREATE_PACKAGE=false;
+    else
+      echo "";
+      echo "Deleting old ${PACKAGE_NAME}. . . ";
+      rm -fr ${PACKAGE_NAME}
+    fi;
+    echo ""
+
+  fi;
+
+  ${CREATE_PACKAGE} && meteor create --package yourself:yourpackage;
+
   cd ~/projects/${PROJECT_NAME}
-  meteor add yourself:yourpackage
-  meteor list
+  INSTALL_PACKAGE=true;
+  meteor list > pkgs.txt;
+  echo -e "Currently installed packages :"
+  cat pkgs.txt
+  if [[ $(cat pkgs.txt | grep -c "${PACKAGE_DEVELOPER}:${PACKAGE_NAME}") -gt 0 ]]; then
+
+    echo "The package, '${PACKAGE_DEVELOPER}:${PACKAGE_NAME}', was installed earlier.
+            You can remove it and [r]einstall it OR [s]kip this step."
+    read -p "  'r' or 's' ::  " -n 1 -r USER_ANSWER
+    CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+    if [[ "X${CHOICE}X" == "XsX" ]]; then
+      INSTALL_PACKAGE=false;
+    else
+      echo "";
+      echo "Removing old ${PACKAGE_DEVELOPER}:${PACKAGE_NAME}. . . ";
+      meteor remove ${PACKAGE_DEVELOPER}:${PACKAGE_NAME};
+    fi;
+    echo ""
+
+  fi;
+  rm -f pkgs.txt;
+
+  ${INSTALL_PACKAGE} && meteor add "${PACKAGE_DEVELOPER}:${PACKAGE_NAME}";
+  ${INSTALL_PACKAGE} && meteor list;
+
 
 fi
 
