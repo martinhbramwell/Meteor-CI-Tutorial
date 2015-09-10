@@ -498,7 +498,10 @@ eslint ./packages/yourpackage/yourpackage-tests.js
 . . . as you did for the earlier step ["Command Line ESLint"](#UseESLintOnTheCommandLine).
 
 Great!  All clean!
-<!-- B -->]
+<!-- Code for this begins at line #441-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L441" target="_blank">Code for this step.</a>] ]
+]
 ---
 name: UseESLintOnTheCommandLine
 .left-column[
@@ -530,7 +533,10 @@ jsdoc -d=./packages/yourpackage/docs ./packages/yourpackage
 tree -L 3 ./packages/yourpackage
 ```
 continued ...
-<!-- B -->]
+<!-- Code for this begins at line #455-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L455" target="_blank">Code for this step.</a>] ]
+]
 ---
 name: UseESLintOnTheCommandLine
 .left-column[
@@ -543,11 +549,14 @@ name: UseESLintOnTheCommandLine
 #### Use jsDoc on the Command Line
 ... continuing.
 
-If you open the index file ```file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html``` in your browser you will see something like :
+If you open the index file in your browser from its file system location *(something like : [```file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html```](file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html))*, you will see a page a bit like this :
 
  ![this](http://i.imgur.com/FBWR5wO.png)
 
-<!-- B -->]
+<!-- Code for this begins at line #471-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L471" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### jsDoc for ST3
