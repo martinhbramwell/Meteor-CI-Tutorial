@@ -8,13 +8,18 @@
 
 #### Add a test runner for getting TinyTest output on the command line
 
-TinyTest pretty prints its results in the browser but, this is useless for continuous integration!  We must have test results on the command line.
+TinyTest pretty prints its results in the browser, but -- that's useless for continuous integration!  We must have test results on the command line. The Selenium wrapper [warehouseman:meteor-tinytest-runner](https://github.com/warehouseman/meteor-tinytest-runner) does that for us.
 
-The GitHub repo [warehouseman:meteor-tinytest-runner](https://github.com/warehouseman/meteor-tinytest-runner) has a wrapper tool that drives a browser with Selenium and collects the results in text format.
+In this step we :
+1. Get the installer for the test runner and then run it *(Note that it deletes itself after preparing everything for immediate use)*
+3. Run all tests
 
-(Note : The installer for the test runner deletes itself after preparing the files for immediate use.)
-
-
+##### Commands
+```terminal
+wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
+./meteor-tinytest-runner.run
+./tests/tinyTests/test-all.sh
+```
 <!-- Code for this begins at line #311-->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Step02_UnitTestThePackage.sh#L383" target="_blank">Code for this step.</a>] ]
