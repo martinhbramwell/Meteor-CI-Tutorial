@@ -451,7 +451,7 @@ explain ${DOCS}/Configure_Sublime_Text_to_use_jsDoc.md
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain 
 
 echo ""
-echo -e "\nDone.  Now start up ./Step03_CloudContinuousIntegration.sh";
+echo -e "\nDone.  Now start up ./Part03_CloudContinuousIntegration.sh";
 
 exit 0;
 

@@ -188,7 +188,7 @@ fi
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain 
 
 echo ""
-echo -e "\nDone.  Now start up ./Step02_UnitTestThePackage.sh";
+echo -e "\nDone.  Now start up ./Part02_UnitTestThePackage.sh";
 
 exit 0;
 

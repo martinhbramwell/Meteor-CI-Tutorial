@@ -8,11 +8,11 @@ layout: false
 
 These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration.
 
-The previous script, 'Step01_PrepareTheMachine.sh', set up necessary preconditions for the second script, basically all tasks that require root access. 
+The previous script, 'Part01_PrepareTheMachine.sh', set up necessary preconditions for the second script, basically all tasks that require root access. 
 
 This one . . .  
 ```terminal
-Step02_UnitTestThePackage.sh
+Part02_UnitTestThePackage.sh
 ```
 . . . prepares a Meteor project with an embedded package ready for testing with TinyTest using the first few of the previously mentioned application development support tools.
 
