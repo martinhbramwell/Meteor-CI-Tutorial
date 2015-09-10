@@ -413,8 +413,11 @@ echo ""
 explain ${DOCS}/Try_ESLint_from_the_Command_Line.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  cd ~/projects/${PROJECT_NAME}/
+  pushd ~/projects/${PROJECT_NAME}/
+  set +e
   eslint ./packages/yourpackage/yourpackage-tests.js
+  set -e
+  popd
 
 fi
 
@@ -433,15 +436,43 @@ explain ${DOCS}/Try_ESLint_in_Sublime_Text.md
 
 echo ""
 echo ""
-explain ${DOCS}/Try_ESLint_Command_Line_Again.md
+explain ${DOCS}/Try_ESLint_Command_Line_Again.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  pushd ~/projects/${PROJECT_NAME}/
+  set +e
+  eslint ./packages/yourpackage/yourpackage-tests.js
+  set -e
+  popd
+
+fi
+
 
 echo ""
 echo ""
-explain ${DOCS}/Try_jsDoc_from_the_Command_Line_A.md
+explain ${DOCS}/Try_jsDoc_from_the_Command_Line_A.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  pushd ~/projects/${PROJECT_NAME}/
+  
+  tree -L 3 ./packages/yourpackage
+  jsdoc -d=./packages/yourpackage/docs ./packages/yourpackage
+  tree -L 3 ./packages/yourpackage
+
+  popd
+
+fi
+
 
 echo ""
 echo ""
-explain ${DOCS}/Try_jsDoc_from_the_Command_Line_B.md
+explain ${DOCS}/Try_jsDoc_from_the_Command_Line_B.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  echo "Paste this URI into your browser :"
+  echo -e "\n   ${HOME}/projects/${PROJECT_NAME}/packages/yourpackage/docs/index.html\n\n"
+
+fi
 
 echo ""
 echo ""

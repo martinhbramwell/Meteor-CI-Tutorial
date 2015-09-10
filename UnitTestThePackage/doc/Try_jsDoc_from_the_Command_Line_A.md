@@ -29,4 +29,7 @@ jsdoc -d=./packages/yourpackage/docs ./packages/yourpackage
 tree -L 3 ./packages/yourpackage
 ```
 continued ...
-<!-- B -->]
+<!-- Code for this begins at line #455-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L455" target="_blank">Code for this step.</a>] ]
+]
