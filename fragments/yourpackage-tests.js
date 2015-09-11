@@ -10,7 +10,7 @@
  * @namespace Tinytest
  */
 
-/** 
+/**
  * Simply verifies that true is equal to true
  * @name sanityCheckEQ
  * @function
@@ -20,12 +20,7 @@ Tinytest.add('Check Equality', function sanityCheckEQ(test) {
   test.equal(true, true);
 });
 
-/** 
- * Simply verifies that true is NOT equal to false
- * @name sanityCheckNEQ
- * @function
- * @memberof Tinytest
- */
+//  FIXME PLEASE
 Tinytest.add('Check inequality', function sanityCheckNEQ(test) {
   test.notEqual(true, false);
 });

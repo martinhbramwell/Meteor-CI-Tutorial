@@ -455,8 +455,10 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/projects/${PROJECT_NAME}/
 
+  echo -e "\n\nBefore generating documentation . . . "
   tree -L 2 ./packages/yourpackage
   jsdoc -d ./packages/yourpackage/docs ./packages/yourpackage
+  echo -e "\n\n . . . after generating documentation . . . "
   tree -L 2 ./packages/yourpackage
 
   popd
@@ -474,13 +476,16 @@ if [ "${RUN_RULE}" != "n" ]; then
 
 fi
 
+
 echo ""
 echo ""
 explain ${DOCS}/Configure_Sublime_Text_to_use_jsDoc.md
 
+
+
 echo ""
 echo ""
-explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin.md MORE_ACTION # CODE_BLOCK
+explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/projects/${PROJECT_NAME}/packages/yourpackage
@@ -490,6 +495,13 @@ if [ "${RUN_RULE}" != "n" ]; then
   popd
 
 fi
+
+
+echo ""
+echo ""
+explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin_B.md
+
+
 
 
 
