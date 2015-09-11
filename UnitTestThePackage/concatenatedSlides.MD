@@ -515,7 +515,7 @@ name: UseESLintOnTheCommandLine
 
 JSDoc creates a documentation web site, in a directory you specify, like this :
 ```ruby
-yourself@YourVM:~/projects/yourProj$ tree -L 3 ./packages/yourpackage
+yourself@YourVM:~/projects/yourProj$ tree -L 2 ./packages/yourpackage
 ./packages/yourpackage
 ├── docs
 │   ├── files.html
@@ -529,8 +529,8 @@ yourself@YourVM:~/projects/yourProj$ tree -L 3 ./packages/yourpackage
 ```
 ##### Commands
 ```terminal
-jsdoc -d=./packages/yourpackage/docs ./packages/yourpackage
-tree -L 3 ./packages/yourpackage
+jsdoc -d ./packages/yourpackage/docs ./packages/yourpackage
+tree -L 2 ./packages/yourpackage
 ```
 continued ...
 <!-- Code for this begins at line #455-->
@@ -549,9 +549,13 @@ name: UseESLintOnTheCommandLine
 #### Use jsDoc on the Command Line
 ... continuing.
 
-If you open the index file in your browser from its file system location *(something like : [```file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html```](file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html))*, you will see a page a bit like this :
+If you open the index file in your browser from its file system location . . . 
 
- ![this](http://i.imgur.com/FBWR5wO.png)
+ *(something like : [```file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html```](file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html))*
+
+ . . . you will see a page a bit like this :
+
+ ![http://i.imgur.com/LBfHmi3.png](http://i.imgur.com/LBfHmi3.png)
 
 <!-- Code for this begins at line #471-->
 <!-- B -->
