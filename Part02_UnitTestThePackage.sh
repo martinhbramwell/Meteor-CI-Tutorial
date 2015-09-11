@@ -455,9 +455,9 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/projects/${PROJECT_NAME}/
 
-  tree -L 3 ./packages/yourpackage
-  jsdoc -d=./packages/yourpackage/docs ./packages/yourpackage
-  tree -L 3 ./packages/yourpackage
+  tree -L 2 ./packages/yourpackage
+  jsdoc -d ./packages/yourpackage/docs ./packages/yourpackage
+  tree -L 2 ./packages/yourpackage
 
   popd
 

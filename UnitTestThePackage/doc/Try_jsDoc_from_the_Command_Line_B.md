@@ -10,9 +10,13 @@ name: UseESLintOnTheCommandLine
 #### Use jsDoc on the Command Line
 ... continuing.
 
-If you open the index file in your browser from its file system location *(something like : [```file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html```](file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html))*, you will see a page a bit like this :
+If you open the index file in your browser from its file system location . . . 
 
- ![this](http://i.imgur.com/FBWR5wO.png)
+ *(something like : [```file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html```](file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html))*
+
+ . . . you will see a page a bit like this :
+
+ ![http://i.imgur.com/LBfHmi3.png](http://i.imgur.com/LBfHmi3.png)
 
 <!-- Code for this begins at line #471-->
 <!-- B -->

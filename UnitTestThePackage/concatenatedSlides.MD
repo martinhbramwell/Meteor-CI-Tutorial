@@ -515,7 +515,7 @@ name: UseESLintOnTheCommandLine
 
 JSDoc creates a documentation web site, in a directory you specify, like this :
 ```ruby
-yourself@YourVM:~/projects/yourProj$ tree -L 3 ./packages/yourpackage
+yourself@YourVM:~/projects/yourProj$ tree -L 2 ./packages/yourpackage
 ./packages/yourpackage
 ├── docs
 │   ├── files.html
@@ -529,8 +529,8 @@ yourself@YourVM:~/projects/yourProj$ tree -L 3 ./packages/yourpackage
 ```
 ##### Commands
 ```terminal
-jsdoc -d=./packages/yourpackage/docs ./packages/yourpackage
-tree -L 3 ./packages/yourpackage
+jsdoc -d ./packages/yourpackage/docs ./packages/yourpackage
+tree -L 2 ./packages/yourpackage
 ```
 continued ...
 <!-- Code for this begins at line #455-->
@@ -549,9 +549,13 @@ name: UseESLintOnTheCommandLine
 #### Use jsDoc on the Command Line
 ... continuing.
 
-If you open the index file in your browser from its file system location *(something like : [```file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html```](file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html))*, you will see a page a bit like this :
+If you open the index file in your browser from its file system location . . . 
 
- ![this](http://i.imgur.com/FBWR5wO.png)
+ *(something like : [```file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html```](file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html))*
+
+ . . . you will see a page a bit like this :
+
+ ![http://i.imgur.com/LBfHmi3.png](http://i.imgur.com/LBfHmi3.png)
 
 <!-- Code for this begins at line #471-->
 <!-- B -->
@@ -588,13 +592,8 @@ Steps to perform :
 
 #### Use the Sublime Text package "DocBlocker" to assist with jsDoc annotation
 
-An almost completely documented copy of our Tinytests file ```./packages/yourpackage/yourpackage-tests.js``` can be obtained from [*martinhbramwell:Meteor-CI-Tutorial* -- ```/fragments/yourpackage-tests.js```](https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/LICENSE) Now we add ```DocBlockr``` to Sublime Text.  [DocBlockr](https://github.com/spadgos/sublime-jsdocs) goes beyond jsDocs and helps add documentation annotations for many other languages than just JavaScript. 
+An almost completely documented copy of our Tinytests file, ```./packages/yourpackage/yourpackage-tests.js``` can be obtained from [*martinhbramwell:Meteor-CI-Tutorial* -- ```/fragments/yourpackage-tests.js```](https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js) 
 
-Steps to perform :
-
- - Go to Preferences >> Package Control
- - In Package Control type : install package
- - Install 'DocBlockr'
 
 
 
