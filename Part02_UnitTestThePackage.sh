@@ -454,7 +454,7 @@ explain ${DOCS}/Try_jsDoc_from_the_Command_Line_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/projects/${PROJECT_NAME}/
-  
+
   tree -L 3 ./packages/yourpackage
   jsdoc -d=./packages/yourpackage/docs ./packages/yourpackage
   tree -L 3 ./packages/yourpackage
@@ -478,8 +478,22 @@ echo ""
 echo ""
 explain ${DOCS}/Configure_Sublime_Text_to_use_jsDoc.md
 
+echo ""
+echo ""
+explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
 
-## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain 
+  pushd ~/projects/${PROJECT_NAME}/packages/yourpackage
+
+  wget -O yourpackage-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js
+
+  popd
+
+fi
+
+
+
+## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain
 
 echo ""
 echo -e "\nDone.  Now start up ./Part03_CloudContinuousIntegration.sh";
