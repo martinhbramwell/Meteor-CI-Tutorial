@@ -559,7 +559,7 @@ If you open the index file in your browser from its file system location . . .
 
 <!-- Code for this begins at line #471-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L471" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L473" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -590,16 +590,52 @@ Steps to perform :
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Use the Sublime Text package "DocBlocker" to assist with jsDoc annotation
+#### Use the Sublime Text package "DocBlockr"
 
-An almost completely documented copy of our Tinytests file, ```./packages/yourpackage/yourpackage-tests.js``` can be obtained from [*martinhbramwell:Meteor-CI-Tutorial* -- ```/fragments/yourpackage-tests.js```](https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js) 
+A partially documented ```yourpackage-tests.js``` is available at [*martinhbramwell:Meteor-CI-Tutorial* -- ```/fragments/yourpackage-tests.js```](https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js) 
 
+Let DocBlockr help finish the annotations for the ```'Check inequality'``` test, as explained in DocBlockr's [usage instructions](https://github.com/spadgos/sublime-jsdocs#usage).  Type ```/**``` followed by ```<enter>``` and DocBlockr will attempt to create appropriate tags.  You can ```<tab>``` and ```<shift-tab>``` back and forth between incomplete fields.
 
+##### Commands
+```terminal
+WORKED=yourpackage-tests.js
+GH_RAW=https://raw.githubusercontent.com
+PRJ=martinhbramwell/Meteor-CI-Tutorial/master
+wget -O ${WORKED} ${GH_RAW}/${PRJ}/fragments/${WORKED}
+```
 
+Continues . . .
+<!-- Code for this begins at line #485-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L490" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### jsDoc for ST3
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Use the Sublime Text package "DocBlockr"
+
+. . . continued.
+
+ ![https://camo.githubusercontent.com/087348d3e797f4ccc91528459b0473f6d34eadf3/687474703a2f2f73706164676f732e6769746875622e696f2f7375626c696d652d6a73646f63732f696d616765732f6c6f6e672d617267732e676966](https://camo.githubusercontent.com/087348d3e797f4ccc91528459b0473f6d34eadf3/687474703a2f2f73706164676f732e6769746875622e696f2f7375626c696d652d6a73646f63732f696d616765732f6c6f6e672d617267732e676966)
+
+```javascript
+/**
+ * @param  {[type]}
+ * @return {[type]}
+ */    
+```
+
+TinyTest's structure is unusual so those suggestions are poor. Simply copy from the test above and adapt.  The use of the tags ```@namespace``` and ```@memberof Tinytest``` is just one of jsDoc's many workaround tricks for special cases.
+ 
 
 <!-- Code for this begins at line #485-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L485" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L487" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
