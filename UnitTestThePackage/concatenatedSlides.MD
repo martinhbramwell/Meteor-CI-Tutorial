@@ -186,7 +186,9 @@ In this step we create a repository in GitHub project source hosting.
 
 The steps are :
 
- - Log in to [GitHub](https://github.com/) as ```${PACKAGE_DEVELOPER}``` and create a project with the exact name ```${PROJECT_NAME}```. Don't set any other values. We'll do that automatically.
+ - Log in to [GitHub](https://github.com/) as ```${PACKAGE_DEVELOPER}```
+ - Switch to the ```${GITHUB_ORGANIZATION_NAME}``` organization, (if different from ```${PACKAGE_DEVELOPER}```)
+ - Create a project with the exact name ```${PROJECT_NAME}```. Don't set any other values. We'll do that automatically.
  - Log in to [CircleCI](https://circleci.com/) and set it to monitor project ```${PROJECT_NAME}``` for rebuilding.
 
 Some steps are more understandable if you watch the video series mentioned on the [Table of Contents](./) page.
@@ -271,7 +273,7 @@ source ~/.profile;
 Continued . . . 
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L264" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L265" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -302,7 +304,7 @@ meteor list
 Your package will be part of your project's run time, but not part of it at edit time. That's next . . .
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L279" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L280" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -328,7 +330,7 @@ ln -s ${PACKAGE_DIRS}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
 For editing purposes your package now appears to be part of your project.  But wait!  It won't be "git managed", will it?!
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L344" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L345" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -349,7 +351,7 @@ The resulting modularity is benefical and the multiplication of git commands can
 Continuing . . . 
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L356" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L357" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -366,7 +368,7 @@ Continuing . . .
 
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L364" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L365" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -390,7 +392,7 @@ tree
 To stop Meteor after you have confirmed that it ran successful tests, hit ```<enter>```.
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L373" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L374" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -416,7 +418,7 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 ```
 <!-- Code for this begins at line #311-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L402" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L403" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: UseESLintOnTheCommandLine
@@ -448,7 +450,7 @@ eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
 
 <!-- Code for this begins at line #414-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L433" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L434" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -540,7 +542,7 @@ eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
 Great!  All clean!
 <!-- Code for this begins at line #441-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L459" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L460" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: TryJSDocFromTheCommandLinea
@@ -575,7 +577,7 @@ tree -L 2 ./packages/${PKG_NAME}
 continued ...
 <!-- Code for this begins at line #455-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L473" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L474" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: TryJSDocFromTheCommandLineB
@@ -599,7 +601,7 @@ If you open the index file in your browser from its file system location . . .
 
 <!-- Code for this begins at line #471-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L491" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L492" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -647,7 +649,7 @@ wget -O ${WORKED} ${GH_RAW}/${PRJ}/fragments/${WORKED}
 Continues . . .
 <!-- Code for this begins at line #485-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L508" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L509" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
