@@ -9,7 +9,7 @@ name: TryJSDocFromTheCommandLinea
 
 #### Use jsDoc on the Command Line
 
-JSDoc creates a documentation web site, in a directory you specify, like this :
+In a directory you specify, JSDoc creates a documentation web site like this :
 ```ruby
 yourself@YourVM:~/projects/yourproject$ tree -L 2 ./packages/${PKG_NAME}
 ./packages/yourpackage

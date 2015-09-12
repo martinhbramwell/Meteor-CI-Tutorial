@@ -8,16 +8,15 @@
 
 #### Use the Sublime Text package "DocBlockr"
 
-A partially documented ```${PKG_NAME}-tests.js``` is available at [*martinhbramwell:Meteor-CI-Tutorial* -- ```/fragments/${PKG_NAME}-tests.js```](https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/${PKG_NAME}-tests.js) 
+DocBlockr tries to help finish annotations begun with ```/**```, as explained in the [usage instructions](https://github.com/spadgos/sublime-jsdocs#usage).  
 
-Let DocBlockr help finish the annotations for the ```'Check inequality'``` test, as explained in DocBlockr's [usage instructions](https://github.com/spadgos/sublime-jsdocs#usage).  Type ```/**``` followed by ```<enter>``` and DocBlockr will attempt to create appropriate tags.  You can ```<tab>``` and ```<shift-tab>``` back and forth between incomplete fields.
+ ![https://camo.githubusercontent.com/087348d3e797f4ccc91528459b0473f6d34eadf3/687474703a2f2f73706164676f732e6769746875622e696f2f7375626c696d652d6a73646f63732f696d616765732f6c6f6e672d617267732e676966](https://camo.githubusercontent.com/087348d3e797f4ccc91528459b0473f6d34eadf3/687474703a2f2f73706164676f732e6769746875622e696f2f7375626c696d652d6a73646f63732f696d616765732f6c6f6e672d617267732e676966)
+
+Here is a partially documented [```${PKG_NAME}-tests.js```](https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/$yourpackage-tests.js)
 
 ##### Commands
-```terminal
-WORKED=${PKG_NAME}-tests.js
-GH_RAW=https://raw.githubusercontent.com
-PRJ=martinhbramwell/Meteor-CI-Tutorial/master
-wget -O ${WORKED} ${GH_RAW}/${PRJ}/fragments/${WORKED}
+```ruby
+wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js
 ```
 
 Continues . . .

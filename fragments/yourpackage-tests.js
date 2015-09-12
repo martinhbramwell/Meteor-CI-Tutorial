@@ -11,10 +11,12 @@
  */
 
 /**
- * Simply verifies that true is equal to true
+ * Simply verifies that true equals true
  * @name sanityCheckEQ
- * @function
  * @memberof Tinytest
+ * @function
+ * @param  test {Tinytest} Check Equality
+ * @return {None}
  */
 Tinytest.add('Check Equality', function sanityCheckEQ(test) {
   test.equal(true, true);
