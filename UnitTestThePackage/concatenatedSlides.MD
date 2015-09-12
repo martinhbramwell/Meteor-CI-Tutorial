@@ -60,7 +60,7 @@ Steps performed :
 #####Commands
 ```terminal
 git config --global user.name "${YOUR_EMAIL}"
-git config --global user.email "${YOUR_NAME}"
+git config --global user.email "${PACKAGE_DEVELOPER}"
 git config --global push.default simple
 ```
 <!-- Code for this begins at line #48-->
@@ -170,6 +170,7 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/mas
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L140" target="_blank">Code for this step.</a>] ]
 ]
 ---
+name: CreateRemoteGitHubRepository
 .left-column[
   ### GitHub Repo
 .footnote[.red.bold[] [Table of Contents](./)] 
@@ -215,6 +216,7 @@ You'll need to paste your SSH credentials into each of the empty files. This ass
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L202" target="_blank">Code for this step.</a>] ]
 ]
 ---
+name: CreateLocalGitHubRepository
 .left-column[
   ### Local GitHub Repo
 .footnote[.red.bold[] [Table of Contents](./)] 
@@ -258,8 +260,8 @@ To create self-sufficient packages, begin by defining it as a permanent fixture 
 ##### Commands
 ```terminal
 export PACKAGES=~/projects/packages;
-export PACKAGE_DIRS=${PACKAGES}/somebodyelse:${PACKAGES}/yourself;
-mkdir -p ${PACKAGES}/yourself; mkdir -p ${PACKAGES}/somebodyelse;
+export PACKAGE_DIRS=${PACKAGES}/somebodyelse:${PACKAGES}/${YOUR_NAME};
+mkdir -p ${PACKAGES}/${YOUR_NAME}; mkdir -p ${PACKAGES}/somebodyelse;
 export HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.profile);
 [[ ${HAS_PACKAGE_DIRS} -lt 1 ]] && echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile;
 source ~/.profile;
@@ -269,7 +271,7 @@ Continued . . .
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L262" target="_blank">Code for this step.</a>] ]
 ]
----
+y---
 .left-column[
   ### Create Meteor Packages
 .footnote[.red.bold[] [Table of Contents](./)] 
@@ -289,10 +291,10 @@ Now that Meteor can find your packages, you can create one and install it in you
 
 #####Commands
 ```terminal
-cd ~/projects/packages/yourself
-meteor create --package yourself:yourpackage
+cd ~/projects/packages/${YOUR_NAME}
+meteor create --package ${PACKAGE_DEVELOPER}:${PKG_NAME}
 cd ~/projects/${PROJECT_NAME}
-meteor add yourself:yourpackage
+meteor add ${PACKAGE_DEVELOPER}:${PKG_NAME}
 meteor list
 ```
 Your package will be part of your project's run time, but not part of it at edit time. That's next . . .
@@ -319,12 +321,63 @@ That's easily fixed.  You simply need to establish a symbolic link from your pac
 #####Commands
 ```terminal
 cd ~/projects/${PROJECT_NAME}/packages
-ln -s ${PACKAGE_DIRS}/yourself/yourpackage yourpackage
+ln -s ${PACKAGE_DIRS}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
 ```
 For editing purposes your package now appears to be part of your project.
 <!-- Code for this begins at line #278-->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L342" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Create Meteor Packages
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Controlling Versions of your Meteor package.
+
+Another consequence of keeping packages outside your project directory is the need for a separate version control repository for each one.
+
+The resulting modularity is benefical and the multiplication of git commands can be mitigated by using <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank">git submodules</a> *("Submodules allow you to keep a Git repository as a subdirectory of another Git repository.")*. Regardless of whether we go that way we must repeat the earlier steps to create [remote](#CreateRemoteGitHubRepository) and [local](#CreateLocalGitHubRepository) repositories, this time for ```${PKG_NAME}```.
+
+
+#####Commands
+```terminal
+cd ~/projects/${PROJECT_NAME}/packages
+ln -s ${PACKAGE_DIRS}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
+```
+For editing purposes your package now appears to be part of your project.
+<!-- Code for this begins at line #278-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L354" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Create Meteor Packages
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Working on your Meteor package.
+
+One disadvantage of keeping packages outside your project directory is that you lose Meteor's automatic refresh on saving changes.
+
+That's easily fixed.  You simply need to establish a symbolic link from your packages directory to the real package :
+1. step into the packages directory of your project
+2. create a symbolic link
+
+#####Commands
+```terminal
+cd ~/projects/${PROJECT_NAME}/packages
+ln -s ${PACKAGE_DIRS}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
+```
+For editing purposes your package now appears to be part of your project.
+<!-- Code for this begins at line #278-->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L362" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -336,21 +389,19 @@ For editing purposes your package now appears to be part of your project.
 
 #### TinyTest a package.
 
-Meteor makes unit testing packages very easy. A single command and we have  unit tested our package.
+Meteor makes unit testing of packages very easy. A single command and we can see test results every time we save a file.
 
-Meteor will start up as a background process in TinyTest mode.
-
-In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm that it is working.
+In the accompanying script, the ampersand ```"&"``` causes Meteor package testing to start up as a background process.  In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm that it is working.
 
 #####Commands
 ```terminal
 meteor test-packages &
 tree
 ```
-To stop Meteor, hit ```<enter>``` after you have confirmed that it ran successful tests.
+To stop Meteor after you have confirmed that it ran successful tests, hit ```<enter>```.
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L355" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L371" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -376,7 +427,7 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 ```
 <!-- Code for this begins at line #311-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L384" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L400" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: UseESLintOnTheCommandLine
@@ -393,7 +444,7 @@ We are ready with ESLint for the command line, and will have it for Sublime Text
 
 The result should look like this :
 ```ruby
-packages/yourpackage/yourpackage-tests.js
+packages/${PKG_NAME}/${PKG_NAME}-tests.js
  3:14 error   Strings must use doublequote                 quotes
  3:25 warning Missing function expression name             func-names
  3:33 error   Unexpected space before function parentheses space-before-function-paren
@@ -403,12 +454,12 @@ packages/yourpackage/yourpackage-tests.js
 ##### Commands
 ```terminal
 cd ~/projects/${PROJECT_NAME}/
-eslint ./packages/yourpackage/yourpackage-tests.js
+eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
 ```
 
 <!-- Code for this begins at line #414-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L415" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L431" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -467,10 +518,10 @@ You have reconfigured the ESLint rule ```'quotes'```.  The complete list of conf
 #### Correct the indicated code-quality defects
 
 In Sublime Text, make sure you're editing the same project as you opened in the previous slide, then :
-1. begin editing the files ```./${PROJECT_NAME}.js``` and ```./packages/yourpackage/yourpackage-tests.js```
+1. begin editing the files ```./${PROJECT_NAME}.js``` and ```./packages/${PKG_NAME}/${PKG_NAME}-tests.js```
 2. the former has ESLint deficiencies indicated, while the latter does not.
-3. open ```./.eslintrc``` and save it as ```./packages/yourpackage/yourpackage-tests.js```.
-4. close and reopen ```./packages/yourpackage/yourpackage-tests.js``` and deficiency flags will appear
+3. open ```./.eslintrc``` and save it as ```./packages/${PKG_NAME}/${PKG_NAME}-tests.js```.
+4. close and reopen ```./packages/${PKG_NAME}/${PKG_NAME}-tests.js``` and deficiency flags will appear
 5. click on line '3' and notice the status bar has a warning ```func-names``` and an error ```space-before-function-paren```
 6. add ```checkSanity``` after the key word ```function``` to correct both defects
 
@@ -493,17 +544,17 @@ Tinytest.add('example', function checkSanity(test) {
 
 Return to the command line and rerun . . . 
 ```terminal
-eslint ./packages/yourpackage/yourpackage-tests.js
+eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
 ```
 . . . as you did for the earlier step ["Command Line ESLint"](#UseESLintOnTheCommandLine).
 
 Great!  All clean!
 <!-- Code for this begins at line #441-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L441" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L457" target="_blank">Code for this step.</a>] ]
 ]
 ---
-name: UseESLintOnTheCommandLine
+name: TryJSDocFromTheCommandLinea
 .left-column[
   ### Command Line jsDoc (Step #1)
 .footnote[.red.bold[] [Table of Contents](./)] 
@@ -515,7 +566,7 @@ name: UseESLintOnTheCommandLine
 
 JSDoc creates a documentation web site, in a directory you specify, like this :
 ```ruby
-yourself@YourVM:~/projects/yourProj$ tree -L 2 ./packages/yourpackage
+yourself@YourVM:~/projects/yourProj$ tree -L 2 ./packages/${PKG_NAME}
 ./packages/yourpackage
 ├── docs
 │   ├── files.html
@@ -529,16 +580,16 @@ yourself@YourVM:~/projects/yourProj$ tree -L 2 ./packages/yourpackage
 ```
 ##### Commands
 ```terminal
-jsdoc -d ./packages/yourpackage/docs ./packages/yourpackage
-tree -L 2 ./packages/yourpackage
+jsdoc -d ./packages/${PKG_NAME}/docs ./packages/${PKG_NAME}
+tree -L 2 ./packages/${PKG_NAME}
 ```
 continued ...
 <!-- Code for this begins at line #455-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L455" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L471" target="_blank">Code for this step.</a>] ]
 ]
 ---
-name: UseESLintOnTheCommandLine
+name: TryJSDocFromTheCommandLineB
 .left-column[
   ### Command Line jsDoc (Step #2)
 .footnote[.red.bold[] [Table of Contents](./)] 
@@ -551,7 +602,7 @@ name: UseESLintOnTheCommandLine
 
 If you open the index file in your browser from its file system location . . . 
 
- *(something like : [```file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html```](file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html))*
+ *(something like : [```file:///home/${YOUR_NAME}/projects/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html```](file:///home/${YOUR_NAME}/projects/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html))*
 
  . . . you will see a page a bit like this :
 
@@ -559,7 +610,7 @@ If you open the index file in your browser from its file system location . . .
 
 <!-- Code for this begins at line #471-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L473" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L489" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -592,13 +643,13 @@ Steps to perform :
 
 #### Use the Sublime Text package "DocBlockr"
 
-A partially documented ```yourpackage-tests.js``` is available at [*martinhbramwell:Meteor-CI-Tutorial* -- ```/fragments/yourpackage-tests.js```](https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js) 
+A partially documented ```${PKG_NAME}-tests.js``` is available at [*martinhbramwell:Meteor-CI-Tutorial* -- ```/fragments/${PKG_NAME}-tests.js```](https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/${PKG_NAME}-tests.js) 
 
 Let DocBlockr help finish the annotations for the ```'Check inequality'``` test, as explained in DocBlockr's [usage instructions](https://github.com/spadgos/sublime-jsdocs#usage).  Type ```/**``` followed by ```<enter>``` and DocBlockr will attempt to create appropriate tags.  You can ```<tab>``` and ```<shift-tab>``` back and forth between incomplete fields.
 
 ##### Commands
 ```terminal
-WORKED=yourpackage-tests.js
+WORKED=${PKG_NAME}-tests.js
 GH_RAW=https://raw.githubusercontent.com
 PRJ=martinhbramwell/Meteor-CI-Tutorial/master
 wget -O ${WORKED} ${GH_RAW}/${PRJ}/fragments/${WORKED}
@@ -607,7 +658,7 @@ wget -O ${WORKED} ${GH_RAW}/${PRJ}/fragments/${WORKED}
 Continues . . .
 <!-- Code for this begins at line #485-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L490" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L506" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -630,7 +681,7 @@ Continues . . .
  */    
 ```
 
-TinyTest's structure is unusual so those suggestions are poor. Simply copy from the test above and adapt.  The use of the tags ```@namespace``` and ```@memberof Tinytest``` is just one of jsDoc's many workaround tricks for special cases.
+TinyTest's structure is unusual so those suggestions are poor. Simply copy from the 'Check Equality' test and adapt.  The use of the tags ```@namespace``` and ```@memberof Tinytest``` is just one of jsDoc's many workaround tricks for special cases.
  
 
 <!-- Code for this begins at line #485-->
@@ -647,7 +698,7 @@ TinyTest's structure is unusual so those suggestions are poor. Simply copy from 
 
 #### Go to the next section . . . 
 
-The preceding two parts covered the minimal basic set up tasks of a Meteor developer's work station with linting, unit testing and version control.  The next section will guide you through preparations for end-to-end testing and continuous integration, *in-the-cloud*. 
+The preceding two parts covered the minimal basic set up tasks of a Meteor developer's work station with linting, automated documentation, unit testing and version control.  The next section will guide you through preparations for end-to-end testing and continuous integration *in-the-cloud*. 
 
 [Part #3 - Cloud Continuous Integration](./?part=C)
 

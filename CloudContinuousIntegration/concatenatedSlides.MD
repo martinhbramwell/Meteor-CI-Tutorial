@@ -117,7 +117,7 @@ The Nightwatch ```circle.yml``` includes set up of TinyTest, so it can overwrite
 
 Meteor supports 'npm' modules with the package NPM. 
 
-Edit ```'yourpackage-tests.js'``` again adding :
+Edit ```'${PKG_NAME}-tests.js'``` again adding :
 
 ```const Bunyan = require('bunyan');```
 
@@ -163,8 +163,8 @@ at the bottom of the file ```'package.js'```
 ```javascript
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('yourself:yourpackage');
-  api.addFiles('yourpackage-tests.js');
+  api.use('${YOUR_NAME}:${PKG_NAME}');
+  api.addFiles('${PKG_NAME}-tests.js');
 });
 
 Npm.depends({                 //  ADD! <--
@@ -194,8 +194,8 @@ Edit the ```api.addFiles``` line in ```'package.js'```to look like this :
 ```javascript
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('yourself:yourpackage');
-  api.addFiles(['yourpackage-tests.js'], ['server']);  //  EDIT! <--
+  api.use('${YOUR_NAME}:${PKG_NAME}');
+  api.addFiles(['${PKG_NAME}-tests.js'], ['server']);  //  EDIT! <--
 });
 
 Npm.depends({
@@ -216,7 +216,7 @@ Npm.depends({
 
 #### Now we can add logging
 
-Edit ```'yourpackage-tests.js'``` again adding ```const Logger = Bunyan.createLogger({ "name": "ci4meteor" });``` and ```const Logger = Bunyan.createLogger({ "name": "ci4meteor" });``` as shown.
+Edit ```'${PKG_NAME}-tests.js'``` again adding ```const Logger = Bunyan.createLogger({ "name": "ci4meteor" });``` and ```const Logger = Bunyan.createLogger({ "name": "ci4meteor" });``` as shown.
 
 ```javascript
 const Bunyan = Npm.require('bunyan');
@@ -251,7 +251,7 @@ meteor test-packages
 ```
 then in the browser open [localhost:3000](http://localhost:3000/)
 
-To the file ```packages/yourpackage/yourpackage-tests.js``` add the following
+To the file ```packages/${PKG_NAME}/${PKG_NAME}-tests.js``` add the following
 ```javascript
 // Write your tests here!
 // Here is an example.
@@ -274,7 +274,7 @@ then save it and observe the command line logs and the browser console
 
 #### We can get rid of the console altogether
 
-Edit ```'yourpackage-tests.js'``` again and delete the line ```console.log("ººº Yoo Hoo ººº");```
+Edit ```'${PKG_NAME}-tests.js'``` again and delete the line ```console.log("ººº Yoo Hoo ººº");```
 
 ```javascript
 const Bunyan = Npm.require('bunyan');
@@ -312,7 +312,7 @@ Logger = Bunyan.createLogger({
 ```
 Logs will be written to a permanent server-side file.
 
-Remove Bunyan instantiation from ```'yourpackage-tests.js'```
+Remove Bunyan instantiation from ```'${PKG_NAME}-tests.js'```
 ```javascript
 // const Bunyan = Npm.require('bunyan');
 // const Logger = Bunyan.createLogger({ "name": "ci4meteor" });
@@ -340,15 +340,15 @@ Continues ...
 
 In ```package.js``` change this ...
 ```javascript
-api.use('yourself:yourpackage');
-api.addFiles(['yourpackage-tests.js'], ['server']);
+api.use('${YOUR_NAME}:${PKG_NAME}');
+api.addFiles(['${PKG_NAME}-tests.js'], ['server']);
 ```
 ... to look like this ...
 ```javascript
-api.use('yourself:yourpackage');
+api.use('${YOUR_NAME}:${PKG_NAME}');
 api.export("Logger");           //  ADD! <--
 api.addFiles(                   //  EDIT! <--
-  ["logger.js", 'yourpackage-tests.js'],
+  ["logger.js", '${PKG_NAME}-tests.js'],
   ['server']
 );   //  EDIT! <--
 ```
@@ -374,14 +374,14 @@ Edit the file ```'package.js'``` to look like this
 ```javascript
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.3');
-  api.addFiles('yourpackage.js', ['server']);    //  EDIT! <--
+  api.addFiles('${PKG_NAME}.js', ['server']);    //  EDIT! <--
 });
 
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('yourself:yourpackage');
+  api.use('${YOUR_NAME}:${PKG_NAME}');
   api.addFiles(                               //  EDIT! <--
-    ["logger.js", 'yourpackage.js', 'yourpackage-tests.js'],
+    ["logger.js", '${PKG_NAME}.js', '${PKG_NAME}-tests.js'],
     ['server']
   );
   api.export("Logger"); // Order matters.  Export **after** adding
@@ -408,7 +408,7 @@ Continues ...
 
 ... continuing.
 
-Open the empty file ```'yourpackage.js'``` and paste into it
+Open the empty file ```'${PKG_NAME}.js'``` and paste into it
 
 ```javascript
 const Client = Npm.require("swagger-client");
@@ -440,7 +440,7 @@ Continues ...
 
 #### Meteor is Incompatible With NodeJS  (Part A)
 
-Examining the code ```'yourpackage.js'``` we see :
+Examining the code ```'${PKG_NAME}.js'``` we see :
 ```javascript
 const swagger = new Client({
   url: swaggerSpecURL,
