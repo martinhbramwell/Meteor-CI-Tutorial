@@ -352,7 +352,10 @@ fi
 
 
 
-explain ${DOCS}/Control_a_packages_versions_A.md MORE_ACTION # CODE_BLOCK
+explain ${DOCS}/Control_a_packages_versions_A.md
+
+
+explain ${DOCS}/Control_a_packages_versions_B.md  MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ${PACKAGES}/${YOUR_NAME}/${PKG_NAME}
@@ -369,15 +372,6 @@ if [ "${RUN_RULE}" != "n" ]; then
 
 
 fi
-
-
-
-explain ${DOCS}/Control_a_packages_versions_B.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then
-
-
-fi
-
 
 
 
