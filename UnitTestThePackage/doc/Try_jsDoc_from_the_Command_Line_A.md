@@ -11,7 +11,7 @@ name: TryJSDocFromTheCommandLinea
 
 JSDoc creates a documentation web site, in a directory you specify, like this :
 ```ruby
-yourself@YourVM:~/projects/yourProj$ tree -L 2 ./packages/${PKG_NAME}
+yourself@YourVM:~/projects/yourproject$ tree -L 2 ./packages/${PKG_NAME}
 ./packages/yourpackage
 ├── docs
 │   ├── files.html
@@ -31,5 +31,5 @@ tree -L 2 ./packages/${PKG_NAME}
 continued ...
 <!-- Code for this begins at line #455-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L471" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L473" target="_blank">Code for this step.</a>] ]
 ]

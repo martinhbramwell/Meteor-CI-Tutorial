@@ -14,7 +14,7 @@ This one . . .
 ```terminal
 Part02_UnitTestThePackage.sh
 ```
-. . . prepares a Meteor project with an embedded package ready for testing with TinyTest using the first few of the previously mentioned application development support tools.
+. . . prepares a Meteor project with an associated external package ready for testing with TinyTest using the first few of the previously mentioned application development support tools.
 
 You should not need to use 'sudo' for this or any of the later parts.  Everything should happen in your HOME directory.
 

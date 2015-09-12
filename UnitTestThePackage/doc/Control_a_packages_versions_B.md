@@ -16,11 +16,11 @@ That's easily fixed.  You simply need to establish a symbolic link from your pac
 
 #####Commands
 ```terminal
-cd ~/projects/${PROJECT_NAME}/packages
+cd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
 ln -s ${PACKAGE_DIRS}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
 ```
 For editing purposes your package now appears to be part of your project.
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L362" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L364" target="_blank">Code for this step.</a>] ]
 ]

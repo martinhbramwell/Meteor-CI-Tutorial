@@ -22,11 +22,11 @@ packages/${PKG_NAME}/${PKG_NAME}-tests.js
 ```
 ##### Commands
 ```terminal
-cd ~/projects/${PROJECT_NAME}/
+cd ~/${PARENT_DIR}/${PROJECT_NAME}/
 eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
 ```
 
 <!-- Code for this begins at line #414-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L431" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L433" target="_blank">Code for this step.</a>] ]
 ]

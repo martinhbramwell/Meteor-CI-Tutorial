@@ -14,7 +14,7 @@ This one . . .
 ```terminal
 Part02_UnitTestThePackage.sh
 ```
-. . . prepares a Meteor project with an embedded package ready for testing with TinyTest using the first few of the previously mentioned application development support tools.
+. . . prepares a Meteor project with an associated external package ready for testing with TinyTest using the first few of the previously mentioned application development support tools.
 
 You should not need to use 'sudo' for this or any of the later parts.  Everything should happen in your HOME directory.
 
@@ -34,8 +34,10 @@ This step writes some names you specify to a file.  You won't have to repeat thi
 
 You will be asked to supply the following details :
  - The exact project name for use in GitHub
+ - The exact package name for use in GitHub
  - The exact name for the GitHub organization
- - The project owner name to use to publish it in GitHub
+ - The project owner's full name to use to publish on GitHub
+ - The project owner name to for internal use
  - The email address for the project owner in GitHub
 
 <!-- B -->]
@@ -60,12 +62,12 @@ Steps performed :
 #####Commands
 ```terminal
 git config --global user.name "${YOUR_EMAIL}"
-git config --global user.email "${YOUR_NAME}"
+git config --global user.email "${PACKAGE_DEVELOPER}"
 git config --global push.default simple
 ```
 <!-- Code for this begins at line #48-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L33" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L35" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -87,7 +89,7 @@ curl https://install.meteor.com/ | sh
 
 <!-- Code for this begins at line #98-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L44" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L46" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -110,7 +112,7 @@ meteor create ${PROJECT_NAME}
 
 <!-- Code for this begins at line #123-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L69" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L71" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: Check Meteor Works
@@ -141,7 +143,7 @@ echo $A_METEOR_PID
 
 <!-- Code for this begins at line #167-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L113" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L115" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -167,7 +169,7 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/mas
 
 <!-- Code for this begins at line #194-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L140" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L142" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateRemoteGitHubRepository
@@ -213,7 +215,7 @@ You'll need to paste your SSH credentials into each of the empty files. This ass
 
 <!-- Code for this begins at line #62-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L202" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L204" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateLocalGitHubRepository
@@ -242,7 +244,7 @@ git push -u origin master
 
 <!-- Code for this begins at line #257-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L238" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L240" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -259,9 +261,9 @@ If you aim for "package only applications", if packages are to be reusable, your
 To create self-sufficient packages, begin by defining it as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
 ##### Commands
 ```terminal
-export PACKAGES=~/projects/packages;
-export PACKAGE_DIRS=${PACKAGES}/somebodyelse:${PACKAGES}/yourself;
-mkdir -p ${PACKAGES}/yourself; mkdir -p ${PACKAGES}/somebodyelse;
+export PACKAGES=~/${PARENT_DIR}/packages;
+export PACKAGE_DIRS=${PACKAGES}/somebodyelse:${PACKAGES}/${YOUR_NAME};
+mkdir -p ${PACKAGES}/${YOUR_NAME}; mkdir -p ${PACKAGES}/somebodyelse;
 export HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.profile);
 [[ ${HAS_PACKAGE_DIRS} -lt 1 ]] && echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile;
 source ~/.profile;
@@ -269,9 +271,9 @@ source ~/.profile;
 Continued . . . 
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L262" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L264" target="_blank">Code for this step.</a>] ]
 ]
----
+y---
 .left-column[
   ### Create Meteor Packages
 .footnote[.red.bold[] [Table of Contents](./)] 
@@ -291,16 +293,16 @@ Now that Meteor can find your packages, you can create one and install it in you
 
 #####Commands
 ```terminal
-cd ~/projects/packages/yourself
-meteor create --package yourself:yourpackage
-cd ~/projects/${PROJECT_NAME}
-meteor add yourself:yourpackage
+cd ~/${PARENT_DIR}/packages/${YOUR_NAME}
+meteor create --package ${PACKAGE_DEVELOPER}:${PKG_NAME}
+cd ~/${PARENT_DIR}/${PROJECT_NAME}
+meteor add ${PACKAGE_DEVELOPER}:${PKG_NAME}
 meteor list
 ```
 Your package will be part of your project's run time, but not part of it at edit time. That's next . . .
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L277" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L279" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -320,13 +322,13 @@ That's easily fixed.  You simply need to establish a symbolic link from your pac
 
 #####Commands
 ```terminal
-cd ~/projects/${PROJECT_NAME}/packages
-ln -s ${PACKAGE_DIRS}/yourself/yourpackage yourpackage
+cd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
+ln -s ${PACKAGE_DIRS}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
 ```
 For editing purposes your package now appears to be part of your project.
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L342" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L344" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -338,18 +340,20 @@ For editing purposes your package now appears to be part of your project.
 
 #### Controlling Versions of your Meteor package.
 
-Another consequence of keeping packages outside your project directory is the need for a separate version control repository for each one.  The resulting modularoty is benefical and the multiplication of git commands can be mitigated by using <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank">git submodules</a> *("Submodules allow you to keep a Git repository as a subdirectory of another Git repository.")*. Regardless of whether we go that way we must repeat the earlier steps to create [remote](#CreateRemoteGitHubRepository) and [local](#CreateLocalGitHubRepository) repositories, this time for ```yourpackage```.
+Another consequence of keeping packages outside your project directory is the need for a separate version control repository for each one.
+
+The resulting modularity is benefical and the multiplication of git commands can be mitigated by using <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank">git submodules</a> *("Submodules allow you to keep a Git repository as a subdirectory of another Git repository.")*. Regardless of whether we go that way we must repeat the earlier steps to create [remote](#CreateRemoteGitHubRepository) and [local](#CreateLocalGitHubRepository) repositories, this time for ```${PKG_NAME}```.
 
 
 #####Commands
 ```terminal
-cd ~/projects/${PROJECT_NAME}/packages
-ln -s ${PACKAGE_DIRS}/yourself/yourpackage yourpackage
+cd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
+ln -s ${PACKAGE_DIRS}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
 ```
 For editing purposes your package now appears to be part of your project.
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L354" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L356" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -369,13 +373,13 @@ That's easily fixed.  You simply need to establish a symbolic link from your pac
 
 #####Commands
 ```terminal
-cd ~/projects/${PROJECT_NAME}/packages
-ln -s ${PACKAGE_DIRS}/yourself/yourpackage yourpackage
+cd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
+ln -s ${PACKAGE_DIRS}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
 ```
 For editing purposes your package now appears to be part of your project.
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L362" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L364" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -399,7 +403,7 @@ tree
 To stop Meteor after you have confirmed that it ran successful tests, hit ```<enter>```.
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L371" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L373" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -425,7 +429,7 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 ```
 <!-- Code for this begins at line #311-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L400" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L402" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: UseESLintOnTheCommandLine
@@ -442,7 +446,7 @@ We are ready with ESLint for the command line, and will have it for Sublime Text
 
 The result should look like this :
 ```ruby
-packages/yourpackage/yourpackage-tests.js
+packages/${PKG_NAME}/${PKG_NAME}-tests.js
  3:14 error   Strings must use doublequote                 quotes
  3:25 warning Missing function expression name             func-names
  3:33 error   Unexpected space before function parentheses space-before-function-paren
@@ -451,13 +455,13 @@ packages/yourpackage/yourpackage-tests.js
 ```
 ##### Commands
 ```terminal
-cd ~/projects/${PROJECT_NAME}/
-eslint ./packages/yourpackage/yourpackage-tests.js
+cd ~/${PARENT_DIR}/${PROJECT_NAME}/
+eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
 ```
 
 <!-- Code for this begins at line #414-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L431" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L433" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -492,7 +496,7 @@ Steps to perform :
 
 In Sublime Text :
 1. go to the menu ```File >> Open Folder```
-2. find and open our project ```~/projects/${PROJECT_NAME}```
+2. find and open our project ```~/${PARENT_DIR}/${PROJECT_NAME}```
 3. begin editing the file ```.eslintrc```
 4. search for ```/rules/quotes```
 5. change 'double' to 'single'
@@ -516,10 +520,10 @@ You have reconfigured the ESLint rule ```'quotes'```.  The complete list of conf
 #### Correct the indicated code-quality defects
 
 In Sublime Text, make sure you're editing the same project as you opened in the previous slide, then :
-1. begin editing the files ```./${PROJECT_NAME}.js``` and ```./packages/yourpackage/yourpackage-tests.js```
+1. begin editing the files ```./${PROJECT_NAME}.js``` and ```./packages/${PKG_NAME}/${PKG_NAME}-tests.js```
 2. the former has ESLint deficiencies indicated, while the latter does not.
-3. open ```./.eslintrc``` and save it as ```./packages/yourpackage/yourpackage-tests.js```.
-4. close and reopen ```./packages/yourpackage/yourpackage-tests.js``` and deficiency flags will appear
+3. open ```./.eslintrc``` and save it as ```./packages/${PKG_NAME}/${PKG_NAME}-tests.js```.
+4. close and reopen ```./packages/${PKG_NAME}/${PKG_NAME}-tests.js``` and deficiency flags will appear
 5. click on line '3' and notice the status bar has a warning ```func-names``` and an error ```space-before-function-paren```
 6. add ```checkSanity``` after the key word ```function``` to correct both defects
 
@@ -542,14 +546,14 @@ Tinytest.add('example', function checkSanity(test) {
 
 Return to the command line and rerun . . . 
 ```terminal
-eslint ./packages/yourpackage/yourpackage-tests.js
+eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
 ```
 . . . as you did for the earlier step ["Command Line ESLint"](#UseESLintOnTheCommandLine).
 
 Great!  All clean!
 <!-- Code for this begins at line #441-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L457" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L459" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: TryJSDocFromTheCommandLinea
@@ -564,7 +568,7 @@ name: TryJSDocFromTheCommandLinea
 
 JSDoc creates a documentation web site, in a directory you specify, like this :
 ```ruby
-yourself@YourVM:~/projects/yourProj$ tree -L 2 ./packages/yourpackage
+yourself@YourVM:~/projects/yourproject$ tree -L 2 ./packages/${PKG_NAME}
 ./packages/yourpackage
 ├── docs
 │   ├── files.html
@@ -578,13 +582,13 @@ yourself@YourVM:~/projects/yourProj$ tree -L 2 ./packages/yourpackage
 ```
 ##### Commands
 ```terminal
-jsdoc -d ./packages/yourpackage/docs ./packages/yourpackage
-tree -L 2 ./packages/yourpackage
+jsdoc -d ./packages/${PKG_NAME}/docs ./packages/${PKG_NAME}
+tree -L 2 ./packages/${PKG_NAME}
 ```
 continued ...
 <!-- Code for this begins at line #455-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L471" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L473" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: TryJSDocFromTheCommandLineB
@@ -600,7 +604,7 @@ name: TryJSDocFromTheCommandLineB
 
 If you open the index file in your browser from its file system location . . . 
 
- *(something like : [```file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html```](file:///home/yourself/projects/yourProj/packages/yourpackage/docs/index.html))*
+ *(something like : [```file:///home/${YOUR_NAME}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html```](file:///home/${YOUR_NAME}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html))*
 
  . . . you will see a page a bit like this :
 
@@ -608,7 +612,7 @@ If you open the index file in your browser from its file system location . . .
 
 <!-- Code for this begins at line #471-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L489" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L491" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -641,13 +645,13 @@ Steps to perform :
 
 #### Use the Sublime Text package "DocBlockr"
 
-A partially documented ```yourpackage-tests.js``` is available at [*martinhbramwell:Meteor-CI-Tutorial* -- ```/fragments/yourpackage-tests.js```](https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js) 
+A partially documented ```${PKG_NAME}-tests.js``` is available at [*martinhbramwell:Meteor-CI-Tutorial* -- ```/fragments/${PKG_NAME}-tests.js```](https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/${PKG_NAME}-tests.js) 
 
 Let DocBlockr help finish the annotations for the ```'Check inequality'``` test, as explained in DocBlockr's [usage instructions](https://github.com/spadgos/sublime-jsdocs#usage).  Type ```/**``` followed by ```<enter>``` and DocBlockr will attempt to create appropriate tags.  You can ```<tab>``` and ```<shift-tab>``` back and forth between incomplete fields.
 
 ##### Commands
 ```terminal
-WORKED=yourpackage-tests.js
+WORKED=${PKG_NAME}-tests.js
 GH_RAW=https://raw.githubusercontent.com
 PRJ=martinhbramwell/Meteor-CI-Tutorial/master
 wget -O ${WORKED} ${GH_RAW}/${PRJ}/fragments/${WORKED}
@@ -656,7 +660,7 @@ wget -O ${WORKED} ${GH_RAW}/${PRJ}/fragments/${WORKED}
 Continues . . .
 <!-- Code for this begins at line #485-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L506" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L508" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

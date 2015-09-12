@@ -19,7 +19,9 @@ if ! getUserData; then
     echo -e "#####################################################################"
     echo -e "#   The rest of this script will fail without correct values for : "
     echo -e "#    - project name"
+    echo -e "#    - package name"
     echo -e "#    - project owner name"
+    echo -e "#    - project owner full name"
     echo -e "#    - project owner email."
     echo -e "#   Please ensure you have entered these values correctly."
     echo -e "#####################################################################"
@@ -429,7 +431,7 @@ echo ""
 explain ${DOCS}/Try_ESLint_from_the_Command_Line.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/projects/${PROJECT_NAME}/
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/
   set +e
   eslint ./packages/yourpackage/yourpackage-tests.js
   set -e
@@ -455,7 +457,7 @@ echo ""
 explain ${DOCS}/Try_ESLint_Command_Line_Again.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/projects/${PROJECT_NAME}/
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/
   set +e
   eslint ./packages/yourpackage/yourpackage-tests.js
   set -e
@@ -469,7 +471,7 @@ echo ""
 explain ${DOCS}/Try_jsDoc_from_the_Command_Line_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/projects/${PROJECT_NAME}/
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/
 
   echo -e "\n\nBefore generating documentation . . . "
   tree -L 2 ./packages/yourpackage
@@ -488,7 +490,7 @@ explain ${DOCS}/Try_jsDoc_from_the_Command_Line_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   echo "Paste this URI into your browser :"
-  echo -e "\n   ${HOME}/projects/${PROJECT_NAME}/packages/yourpackage/docs/index.html\n\n"
+  echo -e "\n   ${HOME}/${PARENT_DIR}/${PROJECT_NAME}/packages/yourpackage/docs/index.html\n\n"
 
 fi
 
@@ -504,7 +506,7 @@ echo ""
 explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/projects/${PROJECT_NAME}/packages/yourpackage
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/yourpackage
 
   wget -O yourpackage-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js
 

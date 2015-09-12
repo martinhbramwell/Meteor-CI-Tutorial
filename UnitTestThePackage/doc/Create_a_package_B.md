@@ -18,14 +18,14 @@ Now that Meteor can find your packages, you can create one and install it in you
 
 #####Commands
 ```terminal
-cd ~/projects/packages/${YOUR_NAME}
+cd ~/${PARENT_DIR}/packages/${YOUR_NAME}
 meteor create --package ${PACKAGE_DEVELOPER}:${PKG_NAME}
-cd ~/projects/${PROJECT_NAME}
+cd ~/${PARENT_DIR}/${PROJECT_NAME}
 meteor add ${PACKAGE_DEVELOPER}:${PKG_NAME}
 meteor list
 ```
 Your package will be part of your project's run time, but not part of it at edit time. That's next . . .
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L277" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L279" target="_blank">Code for this step.</a>] ]
 ]

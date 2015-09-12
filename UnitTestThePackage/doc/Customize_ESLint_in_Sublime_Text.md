@@ -10,7 +10,7 @@
 
 In Sublime Text :
 1. go to the menu ```File >> Open Folder```
-2. find and open our project ```~/projects/${PROJECT_NAME}```
+2. find and open our project ```~/${PARENT_DIR}/${PROJECT_NAME}```
 3. begin editing the file ```.eslintrc```
 4. search for ```/rules/quotes```
 5. change 'double' to 'single'
