@@ -61,8 +61,8 @@ Steps performed :
 
 #####Commands
 ```terminal
-git config --global user.name "${YOUR_EMAIL}"
-git config --global user.email "${PACKAGE_DEVELOPER}"
+git config --global user.name "${PACKAGE_DEVELOPER}"
+git config --global user.email "${YOUR_EMAIL}"
 git config --global push.default simple
 ```
 <!-- Code for this begins at line #48-->
@@ -186,7 +186,7 @@ In this step we create a repository in GitHub project source hosting.
 
 The steps are :
 
- - Log in to [GitHub](https://github.com/) and create a project with the exact name ```${PROJECT_NAME}```. Don't set any other values. We'll do that automatically.
+ - Log in to [GitHub](https://github.com/) as ```${PACKAGE_DEVELOPER}``` and create a project with the exact name ```${PROJECT_NAME}```. Don't set any other values. We'll do that automatically.
  - Log in to [CircleCI](https://circleci.com/) and set it to monitor project ```${PROJECT_NAME}``` for rebuilding.
 
 Some steps are more understandable if you watch the video series mentioned on the [Table of Contents](./) page.
@@ -294,9 +294,9 @@ Now that Meteor can find your packages, you can create one and install it in you
 #####Commands
 ```terminal
 cd ~/${PARENT_DIR}/packages/${YOUR_NAME}
-meteor create --package ${PACKAGE_DEVELOPER}:${PKG_NAME}
+meteor create --package ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}
 cd ~/${PARENT_DIR}/${PROJECT_NAME}
-meteor add ${PACKAGE_DEVELOPER}:${PKG_NAME}
+meteor add ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}
 meteor list
 ```
 Your package will be part of your project's run time, but not part of it at edit time. That's next . . .
