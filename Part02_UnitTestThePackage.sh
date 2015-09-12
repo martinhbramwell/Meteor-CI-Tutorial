@@ -355,6 +355,18 @@ fi
 explain ${DOCS}/Control_a_packages_versions_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
+  pushd ${PACKAGES}/${YOUR_NAME}/${PKG_NAME}
+
+  ssh-add
+  git init
+  git add .
+  git commit -am 'First commit'
+  git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
+# git remote set-url origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
+  git push -u origin master
+
+  popd
+
 
 fi
 
