@@ -1,4 +1,5 @@
 ---
+name: CreateLocalGitHubRepository
 .left-column[
   ### Local GitHub Repo
 .footnote[.red.bold[] [Table of Contents](./)] 

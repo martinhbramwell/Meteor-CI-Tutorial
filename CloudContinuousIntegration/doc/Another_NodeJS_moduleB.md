@@ -10,7 +10,7 @@
 
 ... continuing.
 
-Open the empty file ```'yourpackage.js'``` and paste into it
+Open the empty file ```'${PKG_NAME}.js'``` and paste into it
 
 ```javascript
 const Client = Npm.require("swagger-client");

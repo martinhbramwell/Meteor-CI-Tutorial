@@ -19,7 +19,7 @@
  */    
 ```
 
-TinyTest's structure is unusual so those suggestions are poor. Simply copy from the test above and adapt.  The use of the tags ```@namespace``` and ```@memberof Tinytest``` is just one of jsDoc's many workaround tricks for special cases.
+TinyTest's structure is unusual so those suggestions are poor. Simply copy from the 'Check Equality' test and adapt.  The use of the tags ```@namespace``` and ```@memberof Tinytest``` is just one of jsDoc's many workaround tricks for special cases.
  
 
 <!-- Code for this begins at line #485-->

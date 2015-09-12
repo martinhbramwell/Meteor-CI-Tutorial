@@ -23,8 +23,8 @@ at the bottom of the file ```'package.js'```
 ```javascript
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('yourself:yourpackage');
-  api.addFiles('yourpackage-tests.js');
+  api.use('${YOUR_NAME}:${PKG_NAME}');
+  api.addFiles('${PKG_NAME}-tests.js');
 });
 
 Npm.depends({                 //  ADD! <--

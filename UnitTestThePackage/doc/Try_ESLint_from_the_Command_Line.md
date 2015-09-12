@@ -13,7 +13,7 @@ We are ready with ESLint for the command line, and will have it for Sublime Text
 
 The result should look like this :
 ```ruby
-packages/yourpackage/yourpackage-tests.js
+packages/${PKG_NAME}/${PKG_NAME}-tests.js
  3:14 error   Strings must use doublequote                 quotes
  3:25 warning Missing function expression name             func-names
  3:33 error   Unexpected space before function parentheses space-before-function-paren
@@ -23,10 +23,10 @@ packages/yourpackage/yourpackage-tests.js
 ##### Commands
 ```terminal
 cd ~/projects/${PROJECT_NAME}/
-eslint ./packages/yourpackage/yourpackage-tests.js
+eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
 ```
 
 <!-- Code for this begins at line #414-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L415" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L431" target="_blank">Code for this step.</a>] ]
 ]

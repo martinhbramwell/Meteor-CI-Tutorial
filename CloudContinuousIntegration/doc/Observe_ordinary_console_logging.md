@@ -17,7 +17,7 @@ meteor test-packages
 ```
 then in the browser open [localhost:3000](http://localhost:3000/)
 
-To the file ```packages/yourpackage/yourpackage-tests.js``` add the following
+To the file ```packages/${PKG_NAME}/${PKG_NAME}-tests.js``` add the following
 ```javascript
 // Write your tests here!
 // Here is an example.

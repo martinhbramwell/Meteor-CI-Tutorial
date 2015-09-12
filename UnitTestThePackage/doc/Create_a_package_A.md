@@ -14,8 +14,8 @@ To create self-sufficient packages, begin by defining it as a permanent fixture 
 ##### Commands
 ```terminal
 export PACKAGES=~/projects/packages;
-export PACKAGE_DIRS=${PACKAGES}/somebodyelse:${PACKAGES}/yourself;
-mkdir -p ${PACKAGES}/yourself; mkdir -p ${PACKAGES}/somebodyelse;
+export PACKAGE_DIRS=${PACKAGES}/somebodyelse:${PACKAGES}/${YOUR_NAME};
+mkdir -p ${PACKAGES}/${YOUR_NAME}; mkdir -p ${PACKAGES}/somebodyelse;
 export HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.profile);
 [[ ${HAS_PACKAGE_DIRS} -lt 1 ]] && echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile;
 source ~/.profile;

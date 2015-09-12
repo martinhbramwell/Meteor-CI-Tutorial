@@ -33,7 +33,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   echo -e "#   -- Configuring git ... "
 
-  git config --global user.email "${YOUR_NAME}"
+  git config --global user.email "${PACKAGE_DEVELOPER}"
   git config --global user.name "${YOUR_EMAIL}"
   git config --global push.default simple
 
@@ -255,12 +255,12 @@ fi
 
 
 export PACKAGES=~/${PARENT_DIR}/packages
-export PACKAGE_DIRS=${PACKAGES}/somebodyelse:${PACKAGES}/yourself
+export PACKAGE_DIRS=${PACKAGES}/somebodyelse:${PACKAGES}/${YOUR_NAME}
 
 explain ${DOCS}/Create_a_package_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  mkdir -p ${PACKAGES}/yourself
+  mkdir -p ${PACKAGES}/${YOUR_NAME}
   mkdir -p ${PACKAGES}/somebodyelse
   HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.profile)
   [[ ${HAS_PACKAGE_DIRS} -lt 1 ]] && echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile
@@ -269,20 +269,20 @@ if [ "${RUN_RULE}" != "n" ]; then
 fi
 
 
-export PACKAGE_DEVELOPER="yourself";
-export PACKAGE_NAME="yourpackage";
+# export PACKAGE_DEVELOPER="yourself";
+# export PACKAGE_NAME="yourpackage";
 
 explain ${DOCS}/Create_a_package_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ${PACKAGES}/${PACKAGE_DEVELOPER};
+  pushd ${PACKAGES}/${YOUR_NAME};
 
   CREATE_PACKAGE=true;
-  if [[ -d ${PACKAGE_NAME}
-     && -f ${PACKAGE_NAME}/package.js
-     &&    $(grep -c "name.*${PACKAGE_DEVELOPER}:${PACKAGE_NAME}" ${PACKAGE_NAME}/package.js ) -gt 0 ]]; then
+  if [[ -d ${PKG_NAME}
+     && -f ${PKG_NAME}/package.js
+     &&    $(grep -c "name.*${PACKAGE_DEVELOPER}:${PKG_NAME}" ${PKG_NAME}/package.js ) -gt 0 ]]; then
 
-    echo "The package, '${PACKAGE_DEVELOPER}:${PACKAGE_NAME}', was created earlier.
+    echo "The package, '${PACKAGE_DEVELOPER}:${PKG_NAME}', was created earlier.
             You can delete it and [r]ecreate it OR [s]kip this step."
     read -p "  'r' or 's' ::  " -n 1 -r USER_ANSWER
     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
@@ -290,14 +290,14 @@ if [ "${RUN_RULE}" != "n" ]; then
       CREATE_PACKAGE=false;
     else
       echo "";
-      echo "Deleting old ${PACKAGE_NAME}. . . ";
-      rm -fr ${PACKAGE_NAME}
+      echo "Deleting old ${PKG_NAME}. . . ";
+      rm -fr ${PKG_NAME}
     fi;
     echo ""
 
   fi;
 
-  ${CREATE_PACKAGE} && meteor create --package "${PACKAGE_DEVELOPER}:${PACKAGE_NAME}";
+  ${CREATE_PACKAGE} && meteor create --package "${PACKAGE_DEVELOPER}:${PKG_NAME}";
 
   popd
 
@@ -309,9 +309,9 @@ if [ "${RUN_RULE}" != "n" ]; then
   meteor list > pkgs.txt;
   echo -e "Currently installed packages :"
   cat pkgs.txt
-  if [[ $(cat pkgs.txt | grep -c "${PACKAGE_DEVELOPER}:${PACKAGE_NAME}") -gt 0 ]]; then
+  if [[ $(cat pkgs.txt | grep -c "${PACKAGE_DEVELOPER}:${PKG_NAME}") -gt 0 ]]; then
 
-    echo "The package, '${PACKAGE_DEVELOPER}:${PACKAGE_NAME}', was installed earlier.
+    echo "The package, '${PACKAGE_DEVELOPER}:${PKG_NAME}', was installed earlier.
             You can remove it and [r]einstall it OR [s]kip this step."
     read -p "  'r' or 's' ::  " -n 1 -r USER_ANSWER
     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
@@ -319,15 +319,15 @@ if [ "${RUN_RULE}" != "n" ]; then
       INSTALL_PACKAGE=false;
     else
       echo "";
-      echo "Removing old ${PACKAGE_DEVELOPER}:${PACKAGE_NAME}. . . ";
-      meteor remove ${PACKAGE_DEVELOPER}:${PACKAGE_NAME};
+      echo "Removing old ${PACKAGE_DEVELOPER}:${PKG_NAME}. . . ";
+      meteor remove ${PACKAGE_DEVELOPER}:${PKG_NAME};
     fi;
     echo ""
 
   fi;
   rm -f pkgs.txt;
 
-  ${INSTALL_PACKAGE} && meteor add "${PACKAGE_DEVELOPER}:${PACKAGE_NAME}";
+  ${INSTALL_PACKAGE} && meteor add "${PACKAGE_DEVELOPER}:${PKG_NAME}";
   ${INSTALL_PACKAGE} && meteor list;
 
   popd
@@ -342,8 +342,24 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   mkdir -p ~/${PARENT_DIR}/${PROJECT_NAME}/packages
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
-  ln -s ${PACKAGES}/${PACKAGE_DEVELOPER}/${PACKAGE_NAME} ${PACKAGE_NAME}
+  ln -s ${PACKAGES}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
   popd
+
+fi
+
+
+
+explain ${DOCS}/Control_a_packages_versions_A.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+
+fi
+
+
+
+explain ${DOCS}/Control_a_packages_versions_B.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
 
 fi
 

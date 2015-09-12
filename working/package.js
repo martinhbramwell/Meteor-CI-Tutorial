@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'yourself:yourpackage',
+  name: 'yourself-yourorg:yourpackage',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: '',

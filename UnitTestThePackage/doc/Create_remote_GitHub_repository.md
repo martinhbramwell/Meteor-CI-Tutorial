@@ -1,4 +1,5 @@
 ---
+name: CreateRemoteGitHubRepository
 .left-column[
   ### GitHub Repo
 .footnote[.red.bold[] [Table of Contents](./)] 

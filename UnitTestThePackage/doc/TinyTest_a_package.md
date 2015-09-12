@@ -8,19 +8,17 @@
 
 #### TinyTest a package.
 
-Meteor makes unit testing packages very easy. A single command and we have  unit tested our package.
+Meteor makes unit testing of packages very easy. A single command and we can see test results every time we save a file.
 
-Meteor will start up as a background process in TinyTest mode.
-
-In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm that it is working.
+In the accompanying script, the ampersand ```"&"``` causes Meteor package testing to start up as a background process.  In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm that it is working.
 
 #####Commands
 ```terminal
 meteor test-packages &
 tree
 ```
-To stop Meteor, hit ```<enter>``` after you have confirmed that it ran successful tests.
+To stop Meteor after you have confirmed that it ran successful tests, hit ```<enter>```.
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L355" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L371" target="_blank">Code for this step.</a>] ]
 ]

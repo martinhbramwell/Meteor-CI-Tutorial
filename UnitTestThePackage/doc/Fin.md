@@ -8,7 +8,7 @@
 
 #### Go to the next section . . . 
 
-The preceding two parts covered the minimal basic set up tasks of a Meteor developer's work station with linting, unit testing and version control.  The next section will guide you through preparations for end-to-end testing and continuous integration, *in-the-cloud*. 
+The preceding two parts covered the minimal basic set up tasks of a Meteor developer's work station with linting, automated documentation, unit testing and version control.  The next section will guide you through preparations for end-to-end testing and continuous integration *in-the-cloud*. 
 
 [Part #3 - Cloud Continuous Integration](./?part=C)
 

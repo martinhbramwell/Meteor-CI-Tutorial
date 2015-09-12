@@ -10,7 +10,7 @@
 
 Meteor supports 'npm' modules with the package NPM. 
 
-Edit ```'yourpackage-tests.js'``` again adding :
+Edit ```'${PKG_NAME}-tests.js'``` again adding :
 
 ```const Bunyan = require('bunyan');```
 

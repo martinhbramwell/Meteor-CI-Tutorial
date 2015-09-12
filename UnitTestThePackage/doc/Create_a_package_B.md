@@ -1,4 +1,4 @@
----
+y---
 .left-column[
   ### Create Meteor Packages
 .footnote[.red.bold[] [Table of Contents](./)] 
@@ -18,10 +18,10 @@ Now that Meteor can find your packages, you can create one and install it in you
 
 #####Commands
 ```terminal
-cd ~/projects/packages/yourself
-meteor create --package yourself:yourpackage
+cd ~/projects/packages/${YOUR_NAME}
+meteor create --package ${PACKAGE_DEVELOPER}:${PKG_NAME}
 cd ~/projects/${PROJECT_NAME}
-meteor add yourself:yourpackage
+meteor add ${PACKAGE_DEVELOPER}:${PKG_NAME}
 meteor list
 ```
 Your package will be part of your project's run time, but not part of it at edit time. That's next . . .

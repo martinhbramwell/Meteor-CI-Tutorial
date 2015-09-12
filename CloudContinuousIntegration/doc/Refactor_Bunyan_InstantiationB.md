@@ -12,15 +12,15 @@
 
 In ```package.js``` change this ...
 ```javascript
-api.use('yourself:yourpackage');
-api.addFiles(['yourpackage-tests.js'], ['server']);
+api.use('${YOUR_NAME}:${PKG_NAME}');
+api.addFiles(['${PKG_NAME}-tests.js'], ['server']);
 ```
 ... to look like this ...
 ```javascript
-api.use('yourself:yourpackage');
+api.use('${YOUR_NAME}:${PKG_NAME}');
 api.export("Logger");           //  ADD! <--
 api.addFiles(                   //  EDIT! <--
-  ["logger.js", 'yourpackage-tests.js'],
+  ["logger.js", '${PKG_NAME}-tests.js'],
   ['server']
 );   //  EDIT! <--
 ```
