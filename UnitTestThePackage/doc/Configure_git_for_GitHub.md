@@ -18,8 +18,8 @@ Steps performed :
 
 #####Commands
 ```terminal
-git config --global user.name "${YOUR_EMAIL}"
-git config --global user.email "${PACKAGE_DEVELOPER}"
+git config --global user.name "${PACKAGE_DEVELOPER}"
+git config --global user.email "${YOUR_EMAIL}"
 git config --global push.default simple
 ```
 <!-- Code for this begins at line #48-->

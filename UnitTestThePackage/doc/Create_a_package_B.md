@@ -19,9 +19,9 @@ Now that Meteor can find your packages, you can create one and install it in you
 #####Commands
 ```terminal
 cd ~/${PARENT_DIR}/packages/${YOUR_NAME}
-meteor create --package ${PACKAGE_DEVELOPER}:${PKG_NAME}
+meteor create --package ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}
 cd ~/${PARENT_DIR}/${PROJECT_NAME}
-meteor add ${PACKAGE_DEVELOPER}:${PKG_NAME}
+meteor add ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}
 meteor list
 ```
 Your package will be part of your project's run time, but not part of it at edit time. That's next . . .

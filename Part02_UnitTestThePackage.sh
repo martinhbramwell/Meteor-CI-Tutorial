@@ -35,8 +35,8 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   echo -e "#   -- Configuring git ... "
 
-  git config --global user.email "${PACKAGE_DEVELOPER}"
-  git config --global user.name "${YOUR_EMAIL}"
+  git config --global user.email "${YOUR_EMAIL}"
+  git config --global user.name "${PACKAGE_DEVELOPER}"
   git config --global push.default simple
 
 fi
@@ -282,9 +282,9 @@ if [ "${RUN_RULE}" != "n" ]; then
   CREATE_PACKAGE=true;
   if [[ -d ${PKG_NAME}
      && -f ${PKG_NAME}/package.js
-     &&    $(grep -c "name.*${PACKAGE_DEVELOPER}:${PKG_NAME}" ${PKG_NAME}/package.js ) -gt 0 ]]; then
+     &&    $(grep -c "name.*${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}" ${PKG_NAME}/package.js ) -gt 0 ]]; then
 
-    echo "The package, '${PACKAGE_DEVELOPER}:${PKG_NAME}', was created earlier.
+    echo "The package, '${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}', was created earlier.
             You can delete it and [r]ecreate it OR [s]kip this step."
     read -p "  'r' or 's' ::  " -n 1 -r USER_ANSWER
     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
@@ -299,7 +299,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   fi;
 
-  ${CREATE_PACKAGE} && meteor create --package "${PACKAGE_DEVELOPER}:${PKG_NAME}";
+  ${CREATE_PACKAGE} && meteor create --package "${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}";
 
   popd
 
@@ -311,9 +311,9 @@ if [ "${RUN_RULE}" != "n" ]; then
   meteor list > pkgs.txt;
   echo -e "Currently installed packages :"
   cat pkgs.txt
-  if [[ $(cat pkgs.txt | grep -c "${PACKAGE_DEVELOPER}:${PKG_NAME}") -gt 0 ]]; then
+  if [[ $(cat pkgs.txt | grep -c "${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}") -gt 0 ]]; then
 
-    echo "The package, '${PACKAGE_DEVELOPER}:${PKG_NAME}', was installed earlier.
+    echo "The package, '${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}', was installed earlier.
             You can remove it and [r]einstall it OR [s]kip this step."
     read -p "  'r' or 's' ::  " -n 1 -r USER_ANSWER
     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
@@ -321,15 +321,15 @@ if [ "${RUN_RULE}" != "n" ]; then
       INSTALL_PACKAGE=false;
     else
       echo "";
-      echo "Removing old ${PACKAGE_DEVELOPER}:${PKG_NAME}. . . ";
-      meteor remove ${PACKAGE_DEVELOPER}:${PKG_NAME};
+      echo "Removing old ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}. . . ";
+      meteor remove ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME};
     fi;
     echo ""
 
   fi;
   rm -f pkgs.txt;
 
-  ${INSTALL_PACKAGE} && meteor add "${PACKAGE_DEVELOPER}:${PKG_NAME}";
+  ${INSTALL_PACKAGE} && meteor add "${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}";
   ${INSTALL_PACKAGE} && meteor list;
 
   popd
