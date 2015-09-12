@@ -19,7 +19,7 @@ That's easily fixed.  You simply need to establish a symbolic link from your pac
 cd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
 ln -s ${PACKAGE_DIRS}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
 ```
-For editing purposes your package now appears to be part of your project.
+For editing purposes your package now appears to be part of your project.  But wait!  It won't be "git managed", will it?!
 <!-- Code for this begins at line #278-->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L344" target="_blank">Code for this step.</a>] ]

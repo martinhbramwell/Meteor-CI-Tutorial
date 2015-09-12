@@ -1,4 +1,4 @@
-y---
+---
 .left-column[
   ### Create Meteor Packages
 .footnote[.red.bold[] [Table of Contents](./)] 
