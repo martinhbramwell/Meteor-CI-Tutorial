@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -e
 #
 if [[ $EUID -eq 0 ]]; then
@@ -348,7 +349,13 @@ fi
 
 
 
-explain ${DOCS}/Control_a_packages_versions_A.md
+explain ${DOCS}/Control_a_packages_versions_A.md # CODE_BLOCK
+YRPKGRDY="";
+until [[ "${YRPKGRDY}" == "y" || "${YRPKGRDY}" == "Y" ]]
+do
+  read -p "Have you prepared a GitHub repo called '${PKG_NAME}'? (y/Y) : " -n 1 -r YRPKGRDY
+  echo ""
+done
 
 
 explain ${DOCS}/Control_a_packages_versions_B.md  MORE_ACTION # CODE_BLOCK

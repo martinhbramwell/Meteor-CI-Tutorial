@@ -17,7 +17,5 @@ If you run the jsdoc command again you should see an improved main page with a `
 
 Click on the ```TinyTest``` link and you should see something like the image to the right.
 
-
-<!-- Code for this begins at line #485-->
 <!-- B -->
 ]

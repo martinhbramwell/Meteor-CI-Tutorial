@@ -25,6 +25,5 @@ TinyTest's structure is atypical -- so the suggestions are less useful than usua
 Simply copy from the 'Check Equality' test and adapt.  The use of the tags ```@namespace``` and ```@memberof Tinytest``` is just one of jsDoc's many workaround tricks for special cases.
 
 Continues . . .
-<!-- Code for this begins at line #485-->
 <!-- B -->
 ]
