@@ -304,7 +304,7 @@ meteor list
 Your package will be part of your project's run time, but not part of it at edit time. That's next . . .
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L280" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L276" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -330,7 +330,7 @@ ln -s ${PACKAGE_DIRS}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
 For editing purposes your package now appears to be part of your project.  But wait!  It won't be "git managed", will it?!
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L345" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L341" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -373,7 +373,7 @@ git push -u origin master
 
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L360" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L356" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -397,7 +397,7 @@ tree
 To stop Meteor after you have confirmed that it ran successful tests, hit ```<enter>```.
 <!-- Code for this begins at line #278-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L380" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L376" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -423,7 +423,7 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 ```
 <!-- Code for this begins at line #311-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L409" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L405" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: UseESLintOnTheCommandLine
@@ -455,7 +455,7 @@ eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
 
 <!-- Code for this begins at line #414-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L440" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L436" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -547,7 +547,7 @@ eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
 Great!  All clean!
 <!-- Code for this begins at line #441-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L466" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L462" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: TryJSDocFromTheCommandLinea
@@ -582,7 +582,7 @@ tree -L 2 ./packages/${PKG_NAME}
 continued ...
 <!-- Code for this begins at line #455-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L480" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L476" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: TryJSDocFromTheCommandLineB
@@ -606,7 +606,7 @@ If you open the index file in your browser from its file system location . . .
 
 <!-- Code for this begins at line #471-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L498" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L494" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -647,13 +647,13 @@ Here is a partially documented [```${PKG_NAME}-tests.js```](https://raw.githubus
 
 ##### Commands
 ```ruby
-wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js
+wget -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js
 ```
 
 Continues . . .
 <!-- Code for this begins at line #485-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L515" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L511" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -667,9 +667,9 @@ Continues . . .
 
 . . . continued.
 
-To have DocBlockr help finish the annotations for the ```'Check inequality'``` type ```/**``` followed by ```<enter>```. It will attempt to create appropriate tags.  You can ```<tab>``` and ```<shift-tab>``` back and forth between incomplete fields.
+To have DocBlockr help finish the annotations for ```'Check inequality'``` type ```/**``` followed by ```<enter>```. It will attempt to create appropriate tags.  You can ```<tab>``` and ```<shift-tab>``` back and forth between incomplete fields.
 
-However TinyTest's structure is unusual so DocBlockr's suggestions aren't much use.
+TinyTest's structure is atypical -- so the suggestions are less useful than usual.
 
 ```javascript
 /**
@@ -680,6 +680,31 @@ However TinyTest's structure is unusual so DocBlockr's suggestions aren't much u
 ```
 
 Simply copy from the 'Check Equality' test and adapt.  The use of the tags ```@namespace``` and ```@memberof Tinytest``` is just one of jsDoc's many workaround tricks for special cases.
+
+Continues . . .
+<!-- Code for this begins at line #485-->
+<!-- B -->
+]
+---
+.left-column[
+  ### jsDoc for ST3
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Use the Sublime Text package "DocBlockr"
+
+.img_right[
+  <a href="http://i.imgur.com/VX85WIE.png" target="_blank">![example](http://i.imgur.com/LY7yErF.png)<br/>click to enlarge</a>
+]
+. . . continued.
+
+If you run the jsdoc command again you should see an improved main page with a ```TinyTest``` link under a section header "Namespaces".
+
+Click on the ```TinyTest``` link and you should see something like the image to the right.
+
+
 <!-- Code for this begins at line #485-->
 <!-- B -->
 ]
