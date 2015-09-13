@@ -10,9 +10,9 @@
 
 . . . continued.
 
-To have DocBlockr help finish the annotations for the ```'Check inequality'``` type ```/**``` followed by ```<enter>```. It will attempt to create appropriate tags.  You can ```<tab>``` and ```<shift-tab>``` back and forth between incomplete fields.
+To have DocBlockr help finish the annotations for ```'Check inequality'``` type ```/**``` followed by ```<enter>```. It will attempt to create appropriate tags.  You can ```<tab>``` and ```<shift-tab>``` back and forth between incomplete fields.
 
-However TinyTest's structure is unusual so DocBlockr's suggestions aren't much use.
+TinyTest's structure is atypical -- so the suggestions are less useful than usual.
 
 ```javascript
 /**
@@ -23,6 +23,8 @@ However TinyTest's structure is unusual so DocBlockr's suggestions aren't much u
 ```
 
 Simply copy from the 'Check Equality' test and adapt.  The use of the tags ```@namespace``` and ```@memberof Tinytest``` is just one of jsDoc's many workaround tricks for special cases.
+
+Continues . . .
 <!-- Code for this begins at line #485-->
 <!-- B -->
 ]

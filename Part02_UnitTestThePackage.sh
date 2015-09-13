@@ -271,10 +271,6 @@ if [ "${RUN_RULE}" != "n" ]; then
 
 fi
 
-
-# export PACKAGE_DEVELOPER="yourself";
-# export PACKAGE_NAME="yourpackage";
-
 explain ${DOCS}/Create_a_package_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
@@ -440,7 +436,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/
   set +e
-  eslint ./packages/yourpackage/yourpackage-tests.js
+  eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
   set -e
   popd
 
@@ -466,7 +462,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/
   set +e
-  eslint ./packages/yourpackage/yourpackage-tests.js
+  eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
   set -e
   popd
 
@@ -481,10 +477,10 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/
 
   echo -e "\n\nBefore generating documentation . . . "
-  tree -L 2 ./packages/yourpackage
-  jsdoc -d ./packages/yourpackage/docs ./packages/yourpackage
+  tree -L 2 ./packages/${PKG_NAME}
+  jsdoc -d ./packages/${PKG_NAME}/docs ./packages/${PKG_NAME}
   echo -e "\n\n . . . after generating documentation . . . "
-  tree -L 2 ./packages/yourpackage
+  tree -L 2 ./packages/${PKG_NAME}
 
   popd
 
@@ -497,7 +493,7 @@ explain ${DOCS}/Try_jsDoc_from_the_Command_Line_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   echo "Paste this URI into your browser :"
-  echo -e "\n   ${HOME}/${PARENT_DIR}/${PROJECT_NAME}/packages/yourpackage/docs/index.html\n\n"
+  echo -e "\n   ${HOME}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html\n\n"
 
 fi
 
@@ -513,9 +509,9 @@ echo ""
 explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/yourpackage
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}
 
-  wget -O yourpackage-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js
+  wget -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js
 
   popd
 
@@ -525,6 +521,13 @@ fi
 echo ""
 echo ""
 explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin_B.md
+
+
+
+
+echo ""
+echo ""
+explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin_C.md
 
 
 

@@ -119,3 +119,8 @@ code {
 .pwd {
  color: #8F2400;
 }
+
+.img_right{
+  float: right;
+  margin: 10px;
+}
