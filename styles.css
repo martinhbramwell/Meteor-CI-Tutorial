@@ -25,6 +25,19 @@ a, a > code {
   text-decoration: underline;
   font-size: .9em;
 }
+.subtle_a {
+  text-decoration: none;
+  color: black;
+}
+.popup_div {
+  display:none;
+  position:absolute;
+  left:35%;
+  top:20%;
+  border-style: solid;
+  background-color: white;
+  padding: 10px;
+}
 code {
   background: #e7e8e2;
   border-radius: 5px;
