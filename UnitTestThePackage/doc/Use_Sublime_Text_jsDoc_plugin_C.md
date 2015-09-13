@@ -17,5 +17,7 @@ If you run the jsdoc command again you should see an improved main page with a `
 
 Click on the ```TinyTest``` link and you should see something like the image to the right.
 
+<!-- Code for this begins at line #539-->
 <!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_UnitTestThePackage.sh#L539" target="_blank">Code for this step.</a>] ]
 ]

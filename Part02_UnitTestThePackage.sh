@@ -534,7 +534,17 @@ explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin_B.md
 
 echo ""
 echo ""
-explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin_C.md
+explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin_C.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/
+
+  jsdoc -d ./packages/${PKG_NAME}/docs ./packages/${PKG_NAME}
+  echo -e "\n Look at : ${HOME}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html\n\n"
+
+  popd
+
+fi
 
 
 
