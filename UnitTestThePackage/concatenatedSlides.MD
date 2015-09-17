@@ -738,13 +738,13 @@ name: PublishJsDocsToGitHub
 In this step we run a script that :
  - checks out the 'gh-pages' branch
  - decompresses a zipped copy of our docs
- - commits the 'gh-pages' branch pushes to GitHub
+ - commits the 'gh-pages' branch & pushes to GitHub
  - returns to current branch
  
 The script includes a number of checks and validations for safety sake :
  - the directory must contain the specified repository
  - the current branch must be fully committed and pushed to GitHub
- - that there is a valid zip file of a docs directory
+ - there is a valid zip file of a docs directory
 
 Finally, if no 'gh-pages' branch exists, it will create one.
 

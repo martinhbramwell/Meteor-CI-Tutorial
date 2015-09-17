@@ -561,7 +561,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}
   pushd docs
 
-  echo -e "Zipping up the documenattion directory.\n"
+  echo -e "Zipping up the documentation directory.\n"
 
   rm -f ../.tmp_docs.zip
   zip -qr ../.tmp_docs.zip *
