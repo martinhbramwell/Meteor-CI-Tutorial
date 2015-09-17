@@ -1,0 +1,27 @@
+---
+name: PublishJsDocsToGitHub
+.left-column[
+  ### 'GitHub Pages' Web Site
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+#### Your jsDoc Documents as a GitHub Pages Website
+<a href="https://help.github.com/articles/what-are-github-pages/" target="_blank">The user guide for "GitHub Pages"</a>, shows how GitHub can publish <a href="https://help.github.com/articles/creating-project-pages-manually/" target="_blank">a special branch of your repository</a> as a web site.
+
+In this step we run a script that :
+ - checks out the 'gh-pages' branch
+ - decompresses a zipped copy of our docs
+ - commits the 'gh-pages' branch pushes to GitHub
+ - returns to current branch
+ 
+The script includes a number of checks and validations for safety sake :
+ - the directory must contain the specified repository
+ - the current branch must be fully committed and pushed to GitHub
+ - that there is a valid zip file of a docs directory
+
+Finally, if no 'gh-pages' branch exists, it will create one.
+
+Continued . . .
+
+<!-- B -->]

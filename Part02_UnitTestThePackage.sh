@@ -547,6 +547,40 @@ if [ "${RUN_RULE}" != "n" ]; then
 fi
 
 
+echo ""
+echo ""
+explain ${DOCS}/Publish_jsDocs_toGitHub_A.md
+
+
+
+echo ""
+echo ""
+explain ${DOCS}/Publish_jsDocs_toGitHub_B.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}
+  pushd docs
+
+  echo -e "Zipping up the documenattion directory.\n"
+
+  rm -f ../.tmp_docs.zip
+  zip -qr ../.tmp_docs.zip *
+
+  popd
+
+  echo -e "Committing changes to package, pushing to remote repo and publishing docs as a GitHub Pages website.\n"
+
+  git add docs/*
+  git commit -am "Preliminary package documentation."
+  git push
+
+  popd
+
+  ./PushDocsToGitHubPagesBranch.sh ${PKG_NAME} ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} .tmp_docs.zip
+
+fi
+
+
 
 
 

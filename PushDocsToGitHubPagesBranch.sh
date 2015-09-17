@@ -67,11 +67,11 @@ zip -qr ../.tmp_docs.zip *
 popd >/dev/null;
 
 VALID=true;
-if grep "$1" $2/.git/config  >/dev/null 2>&1; then 
+if grep "$1" $2/.git/config  >/dev/null 2>&1; then
 #   	echo "* * * The directory ($2) appears to contain valid git repo : '$1' * * *";
 
 	pushd $2 >/dev/null;
-	IFS_BK=${IFS}; 
+	IFS_BK=${IFS};
 	IFS=' ' read -a UNCOMMITED_CHANGES <<< $(git diff --shortstat);
 	IFS=${IFS_BK};
 	if [[ ${UNCOMMITED_CHANGES[0]} -gt 0 ]]; then
@@ -85,8 +85,8 @@ if grep "$1" $2/.git/config  >/dev/null 2>&1; then
 		echo -e "\n\n * * * Git Error : Recent commits have not been pushed.  Cannot proceed * * * \n";
 		popd >/dev/null;
   	exit 1;
-  elif unzip -l $3  >/dev/null 2>&1; then
-
+  elif [[ $(unzip -l $3 | grep -c index.html) -gt 0 ]]; then
+# elif unzip -l $3  >/dev/null 2>&1; then
 		echo "The zip file ($3) seems to have files!"
 		PushDocsToGitHubPagesBranch $3
 
@@ -105,17 +105,17 @@ fi;
 if [[ "$VALID" != "true" ]]; then
 
 	echo -e "Usage $0 gitRepoName gitRepoPath gitHubPagesHtmlZipFile"
-	echo -e "This script : 
-	- steps into the directory git_repo_path
-	- stashes changes in current branch if any
+	echo -e "This script :
+	- steps into the directory \${gitRepoPath}
+	- quits if current branch needs commiting or pushing
+	- quits if \${gitRepoName} cannot be found in \${gitRepoPath}
 	- creates a ${GITHUBPAGES} branch if none exists
 	- checks out the ${GITHUBPAGES} branch
-	- decompresses gitHubPagesHtmlZipFile
+	- decompresses \${gitHubPagesHtmlZipFile}
 	- commits to ${GITHUBPAGES} branch
 	- pushes to remote
 	- returns to current branch
-	- recovers stashed artifacts, if any.
 	"
-	echo 
+	echo
 fi;
 
