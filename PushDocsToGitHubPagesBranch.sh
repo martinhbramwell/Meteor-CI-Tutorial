@@ -51,6 +51,7 @@ function PushDocsToGitHubPagesBranch() {
 	git checkout master
 	echo "- - - back on branch master - - -"
 
+    rm $1
 	# if [[ "${STASH_CREATED}" != "No local changes to save" ]];
 	# then
 	# 	git stash apply;
