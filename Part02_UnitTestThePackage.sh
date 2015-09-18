@@ -553,6 +553,7 @@ explain ${DOCS}/Publish_jsDocs_toGitHub_A.md
 
 
 
+TEMP_ZIP=".tmp_docs.zip"
 echo ""
 echo ""
 explain ${DOCS}/Publish_jsDocs_toGitHub_B.md MORE_ACTION # CODE_BLOCK
@@ -563,8 +564,8 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   echo -e "Zipping up the documentation directory.\n"
 
-  rm -f ../.tmp_docs.zip
-  zip -qr ../.tmp_docs.zip *
+  rm -f ../${TEMP_ZIP}
+  zip -qr ../${TEMP_ZIP} *
 
   popd
 
@@ -576,7 +577,8 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   popd
 
-  ./PushDocsToGitHubPagesBranch.sh ${PKG_NAME} ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} .tmp_docs.zip
+  ./PushDocsToGitHubPagesBranch.sh ${PKG_NAME} ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} ${TEMP_ZIP}
+  rm -f ${TEMP_ZIP}
 
 fi
 

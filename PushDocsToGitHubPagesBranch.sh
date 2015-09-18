@@ -12,8 +12,9 @@ function PushDocsToGitHubPagesBranch() {
 
 	else
 		echo "Creating local ${GITHUBPAGES} branch";
-		# git branch ${GITHUBPAGES}
-		# git push --set-upstream origin ${GITHUBPAGES}
+
+		if [[ $(cat .gitignore | grep -c "$1") -lt 1 ]]; then echo "$1" | cat >> .gitignore; fi;
+
 		git checkout --orphan ${GITHUBPAGES}
 		echo "Clean out all but '$1' and hidden files";
 #		rm -fr !($1) 2> /dev/null
@@ -51,7 +52,8 @@ function PushDocsToGitHubPagesBranch() {
 	git checkout master
 	echo "- - - back on branch master - - -"
 
-    rm $1
+  rm $1
+	echo "Deleted the file '$1'"
 	# if [[ "${STASH_CREATED}" != "No local changes to save" ]];
 	# then
 	# 	git stash apply;
@@ -62,10 +64,13 @@ function PushDocsToGitHubPagesBranch() {
 
 }
 
+# FIXME -development only -->
+TEMP_ZIP=".tmp_docs.zip"
 pushd ~/projects/packages/yourself/yourpackage/docs >/dev/null;
-rm -f ../.tmp_docs.zip
-zip -qr ../.tmp_docs.zip *
+rm -f ../${TEMP_ZIP}
+zip -qr ../${TEMP_ZIP} *
 popd >/dev/null;
+#                        <--
 
 VALID=true;
 if grep "$1" $2/.git/config  >/dev/null 2>&1; then
