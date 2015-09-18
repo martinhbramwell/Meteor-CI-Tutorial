@@ -560,24 +560,34 @@ explain ${DOCS}/Publish_jsDocs_toGitHub_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}
-  pushd docs
 
-  echo -e "Zipping up the documentation directory.\n"
+    pushd docs
 
-  rm -f ../${TEMP_ZIP}
-  zip -qr ../${TEMP_ZIP} *
+    echo -e "Zipping up the documentation directory.\n"
 
-  popd
+    rm -f ../${TEMP_ZIP}
+    zip -qr ../${TEMP_ZIP} *
 
-  echo -e "Committing changes to package, pushing to remote repo and publishing docs as a GitHub Pages website.\n"
+    popd
 
+  echo -e "Committing master branch changes of the package.\n"
+
+  set +e
   git add docs/*
+  echo "additions $?"
   git commit -am "Preliminary package documentation."
+  echo "committed $?"
   git push
+  echo "pushed $?"
+  set -e
 
   popd
 
+  echo -e "Pushing to remote repo and publishing docs as a GitHub Pages website.\n"
   ./PushDocsToGitHubPagesBranch.sh ${PKG_NAME} ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} ${TEMP_ZIP}
+
+
+  echo -e "Removing temp file.\n"
   rm -f ${TEMP_ZIP}
 
 fi
