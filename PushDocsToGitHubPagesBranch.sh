@@ -38,6 +38,7 @@ function PushDocsToGitHubPagesBranch() {
 	unzip -o $1 >/dev/null
 	echo -e "Extracted files from : $1"
 	rm $1
+	echo "Deleted the file '$1'"
 
 #  ls -la
 
@@ -52,15 +53,6 @@ function PushDocsToGitHubPagesBranch() {
 	git checkout master
 	echo "- - - back on branch master - - -"
 
-  rm $1
-	echo "Deleted the file '$1'"
-	# if [[ "${STASH_CREATED}" != "No local changes to save" ]];
-	# then
-	# 	git stash apply;
-	# 	echo "Reverted stash"
-	# else
-	# 	echo "No stash to restore";
-	# fi;
 
 }
 
