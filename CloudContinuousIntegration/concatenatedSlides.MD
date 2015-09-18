@@ -15,6 +15,19 @@ This one, 'Part02_UnitTestThePackage.sh', prepares a Meteor project with an embe
 You should not need to use 'sudo' for this or any of the later parts.  Everything should happen in your HOME directory.
 
 
+<div id="uniquename" class="popup_div">
+    <a class="subtle_a" onmouseover="HideContent('uniquename'); return true;"
+       href="javascript:HideContent('uniquename')">
+        <p>pop up note example.</p>
+    </a>
+</div>
+<a
+    class="subtle_a"
+    onmouseover="ReverseContentDisplay('uniquename'); return true;"
+    href="javascript:ReverseContentDisplay('uniquename')">
+    º
+</a>
+
 <!-- B -->]
 ---
 .left-column[
