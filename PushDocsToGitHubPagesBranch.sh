@@ -13,7 +13,9 @@ function PushDocsToGitHubPagesBranch() {
 	else
 		echo "Creating local ${GITHUBPAGES} branch";
 
+		touch .gitignore;
 		if [[ $(cat .gitignore | grep -c "$1") -lt 1 ]]; then echo "$1" | cat >> .gitignore; fi;
+		git add .gitignore
 
 		git checkout --orphan ${GITHUBPAGES}
 		echo "Clean out all but '$1' and hidden files";
