@@ -553,7 +553,7 @@ explain ${DOCS}/Publish_jsDocs_toGitHub_A.md
 
 
 
-TEMP_ZIP=".tmp_docs.zip"
+TEMP_ZIP="/tmp/${PKG_NAME}_docs.zip"
 echo ""
 echo ""
 explain ${DOCS}/Publish_jsDocs_toGitHub_B.md MORE_ACTION # CODE_BLOCK
@@ -565,8 +565,8 @@ if [ "${RUN_RULE}" != "n" ]; then
 
     echo -e "Zipping up the documentation directory.\n"
 
-    rm -f ../${TEMP_ZIP}
-    zip -qr ../${TEMP_ZIP} *
+    rm -f ${TEMP_ZIP}
+    zip -qr ${TEMP_ZIP} *
 
     popd
 

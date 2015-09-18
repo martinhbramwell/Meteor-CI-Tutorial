@@ -59,10 +59,10 @@ function PushDocsToGitHubPagesBranch() {
 }
 
 # FIXME -development only -->
-TEMP_ZIP=".tmp_docs.zip"
+TEMP_ZIP="/tmp/yourpackage_docs.zip"
 pushd ~/projects/packages/yourself/yourpackage/docs >/dev/null;
-rm -f ../${TEMP_ZIP}
-zip -qr ../${TEMP_ZIP} *
+rm -f ${TEMP_ZIP}
+zip -qr ${TEMP_ZIP} *
 popd >/dev/null;
 #                        <--
 
