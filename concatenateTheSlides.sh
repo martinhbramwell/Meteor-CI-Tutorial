@@ -15,7 +15,7 @@ done
 SKIP=true;
 if [[ "X$1X" == "XyX" ]]; then
   SKIP=false;
-elif [[ "X$1X" != "XnX" ]]; then 
+elif [[ "X$1X" != "XnX" ]]; then
   echo -e ""
   echo -e "Usage : "
   echo -e " - '$0 y' generate documentation and commit to gh-pages branch"
@@ -102,8 +102,12 @@ tar zcvf pack.tar.gz index.html \
 styles.css \
 gitlog.txt \
 PrepareTheMachine/concatenatedSlides.MD \
-UnitTestThePackage/concatenatedSlides.MD \
-CloudContinuousIntegration/concatenatedSlides.MD
+VersionControlInTheCloud/concatenatedSlides.MD \
+UnitTestAPackage/concatenatedSlides.MD \
+CodingStyleAndLinting/concatenatedSlides.MD \
+AutomaticDocumentationInTheCloud/concatenatedSlides.MD \
+CloudContinuousIntegration/concatenatedSlides.MD \
+
 
 export STASH_CREATED=$(git stash) && echo $STASH_CREATED
 if [[ "${STASH_CREATED}" != "No local changes to save" ]];
