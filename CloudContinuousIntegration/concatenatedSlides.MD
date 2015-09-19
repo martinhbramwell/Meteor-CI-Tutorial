@@ -1,16 +1,23 @@
 layout: false
 .left-column[
-  ### PART 3 - Introduction
+  ### PART F Introduction
+
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
+## Cloud Continuous Integration
+
 These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration.
 
-The previous script, 'Part02_UnitTestThePackage.sh', set up necessary preconditions for the second script, basically all tasks that require root access. 
+The previous script, 'Part05_AutomaticDocumentationInTheCloud.sh', set up necessary preconditions for the second script, basically all tasks that require root access. 
 
-This one, 'Part02_UnitTestThePackage.sh', prepares a Meteor project with an embedded package ready for testing with TinyTest using the first few of the previously mentioned application development support tools.
+This one . . .  
+```terminal
+Part06_CloudContinuousIntegration.sh
+```
+. . . prepares a Meteor project with an embedded package ready for testing with TinyTest using the first few of the previously mentioned application development support tools.
 
 You should not need to use 'sudo' for this or any of the later parts.  Everything should happen in your HOME directory.
 
@@ -53,7 +60,7 @@ git push -u origin master
 
 <!-- Code for this begins at line #342-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_CloudContinuousIntegration.sh#L17" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L17" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -78,7 +85,7 @@ The installer prepares a Nightwatch test directory and then deletes itself, leav
 
 <!-- Code for this begins at line #374-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_CloudContinuousIntegration.sh#L50" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L50" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -97,7 +104,7 @@ This command group starts Meteor in a background process, and then starts the Ni
 
 <!-- Code for this begins at line #390-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_CloudContinuousIntegration.sh#L66" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L66" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -116,7 +123,7 @@ The Nightwatch ```circle.yml``` includes set up of TinyTest, so it can overwrite
 
 <!-- Code for this begins at line #422-->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_CloudContinuousIntegration.sh#L98" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L98" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -541,7 +548,7 @@ Continues ...
 <!-- B -->]
 ---
 .left-column[
-  ### End Of Part #3
+    ### End Of Part #F
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
