@@ -120,6 +120,8 @@ echo "On branch gh-pages"
 tar zxvf pack.tar.gz
 rm -f pack.tar.gz
 MSG=$(cat gitlog.txt)
+echo "Add anything new"
+git add .
 echo "Unpacked all."
 git commit -am "${MSG}"
 echo "Committed"
