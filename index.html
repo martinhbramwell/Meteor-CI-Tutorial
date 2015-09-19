@@ -13,9 +13,14 @@
           return lnk;
       };
       var sections = {
+
         A: "PrepareTheMachine",
-        B: "UnitTestThePackage",
-        C: "CloudContinuousIntegration",
+        B: "VersionControlInTheCloud",
+        C: "UnitTestAPackage",
+        D: "CodingStyleAndLinting",
+        E: "AutomaticDocumentationInTheCloud",
+        F: "CloudContinuousIntegration"
+
       };
 
     </script>
@@ -71,14 +76,29 @@
         <li>deployment</li>
       </ul>
       <h3>Modus Operandi</h3>
-      <p>Most likely you'll want to flip through the slides to get an overview, then watch the video, then spin up a fresh virtual machine and run through it all.  It shouldn't cost you more than an hour or two.  The slides change with the keyboard only, and they have hyperlinks to deeper details that work only poorly if the slides are also enabled for control by mouse/touchscreen.</p>
+      <p>Most likely you'll want to flip through the slides to get an overview, then watch the video, then spin up a fresh virtual machine and run through it all.  It shouldn't cost you more than an hour or two.  The slides change with the keyboard or scroll wheel.  There are hyperlinks to deeper details and "Hover Notes" (that are problematic if the slides are also enabled for control by mouse/touchscreen).</p>
       <p>Except where indicated, the bash scripts are 'idempotent' -- you can run them repeatedly without adverse consequences.</p>
+
       <h2><a href="./index.html?part=A">Prepare the Machine</a></h2>
-      <p>Start off with a fresh Ubuntu 14.04 LTS virtual machine and install all the platform dependencies.  These are global installs requiring 'sudo'.  Subsequent stages should not require 'sudo'. The script shown can run to completion without intervention, or stop at intermediate steps to view explanations.</p>
-      <h2><a href="./index.html?part=B">Unit Test the Package</a></h2>
-      <p>This section follows the manual steps to perform in a project directory to begin testing with a version controlled Meteor package.</p>
-      <p>You will prepare a Meteor project with an embedded package ready for testing with TinyTest using some of the application development support tools installed in the previous section. It includes the minimal basic set up tasks of a Meteor developer's work station with linting, unit testing and version control.</p>
-      <h2><a href="./index.html?part=C">Cloud Continuous Integration</a></h2>
+      <p>We start off with a fresh Ubuntu 14.04 LTS virtual machine and install all the platform dependencies.  These are global installs requiring 'sudo'.  Subsequent stages should not require 'sudo'. The script shown can run to completion without intervention, or stop at intermediate steps to view explanations.</p>
+
+      <h2><a href="./index.html?part=B">Version Control In The Cloud</a></h2>
+      <p>Towards the goal of "packages-only-apps", we are mainly interested in version control of each distinct package, but we still need an app to contain one or several packages.</p>
+      <p>So, we'll prepare a Meteor project and store it in GitHub.</p>
+
+      <h2><a href="./index.html?part=C">Create and Unit Test a Package</a></h2>
+      <p>This section follows the steps to perform to begin testing a Meteor package.</p>
+      <p>We'll prepare a package, secure it in GitHub and run preliminary tests with TinyTest in the browser and on the command line.</p>
+
+      <h2><a href="./index.html?part=D">Code Quality - Coding Style and Linting</a></h2>
+      <p>If you want reusable components, especially if you are working with one or several teams, it's very important to ensure consistent styles and documentation standards from all contributors to all your projects.  In this and the next section we'll set up an environment where standards conformance is easy.</p>
+      <p>The first element is linting with esLint, run in the editor for instant feedback as well as on the command line so conformance can be published and monitored as part of continuous integration.</p>
+
+      <h2><a href="./index.html?part=E">Code Quality - Automatic Documentation in the Cloud</a></h2>
+      <p>The second element exploits two powerful tools: jsDoc and "GitHub Pages".</p>
+      <p>We'll put together a mechanism for easily documenting code files and then publishing them as a browsable manual, automatically, on GitHub.</p>
+
+      <h2><a href="./index.html?part=F">Cloud Continuous Integration</a></h2>
       <p>This section expands on your workstation toolbox to include working with continuous integration in the cloud. </p>
       <h2>First steps</h2>
       <p>To begin, you will need to obtain the tutorial.  Open up a terminal window, then copy'n paste these commands into it:
