@@ -53,9 +53,9 @@ jsdoc -d ./packages/${PKG_NAME}/docs ./packages/${PKG_NAME}
 tree -L 2 ./packages/${PKG_NAME}
 ```
 continued ...
-<!-- Code for this begins at line #26 -->
+<!-- Code for this begins at line #27 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L26" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L27" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: TryJSDocFromTheCommandLineB
@@ -77,9 +77,9 @@ If you open the index file in your browser from its file system location . . .
 
  ![http://i.imgur.com/LBfHmi3.png](http://i.imgur.com/LBfHmi3.png)
 
-<!-- Code for this begins at line #44 -->
+<!-- Code for this begins at line #45 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L44" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L45" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -124,9 +124,9 @@ wget -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/M
 ```
 
 Continues . . .
-<!-- Code for this begins at line #61 -->
+<!-- Code for this begins at line #62 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L61" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L62" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -176,9 +176,9 @@ If you run the jsdoc command again you should see an improved main page with a `
 
 Click on the ```TinyTest``` link and you should see something like the image to the right.
 
-<!-- Code for this begins at line #82 -->
+<!-- Code for this begins at line #83 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L82" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L83" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: PublishJsDocsToGitHub
@@ -226,9 +226,9 @@ git push
 ./PushDocsToGitHubPagesBranch.sh ${PKG_NAME} ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} .tmp_docs.zip
 ```
 
-<!-- Code for this begins at line #104 -->
+<!-- Code for this begins at line #105 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L104" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L105" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

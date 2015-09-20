@@ -58,9 +58,9 @@ git push -u origin master
 ```
 
 
-<!-- Code for this begins at line #17 -->
+<!-- Code for this begins at line #18 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L17" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L18" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -83,9 +83,9 @@ then make make it executable and run it.
 The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample ```circle.yml``` that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
 
 
-<!-- Code for this begins at line #50 -->
+<!-- Code for this begins at line #51 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L50" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L51" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -102,9 +102,9 @@ Nightwatch and Meteor are separate.
 This command group starts Meteor in a background process, and then starts the Nightwatch Test Runner to try the simple sanity check test, "Does the main page have a <body> tag?".
 
 
-<!-- Code for this begins at line #66 -->
+<!-- Code for this begins at line #67 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L66" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L67" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -121,9 +121,9 @@ We are ready for the final stage: TinyTest & Nightwatch testing run in a single 
 The Nightwatch ```circle.yml``` includes set up of TinyTest, so it can overwrite the one created earlier.
 
 
-<!-- Code for this begins at line #98 -->
+<!-- Code for this begins at line #99 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L98" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L99" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
