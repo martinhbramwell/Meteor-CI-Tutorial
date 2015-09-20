@@ -9,11 +9,11 @@
 #### Some basic tools ...
 
 This sequence installs the following dependencies, if they're not already present :
-- 'build-essential' and 'libssl-dev' are required by [Selenium Webdriver](http://www.seleniumhq.org/projects/webdriver/)
-- 'libappindicator1' for [Chrome](https://www.google.com/chrome/browser/desktop/)
-- '[curl](http://curl.haxx.se/)' for [Meteor](https://www.meteor.com/)
-- '[git](https://git-scm.com/)' and '[ssh](http://www.openssh.com/)' for version control
-- 'tree' and '[pip](https://pypi.python.org/pypi/pip)' for demo convenience 
+- 'build-essential' and 'libssl-dev' are required by <a href="http://www.seleniumhq.org/projects/webdriver/" target="_blank">Selenium Webdriver</a>
+- 'libappindicator1' for <a href='https://www.google.com/chrome/browser/desktop/' target='_blank'>Chrome</a>
+- '<a href='http://curl.haxx.se/' target='_blank'>curl</a>' for <a href='https://www.meteor.com/' target='_blank'>Meteor</a>
+- '<a href='https://git-scm.com/' target='_blank'>git</a>' and '<a href='http://www.openssh.com/' target='_blank'>ssh</a>' for version control
+- 'tree' and '<a href='https://pypi.python.org/pypi/pip' target='_blank'>pip</a>' for demo convenience 
 
 ##### Commands
 ```terminal

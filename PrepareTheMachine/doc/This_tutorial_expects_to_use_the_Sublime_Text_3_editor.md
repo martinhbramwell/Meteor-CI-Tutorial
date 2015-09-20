@@ -11,7 +11,7 @@
 It also expects to be run in a virtual machine; for later destruction.  While you likely have your own preferred text editor, this will introduce the general idea of in-editor linting, which you can then adapt to your own taste.
  
 Steps performed :
- - gets the [PPA](https://en.wikipedia.org/wiki/Personal_Package_Archive) for [Sublime Text 3](http://www.sublimetext.com/3)
+ - gets the <a href='https://en.wikipedia.org/wiki/Personal_Package_Archive' target='_blank'>PPA</a> for <a href='http://www.sublimetext.com/3' target='_blank'>Sublime Text 3</a>
  - installs it. 
  
 If you just want to quickly follow the tutorial then *do* execute this group of commands, otherwise install your usual editor/IDE.  Slimetits ain't bad, tho'.

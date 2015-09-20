@@ -8,11 +8,11 @@
 
 #### NodeJS
 
-[Nightwatch](http://nightwatchjs.org/) is a [NodeJS](https://nodejs.org/) utility.
+<a href='http://nightwatchjs.org/' target='_blank'>Nightwatch</a> is a <a href='https://nodejs.org/' target='_blank'>NodeJS</a> utility.
 
 You must have NodeJS to do Nightwatch testing.
 
-It can run on a separate computer from [Meteor](https://www.meteor.com/), (but we'll do it all in this one).
+It can run on a separate computer from <a href='https://www.meteor.com/' target='_blank'>Meteor</a>, (but we'll do it all in this one).
 ##### Commands
 ```terminal
 curl -sL https://deb.nodesource.com/setup | sudo bash -

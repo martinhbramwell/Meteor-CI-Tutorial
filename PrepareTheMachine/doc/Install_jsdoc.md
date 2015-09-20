@@ -10,7 +10,7 @@
 
 JSDoc can generate a very sophisticated documentation web site for you, directly from annotations you make in your code.  When you use JSDoc together with an annotations package in your text editor, documenting your work simply becomes an integral part in how you think about it.
 
-[jsdoc.org](http://usejsdoc.org/) : 
+<a href='http://usejsdoc.org/' target='_blank'>jsdoc.org</a> : 
   - very detailed and complete documentation generator
   - used by Google for controlling data types in <a href="https://developers.google.com/closure/compiler/docs/js-for-compiler" target="_blank">their JavaScript compiler.</a>
 

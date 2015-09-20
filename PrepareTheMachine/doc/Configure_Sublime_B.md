@@ -7,7 +7,7 @@
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 ### Preparation of Sublime Text 
-#### Second step - Use '[Package Control](https://packagecontrol.io/)' to install more packages.
+#### Second step - Use '<a href='https://packagecontrol.io/' target='_blank'>Package Control</a>' to install more packages.
 
  - Go to Preferences >> Package Control
  - In Package Control select : install package

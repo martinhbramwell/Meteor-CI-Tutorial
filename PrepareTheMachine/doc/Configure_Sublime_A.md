@@ -7,11 +7,11 @@
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 ### Preparation of Sublime Text 
-#### First step - add '[Package Control](https://packagecontrol.io/)'
+#### First step - add '<a href='https://packagecontrol.io/' target='_blank'>Package Control</a>'
 
-We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
+We need <a href='http://www.sublimetext.com/3' target='_blank'>Sublime Text 3</a> configured as follows :
 
- - In your browser, go to the [Package Control installer URL](https://packagecontrol.io/installation)
+ - In your browser, go to the <a href='https://packagecontrol.io/installation' target='_blank'>Package Control installer URL</a>
  - Copy the code snippet for **Sublime Text 3**
  - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
  - Go to View >> Show Console, to open the Console

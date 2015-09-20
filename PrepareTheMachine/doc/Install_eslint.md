@@ -10,7 +10,7 @@
 
 Linting detects code style contraventions, improves maintainability, and flags many hard-to-debug errors before they happen.
 
-[ECMA Script linter](http://eslint.org/docs/about/) : 
+<a href='http://eslint.org/docs/about/' target='_blank'>ECMA Script linter</a> : 
   - thorough Linter for ECMA Script 6 and earlier
   - preferred by Facebook, AirBnB and many other big names
 
