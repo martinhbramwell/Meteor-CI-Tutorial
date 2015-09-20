@@ -6,7 +6,8 @@ if [[ $EUID -eq 0 ]]; then
    exit 1
 fi
 
-DOCS="./CloudContinuousIntegration/doc" 
+
+DOCS="./CloudContinuousIntegration/doc"
 source ./explain.sh
 source ./util.sh
 
@@ -163,7 +164,7 @@ echo ""
 echo ""
 explain ${DOCS}/The_Async_ProblemC.md
 
-## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain 
+## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain
 
 echo ""
 echo ""

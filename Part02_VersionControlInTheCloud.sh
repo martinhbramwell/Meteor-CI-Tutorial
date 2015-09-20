@@ -7,7 +7,9 @@ if [[ $EUID -eq 0 ]]; then
    exit 1
 fi
 
-DOCS="./UnitTestThePackage/doc"
+DOCS="./VersionControlInTheCloud/doc"
+
+
 source ./explain.sh
 source ./util.sh
 

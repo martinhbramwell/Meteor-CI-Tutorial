@@ -69,9 +69,9 @@ git config --global user.name "${PACKAGE_DEVELOPER}"
 git config --global user.email "${YOUR_EMAIL}"
 git config --global push.default simple
 ```
-<!-- Code for this begins at line #36 -->
+<!-- Code for this begins at line #38 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L36" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L38" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -91,9 +91,9 @@ curl https://install.meteor.com/ | sh
 ```
 
 
-<!-- Code for this begins at line #47 -->
+<!-- Code for this begins at line #49 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L47" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L49" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -114,9 +114,9 @@ mkdir -p ~/${PARENT_DIR}
 meteor create ${PROJECT_NAME}
 ```
 
-<!-- Code for this begins at line #72 -->
+<!-- Code for this begins at line #74 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L72" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L74" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: Check Meteor Works
@@ -145,9 +145,9 @@ A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print $2}')
 echo $A_METEOR_PID
 ```
 
-<!-- Code for this begins at line #116 -->
+<!-- Code for this begins at line #118 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L116" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L118" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -171,9 +171,9 @@ The .eslintrc file is borrowed from the project [warehouseman:meteor-swagger-cli
 wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
 ```
 
-<!-- Code for this begins at line #143 -->
+<!-- Code for this begins at line #145 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L143" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L145" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateRemoteGitHubRepository
@@ -219,9 +219,9 @@ Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa'
 You'll need to paste your SSH credentials into each of the empty files. This assumes you only need to copy them in from some other GitHub project.  Getting them for the first time is beyond the scope of this tutorial.  You should follow [GitHub's getting started documents.](https://help.github.com/articles/generating-ssh-keys/)
 
 
-<!-- Code for this begins at line #205 -->
+<!-- Code for this begins at line #207 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L205" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L207" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateLocalGitHubRepository
@@ -248,9 +248,9 @@ git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}
 git push -u origin master
 ```
 
-<!-- Code for this begins at line #241 -->
+<!-- Code for this begins at line #243 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L241" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L243" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

@@ -7,11 +7,12 @@ if [[ $EUID -eq 0 ]]; then
    exit 1
 fi
 
-DOCS="./UnitTestThePackage/doc"
+DOCS="./AutomaticDocumentationInTheCloud/doc"
 source ./explain.sh
 source ./util.sh
 
 explain ${DOCS}/Introduction.md
+
 
 
 export PACKAGES=~/${PARENT_DIR}/packages
