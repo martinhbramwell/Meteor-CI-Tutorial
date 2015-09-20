@@ -15,7 +15,7 @@ The previous script, 'Part04_CodingStyleAndLinting.sh', set up code quality assu
 
 This one . . .  
 ```terminal
-Part05_AutomaticDocumentationInTheCloud.sh
+./Part05_AutomaticDocumentationInTheCloud.sh
 ```
 . . . continues the componentization efforts of earlier parts, by making it very easy to document the code and the tests of each package as it is developed.
 

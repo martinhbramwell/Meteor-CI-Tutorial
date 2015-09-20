@@ -15,7 +15,7 @@ The previous script, 'Part03_UnitTestAPackage.sh', got us started with a package
 
 This one . . .  
 ```terminal
-Part04_CodingStyleAndLinting.sh
+./Part04_CodingStyleAndLinting.sh
 ```
 . . .  brings in the capability of applying code style and quality rules while editing, just before committing and during continuous integration.
 
