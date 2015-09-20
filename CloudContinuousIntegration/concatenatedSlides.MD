@@ -15,7 +15,7 @@ The previous script, 'Part05_AutomaticDocumentationInTheCloud.sh', set up necess
 
 This one . . .  
 ```terminal
-Part06_CloudContinuousIntegration.sh
+./Part06_CloudContinuousIntegration.sh
 ```
 . . . prepares a Meteor project with an embedded package ready for testing with TinyTest using the first few of the previously mentioned application development support tools.
 

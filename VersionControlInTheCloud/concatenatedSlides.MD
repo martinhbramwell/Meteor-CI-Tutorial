@@ -15,7 +15,7 @@ The previous script, 'Part01_PrepareTheMachine.sh', set up necessary preconditio
 
 This one . . .  
 ```terminal
-Part02_VersionControlInTheCloud.sh
+./Part02_VersionControlInTheCloud.sh
 ```
 . . . prepares a Meteor project, with version control *in the cloud* in GitHub.  You will need to understand a bit about Publice and Private Keys and about Secure Shell.  Try reading <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">GitHub's getting started documents.</a>
 
