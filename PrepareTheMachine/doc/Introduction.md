@@ -15,7 +15,7 @@ This first script, run with . . .
 ```terminal
 sudo ./Part01_PrepareTheMachine.sh
 ```
-. . . sets up all necessary preconditions for following scripts.  As much as possible, this first step handles all tasks that require root access.
+. . . sets up all necessary preconditions for the remaining scripts.  As much as possible, this first step handles all tasks that require root access.
 
 You can hit the 'a' key at any of the pause points to have it run **a**ll the remaining steps without further interruption.
 

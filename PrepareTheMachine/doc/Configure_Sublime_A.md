@@ -23,7 +23,7 @@ We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
 export ST3URL="https://packagecontrol.io/installation#st3";
 python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"
 ```
-<!-- Code for this begins at line #153-->
+<!-- Code for this begins at line #166 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L166" target="_blank">Code for this step.</a>] ]
 ]

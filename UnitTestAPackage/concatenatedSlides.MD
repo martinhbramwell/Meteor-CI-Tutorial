@@ -45,7 +45,7 @@ export HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.
 source ~/.profile;
 ```
 Continued . . . 
-<!-- Code for this begins at line #278-->
+<!-- Code for this begins at line #22 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L22" target="_blank">Code for this step.</a>] ]
 ]
@@ -76,7 +76,7 @@ meteor add ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}
 meteor list
 ```
 Your package will be part of your project's run time, but not part of it at edit time. That's next . . .
-<!-- Code for this begins at line #278-->
+<!-- Code for this begins at line #33 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L33" target="_blank">Code for this step.</a>] ]
 ]
@@ -102,7 +102,7 @@ cd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
 ln -s ${PACKAGE_DIRS}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
 ```
 For editing purposes your package now appears to be part of your project.  But wait!  It won't be "git managed", will it?!
-<!-- Code for this begins at line #278-->
+<!-- Code for this begins at line #98 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L98" target="_blank">Code for this step.</a>] ]
 ]
@@ -125,7 +125,7 @@ That's beyond the scope of this tutorial.  However, we must, in any case, repeat
 **Be sure to prepare a GitHub repo called '${PKG_NAME}'**
 
 Continues . . . 
-<!-- Code for this begins at line #354-->
+<!-- Code for this begins at line #110 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L110" target="_blank">Code for this step.</a>] ]
 ]
@@ -149,7 +149,7 @@ git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
 git push -u origin master
 ```
 
-<!-- Code for this begins at line #278-->
+<!-- Code for this begins at line #119 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L119" target="_blank">Code for this step.</a>] ]
 ]
@@ -173,7 +173,7 @@ meteor test-packages &
 tree
 ```
 To stop Meteor after you have confirmed that it ran successful tests, hit ```<enter>```.
-<!-- Code for this begins at line #278-->
+<!-- Code for this begins at line #139 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L139" target="_blank">Code for this step.</a>] ]
 ]
@@ -199,7 +199,7 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 ./meteor-tinytest-runner.run
 ./tests/tinyTests/test-all.sh
 ```
-<!-- Code for this begins at line #311-->
+<!-- Code for this begins at line #168 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L168" target="_blank">Code for this step.</a>] ]
 ]

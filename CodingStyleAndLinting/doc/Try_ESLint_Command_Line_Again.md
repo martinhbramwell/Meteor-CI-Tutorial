@@ -15,7 +15,7 @@ eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
 . . . as you did for the earlier step ["Command Line ESLint"](#UseESLintOnTheCommandLine).
 
 Great!  All clean!
-<!-- Code for this begins at line #441-->
+<!-- Code for this begins at line #51 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part04_CodingStyleAndLinting.sh#L51" target="_blank">Code for this step.</a>] ]
 ]

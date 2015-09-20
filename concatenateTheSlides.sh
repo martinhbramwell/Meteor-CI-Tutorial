@@ -39,7 +39,6 @@ do
   rm -f ${FPA[1]}/concatenatedSlides.MD
 done
 
-
 GITHUB_DIR="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/"
 for idx_d in "${FILEPATHS[@]}"
 do
@@ -49,13 +48,21 @@ do
   SCRIPT_FILE_NAME="${FPA[0]}${FPA[1]}"
   SCRIPT_FILE="${SCRIPT_FILE_NAME}.sh"
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#    Find line number of relevant code and add hyperlink at bttom of slide
+#    Find line number of relevant code and add hyperlink at bottom of slide
 #    Expect a flag "CODEBLOCK", otherwise skip this file, and check the next one..
   LNUM=$(grep -nr "${FPA[2]}.*CODE_BLOCK" ${SCRIPT_FILE}  | cut -d : -f 1)
   if [[ "${LNUM}" -gt 0 ]]; then
     LNUM=$((LNUM+2))
+
+    DBGLOG=false;
+    # if [[ "${FPA[1]}" == "PrepareTheMachine" && "${LNUM}" -lt 70  || "${LNUM}" -eq 44 ]]; then
+    #   DBGLOG=true;
+    # fi;
+
+    ${DBGLOG} && echo "\n\n ${FPA[1]}, Line number : ${LNUM}"
+
     export PATTERN='<!-- B -->]'
-#    echo "Old : ${PATTERN}"
+    ${DBGLOG} && echo "Old : ${PATTERN}"
     export REPLACEMENT='<!-- Code for this begins at line #'
     REPLACEMENT="${REPLACEMENT}${LNUM}"
     REPLACEMENT=${REPLACEMENT}' -->\n<!-- B -->'
@@ -63,6 +70,8 @@ do
     REPLACEMENT="${REPLACEMENT}${GITHUB_DIR}${SCRIPT_FILE}#L${LNUM}"
     REPLACEMENT=${REPLACEMENT}'" target="_blank">Code for this step.</a>] ]'
     REPLACEMENT=${REPLACEMENT}'\n]'
+
+    ${DBGLOG} && echo "Long : ${REPLACEMENT}"
 #    echo "New : ${REPLACEMENT}"
 #    echo "File : ${AFP}"
 #    echo "# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
@@ -71,20 +80,21 @@ do
     export PATTERN='#L[0-9]*'
 #    echo "Old : ${PATTERN}"
     export REPLACEMENT="#L${LNUM}"
-#    echo "New : ${REPLACEMENT}"
+    ${DBGLOG} && echo "New : ${REPLACEMENT}"
     sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
 
-    export PATTERN='line #[0-9]* '
-#    echo "Old : ${PATTERN}"
-    export REPLACEMENT="line #${LNUM}"
-#    echo "New : ${REPLACEMENT}"
+    export PATTERN='begins at line #[0-9]*'
+    ${DBGLOG} && echo "Old : ${PATTERN}"
+    export REPLACEMENT="begins at line #${LNUM}"
+    ${DBGLOG} && echo "New : ${REPLACEMENT}"
     sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
 #
     export PATTERN='blob\/master\/[A-Za-z0-9_]*.sh'
 #    echo "Old : ${PATTERN}"
     export REPLACEMENT="blob/master/${SCRIPT_FILE}"
-#    echo "New : ${REPLACEMENT}"
+    ${DBGLOG} && echo "New : ${REPLACEMENT}"
     sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
+
 
    fi
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

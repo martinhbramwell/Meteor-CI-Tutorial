@@ -17,7 +17,7 @@ That's beyond the scope of this tutorial.  However, we must, in any case, repeat
 **Be sure to prepare a GitHub repo called '${PKG_NAME}'**
 
 Continues . . . 
-<!-- Code for this begins at line #354-->
+<!-- Code for this begins at line #110 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L110" target="_blank">Code for this step.</a>] ]
 ]

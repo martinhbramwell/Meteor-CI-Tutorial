@@ -21,7 +21,7 @@ export HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.
 source ~/.profile;
 ```
 Continued . . . 
-<!-- Code for this begins at line #278-->
+<!-- Code for this begins at line #22 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L22" target="_blank">Code for this step.</a>] ]
 ]

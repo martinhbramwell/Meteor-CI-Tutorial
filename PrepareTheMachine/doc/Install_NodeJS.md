@@ -21,7 +21,7 @@ apt-get -y autoremove
 ```
 
 
-<!-- Code for this begins at line #70-->
+<!-- Code for this begins at line #83 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L83" target="_blank">Code for this step.</a>] ]
 ]

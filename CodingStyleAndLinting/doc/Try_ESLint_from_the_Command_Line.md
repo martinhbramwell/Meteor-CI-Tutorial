@@ -26,7 +26,7 @@ cd ~/${PARENT_DIR}/${PROJECT_NAME}/
 eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
 ```
 
-<!-- Code for this begins at line #414-->
+<!-- Code for this begins at line #25 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part04_CodingStyleAndLinting.sh#L25" target="_blank">Code for this step.</a>] ]
 ]

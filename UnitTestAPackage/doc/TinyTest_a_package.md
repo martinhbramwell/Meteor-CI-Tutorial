@@ -18,7 +18,7 @@ meteor test-packages &
 tree
 ```
 To stop Meteor after you have confirmed that it ran successful tests, hit ```<enter>```.
-<!-- Code for this begins at line #278-->
+<!-- Code for this begins at line #139 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L139" target="_blank">Code for this step.</a>] ]
 ]

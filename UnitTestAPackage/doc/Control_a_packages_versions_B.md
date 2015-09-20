@@ -18,7 +18,7 @@ git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
 git push -u origin master
 ```
 
-<!-- Code for this begins at line #278-->
+<!-- Code for this begins at line #119 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L119" target="_blank">Code for this step.</a>] ]
 ]

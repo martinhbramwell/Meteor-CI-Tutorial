@@ -20,7 +20,7 @@ cd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
 ln -s ${PACKAGE_DIRS}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
 ```
 For editing purposes your package now appears to be part of your project.  But wait!  It won't be "git managed", will it?!
-<!-- Code for this begins at line #278-->
+<!-- Code for this begins at line #98 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L98" target="_blank">Code for this step.</a>] ]
 ]

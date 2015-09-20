@@ -20,7 +20,7 @@ git push -u origin master
 ```
 
 
-<!-- Code for this begins at line #342-->
+<!-- Code for this begins at line #17 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L17" target="_blank">Code for this step.</a>] ]
 ]
