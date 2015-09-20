@@ -17,7 +17,7 @@ This one . . .
 ```terminal
 ./Part02_VersionControlInTheCloud.sh
 ```
-. . . prepares a Meteor project, with version control *in the cloud* in GitHub.  You will need to understand a bit about Publice and Private Keys and about Secure Shell.  Try reading <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">GitHub's getting started documents.</a>
+. . . prepares a Meteor project, with version control *in the cloud* in GitHub.  You will need to understand a bit about Public and Private Keys and about Secure Shell.  Try reading <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">GitHub's getting started documents.</a>
 
 You should not need to use 'sudo' for this or any of the later parts.  In other words, everything should happen in subdirectories of your HOME directory.
 

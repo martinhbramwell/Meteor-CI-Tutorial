@@ -17,7 +17,7 @@ This one . . .
 ```terminal
 ./Part02_VersionControlInTheCloud.sh
 ```
-. . . prepares a Meteor project, with version control *in the cloud* in GitHub.  You will need to understand a bit about Publice and Private Keys and about Secure Shell.  Try reading <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">GitHub's getting started documents.</a>
+. . . prepares a Meteor project, with version control *in the cloud* in GitHub.  You will need to understand a bit about Public and Private Keys and about Secure Shell.  Try reading <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">GitHub's getting started documents.</a>
 
 You should not need to use 'sudo' for this or any of the later parts.  In other words, everything should happen in subdirectories of your HOME directory.
 
@@ -114,9 +114,9 @@ mkdir -p ~/${PARENT_DIR}
 meteor create ${PROJECT_NAME}
 ```
 
-<!-- Code for this begins at line #74 -->
+<!-- Code for this begins at line #78 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L74" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L78" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: Check Meteor Works
@@ -145,9 +145,9 @@ A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print $2}')
 echo $A_METEOR_PID
 ```
 
-<!-- Code for this begins at line #118 -->
+<!-- Code for this begins at line #122 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L118" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L122" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -171,9 +171,9 @@ The .eslintrc file is borrowed from the project [warehouseman:meteor-swagger-cli
 wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
 ```
 
-<!-- Code for this begins at line #145 -->
+<!-- Code for this begins at line #149 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L145" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L149" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateRemoteGitHubRepository
@@ -219,9 +219,9 @@ Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa'
 You'll need to paste your SSH credentials into each of the empty files. This assumes you only need to copy them in from some other GitHub project.  Getting them for the first time is beyond the scope of this tutorial.  You should follow [GitHub's getting started documents.](https://help.github.com/articles/generating-ssh-keys/)
 
 
-<!-- Code for this begins at line #207 -->
+<!-- Code for this begins at line #211 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L207" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L211" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateLocalGitHubRepository
@@ -248,9 +248,9 @@ git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}
 git push -u origin master
 ```
 
-<!-- Code for this begins at line #243 -->
+<!-- Code for this begins at line #247 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L243" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L247" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

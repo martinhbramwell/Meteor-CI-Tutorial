@@ -68,7 +68,7 @@ function getUserData()
       if [ ! "X${INPUT}X" == "XX" ]; then PROJECT_NAME=${INPUT}; fi;
 
       read -p "The exact package name for use in GitHub :: " -e -i "${PKG_NAME}" INPUT
-      if [ ! "X${INPUT}X" == "XX" ]; then PROJECT_NAME=${INPUT}; fi;
+      if [ ! "X${INPUT}X" == "XX" ]; then PKG_NAME=${INPUT}; fi;
 
       read -p "The exact name for the GitHub organization :: " -e -i "${GITHUB_ORGANIZATION_NAME}" INPUT
       if [ ! "X${INPUT}X" == "XX" ]; then GITHUB_ORGANIZATION_NAME=${INPUT}; fi;

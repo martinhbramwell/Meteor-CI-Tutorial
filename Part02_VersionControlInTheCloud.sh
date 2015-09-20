@@ -58,7 +58,11 @@ if [ "${RUN_RULE}" != "n" ]; then
     fi;
   fi
 
-  if ${INSTALLMETEOR}; then curl https://install.meteor.com/ | sh; fi;
+  if ${INSTALLMETEOR}; then
+    curl https://install.meteor.com/ | sh;
+    touch /usr/local/bin/meteor
+    chmod a+x /usr/local/bin/meteor
+  fi;
 
 fi
 

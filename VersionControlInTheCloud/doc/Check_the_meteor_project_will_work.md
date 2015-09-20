@@ -25,7 +25,7 @@ A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print $2}')
 echo $A_METEOR_PID
 ```
 
-<!-- Code for this begins at line #118 -->
+<!-- Code for this begins at line #122 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L118" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L122" target="_blank">Code for this step.</a>] ]
 ]
