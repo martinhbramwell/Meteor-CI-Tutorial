@@ -15,7 +15,7 @@ This first script, run with . . .
 ```terminal
 sudo ./Part01_PrepareTheMachine.sh
 ```
-. . . sets up all necessary preconditions for following scripts.  As much as possible, this first step handles all tasks that require root access.
+. . . sets up all necessary preconditions for the remaining scripts.  As much as possible, this first step handles all tasks that require root access.
 
 You can hit the 'a' key at any of the pause points to have it run **a**ll the remaining steps without further interruption.
 
@@ -46,7 +46,7 @@ Steps performed :
   apt-get update
   apt-get -y install oracle-java7-installer
 ```
-<!-- Code for this begins at line #44-->
+<!-- Code for this begins at line #57 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L57" target="_blank">Code for this step.</a>] ]
 ]
@@ -77,7 +77,7 @@ apt-get install -y tree python-pip             # for demo convenience
 ```
 
 
-<!-- Code for this begins at line #59-->
+<!-- Code for this begins at line #72 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L72" target="_blank">Code for this step.</a>] ]
 ]
@@ -104,7 +104,7 @@ apt-get -y autoremove
 ```
 
 
-<!-- Code for this begins at line #70-->
+<!-- Code for this begins at line #83 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L83" target="_blank">Code for this step.</a>] ]
 ]
@@ -128,7 +128,7 @@ npm install -y --prefix ${HOME} selenium-webdriver
 ```
 
 
-<!-- Code for this begins at line #82-->
+<!-- Code for this begins at line #95 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L95" target="_blank">Code for this step.</a>] ]
 ]
@@ -154,7 +154,7 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
 ```
 
-<!-- Code for this begins at line #93-->
+<!-- Code for this begins at line #107 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L107" target="_blank">Code for this step.</a>] ]
 ]
@@ -181,7 +181,7 @@ It is in two parts :
 For ongoing server side logging during development or production we need a permanent home for the logs.  The standard place for that in Ubuntu is ```/var/log/```.  So we also need to create a directory for Meteor with suitable permissions.
 
 
-<!-- Code for this begins at line #113-->
+<!-- Code for this begins at line #127 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L127" target="_blank">Code for this step.</a>] ]
 ]
@@ -210,7 +210,7 @@ apt-get install -y sublime-text-installer
 pip install -y beautifulsoup4 requests
 ```
 
-<!-- Code for this begins at line #129-->
+<!-- Code for this begins at line #143 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L143" target="_blank">Code for this step.</a>] ]
 ]
@@ -239,7 +239,7 @@ We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
 export ST3URL="https://packagecontrol.io/installation#st3";
 python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"
 ```
-<!-- Code for this begins at line #153-->
+<!-- Code for this begins at line #166 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L166" target="_blank">Code for this step.</a>] ]
 ]
@@ -289,7 +289,7 @@ npm install -gy babel-eslint
 ```
 
 There is a closely realted ESLint package for Sublime Text.  We will install it in the next section.
-<!-- Code for this begins at line #144-->
+<!-- Code for this begins at line #177 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L177" target="_blank">Code for this step.</a>] ]
 ]
@@ -315,7 +315,7 @@ npm install -g jsdoc
 ```
 
 There is a closely related JSDoc package for Sublime Text, which we will install in the next section.
-<!-- Code for this begins at line #144-->
+<!-- Code for this begins at line #185 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L185" target="_blank">Code for this step.</a>] ]
 ]

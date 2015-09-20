@@ -69,7 +69,7 @@ git config --global user.name "${PACKAGE_DEVELOPER}"
 git config --global user.email "${YOUR_EMAIL}"
 git config --global push.default simple
 ```
-<!-- Code for this begins at line #48-->
+<!-- Code for this begins at line #36 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L36" target="_blank">Code for this step.</a>] ]
 ]
@@ -91,7 +91,7 @@ curl https://install.meteor.com/ | sh
 ```
 
 
-<!-- Code for this begins at line #98-->
+<!-- Code for this begins at line #47 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L47" target="_blank">Code for this step.</a>] ]
 ]
@@ -114,7 +114,7 @@ mkdir -p ~/${PARENT_DIR}
 meteor create ${PROJECT_NAME}
 ```
 
-<!-- Code for this begins at line #123-->
+<!-- Code for this begins at line #72 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L72" target="_blank">Code for this step.</a>] ]
 ]
@@ -145,7 +145,7 @@ A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print $2}')
 echo $A_METEOR_PID
 ```
 
-<!-- Code for this begins at line #167-->
+<!-- Code for this begins at line #116 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L116" target="_blank">Code for this step.</a>] ]
 ]
@@ -171,7 +171,7 @@ The .eslintrc file is borrowed from the project [warehouseman:meteor-swagger-cli
 wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
 ```
 
-<!-- Code for this begins at line #194-->
+<!-- Code for this begins at line #143 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L143" target="_blank">Code for this step.</a>] ]
 ]
@@ -219,7 +219,7 @@ Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa'
 You'll need to paste your SSH credentials into each of the empty files. This assumes you only need to copy them in from some other GitHub project.  Getting them for the first time is beyond the scope of this tutorial.  You should follow [GitHub's getting started documents.](https://help.github.com/articles/generating-ssh-keys/)
 
 
-<!-- Code for this begins at line #62-->
+<!-- Code for this begins at line #205 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L205" target="_blank">Code for this step.</a>] ]
 ]
@@ -248,7 +248,7 @@ git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}
 git push -u origin master
 ```
 
-<!-- Code for this begins at line #257-->
+<!-- Code for this begins at line #241 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L241" target="_blank">Code for this step.</a>] ]
 ]
