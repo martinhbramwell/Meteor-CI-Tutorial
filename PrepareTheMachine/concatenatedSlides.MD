@@ -35,7 +35,7 @@ layout: false
 Java 7 is required by Selenium which is required by Nightwatch.  Selenium seems to hold the strategic high ground when it comes to testing web applications, so like it, or not, you gotta install Java.
 
 Steps performed :
- - Gets the [PPA](https://en.wikipedia.org/wiki/Personal_Package_Archive) for [Oracle Java](http://www.oracle.com/technetwork/indexes/downloads/index.html?ssSourceSiteId=ocomen)
+ - Gets the <a href="https://en.wikipedia.org/wiki/Personal_Package_Archive" target="_blank">PPA</a> for <a href="http://www.oracle.com/technetwork/indexes/downloads/index.html?ssSourceSiteId=ocomen" target="_blank">Oracle Java</a>
  - installs it
 
 **Legal Notice** : Normally, the PPA installer will prompt you to accept Oracle's license.  If you run this step . . . **you accept the license agreement, implicitly!**
@@ -61,11 +61,11 @@ Steps performed :
 #### Some basic tools ...
 
 This sequence installs the following dependencies, if they're not already present :
-- 'build-essential' and 'libssl-dev' are required by [Selenium Webdriver](http://www.seleniumhq.org/projects/webdriver/)
-- 'libappindicator1' for [Chrome](https://www.google.com/chrome/browser/desktop/)
-- '[curl](http://curl.haxx.se/)' for [Meteor](https://www.meteor.com/)
-- '[git](https://git-scm.com/)' and '[ssh](http://www.openssh.com/)' for version control
-- 'tree' and '[pip](https://pypi.python.org/pypi/pip)' for demo convenience 
+- 'build-essential' and 'libssl-dev' are required by <a href="http://www.seleniumhq.org/projects/webdriver/" target="_blank">Selenium Webdriver</a>
+- 'libappindicator1' for <a href='https://www.google.com/chrome/browser/desktop/' target='_blank'>Chrome</a>
+- '<a href='http://curl.haxx.se/' target='_blank'>curl</a>' for <a href='https://www.meteor.com/' target='_blank'>Meteor</a>
+- '<a href='https://git-scm.com/' target='_blank'>git</a>' and '<a href='http://www.openssh.com/' target='_blank'>ssh</a>' for version control
+- 'tree' and '<a href='https://pypi.python.org/pypi/pip' target='_blank'>pip</a>' for demo convenience 
 
 ##### Commands
 ```terminal
@@ -91,11 +91,11 @@ apt-get install -y tree python-pip             # for demo convenience
 
 #### NodeJS
 
-[Nightwatch](http://nightwatchjs.org/) is a [NodeJS](https://nodejs.org/) utility.
+<a href='http://nightwatchjs.org/' target='_blank'>Nightwatch</a> is a <a href='https://nodejs.org/' target='_blank'>NodeJS</a> utility.
 
 You must have NodeJS to do Nightwatch testing.
 
-It can run on a separate computer from [Meteor](https://www.meteor.com/), (but we'll do it all in this one).
+It can run on a separate computer from <a href='https://www.meteor.com/' target='_blank'>Meteor</a>, (but we'll do it all in this one).
 ##### Commands
 ```terminal
 curl -sL https://deb.nodesource.com/setup | sudo bash -
@@ -118,7 +118,7 @@ apt-get -y autoremove
 
 #### Install 'selenium-webdriver' in NodeJS
 
-The [NodeJS](https://nodejs.org/) module [Selenium Webdriver](https://github.com/SeleniumHQ/selenium) is required for running Meteor TinyTest on the command line, rather than in a browser.  **Note**: The next step after this one installs a different Seleniun driver.
+The <a href='https://nodejs.org/' target='_blank'>NodeJS</a> module <a href='https://github.com/SeleniumHQ/selenium' target='_blank'>Selenium Webdriver</a> is required for running Meteor TinyTest on the command line, rather than in a browser.  **Note**: The next step after this one installs a different Seleniun driver.
 
 We must first ensure that root has not taken ownership of the local .npm directory *(that can happen if you ran npm with sudo when you didn't need to)*.
 ##### Commands
@@ -142,9 +142,9 @@ npm install -y --prefix ${HOME} selenium-webdriver
 
 #### Install Google Chrome and the Selenium Web Driver for Chrome.
 
-[Nightwatch](http://nightwatchjs.org/) leverages [Selenium](http://www.seleniumhq.org/), which has drivers for the major browsers.
+<a href='http://nightwatchjs.org/' target='_blank'>Nightwatch</a> leverages <a href='http://www.seleniumhq.org/' target='_blank'>Selenium</a>, which has drivers for the major browsers.
 
-The [Chrome Driver](https://code.google.com/p/selenium/wiki/ChromeDriver) is the most convenient.  **Note**: This is not the Selenium Webdriver for NodeJS installed in the previous step.
+The <a href='https://code.google.com/p/selenium/wiki/ChromeDriver' target='_blank'>Chrome Driver</a> is the most convenient.  **Note**: This is not the Selenium Webdriver for NodeJS installed in the previous step.
 ##### Commands
 ```terminal
 wget http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
@@ -198,7 +198,7 @@ For ongoing server side logging during development or production we need a perma
 It also expects to be run in a virtual machine; for later destruction.  While you likely have your own preferred text editor, this will introduce the general idea of in-editor linting, which you can then adapt to your own taste.
  
 Steps performed :
- - gets the [PPA](https://en.wikipedia.org/wiki/Personal_Package_Archive) for [Sublime Text 3](http://www.sublimetext.com/3)
+ - gets the <a href='https://en.wikipedia.org/wiki/Personal_Package_Archive' target='_blank'>PPA</a> for <a href='http://www.sublimetext.com/3' target='_blank'>Sublime Text 3</a>
  - installs it. 
  
 If you just want to quickly follow the tutorial then *do* execute this group of commands, otherwise install your usual editor/IDE.  Slimetits ain't bad, tho'.
@@ -223,11 +223,11 @@ pip install -y beautifulsoup4 requests
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 ### Preparation of Sublime Text 
-#### First step - add '[Package Control](https://packagecontrol.io/)'
+#### First step - add '<a href='https://packagecontrol.io/' target='_blank'>Package Control</a>'
 
-We need [Sublime Text 3](http://www.sublimetext.com/3) configured as follows :
+We need <a href='http://www.sublimetext.com/3' target='_blank'>Sublime Text 3</a> configured as follows :
 
- - In your browser, go to the [Package Control installer URL](https://packagecontrol.io/installation)
+ - In your browser, go to the <a href='https://packagecontrol.io/installation' target='_blank'>Package Control installer URL</a>
  - Copy the code snippet for **Sublime Text 3**
  - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
  - Go to View >> Show Console, to open the Console
@@ -252,7 +252,7 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 ### Preparation of Sublime Text 
-#### Second step - Use '[Package Control](https://packagecontrol.io/)' to install more packages.
+#### Second step - Use '<a href='https://packagecontrol.io/' target='_blank'>Package Control</a>' to install more packages.
 
  - Go to Preferences >> Package Control
  - In Package Control select : install package
@@ -276,7 +276,7 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 
 Linting detects code style contraventions, improves maintainability, and flags many hard-to-debug errors before they happen.
 
-[ECMA Script linter](http://eslint.org/docs/about/) : 
+<a href='http://eslint.org/docs/about/' target='_blank'>ECMA Script linter</a> : 
   - thorough Linter for ECMA Script 6 and earlier
   - preferred by Facebook, AirBnB and many other big names
 
@@ -305,7 +305,7 @@ There is a closely realted ESLint package for Sublime Text.  We will install it 
 
 JSDoc can generate a very sophisticated documentation web site for you, directly from annotations you make in your code.  When you use JSDoc together with an annotations package in your text editor, documenting your work simply becomes an integral part in how you think about it.
 
-[jsdoc.org](http://usejsdoc.org/) : 
+<a href='http://usejsdoc.org/' target='_blank'>jsdoc.org</a> : 
   - very detailed and complete documentation generator
   - used by Google for controlling data types in <a href="https://developers.google.com/closure/compiler/docs/js-for-compiler" target="_blank">their JavaScript compiler.</a>
 
