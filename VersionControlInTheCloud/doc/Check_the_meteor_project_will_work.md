@@ -16,7 +16,7 @@ If Meteor IS already running, you will need to stop it.
 
 **When prompted**, test meteor in a browser.
 
-[http://localhost:3000/](http://localhost:3000/)
+<a href='http://localhost:3000/' target='_blank'>http://localhost:3000/</a>
 
 When you continue to the next step Meteor will be killed automatically.
 #####Commands

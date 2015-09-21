@@ -244,7 +244,17 @@ explain ${DOCS}/Create_remote_GitHub_repository_A.md
 
 echo ""
 echo ""
-explain ${DOCS}/Create_remote_GitHub_repository_B.md
+explain ${DOCS}/Create_remote_GitHub_repository_B.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  echo -e "Go to the 'Deploy Key' configuration page for the GitHub repo at : ";
+  echo -e "\n    https://github.com/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/settings/keys";
+  echo -e "\nThen click the [Add deploy key] button and paste into the key field the follwoing public key :\n";
+  cat ~/.ssh/id_rsa.pub;
+
+fi
+
+
 
 
 explain ${DOCS}/Create_local_GitHub_repository.md MORE_ACTION # CODE_BLOCK

@@ -24,4 +24,7 @@ This procedure will be more understandable if you watch the video series mention
 
 
 
-<!-- B -->]
+<!-- Code for this begins at line #249 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L249" target="_blank">Code for this step.</a>] ]
+]
