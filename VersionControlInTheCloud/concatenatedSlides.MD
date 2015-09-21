@@ -191,7 +191,7 @@ If the file '~/.ssh/id_rsa' exists, then this command group will do nothing.
 
 Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa' 
 
-You'll need to paste your SSH credentials into each of the empty files. This assumes you only need to copy them in from some other GitHub project.  Getting them for the first time is beyond the scope of this tutorial.  You should follow [GitHub's getting started documents.](https://help.github.com/articles/generating-ssh-keys/)
+You'll need to paste your SSH credentials into each of the empty files. This assumes you only need to copy them in from some other GitHub project.  Getting them for the first time is beyond the scope of this tutorial.  You should follow <a href='https://help.github.com/articles/generating-ssh-keys/' target='_blank'>GitHub's getting started documents.</a>
 
 
 <!-- Code for this begins at line #203 -->
@@ -235,12 +235,13 @@ name: CreateRemoteGitHubRepository
 This procedure will be more understandable if you watch the video series mentioned on the [Table of Contents](./) page. The steps are :
 
 1. Log in to [GitHub](https://github.com/) as ```${PACKAGE_DEVELOPER}```
-1. **Either** create the ```${GITHUB_ORGANIZATION_NAME}``` organization if it *does not exist*, **or** switch to operate in that role if it *does exist*.
-1. Create a project with the exact name ```${PROJECT_NAME}```. Don't set any other values. We'll do that automatically.
-1. Select ```Settings``` *(project page bottom-right)* then ```DeployKeys``` *(settings page bottom-left)*, then ```Add deploy key```
-1. copy the contents of ```~/.ssh/id_rsa.pub``` to the ```key``` field
-1. give the key a name in the ```Title``` field
-1. Log in to [CircleCI](https://circleci.com/) and set it to monitor project ```${PROJECT_NAME}``` for rebuilding.
+1. **Either** create the ```${GITHUB_ORGANIZATION_NAME}``` organization if it *does not exist*, **or** <a href='http://i.imgur.com/1EJME3O.png' target='_blank'>switch to operate in that role</a> if it *does exist*.
+1. <a href='http://i.imgur.com/zcFhHv3.png' target='_blank'>Create a project</a> with the exact name ```${PROJECT_NAME}```. Don't set any other values. We'll do that automatically.
+1. Select <a href='http://i.imgur.com/VKCUsx4.png' target='_blank'>[Settings]</a> *(project page bottom-right)* then <a href='http://i.imgur.com/lZfef0a.png' target='_blank'>[DeployKeys]</a> *settings page bottom-left)*, then <a href='http://i.imgur.com/njWlTvX.png' target='_blank'>[Add deploy key]</a>
+1. Copy the contents of ```~/.ssh/id_rsa.pub``` to <a href='http://i.imgur.com/70Lsp1u.png' target='_blank'>the [Key] field</a>
+1. Give the key a name in the ```Title``` field
+1. Select ```Allow write access```.
+1. Click ```Add key```.
 
 
 
