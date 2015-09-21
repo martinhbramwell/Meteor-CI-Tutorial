@@ -136,7 +136,7 @@ If Meteor IS already running, you will need to stop it.
 
 **When prompted**, test meteor in a browser.
 
-[http://localhost:3000/](http://localhost:3000/)
+<a href='http://localhost:3000/' target='_blank'>http://localhost:3000/</a>
 
 When you continue to the next step Meteor will be killed automatically.
 #####Commands
@@ -245,7 +245,10 @@ This procedure will be more understandable if you watch the video series mention
 
 
 
-<!-- B -->]
+<!-- Code for this begins at line #249 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L249" target="_blank">Code for this step.</a>] ]
+]
 ---
 name: CreateLocalGitHubRepository
 .left-column[
@@ -271,9 +274,9 @@ git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}
 git push -u origin master
 ```
 
-<!-- Code for this begins at line #252 -->
+<!-- Code for this begins at line #262 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L252" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L262" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
