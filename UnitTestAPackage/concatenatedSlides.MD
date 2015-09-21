@@ -37,6 +37,7 @@ If you aim for "package only applications", if packages are to be reusable, your
 To create self-sufficient packages, begin by defining it as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
 ##### Commands
 ```terminal
+export PARENT_DIR=projects;
 export PACKAGES=~/${PARENT_DIR}/packages;
 export PACKAGE_DIRS=${PACKAGES}/somebodyelse:${PACKAGES}/${YOUR_NAME};
 mkdir -p ${PACKAGES}/${YOUR_NAME}; mkdir -p ${PACKAGES}/somebodyelse;

@@ -200,7 +200,14 @@ fi
 
 echo ""
 echo ""
-explain ${DOCS}/Create_remote_GitHub_repository.md
+explain ${DOCS}/Create_remote_GitHub_repository_A.md
+
+
+
+
+echo ""
+echo ""
+explain ${DOCS}/Create_remote_GitHub_repository_B.md
 
 
 RUN_RULE="";
