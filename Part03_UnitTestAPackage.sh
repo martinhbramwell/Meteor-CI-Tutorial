@@ -105,13 +105,31 @@ fi
 
 
 
-explain ${DOCS}/Control_a_packages_versions_A.md # CODE_BLOCK
-YRPKGRDY="";
-until [[ "${YRPKGRDY}" == "y" || "${YRPKGRDY}" == "Y" ]]
-do
-  read -p "Have you prepared a GitHub repo called '${PKG_NAME}'? (y/Y) : " -n 1 -r YRPKGRDY
-  echo ""
-done
+explain ${DOCS}/Control_a_packages_versions_A.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  export RMT_REPO="https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}";
+  wget -q --spider ${RMT_REPO};
+  EXISTS=$?;
+
+  until [[ ${EXISTS} -eq 0 ]]
+  do
+    echo "Can find no GitHub repo at '${RMT_REPO}'"
+    read -p "  Hit enter when one has been created : " -n 1 -r YRPKGRDY
+    echo ""
+    wget -q --spider ${RMT_REPO};
+    EXISTS=$?;
+  done
+
+  echo -e "Go to the 'Deploy Key' configuration page for the GitHub repo at : ";
+  echo -e "\n    https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}/settings/keys";
+  echo -e "\nThen click the [Add deploy key] button and fill in the fields as follows : \n";
+  echo -e " - Title -- fill with :      ${PACKAGE_DEVELOPER} \n";
+  echo -e " - Key -- fill with :      $(cat ~/.ssh/id_rsa.pub) \n";
+  echo -e " - Allow write access -- checked";
+
+fi
+
 
 
 explain ${DOCS}/Control_a_packages_versions_B.md  MORE_ACTION # CODE_BLOCK

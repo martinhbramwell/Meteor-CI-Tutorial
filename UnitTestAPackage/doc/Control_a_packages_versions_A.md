@@ -12,9 +12,9 @@ Another consequence of keeping packages outside your project directory is the ne
 
 The resulting modularity is benefical and the multiplication of git commands can be mitigated by using <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank">git submodules</a> *("Submodules allow you to keep a Git repository as a subdirectory of another Git repository.")*.
 
-That's beyond the scope of this tutorial.  However, we must, in any case, repeat the earlier steps to create [remote](#CreateRemoteGitHubRepository) and [local](#CreateLocalGitHubRepository) repositories -- this time for ```${PKG_NAME}```.
+That's beyond the scope of this tutorial.  However, we must, in any case, repeat the earlier steps to create [remote](./index.html?part=B#9) and [local](./index.html?part=B#11) repositories -- this time for ```${PKG_NAME}```.
 
-**Be sure to prepare a GitHub repo called '${PKG_NAME}'**
+**Be sure to prepare a GitHub repo called ```${PKG_NAME}``` with the same deploy key as you used for ```${PROJECT_NAME}```**
 
 Continues . . . 
 <!-- Code for this begins at line #110 -->
