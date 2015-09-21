@@ -94,5 +94,7 @@ if [ -f ./udata.sh ]; then
   echo "Project name : ${PROJECT_NAME}"
 fi
 
+export PARENT_DIR=projects
+
 #############################
 

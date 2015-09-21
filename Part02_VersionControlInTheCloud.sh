@@ -69,7 +69,6 @@ fi
 
 
 
-export PARENT_DIR=projects
 METEOR_PORT=3000
 
 

@@ -20,7 +20,7 @@ The .eslintrc file is borrowed from the project [warehouseman:meteor-swagger-cli
 wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
 ```
 
-<!-- Code for this begins at line #149 -->
+<!-- Code for this begins at line #148 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L149" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L148" target="_blank">Code for this step.</a>] ]
 ]
