@@ -186,16 +186,38 @@ name: CreateRemoteGitHubRepository
 
 #### Create the **remote** GitHub repository.
 
-In this step we create a repository in GitHub project source hosting.
+In this step we create a repository in GitHub project source hosting.  
 
-The steps are :
+The most direct approach to creating a GitHub repo is simply to do it in your own name and manage it using the account owner's (your!) SSH keys.
 
- - Log in to [GitHub](https://github.com/) as ```${PACKAGE_DEVELOPER}```
- - Switch to the ```${GITHUB_ORGANIZATION_NAME}``` organization, (if different from ```${PACKAGE_DEVELOPER}```)
- - Create a project with the exact name ```${PROJECT_NAME}```. Don't set any other values. We'll do that automatically.
- - Log in to [CircleCI](https://circleci.com/) and set it to monitor project ```${PROJECT_NAME}``` for rebuilding.
+However, if you take a long-term view, it's much more flexible and resilient to assume a large team from day one. While it's fractionally more difficult, it beats the hell out of having to refactor some day, because you have too many committers with keys on your personal account.
 
-Some steps are more understandable if you watch the video series mentioned on the [Table of Contents](./) page.
+We'll create an organization distinct from ourselves (```${GITHUB_ORGANIZATION_NAME}```), and add our own SSH public key as a ```"Deploy key"``` for each repo we create.
+
+Continued . . . 
+<!-- B -->]
+---
+name: CreateRemoteGitHubRepository
+.left-column[
+  ### GitHub Repo
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Create the **remote** GitHub repository.
+
+... continuing.
+
+This procedure will be more understandable if you watch the video series mentioned on the [Table of Contents](./) page. The steps are :
+
+1. Log in to [GitHub](https://github.com/) as ```${PACKAGE_DEVELOPER}```
+1. **Either** create the ```${GITHUB_ORGANIZATION_NAME}``` organization, if it *does not exist* **or** switch to operate in that role if it *does exist*.
+1. Create a project with the exact name ```${PROJECT_NAME}```. Don't set any other values. We'll do that automatically.
+1. Select ```Settings``` *(project page bottom-right)* then ```DeployKeys``` *(settings page bottom-left)*, then ```Add deploy key```
+1. copy the contents of ```~/.ssh/id_rsa.pub``` to the ```key``` field
+1. give the key a name in the ```Title``` field
+1. Log in to [CircleCI](https://circleci.com/) and set it to monitor project ```${PROJECT_NAME}``` for rebuilding.
 
 
 
@@ -219,9 +241,9 @@ Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa'
 You'll need to paste your SSH credentials into each of the empty files. This assumes you only need to copy them in from some other GitHub project.  Getting them for the first time is beyond the scope of this tutorial.  You should follow [GitHub's getting started documents.](https://help.github.com/articles/generating-ssh-keys/)
 
 
-<!-- Code for this begins at line #211 -->
+<!-- Code for this begins at line #218 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L211" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L218" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateLocalGitHubRepository
@@ -248,9 +270,9 @@ git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}
 git push -u origin master
 ```
 
-<!-- Code for this begins at line #247 -->
+<!-- Code for this begins at line #254 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L247" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L254" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
