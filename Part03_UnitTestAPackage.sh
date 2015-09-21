@@ -22,8 +22,8 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   mkdir -p ${PACKAGES}/${YOUR_NAME}
   mkdir -p ${PACKAGES}/somebodyelse
-  HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.profile)
-  [[ ${HAS_PACKAGE_DIRS} -lt 1 ]] && echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile  || echo "Previously configured as '${PACKAGE_DIRS}'."
+  HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.profile) || echo -e "\nConfiguring PACKAGE_DIRS as '${PACKAGE_DIRS}'."
+  [[ ${HAS_PACKAGE_DIRS} -lt 1 ]] && echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile  || echo "PACKAGE_DIRS previously configured as '${PACKAGE_DIRS}'."
   source ~/.profile
 
 fi
