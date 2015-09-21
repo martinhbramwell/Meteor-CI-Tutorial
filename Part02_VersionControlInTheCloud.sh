@@ -246,6 +246,20 @@ echo ""
 explain ${DOCS}/Create_remote_GitHub_repository_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
+
+  export RMT_REPO="https://github.com/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}";
+  wget -q --spider ${RMT_REPO};
+  EXISTS=$?;
+
+  until [[ ${EXISTS} -eq 0 ]]
+  do
+    echo "Can find no GitHub repo at '${RMT_REPO}'"
+    read -p "  Hit enter when one has been created : " -n 1 -r YRPKGRDY
+    echo ""
+    wget -q --spider ${RMT_REPO};
+    EXISTS=$?;
+  done
+
   echo -e "Go to the 'Deploy Key' configuration page for the GitHub repo at : ";
   echo -e "\n    https://github.com/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/settings/keys";
   echo -e "\nThen click the [Add deploy key] button and fill in the fields as follows : \n";
