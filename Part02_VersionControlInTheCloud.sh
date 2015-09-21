@@ -197,22 +197,7 @@ RDME
 fi
 
 
-
-echo ""
-echo ""
-explain ${DOCS}/Create_remote_GitHub_repository_A.md
-
-
-
-
-echo ""
-echo ""
-explain ${DOCS}/Create_remote_GitHub_repository_B.md
-
-
 RUN_RULE="";
-
-
 explain ${DOCS}/Create_SSH_keys_directory_if_not_exist.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
   SET_UP_SSH=true;
@@ -247,6 +232,19 @@ if [ "${RUN_RULE}" != "n" ]; then
   fi
 fi
 
+
+
+
+echo ""
+echo ""
+explain ${DOCS}/Create_remote_GitHub_repository_A.md
+
+
+
+
+echo ""
+echo ""
+explain ${DOCS}/Create_remote_GitHub_repository_B.md
 
 
 explain ${DOCS}/Create_local_GitHub_repository.md MORE_ACTION # CODE_BLOCK
