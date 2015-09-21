@@ -176,6 +176,29 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/mas
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L149" target="_blank">Code for this step.</a>] ]
 ]
 ---
+.left-column[
+  ### Prepare SSH directory
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Create SSH keys directory if it does not exist.
+ 
+This script requires you to have an SSH private key!
+
+If the file '~/.ssh/id_rsa' exists, then this command group will do nothing.
+
+Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa' 
+
+You'll need to paste your SSH credentials into each of the empty files. This assumes you only need to copy them in from some other GitHub project.  Getting them for the first time is beyond the scope of this tutorial.  You should follow [GitHub's getting started documents.](https://help.github.com/articles/generating-ssh-keys/)
+
+
+<!-- Code for this begins at line #203 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L203" target="_blank">Code for this step.</a>] ]
+]
+---
 name: CreateRemoteGitHubRepository
 .left-column[
   ### GitHub Repo
@@ -190,7 +213,7 @@ In this step we create a repository in GitHub project source hosting.
 
 The most direct approach to creating a GitHub repo is simply to do it in your own name and manage it using the account owner's (your!) SSH keys.
 
-However, if you take a long-term view, it's much more flexible and resilient to assume a large team from day one. While it's fractionally more difficult, it beats the hell out of having to refactor some day, because you have too many committers with keys on your personal account.
+However, if you take a long-term view, it's much more flexible and resilient to assume a large team from day one. While it's fractionally more difficult, it beats the hell out of having to refactor some day because you have too many committers with keys on your personal account.
 
 We'll create an organization distinct from ourselves (```${GITHUB_ORGANIZATION_NAME}```), and add our own SSH public key as a ```"Deploy key"``` for each repo we create.
 
@@ -212,7 +235,7 @@ name: CreateRemoteGitHubRepository
 This procedure will be more understandable if you watch the video series mentioned on the [Table of Contents](./) page. The steps are :
 
 1. Log in to [GitHub](https://github.com/) as ```${PACKAGE_DEVELOPER}```
-1. **Either** create the ```${GITHUB_ORGANIZATION_NAME}``` organization, if it *does not exist* **or** switch to operate in that role if it *does exist*.
+1. **Either** create the ```${GITHUB_ORGANIZATION_NAME}``` organization if it *does not exist*, **or** switch to operate in that role if it *does exist*.
 1. Create a project with the exact name ```${PROJECT_NAME}```. Don't set any other values. We'll do that automatically.
 1. Select ```Settings``` *(project page bottom-right)* then ```DeployKeys``` *(settings page bottom-left)*, then ```Add deploy key```
 1. copy the contents of ```~/.ssh/id_rsa.pub``` to the ```key``` field
@@ -222,29 +245,6 @@ This procedure will be more understandable if you watch the video series mention
 
 
 <!-- B -->]
----
-.left-column[
-  ### Prepare SSH directory
-.footnote[.red.bold[] [Table of Contents](./)] 
-<!-- H -->]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### Create SSH keys directory if it does not exist.
- 
-This script requires you to have an SSH private key!
-
-If the file '~/.ssh/id_rsa' exists, then this command group will do nothing.
-
-Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa' 
-
-You'll need to paste your SSH credentials into each of the empty files. This assumes you only need to copy them in from some other GitHub project.  Getting them for the first time is beyond the scope of this tutorial.  You should follow [GitHub's getting started documents.](https://help.github.com/articles/generating-ssh-keys/)
-
-
-<!-- Code for this begins at line #218 -->
-<!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L218" target="_blank">Code for this step.</a>] ]
-]
 ---
 name: CreateLocalGitHubRepository
 .left-column[
@@ -270,9 +270,9 @@ git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}
 git push -u origin master
 ```
 
-<!-- Code for this begins at line #254 -->
+<!-- Code for this begins at line #252 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L254" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L252" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
