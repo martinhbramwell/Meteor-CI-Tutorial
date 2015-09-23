@@ -124,8 +124,8 @@ if [ "${RUN_RULE}" != "n" ]; then
   echo -e "Go to the 'Deploy Key' configuration page for the GitHub repo at : ";
   echo -e "\n    https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}/settings/keys";
   echo -e "\nThen click the [Add deploy key] button and fill in the fields as follows : \n";
-  echo -e " - Title -- fill with :      ${PACKAGE_DEVELOPER} \n";
-  echo -e " - Key -- fill with :      $(cat ~/.ssh/id_rsa.pub) \n";
+  echo -e " - Title -- fill with :      ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME} \n";
+  echo -e " - Key -- fill with :      $(cat ~/.ssh/github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}.pub) \n";
   echo -e " - Allow write access -- checked";
 
 fi

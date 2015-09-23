@@ -19,7 +19,7 @@ In this step we :
 git init
 git add .
 git commit -am 'First commit'
-git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
+git remote add origin git@github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
 git push -u origin master
 ```
 

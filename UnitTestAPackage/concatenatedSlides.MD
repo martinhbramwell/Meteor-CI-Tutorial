@@ -146,7 +146,7 @@ Continues . . .
 git init
 git add .
 git commit -am 'First commit'
-git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
+git remote add origin git@github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
 git push -u origin master
 ```
 

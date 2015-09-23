@@ -197,7 +197,7 @@ fi
 
 
 RUN_RULE="";
-explain ${DOCS}/Create_SSH_keys_directory_if_not_exist.md MORE_ACTION # CODE_BLOCK
+explain ${DOCS}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
   SET_UP_SSH=true;
   if [ -f ~/.ssh/id_rsa ]; then SET_UP_SSH=false;  fi
@@ -282,7 +282,8 @@ if [ "${RUN_RULE}" != "n" ]; then
   git init
   git add .
   git commit -am 'First commit'
-  git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
+  git remote add origin git@github_${PROJECT_NAME}:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
+#  git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
 # git remote set-url origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
   git push -u origin master
 
