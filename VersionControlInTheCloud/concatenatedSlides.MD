@@ -183,19 +183,34 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/mas
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Create SSH keys directory if it does not exist.
+#### Prepare Deploy Keys for a GitHub Repository.
  
-This script requires you to have an SSH private key!
+If you follow <a href='https://help.github.com/articles/generating-ssh-keys/' target='_blank'>GitHub's getting started documents</a>, you'll learn the hobbyist setup for GitHub.
 
-If the file '~/.ssh/id_rsa' exists, then this command group will do nothing.
+We want to do something more realistic -- one deploy key per repository per developer, with a way to manage numerous keys easily.  The trick is in a file called ```~/.ssh/config```. It keeps multiple keys with aliased names that *git* will use to push to the correct repo for you, automatically.
 
-Otherwise, it will set up the directory and create an empty '~/.ssh/id_rsa' 
-
-You'll need to paste your SSH credentials into each of the empty files. This assumes you only need to copy them in from some other GitHub project.  Getting them for the first time is beyond the scope of this tutorial.  You should follow <a href='https://help.github.com/articles/generating-ssh-keys/' target='_blank'>GitHub's getting started documents.</a>
+In this step we prepare an aliased key for ```${PROJECT_NAME}```.
+##### Commands
+```terminal
+pwd
+```
 
 
 <!-- Code for this begins at line #202 -->
 <!-- B -->
+<div id="uniquename" class="popup_div">
+    <a class="subtle_a" onmouseover="HideContent('uniquename'); return true;"
+       href="javascript:HideContent('uniquename')">
+        <p>If a file '~/.ssh/${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}.pub' already exists, then this command group will do nothing.</p>
+    </a>
+</div>
+<a
+    class="subtle_a"
+    onmouseover="ReverseContentDisplay('uniquename'); return true;"
+    href="javascript:ReverseContentDisplay('uniquename')">
+    <i>Hover Note</i>
+</a>
+
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L202" target="_blank">Code for this step.</a>] ]
 ]
 ---
@@ -270,7 +285,7 @@ In this step we :
 git init
 git add .
 git commit -am 'First commit'
-git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
+git remote add origin git@github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
 git push -u origin master
 ```
 
