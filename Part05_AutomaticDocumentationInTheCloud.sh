@@ -25,7 +25,7 @@ echo ""
 explain ${DOCS}/Try_jsDoc_from_the_Command_Line_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/ >/dev/null;
 
   echo -e "\n\nBefore generating documentation . . . "
   tree -L 2 ./packages/${PKG_NAME}
@@ -33,7 +33,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   echo -e "\n\n . . . after generating documentation . . . "
   tree -L 2 ./packages/${PKG_NAME}
 
-  popd
+  popd >/dev/null;
 
 fi
 
@@ -60,11 +60,11 @@ echo ""
 explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
 
   wget -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js
 
-  popd
+  popd >/dev/null;
 
 fi
 
@@ -81,12 +81,12 @@ echo ""
 explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin_C.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/ >/dev/null;
 
   jsdoc -d ./packages/${PKG_NAME}/docs ./packages/${PKG_NAME}
   echo -e "\n Look at : ${HOME}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html\n\n"
 
-  popd
+  popd >/dev/null;
 
 fi
 
@@ -103,16 +103,16 @@ echo ""
 explain ${DOCS}/Publish_jsDocs_toGitHub_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
 
-    pushd docs
+    pushd docs >/dev/null;
 
     echo -e "Zipping up the documentation directory.\n"
 
     rm -f ${TEMP_ZIP}
     zip -qr ${TEMP_ZIP} *
 
-    popd
+    popd >/dev/null;
 
   echo -e "Committing master branch changes of the package.\n"
 
@@ -125,7 +125,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   echo "pushed $?"
   set -e
 
-  popd
+  popd >/dev/null;
 
   echo -e "Pushing to remote repo and publishing docs as a GitHub Pages website.\n"
   ./PushDocsToGitHubPagesBranch.sh ${PKG_NAME} ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} ${TEMP_ZIP}

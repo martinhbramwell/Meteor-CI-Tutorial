@@ -77,7 +77,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   # Make a projects directory
   mkdir -p ~/${PARENT_DIR}
 
-  pushd ~/${PARENT_DIR}
+  pushd ~/${PARENT_DIR} >/dev/null;
 
 
   BUILD_IT=true
@@ -109,7 +109,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   fi
 
   ls -la ${PROJECT_NAME}
-  popd
+  popd >/dev/null;
 
 
 fi
@@ -121,7 +121,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   existingMeteor
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
   meteor &
 
@@ -137,7 +137,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   kill -9 $(jobs -p)
 
-  popd
+  popd >/dev/null;
 
 fi
 
@@ -146,8 +146,8 @@ export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger
 explain ${DOCS}/Add_Meteor_application_development_support_files.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR}
-  pushd ${PROJECT_NAME}
+  pushd ~/${PARENT_DIR} >/dev/null;
+  pushd ${PROJECT_NAME} >/dev/null;
 
   cat << LICMIT > LICENSE
 The MIT License (MIT)
@@ -190,8 +190,8 @@ RDME
 
   ls -la
 
-  popd
-  popd
+  popd >/dev/null;
+  popd >/dev/null;
 
 fi
 
@@ -199,36 +199,43 @@ fi
 RUN_RULE="";
 explain ${DOCS}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
+
   SET_UP_SSH=true;
-  if [ -f ~/.ssh/id_rsa ]; then SET_UP_SSH=false;  fi
-  if [ -f ~/.ssh/id_rsa.pub ]; then SET_UP_SSH=false;  fi
-  if [ -f ~/.ssh/authorized_keys ]; then SET_UP_SSH=false;  fi
 
-  if [ ${SET_UP_SSH} == true ]; then
-    echo "Setting up SSH directory";
-    mkdir -p ~/.ssh
-    chmod 700 ~/.ssh
-    touch ~/.ssh/authorized_keys                               #  Edit to add allowed connections
-    touch ~/.ssh/id_rsa                                        #  Edit to add private key
-    touch ~/.ssh/id_rsa.pub                                    #  Edit to add public key
-    chmod 600 ~/.ssh/authorized_keys
-    chmod 600 ~/.ssh/id_rsa
-    chmod 644 ~/.ssh/id_rsa.pub
-    ls -la ~/.ssh
+  mkdir -p ~/.ssh;
+  chmod 700 ~/.ssh
+  pushd  ~/.ssh  >/dev/null;
+    touch config;
 
-    echo -e "#########################################################################################"
-    echo -e "#   The necessary files have been created and permissions set correctly."
-    echo -e "#   Please provide the correct content for the three files listed above"
-    echo -e "#########################################################################################"
-    read -p "Hit <enter> ::  " -n 1 -r USER_ANSWER
+ 
+    if [ -f github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME} ]; then SET_UP_SSH=false;  fi
+    if [ -f github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}.pub ]; then SET_UP_SSH=false;  fi
 
-  else
-    echo -e "#########################################################################################"
-    echo -e "#   Found SSH artifacts already present.  Will NOT set up SSH."
-    echo -e "#   Please ensure you have a correctly configured SSH directory for use with GitHub."
-    echo -e "#   Visit :  https://help.github.com/articles/generating-ssh-keys/"
-    echo -e "#########################################################################################"
-  fi
+    if cat config | grep -c "Host github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}"; then
+      SET_UP_SSH=false;
+    fi
+
+    if [ ${SET_UP_SSH} == true ]; then
+      echo "Creating deploy key for ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}";
+      ssh-keygen -t rsa -b 4096 -C "github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}" -N "" -f "${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}"
+
+      echo "Appending git host alias 'github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}' to $(pwd)/config";
+      printf 'Host github-%s-%s\nHostName github.com\nUser git\nIdentityFile ~/.ssh/%s-%s\n\n' "${GITHUB_ORGANIZATION_NAME}" "${PROJECT_NAME}"  "${GITHUB_ORGANIZATION_NAME}" "${PROJECT_NAME}" >> config
+      ls -la
+
+      echo "Adding 'github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}' to ssh agent";
+      ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
+      ssh-add -l
+
+    else
+      echo -e "#########################################################################################"
+      echo -e "#   Found deploy keys for ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME} already present.  Will NOT overwrite."
+      echo -e "#   Please ensure you have a correctly configured SSH directory for use with GitHub."
+      echo -e "#########################################################################################"
+    fi
+
+  popd >/dev/null;
+
 fi
 
 
@@ -263,8 +270,8 @@ if [ "${RUN_RULE}" != "n" ]; then
   echo -e "Go to the 'Deploy Key' configuration page for the GitHub repo at : ";
   echo -e "\n    https://github.com/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/settings/keys";
   echo -e "\nThen click the [Add deploy key] button and fill in the fields as follows : \n";
-  echo -e " - Title -- fill with :      ${PACKAGE_DEVELOPER} \n";
-  echo -e " - Key -- fill with :      $(cat ~/.ssh/id_rsa.pub) \n";
+  echo -e " - Title -- fill with :      ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME} \n";
+  echo -e " - Key -- fill with :      $(cat ~/.ssh/${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}.pub) \n";
   echo -e " - Allow write access -- checked";
 
 fi
@@ -275,20 +282,20 @@ fi
 explain ${DOCS}/Create_local_GitHub_repository.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR}
-  pushd ${PROJECT_NAME}
+  pushd ~/${PARENT_DIR} >/dev/null;
+  pushd ${PROJECT_NAME} >/dev/null;
 
-  ssh-add
+#  ssh-add
   git init
   git add .
-  git commit -am 'First commit'
-  git remote add origin git@github_${PROJECT_NAME}:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
+  set +e;    git commit -am 'First commit';    set -e;
+  git remote add ${PROJECT_NAME}_origin git@github_${PROJECT_NAME}:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
 #  git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
 # git remote set-url origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
-  git push -u origin master
+  git push -u ${PROJECT_NAME}_origin master
 
-  popd
-  popd
+  popd >/dev/null;
+  popd >/dev/null;
 
 fi
 

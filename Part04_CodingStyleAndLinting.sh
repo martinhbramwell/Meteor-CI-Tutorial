@@ -23,11 +23,11 @@ echo ""
 explain ${DOCS}/Try_ESLint_from_the_Command_Line.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/ >/dev/null;
   set +e
   eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
   set -e
-  popd
+  popd >/dev/null;
 
 fi
 
@@ -49,11 +49,11 @@ echo ""
 explain ${DOCS}/Try_ESLint_Command_Line_Again.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/ >/dev/null;
   set +e
   eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
   set -e
-  popd
+  popd >/dev/null;
 
 fi
 

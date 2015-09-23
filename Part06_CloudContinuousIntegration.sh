@@ -16,8 +16,8 @@ explain ${DOCS}/Introduction.md
 explain ${DOCS}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR}
-  pushd ${PROJECT_NAME}
+  pushd ~/${PARENT_DIR} >/dev/null;
+  pushd ${PROJECT_NAME} >/dev/null;
 
   mv example_circle.yml circle.yml
 
@@ -37,8 +37,8 @@ if [ "${RUN_RULE}" != "n" ]; then
   echo -e "#########################################################################################"
   echo -e "Hit <enter> after you have confirmed that CircleCI ran successful tests ::  "
   read -n 1 -r USER_ANSWER
-  popd
-  popd
+  popd >/dev/null;
+  popd >/dev/null;
 
 fi
 
@@ -49,15 +49,15 @@ fi
 explain ${DOCS}/Prepare_for_NightWatch_testing.md # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR}
-  pushd ${PROJECT_NAME}
+  pushd ~/${PARENT_DIR} >/dev/null;
+  pushd ${PROJECT_NAME} >/dev/null;
 
   wget -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/master/meteor-nightwatch-runner.run
   chmod ug+x meteor-nightwatch-runner.run
 
   ./meteor-nightwatch-runner.run
-  popd
-  popd
+  popd >/dev/null;
+  popd >/dev/null;
 
 fi
 
@@ -67,8 +67,8 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   existingMeteor
 
-  pushd ~/${PARENT_DIR}
-  pushd ${PROJECT_NAME}
+  pushd ~/${PARENT_DIR} >/dev/null;
+  pushd ${PROJECT_NAME} >/dev/null;
 
   meteor &  #  Running meteor in the background
   ./tests/nightwatch/runTests.js | bunyan
@@ -87,8 +87,8 @@ if [ "${RUN_RULE}" != "n" ]; then
   echo -e "#########################################################################################"
   echo -e "Hit <enter> after you have confirmed that you have these results ::  "
   read -n 1 -r USER_ANSWER
-  popd
-  popd
+  popd >/dev/null;
+  popd >/dev/null;
 
 fi
 
@@ -97,8 +97,8 @@ fi
 explain ${DOCS}/Push_Nightwatch_testing_to_GitHub_and_CircleCI.md # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR}
-  pushd ${PROJECT_NAME}
+  pushd ~/${PARENT_DIR} >/dev/null;
+  pushd ${PROJECT_NAME} >/dev/null;
 
   cp tests/nightwatch/config/example_circle.yml circle.yml
 
@@ -106,8 +106,8 @@ if [ "${RUN_RULE}" != "n" ]; then
   git commit -am 'Added Nightwatch testing'
   git push -u origin master
 
-  popd
-  popd
+  popd >/dev/null;
+  popd >/dev/null;
 
 fi
 
@@ -194,12 +194,12 @@ exit 0;
 # \n#  "
 # if [ $? -eq 0 ]; then
 
-#   pushd ~/${PARENT_DIR}
-#   pushd ${PROJECT_NAME}
+#   pushd ~/${PARENT_DIR} >/dev/null;
+#   pushd ${PROJECT_NAME} >/dev/null;
 
 
-#   popd
-#   popd
+#   popd >/dev/null;
+#   popd >/dev/null;
 
 # fi
 

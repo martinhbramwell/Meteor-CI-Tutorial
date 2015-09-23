@@ -31,7 +31,7 @@ fi
 explain ${DOCS}/Create_a_package_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ${PACKAGES}/${YOUR_NAME};
+  pushd ${PACKAGES}/${YOUR_NAME} >/dev/null;
 
   CREATE_PACKAGE=true;
   if [[ -d ${PKG_NAME}
@@ -55,9 +55,9 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   ${CREATE_PACKAGE} && meteor create --package "${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}";
 
-  popd
+  popd >/dev/null;
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
   echo -e "Reviewing installed packages . . . ( slow! give us a minute) \n\n"
 
@@ -86,7 +86,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   ${INSTALL_PACKAGE} && meteor add "${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}";
   ${INSTALL_PACKAGE} && meteor list;
 
-  popd
+  popd >/dev/null;
 
 fi
 
@@ -97,9 +97,9 @@ explain ${DOCS}/Create_a_package_C.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   mkdir -p ~/${PARENT_DIR}/${PROJECT_NAME}/packages
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages >/dev/null;
   ln -s ${PACKAGES}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
-  popd
+  popd >/dev/null;
 
 fi
 
@@ -135,7 +135,7 @@ fi
 explain ${DOCS}/Control_a_packages_versions_B.md  MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ${PACKAGES}/${YOUR_NAME}/${PKG_NAME}
+  pushd ${PACKAGES}/${YOUR_NAME}/${PKG_NAME} >/dev/null;
 
   ssh-add
   git init
@@ -145,7 +145,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 # git remote set-url origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
   git push -u origin master
 
-  popd
+  popd >/dev/null;
 
 
 fi
@@ -157,7 +157,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   existingMeteor
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
   meteor test-packages &
 
@@ -176,7 +176,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   kill -9 $(jobs -p)
 
-  popd
+  popd >/dev/null;
 
 fi
 
@@ -186,8 +186,8 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   existingMeteor
 
-  pushd ~/${PARENT_DIR}
-  pushd ${PROJECT_NAME}
+  pushd ~/${PARENT_DIR} >/dev/null;
+  pushd ${PROJECT_NAME} >/dev/null;
 
   wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
   chmod ug+x meteor-tinytest-runner.run
@@ -204,8 +204,8 @@ if [ "${RUN_RULE}" != "n" ]; then
   read -n 1 -r USER_ANSWER
   tree
 
-  popd
-  popd
+  popd >/dev/null;
+  popd >/dev/null;
 
 fi
 
