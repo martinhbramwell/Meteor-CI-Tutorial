@@ -130,8 +130,10 @@ if [ "${RUN_RULE}" != "n" ]; then
   echo -e "Pushing to remote repo and publishing docs as a GitHub Pages website.\n"
   ./PushDocsToGitHubPagesBranch.sh ${PKG_NAME} ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} ${TEMP_ZIP}
 
-
   echo -e "Removing temp file.\n"
+  rm -f ${TEMP_ZIP}
+
+  echo -e "To see your documentation on-line, open this link:\n\n          https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/"
   rm -f ${TEMP_ZIP}
 
 fi

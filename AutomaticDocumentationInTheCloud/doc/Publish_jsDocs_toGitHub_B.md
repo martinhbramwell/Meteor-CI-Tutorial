@@ -8,7 +8,11 @@ name: PublishJsDocsToGitHub
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 #### Your jsDoc Documents as a GitHub Pages Website
 
-#####Commands
+When this step completes you will find your documenatation on-line at the URL : 
+
+<a href="https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/" target="_blank">https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/</a>.
+
+##### Commands
 ```terminal
 zip -qr ../.tmp_docs.zip *
 git add docs/*
