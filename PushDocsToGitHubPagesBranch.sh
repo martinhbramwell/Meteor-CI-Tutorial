@@ -25,7 +25,7 @@ function PushDocsToGitHubPagesBranch() {
 		echo "Committing locally"
 		git commit -am "Cleaned out"
 		echo "Pushing to new remote repository"
-		git push --set-upstream origin ${GITHUBPAGES}
+		git push --set-upstream ${PKG_NAME}_origin ${GITHUBPAGES}
 		echo "Switching back to work on local master"
 		git checkout master
 	fi;
@@ -50,7 +50,7 @@ function PushDocsToGitHubPagesBranch() {
 	echo -e "Committed '$1' files with recent master commit message :\n'${MSG}'."
 
 	git push
-	echo "Pushed"
+	echo "Push errors : $?"
 
 	git checkout master
 	echo "- - - back on branch master - - -"

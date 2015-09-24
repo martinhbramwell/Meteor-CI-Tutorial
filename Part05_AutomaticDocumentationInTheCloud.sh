@@ -107,23 +107,23 @@ if [ "${RUN_RULE}" != "n" ]; then
 
     pushd docs >/dev/null;
 
-    echo -e "Zipping up the documentation directory.\n"
+      echo -e "Zipping up the documentation directory.\n"
 
-    rm -f ${TEMP_ZIP}
-    zip -qr ${TEMP_ZIP} *
+      rm -f ${TEMP_ZIP}
+      zip -qr ${TEMP_ZIP} *
 
     popd >/dev/null;
 
-  echo -e "Committing master branch changes of the package.\n"
+    echo -e "Committing master branch changes of the package.\n"
 
-  set +e
-  git add docs/*
-  echo "additions $?"
-  git commit -am "Preliminary package documentation."
-  echo "committed $?"
-  git push
-  echo "pushed $?"
-  set -e
+    set +e
+    git add docs/*
+    echo "git add errors : $?"
+    git commit -am "Preliminary package documentation."
+    echo "git commit errors : $?"
+    git push
+    echo "git push errors : $?"
+    set -e
 
   popd >/dev/null;
 
