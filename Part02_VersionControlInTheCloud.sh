@@ -289,7 +289,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   git init
   git add .
   set +e;    git commit -am 'First commit';    set -e;
-  git remote add ${PROJECT_NAME}_origin git@github_${PROJECT_NAME}:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
+  git remote add ${PROJECT_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
 #  git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
 # git remote set-url origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
   git push -u ${PROJECT_NAME}_origin master

@@ -104,28 +104,69 @@ if [ "${RUN_RULE}" != "n" ]; then
 fi
 
 
+RUN_RULE="";
+explain ${DOCS}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  SET_UP_SSH=true;
+
+  mkdir -p ~/.ssh;
+  chmod 700 ~/.ssh
+  pushd  ~/.ssh  >/dev/null;
+    touch config;
+
+    if [ -f github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME} ]; then SET_UP_SSH=false;  fi
+    if [ -f github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}.pub ]; then SET_UP_SSH=false;  fi
+
+    if cat config | grep -c "Host github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}"; then
+      SET_UP_SSH=false;
+    fi
+
+    if [ ${SET_UP_SSH} == true ]; then
+      echo "Creating deploy key for ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}";
+      ssh-keygen -t rsa -b 4096 -C "github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}" -N "" -f "${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}"
+
+      echo "Appending git host alias 'github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}' to $(pwd)/config";
+      printf 'Host github-%s-%s\nHostName github.com\nUser git\nIdentityFile ~/.ssh/%s-%s\n\n' "${GITHUB_ORGANIZATION_NAME}" "${PKG_NAME}"  "${GITHUB_ORGANIZATION_NAME}" "${PKG_NAME}" >> config
+      ls -la
+
+      echo "Adding 'github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}' to ssh agent";
+      ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
+      ssh-add -l
+
+    else
+      echo -e "#########################################################################################"
+      echo -e "#   Found deploy keys for ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME} already present.  Will NOT overwrite."
+      echo -e "#   Please ensure you have a correctly configured SSH directory for use with GitHub."
+      echo -e "#########################################################################################"
+    fi
+
+  popd >/dev/null;
+
+fi
+
+
 
 explain ${DOCS}/Control_a_packages_versions_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   export RMT_REPO="https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}";
-  wget -q --spider ${RMT_REPO};
-  EXISTS=$?;
+  set +e;   wget -q --spider ${RMT_REPO}; EXISTS=$?;    set -e;
 
   until [[ ${EXISTS} -eq 0 ]]
   do
     echo "Can find no GitHub repo at '${RMT_REPO}'"
     read -p "  Hit enter when one has been created : " -n 1 -r YRPKGRDY
     echo ""
-    wget -q --spider ${RMT_REPO};
-    EXISTS=$?;
+    set +e;   wget -q --spider ${RMT_REPO}; EXISTS=$?;    set -e;
+
   done
 
   echo -e "Go to the 'Deploy Key' configuration page for the GitHub repo at : ";
   echo -e "\n    https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}/settings/keys";
   echo -e "\nThen click the [Add deploy key] button and fill in the fields as follows : \n";
   echo -e " - Title -- fill with :      ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME} \n";
-  echo -e " - Key -- fill with :      $(cat ~/.ssh/github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}.pub) \n";
+  echo -e " - Key -- fill with :      $(cat ~/.ssh/${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}.pub) \n";
   echo -e " - Allow write access -- checked";
 
 fi
@@ -141,9 +182,8 @@ if [ "${RUN_RULE}" != "n" ]; then
   git init
   git add .
   git commit -am 'First commit'
-  git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
-# git remote set-url origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
-  git push -u origin master
+  git remote add ${PKG_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
+  git push -u ${PKG_NAME}_origin master
 
   popd >/dev/null;
 

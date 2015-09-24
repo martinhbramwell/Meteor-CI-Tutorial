@@ -14,11 +14,11 @@
 git init
 git add .
 git commit -am 'First commit'
-git remote add origin git@github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
-git push -u origin master
+git remote add ${PKG_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
+git push -u ${PKG_NAME}_origin master
 ```
 
-<!-- Code for this begins at line #137 -->
+<!-- Code for this begins at line #179 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L137" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L179" target="_blank">Code for this step.</a>] ]
 ]
