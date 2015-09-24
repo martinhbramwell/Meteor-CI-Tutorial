@@ -91,14 +91,13 @@ If you open the index file in your browser from its file system location . . .
 
 #### Configure Sublime Text to assist with jsDoc annotation
 
-Now we add ```DocBlockr``` to Sublime Text.  [DocBlockr](https://github.com/spadgos/sublime-jsdocs) goes beyond jsDocs and helps add documentation annotations for many other languages than just JavaScript. 
+Now we add ```DocBlockr``` to Sublime Text.  <a href='https://github.com/spadgos/sublime-jsdocs' target='_blank'>DocBlockr</a> goes beyond jsDocs and helps add documentation annotations for many other languages than just JavaScript.
 
 Steps to perform :
 
  - Go to Preferences >> Package Control
  - In Package Control type : install package
  - Install 'DocBlockr'
-
 
 
 <!-- B -->]
@@ -112,11 +111,11 @@ Steps to perform :
 
 #### Use the Sublime Text package "DocBlockr"
 
-DocBlockr tries to help finish annotations begun with ```/**```, as explained in the [usage instructions](https://github.com/spadgos/sublime-jsdocs#usage).  
+DocBlockr tries to help finish annotations begun with ```/**```, as explained in the <a href='https://github.com/spadgos/sublime-jsdocs#usage' target='_blank'>usage instructions</a>.
 
  ![https://camo.githubusercontent.com/087348d3e797f4ccc91528459b0473f6d34eadf3/687474703a2f2f73706164676f732e6769746875622e696f2f7375626c696d652d6a73646f63732f696d616765732f6c6f6e672d617267732e676966](https://camo.githubusercontent.com/087348d3e797f4ccc91528459b0473f6d34eadf3/687474703a2f2f73706164676f732e6769746875622e696f2f7375626c696d652d6a73646f63732f696d616765732f6c6f6e672d617267732e676966)
 
-Here is a partially documented [```${PKG_NAME}-tests.js```](https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/$yourpackage-tests.js)
+Here is a partially documented <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js' target='_blank'>```yourpackage-tests.js```</a>
 
 ##### Commands
 ```ruby
