@@ -17,7 +17,7 @@ That's beyond the scope of this tutorial.  However, we must, in any case, repeat
 **Be sure to prepare a GitHub repo called ```${PKG_NAME}``` with the same deploy key as you used for ```${PROJECT_NAME}```**
 
 Continues . . . 
-<!-- Code for this begins at line #153 -->
+<!-- Code for this begins at line #152 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L153" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L152" target="_blank">Code for this step.</a>] ]
 ]

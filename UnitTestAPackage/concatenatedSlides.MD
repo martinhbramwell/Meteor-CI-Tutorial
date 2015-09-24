@@ -163,9 +163,9 @@ That's beyond the scope of this tutorial.  However, we must, in any case, repeat
 **Be sure to prepare a GitHub repo called ```${PKG_NAME}``` with the same deploy key as you used for ```${PROJECT_NAME}```**
 
 Continues . . . 
-<!-- Code for this begins at line #153 -->
+<!-- Code for this begins at line #152 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L153" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L152" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -187,9 +187,9 @@ git remote add ${PKG_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PKG_N
 git push -u ${PKG_NAME}_origin master
 ```
 
-<!-- Code for this begins at line #179 -->
+<!-- Code for this begins at line #178 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L179" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L178" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -211,9 +211,9 @@ meteor test-packages &
 tree
 ```
 To stop Meteor after you have confirmed that it ran successful tests, hit ```<enter>```.
-<!-- Code for this begins at line #198 -->
+<!-- Code for this begins at line #197 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L198" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L197" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -237,9 +237,9 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 ./meteor-tinytest-runner.run
 ./tests/tinyTests/test-all.sh
 ```
-<!-- Code for this begins at line #227 -->
+<!-- Code for this begins at line #226 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L227" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L226" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
