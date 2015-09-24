@@ -109,6 +109,43 @@ For editing purposes your package now appears to be part of your project.  But w
 ]
 ---
 .left-column[
+  ### Prepare SSH directory
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Prepare Deploy Keys for a GitHub Repository.
+ 
+This step is a repeat of the equivalent operation from the previous part.
+Names are different at key points, so *git* meets no ambiguity about connecting local repos to the correct remote repo.
+
+In this step we prepare an aliased key for ```${PKG_NAME}```.
+##### Commands
+```terminal
+pwd
+```
+
+
+<!-- Code for this begins at line #110 -->
+<!-- B -->
+<div id="uniquename" class="popup_div">
+    <a class="subtle_a" onmouseover="HideContent('uniquename'); return true;"
+       href="javascript:HideContent('uniquename')">
+        <p>If a file '~/.ssh/${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}.pub' already exists, then this command group will do nothing.</p>
+    </a>
+</div>
+<a
+    class="subtle_a"
+    onmouseover="ReverseContentDisplay('uniquename'); return true;"
+    href="javascript:ReverseContentDisplay('uniquename')">
+    <i>Hover Note</i>
+</a>
+
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L110" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
   ### Package Version Control
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
@@ -126,9 +163,9 @@ That's beyond the scope of this tutorial.  However, we must, in any case, repeat
 **Be sure to prepare a GitHub repo called ```${PKG_NAME}``` with the same deploy key as you used for ```${PROJECT_NAME}```**
 
 Continues . . . 
-<!-- Code for this begins at line #110 -->
+<!-- Code for this begins at line #152 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L110" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L152" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -146,13 +183,13 @@ Continues . . .
 git init
 git add .
 git commit -am 'First commit'
-git remote add origin git@github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
-git push -u origin master
+git remote add ${PKG_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
+git push -u ${PKG_NAME}_origin master
 ```
 
-<!-- Code for this begins at line #137 -->
+<!-- Code for this begins at line #178 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L137" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L178" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -174,9 +211,9 @@ meteor test-packages &
 tree
 ```
 To stop Meteor after you have confirmed that it ran successful tests, hit ```<enter>```.
-<!-- Code for this begins at line #157 -->
+<!-- Code for this begins at line #197 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L157" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L197" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -200,9 +237,9 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 ./meteor-tinytest-runner.run
 ./tests/tinyTests/test-all.sh
 ```
-<!-- Code for this begins at line #186 -->
+<!-- Code for this begins at line #226 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L186" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L226" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
