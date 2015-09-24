@@ -8,14 +8,13 @@
 
 #### Configure Sublime Text to assist with jsDoc annotation
 
-Now we add ```DocBlockr``` to Sublime Text.  [DocBlockr](https://github.com/spadgos/sublime-jsdocs) goes beyond jsDocs and helps add documentation annotations for many other languages than just JavaScript. 
+Now we add ```DocBlockr``` to Sublime Text.  <a href='https://github.com/spadgos/sublime-jsdocs' target='_blank'>DocBlockr</a> goes beyond jsDocs and helps add documentation annotations for many other languages than just JavaScript.
 
 Steps to perform :
 
  - Go to Preferences >> Package Control
  - In Package Control type : install package
  - Install 'DocBlockr'
-
 
 
 <!-- B -->]

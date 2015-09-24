@@ -26,7 +26,7 @@ const swagger = new Client({
   },
 });
 ```
-[Swagger](http://petstore.swagger.io/#!/pet/getPetById) give you instant connectivity to remote REST APIs, based solely on a machine readable specification: ```'swagger.json'```. Have a look at the logs, now.
+<a href='http://petstore.swagger.io/#!/pet/getPetById' target='_blank'>Swagger</a> give you instant connectivity to remote REST APIs, based solely on a machine readable specification: ```'swagger.json'```. Have a look at the logs, now.
 
 Continues ...
 

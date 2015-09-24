@@ -8,7 +8,7 @@
 
 #### Add a test runner for getting TinyTest output on the command line
 
-TinyTest pretty prints its results in the browser, but -- that's useless for continuous integration!  We must have test results on the command line. The Selenium wrapper [warehouseman:meteor-tinytest-runner](https://github.com/warehouseman/meteor-tinytest-runner) does that for us.
+TinyTest pretty prints its results in the browser, but -- that's useless for continuous integration!  We must have test results on the command line. The Selenium wrapper <a href='https://github.com/warehouseman/meteor-tinytest-runner' target='_blank'>warehouseman:meteor-tinytest-runner</a> does that for us.
 
 In this step we :
 1. Get the installer for the test runner and then run it *(Note that it deletes itself after preparing everything for immediate use)*

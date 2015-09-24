@@ -8,7 +8,7 @@
 
 #### Configure git for use with GitHub.
 
-In this step we set up the local git tool kit to communicate correctly with GitHub, per [their getting started guide](https://help.github.com/articles/set-up-git/).
+In this step we set up the local git tool kit to communicate correctly with GitHub, per <a href='https://help.github.com/articles/set-up-git/' target='_blank'>their getting started guide</a>.
 
 Steps performed :
  - identify user name
