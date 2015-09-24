@@ -61,7 +61,7 @@ fi
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain
 
 echo ""
-echo -e "\nDone.  Now start up ./Part03_CloudContinuousIntegration.sh";
+echo -e "\nDone.  Now start up ./Part05_AutomaticDocumentationInTheCloud.sh";
 
 exit 0;
 

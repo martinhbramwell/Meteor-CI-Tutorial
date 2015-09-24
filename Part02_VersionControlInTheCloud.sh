@@ -207,7 +207,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd  ~/.ssh  >/dev/null;
     touch config;
 
- 
+
     if [ -f github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME} ]; then SET_UP_SSH=false;  fi
     if [ -f github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}.pub ]; then SET_UP_SSH=false;  fi
 

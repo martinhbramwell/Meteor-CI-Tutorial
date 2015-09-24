@@ -30,7 +30,7 @@ DOCS="./PrepareTheMachine/doc"
 #   qemu-img resize /var/lib/libvirt/images/xxxxx.img +1G
 
 #  wget -O Meteor-CI-Tutorial.zip https://github.com/martinhbramwell/Meteor-CI-Tutorial/archive/master.zip
-#  unzip Meteor-CI-Tutorial.zip 
+#  unzip Meteor-CI-Tutorial.zip
 #  mv Meteor-CI-Tutorial-master/ Meteor-CI-Tutorial
 #  cd Meteor-CI-Tutorial
 
@@ -169,7 +169,7 @@ echo "";
 read -p "Hit <enter> ::  " -n 1 -r REPLY
 
 
-highlight ${DOCS}/Configure_Sublime_B.md # explain 
+highlight ${DOCS}/Configure_Sublime_B.md # explain
 
 
 explain ${DOCS}/Install_eslint.md MORE_ACTION # CODE_BLOCK
@@ -185,10 +185,10 @@ if [ "${RUN_RULE}" != "n" ]; then
   npm install -g jsdoc
 fi
 
-## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain 
+## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain
 
 echo ""
-echo -e "\nDone.  Now start up ./Part02_UnitTestThePackage.sh";
+echo -e "\nDone.  Now start up ./Part02_VersionControlInTheCloud.sh";
 
 exit 0;
 
