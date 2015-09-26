@@ -9,17 +9,13 @@ layout: false
 
 ## Cloud Continuous Integration
 
-These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration.
+The script that precedes this one, 'Part05_AutomaticDocumentationInTheCloud.sh', set up semi-automatic published documentation using ```jsDoc``` and ```gh-pages```.
 
-The previous script, 'Part05_AutomaticDocumentationInTheCloud.sh', set up necessary preconditions for the second script, basically all tasks that require root access. 
-
-This one . . .  
+Now, this script . . .  
 ```terminal
 ./Part06_CloudContinuousIntegration.sh
 ```
-. . . prepares a Meteor project with an embedded package ready for testing with TinyTest using the first few of the previously mentioned application development support tools.
-
-You should not need to use 'sudo' for this or any of the later parts.  Everything should happen in your HOME directory.
+. . . will move those tasks out of your PC and into CircleCI: a continuous integration server in the cloud.
 
 
 <div id="uniquename" class="popup_div">
@@ -44,11 +40,30 @@ You should not need to use 'sudo' for this or any of the later parts.  Everythin
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
+#### Connect CircleCI to GitHub
+
+A complete introduction to CircleCI is beyond the scopè of this series, however you can learn all the essential elements in the YouTube video: <a href="https://www.youtube.com/watch?v=oIRbUGJKcrs" target="_blank">"Android Continuous Integration with CircleCI"</a>
+
+By <a href="http://imgur.com/z3atLCi.png" target="_blank">signing up to CircleCi</a> with <a href="http://imgur.com/lznvxN5.png" target="_blank">our GitHub account</a>, we <a href="http://imgur.com/e8kT2qL.png" target="_blank">authorize GitHub</a> to <a href="http://imgur.com/NyDT13U.png" target="_blank">reveal our organizations and repositories to CircleCI</a>.  By <a href="http://i.imgur.com/X8ABtsf.png" target="_blank">registering a GitHub repository</a> with CircleCI, <a href="http://imgur.com/6Vw0xnW.png" target="_blank">CircleCI and GitHub establish between them</a> a <a href="https://developer.github.com/webhooks/" target="_blank">"webhook"</a> that alerts CircleCI of events such as a new commit.
+
+Once CircleCI <a href="http://i.imgur.com/DtaBko1.png" target="_blank">has analyzed our repository</a> and <a href="http://i.imgur.com/OuxEBqp.png" target="_blank">has attempted a first build</a>, we can <a href="http://i.imgur.com/QdJ8GF7.png?1" target="_blank">turn to the build results page</a>. However, there will be <a href="http://i.imgur.com/3xO3BWx.png" target="_blank">no results</a> until we describe our build requirements.
+
+Our next task is to commit a build definition file '```circle.yml```'' to GitHub.
+<!-- B -->]
+---
+.left-column[
+  ### Configure CircleCI 
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
 #### Add a CircleCI configuration file and push to GitHub
 
-On the preliminary commit we did earlier, CircleCI recognized the project's existence but did not know what to do with it.  By logging in to CircleCi with our GitHub credentials, we authorize GitHub to reveal our projects to CircleCI.  By registering a GitHub project with CircleCI, CircleCI and GitHub establish between them a <a href="https://developer.github.com/webhooks/" target="_blank">"webhook"</a> that alerts CircleCI of events such as a new commit.
+The document <a href="https://circleci.com/docs/configuration" target="_blank">Configuring CircleCI</a> provides full details of '```circle.yml```' file preparation.
 
-Now, we have a test runner, and by adding a ```circle.yml``` configuration file and committing the project to GitHub CircleCI will have all it needs to build and test our project.
+In this step, we can get a minimal '```circle.yml```' from the example ('```example_circle.yml```') provided with the installer for <a href="https://github.com/warehouseman/meteor-tinytest-runner" target="_blank">warehouseman:meteor-tinytest-runner</a>, we used in <a href="http://localhost:8000/Meteor-CI-Tutorial/index.html?part=C#9" target="_blank">"Part C : Runner for TinyTest"</a>.
+
 #####Commands
 ```terminal
 mv example_circle.yml circle.yml
@@ -58,9 +73,9 @@ git push -u origin master
 ```
 
 
-<!-- Code for this begins at line #18 -->
+<!-- Code for this begins at line #21 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L18" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L21" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -83,9 +98,9 @@ then make make it executable and run it.
 The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample ```circle.yml``` that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
 
 
-<!-- Code for this begins at line #51 -->
+<!-- Code for this begins at line #54 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L51" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L54" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -102,9 +117,9 @@ Nightwatch and Meteor are separate.
 This command group starts Meteor in a background process, and then starts the Nightwatch Test Runner to try the simple sanity check test, "Does the main page have a <body> tag?".
 
 
-<!-- Code for this begins at line #67 -->
+<!-- Code for this begins at line #70 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L67" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L70" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -121,9 +136,9 @@ We are ready for the final stage: TinyTest & Nightwatch testing run in a single 
 The Nightwatch ```circle.yml``` includes set up of TinyTest, so it can overwrite the one created earlier.
 
 
-<!-- Code for this begins at line #99 -->
+<!-- Code for this begins at line #102 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L99" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L102" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
