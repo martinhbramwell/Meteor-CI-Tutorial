@@ -9,17 +9,13 @@ layout: false
 
 ## Cloud Continuous Integration
 
-These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration.
+The script that precedes this one, 'Part05_AutomaticDocumentationInTheCloud.sh', set up semi-automatic published documentation using ```jsDoc``` and ```gh-pages```.
 
-The previous script, 'Part05_AutomaticDocumentationInTheCloud.sh', set up necessary preconditions for the second script, basically all tasks that require root access. 
-
-This one . . .  
+Now, this script . . .  
 ```terminal
 ./Part06_CloudContinuousIntegration.sh
 ```
-. . . prepares a Meteor project with an embedded package ready for testing with TinyTest using the first few of the previously mentioned application development support tools.
-
-You should not need to use 'sudo' for this or any of the later parts.  Everything should happen in your HOME directory.
+. . . will move those tasks out of your PC and into CircleCI: a continuous integration server in the cloud.
 
 
 <div id="uniquename" class="popup_div">

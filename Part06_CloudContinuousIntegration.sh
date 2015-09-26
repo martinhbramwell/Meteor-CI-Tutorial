@@ -13,6 +13,9 @@ source ./util.sh
 
 explain ${DOCS}/Introduction.md
 
+explain ${DOCS}/Connect_CircleCI_to_GitHub.md
+
+
 explain ${DOCS}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
