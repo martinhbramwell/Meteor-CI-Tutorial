@@ -25,7 +25,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/ >/dev/null;
   set +e
-  eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
+  eslint ./${PROJECT_NAME}.js
   set -e
   popd >/dev/null;
 

@@ -33,21 +33,20 @@ name: UseESLintOnTheCommandLine
 
 #### Use ESLint on the Command Line
 
-We are ready with ESLint for the command line, and will have it for Sublime Text.  Both have advantages: the command line lists all code quality deficiencies which we need for continuous integration and editor based linting helps ensure code quality as we type.
-
-The result should look like this :
+We are ready with ESLint for the command line, and will have it for Sublime Text.  Both have advantages: editor based linting helps ensure code quality as we type while command line catches quality issues during continuous integration.  A command line result looks like this :
 ```ruby
-packages/${PKG_NAME}/${PKG_NAME}-tests.js
- 3:14 error   Strings must use doublequote                 quotes
- 3:25 warning Missing function expression name             func-names
- 3:33 error   Unexpected space before function parentheses space-before-function-paren
+/home/yourself/demos/yourproject/yourproject.js
+   3:22  error    Strings must use doublequote                  quotes
+   6:14  warning  Missing function expression name              func-names
+           :        :                :                            :
+  20:26  error    Unexpected space before function parentheses  space-before-function-paren
 
-✖ 3 problems (2 errors, 1 warning)
+✖ 13 problems (10 errors, 3 warnings)
 ```
 ##### Commands
 ```terminal
 cd ~/${PARENT_DIR}/${PROJECT_NAME}/
-eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
+eslint ${PROJECT_NAME}.js
 ```
 
 <!-- Code for this begins at line #25 -->
