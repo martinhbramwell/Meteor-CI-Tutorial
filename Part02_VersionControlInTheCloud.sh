@@ -253,18 +253,16 @@ echo ""
 explain ${DOCS}/Create_remote_GitHub_repository_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-
   export RMT_REPO="https://github.com/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}";
-  wget -q --spider ${RMT_REPO};
-  EXISTS=$?;
+  set +e;     wget -q --spider ${RMT_REPO}; EXISTS=$?;    set -e;
 
   until [[ ${EXISTS} -eq 0 ]]
   do
     echo "Can find no GitHub repo at '${RMT_REPO}'"
     read -p "  Hit enter when one has been created : " -n 1 -r YRPKGRDY
     echo ""
-    wget -q --spider ${RMT_REPO};
-    EXISTS=$?;
+    set +e;     wget -q --spider ${RMT_REPO}; EXISTS=$?;    set -e;
+
   done
 
   echo -e "Go to the 'Deploy Key' configuration page for the GitHub repo at : ";
@@ -303,7 +301,6 @@ if [ "${RUN_RULE}" != "n" ]; then
   popd >/dev/null;
 
 fi
-
 
 
 
