@@ -8,7 +8,7 @@ function PushDocsToGitHubPagesBranch() {
 
 	if git rev-parse --verify ${GITHUBPAGES} >/dev/null 2>&1; then
 
-    echo -e "Found existing '${GITHUBPAGES}' branch.";
+		echo -e "Found existing '${GITHUBPAGES}' branch.";
 
 	else
 		echo "Creating local ${GITHUBPAGES} branch";
@@ -24,8 +24,8 @@ function PushDocsToGitHubPagesBranch() {
 		ls -la
 		echo "Committing locally"
 		git commit -am "Cleaned out"
-		echo "Pushing to new remote repository"
-		git push --set-upstream ${PKG_NAME}_origin ${GITHUBPAGES}
+		echo "Pushing to new remote repository : $2"
+		git push --set-upstream $2 ${GITHUBPAGES}
 		echo "Switching back to work on local master"
 		git checkout master
 	fi;
@@ -59,16 +59,19 @@ function PushDocsToGitHubPagesBranch() {
 }
 
 # FIXME -development only -->
-TEMP_ZIP="/tmp/yourpackage_docs.zip"
-pushd ~/projects/packages/yourself/yourpackage/docs >/dev/null;
-rm -f ${TEMP_ZIP}
-zip -qr ${TEMP_ZIP} *
-popd >/dev/null;
+# TEMP_ZIP="/tmp/yourpackage_docs.zip"
+# pushd ~/projects/packages/yourself/yourpackage/docs >/dev/null;
+# rm -f ${TEMP_ZIP}
+# zip -qr ${TEMP_ZIP} *
+# popd >/dev/null;
 #                        <--
+
+echo -e "In git managed directory '~/${2}', attempting to publish the decompressed contents of '${3}' to the 'gh-pages' branch of the '${1}' repo at remote '${4}'."
 
 VALID=true;
 if grep "$1" $2/.git/config  >/dev/null 2>&1; then
-#   	echo "* * * The directory ($2) appears to contain valid git repo : '$1' * * *";
+
+   	echo "* * * The directory ($2) appears to contain valid git repo : '$1' * * *";
 
 	pushd $2 >/dev/null;
 	IFS_BK=${IFS};
@@ -81,14 +84,14 @@ if grep "$1" $2/.git/config  >/dev/null 2>&1; then
 		pwd
 		popd >/dev/null;
   	exit 1;
-	elif [[  $(git log origin/master..master | grep -c commit) -gt 0  ]]; then
+	elif [[  $(git log $4/master..master | grep -c commit) -gt 0  ]]; then
 		echo -e "\n\n * * * Git Error : Recent commits have not been pushed.  Cannot proceed * * * \n";
 		popd >/dev/null;
   	exit 1;
   elif [[ $(unzip -l $3 | grep -c index.html) -gt 0 ]]; then
-# elif unzip -l $3  >/dev/null 2>&1; then
+
 		echo "The zip file ($3) seems to have files!"
-		PushDocsToGitHubPagesBranch $3
+		PushDocsToGitHubPagesBranch $3 $4
 
 	else
 		echo -e "\n\n * * * $3  doesn't apppear to be a valid zip file * * * \n";

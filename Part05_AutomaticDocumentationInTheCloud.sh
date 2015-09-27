@@ -128,7 +128,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   popd >/dev/null;
 
   echo -e "Pushing to remote repo and publishing docs as a GitHub Pages website.\n"
-  ./PushDocsToGitHubPagesBranch.sh ${PKG_NAME} ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} ${TEMP_ZIP}
+  ./PushDocsToGitHubPagesBranch.sh ${PKG_NAME} ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} ${TEMP_ZIP} ${PKG_NAME}_origin
 
   echo -e "Removing temp file.\n"
   rm -f ${TEMP_ZIP}

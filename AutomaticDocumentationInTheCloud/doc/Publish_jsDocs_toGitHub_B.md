@@ -8,7 +8,7 @@ name: PublishJsDocsToGitHub
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 #### Your jsDoc Documents as a GitHub Pages Website
 
-When this step completes you will find your documenatation on-line at the URL : 
+When this step completes you will find your documentation on-line at the URL :
 
 <a href="https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/" target="_blank">https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/</a>.
 
@@ -25,3 +25,4 @@ git push
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L105" target="_blank">Code for this step.</a>] ]
 ]
+
