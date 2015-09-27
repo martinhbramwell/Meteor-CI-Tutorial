@@ -67,7 +67,7 @@ function getUserData()
     elif [[ ! "X${CHOICE}X" == "XyX" ]]; then
 
       echo -e "\n Please supply the following details :\n";
-      read -p "The exact project name for use in GitHub :: " -e -i "${PARENT_DIR}" INPUT
+      read -p "The project path within the ${HOME} directory :  :: " -e -i "${PARENT_DIR}" INPUT
       if [ ! "X${INPUT}X" == "XX" ]; then PARENT_DIR=${INPUT}; fi;
 
       read -p "The exact project name for use in GitHub :: " -e -i "${PROJECT_NAME}" INPUT
