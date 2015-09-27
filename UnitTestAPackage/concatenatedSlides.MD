@@ -123,7 +123,9 @@ Names are different at key points, so *git* meets no ambiguity about connecting 
 In this step we prepare an aliased key for ```${PKG_NAME}```.
 ##### Commands
 ```terminal
-pwd
+ssh-keygen -t rsa -b 4096 -C "github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}" -N "" -f "${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}"
+printf 'Host github-%s-%s\nHostName github.com\nUser git\nIdentityFile ~/.ssh/%s-%s\n\n' "${GITHUB_ORGANIZATION_NAME}" "${PKG_NAME}"  "${GITHUB_ORGANIZATION_NAME}" "${PKG_NAME}" >> config
+ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
 ```
 
 
