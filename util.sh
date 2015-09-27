@@ -20,6 +20,7 @@ function existingMeteor() {
 function saveUserData()
 {
 cat << UDATA > udata.sh
+export PARENT_DIR="${PARENT_DIR}"
 export PROJECT_NAME="${PROJECT_NAME}"
 export PKG_NAME="${PKG_NAME}"
 export GITHUB_ORGANIZATION_NAME="${GITHUB_ORGANIZATION_NAME}"
@@ -35,6 +36,7 @@ function getUserData()
   if [ -f ./udata.sh ]; then
     source ./udata.sh
   else
+    export PARENT_DIR=""
     export PROJECT_NAME=""
     export PKG_NAME=""
     export GITHUB_ORGANIZATION_NAME=""
@@ -49,6 +51,7 @@ function getUserData()
   do
 
     echo -e "\n\n# ${FRAME// /\~}"
+    echo "Project path in ${HOME} directory : ${PARENT_DIR}"
     echo "Project name : ${PROJECT_NAME}"
     echo "Package name : ${PKG_NAME}"
     echo "GitHub organization name : ${GITHUB_ORGANIZATION_NAME}"
@@ -64,6 +67,9 @@ function getUserData()
     elif [[ ! "X${CHOICE}X" == "XyX" ]]; then
 
       echo -e "\n Please supply the following details :\n";
+      read -p "The exact project name for use in GitHub :: " -e -i "${PARENT_DIR}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then PARENT_DIR=${INPUT}; fi;
+
       read -p "The exact project name for use in GitHub :: " -e -i "${PROJECT_NAME}" INPUT
       if [ ! "X${INPUT}X" == "XX" ]; then PROJECT_NAME=${INPUT}; fi;
 
@@ -93,8 +99,6 @@ if [ -f ./udata.sh ]; then
   source ./udata.sh
   echo "Project name : ${PROJECT_NAME}"
 fi
-
-export PARENT_DIR=projects
 
 #############################
 

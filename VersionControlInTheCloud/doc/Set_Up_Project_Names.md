@@ -11,6 +11,7 @@
 This step writes some names you specify to a file.  You won't have to repeat this.
 
 You will be asked to supply the following details :
+ - The sudirectory path, within your your home directory
  - The exact project name for use in GitHub
  - The exact package name for use in GitHub
  - The exact name for the GitHub organization

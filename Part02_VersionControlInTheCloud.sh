@@ -289,9 +289,14 @@ if [ "${RUN_RULE}" != "n" ]; then
   git init
   git add .
   set +e;    git commit -am 'First commit';    set -e;
-  git remote add ${PROJECT_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
-#  git remote add origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
-# git remote set-url origin git@github.com:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
+  if [[ $(git remote) = ${PROJECT_NAME}_origin ]];
+  then
+    echo -e "Remote, named ${PROJECT_NAME}_origin has already been defined for repo ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git";
+  else
+    echo -e "Defining remote, named ${PROJECT_NAME}_origin for repo ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git";
+    git remote add ${PROJECT_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
+  fi;
+
   git push -u ${PROJECT_NAME}_origin master
 
   popd >/dev/null;

@@ -16,21 +16,21 @@ explain ${DOCS}/Introduction.md
 explain ${DOCS}/Connect_CircleCI_to_GitHub.md
 
 
-explain ${DOCS}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md # CODE_BLOCK
+explain ${DOCS}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
 
-  mv example_circle.yml circle.yml
+  cp example_circle.yml circle.yml;
 
-  git add packages
-  git add circle.yml
-  git add tests
-  git commit -am 'Added package and package testing'
-  git push -u origin master
+  git add packages;
+  git add circle.yml;
+  git add tests;
+  set +e;    git commit -am 'Added package and package testing';   set -e;
+  git push -u ${PROJECT_NAME}_origin master;
 
-  echo -e "#########################################################################################"
+  echo -e "\n\n#########################################################################################"
   echo -e "#   Open your CircleCI site and explore the most recent build.  In the build section you "
   echo -e "#   should find the same lines as before when we ran the test runner locally : "
   echo -e "#   [INFO] http://127.0.0.1:4096/packages/test-in-console.js?59dde1f. . . 07b3f499 75:17 S: tinytest - example "
@@ -49,7 +49,7 @@ fi
 
 
 
-explain ${DOCS}/Prepare_for_NightWatch_testing.md # CODE_BLOCK
+explain ${DOCS}/Prepare_for_NightWatch_testing.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR} >/dev/null;
@@ -65,7 +65,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 fi
 
 
-explain ${DOCS}/Run_NightWatch_testing.md # CODE_BLOCK
+explain ${DOCS}/Run_NightWatch_testing.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   existingMeteor
@@ -97,7 +97,7 @@ fi
 
 
 
-explain ${DOCS}/Push_Nightwatch_testing_to_GitHub_and_CircleCI.md # CODE_BLOCK
+explain ${DOCS}/Push_Nightwatch_testing_to_GitHub_and_CircleCI.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR} >/dev/null;
