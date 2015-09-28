@@ -18,19 +18,6 @@ Now, this script . . .
 . . . will move those tasks out of your PC and into CircleCI: a continuous integration server in the cloud.
 
 
-<div id="uniquename" class="popup_div">
-    <a class="subtle_a" onmouseover="HideContent('uniquename'); return true;"
-       href="javascript:HideContent('uniquename')">
-        <p>pop up note example.</p>
-    </a>
-</div>
-<a
-    class="subtle_a"
-    onmouseover="ReverseContentDisplay('uniquename'); return true;"
-    href="javascript:ReverseContentDisplay('uniquename')">
-    º
-</a>
-
 <!-- B -->]
 ---
 .left-column[
@@ -58,24 +45,63 @@ Our next task is to commit a build definition file '```circle.yml```'' to GitHub
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Add a CircleCI configuration file and push to GitHub
+#### Add a CircleCI Configuration File and Push to GitHub
 
-The document <a href="https://circleci.com/docs/configuration" target="_blank">Configuring CircleCI</a> provides full details of '```circle.yml```' file preparation.
+The file <a href="https://circleci.com/docs/configuration" target="_blank">Configuring CircleCI</a> documents how to prepare a '```circle.yml```' file.
 
-In this step, we can get a minimal '```circle.yml```' from the example ('```example_circle.yml```') provided with the installer for <a href="https://github.com/warehouseman/meteor-tinytest-runner" target="_blank">warehouseman:meteor-tinytest-runner</a>, we used in <a href="http://localhost:8000/Meteor-CI-Tutorial/index.html?part=C#9" target="_blank">"Part C : Runner for TinyTest"</a>.
+In this step, we get a minimal '```circle.yml```' from the example ('```example_circle.yml```') provided with the installer for <a href="https://github.com/warehouseman/meteor-tinytest-runner" target="_blank">warehouseman:meteor-tinytest-runner</a>, that we used in <a href="http://localhost:8000/Meteor-CI-Tutorial/index.html?part=C#9" target="_blank">"Part C"</a>.  It will not succeed, for an obvious reason :
+```ruby
+$ tests/tinyTests/test-all.sh
+grep: packages/yourpackage: No such file or directory
+ERROR: Found no packages to test. tests/tinyTests/test-all.sh returned exit code 1
+```
 
 #####Commands
 ```terminal
-mv example_circle.yml circle.yml
+cp example_circle.yml circle.yml
 git add packages circle.yml tests
-git commit -am 'Added package and package testing'
-git push -u origin master
+git commit -am 'Added package and package testing' && git push
 ```
 
 
 <!-- Code for this begins at line #21 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L21" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Configure CircleCI 
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Amend the Configuration and Push Again
+
+The command failed because we still to reference our package from the ```circle.yml``` file.  We have to add these lines . . .
+```ruby
+    - mkdir -p ~/packages/yourself;  # ensure dir exists
+    - pushd ~/packages/yourself;     
+        git clone https://github.com/your0rg/yourpackage;
+      popd;
+    - pushd ./packages;
+        rm -fr yourpackage;
+        ln -s ~/packages/yourself/yourpackage yourpackage;
+      popd;
+```
+. . . just after these ones, and then commit and push again.
+```ruby
+    - ln -s ~/node_modules node_modules
+```
+#####Commands
+```terminal
+git commit -am 'clone pkg and link to it' && git push
+```
+
+
+<!-- Code for this begins at line #48 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L48" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -98,9 +124,9 @@ then make make it executable and run it.
 The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample ```circle.yml``` that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
 
 
-<!-- Code for this begins at line #54 -->
+<!-- Code for this begins at line #76 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L54" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L76" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -117,9 +143,9 @@ Nightwatch and Meteor are separate.
 This command group starts Meteor in a background process, and then starts the Nightwatch Test Runner to try the simple sanity check test, "Does the main page have a <body> tag?".
 
 
-<!-- Code for this begins at line #70 -->
+<!-- Code for this begins at line #92 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L70" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L92" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -136,9 +162,9 @@ We are ready for the final stage: TinyTest & Nightwatch testing run in a single 
 The Nightwatch ```circle.yml``` includes set up of TinyTest, so it can overwrite the one created earlier.
 
 
-<!-- Code for this begins at line #102 -->
+<!-- Code for this begins at line #124 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L102" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L124" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
