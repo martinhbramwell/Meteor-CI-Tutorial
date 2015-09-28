@@ -31,6 +31,28 @@ if [ "${RUN_RULE}" != "n" ]; then
   git push -u ${PROJECT_NAME}_origin master;
 
   echo -e "\n\n#########################################################################################"
+  echo -e "#   Open your CircleCI site and explore the most recent build.  In the build section at the"
+  echo -e "#   line 'tests/tinyTests/test-all.sh' you will find that tests failed for lack of a package"
+  echo -e "#   to test.  We need to clone our package and depend a symbolic link to it. "
+  echo -e "#########################################################################################"
+  echo -e "Hit <enter> when ready to continue ::  "
+  read -n 1 -r USER_ANSWER
+  popd >/dev/null;
+  popd >/dev/null;
+
+fi
+
+
+explain ${DOCS}/Amend_the_configuration_and_push_again.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  pushd ~/${PARENT_DIR} >/dev/null;
+  pushd ${PROJECT_NAME} >/dev/null;
+
+  set +e;    git commit -am 'clone package and symlink to it';   set -e;
+  git push -u ${PROJECT_NAME}_origin master;
+
+  echo -e "\n\n#########################################################################################"
   echo -e "#   Open your CircleCI site and explore the most recent build.  In the build section you "
   echo -e "#   should find the same lines as before when we ran the test runner locally : "
   echo -e "#   [INFO] http://127.0.0.1:4096/packages/test-in-console.js?59dde1f. . . 07b3f499 75:17 S: tinytest - example "

@@ -18,17 +18,4 @@ Now, this script . . .
 . . . will move those tasks out of your PC and into CircleCI: a continuous integration server in the cloud.
 
 
-<div id="uniquename" class="popup_div">
-    <a class="subtle_a" onmouseover="HideContent('uniquename'); return true;"
-       href="javascript:HideContent('uniquename')">
-        <p>pop up note example.</p>
-    </a>
-</div>
-<a
-    class="subtle_a"
-    onmouseover="ReverseContentDisplay('uniquename'); return true;"
-    href="javascript:ReverseContentDisplay('uniquename')">
-    º
-</a>
-
 <!-- B -->]

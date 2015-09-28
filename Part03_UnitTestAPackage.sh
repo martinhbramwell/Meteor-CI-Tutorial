@@ -232,6 +232,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
   chmod ug+x meteor-tinytest-runner.run
   ./meteor-tinytest-runner.run
+  chmod a+rx ./tests/tinyTests/*.sh
   ./tests/tinyTests/test-all.sh
   echo -e "#########################################################################################"
   echo -e "#   Above you should see lines like :"

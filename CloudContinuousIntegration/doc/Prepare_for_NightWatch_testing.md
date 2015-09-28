@@ -19,7 +19,7 @@ then make make it executable and run it.
 The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample ```circle.yml``` that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
 
 
-<!-- Code for this begins at line #54 -->
+<!-- Code for this begins at line #76 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L54" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L76" target="_blank">Code for this step.</a>] ]
 ]

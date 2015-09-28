@@ -176,6 +176,7 @@ LICMIT
   cat << GITIG > .gitignore
 .meteor/local
 .meteor/meteorite
+example_circle.yml
 GITIG
 
   cat << RDME > README.md

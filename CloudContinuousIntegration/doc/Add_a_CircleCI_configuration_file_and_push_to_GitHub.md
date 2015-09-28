@@ -6,18 +6,22 @@
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Add a CircleCI configuration file and push to GitHub
+#### Add a CircleCI Configuration File and Push to GitHub
 
-The document <a href="https://circleci.com/docs/configuration" target="_blank">Configuring CircleCI</a> provides full details of '```circle.yml```' file preparation.
+The file <a href="https://circleci.com/docs/configuration" target="_blank">Configuring CircleCI</a> documents how to prepare a '```circle.yml```' file.
 
-In this step, we can get a minimal '```circle.yml```' from the example ('```example_circle.yml```') provided with the installer for <a href="https://github.com/warehouseman/meteor-tinytest-runner" target="_blank">warehouseman:meteor-tinytest-runner</a>, we used in <a href="http://localhost:8000/Meteor-CI-Tutorial/index.html?part=C#9" target="_blank">"Part C : Runner for TinyTest"</a>.
+In this step, we get a minimal '```circle.yml```' from the example ('```example_circle.yml```') provided with the installer for <a href="https://github.com/warehouseman/meteor-tinytest-runner" target="_blank">warehouseman:meteor-tinytest-runner</a>, that we used in <a href="http://localhost:8000/Meteor-CI-Tutorial/index.html?part=C#9" target="_blank">"Part C"</a>.  It will not succeed, for an obvious reason :
+```ruby
+$ tests/tinyTests/test-all.sh
+grep: packages/yourpackage: No such file or directory
+ERROR: Found no packages to test. tests/tinyTests/test-all.sh returned exit code 1
+```
 
 #####Commands
 ```terminal
-mv example_circle.yml circle.yml
+cp example_circle.yml circle.yml
 git add packages circle.yml tests
-git commit -am 'Added package and package testing'
-git push -u origin master
+git commit -am 'Added package and package testing' && git push
 ```
 
 

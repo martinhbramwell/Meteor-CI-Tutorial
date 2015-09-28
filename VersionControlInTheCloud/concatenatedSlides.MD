@@ -199,7 +199,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
 ```
 
 
-<!-- Code for this begins at line #202 -->
+<!-- Code for this begins at line #203 -->
 <!-- B -->
 <div id="uniquename" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('uniquename'); return true;"
@@ -214,7 +214,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
     <i>Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L202" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L203" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateRemoteGitHubRepository
@@ -263,9 +263,9 @@ This procedure will be more understandable if you watch the video series mention
 
 
 
-<!-- Code for this begins at line #255 -->
+<!-- Code for this begins at line #256 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L255" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L256" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateLocalGitHubRepository
@@ -292,9 +292,9 @@ git remote add ${PROJECT_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${P
 git push -u ${PROJECT_NAME}_origin master
 ```
 
-<!-- Code for this begins at line #282 -->
+<!-- Code for this begins at line #283 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L282" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L283" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
