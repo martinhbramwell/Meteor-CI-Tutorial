@@ -79,7 +79,7 @@ name: AmendTheConfigurationAndPushAgain
 
 #### Amend the Configuration and Push Again
 
-The command failed because we still to reference our package from the ```circle.yml``` file.  We have to add these lines . . .
+The command failed because we still to reference our package from the ```circle.yml``` file.  We have to add these lines (substituting appropriately for your names) . . .
 ```ruby
     - mkdir -p ~/packages/yourself;  # ensure dir exists
     - pushd ~/packages/yourself;     
@@ -171,9 +171,9 @@ name: PushNightwatchTestingToGitHubAndCircleCI
 
 #### Push Nightwatch testing to GitHub (and CircleCI)
 
-We are ready for the final stage: TinyTest & Nightwatch testing run in a single pass of continuous integration in CircleCI. The Nightwatch ```circle.yml``` also sets up TinyTest, so it can overwrite the one created earlier, nondestructively. . .
+We are ready for the final stage: TinyTest & Nightwatch testing run in a single pass of continuous integration in CircleCI. Intentionally, the Nightwatch runner's ```circle.yml``` can safely overwrite the one created for  TinyTest . . .
 
-**However**, we will still need to restore the code for using ${PKG_NAME} that we applied [earlier](#AmendTheConfigurationAndPushAgain)
+**However**, we will still need to restore the code for using ${PKG_NAME} that we applied in the step [Amend the Configuration and Push Again](#AmendTheConfigurationAndPushAgain), (not forgetting appropriate substitutions) :
 ```ruby
     - mkdir -p ~/packages/yourself;  # ensure dir exists
     - pushd ~/packages/yourself;     
