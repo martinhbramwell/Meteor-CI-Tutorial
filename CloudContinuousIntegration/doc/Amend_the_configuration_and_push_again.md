@@ -19,7 +19,7 @@ The command failed because we still to reference our package from the ```circle.
         ln -s ~/packages/yourself/yourpackage yourpackage;
       popd;
 ```
-. . . just after these ones, and then commit and push again.
+. . . just after this one, and then commit and push again.
 ```ruby
     - ln -s ~/node_modules node_modules
 ```

@@ -57,9 +57,6 @@ if [ "${RUN_RULE}" != "n" ]; then
   echo -e "#   Open your CircleCI site and explore the most recent build.  In the build section you "
   echo -e "#   should find the same lines as before when we ran the test runner locally : "
   echo -e "#   [INFO] http://127.0.0.1:4096/packages/test-in-console.js?59dde1f. . . 07b3f499 75:17 S: tinytest - example "
-  echo -e "#    "
-  echo -e "#   Notice the execution time. Rebuild, and notice how the test is faster thanks to "
-  echo -e "#   caching of dependencies"
   echo -e "#########################################################################################"
   echo -e "Hit <enter> after you have confirmed that CircleCI ran successful tests ::  "
   read -n 1 -r USER_ANSWER
@@ -116,12 +113,6 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   echo "Done.";
 
-  EXISTING_METEOR_PIDS=$(ps aux | grep meteor  | grep -v grep | grep ~/.meteor/packages | awk '{print $2}')
-  for pid in ${EXISTING_METEOR_PIDS}; do
-    echo "Kill Meteor process : ${pid}";
-    kill -9 ${pid};
-  done;
-
 
   echo -e "#########################################################################################"
   echo -e "#   You ought to see lines similar to these : "
@@ -136,6 +127,14 @@ if [ "${RUN_RULE}" != "n" ]; then
   echo -e "#########################################################################################"
   echo -e "Hit <enter> after you have confirmed that you have these results ::  "
   read -n 1 -r USER_ANSWER
+
+
+  EXISTING_METEOR_PIDS=$(ps aux | grep meteor  | grep -v grep | grep ~/.meteor/packages | awk '{print $2}')
+  for pid in ${EXISTING_METEOR_PIDS}; do
+    echo "Kill Meteor process : ${pid}";
+    kill -9 ${pid};
+  done;
+
   popd >/dev/null;
   popd >/dev/null;
 
@@ -149,11 +148,14 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
 
-  cp tests/nightwatch/config/example_circle.yml circle.yml
+  cp tests/nightwatch/config/example_circle.yml circle.yml;
 
-  git add tests/nightwatch
-  git commit -am 'Added Nightwatch testing'
-  git push -u origin master
+  git add tests/nightwatch;
+  git add circle.yml;
+
+  set +e;    git commit -am 'Added Nightwatch testing';   set -e;
+  # git push -u origin master
+  git push
 
   popd >/dev/null;
   popd >/dev/null;

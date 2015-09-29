@@ -89,7 +89,7 @@ The command failed because we still to reference our package from the ```circle.
         ln -s ~/packages/yourself/yourpackage yourpackage;
       popd;
 ```
-. . . just after these ones, and then commit and push again.
+. . . just after this one, and then commit and push again.
 ```ruby
     - ln -s ~/node_modules node_modules
 ```
@@ -119,14 +119,14 @@ To install: pull this file out of GitHub
 ```terminal
 wget -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/master/meteor-nightwatch-runner.run
 ```
-then make make it executable and run it.
+then make it executable and run it.
 
 The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample ```circle.yml``` that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
 
 
-<!-- Code for this begins at line #77 -->
+<!-- Code for this begins at line #74 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L77" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L74" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -140,12 +140,24 @@ The installer prepares a Nightwatch test directory and then deletes itself, leav
 
 Nightwatch and Meteor are separate.
 
-This command group starts Meteor in a background process, and then starts the Nightwatch Test Runner to try the simple sanity check test, "Does the main page have a <body> tag?".
+This command group starts Meteor in a background process, if there is not one already running, and then starts the Nightwatch Test Runner to try the simple sanity check test, "Does the main page have a <body> tag?".  It will kill the Meteor processes when complete.  Expected results :
+```ruby
+[2015-09-29T15:45:32.571Z]  INFO: demo/4217 on yourvm: Running:  Layout and Static Pages
+[2015-09-29T15:45:36.170Z]  INFO: demo/4217 on yourvm: ✔ Testing if element <body> is present.
+[2015-09-29T15:45:36.762Z]  INFO: demo/4217 on yourvm: OK. 1 assertions passed. (4.189s)
+[2015-09-29T15:45:36.768Z]  INFO: demo/4217 on yourvm:
+[2015-09-29T15:45:36.771Z]  INFO: demo/4217 on yourvm: OK. 1 assertion passed. (4.912s)
+[2015-09-29T15:45:37.049Z]  INFO: demo/4217 on yourvm: Finished!  Nightwatch ran all the tests!
+```
 
 
-<!-- Code for this begins at line #93 -->
+##### Commands
+```terminal
+ ./tests/nightwatch/runTests.js | bunyan
+```
+<!-- Code for this begins at line #90 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L93" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L90" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -162,9 +174,9 @@ We are ready for the final stage: TinyTest & Nightwatch testing run in a single 
 The Nightwatch ```circle.yml``` includes set up of TinyTest, so it can overwrite the one created earlier.
 
 
-<!-- Code for this begins at line #148 -->
+<!-- Code for this begins at line #147 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L148" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L147" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

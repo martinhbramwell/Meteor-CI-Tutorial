@@ -10,10 +10,22 @@
 
 Nightwatch and Meteor are separate.
 
-This command group starts Meteor in a background process, and then starts the Nightwatch Test Runner to try the simple sanity check test, "Does the main page have a <body> tag?".
+This command group starts Meteor in a background process, if there is not one already running, and then starts the Nightwatch Test Runner to try the simple sanity check test, "Does the main page have a <body> tag?".  It will kill the Meteor processes when complete.  Expected results :
+```ruby
+[2015-09-29T15:45:32.571Z]  INFO: demo/4217 on yourvm: Running:  Layout and Static Pages
+[2015-09-29T15:45:36.170Z]  INFO: demo/4217 on yourvm: ✔ Testing if element <body> is present.
+[2015-09-29T15:45:36.762Z]  INFO: demo/4217 on yourvm: OK. 1 assertions passed. (4.189s)
+[2015-09-29T15:45:36.768Z]  INFO: demo/4217 on yourvm:
+[2015-09-29T15:45:36.771Z]  INFO: demo/4217 on yourvm: OK. 1 assertion passed. (4.912s)
+[2015-09-29T15:45:37.049Z]  INFO: demo/4217 on yourvm: Finished!  Nightwatch ran all the tests!
+```
 
 
-<!-- Code for this begins at line #93 -->
+##### Commands
+```terminal
+ ./tests/nightwatch/runTests.js | bunyan
+```
+<!-- Code for this begins at line #90 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L93" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L90" target="_blank">Code for this step.</a>] ]
 ]
