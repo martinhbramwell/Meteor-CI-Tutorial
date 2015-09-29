@@ -69,6 +69,7 @@ git commit -am 'Added package and package testing' && git push
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L22" target="_blank">Code for this step.</a>] ]
 ]
 ---
+name: AmendTheConfigurationAndPushAgain
 .left-column[
   ### Configure CircleCI 
 .footnote[.red.bold[] [Table of Contents](./)] 
@@ -160,6 +161,7 @@ This command group starts Meteor in a background process, if there is not one al
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L90" target="_blank">Code for this step.</a>] ]
 ]
 ---
+name: PushNightwatchTestingToGitHubAndCircleCI
 .left-column[
   ### Commit Nightwatch
 .footnote[.red.bold[] [Table of Contents](./)] 
@@ -169,9 +171,19 @@ This command group starts Meteor in a background process, if there is not one al
 
 #### Push Nightwatch testing to GitHub (and CircleCI)
 
-We are ready for the final stage: TinyTest & Nightwatch testing run in a single pass of continuous integration in CircleCI.
+We are ready for the final stage: TinyTest & Nightwatch testing run in a single pass of continuous integration in CircleCI. The Nightwatch ```circle.yml``` also sets up TinyTest, so it can overwrite the one created earlier, nondestructively. . .
 
-The Nightwatch ```circle.yml``` includes set up of TinyTest, so it can overwrite the one created earlier.
+**However**, we will still need to restore the code for using ${PKG_NAME} that we applied [earlier](#AmendTheConfigurationAndPushAgain)
+```ruby
+    - mkdir -p ~/packages/yourself;  # ensure dir exists
+    - pushd ~/packages/yourself;     
+        git clone https://github.com/your0rg/yourpackage;
+      popd;
+    - pushd ./packages;
+        rm -fr yourpackage;
+        ln -s ~/packages/yourself/yourpackage yourpackage;
+      popd;
+```
 
 
 <!-- Code for this begins at line #147 -->
