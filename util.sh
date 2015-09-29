@@ -4,7 +4,7 @@
 
 function existingMeteor() {
 
-  EXISTING_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print $2}')
+  EXISTING_METEOR_PID=$(ps aux | grep meteor | grep -v grep | grep -c ~/.meteor/packages)
   if [[  ${EXISTING_METEOR_PID} -gt 0  ]]; then
     echo ""
     echo ""
@@ -17,6 +17,8 @@ function existingMeteor() {
   fi
 
 }
+
+
 function saveUserData()
 {
 cat << UDATA > udata.sh

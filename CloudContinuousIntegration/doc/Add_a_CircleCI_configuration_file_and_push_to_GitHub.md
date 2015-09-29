@@ -25,7 +25,7 @@ git commit -am 'Added package and package testing' && git push
 ```
 
 
-<!-- Code for this begins at line #21 -->
+<!-- Code for this begins at line #22 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L21" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L22" target="_blank">Code for this step.</a>] ]
 ]

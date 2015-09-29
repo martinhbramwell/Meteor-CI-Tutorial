@@ -29,7 +29,7 @@ git commit -am 'clone pkg and link to it' && git push
 ```
 
 
-<!-- Code for this begins at line #48 -->
+<!-- Code for this begins at line #49 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L48" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L49" target="_blank">Code for this step.</a>] ]
 ]

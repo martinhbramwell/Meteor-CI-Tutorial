@@ -11,6 +11,7 @@ DOCS="./CloudContinuousIntegration/doc"
 source ./explain.sh
 source ./util.sh
 
+
 explain ${DOCS}/Introduction.md
 
 explain ${DOCS}/Connect_CircleCI_to_GitHub.md
@@ -90,14 +91,37 @@ fi
 explain ${DOCS}/Run_NightWatch_testing.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  existingMeteor
+  # existingMeteor
 
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
 
-  meteor &  #  Running meteor in the background
+  METEOR_URL="http://localhost:3000/";
+  STARTED=false;
+
+  until wget -q --spider ${METEOR_URL};
+  do
+    echo "Waiting for ${METEOR_URL}";
+    if ! ${STARTED}; then
+      meteor &
+      STARTED=true;
+    fi;
+    sleep 2;
+  done
+
+  echo "Meteor is running on ${METEOR_URL}";
+
+
   ./tests/nightwatch/runTests.js | bunyan
-  kill -9 $(jobs -p)
+
+  echo "Done.";
+
+  EXISTING_METEOR_PIDS=$(ps aux | grep meteor  | grep -v grep | grep ~/.meteor/packages | awk '{print $2}')
+  for pid in ${EXISTING_METEOR_PIDS}; do
+    echo "Kill Meteor process : ${pid}";
+    kill -9 ${pid};
+  done;
+
 
   echo -e "#########################################################################################"
   echo -e "#   You ought to see lines similar to these : "
