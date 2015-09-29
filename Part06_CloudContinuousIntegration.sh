@@ -142,13 +142,26 @@ fi
 
 
 
-explain ${DOCS}/Push_Nightwatch_testing_to_GitHub_and_CircleCI.md MORE_ACTION # CODE_BLOCK
+explain ${DOCS}/Configure_CircleCI_for_Nightwatch_Testing.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
 
   cp tests/nightwatch/config/example_circle.yml circle.yml;
+
+  popd >/dev/null;
+  popd >/dev/null;
+
+fi
+
+
+
+explain ${DOCS}/Push_Nightwatch_testing_to_GitHub_and_CircleCI.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  pushd ~/${PARENT_DIR} >/dev/null;
+  pushd ${PROJECT_NAME} >/dev/null;
 
   git add tests/nightwatch;
   git add circle.yml;
