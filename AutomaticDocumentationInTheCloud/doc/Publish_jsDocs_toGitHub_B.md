@@ -1,5 +1,5 @@
 ---
-name: PublishJsDocsToGitHub
+name: PublishJsDocsToGitHub_B
 .left-column[
   ### 'GitHub Pages' Web Site
 .footnote[.red.bold[] [Table of Contents](./)] 

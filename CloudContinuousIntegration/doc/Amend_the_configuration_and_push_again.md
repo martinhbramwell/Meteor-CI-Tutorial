@@ -1,4 +1,5 @@
 ---
+name: AmendTheConfigurationAndPushAgain
 .left-column[
   ### Configure CircleCI 
 .footnote[.red.bold[] [Table of Contents](./)] 
@@ -8,7 +9,7 @@
 
 #### Amend the Configuration and Push Again
 
-The command failed because we still to reference our package from the ```circle.yml``` file.  We have to add these lines . . .
+The command failed because we still to reference our package from the ```circle.yml``` file.  We have to add these lines (substituting appropriately for your names) . . .
 ```ruby
     - mkdir -p ~/packages/yourself;  # ensure dir exists
     - pushd ~/packages/yourself;     

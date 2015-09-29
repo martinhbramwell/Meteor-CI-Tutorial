@@ -23,7 +23,7 @@ This one . . .
 
 <!-- B -->]
 ---
-name: TryJSDocFromTheCommandLinea
+name: TryJSDocFromTheCommandLine_A
 .left-column[
   ### Command Line jsDoc (Step #1)
 .footnote[.red.bold[] [Table of Contents](./)] 
@@ -58,7 +58,7 @@ continued ...
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L27" target="_blank">Code for this step.</a>] ]
 ]
 ---
-name: TryJSDocFromTheCommandLineB
+name: TryJSDocFromTheCommandLine_B
 .left-column[
   ### Command Line jsDoc (Step #2)
 .footnote[.red.bold[] [Table of Contents](./)] 
@@ -180,7 +180,7 @@ Click on the ```TinyTest``` link and you should see something like the image to 
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L83" target="_blank">Code for this step.</a>] ]
 ]
 ---
-name: PublishJsDocsToGitHub
+name: PublishJsDocsToGitHub_A
 .left-column[
   ### 'GitHub Pages' Web Site
 .footnote[.red.bold[] [Table of Contents](./)] 
@@ -207,7 +207,7 @@ Continued . . .
 
 <!-- B -->]
 ---
-name: PublishJsDocsToGitHub
+name: PublishJsDocsToGitHub_B
 .left-column[
   ### 'GitHub Pages' Web Site
 .footnote[.red.bold[] [Table of Contents](./)] 

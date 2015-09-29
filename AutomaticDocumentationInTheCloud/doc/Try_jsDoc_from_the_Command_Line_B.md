@@ -1,5 +1,5 @@
 ---
-name: TryJSDocFromTheCommandLineB
+name: TryJSDocFromTheCommandLine_B
 .left-column[
   ### Command Line jsDoc (Step #2)
 .footnote[.red.bold[] [Table of Contents](./)] 
