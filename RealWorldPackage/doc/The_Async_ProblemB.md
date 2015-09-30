@@ -1,14 +1,14 @@
 ---
 .left-column[
-  ### The Async Problem (A)
+  ### The Async Problem (B)
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Meteor is Incompatible With NodeJS  (Part A)
+#### Meteor is Incompatible With NodeJS  (Part B)
 
-Continuing ...
+... continuing.
 
 We need two wrapper functions that wait for the asynchronous calls to return their values.
 

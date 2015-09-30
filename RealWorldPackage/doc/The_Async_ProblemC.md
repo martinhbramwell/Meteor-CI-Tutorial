@@ -1,14 +1,14 @@
 ---
 .left-column[
-  ### The Async Problem (A)
+  ### The Async Problem (C)
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Meteor is Incompatible With NodeJS  (Part A)
+#### Meteor is Incompatible With NodeJS  (Part C)
 
-Continuing ...
+... continuing.
 
 PetStore needs to be known to the rest of the application, so we declare it in ```package.js```.
 
@@ -22,8 +22,6 @@ So this line ...
   api.export(["Logger", "PetStore"]);
 ```
 Note that their names are in an array.
-
-Continues ...
 
 
 <!-- B -->]

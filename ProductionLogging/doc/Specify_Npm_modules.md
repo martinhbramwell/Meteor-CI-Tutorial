@@ -8,9 +8,7 @@
 
 #### We have to specify every Npm requirement explicitly.
 
-The Npm package preloads NodeJS modules specified in a package.js file. 
-
-Add this block ...
+The Meteor package ```Npm``` preloads any NodeJS modules specified in a package.js file. Add this block ...
 
 ```
 Npm.depends({

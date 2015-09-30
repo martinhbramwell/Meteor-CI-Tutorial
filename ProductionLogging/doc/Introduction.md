@@ -1,21 +1,25 @@
 layout: false
 .left-column[
-  ### PART F Introduction
+  ### PART G Introduction
 
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-## Cloud Continuous Integration
+## Production Logging
 
-The script that precedes this one, 'Part05_AutomaticDocumentationInTheCloud.sh', set up semi-automatic published documentation using ```jsDoc``` and ```gh-pages```.
+In, 'Part06_CloudContinuousIntegration.sh' we got most of our intended toolkit functioning without actually doing any Meteor development.
 
-Now, this script . . .  
+The next step is mainly about the inner workings of packages, but the goal is to get rid of those pernicious ```console.log()``` statements.
+
+We look at scaleable logging: run-time logs that track critical server-side activity at appropriate levels of detail.  "Bunyan" emits machine readable, JSON format, logs that you can archive, for example in MongoDB, and analyze later for any kind of development, production or business purpose.
+
+Now run ...
 ```terminal
-./Part06_CloudContinuousIntegration.sh
+./Part07_ProductionLogging.sh
 ```
-. . . will move those tasks out of your PC and into CircleCI: a continuous integration server in the cloud.
+
 
 
 <!-- B -->]
