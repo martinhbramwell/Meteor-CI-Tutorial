@@ -16,7 +16,6 @@ explain ${DOCS}/Introduction.md
 
 explain ${DOCS}/Connect_CircleCI_to_GitHub.md
 
-
 explain ${DOCS}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
@@ -175,98 +174,10 @@ if [ "${RUN_RULE}" != "n" ]; then
 
 fi
 
-
-echo ""
-echo ""
-explain ${DOCS}/Add_an_NPM_module_to_your_package.md
-
-echo ""
-echo ""
-explain ${DOCS}/Specify_Npm_modules.md
-
-echo ""
-echo ""
-explain ${DOCS}/Bunyan_Server_Side_OnlyLogging.md
-
-echo ""
-echo ""
-explain ${DOCS}/Add_Bunyan_Logging.md
-
-echo ""
-echo ""
-explain ${DOCS}/Observe_ordinary_console_logging.md
-
-echo ""
-echo ""
-explain ${DOCS}/Goodbye_console.md
-
-echo ""
-echo ""
-explain ${DOCS}/Refactor_Bunyan_InstantiationA.md
-
-echo ""
-echo ""
-explain ${DOCS}/Refactor_Bunyan_InstantiationB.md
-
-echo ""
-echo ""
-explain ${DOCS}/Another_NodeJS_moduleA.md
-
-echo ""
-echo ""
-explain ${DOCS}/Another_NodeJS_moduleB.md
-
-echo ""
-echo ""
-explain ${DOCS}/The_Async_ProblemA.md
-
-echo ""
-echo ""
-explain ${DOCS}/The_Async_ProblemB.md
-
-echo ""
-echo ""
-explain ${DOCS}/The_Async_ProblemC.md
-
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain
 
 echo ""
-echo ""
-explain \
-${DOCS}/dummy.md
+echo -e "\nDone.  Now start up ./Part07_ProductionLogging.sh"
 
-echo ""
-echo ""
-explain  \
-${DOCS}/dummy.md
-
-
-# echo ""
-# echo ""
-# explain  \
-# ${DOCS}/dummy.md
-
-
-
-
-echo -e "\nDone.";
 exit 0;
 
-# explain "#  FIXME
-# \n#
-# \n#
-# \n#  "
-# if [ $? -eq 0 ]; then
-
-#   pushd ~/${PARENT_DIR} >/dev/null;
-#   pushd ${PROJECT_NAME} >/dev/null;
-
-
-#   popd >/dev/null;
-#   popd >/dev/null;
-
-# fi
-
-
-echo "Done.";
-exit 0;

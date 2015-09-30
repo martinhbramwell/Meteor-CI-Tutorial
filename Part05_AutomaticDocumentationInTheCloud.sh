@@ -139,9 +139,6 @@ if [ "${RUN_RULE}" != "n" ]; then
 fi
 
 
-
-
-
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain
 
 echo ""
