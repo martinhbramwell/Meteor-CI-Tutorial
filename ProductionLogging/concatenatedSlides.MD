@@ -13,7 +13,7 @@ In, 'Part06_CloudContinuousIntegration.sh' we got most of our intended toolkit f
 
 The next step is mainly about the inner workings of packages, but the goal is to get rid of those pernicious ```console.log()``` statements.
 
-We look at scaleable logging: run-time logs that track critical server-side activity at appropriate levels of detail.  "Bunyan" emits machine readable, JSON format, logs that you can archive, for example in MongoDB, and analyze later for any kind of development, production or business purpose.
+We look at scaleable logging: run-time logs that track critical server-side activity at appropriate levels of detail.  "Bunyan" emits machine readable, JSON format logs that you can archive, for example in MongoDB, and analyze later for any kind of development, production or business purpose.
 
 Now run ...
 ```terminal
@@ -40,16 +40,14 @@ Edit ```'${PKG_NAME}-tests.js'``` again adding :
 ```const Bunyan = require('bunyan');```
 
 ```javascript
+/**
+ * Tinytest unit tests
+ * @namespace Tinytest
+ */
 const Bunyan = require('bunyan');  //  ADD! <--
-// Write your tests here!
-// Here is an example.
-Tinytest.add("example", function sanity(test) {
-    console.log("ººº Yoo Hoo ººº");
-    test.equal(true, true);
-});
 ```
 
-... save, and observe the command line logs and the browser console. The NodeJS command on its own, **will not work**.  We need the Npm package, so instead try this :
+... save, start up Meteor and observe the command line logs and the browser console. The NodeJS command on its own, **will not work**. We need the Npm package, so instead try this :
 
 ```const Bunyan = Npm.require('bunyan');```
 
@@ -282,9 +280,12 @@ tail -f /var/log/meteor/ci4meteor.log  | bunyan
 
 #### Go to the next section . . . 
 
-The preceding seven parts completed our exploration of a complete development toolkit for Meteor (Did we miss something?).  You should now have linting, logging, automated documentation, unit testing, version control, end-to-end testing and continuous integration *in-the-cloud*.
+The preceding seven parts completed our exploration of a complete development toolkit for Meteor (<a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/issues" target="_blank">Did we miss something?</a>).
 
-Now we need look at a more useful package in [Part #H - A Real World Package](./?part=H)
+You should now have linting, logging, automated documentation, unit testing, version control, end-to-end testing and continuous integration *in-the-cloud*.
+
+Now we'll look at a more useful package in [Part #H - A Real World Package](./?part=H)
+
 
 
 <!-- B -->]

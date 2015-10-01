@@ -9,7 +9,7 @@ layout: false
 
 ## Cloud Continuous Integration
 
-The script that precedes this one, 'Part05_AutomaticDocumentationInTheCloud.sh', set up semi-automatic published documentation using ```jsDoc``` and ```gh-pages```.
+The preceding script, 'Part05_AutomaticDocumentationInTheCloud.sh', set up semi-automatic published documentation using ```jsDoc``` and ```gh-pages```.
 
 Now, this script . . .  
 ```terminal

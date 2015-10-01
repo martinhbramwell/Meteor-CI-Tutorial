@@ -15,7 +15,7 @@ explain ${DOCS}/Introduction.md
 
 
 export PACKAGES=~/${PARENT_DIR}/packages
-export PACKAGE_DIRS=${PACKAGES}/somebodyelse:${PACKAGES}/${YOUR_NAME}
+export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_NAME}
 
 
 echo ""
