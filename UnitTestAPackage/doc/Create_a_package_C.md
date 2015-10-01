@@ -20,7 +20,23 @@ cd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
 ln -s ${PACKAGE_DIRS}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
 ```
 For editing purposes your package now appears to be part of your project.  But wait!  It won't be "git managed", will it?!
+
+
+
 <!-- Code for this begins at line #98 -->
 <!-- B -->
+<div id="symwarn" class="popup_div">
+    <a class="subtle_a" onmouseover="HideContent('symwarn'); return true;"
+       href="javascript:HideContent('symwarn')">
+        <p>The symlink will cause a mild warning during Meteor start up : "The handle(2) returned by watching ${REAL_PACKAGE} is the same with an already watched path(${LINKED_PACKAGE})".</p><p>You can ignore it.</p>
+    </a>
+</div>
+<a
+    class="hover_text"
+    onmouseover="ReverseContentDisplay('symwarn'); return true;"
+    href="javascript:ReverseContentDisplay('symwarn')">
+    <i>Hover Note</i>
+</a>
+
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L98" target="_blank">Code for this step.</a>] ]
 ]

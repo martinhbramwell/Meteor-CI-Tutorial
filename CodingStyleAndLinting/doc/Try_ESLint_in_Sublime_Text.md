@@ -24,16 +24,16 @@ Tinytest.add('example', function checkSanity(test) {
 
 <!-- B -->
  
-<div id="uniquename" class="popup_div">
-    <a class="subtle_a" onmouseover="HideContent('uniquename'); return true;"
-       href="javascript:HideContent('uniquename')">
+<div id="needineach" class="popup_div">
+    <a class="subtle_a" onmouseover="HideContent('needineach'); return true;"
+       href="javascript:HideContent('needineach')">
         <p>By default, the linter in Sublime Text ignores files reached by symbolic links. Consequently, you'll need an .eslintrc file in each package.</p>
     </a>
 </div>
 <a
-    class="subtle_a"
-    onmouseover="ReverseContentDisplay('uniquename'); return true;"
-    href="javascript:ReverseContentDisplay('uniquename')">
+    class="hover_text"
+    onmouseover="ReverseContentDisplay('needineach'); return true;"
+    href="javascript:ReverseContentDisplay('needineach')">
     *¡HOVER NOTE!*
 </a>
 

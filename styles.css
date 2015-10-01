@@ -137,3 +137,10 @@ code {
   float: right;
   margin: 10px;
 }
+
+.hover_text{
+  font-size: .6em;
+  text-decoration: none;
+  color: black;
+  text-shadow: 4px 5px 0px #737CA1;
+}
