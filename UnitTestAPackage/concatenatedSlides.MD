@@ -103,8 +103,24 @@ cd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
 ln -s ${PACKAGE_DIRS}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
 ```
 For editing purposes your package now appears to be part of your project.  But wait!  It won't be "git managed", will it?!
+
+
+
 <!-- Code for this begins at line #98 -->
 <!-- B -->
+<div id="symwarn" class="popup_div">
+    <a class="subtle_a" onmouseover="HideContent('symwarn'); return true;"
+       href="javascript:HideContent('symwarn')">
+        <p>The symlink will cause a mild warning during Meteor start up : "The handle(2) returned by watching ${REAL_PACKAGE} is the same with an already watched path(${LINKED_PACKAGE})".</p><p>You can ignore it.</p>
+    </a>
+</div>
+<a
+    class="hover_text"
+    onmouseover="ReverseContentDisplay('symwarn'); return true;"
+    href="javascript:ReverseContentDisplay('symwarn')">
+    <i>Hover Note</i>
+</a>
+
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L98" target="_blank">Code for this step.</a>] ]
 ]
 ---
@@ -131,16 +147,16 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
 
 <!-- Code for this begins at line #110 -->
 <!-- B -->
-<div id="uniquename" class="popup_div">
-    <a class="subtle_a" onmouseover="HideContent('uniquename'); return true;"
-       href="javascript:HideContent('uniquename')">
+<div id="pubkey" class="popup_div">
+    <a class="subtle_a" onmouseover="HideContent('pubkey'); return true;"
+       href="javascript:HideContent('pubkey')">
         <p>If a file '~/.ssh/${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}.pub' already exists, then this command group will do nothing.</p>
     </a>
 </div>
 <a
-    class="subtle_a"
-    onmouseover="ReverseContentDisplay('uniquename'); return true;"
-    href="javascript:ReverseContentDisplay('uniquename')">
+    class="hover_text"
+    onmouseover="ReverseContentDisplay('pubkey'); return true;"
+    href="javascript:ReverseContentDisplay('pubkey')">
     <i>Hover Note</i>
 </a>
 

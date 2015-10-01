@@ -201,16 +201,16 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
 
 <!-- Code for this begins at line #203 -->
 <!-- B -->
-<div id="uniquename" class="popup_div">
-    <a class="subtle_a" onmouseover="HideContent('uniquename'); return true;"
-       href="javascript:HideContent('uniquename')">
+<div id="gotkey" class="popup_div">
+    <a class="subtle_a" onmouseover="HideContent('gotkey'); return true;"
+       href="javascript:HideContent('gotkey')">
         <p>If a file '~/.ssh/${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}.pub' already exists, then this command group will do nothing.</p>
     </a>
 </div>
 <a
-    class="subtle_a"
-    onmouseover="ReverseContentDisplay('uniquename'); return true;"
-    href="javascript:ReverseContentDisplay('uniquename')">
+    class="hover_text"
+    onmouseover="ReverseContentDisplay('gotkey'); return true;"
+    href="javascript:ReverseContentDisplay('gotkey')">
     <i>Hover Note</i>
 </a>
 
