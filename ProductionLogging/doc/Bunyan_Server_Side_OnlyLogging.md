@@ -17,14 +17,13 @@ Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
   api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
-  api.addFiles(['${PKG_NAME}-tests.js'], ['server']);  //  EDIT! <--
-});
+  api.addFiles(['${PKG_NAME}-tests.js'], ['server']); // EDIT! <--
+});    // Note the square brackets.   ᗑ ᗑ
 
 Npm.depends({
   "bunyan": "1.4.0",
 });
 ```
-
-   ... save, and observe the command line logs and the browser console.. 
+. . . save, and observe the command line logs and the browser console.. 
 
 <!-- B -->]
