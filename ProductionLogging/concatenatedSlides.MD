@@ -25,13 +25,37 @@ Now run ...
 <!-- B -->]
 ---
 .left-column[
+  ### Console.log is bad!
+.footnote[.red.bold[] [Table of Contents](./)]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Observe ordinary console logging.
+
+Run the command ```meteor test-packages```. In a browser open [localhost:3000](http://localhost:3000/)
+
+To the file ```packages/${PKG_NAME}/${PKG_NAME}-tests.js``` add the following
+```javascript
+Tinytest.add('Check Equality', function sanityCheckEQ(test) {
+    test.equal(true, true);
+    console.log("ººº Yoo Hoo ººº");              //  ADD! <--
+});
+```
+then save it and observe the command line logs and the browser console.  Here we see one of the advantages of TinyTest in the browser: quickly seeing TDD results in a tight loop.
+
+However, *esLint* rightfully flags ```console.log()``` as **a bad thing!**  Writing out text is the only feature it shares with serious logging tools.
+
+<!-- B -->]
+---
+.left-column[
   ### NPM module
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Add an NPM module to your package.
+#### Add the NPM logger module Bunyan to your package.
 
 Meteor supports 'npm' modules with the package NPM. 
 
@@ -47,9 +71,9 @@ Edit ```'${PKG_NAME}-tests.js'``` again adding :
 const Bunyan = require('bunyan');  //  ADD! <--
 ```
 
-... save, start up Meteor and observe the command line logs and the browser console. The NodeJS command on its own, **will not work**. We need the Npm package, so instead try this :
+... save, start up Meteor and observe the command line logs and the browser console. The NodeJS command on its own, **will not work**. We need ```require``` from the Npm package, so try ```const Bunyan = Npm.require('bunyan'); ```  instead.
 
-```const Bunyan = Npm.require('bunyan');```
+We now need to fix ```"Error: Cannot find module 'bunyan'"!```
 
 
 
@@ -64,31 +88,39 @@ const Bunyan = require('bunyan');  //  ADD! <--
 
 #### We have to specify every Npm requirement explicitly.
 
-The Meteor package ```Npm``` preloads any NodeJS modules specified in a package.js file. Add this block ...
+The Meteor package ```Npm``` preloads any NodeJS modules specified in a package.js file. To solve ```"Error: Cannot find module 'bunyan'"``` type errors we need to specify dependencies individually with ```Npm.depends({});```.
 
-```
-Npm.depends({
-  "bunyan": "1.4.0",
-});
-```
-
-at the bottom of the file ```'package.js'```
+Add the indicated block to the file ```'package.js'```
 
 ```javascript
-Package.onTest(function(api) {
+Package.onTest(function onTest(api) {
+  api.use('ecmascript');
   api.use('tinytest');
-  api.use('${YOUR_NAME}:${PKG_NAME}');
+  api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
   api.addFiles('${PKG_NAME}-tests.js');
 });
 
-Npm.depends({                 //  ADD! <--
-  "bunyan": "1.4.0",
+Npm.depends({
+  'bunyan': '1.4.0',
 });
 ```
 
    ... save, and observe the command line logs and the browser console.
 
-<!-- B -->]
+<!-- B -->
+<div id="syntaxnote" class="popup_div">
+    <a class="subtle_a" onmouseover="HideContent('syntaxnote'); return true;"
+       href="javascript:HideContent('syntaxnote')">
+        <p>Manual substitution :  you will need to replace ${GITHUB_ORGANIZATION_NAME} and ${PKG_NAME} with the names you actually use. </p><p>However, youu will find that the substitutions are automated for you in the console output of ./Part07_ProductionLogging.sh</p>
+    </a>
+</div>
+<a
+    class="hover_text"
+    onmouseover="ReverseContentDisplay('syntaxnote'); return true;"
+    href="javascript:ReverseContentDisplay('syntaxnote')">
+    <i>Hover Note</i>
+</a>
+]
 ---
 .left-column[
   ### Server Only
@@ -99,16 +131,15 @@ Npm.depends({                 //  ADD! <--
 
 #### Bunyan is for Server Side Logging Only
 
-You will have noticed in the browser that the client tests have disappeared.  The browser console shows 'Npm' is not defined.  NodeJS modules need extra packaging to run on the client.  We don't need that here.
+You will have noticed that the client test results have gone, and the browser console shows ```'Npm' is not defined```.  NodeJS modules need extra packaging to run on the client.  With our focus on CI, we don't need that here.  We'll be testing server side only.  Let's make it explicit.
 
-We'll be testing server side only.  Let's make it explicit.
-
-Edit the ```api.addFiles``` line in ```'package.js'```to look like this :
+Edit the ```api.addFiles``` line in ```'package.js'``` to look like this :
 
 ```javascript
 Package.onTest(function(api) {
+  api.use('ecmascript');
   api.use('tinytest');
-  api.use('${YOUR_NAME}:${PKG_NAME}');
+  api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
   api.addFiles(['${PKG_NAME}-tests.js'], ['server']);  //  EDIT! <--
 });
 
@@ -117,7 +148,7 @@ Npm.depends({
 });
 ```
 
-   ... save, and observe the command line logs and the browser console.
+   ... save, and observe the command line logs and the browser console.. 
 
 <!-- B -->]
 ---
@@ -144,36 +175,6 @@ Tinytest.add("example", function sanity(test) {
 ```
 
    ... save, and observe the command line logs and the browser console.
-
-<!-- B -->]
----
-.left-column[
-  ### Console.log is bad!
-.footnote[.red.bold[] [Table of Contents](./)] 
-<!-- H -->]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### Observe ordinary console logging.
-
-Here we see one of the advantages of TinyTest in the browser: quickly seeing TDD results in a tight loop.
-
-Run the command
-
-```terminal
-meteor test-packages
-```
-then in the browser open [localhost:3000](http://localhost:3000/)
-
-To the file ```packages/${PKG_NAME}/${PKG_NAME}-tests.js``` add the following
-```javascript
-Tinytest.add("example", function sanity(test) {
-    console.log("ººº Yoo Hoo ººº"); //  ADD! <--
-    test.equal(true, true);
-});
-```
-then save it and observe the command line logs and the browser console
-
 
 <!-- B -->]
 ---

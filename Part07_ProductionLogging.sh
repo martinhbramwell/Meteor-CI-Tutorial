@@ -17,6 +17,10 @@ explain ${DOCS}/Introduction.md
 
 echo ""
 echo ""
+explain ${DOCS}/Observe_ordinary_console_logging.md
+
+echo ""
+echo ""
 explain ${DOCS}/Add_an_NPM_module_to_your_package.md
 
 echo ""
@@ -30,10 +34,6 @@ explain ${DOCS}/Bunyan_Server_Side_OnlyLogging.md
 echo ""
 echo ""
 explain ${DOCS}/Add_Bunyan_Logging.md
-
-echo ""
-echo ""
-explain ${DOCS}/Observe_ordinary_console_logging.md
 
 echo ""
 echo ""
