@@ -11,11 +11,11 @@
 Create a file ```'logger.js'``` that separates out Bunyan setup.
 
 ```javascript
-const Bunyan = Npm.require("bunyan");
+const Bunyan = Npm.require('bunyan');
 Logger = Bunyan.createLogger({
-  "name": "ci4meteor",
-  "streams": [{
-    "path": "/var/log/meteor/ci4meteor.log",
+  'name': 'ci4meteor',
+  'streams': [{
+    'path': '/var/log/meteor/ci4meteor.log',
   }],
 });
 ```
@@ -24,14 +24,14 @@ Logs will be written to a permanent server-side file.
 Remove Bunyan instantiation from ```'${PKG_NAME}-tests.js'```
 ```javascript
 // const Bunyan = Npm.require('bunyan');
-// const Logger = Bunyan.createLogger({ "name": "ci4meteor" });
+// const Logger = Bunyan.createLogger({ 'name': 'ci4meteor' });
 
-Tinytest.add("example", function sanity(test) {
+Tinytest.add('Check Equality', function sanityCheckEQ(test) {
     :
     :
 ```
 
-Continues ...
+You'll get an error ```Logger is not defined```, however ...
 
 
 <!-- B -->]

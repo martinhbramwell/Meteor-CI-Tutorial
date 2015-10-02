@@ -14,7 +14,7 @@ Edit ```'${PKG_NAME}-tests.js'``` again and delete the line ```console.log("ºº
 const Bunyan = Npm.require('bunyan');
 const Logger = Bunyan.createLogger({ "name": "ci4meteor" });
 
-Tinytest.add("example", function sanity(test) {
+Tinytest.add('Check Equality', function sanityCheckEQ(test) {
     Logger.info("ººº Yoo Hoo ººº");
 //    console.log("ººº Yoo Hoo ººº");
     test.equal(true, true);

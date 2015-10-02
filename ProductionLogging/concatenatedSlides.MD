@@ -192,7 +192,7 @@ Edit ```'${PKG_NAME}-tests.js'``` again and delete the line ```console.log("ºº
 const Bunyan = Npm.require('bunyan');
 const Logger = Bunyan.createLogger({ "name": "ci4meteor" });
 
-Tinytest.add("example", function sanity(test) {
+Tinytest.add('Check Equality', function sanityCheckEQ(test) {
     Logger.info("ººº Yoo Hoo ººº");
 //    console.log("ººº Yoo Hoo ººº");
     test.equal(true, true);
@@ -214,11 +214,11 @@ Tinytest.add("example", function sanity(test) {
 Create a file ```'logger.js'``` that separates out Bunyan setup.
 
 ```javascript
-const Bunyan = Npm.require("bunyan");
+const Bunyan = Npm.require('bunyan');
 Logger = Bunyan.createLogger({
-  "name": "ci4meteor",
-  "streams": [{
-    "path": "/var/log/meteor/ci4meteor.log",
+  'name': 'ci4meteor',
+  'streams': [{
+    'path': '/var/log/meteor/ci4meteor.log',
   }],
 });
 ```
@@ -227,14 +227,14 @@ Logs will be written to a permanent server-side file.
 Remove Bunyan instantiation from ```'${PKG_NAME}-tests.js'```
 ```javascript
 // const Bunyan = Npm.require('bunyan');
-// const Logger = Bunyan.createLogger({ "name": "ci4meteor" });
+// const Logger = Bunyan.createLogger({ 'name': 'ci4meteor' });
 
-Tinytest.add("example", function sanity(test) {
+Tinytest.add('Check Equality', function sanityCheckEQ(test) {
     :
     :
 ```
 
-Continues ...
+You'll get an error ```Logger is not defined```, however ...
 
 
 <!-- B -->]
@@ -248,16 +248,16 @@ Continues ...
 
 #### Refactor Bunyan Instantiation (Part B)
 
-... continuing.
+... continuing ... we still need to 'wire' ```Logger``` into our package.
 
 In ```package.js``` change this ...
 ```javascript
-api.use('${YOUR_NAME}:${PKG_NAME}');
+api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
 api.addFiles(['${PKG_NAME}-tests.js'], ['server']);
 ```
 ... to look like this ...
 ```javascript
-api.use('${YOUR_NAME}:${PKG_NAME}');
+api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
 api.export("Logger");           //  ADD! <--
 api.addFiles(                   //  EDIT! <--
   ["logger.js", '${PKG_NAME}-tests.js'],

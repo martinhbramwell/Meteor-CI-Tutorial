@@ -8,16 +8,16 @@
 
 #### Refactor Bunyan Instantiation (Part B)
 
-... continuing.
+... continuing ... we still need to 'wire' ```Logger``` into our package.
 
 In ```package.js``` change this ...
 ```javascript
-api.use('${YOUR_NAME}:${PKG_NAME}');
+api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
 api.addFiles(['${PKG_NAME}-tests.js'], ['server']);
 ```
 ... to look like this ...
 ```javascript
-api.use('${YOUR_NAME}:${PKG_NAME}');
+api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
 api.export("Logger");           //  ADD! <--
 api.addFiles(                   //  EDIT! <--
   ["logger.js", '${PKG_NAME}-tests.js'],
