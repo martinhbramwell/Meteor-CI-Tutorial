@@ -9,7 +9,7 @@ layout: false
 
 ## Prepare the Machine
 
-These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration.
+These scripts will get you started easily with continuous integration development, testing, documenting, logging, code style linting of Meteor packages.
 
 This first script, run with . . .  
 ```terminal
