@@ -8,19 +8,19 @@
 
 #### Now we can add logging
 
-Edit ```'${PKG_NAME}-tests.js'``` again adding ```const Logger = Bunyan.createLogger({ "name": "ci4meteor" });``` and ```const Logger = Bunyan.createLogger({ "name": "ci4meteor" });``` as shown.
+Edit ```'${PKG_NAME}-tests.js'``` again adding ```const Logger = Bunyan.createLogger({ 'name': 'ci4meteor' });``` and ```Logger.info('ººº Yoo Hoo ººº');``` as shown.
 
 ```javascript
 const Bunyan = Npm.require('bunyan');
-const Logger = Bunyan.createLogger({ "name": "ci4meteor" });  //  ADD! <--
+const Logger = Bunyan.createLogger({ 'name': 'ci4meteor' });  //  ADD! <--
 
-Tinytest.add("example", function sanity(test) {
-    Logger.info("ººº Yoo Hoo ººº");                           //  ADD! <--
-    console.log("ººº Yoo Hoo ººº");
+Tinytest.add('Check Equality', function sanityCheckEQ(test) {
+    Logger.info('ººº Yoo Hoo ººº');                           //  ADD! <--
+    console.log('ººº Yoo Hoo ººº');
     test.equal(true, true);
 });
 ```
 
-   ... save, and observe the command line logs and the browser console.
+   ... save, and observe the command line logs and the (empty!) browser console.
 
 <!-- B -->]
