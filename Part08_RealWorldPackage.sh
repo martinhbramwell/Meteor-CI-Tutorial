@@ -7,7 +7,7 @@ if [[ $EUID -eq 0 ]]; then
 fi
 
 
-DOCS="./ProductionLogging/doc"
+DOCS="./RealWorldPackage/doc"
 source ./explain.sh
 source ./util.sh
 
