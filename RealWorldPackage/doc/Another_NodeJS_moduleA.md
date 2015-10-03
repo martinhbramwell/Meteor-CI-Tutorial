@@ -28,7 +28,7 @@ Package.onTest(function(api) {
 });
 
 Npm.depends({
-  'bunyan': '1.5.2',
+  'bunyan': '1.5.1',
   'swagger-client': '2.1.5',                     //  ADD! <--
 });
 ```

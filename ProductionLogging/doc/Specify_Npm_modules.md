@@ -21,7 +21,7 @@ Package.onTest(function onTest(api) {
 });
 
 Npm.depends({
-  'bunyan': '1.5.2',
+  'bunyan': '1.5.1',
 });
 ```
 
