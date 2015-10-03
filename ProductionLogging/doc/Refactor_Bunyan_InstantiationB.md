@@ -18,15 +18,15 @@ api.addFiles(['${PKG_NAME}-tests.js'], ['server']);
 ... to look like this ...
 ```javascript
 api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
-api.export("Logger");           //  ADD! <--
+api.export('Logger');           //  ADD! <--
 api.addFiles(                   //  EDIT! <--
-  ["logger.js", '${PKG_NAME}-tests.js'],
-  ['server']
-);   //  EDIT! <--
+  ['logger.js', '${PKG_NAME}-tests.js'], ['server']
+);
 ```
-In a new terminal window run
+In a new terminal run, and watch this command when ...
 ```terminal
 tail -f /var/log/meteor/ci4meteor.log  | bunyan
 ```
+... the tests in ```http://localhost:3000/``` rerun.
 
 <!-- B -->]

@@ -41,7 +41,17 @@ explain ${DOCS}/Goodbye_console.md
 
 echo ""
 echo ""
-explain ${DOCS}/Refactor_Bunyan_InstantiationA.md
+explain ${DOCS}/Refactor_Bunyan_InstantiationA.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
+
+  wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/logger.js
+
+  popd >/dev/null;
+
+fi
+
 
 echo ""
 echo ""
