@@ -14,12 +14,12 @@ PetStore needs to be known to the rest of the application, so we declare it in `
 
 So this line ...
 ```javascript
-  api.export("Logger");
+  api.export('Logger');
 ```
 
 ... becomes ...
 ```javascript
-  api.export(["Logger", "PetStore"]);
+  api.export(['Logger', 'PetStore']);
 ```
 Note that their names are in an array.
 

@@ -21,7 +21,7 @@ Package.onTest(function(api) {
 });    // Note the square brackets.   ᗑ ᗑ
 
 Npm.depends({
-  'bunyan': '1.4.0',
+  'bunyan': '1.5.2',
 });
 ```
 . . . save, and observe the command line logs and the browser console.. 

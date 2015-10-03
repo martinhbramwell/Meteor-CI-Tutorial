@@ -38,23 +38,23 @@ Edit the file ```'package.js'``` to look like this
 
 ```javascript
 Package.onUse(function(api) {
-  api.versionsFrom('1.1.0.3');
+        :
   api.addFiles('${PKG_NAME}.js', ['server']);    //  EDIT! <--
+        :
 });
 
 Package.onTest(function(api) {
-  api.use('tinytest');
-  api.use('${YOUR_NAME}:${PKG_NAME}');
-  api.addFiles(                               //  EDIT! <--
-    ["logger.js", '${PKG_NAME}.js', '${PKG_NAME}-tests.js'],
+        :
+  api.addFiles(                                  //  EDIT! <--
+    ['logger.js', '${PKG_NAME}.js', '${PKG_NAME}-tests.js'],
     ['server']
   );
-  api.export("Logger"); // Order matters.  Export **after** adding
-});});
+        :
+});
 
 Npm.depends({
-  "bunyan": "1.4.0",
-  "swagger-client": "2.1.1",
+  'bunyan': '1.5.2',
+  'swagger-client': '2.1.5',                     //  ADD! <--
 });
 ```
 Continues ...
@@ -76,15 +76,15 @@ Continues ...
 Open the empty file ```'${PKG_NAME}.js'``` and paste into it
 
 ```javascript
-const Client = Npm.require("swagger-client");
-const swaggerSpecURL = "http://petstore.swagger.io/v2/swagger.json";
+const Client = Npm.require('swagger-client');
+const swaggerSpecURL = 'http://petstore.swagger.io/v2/swagger.json';
 
 const swagger = new Client({
   url: swaggerSpecURL,
   success: function getPet() {
     swagger.pet.getPetById(
-      { petId: 7}, {responseContentType: "application/json"},
-      function log(pet) { Logger.info("Pet #" + pet.obj.id, " -- " + pet.obj.name);  }
+      { petId: 7}, {responseContentType: 'application/json'},
+      function log(pet) { Logger.info('Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
     );
   },
 });
@@ -112,9 +112,9 @@ const swagger = new Client({
   success: function getPet() {
     swagger.pet.getPetById(
       { petId: 8},
-      {responseContentType: "application/json"},
+      {responseContentType: 'application/json'},
       function log(pet) {
-        Logger.info("(Async) Pet #" + pet.obj.id, " -- " + pet.obj.name);
+        Logger.info('(Async) Pet #' + pet.obj.id, ' -- ' + pet.obj.name);
       }
     );
   },
@@ -178,12 +178,12 @@ PetStore needs to be known to the rest of the application, so we declare it in `
 
 So this line ...
 ```javascript
-  api.export("Logger");
+  api.export('Logger');
 ```
 
 ... becomes ...
 ```javascript
-  api.export(["Logger", "PetStore"]);
+  api.export(['Logger', 'PetStore']);
 ```
 Note that their names are in an array.
 

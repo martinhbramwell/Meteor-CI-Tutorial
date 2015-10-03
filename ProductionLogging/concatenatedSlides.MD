@@ -101,7 +101,7 @@ Package.onTest(function onTest(api) {
 });
 
 Npm.depends({
-  'bunyan': '1.4.0',
+  'bunyan': '1.5.2',
 });
 ```
 
@@ -144,7 +144,7 @@ Package.onTest(function(api) {
 });    // Note the square brackets.   ᗑ ᗑ
 
 Npm.depends({
-  'bunyan': '1.4.0',
+  'bunyan': '1.5.2',
 });
 ```
 . . . save, and observe the command line logs and the browser console.. 
@@ -256,10 +256,10 @@ api.addFiles(['${PKG_NAME}-tests.js'], ['server']);
 ... to look like this ...
 ```javascript
 api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
-api.export('Logger');           //  ADD! <--
 api.addFiles(                   //  EDIT! <--
   ['logger.js', '${PKG_NAME}-tests.js'], ['server']
 );
+api.export("Logger"); // Order matters.  Export **after** adding
 ```
 In a new terminal run, and watch this command when ...
 ```terminal
