@@ -141,7 +141,7 @@ The installer prepares a Nightwatch test directory and then deletes itself, leav
 
 Nightwatch and Meteor are separate.
 
-This command group starts Meteor in a background process, if there is not one already running, and then starts the Nightwatch Test Runner to try the simple sanity check test, "Does the main page have a <body> tag?".  It will kill the Meteor processes when complete.  Expected results :
+This command group starts Meteor in a background process, (stopping any already running), and then starts the Nightwatch Test Runner to try the simple sanity check test, "Does the main page have a <body> tag?".  It will kill the Meteor processes when complete.  Expected results :
 ```ruby
 [2015-09-29T15:45:32.571Z]  INFO: demo/4217 on yourvm: Running:  Layout and Static Pages
 [2015-09-29T15:45:36.170Z]  INFO: demo/4217 on yourvm: ✔ Testing if element <body> is present.
