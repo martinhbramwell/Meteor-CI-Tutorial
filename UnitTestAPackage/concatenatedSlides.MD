@@ -9,7 +9,7 @@ layout: false
 
 ## Create and Unit Test a Package
 
-These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration.
+These scripts will get you started easily with Meteor package development, testing, logging, documenting, code style linting and continuous integration.
 
 The previous script, 'Part02_VersionControlInTheCloud.sh', set up a Meteor application with version control in the cloud. 
 
@@ -34,7 +34,7 @@ This one . . .
 
 If you aim for "package only applications", if packages are to be reusable, your packages need independent version control, and hence a directory outside of the project, located by Meteor's shell variable ```PACKAGE_DIRS```.
 
-To create self-sufficient packages, begin by defining it as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
+To create self-sufficient packages, begin by defining that variable as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
 ##### Commands
 ```terminal
 export PARENT_DIR=projects;
@@ -178,7 +178,7 @@ The resulting modularity is benefical and the multiplication of git commands can
 
 That's beyond the scope of this tutorial.  However, we must, in any case, repeat the earlier steps to create [remote](./index.html?part=B#9) and [local](./index.html?part=B#11) repositories -- this time for ```${PKG_NAME}```.
 
-**Be sure to prepare a GitHub repo called ```${PKG_NAME}``` with the same deploy key as you used for ```${PROJECT_NAME}```**
+**Be sure to prepare a GitHub repo called ```${PKG_NAME}``` with its own deploy key in the same way you did for ```${PROJECT_NAME}```**
 
 Continues . . . 
 <!-- Code for this begins at line #152 -->
@@ -219,7 +219,7 @@ git push -u ${PKG_NAME}_origin master
 
 #### TinyTest a package.
 
-Meteor makes unit testing of packages very easy. A single command and we can see test results every time we save a file.
+Meteor makes unit testing of packages very easy. One command and we see test results each time we save a file.
 
 In the accompanying script, the ampersand ```"&"``` causes Meteor package testing to start up as a background process.  In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm that it is working.
 
@@ -228,7 +228,7 @@ In the accompanying script, the ampersand ```"&"``` causes Meteor package testin
 meteor test-packages &
 tree
 ```
-To stop Meteor after you have confirmed that it ran successful tests, hit ```<enter>```.
+To stop Meteor and move on to the next step in the tutorial script, after you have confirmed that it ran successful tests, just hit ```<enter>```.
 <!-- Code for this begins at line #197 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L197" target="_blank">Code for this step.</a>] ]

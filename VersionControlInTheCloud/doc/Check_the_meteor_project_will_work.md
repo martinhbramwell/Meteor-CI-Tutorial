@@ -10,9 +10,7 @@ name: Check Meteor Works
 
 #### Check the meteor project will work
 
-If Meteor is not already running, it will start up ```${PROJECT_NAME}``` now.
-
-If Meteor IS already running, you will need to stop it.
+This script will stop any currently running Meteor process and start a new for ```${PROJECT_NAME}```, cleanly, now.
 
 **When prompted**, test meteor in a browser.
 

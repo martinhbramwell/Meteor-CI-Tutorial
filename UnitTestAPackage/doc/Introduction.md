@@ -9,7 +9,7 @@ layout: false
 
 ## Create and Unit Test a Package
 
-These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration.
+These scripts will get you started easily with Meteor package development, testing, logging, documenting, code style linting and continuous integration.
 
 The previous script, 'Part02_VersionControlInTheCloud.sh', set up a Meteor application with version control in the cloud. 
 

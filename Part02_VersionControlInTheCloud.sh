@@ -119,10 +119,9 @@ fi
 explain ${DOCS}/Check_the_meteor_project_will_work.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  existingMeteor
-
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
+  killMeteorProcess
   meteor &
 
   echo -e "#########################################################################################"
@@ -134,8 +133,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   read -n 1 -r USER_ANSWER
 
   echo -e "Stopping Meteor process . . . "
-
-  kill -9 $(jobs -p)
+  killMeteorProcess
 
   popd >/dev/null;
 

@@ -18,6 +18,15 @@ function existingMeteor() {
 
 }
 
+function killMeteorProcess()
+{
+  EXISTING_METEOR_PIDS=$(ps aux | grep meteor  | grep -v grep | grep ~/.meteor/packages | awk '{print $2}')
+  for pid in ${EXISTING_METEOR_PIDS}; do
+    echo "Kill Meteor process : ${pid}";
+    kill -9 ${pid};
+  done;
+}
+
 
 function saveUserData()
 {

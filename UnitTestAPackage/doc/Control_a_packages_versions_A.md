@@ -14,7 +14,7 @@ The resulting modularity is benefical and the multiplication of git commands can
 
 That's beyond the scope of this tutorial.  However, we must, in any case, repeat the earlier steps to create [remote](./index.html?part=B#9) and [local](./index.html?part=B#11) repositories -- this time for ```${PKG_NAME}```.
 
-**Be sure to prepare a GitHub repo called ```${PKG_NAME}``` with the same deploy key as you used for ```${PROJECT_NAME}```**
+**Be sure to prepare a GitHub repo called ```${PKG_NAME}``` with its own deploy key in the same way you did for ```${PROJECT_NAME}```**
 
 Continues . . . 
 <!-- Code for this begins at line #152 -->

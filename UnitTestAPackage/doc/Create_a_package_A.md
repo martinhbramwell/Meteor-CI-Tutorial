@@ -10,7 +10,7 @@
 
 If you aim for "package only applications", if packages are to be reusable, your packages need independent version control, and hence a directory outside of the project, located by Meteor's shell variable ```PACKAGE_DIRS```.
 
-To create self-sufficient packages, begin by defining it as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
+To create self-sufficient packages, begin by defining that variable as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
 ##### Commands
 ```terminal
 export PARENT_DIR=projects;

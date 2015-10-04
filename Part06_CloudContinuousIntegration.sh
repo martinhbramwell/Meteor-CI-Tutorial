@@ -87,10 +87,10 @@ fi
 explain ${DOCS}/Run_NightWatch_testing.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  # existingMeteor
-
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
+
+  killMeteorProcess
 
   METEOR_URL="http://localhost:3000/";
   STARTED=false;
@@ -107,9 +107,9 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   echo "Meteor is running on ${METEOR_URL}";
 
-
   ./tests/nightwatch/runTests.js | bunyan
 
+  killMeteorProcess
   echo "Done.";
 
 

@@ -195,10 +195,9 @@ fi
 explain ${DOCS}/TinyTest_a_package.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  existingMeteor
-
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
+  killMeteorProcess
   meteor test-packages &
 
   tree
@@ -215,6 +214,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   read -n 1 -r USER_ANSWER
 
   kill -9 $(jobs -p)
+  killMeteorProcess
 
   popd >/dev/null;
 
@@ -224,10 +224,10 @@ fi
 explain ${DOCS}/Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  existingMeteor
-
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
+
+  killMeteorProcess
 
   wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
   chmod ug+x meteor-tinytest-runner.run
@@ -244,6 +244,8 @@ if [ "${RUN_RULE}" != "n" ]; then
   echo -e "Hit <enter> after you have confirmed that Meteor ran successful tests ::  "
   read -n 1 -r USER_ANSWER
   tree
+
+  killMeteorProcess
 
   popd >/dev/null;
   popd >/dev/null;

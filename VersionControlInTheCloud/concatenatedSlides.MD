@@ -9,7 +9,7 @@ layout: false
 
 ## Version Control In The Cloud
 
-These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration.
+These scripts will get you started easily with Meteor package development, testing, documenting, logging, code style linting and continuous integration.
 
 The previous script, 'Part01_PrepareTheMachine.sh', set up necessary preconditions for the remaining scripts, (basically all tasks that require root access). 
 
@@ -37,11 +37,11 @@ You should not need to use 'sudo' for this or any of the later parts.  In other 
 This step writes some names you specify to a file.  You won't have to repeat this.
 
 You will be asked to supply the following details :
- - The sudirectory path, within your your home directory
+ - The sudirectory path in your home directory
  - The exact project name for use in GitHub
  - The exact package name for use in GitHub
  - The exact name for the GitHub organization
- - The project owner's full name to use to publish on GitHub
+ - The project owner's name for publishing on GitHub
  - The project owner name to for internal use
  - The email address for the project owner in GitHub
 
@@ -131,9 +131,7 @@ name: Check Meteor Works
 
 #### Check the meteor project will work
 
-If Meteor is not already running, it will start up ```${PROJECT_NAME}``` now.
-
-If Meteor IS already running, you will need to stop it.
+This script will stop any currently running Meteor process and start a new for ```${PROJECT_NAME}```, cleanly, now.
 
 **When prompted**, test meteor in a browser.
 
@@ -172,9 +170,9 @@ The .eslintrc file is borrowed from the project <a href='https://raw.githubuserc
 wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
 ```
 
-<!-- Code for this begins at line #148 -->
+<!-- Code for this begins at line #146 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L148" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L146" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -199,7 +197,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
 ```
 
 
-<!-- Code for this begins at line #203 -->
+<!-- Code for this begins at line #201 -->
 <!-- B -->
 <div id="gotkey" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('gotkey'); return true;"
@@ -214,7 +212,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
     <i>Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L203" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L201" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateRemoteGitHubRepository
@@ -256,16 +254,16 @@ This procedure will be more understandable if you watch the video series mention
 1. **Either** create the ```${GITHUB_ORGANIZATION_NAME}``` organization if it *does not exist*, **or** <a href='http://i.imgur.com/7wHRARZ.png' target='_blank'>switch to operate in that role</a> if it *does exist*.
 1. <a href='http://i.imgur.com/X2K6NJf.png' target='_blank'>Create a project</a> with the exact name ```${PROJECT_NAME}```. Don't set any other values. We'll do that automatically.
 1. Select <a href='http://i.imgur.com/VKCUsx4.png' target='_blank'>[Settings]</a> *(project page bottom-right)* then <a href='http://i.imgur.com/lZfef0a.png' target='_blank'>[DeployKeys]</a> *(settings page bottom-left)*, then <a href='http://i.imgur.com/njWlTvX.png' target='_blank'>[Add deploy key]</a>
-1. Copy the contents of ```~/.ssh/id_rsa.pub``` to <a href='http://i.imgur.com/70Lsp1u.png' target='_blank'>the [Key] field</a>
+1. Copy the contents of ```~/.ssh/${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}``` to <a href='http://i.imgur.com/70Lsp1u.png' target='_blank'>the [Key] field</a>
 1. Give the key a name in the ```Title``` field
 1. Select ```Allow write access```.
 1. Click ```Add key```.
 
 
 
-<!-- Code for this begins at line #256 -->
+<!-- Code for this begins at line #254 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L256" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L254" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateLocalGitHubRepository
@@ -292,9 +290,9 @@ git remote add ${PROJECT_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${P
 git push -u ${PROJECT_NAME}_origin master
 ```
 
-<!-- Code for this begins at line #283 -->
+<!-- Code for this begins at line #281 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L283" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L281" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
