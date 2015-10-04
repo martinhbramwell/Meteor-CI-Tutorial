@@ -9,7 +9,7 @@ layout: false
 
 ## Version Control In The Cloud
 
-These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration.
+These scripts will get you started easily with Meteor package development, testing, documenting, logging, code style linting and continuous integration.
 
 The previous script, 'Part01_PrepareTheMachine.sh', set up necessary preconditions for the remaining scripts, (basically all tasks that require root access). 
 
