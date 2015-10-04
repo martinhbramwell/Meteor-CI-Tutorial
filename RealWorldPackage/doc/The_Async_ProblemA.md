@@ -23,9 +23,9 @@ const swagger = new Client({
   },
 });
 ```
-The parameter ```'pet'``` passed by ```getPetById``` to the ```log``` callback function is completely inaccesible.  It is buried inside two asynchronous calls.
+The parameter ```'pet'``` passed by ```getPetById``` to the ```log``` callback function is completely inaccesible.  It's buried two levels deep inside nested, asynchronous callback functions.
 
-_How do we get it?__
+*How are we supposed to get at it?*
 
 
 Continues ...

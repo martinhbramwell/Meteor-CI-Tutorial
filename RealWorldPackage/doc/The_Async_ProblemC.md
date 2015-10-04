@@ -10,18 +10,18 @@
 
 ... continuing.
 
-PetStore needs to be known to the rest of the application, so we declare it in ```package.js```.
+The rest of our application needs to know to about ```PetStore```, so we declare it in ```package.js```.
 
 So this line ...
 ```javascript
   api.export('Logger');
 ```
 
-... becomes ...
+... must become ...
 ```javascript
   api.export(['Logger', 'PetStore']);
 ```
-Note that their names are in an array.
+**Note that their names are in an array.**
 
 
 <!-- B -->]

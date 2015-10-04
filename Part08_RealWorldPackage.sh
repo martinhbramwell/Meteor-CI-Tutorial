@@ -21,7 +21,16 @@ explain ${DOCS}/Another_NodeJS_moduleA.md
 
 echo ""
 echo ""
-explain ${DOCS}/Another_NodeJS_moduleB.md
+explain ${DOCS}/Another_NodeJS_moduleB.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
+
+  wget -O yourpackage.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js
+
+  popd >/dev/null;
+
+fi
 
 echo ""
 echo ""

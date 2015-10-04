@@ -10,7 +10,7 @@
 
 ... continuing.
 
-Open the empty file ```'${PKG_NAME}.js'``` and paste into it
+<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Download</a> **or** paste into the empty file, ```'${PKG_NAME}.js'```, the following code :
 
 ```javascript
 const Client = Npm.require('swagger-client');
@@ -26,9 +26,12 @@ const swagger = new Client({
   },
 });
 ```
-<a href='http://petstore.swagger.io/#!/pet/getPetById' target='_blank'>Swagger</a> give you instant connectivity to remote REST APIs, based solely on a machine readable specification: ```'swagger.json'```. Have a look at the logs, now.
+Have a look at the log file! <a href='http://petstore.swagger.io/#!/pet/getPetById' target='_blank'>Swagger</a> gives instant connectivity to remote REST APIs, based solely on a machine readable specification: ```'swagger.json'```.
 
 Continues ...
 
 
-<!-- B -->]
+<!-- Code for this begins at line #26 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L26" target="_blank">Code for this step.</a>] ]
+]
