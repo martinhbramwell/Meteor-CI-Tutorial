@@ -63,8 +63,10 @@
 
       <h1>Getting Started with Meteor Continuous Integration</h1>
 
-      <p><strong>These explanatory <a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial">scripts</a>, videos ( mid Oct'15 ) and <a target="_blank" href="https://martinhbramwell.github.io/Meteor-CI-Tutorial/">slideshows</a>, will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration</strong></p>
+      <p><strong>These explanatory <a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial">scripts</a>, videos ( mid Oct'15 ) and <a target="_blank" href="https://martinhbramwell.github.io/Meteor-CI-Tutorial/">slideshows</a>, will get you started easily with Meteor package development, testing, documenting, logging, code style linting and continuous integration</strong></p>
       <p>They are designed for small (10GB) Xubuntu 14.04 virtual machines. They have not been tested in any other environment since the idea is to provide clear proven instructions that can be adapted easily to other circumstances.  Once you see how it works in one environment setting up for a different one should present few difficulties.</p>
+      <p style="margin-right:150px;margin-left:75px">Please note : I detest wordy tutorials!  You will not see any fluff here. Every word is dedicated to helping you get the most out of the tutorial in the least time.  The end result is a complex system designed to make you into a high-velocity developer with very low "maintenance drag". Skim it to see if it's what you need, but then -- please -- follow all the instructions closely.</p>
+
       <p>The goal is to help Meteor developers put together a complete <strong>continuous integration</strong> work environment with :</p>
       <ul>
         <li>application</li>
@@ -79,8 +81,11 @@
       </ul>
       <p>Another goal is to help developers begin building Meteor applications <strong>as though they were working in multiple teams on multiple projects</strong>! In particular, this means going beyond "normal" configuration of <i>ssh</i> and <i>git</i>, to handle multiple user aliases and GitHub deploy keys.  The end result will be a little bit more difficult in your daily routine, but much more flexible and "future proof".
       <h3>Modus Operandi</h3>
-      <p>Most likely you'll want to flip through the slides to get an overview, then watch the video, then spin up a fresh virtual machine and run through it all.  It shouldn't cost you more than a few hours.  The slides change with the keyboard or scroll wheel, but not mouse clicks.  There are hyperlinks to deeper details and "Hover Notes" <i>(that are problematic if the slides are also enabled for control by touchscreen taps or mouse click)</i>.</p>
-      <p>Except where indicated, the bash scripts are 'idempotent' -- you can run them repeatedly without adverse consequences.</p>
+      <p>Most likely you'll want to flip through the slides to get an overview, then watch the video, then spin up a fresh virtual machine and run through it all.  It shouldn't cost you more than a few hours.  In fact, grouped as it is in spoon-sized doses, you can step through a little at a time.</p>
+
+      <p>Please note that the slides change with the keyboard or scroll wheel, but not mouse clicks.  This is because there are "Hover Notes" and hyperlinks to deeper details <i>that are problematic if the slides are also enabled for control by touchscreen taps or mouse click</i>.</p>
+
+      <p>Except where indicated, the bash scripts make every attempt to be 'idempotent' -- you can run them repeatedly without adverse consequences.  You may want to be liberal with virtual machine snapshots of your work.</p>
 
       <h2><a href="./index.html?part=A">Prepare the Machine</a></h2>
       <p>We start off with a fresh Ubuntu 14.04 LTS virtual machine and install all the platform dependencies.  These are global installs requiring 'sudo'.  Subsequent stages should not require 'sudo'. The script shown can run to completion without intervention, or stop at intermediate steps to view explanations.</p>
