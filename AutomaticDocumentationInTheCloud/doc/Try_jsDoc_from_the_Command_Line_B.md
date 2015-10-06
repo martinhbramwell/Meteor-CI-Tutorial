@@ -12,7 +12,7 @@ name: TryJSDocFromTheCommandLine_B
 
 If you open the index file in your browser from its file system location . . . 
 
- *(something like : [```file:///home/${YOUR_NAME}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html```](file:///home/${YOUR_NAME}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html))*
+ *(something like : [```file:///home/${USER}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html```](file:///home/${USER}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html))*
 
  . . . you will see a page a bit like this :
 

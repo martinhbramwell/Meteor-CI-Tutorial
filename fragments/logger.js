@@ -1,6 +1,6 @@
 const Bunyan = Npm.require('bunyan'); // !
 Logger = Bunyan.createLogger({
-  'name': 'ci4meteor',
+  'name': '${PKG_NAME}',
   'streams': [{
     'path': '/var/log/meteor/ci4meteor.log',
   }],

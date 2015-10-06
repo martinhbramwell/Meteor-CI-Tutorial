@@ -9,9 +9,9 @@ layout: false
 
 ## Code Quality - Automatic Documentation in the Cloud
 
-These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration.
+These scripts will get you started easily with Meteor package development, testing, documenting, logging, code style linting and continuous integration.
 
-The previous script, 'Part04_CodingStyleAndLinting.sh', set up code quality assurance. 
+The previous script, 'Part04_CodingStyleAndLinting.sh', set up code quality checks.
 
 This one . . .  
 ```terminal
@@ -71,7 +71,7 @@ name: TryJSDocFromTheCommandLine_B
 
 If you open the index file in your browser from its file system location . . . 
 
- *(something like : [```file:///home/${YOUR_NAME}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html```](file:///home/${YOUR_NAME}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html))*
+ *(something like : [```file:///home/${USER}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html```](file:///home/${USER}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html))*
 
  . . . you will see a page a bit like this :
 

@@ -12,7 +12,7 @@
 ```javascript
 const Bunyan = Npm.require('bunyan');
 Logger = Bunyan.createLogger({
-  'name': 'ci4meteor',
+  'name': '${PKG_NAME}',          # EDIT <--
   'streams': [{
     'path': '/var/log/meteor/ci4meteor.log',
   }],

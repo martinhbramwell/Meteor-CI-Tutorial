@@ -14,12 +14,12 @@ name: PushNightwatchTestingToGitHubAndCircleCI
 Now edit ```circle.yml``` to re-enable use of ${PKG_NAME}, (not forgetting substitutions), then commit to GitHub -- hooking CircleCI for a rebuild :
 
 ```ruby
-    - mkdir -p ~/packages/yourself;  # ensure dir exists
-    - pushd ~/packages/yourself;     
-        git clone https://github.com/your0rg/yourpackage;
+    - mkdir -p ~/packages/${YOUR_NAME};  # ensure dir exists
+    - pushd ~/packages/${YOUR_NAME};
+        git clone https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME};
       popd;
     - pushd ./packages;
-        rm -fr yourpackage;   ln -s ~/packages/yourself/yourpackage yourpackage;
+        rm -fr ${PKG_NAME};   ln -s ~/packages/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME};
       popd;
 ```
 ##### Commands

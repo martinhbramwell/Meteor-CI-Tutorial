@@ -9,9 +9,9 @@ layout: false
 
 ## Code Quality - Automatic Documentation in the Cloud
 
-These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration.
+These scripts will get you started easily with Meteor package development, testing, documenting, logging, code style linting and continuous integration.
 
-The previous script, 'Part04_CodingStyleAndLinting.sh', set up code quality assurance. 
+The previous script, 'Part04_CodingStyleAndLinting.sh', set up code quality checks.
 
 This one . . .  
 ```terminal
