@@ -21,7 +21,7 @@ api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
 api.addFiles(                   //  EDIT! <--
   ['logger.js', '${PKG_NAME}-tests.js'], ['server']
 );
-api.export("Logger"); // Order matters.  Export **after** adding
+api.export('Logger'); // Order matters.  Export **after** adding
 ```
 In a new terminal run, and watch this command when ...
 ```terminal

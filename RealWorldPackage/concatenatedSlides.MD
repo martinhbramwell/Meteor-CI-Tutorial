@@ -9,9 +9,9 @@ layout: false
 
 ## A Real World Package
 
-'Part07_ProductionLogging.sh' introduced how to ```require``` a NodeJS module into Meteor.
+'Part07_ProductionLogging.sh' introduced how to ```require``` a NodeJS module into Meteor but it was a simple case.
 
-Meteor is built on NodeJS but there's a fundamental divergence of design philosophy.  NodeJS achieves very efficient processing of requests using "non-blocking", asynchronous callbacks.  Meanwhile, Meteor achieves a very efficient development platform with event-driven synchronous programming, by hiding the complexity of asynchronous coding within synchronous wrappers.
+Although Meteor is built on NodeJS, there's a fundamental divergence of design philosophy.  NodeJS achieves very efficient processing of requests using "non-blocking", **asynchronous** callbacks.  Meanwhile, Meteor achieves a very efficient development platform with event-driven **synchronous** programming, by hiding the complexity of asynchronous coding within synchronous wrappers.
 
 An understanding of synchronous wrappers of NodeJS modules opens the doors to the whole NodeJS ecosystem for use in Meteor development.
 
@@ -83,7 +83,7 @@ const swagger = new Client({
   url: swaggerSpecURL,
   success: function getPet() {
     swagger.pet.getPetById(
-      { petId: 7}, {responseContentType: 'application/json'},
+      { petId: 6133627028}, {responseContentType: 'application/json'},
       function log(pet) { Logger.info('Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
     );
   },
