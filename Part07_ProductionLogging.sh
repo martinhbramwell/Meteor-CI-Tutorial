@@ -47,6 +47,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
 
   wget -O logger.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/logger.js
+  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/"
 
   popd >/dev/null;
 
