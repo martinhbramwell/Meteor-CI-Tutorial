@@ -33,6 +33,13 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   popd >/dev/null;
 
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
+
+  ./tests/nightwatch/runTests.js | bunyan
+
+  popd >/dev/null;
+
 fi
 
 
