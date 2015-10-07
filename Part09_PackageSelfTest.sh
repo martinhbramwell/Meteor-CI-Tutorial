@@ -56,6 +56,8 @@ if [ "${RUN_RULE}" != "n" ]; then
   sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" ${PKG_NAME}.js;
 
   jsdoc -d ./docs . ./nightwatch;
+  echo -e "\n Documentation hs been generated ..."
+  echo -e "\n Look at : ${HOME}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html\n\n"
 
   popd >/dev/null;
 
