@@ -6,11 +6,11 @@
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Meteor is Incompatible With NodeJS  (Part C)
+#### Make the Proxy Available to Meteor
 
 ... continuing.
 
-The rest of our application needs to know to about ```PetStore```, so we declare it in ```package.js```.
+The rest of our application needs to know about ```PetStore```, so we declare it in ```package.js```.
 
 So this line ...
 ```javascript
@@ -22,6 +22,8 @@ So this line ...
   api.export(['Logger', 'PetStore']);
 ```
 **Note that their names are in an array.**
+
+Continues ...
 
 
 <!-- B -->]

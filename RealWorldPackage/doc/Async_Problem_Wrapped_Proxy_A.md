@@ -6,7 +6,7 @@
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Meteor is Incompatible With NodeJS  (Part B)
+#### Synchronous Wrapper for Asynchronous Service
 
 ... continuing.
 
