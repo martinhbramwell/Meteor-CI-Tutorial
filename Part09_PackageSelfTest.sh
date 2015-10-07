@@ -17,6 +17,29 @@ explain ${DOCS}/Introduction.md
 
 echo ""
 echo ""
+explain ${DOCS}/UsageExampleEndToEnd.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  NGHTWTCH=~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/nightwatch;
+  mkdir -p ${NGHTWTCH};
+
+  pushd ${NGHTWTCH} >/dev/null;
+
+  NGHTWTCH_FILE=test_usage_example.js;
+  wget -O ${NGHTWTCH_FILE} https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/${NGHTWTCH_FILE}
+  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ${NGHTWTCH_FILE}
+  sed -i -e "s/\${PACKAGE_DEVELOPER}/${PACKAGE_DEVELOPER}/" ${NGHTWTCH_FILE}
+  sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" ${NGHTWTCH_FILE}
+
+  popd >/dev/null;
+
+fi
+
+
+
+
+echo ""
+echo ""
 explain ${DOCS}/FirstPage.md
 
 

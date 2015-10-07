@@ -1,7 +1,7 @@
 ---
 .left-column[
   ### Left Title
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
