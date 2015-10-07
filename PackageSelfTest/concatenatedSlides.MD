@@ -23,13 +23,13 @@ Get started now by running ...
 <!-- B -->]
 ---
 .left-column[
-  ### Left Title
-.footnote[.red.bold[] [Table of Contents](./)] 
+  ### Revisit End-To-End Testing
+.footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### End To End Testof the Usage Example
+#### End To End Test of the Usage Example
 
 The accompanying script creates a new subdirectory of ${PKG_NAME} called ```nightwatch``` and, into it, downloads the <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/test_usage_example.js' target='_blank'>code for a usage example end-to-end test</a>.  *Nightwatch* needs to be told where to find it, so you should now edit ```${PROJECT_NAME}/tests/nightwatch/config/nightwatch.json``` to look like this :
 ```javascript
@@ -48,6 +48,34 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 <!-- Code for this begins at line #22 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L22" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Finish Documentation
+.footnote[.red.bold[] [Table of Contents](./)]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### The Package Works But It Is Not Documented
+
+<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js' target='_blank'>yourpackage_documented.js</a> is a documented replacement for the previously created file ${PKG_NAME}.js.
+
+Rerunning jsDoc now will generate a much more complete documentation site than before, at : *[```file:///home/${USER}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html```](file:///home/${USER}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html)*
+
+##### Commands
+```terminal
+pushd ./packages/${PKG_NAME};
+wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js
+jsdoc -d ./docs . ./nightwatch
+popd;
+```
+
+Continues ...
+
+<!-- Code for this begins at line #50 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L50" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

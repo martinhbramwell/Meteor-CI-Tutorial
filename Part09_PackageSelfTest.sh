@@ -43,6 +43,23 @@ if [ "${RUN_RULE}" != "n" ]; then
 fi
 
 
+echo ""
+echo ""
+explain ${DOCS}/FinishDocumentation.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
+
+  wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js
+  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ${PKG_NAME}.js;
+  sed -i -e "s/\${PACKAGE_DEVELOPER}/${PACKAGE_DEVELOPER}/" ${PKG_NAME}.js;
+  sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" ${PKG_NAME}.js;
+
+  jsdoc -d ./docs . ./nightwatch;
+
+  popd >/dev/null;
+
+fi
 
 
 echo ""
