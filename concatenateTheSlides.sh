@@ -118,7 +118,8 @@ CodingStyleAndLinting/concatenatedSlides.MD \
 AutomaticDocumentationInTheCloud/concatenatedSlides.MD \
 CloudContinuousIntegration/concatenatedSlides.MD \
 ProductionLogging/concatenatedSlides.MD \
-RealWorldPackage/concatenatedSlides.MD
+RealWorldPackage/concatenatedSlides.MD \
+PackageSelftest/concatenatedSlides.MD
 
 
 export STASH_CREATED=$(git stash) && echo $STASH_CREATED
