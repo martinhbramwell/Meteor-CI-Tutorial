@@ -80,43 +80,20 @@ explain ${DOCS}/View_and_Hide_The_Example.md
 
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain
 
-echo ""
-echo ""
-explain \
-${DOCS}/dummy.md
-
-echo ""
-echo ""
-explain  \
-${DOCS}/dummy.md
+echo -e "\n\n\nDone! You have finished with 'Part08_RealWorldPackage.sh'."
+echo -e "\n\n   Are you ready to begin './Part09_PackageSelfTest.sh'?"
+echo -e "         If so, hit [y]es, or <Enter>.  If NOT then hit [n]o or <ctrl-c>."
 
 
-# echo ""
-# echo ""
-# explain  \
-# ${DOCS}/dummy.md
+read -p "  'y' or 'n' ::  " -n 1 -r USER_ANSWER
+CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+if [[ "X${CHOICE}X" == "XyX"  || "X${CHOICE}X" == "XX" ]]; then
+  echo -e "\n\nStarting Part #4.";
+  ./Part04_CodingStyleAndLinting.sh
+fi;
 
 
+echo -e "\n\n";
 
-
-echo -e "\nDone.";
 exit 0;
 
-# explain "#  FIXME
-# \n#
-# \n#
-# \n#  "
-# if [ $? -eq 0 ]; then
-
-#   pushd ~/${PARENT_DIR} >/dev/null;
-#   pushd ${PROJECT_NAME} >/dev/null;
-
-
-#   popd >/dev/null;
-#   popd >/dev/null;
-
-# fi
-
-
-echo "Done.";
-exit 0;

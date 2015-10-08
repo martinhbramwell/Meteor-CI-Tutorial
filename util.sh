@@ -56,7 +56,8 @@ export PKG_NAME="${PKG_NAME}"
 export GITHUB_ORGANIZATION_NAME="${GITHUB_ORGANIZATION_NAME}"
 export PACKAGE_DEVELOPER="${PACKAGE_DEVELOPER}"
 export YOUR_EMAIL="${YOUR_EMAIL}"
-export YOUR_NAME="${YOUR_NAME}"
+export YOUR_UID="${YOUR_UID}"
+export YOUR_FULLNAME="${YOUR_FULLNAME}"
 UDATA
 }
 
@@ -72,7 +73,8 @@ function getUserData()
     export GITHUB_ORGANIZATION_NAME=""
     export PACKAGE_DEVELOPER=""
     export YOUR_EMAIL=""
-    export YOUR_NAME=""
+    export YOUR_UID=""
+    export YOUR_FULLNAME=""
   fi
 
 
@@ -85,8 +87,9 @@ function getUserData()
     echo "Project name : ${PROJECT_NAME}"
     echo "Package name : ${PKG_NAME}"
     echo "GitHub organization name : ${GITHUB_ORGANIZATION_NAME}"
-    echo "Project owner full name : ${PACKAGE_DEVELOPER}"
-    echo "Project owner name : ${YOUR_NAME}"
+    echo "GutHub user id: ${PACKAGE_DEVELOPER}"
+    echo "GutHub user full name : ${YOUR_FULLNAME}"
+    echo "Project owner local user id : ${YOUR_UID}"
     echo "Project owner email : ${YOUR_EMAIL}"
 
     read -ep "Is this correct? (y/n/q) ::  " -n 1 -r USER_ANSWER
@@ -109,14 +112,17 @@ function getUserData()
       read -p "The exact name for the GitHub organization :: " -e -i "${GITHUB_ORGANIZATION_NAME}" INPUT
       if [ ! "X${INPUT}X" == "XX" ]; then GITHUB_ORGANIZATION_NAME=${INPUT}; fi;
 
-      read -p "The project owner full name to use to publish it in GitHub :: " -e -i "${PACKAGE_DEVELOPER}" INPUT
+      read -p "The project owner user id in GitHub :: " -e -i "${PACKAGE_DEVELOPER}" INPUT
       if [ ! "X${INPUT}X" == "XX" ]; then PACKAGE_DEVELOPER=${INPUT}; fi;
+
+      read -p "The project owner full name to use to publish it in GitHub :: " -e -i "${YOUR_FULLNAME}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then YOUR_FULLNAME=${INPUT}; fi;
 
       read -p "The email address for the project owner in GitHub :: " -e -i "${YOUR_EMAIL}" INPUT
       if [ ! "X${INPUT}X" == "XX" ]; then YOUR_EMAIL=${INPUT}; fi;
 
-      read -p "The project owner name to use within the project :: " -e -i "${YOUR_NAME}" INPUT
-      if [ ! "X${INPUT}X" == "XX" ]; then YOUR_NAME=${INPUT}; fi;
+      read -p "The project owner name to use within the project :: " -e -i "${YOUR_UID}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then YOUR_UID=${INPUT}; fi;
 
     fi;
     echo "  "

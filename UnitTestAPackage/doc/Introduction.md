@@ -17,7 +17,7 @@ This one . . .
 ```terminal
 ./Part03_UnitTestAPackage.sh
 ```
-. . . prepares a Meteor project with an associated external package tested with TinyTest and stored separately in GitHub.
+. . . prepares a Meteor project with an associated external package, tested with TinyTest, and **stored separately in GitHub**.
 
 
 

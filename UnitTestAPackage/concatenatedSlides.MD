@@ -17,7 +17,7 @@ This one . . .
 ```terminal
 ./Part03_UnitTestAPackage.sh
 ```
-. . . prepares a Meteor project with an associated external package tested with TinyTest and stored separately in GitHub.
+. . . prepares a Meteor project with an associated external package, tested with TinyTest, and **stored separately in GitHub**.
 
 
 
@@ -32,15 +32,15 @@ This one . . .
 
 #### Create a Meteor package development directory.
 
-If you aim for "package only applications", if packages are to be reusable, your packages need independent version control, and hence a directory outside of the project, located by Meteor's shell variable ```PACKAGE_DIRS```.
+If you aim for "package only applications", if packages are to be reusable, your packages need independent version control, and hence in a directory outside of the project, that you specify with Meteor's shell variable ```PACKAGE_DIRS```.
 
-To create self-sufficient packages, begin by defining that variable as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
+To create self-sufficient packages, begin by defining ```PACKAGE_DIRS``` as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
 ##### Commands
 ```terminal
 export PARENT_DIR=projects;
 export PACKAGES=~/${PARENT_DIR}/packages;
-export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_NAME};
-mkdir -p ${PACKAGES}/${YOUR_NAME}; mkdir -p ${PACKAGES}/thirdparty;
+export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_UID};
+mkdir -p ${PACKAGES}/${YOUR_UID}; mkdir -p ${PACKAGES}/thirdparty;
 export HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.profile);
 [[ ${HAS_PACKAGE_DIRS} -lt 1 ]] && echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile;
 source ~/.profile;
@@ -70,7 +70,7 @@ Now that Meteor can find your packages, you can create one and install it in you
 
 #####Commands
 ```terminal
-cd ~/${PARENT_DIR}/packages/${YOUR_NAME}
+cd ~/${PARENT_DIR}/packages/${YOUR_UID}
 meteor create --package ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}
 cd ~/${PARENT_DIR}/${PROJECT_NAME}
 meteor add ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}
@@ -100,13 +100,13 @@ That's easily fixed.  You simply need to establish a symbolic link from your pac
 #####Commands
 ```terminal
 cd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
-ln -s ${PACKAGE_DIRS}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
+ln -s ${PACKAGE_DIRS}/${YOUR_UID}/${PKG_NAME} ${PKG_NAME}
 ```
 For editing purposes your package now appears to be part of your project.  But wait!  It won't be "git managed", will it?!
 
 
 
-<!-- Code for this begins at line #98 -->
+<!-- Code for this begins at line #100 -->
 <!-- B -->
 <div id="symwarn" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('symwarn'); return true;"
@@ -121,7 +121,7 @@ For editing purposes your package now appears to be part of your project.  But w
     <i>Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L98" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L100" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -145,7 +145,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
 ```
 
 
-<!-- Code for this begins at line #110 -->
+<!-- Code for this begins at line #112 -->
 <!-- B -->
 <div id="pubkey" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('pubkey'); return true;"
@@ -160,7 +160,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
     <i>Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L110" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L112" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -181,9 +181,9 @@ That's beyond the scope of this tutorial.  However, we must, in any case, repeat
 **Be sure to prepare a GitHub repo called ```${PKG_NAME}``` with its own deploy key in the same way you did for ```${PROJECT_NAME}```**
 
 Continues . . . 
-<!-- Code for this begins at line #152 -->
+<!-- Code for this begins at line #154 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L152" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L154" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -205,9 +205,9 @@ git remote add ${PKG_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PKG_N
 git push -u ${PKG_NAME}_origin master
 ```
 
-<!-- Code for this begins at line #178 -->
+<!-- Code for this begins at line #180 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L178" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L180" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -229,9 +229,9 @@ meteor test-packages &
 tree
 ```
 To stop Meteor and move on to the next step in the tutorial script, after you have confirmed that it ran successful tests, just hit ```<enter>```.
-<!-- Code for this begins at line #197 -->
+<!-- Code for this begins at line #199 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L197" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L199" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -255,9 +255,9 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 ./meteor-tinytest-runner.run
 ./tests/tinyTests/test-all.sh
 ```
-<!-- Code for this begins at line #226 -->
+<!-- Code for this begins at line #228 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L226" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L228" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

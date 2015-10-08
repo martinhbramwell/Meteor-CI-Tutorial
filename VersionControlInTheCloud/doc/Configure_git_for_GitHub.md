@@ -18,7 +18,7 @@ Steps performed :
 
 #####Commands
 ```terminal
-git config --global user.name "${PACKAGE_DEVELOPER}"
+git config --global user.name "${YOUR_FULLNAME}"
 git config --global user.email "${YOUR_EMAIL}"
 git config --global push.default simple
 ```

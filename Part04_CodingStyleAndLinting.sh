@@ -15,7 +15,7 @@ explain ${DOCS}/Introduction.md
 
 
 export PACKAGES=~/${PARENT_DIR}/packages
-export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_NAME}
+export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_UID}
 
 
 echo ""
@@ -60,8 +60,21 @@ fi
 
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain
 
-echo ""
-echo -e "\nDone.  Now start up ./Part05_AutomaticDocumentationInTheCloud.sh";
+
+echo -e "\n\n\nDone! You have finished with 'Part04_CodingStyleAndLinting.sh'."
+echo -e "\n\n   Are you ready to begin './Part05_AutomaticDocumentationInTheCloud.sh'?"
+echo -e "         If so, hit [y]es, or <Enter>.  If NOT then hit [n]o or <ctrl-c>."
+
+
+read -p "  'y' or 'n' ::  " -n 1 -r USER_ANSWER
+CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+if [[ "X${CHOICE}X" == "XyX"  || "X${CHOICE}X" == "XX" ]]; then
+  echo -e "\n\nStarting Part #4.";
+  ./Part04_CodingStyleAndLinting.sh
+fi;
+
+
+echo -e "\n\n";
 
 exit 0;
 

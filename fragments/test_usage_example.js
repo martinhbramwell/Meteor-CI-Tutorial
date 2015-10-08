@@ -1,6 +1,6 @@
 /**
  * @fileOverview The unit tests for "${PKG_NAME}".
- * @author ${PACKAGE_DEVELOPER} <${YOUR_EMAIL}>
+ * @author ${YOUR_FULLNAME} <${YOUR_EMAIL}>
  * @version v0.0.1
  * @license MIT
  */

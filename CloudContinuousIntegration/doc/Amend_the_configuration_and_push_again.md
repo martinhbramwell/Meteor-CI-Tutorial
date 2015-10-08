@@ -11,13 +11,13 @@ name: AmendTheConfigurationAndPushAgain
 
 The command failed because we still must reference our package from the ```circle.yml``` file.  We have to add these lines (substituting appropriately for your names) . . .
 ```ruby
-    - mkdir -p ~/packages/${YOUR_NAME};  # ensure dir exists
-    - pushd ~/packages/${YOUR_NAME};
+    - mkdir -p ~/packages/${YOUR_UID};  # ensure dir exists
+    - pushd ~/packages/${YOUR_UID};
         git clone https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME};
       popd;
     - pushd ./packages;
         rm -fr ${PKG_NAME};
-        ln -s ~/packages/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME};
+        ln -s ~/packages/${YOUR_UID}/${PKG_NAME} ${PKG_NAME};
       popd;
 ```
 . . . just after this one, and then commit and push again.

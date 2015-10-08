@@ -39,7 +39,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   echo -e "#   -- Configuring git ... "
 
   git config --global user.email "${YOUR_EMAIL}"
-  git config --global user.name "${PACKAGE_DEVELOPER}"
+  git config --global user.name "${YOUR_FULLNAME}"
   git config --global push.default simple
 
 fi
@@ -49,11 +49,10 @@ if [ "${RUN_RULE}" != "n" ]; then
   INSTALLMETEOR=true
   if [[ $(meteor --version) =~ .*Meteor.* ]]
   then
-    echo "Meteor has been installed already.  Do you want to reinstall?"
-    read -p "  'y' or 'n' ::  " -n 1 -r USER_ANSWER
+    echo -e "\nMeteor has been installed already.\n  You can remove it and [r]einstall it OR [s]kip this step."
+    read -p "  'r' or 's' ::  " -n 1 -r USER_ANSWER
     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
-    if [[ "X${CHOICE}X" == "XnX" ]];
-    then
+    if [[ "X${CHOICE}X" == "XsX" ]]; then
       INSTALLMETEOR=false;
     fi;
   fi
@@ -305,7 +304,18 @@ fi
 
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain
 
-echo ""
-echo -e "\nDone.  Now start up ./Part03_UnitTestAPackage.sh";
+echo -e "\n\n\nDone! You have finished with 'Part02_VersionControlInTheCloud.sh'."
+echo -e "\n\n   Are you ready to begin './Part03_UnitTestAPackage.sh'?"
+echo -e "         If so, hit [y]es, or <Enter>.  If NOT then hit [n]o or <ctrl-c>."
+
+read -p "  'y' or 'n' ::  " -n 1 -r USER_ANSWER
+CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+if [[ "X${CHOICE}X" == "XyX"  || "X${CHOICE}X" == "XX" ]]; then
+  echo -e "\n\nStarting Part #4.";
+  ./Part04_CodingStyleAndLinting.sh
+fi;
+
+echo -e "\n\n";
 
 exit 0;
+

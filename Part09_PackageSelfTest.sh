@@ -28,7 +28,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   NGHTWTCH_FILE=test_usage_example.js;
   wget -O ${NGHTWTCH_FILE} https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/${NGHTWTCH_FILE}
   sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ${NGHTWTCH_FILE}
-  sed -i -e "s/\${PACKAGE_DEVELOPER}/${PACKAGE_DEVELOPER}/" ${NGHTWTCH_FILE}
+  sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" ${NGHTWTCH_FILE}
   sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" ${NGHTWTCH_FILE}
 
   popd >/dev/null;
@@ -59,7 +59,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js
   sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ${PKG_NAME}.js;
-  sed -i -e "s/\${PACKAGE_DEVELOPER}/${PACKAGE_DEVELOPER}/" ${PKG_NAME}.js;
+  sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" ${PKG_NAME}.js;
   sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" ${PKG_NAME}.js;
 
   jsdoc -d ./docs . ./nightwatch;

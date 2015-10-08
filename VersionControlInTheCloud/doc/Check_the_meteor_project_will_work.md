@@ -16,14 +16,14 @@ This script will stop any currently running Meteor process and start a new for `
 
 <a href='http://localhost:3000/' target='_blank'>http://localhost:3000/</a>
 
-When you continue to the next step Meteor will be killed automatically.
+When you hit ```&lt;Enter&gt;```, to continue to the next step, Meteor will be killed automatically.
 #####Commands
 ```terminal
 A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print $2}')
 echo $A_METEOR_PID
 ```
 
-<!-- Code for this begins at line #121 -->
+<!-- Code for this begins at line #120 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L121" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L120" target="_blank">Code for this step.</a>] ]
 ]

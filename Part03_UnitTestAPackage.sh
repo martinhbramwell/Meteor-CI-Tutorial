@@ -15,12 +15,12 @@ explain ${DOCS}/Introduction.md
 
 
 export PACKAGES=~/${PARENT_DIR}/packages
-export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_NAME}
+export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_UID}
 
 explain ${DOCS}/Create_a_package_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  mkdir -p ${PACKAGES}/${YOUR_NAME}
+  mkdir -p ${PACKAGES}/${YOUR_UID}
   mkdir -p ${PACKAGES}/thirdparty
   HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.profile) || echo -e "\nConfiguring PACKAGE_DIRS as '${PACKAGE_DIRS}'."
   [[ ${HAS_PACKAGE_DIRS} -lt 1 ]] && echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile  || echo "PACKAGE_DIRS previously configured as '${PACKAGE_DIRS}'."
@@ -31,7 +31,7 @@ fi
 explain ${DOCS}/Create_a_package_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ${PACKAGES}/${YOUR_NAME} >/dev/null;
+  pushd ${PACKAGES}/${YOUR_UID} >/dev/null;
 
   CREATE_PACKAGE=true;
   if [[ -d ${PKG_NAME}
@@ -54,6 +54,8 @@ if [ "${RUN_RULE}" != "n" ]; then
   fi;
 
   ${CREATE_PACKAGE} && meteor create --package "${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}";
+
+  sed -i "/api\.use('.*${PKG_NAME}/d" ${PKG_NAME}/package.js
 
   popd >/dev/null;
 
@@ -98,7 +100,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   mkdir -p ~/${PARENT_DIR}/${PROJECT_NAME}/packages
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages >/dev/null;
-  ln -s ${PACKAGES}/${YOUR_NAME}/${PKG_NAME} ${PKG_NAME}
+  ln -s ${PACKAGES}/${YOUR_UID}/${PKG_NAME} ${PKG_NAME}
   popd >/dev/null;
 
 fi
@@ -176,7 +178,7 @@ fi
 explain ${DOCS}/Control_a_packages_versions_B.md  MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ${PACKAGES}/${YOUR_NAME}/${PKG_NAME} >/dev/null;
+  pushd ${PACKAGES}/${YOUR_UID}/${PKG_NAME} >/dev/null;
 
   ssh-add
   git init
@@ -254,8 +256,19 @@ fi
 
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain
 
-echo ""
-echo -e "\nDone.  Now start up ./Part04_CodingStyleAndLinting.sh";
+echo -e "\n\n\nDone! You have finished with 'Part03_UnitTestAPackage.sh'."
+echo -e "\n\n   Are you ready to begin './Part04_CodingStyleAndLinting.sh'?"
+echo -e "         If so, hit [y]es, or <Enter>.  If NOT then hit [n]o or <ctrl-c>."
+
+
+read -p "  'y' or 'n' ::  " -n 1 -r USER_ANSWER
+CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+if [[ "X${CHOICE}X" == "XyX"  || "X${CHOICE}X" == "XX" ]]; then
+  echo -e "\n\nStarting Part #4.";
+  ./Part04_CodingStyleAndLinting.sh
+fi;
+
+echo -e "\n\n";
 
 exit 0;
 

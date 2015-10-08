@@ -18,7 +18,7 @@ Now that Meteor can find your packages, you can create one and install it in you
 
 #####Commands
 ```terminal
-cd ~/${PARENT_DIR}/packages/${YOUR_NAME}
+cd ~/${PARENT_DIR}/packages/${YOUR_UID}
 meteor create --package ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}
 cd ~/${PARENT_DIR}/${PROJECT_NAME}
 meteor add ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}

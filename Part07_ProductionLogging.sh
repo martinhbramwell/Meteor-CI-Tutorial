@@ -61,8 +61,20 @@ explain ${DOCS}/Refactor_Bunyan_InstantiationB.md
 
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain
 
-echo ""
-echo -e "\nDone.  Now start up ./Part08_RealWorldPackage.sh";
+echo -e "\n\n\nDone! You have finished with 'Part07_ProductionLogging.sh'."
+echo -e "\n\n   Are you ready to begin './Part08_RealWorldPackage.sh'?"
+echo -e "         If so, hit [y]es, or <Enter>.  If NOT then hit [n]o or <ctrl-c>."
+
+
+read -p "  'y' or 'n' ::  " -n 1 -r USER_ANSWER
+CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+if [[ "X${CHOICE}X" == "XyX"  || "X${CHOICE}X" == "XX" ]]; then
+  echo -e "\n\nStarting Part #4.";
+  ./Part04_CodingStyleAndLinting.sh
+fi;
+
+
+echo -e "\n\n";
 
 exit 0;
 

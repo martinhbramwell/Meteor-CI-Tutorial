@@ -1,6 +1,6 @@
 /**
  * @fileOverview The main program for "${PKG_NAME}".  This where the exported entities reside.
- * @author ${PACKAGE_DEVELOPER} <${YOUR_EMAIL}>
+ * @author ${YOUR_FULLNAME} <${YOUR_EMAIL}>
  * @version v0.0.1
  * @requires swagger-client
  * @license MIT
