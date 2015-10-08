@@ -1,7 +1,6 @@
 #!/bin/bash
 #
 
-
 function existingMeteor() {
 
   EXISTING_METEOR_PID=$(ps aux | grep meteor | grep -v grep | grep -c ~/.meteor/packages)
@@ -16,6 +15,26 @@ function existingMeteor() {
     read -n 1 -r USER_ANSWER
   fi
 
+}
+
+# P1 : the url to verify
+# P2 : additional commands to meteor. Eg; test-packages
+function launchMeteorProcess()
+{
+  METEOR_URL=$1;
+  STARTED=false;
+
+  until wget -q --spider ${METEOR_URL};
+  do
+    echo "Waiting for ${METEOR_URL}";
+    if ! ${STARTED}; then
+      meteor $2 &
+      STARTED=true;
+    fi;
+    sleep 2;
+  done
+
+  echo "Meteor is running on ${METEOR_URL}";
 }
 
 function killMeteorProcess()

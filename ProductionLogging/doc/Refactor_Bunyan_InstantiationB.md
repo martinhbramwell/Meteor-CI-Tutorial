@@ -10,14 +10,12 @@
 
 ... continuing ... we still need to 'wire' ```Logger``` into our package.
 
-In ```package.js``` change this ...
+In ```package.js```, in **both** the ```onUse``` **and** the ```onTest``` sections, change this ...
 ```javascript
-api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
 api.addFiles(['${PKG_NAME}-tests.js'], ['server']);
 ```
 ... to look like this ...
 ```javascript
-api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
 api.addFiles(                   //  EDIT! <--
   ['logger.js', '${PKG_NAME}-tests.js'], ['server']
 );

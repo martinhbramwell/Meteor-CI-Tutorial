@@ -96,7 +96,6 @@ Add the indicated block to the file ```'package.js'```
 Package.onTest(function onTest(api) {
   api.use('ecmascript');
   api.use('tinytest');
-  api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
   api.addFiles('${PKG_NAME}-tests.js');
 });
 
@@ -111,7 +110,7 @@ Npm.depends({
 <div id="syntaxnote" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('syntaxnote'); return true;"
        href="javascript:HideContent('syntaxnote')">
-        <p>Manual substitution :  you will need to replace ${GITHUB_ORGANIZATION_NAME} and ${PKG_NAME} with the names you actually use. </p><p>However, you will find that the substitutions are automated for you in the console output of ./Part07_ProductionLogging.sh</p>
+        <p>Manual substitution :  you will need to replace ${PKG_NAME} with the name you actually use. </p><p>However, you will find that the substitutions are automated for you in the console output of ./Part07_ProductionLogging.sh</p>
     </a>
 </div>
 <a
@@ -139,7 +138,6 @@ Edit the ```api.addFiles``` line in ```'package.js'``` to look like this :
 Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
-  api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
   api.addFiles(['${PKG_NAME}-tests.js'], ['server']); // EDIT! <--
 });    // Note the square brackets.   ᗑ ᗑ
 
@@ -248,14 +246,12 @@ You'll get an error ```Logger is not defined```, however ...
 
 ... continuing ... we still need to 'wire' ```Logger``` into our package.
 
-In ```package.js``` change this ...
+In ```package.js```, in **both** the ```onUse``` **and** the ```onTest``` sections, change this ...
 ```javascript
-api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
 api.addFiles(['${PKG_NAME}-tests.js'], ['server']);
 ```
 ... to look like this ...
 ```javascript
-api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
 api.addFiles(                   //  EDIT! <--
   ['logger.js', '${PKG_NAME}-tests.js'], ['server']
 );

@@ -16,7 +16,6 @@ Edit the ```api.addFiles``` line in ```'package.js'``` to look like this :
 Package.onTest(function(api) {
   api.use('ecmascript');
   api.use('tinytest');
-  api.use('${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}');
   api.addFiles(['${PKG_NAME}-tests.js'], ['server']); // EDIT! <--
 });    // Note the square brackets.   ᗑ ᗑ
 

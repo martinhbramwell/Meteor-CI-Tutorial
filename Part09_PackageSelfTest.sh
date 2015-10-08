@@ -36,7 +36,12 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
+  killMeteorProcess
+  launchMeteorProcess "http://localhost:3000/"
+
   ./tests/nightwatch/runTests.js | bunyan
+
+  killMeteorProcess
 
   popd >/dev/null;
 
@@ -49,6 +54,8 @@ explain ${DOCS}/FinishDocumentation.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
+
+  cp ${PKG_NAME}.js ${PKG_NAME}_$(date +%Y%m%d%H%M).js
 
   wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js
   sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ${PKG_NAME}.js;

@@ -80,9 +80,12 @@ PetStore.sync = {};
 PetStore.sync.getPetById = Meteor.wrapAsync(
   function wrpr(args, headers, callback) {
     PetStore.pet.getPetById( args, headers
-      , function suxs( theResult ) {  callback(null, theResult);  }
+      , function suxs( theResult ) {
+        Logger.info(  'Got pet #' + args.petId  );
+        callback(null, theResult);
+      }
       , function errs( theError ) {
-        Logger.info('For Id #' + args.petId + ' : ' + theError.statusText);
+        Logger.error('For Id #' + args.petId + ' : ' + theError.statusText);
         callback(null, theError);
       }
     );
