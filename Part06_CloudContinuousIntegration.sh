@@ -19,10 +19,26 @@ explain ${DOCS}/Connect_CircleCI_to_GitHub.md
 explain ${DOCS}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR} >/dev/null;
-  pushd ${PROJECT_NAME} >/dev/null;
 
+  # ci_help.sh is called by the circle.yml script.
+  # It loops through a list of packages, clones them and links them into the project
+  cp ./fragments/ci_help.sh ~/${PARENT_DIR}/${PROJECT_NAME}/packages
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
+
+  # Fix project specific flag variables
+  sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" ./packages/ci_help.sh
+  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ./packages/ci_help.sh
+  sed -i -e "s/\${YOUR_UID}/${YOUR_UID}/" ./packages/ci_help.sh
+
+  # Get a circle.yml file
   cp example_circle.yml circle.yml;
+
+  # Add execution of ci_help.sh to circle.yml
+  sed -i '/ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE/c\
+    # Pull each of our packages and link them into our project\
+    - ./packages/ci_help.sh\
+    # ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE' circle.yml
 
   git add packages;
   git add circle.yml;
@@ -37,7 +53,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   echo -e "#########################################################################################"
   echo -e "Hit <enter> when ready to continue ::  "
   read -n 1 -r USER_ANSWER
-  popd >/dev/null;
+
   popd >/dev/null;
 
 fi

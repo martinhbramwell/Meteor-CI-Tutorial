@@ -29,7 +29,7 @@ git add circle.yml;
 git commit -am 'Added Nightwatch testing';
 git push
 ```
-<!-- Code for this begins at line #161 -->
+<!-- Code for this begins at line #177 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L161" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L177" target="_blank">Code for this step.</a>] ]
 ]
