@@ -9,7 +9,7 @@ name: UseESLintOnTheCommandLine
 
 #### Use ESLint on the Command Line
 
-We installed command line ESLint in the first part, and will have it for Sublime Text momentarily.  Both have advantages: editor based linting helps ensure code quality as we type while command line catches quality issues during continuous integration.  A command line result looks like this :
+We installed command line ESLint in the first part, and will have it for Sublime Text momentarily.  Both have advantages: editor based linting helps ensure code quality as we type, while command line linting catches quality issues during continuous integration.  A command line result looks like this :
 ```ruby
 /home/yourself/demos/yourproject/yourproject.js
    3:22  error    Strings must use doublequote                  quotes

@@ -9,7 +9,7 @@ layout: false
 
 ## Code Quality - Coding Style and Linting
 
-These scripts will get you started easily with Meteor package development, testing, documenting, code style linting and continuous integration.
+These scripts will get you started easily with Meteor package development, testing, documenting, logging, code style linting and continuous integration.
 
 The previous script, 'Part03_UnitTestAPackage.sh', got us started with a package, stored and controlled independantly, yet one that can still be edited and tested as though it was part of an app anyway.
 

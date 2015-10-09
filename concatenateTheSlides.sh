@@ -111,6 +111,7 @@ git log -1 --pretty=%B > gitlog.txt
 tar zcvf pack.tar.gz index.html \
 styles.css \
 gitlog.txt \
+fragments/typer.gif \
 PrepareTheMachine/concatenatedSlides.MD \
 VersionControlInTheCloud/concatenatedSlides.MD \
 UnitTestAPackage/concatenatedSlides.MD \

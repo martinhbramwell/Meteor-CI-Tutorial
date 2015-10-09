@@ -185,7 +185,7 @@ read -p "  'y' or 'n' ::  " -n 1 -r USER_ANSWER
 CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
 if [[ "X${CHOICE}X" == "XyX"  || "X${CHOICE}X" == "XX" ]]; then
   echo -e "\n\nStarting Part #4.";
-  ./Part04_CodingStyleAndLinting.sh
+  ./Part07_ProductionLogging.sh
 fi;
 
 

@@ -1,7 +1,7 @@
 ---
 name: AmendTheConfigurationAndPushAgain
 .left-column[
-  ### Configure CircleCI 
+  ### Configure CircleCI
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
