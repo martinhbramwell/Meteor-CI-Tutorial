@@ -11,16 +11,18 @@ name: ConfigureCircleCIforNightwatchTesting
 
 We are ready for the final stage: TinyTest & Nightwatch testing run in a single pass of continuous integration in CircleCI.
 
-The Nightwatch runner's ```circle.yml``` can safely overwrite the one for TinyTest.  We still need to do that **and** we need to restore the code for using ${PKG_NAME} that we applied in the step ["Amend the Configuration and Push Again"](#AmendTheConfigurationAndPushAgain), (again, not forgetting appropriate substitutions).
+The Nightwatch runner's ```circle.yml``` can safely overwrite the one for TinyTest.  We still need to do that **and** we need to restore the call to execute ```ci_help.sh``` 
 
-First get the augmented ```circle.yml``` . . .
+First get the augmented ```circle.yml```, then patch it, adding the call to ```ci_help.sh```.
 
 ##### Commands
 ```terminal
 cp tests/nightwatch/config/example_circle.yml circle.yml;
+git add tests/nightwatch;
+git commit -am 'Added Nightwatch testing';
+git push
 ```
 
-Continued . . .
 <!-- Code for this begins at line #165 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L165" target="_blank">Code for this step.</a>] ]
