@@ -58,7 +58,7 @@ The file <a href="https://circleci.com/docs/configuration" target="_blank">Confi
 
 In this step, we get a minimal '```circle.yml```' from the example ('```example_circle.yml```') provided with the installer for <a href="https://github.com/warehouseman/meteor-tinytest-runner" target="_blank">warehouseman:meteor-tinytest-runner</a>, that we used in <a href="http://localhost:8000/Meteor-CI-Tutorial/index.html?part=C#9" target="_blank">"Part C"</a>.  It will not succeed, for an obvious reason :
 ```ruby
-$ tests/tinyTests/test-all.sh
+$ ./tests/tinyTests/test-all.sh
 grep: packages/yourpackage: No such file or directory
 ERROR: Found no packages to test. tests/tinyTests/test-all.sh returned exit code 1
 ```
@@ -66,8 +66,8 @@ ERROR: Found no packages to test. tests/tinyTests/test-all.sh returned exit code
 #####Commands
 ```terminal
 cp example_circle.yml circle.yml
-git add packages circle.yml tests
-git commit -am 'Added package and package testing' && git push
+git add circle.yml tests
+git commit -am 'Added circle.yml and unit testing' && git push
 ```
 
 
@@ -86,30 +86,25 @@ name: AmendTheConfigurationAndPushAgain
 
 #### Amend the Configuration and Push Again
 
-The command failed because we still must reference our package from the ```circle.yml``` file.  We have to add these lines (substituting appropriately for your names) . . .
+The command failed because we still must reference our package from the ```circle.yml``` file.
+
+We add the script <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/ci_help.sh" target="_blank">ci_help.sh</a> to the packages directory of our project.  It holds an array (```OUR_PACKAGES```) of package descriptions and a script to clone the packages and link them into the project.  Edit ```OUR_PACKAGES``` as needed.
+
+We also insert a call to ```ci_help.sh``` in ```circle.yml```.
 ```ruby
-    - mkdir -p ~/packages/${YOUR_UID};  # ensure dir exists
-    - pushd ~/packages/${YOUR_UID};
-        git clone https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME};
-      popd;
-    - pushd ./packages;
-        rm -fr ${PKG_NAME};
-        ln -s ~/packages/${YOUR_UID}/${PKG_NAME} ${PKG_NAME};
-      popd;
-```
-. . . just after this one, and then commit and push again.
-```ruby
-    - ln -s ~/node_modules node_modules
-```
+    # Pull each of our packages and link them into our project
+    - ./packages/ci_help.sh```
 #####Commands
 ```terminal
-git commit -am 'clone pkg and link to it' && git push
+wget -O ./packages/ci_help.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/ci_help.sh
+git add packages;
+git commit -am 'Add script to clone packages and symlink to them';
 ```
 
 
-<!-- Code for this begins at line #64 -->
+<!-- Code for this begins at line #48 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L64" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L48" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -132,9 +127,9 @@ then make it executable and run it.
 The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample ```circle.yml``` that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
 
 
-<!-- Code for this begins at line #89 -->
+<!-- Code for this begins at line #92 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L89" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L92" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -163,9 +158,9 @@ This command group starts Meteor in a background process, (stopping any already 
 ```terminal
  ./tests/nightwatch/runTests.js | bunyan
 ```
-<!-- Code for this begins at line #105 -->
+<!-- Code for this begins at line #108 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L105" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L108" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: ConfigureCircleCIforNightwatchTesting
@@ -190,9 +185,9 @@ cp tests/nightwatch/config/example_circle.yml circle.yml;
 ```
 
 Continued . . .
-<!-- Code for this begins at line #162 -->
+<!-- Code for this begins at line #165 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L162" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L165" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: PushNightwatchTestingToGitHubAndCircleCI
@@ -225,9 +220,9 @@ git add circle.yml;
 git commit -am 'Added Nightwatch testing';
 git push
 ```
-<!-- Code for this begins at line #177 -->
+<!-- Code for this begins at line #180 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L177" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L180" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

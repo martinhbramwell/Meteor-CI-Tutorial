@@ -9,28 +9,23 @@ name: AmendTheConfigurationAndPushAgain
 
 #### Amend the Configuration and Push Again
 
-The command failed because we still must reference our package from the ```circle.yml``` file.  We have to add these lines (substituting appropriately for your names) . . .
+The command failed because we still must reference our package from the ```circle.yml``` file.
+
+We add the script <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/ci_help.sh" target="_blank">ci_help.sh</a> to the packages directory of our project.  It holds an array (```OUR_PACKAGES```) of package descriptions and a script to clone the packages and link them into the project.  Edit ```OUR_PACKAGES``` as needed.
+
+We also insert a call to ```ci_help.sh``` in ```circle.yml```.
 ```ruby
-    - mkdir -p ~/packages/${YOUR_UID};  # ensure dir exists
-    - pushd ~/packages/${YOUR_UID};
-        git clone https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME};
-      popd;
-    - pushd ./packages;
-        rm -fr ${PKG_NAME};
-        ln -s ~/packages/${YOUR_UID}/${PKG_NAME} ${PKG_NAME};
-      popd;
-```
-. . . just after this one, and then commit and push again.
-```ruby
-    - ln -s ~/node_modules node_modules
-```
+    # Pull each of our packages and link them into our project
+    - ./packages/ci_help.sh```
 #####Commands
 ```terminal
-git commit -am 'clone pkg and link to it' && git push
+wget -O ./packages/ci_help.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/ci_help.sh
+git add packages;
+git commit -am 'Add script to clone packages and symlink to them';
 ```
 
 
-<!-- Code for this begins at line #64 -->
+<!-- Code for this begins at line #48 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L64" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L48" target="_blank">Code for this step.</a>] ]
 ]

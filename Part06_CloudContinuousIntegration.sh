@@ -20,30 +20,14 @@ explain ${DOCS}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md MORE_ACT
 if [ "${RUN_RULE}" != "n" ]; then
 
 
-  # ci_help.sh is called by the circle.yml script.
-  # It loops through a list of packages, clones them and links them into the project
-  cp ./fragments/ci_help.sh ~/${PARENT_DIR}/${PROJECT_NAME}/packages
-
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
-
-  # Fix project specific flag variables
-  sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" ./packages/ci_help.sh
-  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ./packages/ci_help.sh
-  sed -i -e "s/\${YOUR_UID}/${YOUR_UID}/" ./packages/ci_help.sh
 
   # Get a circle.yml file
   cp example_circle.yml circle.yml;
 
-  # Add execution of ci_help.sh to circle.yml
-  sed -i '/ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE/c\
-    # Pull each of our packages and link them into our project\
-    - ./packages/ci_help.sh\
-    # ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE' circle.yml
-
-  git add packages;
   git add circle.yml;
   git add tests;
-  set +e;    git commit -am 'Added package and package testing';   set -e;
+  set +e;    git commit -am 'Added circle.yml and unit testing';   set -e;
   git push -u ${PROJECT_NAME}_origin master;
 
   echo -e "\n\n#########################################################################################"
@@ -65,7 +49,26 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
 
-  set +e;    git commit -am 'clone package and symlink to it';   set -e;
+  # ci_help.sh is called by the circle.yml script.
+  # It loops through a list of packages, clones them and links them into the project
+#  cp ./fragments/ci_help.sh ~/${PARENT_DIR}/${PROJECT_NAME}/packages
+  wget -O ./packages/ci_help.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/ci_help.sh
+
+  # Fix project specific flag variables
+  sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" ./packages/ci_help.sh
+  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ./packages/ci_help.sh
+  sed -i -e "s/\${YOUR_UID}/${YOUR_UID}/" ./packages/ci_help.sh
+
+  chmod a+x ./packages/ci_help.sh
+
+  # Add execution of ci_help.sh to circle.yml
+  sed -i '/ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE/c\
+    # Pull each of our packages and link them into our project\
+    - ./packages/ci_help.sh\
+    # ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE' circle.yml
+
+  git add packages;
+  set +e;    git commit -am 'Add script to clone packages and symlink to them';   set -e;
   git push -u ${PROJECT_NAME}_origin master;
 
   echo -e "\n\n#########################################################################################"
