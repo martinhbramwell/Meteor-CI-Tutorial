@@ -22,6 +22,13 @@ Now, this script . . .
 ---
 .left-column[
   ### Configure CircleCI 
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -71,7 +78,7 @@ git commit -am 'Added package and package testing' && git push
 ---
 name: AmendTheConfigurationAndPushAgain
 .left-column[
-  ### Configure CircleCI 
+  ### Configure CircleCI
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[

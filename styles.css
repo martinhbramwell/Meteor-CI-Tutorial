@@ -16,6 +16,7 @@ h1, h2, h3 {
 .footnote {
   position: absolute;
   bottom: 1em;
+  padding-right: 10%;
 }
 li p { line-height: 1.25em; }
 .red { color: #fa0000; }
@@ -143,4 +144,11 @@ code {
   text-decoration: none;
   color: black;
   text-shadow: 4px 5px 0px #737CA1;
+}
+
+.manual_input_reqd
+{
+  width: 100px;
+  text-align: center;
+  padding-right: 10%;
 }
