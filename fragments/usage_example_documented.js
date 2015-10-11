@@ -21,7 +21,7 @@ Template.petStoreTest.helpers({
   },
   /**
    * petStoreTest template's helper for getting a pet name as returned from the API
-   * @return {[type]} [description]
+   * @return {String} The pet's name according to the remote API.
    */
   namePet: function getPetName() {
     return Session.get('pet').name;
