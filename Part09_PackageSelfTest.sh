@@ -56,11 +56,17 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
 
   cp ${PKG_NAME}.js ${PKG_NAME}_$(date +%Y%m%d%H%M).js
+  cp usage_example.js usage_example_$(date +%Y%m%d%H%M).js
 
   wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js
   sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ${PKG_NAME}.js;
   sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" ${PKG_NAME}.js;
   sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" ${PKG_NAME}.js;
+
+  wget -O usage_example.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example_documented.js
+  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" usage_example.js;
+  sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" usage_example.js;
+  sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" usage_example.js;
 
   jsdoc -d ./docs . ./nightwatch;
   echo -e "\n Documentation hs been generated ..."

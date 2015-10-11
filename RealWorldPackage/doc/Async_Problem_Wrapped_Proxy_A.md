@@ -17,9 +17,9 @@
 
 ... continuing.
 
-We need two wrapper functions that wait for the asynchronous calls to return their values.
+We need two <a href='http://docs.meteor.com/#/full/meteor_wrapasync' target='_blank'>wrapper functions</a> that wait for the asynchronous calls to return their values.
 
-Replace the ```new Client()``` block with :
+For the first of the two, replace ```new Client()``` with :
 ```javascript
 const getSwaggerProxy = Meteor.wrapAsync(
   function wrpr(swaggerSpec, callback) {

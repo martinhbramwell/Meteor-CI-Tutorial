@@ -25,12 +25,12 @@ module.exports = {
       .waitForElementVisible('body', 1000)
       .verify.elementPresent('button[id=nextPet]')
       .verify.elementPresent('p[id=petNote]')
-      .assert.containsText('p[id=petNote]', '6133627027')
+      .assert.containsText('p[id=petNote]', '6133627026')
       .assert.containsText('p[id=petNote]', 'unknown')
       .click('button[id=nextPet]')
       .pause(3000)
-      .assert.containsText('p[id=petNote]', '6133627028')
-      .assert.containsText('p[id=petNote]', 'fluffy')
+      .assert.containsText('p[id=petNote]', '6133627027')
+      .assert.containsText('p[id=petNote]', 'weasel')
 
       .end();
   },

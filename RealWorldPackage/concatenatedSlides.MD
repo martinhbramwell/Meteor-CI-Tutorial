@@ -79,15 +79,13 @@ Continues ...
 
 ```javascript
 const Client = Npm.require('swagger-client');
+const swaggerSpecURL = 'http://petstore.swagger.io/v2/swagger.json';
 const swagger = new Client({
-  url: 'http://petstore.swagger.io/v2/swagger.json',
-  success: function getPet() {
-    for (idx = 1; idx <= 10; idx++) { 
-      swagger.pet.getPetById(
-        { petId: idx}, {responseContentType: 'application/json'},
-        function log(pet) { Logger.info('Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
-      );
-    }
+  url: swaggerSpecURL,
+    swagger.pet.getPetById(
+      { petId: 6133627028 }, {responseContentType: 'application/json'},
+      function log(pet) { Logger.info('(Async) Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
+    );
   },
 });
 ```
@@ -150,9 +148,9 @@ Continues ...
 
 ... continuing.
 
-We need two wrapper functions that wait for the asynchronous calls to return their values.
+We need two <a href='http://docs.meteor.com/#/full/meteor_wrapasync' target='_blank'>wrapper functions</a> that wait for the asynchronous calls to return their values.
 
-Replace the ```new Client()``` block with :
+For the first of the two, replace ```new Client()``` with :
 ```javascript
 const getSwaggerProxy = Meteor.wrapAsync(
   function wrpr(swaggerSpec, callback) {
@@ -225,7 +223,7 @@ Continues ...
 
 ... continuing.
 
-So far, we have made access to PetStore synchronous, but still, its methods are async.  To get at them, we add this code to ```${PKG_NAME}.js```
+So far, we have made access to PetStore synchronous, but still, its methods are async.  To get at each one of them, we need to add this code to ```${PKG_NAME}.js```
 ```javascript
 PetStore.sync = {};
 PetStore.sync.getPetById = Meteor.wrapAsync(
