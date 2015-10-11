@@ -26,6 +26,13 @@ Now run ...
 ---
 .left-column[
   ### Console.log is bad!
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -33,7 +40,7 @@ Now run ...
 
 #### Observe ordinary console logging.
 
-Run the command ```meteor test-packages```. In a browser open [localhost:3000](http://localhost:3000/)
+In our project directory, run the command ```meteor test-packages```, and then in a browser open [localhost:3000](http://localhost:3000/)
 
 To the file ```packages/${PKG_NAME}/${PKG_NAME}-tests.js``` add the following
 ```javascript
@@ -50,6 +57,13 @@ However, *esLint* rightfully flags ```console.log()``` as **a bad thing!**  Writ
 ---
 .left-column[
   ### NPM module
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -81,6 +95,13 @@ We now need to fix ```"Error: Cannot find module 'bunyan'"!```
 ---
 .left-column[
   ### Specify Npm modules
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -123,6 +144,13 @@ Npm.depends({
 ---
 .left-column[
   ### Server Only
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -151,6 +179,13 @@ Npm.depends({
 ---
 .left-column[
   ### Add Bunyan Logging
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -177,6 +212,13 @@ Tinytest.add('Check Equality', function sanityCheckEQ(test) {
 ---
 .left-column[
   ### Goodbye Console
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -202,6 +244,13 @@ So, on the server-side, we now have much more control over logging <a href="http
 ---
 .left-column[
   ### Refactor Bunyan (A)
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -229,7 +278,6 @@ Tinytest.add('Check Equality', function sanityCheckEQ(test) {
 
 You'll get an error ```Logger is not defined```, however ...
 
-
 <!-- Code for this begins at line #46 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part07_ProductionLogging.sh#L46" target="_blank">Code for this step.</a>] ]
@@ -237,6 +285,13 @@ You'll get an error ```Logger is not defined```, however ...
 ---
 .left-column[
   ### Refactor Bunyan (B)
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -246,24 +301,75 @@ You'll get an error ```Logger is not defined```, however ...
 
 ... continuing ... we still need to 'wire' ```Logger``` into our package.
 
-In ```package.js```, in **both** the ```onUse``` **and** the ```onTest``` sections, change this ...
+In ```package.js```, in **both** the ```onUse``` **and** the ```onTest``` sections, we need the "api" to add ```logger.js``` and export the ```Logger``` object.
 ```javascript
-api.addFiles(['${PKG_NAME}-tests.js'], ['server']);
-```
-... to look like this ...
+Package.onUse(function(api) {
+       :
+  api.addFiles(['logger.js', 'ourpackage.js'], ['server']);
+  api.export('Logger');
+});
+``` 
 ```javascript
-api.addFiles(                   //  EDIT! <--
-  ['logger.js', '${PKG_NAME}-tests.js'], ['server']
-);
-api.export('Logger'); // Order matters.  Export **after** adding
+Package.onTest(function(api) {
+       :
+  api.addFiles(['logger.js', 'ourpackage-tests.js'], ['server']);
+  api.export('Logger');
+});
 ```
-In a new terminal run, and watch this command when ...
+Continues ...
+<!-- B -->]
+---
+.left-column[
+  ### Package Upgrade (A)
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Package Upgrade and Project Rebuild (Part A)
+
+... continuing ... 
+
+Rerun the tests while watching a ```tail``` of the log file.
 ```terminal
 tail -f /var/log/meteor/ci4meteor.log  | bunyan
 ```
-... the tests in ```http://localhost:3000/``` rerun.
+
+To complete this section, we need to correctly commit our changes and spawn a rebuild in CircleCI.  In the following steps, we're going to see how to : 
+1. Add ```logger.js``` to git version control
+1. Create a ```.gitignore``` file to keep Bunyan's generated module ```.npm``` out of version control
+1. Increment the package version number
+1. Update the app to pick up the version change
+1. Commit the package
+1. Commit the project
+
+Continues . . . 
 
 <!-- B -->]
+---
+.left-column[
+  ### Package Upgrade (B)
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Package Upgrade and Project Rebuild (Part B)
+
+Simply committing the changes we made to the package will not change the containing project and so there'll be no rebuild in CircleCI.  However, the command, ```meteor list```, does more than list packages, it reads ```package.js``` files and updates project information accordingly. If we change our package version number and run ```meteor list``` it will update ```.meteor/versions```.  **That** we can commit, and committing will spawn a rebuild.
+##### Commands
+```terminal
+echo ".npm" >> .gitignore
+git add .gitignore, logger.js
+sed -i -r 's/(.*)(version: .)([0-9]+\.[0-9]+\.)([0-9]+)(.*)/echo "\1\2\3$((\4+1))\5"/ge' package.js # Increment version number
+meteor list
+```
+To finish: commit the package, then commit the project and then watch CircleCI for rebuild success.
+
+<!-- Code for this begins at line #71 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part07_ProductionLogging.sh#L71" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
     ### End Of Part #G

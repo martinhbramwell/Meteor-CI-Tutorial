@@ -1,6 +1,13 @@
 ---
 .left-column[
   ### NPM module
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[

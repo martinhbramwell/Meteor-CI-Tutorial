@@ -1,6 +1,13 @@
 ---
 .left-column[
   ### Console.log is bad!
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -8,7 +15,7 @@
 
 #### Observe ordinary console logging.
 
-Run the command ```meteor test-packages```. In a browser open [localhost:3000](http://localhost:3000/)
+In our project directory, run the command ```meteor test-packages```, and then in a browser open [localhost:3000](http://localhost:3000/)
 
 To the file ```packages/${PKG_NAME}/${PKG_NAME}-tests.js``` add the following
 ```javascript

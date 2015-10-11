@@ -9,7 +9,7 @@
 #### Prepare Deploy Keys for a GitHub Repository.
  
 This step is a repeat of the equivalent operation from the previous part.
-Names are different at key points, so *git* meets no ambiguity about connecting local repos to the correct remote repo.
+Names are made to be distinct, deliberately, so *git* meets no ambiguity about connecting local repos to the correct remote repo.
 
 In this step we prepare an aliased key for ```${PKG_NAME}```.
 ##### Commands

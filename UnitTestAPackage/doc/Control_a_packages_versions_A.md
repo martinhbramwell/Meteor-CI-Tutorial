@@ -1,6 +1,12 @@
 ---
 .left-column[
   ### Package Version Control
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[

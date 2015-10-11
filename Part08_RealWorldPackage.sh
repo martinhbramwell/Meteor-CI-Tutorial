@@ -26,6 +26,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
 
+  reloadSaggerPetStore
   wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js
 
   popd >/dev/null;
@@ -69,8 +70,11 @@ fi
 
 echo ""
 echo ""
-explain ${DOCS}/Declare_Callable_Method.md
+explain ${DOCS}/Package_Dependencies.md
 
+echo ""
+echo ""
+explain ${DOCS}/Declare_Callable_Method.md
 
 echo ""
 echo ""

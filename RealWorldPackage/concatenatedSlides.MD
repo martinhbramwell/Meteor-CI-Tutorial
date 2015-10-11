@@ -26,6 +26,13 @@ Get started now by running ...
 ---
 .left-column[
   ### Another NodeJS Module (A)
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -34,29 +41,17 @@ Get started now by running ...
 #### Let's Add a More Interesting Module (Part A)
 
 
-Edit the file ```'package.js'``` to look like this
+Edit the file ```'package.js'```, adding a reference to ```swagger-client``` : 
 
 ```javascript
-Package.onUse(function(api) {
-        :
-  api.addFiles('${PKG_NAME}.js', ['server']);    //  EDIT! <--
-        :
-});
-
-Package.onTest(function(api) {
-        :
-  api.addFiles(                                  //  EDIT! <--
-    ['logger.js', '${PKG_NAME}.js', '${PKG_NAME}-tests.js'],
-    ['server']
-  );
-        :
-});
-
 Npm.depends({
   'bunyan': '1.5.1',
   'swagger-client': '2.1.5',                     //  ADD! <--
 });
 ```
+
+<a href='http://petstore.swagger.io/#!/pet/getPetById' target='_blank'>Swagger Client</a> gives instant connectivity to remote REST APIs, based solely on  <a href='http://petstore.swagger.io/v2/swagger.json' target='_blank'>a machine readable API specification :  ```'swagger.json'```</a>
+
 Continues ...
 
 
@@ -64,6 +59,13 @@ Continues ...
 ---
 .left-column[
   ### Another NodeJS Module (B)
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -77,19 +79,19 @@ Continues ...
 
 ```javascript
 const Client = Npm.require('swagger-client');
-const swaggerSpecURL = 'http://petstore.swagger.io/v2/swagger.json';
-
 const swagger = new Client({
-  url: swaggerSpecURL,
+  url: 'http://petstore.swagger.io/v2/swagger.json',
   success: function getPet() {
-    swagger.pet.getPetById(
-      { petId: 6133627028}, {responseContentType: 'application/json'},
-      function log(pet) { Logger.info('Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
-    );
+    for (idx = 1; idx <= 10; idx++) { 
+      swagger.pet.getPetById(
+        { petId: idx}, {responseContentType: 'application/json'},
+        function log(pet) { Logger.info('Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
+      );
+    }
   },
 });
 ```
-Have a look at the log file! <a href='http://petstore.swagger.io/#!/pet/getPetById' target='_blank'>Swagger</a> gives instant connectivity to remote REST APIs, based solely on a machine readable specification: ```'swagger.json'```.
+Run ```tail -f /var/log/meteor/ci4meteor.log | bunyan```, to inspect the log file!
 
 Continues ...
 
@@ -114,7 +116,7 @@ const swagger = new Client({
   url: swaggerSpecURL,
   success: function getPet() {
     swagger.pet.getPetById(
-      { petId: 6133627028}, {responseContentType: 'application/json'},
+      { petId: 6133627028 }, {responseContentType: 'application/json'},
       function log(pet) { Logger.info('(Async) Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
     );
   },
@@ -132,6 +134,13 @@ Continues ...
 ---
 .left-column[
   ### The Async Problem (B)
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -143,7 +152,7 @@ Continues ...
 
 We need two wrapper functions that wait for the asynchronous calls to return their values.
 
-Replace ```new Client()``` block with :
+Replace the ```new Client()``` block with :
 ```javascript
 const getSwaggerProxy = Meteor.wrapAsync(
   function wrpr(swaggerSpec, callback) {
@@ -156,7 +165,7 @@ const getSwaggerProxy = Meteor.wrapAsync(
 );
 PetStore = getSwaggerProxy(swaggerSpecURL);
 ```
-PetStore is now a proxy for the remote server.
+```PetStore``` is now a proxy for the remote server.
 
 Continues ...
 
@@ -164,7 +173,14 @@ Continues ...
 <!-- B -->]
 ---
 .left-column[
-  ### The Async Problem (C)
+  ### Export to Meteor
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -174,18 +190,17 @@ Continues ...
 
 ... continuing.
 
-The rest of our application needs to know about ```PetStore```, so we declare it in ```package.js```.
+The rest of our application needs to know about ```PetStore```, so we need to alter ```package.js```.
 
-So this line ...
+The 'api.export()' methods in both sections, (```onUse``` & ```onTest```), will need to look like this :
 ```javascript
-  api.export('Logger');
+  api.export(['Logger', 'PetStore']);  //  Note : the names are in an array.
+```
+Also, in the ```onTest``` section, be sure to 'add' the following files :
+```javascript
+  api.addFiles(['logger.js', 'ourpackage.js', 'ourpackage-tests.js'], ['server']);
 ```
 
-... must become ...
-```javascript
-  api.export(['Logger', 'PetStore']);
-```
-**Note that their names are in an array.**
 
 Continues ...
 
@@ -194,6 +209,13 @@ Continues ...
 ---
 .left-column[
   ### The Async Problem (D)
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -204,14 +226,14 @@ Continues ...
 ... continuing.
 
 So far, we have made access to PetStore synchronous, but still, its methods are async.  To get at them, we add this code to ```${PKG_NAME}.js```
-```ruby
+```javascript
 PetStore.sync = {};
 PetStore.sync.getPetById = Meteor.wrapAsync(
   function wrpr(args, headers, callback) {
     PetStore.pet.getPetById( args, headers
     , function suxs( theResult ) {  callback(null, theResult);  }
     , function errs( theError ) {
-      Logger.info('For Id #' + args.petId + ' : ' + theError.statusText);
+      Logger.error('For Id #' + args.petId + ' : ' + theError.statusText);
       callback(null, theError);
     });
   });
@@ -223,6 +245,13 @@ Continues ...
 ---
 .left-column[
   ### The Async Problem (E)
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -257,6 +286,13 @@ Continues ...
 ---
 .left-column[
   ### Calling Package Methods
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -270,9 +306,9 @@ In the main directory, ```${PKG_NAME}```, of our package we'll create  a templat
 <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.html' target='_blank'>usage_example.html</a>, and a template helper file, <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.js' target='_blank'>'usage_example.js'</a>.
 
 We must register them in our ```package.js``` file.
-```ruby
+```javascript
          :
-api.addFiles('ourpackage.js', ['server']);
+api.addFiles(['logger.js', 'ourpackage.js'], ['server']);
 api.addFiles(['usage_example.html', 'usage_example.js' ], ['client']); // ADD <--
 ```
 ##### Commands
@@ -284,10 +320,47 @@ wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master
 Continues ...
 
 
-<!-- Code for this begins at line #59 -->
+<!-- Code for this begins at line #60 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L59" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L60" target="_blank">Code for this step.</a>] ]
 ]
+---
+.left-column[
+  ### Make Package Method Callable
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Package Dependencies
+
+... continuing.
+
+The new files ```usage_example.html``` and ```usage_example.js``` :
+ - implement client-side functionality and they
+ - do it from within a template
+
+Simply specifying ```['client']``` in ```api.addFiles()``` answers the first issue, but two errors arise from the second one.
+
+We need to declare a dependency on ```templating``` to solve the error, ```No plugin known to handle file 'usage_example.html'``` and we need to declare a dependency on the package, ```session``` to solve the client-side 'ReferenceError' seen on Session, Template and Meteor.  Update the ```Package.onUse()``` section with :
+```javascript
+Package.onUse(function(api) {
+  api.use(['ecmascript', 'templating', 'session']);
+```
+
+
+
+Continues ...
+
+
+<!-- B -->]
 ---
 .left-column[
   ### Make Package Method Callable
@@ -371,7 +444,7 @@ Continues ...
 
 #### Go to the next section . . . 
 
-Now we'll finalize all the previous work by bringing the online documentation up-to-date and providing end-to-end testing of our package, such that interested users can get quickly started using it.   [Part #I - Package Self Test](./?part=H)
+Now we'll finalize all the previous work by bringing the online documentation up-to-date and providing end-to-end testing of our package, such that interested users can get quickly started using it.   [Part #I - Package Self Test](./?part=I)
 
 
 

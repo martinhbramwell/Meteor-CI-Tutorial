@@ -59,6 +59,41 @@ echo ""
 explain ${DOCS}/Refactor_Bunyan_InstantiationB.md
 
 
+echo ""
+echo ""
+explain ${DOCS}/Package_Upgrade_and_Project_Rebuild_A.md
+
+
+echo ""
+echo ""
+explain ${DOCS}/Package_Upgrade_and_Project_Rebuild_B.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  killMeteorProcess
+  
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
+  pushd ./packages/${PKG_NAME} >/dev/null;
+
+
+  touch .gitignore;
+  git add .gitignore;
+  git add logger.js;
+  [[ $(grep -c ".npm" .gitignore) -lt 1 ]] && echo ".npm" >> .gitignore;
+  sed -i -r 's/(.*)(version: .)([0-9]+\.[0-9]+\.)([0-9]+)(.*)/echo "\1\2\3$((\4+1))\5"/ge' package.js;
+  git commit -am 'add logging';
+  git push;
+
+  popd >/dev/null;
+
+  meteor list;
+  git commit -am 'added logging to ${PKG_NAME}';
+  git push;
+
+  popd >/dev/null;
+
+fi
+
+
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain
 
 echo -e "\n\n\nDone! You have finished with 'Part07_ProductionLogging.sh'."

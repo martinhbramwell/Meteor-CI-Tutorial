@@ -1,6 +1,13 @@
 ---
 .left-column[
-  ### The Async Problem (C)
+  ### Export to Meteor
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -10,18 +17,17 @@
 
 ... continuing.
 
-The rest of our application needs to know about ```PetStore```, so we declare it in ```package.js```.
+The rest of our application needs to know about ```PetStore```, so we need to alter ```package.js```.
 
-So this line ...
+The 'api.export()' methods in both sections, (```onUse``` & ```onTest```), will need to look like this :
 ```javascript
-  api.export('Logger');
+  api.export(['Logger', 'PetStore']);  //  Note : the names are in an array.
+```
+Also, in the ```onTest``` section, be sure to 'add' the following files :
+```javascript
+  api.addFiles(['logger.js', 'ourpackage.js', 'ourpackage-tests.js'], ['server']);
 ```
 
-... must become ...
-```javascript
-  api.export(['Logger', 'PetStore']);
-```
-**Note that their names are in an array.**
 
 Continues ...
 

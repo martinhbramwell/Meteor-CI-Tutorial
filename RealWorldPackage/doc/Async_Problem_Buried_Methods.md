@@ -14,7 +14,7 @@ const swagger = new Client({
   url: swaggerSpecURL,
   success: function getPet() {
     swagger.pet.getPetById(
-      { petId: 6133627028}, {responseContentType: 'application/json'},
+      { petId: 6133627028 }, {responseContentType: 'application/json'},
       function log(pet) { Logger.info('(Async) Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
     );
   },

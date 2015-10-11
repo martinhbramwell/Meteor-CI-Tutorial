@@ -26,7 +26,13 @@ You should not need to use 'sudo' for this or any of the later parts.  In other 
 <!-- B -->]
 ---
 .left-column[
-  ### Set Up Project Names
+  ### Set Up Project Names  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -131,7 +137,7 @@ name: Check Meteor Works
 
 #### Check the meteor project will work
 
-This script will stop any currently running Meteor process and start a new for ```${PROJECT_NAME}```, cleanly, now.
+This script will now stop any currently running Meteor process and start a new one for ```${PROJECT_NAME}```, cleanly.
 
 **When prompted**, test meteor in a browser.
 
@@ -238,7 +244,13 @@ Continued . . .
 ---
 name: CreateRemoteGitHubRepository
 .left-column[
-  ### GitHub Repo
+  ### GitHub Repo  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -246,9 +258,7 @@ name: CreateRemoteGitHubRepository
 
 #### Create the **remote** GitHub repository.
 
-... continuing.
-
-This procedure will be more understandable if you watch the video series mentioned on the [Table of Contents](./) page. The steps are :
+... continuing.  This procedure will be more understandable if you watch the video series mentioned on the [Table of Contents](./) page. The steps are :
 
 1. Log in to [GitHub](https://github.com/) as ```${PACKAGE_DEVELOPER}```
 1. **Either** create the ```${GITHUB_ORGANIZATION_NAME}``` organization if it *does not exist*, **or** <a href='http://i.imgur.com/7wHRARZ.png' target='_blank'>switch to operate in that role</a> if it *does exist*.

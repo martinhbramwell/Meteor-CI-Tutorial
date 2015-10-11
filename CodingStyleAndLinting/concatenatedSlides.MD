@@ -25,7 +25,13 @@ This is useful for an individual developer, but increases in importance with the
 ---
 name: UseESLintOnTheCommandLine
 .left-column[
-  ### Command Line ESLint 
+  ### Command Line ESLint
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -56,6 +62,12 @@ eslint ${PROJECT_NAME}.js
 ---
 .left-column[
   ### ESLint for ST3
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -77,6 +89,12 @@ Steps to perform :
 ---
 .left-column[
   ### Sublime ESLint
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -102,6 +120,12 @@ You have reconfigured the ESLint rule ```'quotes'```.  The complete list of conf
 ---
 .left-column[
   ### Sublime ESLint
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[

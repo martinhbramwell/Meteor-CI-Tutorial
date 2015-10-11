@@ -1,6 +1,13 @@
 ---
 .left-column[
   ### Refactor Bunyan (A)
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -27,7 +34,6 @@ Tinytest.add('Check Equality', function sanityCheckEQ(test) {
 ```
 
 You'll get an error ```Logger is not defined```, however ...
-
 
 <!-- Code for this begins at line #46 -->
 <!-- B -->

@@ -8,7 +8,7 @@
 
 #### Go to the next section . . . 
 
-Now we'll finalize all the previous work by bringing the online documentation up-to-date and providing end-to-end testing of our package, such that interested users can get quickly started using it.   [Part #I - Package Self Test](./?part=H)
+Now we'll finalize all the previous work by bringing the online documentation up-to-date and providing end-to-end testing of our package, such that interested users can get quickly started using it.   [Part #I - Package Self Test](./?part=I)
 
 
 

@@ -1,6 +1,13 @@
 ---
 .left-column[
   ### Refactor Bunyan (B)
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -10,21 +17,20 @@
 
 ... continuing ... we still need to 'wire' ```Logger``` into our package.
 
-In ```package.js```, in **both** the ```onUse``` **and** the ```onTest``` sections, change this ...
+In ```package.js```, in **both** the ```onUse``` **and** the ```onTest``` sections, we need the "api" to add ```logger.js``` and export the ```Logger``` object.
 ```javascript
-api.addFiles(['${PKG_NAME}-tests.js'], ['server']);
-```
-... to look like this ...
+Package.onUse(function(api) {
+       :
+  api.addFiles(['logger.js', 'ourpackage.js'], ['server']);
+  api.export('Logger');
+});
+``` 
 ```javascript
-api.addFiles(                   //  EDIT! <--
-  ['logger.js', '${PKG_NAME}-tests.js'], ['server']
-);
-api.export('Logger'); // Order matters.  Export **after** adding
+Package.onTest(function(api) {
+       :
+  api.addFiles(['logger.js', 'ourpackage-tests.js'], ['server']);
+  api.export('Logger');
+});
 ```
-In a new terminal run, and watch this command when ...
-```terminal
-tail -f /var/log/meteor/ci4meteor.log  | bunyan
-```
-... the tests in ```http://localhost:3000/``` rerun.
-
+Continues ...
 <!-- B -->]

@@ -1,6 +1,13 @@
 ---
 .left-column[
   ### Another NodeJS Module (B)
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -14,19 +21,19 @@
 
 ```javascript
 const Client = Npm.require('swagger-client');
-const swaggerSpecURL = 'http://petstore.swagger.io/v2/swagger.json';
-
 const swagger = new Client({
-  url: swaggerSpecURL,
+  url: 'http://petstore.swagger.io/v2/swagger.json',
   success: function getPet() {
-    swagger.pet.getPetById(
-      { petId: 6133627028}, {responseContentType: 'application/json'},
-      function log(pet) { Logger.info('Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
-    );
+    for (idx = 1; idx <= 10; idx++) { 
+      swagger.pet.getPetById(
+        { petId: idx}, {responseContentType: 'application/json'},
+        function log(pet) { Logger.info('Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
+      );
+    }
   },
 });
 ```
-Have a look at the log file! <a href='http://petstore.swagger.io/#!/pet/getPetById' target='_blank'>Swagger</a> gives instant connectivity to remote REST APIs, based solely on a machine readable specification: ```'swagger.json'```.
+Run ```tail -f /var/log/meteor/ci4meteor.log | bunyan```, to inspect the log file!
 
 Continues ...
 

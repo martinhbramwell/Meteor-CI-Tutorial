@@ -1,6 +1,6 @@
 ---
 .left-column[
-  ### Configure CircleCI 
+  ### Configure CircleCI
   <br />
   <br />
   <div class="manual_input_reqd">

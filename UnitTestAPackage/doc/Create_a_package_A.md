@@ -8,7 +8,7 @@
 
 #### Create a Meteor package development directory.
 
-If you aim for "package only applications", if packages are to be reusable, your packages need independent version control, and hence in a directory outside of the project, that you specify with Meteor's shell variable ```PACKAGE_DIRS```.
+If you aim for "package only applications", if packages are to be reusable, your packages need independent version control, and to reside in a directory outside of the project, that you specify with Meteor's shell variable ```PACKAGE_DIRS```.
 
 To create self-sufficient packages, begin by defining ```PACKAGE_DIRS``` as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
 ##### Commands

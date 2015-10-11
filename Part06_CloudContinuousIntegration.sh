@@ -163,8 +163,7 @@ fi
 explain ${DOCS}/Configure_CircleCI_for_Nightwatch_Testing.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR} >/dev/null;
-  pushd ${PROJECT_NAME} >/dev/null;
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
   cp tests/nightwatch/config/example_circle.yml circle.yml;
   # Add execution of ci_help.sh to circle.yml
@@ -178,7 +177,6 @@ if [ "${RUN_RULE}" != "n" ]; then
   set +e;    git commit -am 'Added Nightwatch testing';   set -e;
   git push
 
-  popd >/dev/null;
   popd >/dev/null;
 
 fi

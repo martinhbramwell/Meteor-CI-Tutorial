@@ -1,4 +1,4 @@
-Session.setDefault('idPet', 6133627027);
+Session.setDefault('idPet', 6133627026);
 Session.setDefault('pet', { name: 'unknown'});
 
 Template.petStoreTest.helpers({

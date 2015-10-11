@@ -61,7 +61,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
-  echo -e "Reviewing installed packages . . . ( slow! give us a minute) \n\n"
+  echo -e "Reviewing installed packages . . . ( slow! give us a minute ) \n\n"
 
   INSTALL_PACKAGE=true;
   meteor list > pkgs.txt;
