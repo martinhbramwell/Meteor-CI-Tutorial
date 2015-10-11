@@ -84,6 +84,13 @@ If you open the index file in your browser from its file system location . . .
 ---
 .left-column[
   ### jsDoc for ST3
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -130,6 +137,13 @@ Continues . . .
 ---
 .left-column[
   ### jsDoc for ST3
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
+  <br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[

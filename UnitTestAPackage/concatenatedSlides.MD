@@ -32,7 +32,7 @@ This one . . .
 
 #### Create a Meteor package development directory.
 
-If you aim for "package only applications", if packages are to be reusable, your packages need independent version control, and hence in a directory outside of the project, that you specify with Meteor's shell variable ```PACKAGE_DIRS```.
+If you aim for "package only applications", if packages are to be reusable, your packages need independent version control, and to reside in a directory outside of the project, that you specify with Meteor's shell variable ```PACKAGE_DIRS```.
 
 To create self-sufficient packages, begin by defining ```PACKAGE_DIRS``` as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
 ##### Commands
@@ -134,7 +134,7 @@ For editing purposes your package now appears to be part of your project.  But w
 #### Prepare Deploy Keys for a GitHub Repository.
  
 This step is a repeat of the equivalent operation from the previous part.
-Names are different at key points, so *git* meets no ambiguity about connecting local repos to the correct remote repo.
+Names are made to be distinct, deliberately, so *git* meets no ambiguity about connecting local repos to the correct remote repo.
 
 In this step we prepare an aliased key for ```${PKG_NAME}```.
 ##### Commands
@@ -165,6 +165,12 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
 ---
 .left-column[
   ### Package Version Control
+  <br />
+  <br />
+  <div class="manual_input_reqd">
+  <img src="./fragments/typer.gif" />
+  Manual input required here.
+  </div>
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
