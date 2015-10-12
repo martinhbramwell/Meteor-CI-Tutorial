@@ -28,7 +28,7 @@ Let's unit test our ```PetStore``` proxy by appending this to ```${PKG_NAME}-tes
  * @return {None}
  */
 const petNum = 6133627028;
-const expected = 'Your fluffy little wolverine';
+const expected = 'Your fluffy little wolverine.';
 Tinytest.add('Pet #' + petNum + ' is : ' + expected, function obtainPetById(test) {
   var aPet = PetStore.sync.getPetById(
     { petId: petNum}, {responseContentType: 'application/json'}

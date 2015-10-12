@@ -14,6 +14,7 @@
 ```terminal
 pushd ./packages/${PKG_NAME};
 wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js
+wget -O usage_example.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example_documented.js
 jsdoc -d ./docs . ./nightwatch
 popd;
 ```
