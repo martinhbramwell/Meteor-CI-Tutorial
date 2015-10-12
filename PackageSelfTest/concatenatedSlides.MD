@@ -65,6 +65,7 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 ```terminal
 pushd ./packages/${PKG_NAME};
 wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js
+wget -O usage_example.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example_documented.js
 jsdoc -d ./docs . ./nightwatch
 popd;
 ```
@@ -93,7 +94,32 @@ Package.onUse(function(api) {
 
 Continues ...
 
-<!-- B -->]
+<!-- Code for this begins at line #87 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L87" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Left Title
+.footnote[.red.bold[] [Table of Contents](./)]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Friendly Title
+
+
+```javascript
+Package.onUse(function(api) {
+});
+```
+
+Continues ...
+
+<!-- Code for this begins at line #87 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L87" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Left Title
