@@ -239,9 +239,9 @@ We need <a href='http://www.sublimetext.com/3' target='_blank'>Sublime Text 3</a
 export ST3URL="https://packagecontrol.io/installation#st3";
 python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"
 ```
-<!-- Code for this begins at line #166 -->
+<!-- Code for this begins at line #158 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L166" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L158" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -289,9 +289,9 @@ npm install -gy babel-eslint
 ```
 
 There is a closely related ESLint package for Sublime Text.  We will install it in the next section.
-<!-- Code for this begins at line #177 -->
+<!-- Code for this begins at line #169 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L177" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L169" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -315,9 +315,9 @@ npm install -g jsdoc
 ```
 
 There is a closely related JSDoc package for Sublime Text, which we will install in the next section.
-<!-- Code for this begins at line #185 -->
+<!-- Code for this begins at line #177 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L185" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L177" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
