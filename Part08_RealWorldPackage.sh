@@ -12,15 +12,18 @@ source ./explain.sh
 source ./util.sh
 
 
+RUN_RULE="";
 explain ${DOCS}/Introduction.md
 
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Another_NodeJS_moduleA.md
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Another_NodeJS_moduleB.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
@@ -35,22 +38,27 @@ fi
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Async_Problem_Buried_Methods.md
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Async_Problem_Wrapped_Proxy_A.md
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Async_Problem_Wrapped_Proxy_B.md
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Async_Problem_Sync_Namespace.md
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Async_Problem_TinyTest_A.md
 
 echo ""
@@ -70,14 +78,17 @@ fi
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Package_Dependencies.md
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Declare_Callable_Method.md
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/View_and_Hide_The_Example.md
 
 

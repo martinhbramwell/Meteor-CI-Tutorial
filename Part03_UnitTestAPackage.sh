@@ -180,10 +180,12 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ${PACKAGES}/${YOUR_UID}/${PKG_NAME} >/dev/null;
 
+  mkdir -p ~/.ssh;
   chmod 700 ~/.ssh;
-  chmod 600 ~/.ssh/id_rsa;
+  if test -f ~/.ssh/id_rsa; then chmod 600 ~/.ssh/id_rsa; fi;
 
-  ssh-add
+  set +e;   ssh-add;   set -e;
+
   git init
   git add .
   git commit -am 'First commit'

@@ -35,7 +35,7 @@ Tinytest.add('Check Equality', function sanityCheckEQ(test) {
 
 You'll get an error ```Logger is not defined```, however ...
 
-<!-- Code for this begins at line #46 -->
+<!-- Code for this begins at line #53 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part07_ProductionLogging.sh#L46" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part07_ProductionLogging.sh#L53" target="_blank">Code for this step.</a>] ]
 ]

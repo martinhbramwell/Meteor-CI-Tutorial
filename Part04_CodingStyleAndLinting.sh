@@ -31,17 +31,19 @@ if [ "${RUN_RULE}" != "n" ]; then
 
 fi
 
-
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Configure_Sublime_Text_to_use_ESLint.md
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Customize_ESLint_in_Sublime_Text.md
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Try_ESLint_in_Sublime_Text.md
 
 echo ""

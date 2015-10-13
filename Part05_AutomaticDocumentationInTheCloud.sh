@@ -51,6 +51,7 @@ fi
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Configure_Sublime_Text_to_use_jsDoc.md
 
 
@@ -71,6 +72,7 @@ fi
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin_B.md
 
 
@@ -93,6 +95,7 @@ fi
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Publish_jsDocs_toGitHub_A.md
 
 

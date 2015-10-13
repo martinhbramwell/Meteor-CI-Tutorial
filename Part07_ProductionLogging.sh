@@ -12,31 +12,38 @@ source ./explain.sh
 source ./util.sh
 
 
+RUN_RULE="";
 explain ${DOCS}/Introduction.md
 
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Observe_ordinary_console_logging.md
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Add_an_NPM_module_to_your_package.md
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Specify_Npm_modules.md
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Bunyan_Server_Side_OnlyLogging.md
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Add_Bunyan_Logging.md
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Goodbye_console.md
 
 echo ""
@@ -56,11 +63,13 @@ fi
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Refactor_Bunyan_InstantiationB.md
 
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Package_Upgrade_and_Project_Rebuild_A.md
 
 
@@ -70,7 +79,7 @@ explain ${DOCS}/Package_Upgrade_and_Project_Rebuild_B.md MORE_ACTION # CODE_BLOC
 if [ "${RUN_RULE}" != "n" ]; then
 
   killMeteorProcess
-  
+
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
   pushd ./packages/${PKG_NAME} >/dev/null;
 

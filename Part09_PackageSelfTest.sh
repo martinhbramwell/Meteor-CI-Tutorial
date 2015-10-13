@@ -12,6 +12,7 @@ source ./explain.sh
 source ./util.sh
 
 
+RUN_RULE="";
 explain ${DOCS}/Introduction.md
 
 
@@ -140,11 +141,13 @@ fi
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/FirstPage.md
 
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/LastPage.md
 
 

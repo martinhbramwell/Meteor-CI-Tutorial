@@ -241,6 +241,7 @@ fi
 
 echo ""
 echo ""
+RUN_RULE="";
 explain ${DOCS}/Create_remote_GitHub_repository_A.md
 
 

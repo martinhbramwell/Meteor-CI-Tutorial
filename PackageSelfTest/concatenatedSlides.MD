@@ -45,9 +45,9 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 ./tests/nightwatch/runTests.js | bunyan
 ```
 
-<!-- Code for this begins at line #22 -->
+<!-- Code for this begins at line #23 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L22" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L23" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -72,9 +72,9 @@ popd;
 
 Continues ...
 
-<!-- Code for this begins at line #55 -->
+<!-- Code for this begins at line #56 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L55" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L56" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -94,9 +94,9 @@ Package.onUse(function(api) {
 
 Continues ...
 
-<!-- Code for this begins at line #87 -->
+<!-- Code for this begins at line #88 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L87" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L88" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -116,9 +116,9 @@ Package.onUse(function(api) {
 
 Continues ...
 
-<!-- Code for this begins at line #87 -->
+<!-- Code for this begins at line #88 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L87" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L88" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

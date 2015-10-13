@@ -36,7 +36,7 @@ Run ```tail -f /var/log/meteor/ci4meteor.log | bunyan```, to inspect the log fil
 Continues ...
 
 
-<!-- Code for this begins at line #26 -->
+<!-- Code for this begins at line #29 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L26" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L29" target="_blank">Code for this step.</a>] ]
 ]
