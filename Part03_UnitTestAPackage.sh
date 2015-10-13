@@ -180,6 +180,9 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ${PACKAGES}/${YOUR_UID}/${PKG_NAME} >/dev/null;
 
+  chmod 700 ~/.ssh;
+  chmod 600 ~/.ssh/id_rsa;
+
   ssh-add
   git init
   git add .

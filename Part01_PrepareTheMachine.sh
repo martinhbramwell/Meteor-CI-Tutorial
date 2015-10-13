@@ -152,14 +152,6 @@ fi
 
 
 
-
-export BIN_DIR=/usr/local/bin
-chown -R ${SUDOUSER}:${SUDOUSER} ~/.npm
-mkdir -p ${BIN_DIR}
-touch ${BIN_DIR}/meteor
-chown -R ${SUDOUSER}:${SUDOUSER} ${BIN_DIR}
-chmod -R a+w ${BIN_DIR}
-
 export ST3URL="https://packagecontrol.io/installation#st3";
 highlight ${DOCS}/Configure_Sublime_A.md # CODE_BLOCK explain
 echo "";
@@ -185,18 +177,19 @@ if [ "${RUN_RULE}" != "n" ]; then
   npm install -g jsdoc
 fi
 
+
+export BIN_DIR=/usr/local/bin
+chown -R ${SUDOUSER}:${SUDOUSER} ~/.npm
+mkdir -p ${BIN_DIR}
+touch ${BIN_DIR}/meteor
+chown -R ${SUDOUSER}:${SUDOUSER} ${BIN_DIR}
+chmod -R a+w ${BIN_DIR}
+
 ## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain
 
 echo -e "\n\n\nDone! You have finished with 'Part01_PrepareTheMachine.sh'."
-echo -e "\n\n   Are you ready to begin './Part02_VersionControlInTheCloud.sh'?"
-echo -e "         If so, hit [y]es, or <Enter>.  If NOT then hit [n]o or <ctrl-c>."
+echo -e "\n\n  Now you can execute ::  './Part02_VersionControlInTheCloud.sh'?"
 
-read -p "  'y' or 'n' ::  " -n 1 -r USER_ANSWER
-CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
-if [[ "X${CHOICE}X" == "XyX"  || "X${CHOICE}X" == "XX" ]]; then
-  echo -e "\n\nStarting Part #4.";
-  ./Part04_CodingStyleAndLinting.sh
-fi;
 
 echo -e "\n\n";
 
