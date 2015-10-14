@@ -149,21 +149,6 @@ if [ "${RUN_RULE}" != "n" ]; then
   pip install beautifulsoup4 requests
 fi
 
-
-
-
-export ST3URL="https://packagecontrol.io/installation#st3";
-highlight ${DOCS}/Configure_Sublime_A.md # CODE_BLOCK explain
-echo "";
-echo "If there is no networking error, then the following text will be the snippet obtained from  : ${ST3URL}";
-python -c "import requests;from bs4 import BeautifulSoup;print '>>>\n';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"
-echo "";
-read -p "Hit <enter> ::  " -n 1 -r REPLY
-
-
-highlight ${DOCS}/Configure_Sublime_B.md # explain
-
-
 explain ${DOCS}/Install_eslint.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
   npm install -gy eslint
@@ -176,6 +161,18 @@ explain ${DOCS}/Install_jsdoc.md ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
   npm install -g jsdoc
 fi
+
+
+export ST3URL="https://packagecontrol.io/installation#st3";
+highlight ${DOCS}/Configure_Sublime_A.md # CODE_BLOCK explain
+echo "";
+echo "If there is no networking error, then the following text will be the snippet obtained from  : ${ST3URL}";
+python -c "import requests;from bs4 import BeautifulSoup;print '>>>\n';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"
+echo "";
+read -p "Hit <enter> ::  " -n 1 -r REPLY
+
+
+highlight ${DOCS}/Configure_Sublime_B.md # explain
 
 
 export BIN_DIR=/usr/local/bin

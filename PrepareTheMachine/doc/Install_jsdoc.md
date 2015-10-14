@@ -20,7 +20,7 @@ npm install -g jsdoc
 ```
 
 There is a closely related JSDoc package for Sublime Text, which we will install in the next section.
-<!-- Code for this begins at line #177 -->
+<!-- Code for this begins at line #162 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L177" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L162" target="_blank">Code for this step.</a>] ]
 ]
