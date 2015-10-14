@@ -216,56 +216,6 @@ pip install -y beautifulsoup4 requests
 ]
 ---
 .left-column[
-  ### Prepare Sublime Text (Step #1)
-.footnote[.red.bold[] [Table of Contents](./)] 
-<!-- H -->]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-### Preparation of Sublime Text 
-#### First step - add '<a href='https://packagecontrol.io/' target='_blank'>Package Control</a>'
-
-We need <a href='http://www.sublimetext.com/3' target='_blank'>Sublime Text 3</a> configured as follows :
-
- - In your browser, go to the <a href='https://packagecontrol.io/installation' target='_blank'>Package Control installer URL</a>
- - Copy the code snippet for **Sublime Text 3**
- - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
- - Go to View >> Show Console, to open the Console
- - Paste the snippet into ST3's console, hit enter and respond to the two prompts.
- - Go to View >> Hide Console, to close the Console
-
-#####Commands
-```terminal
-export ST3URL="https://packagecontrol.io/installation#st3";
-python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"
-```
-<!-- Code for this begins at line #158 -->
-<!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L158" target="_blank">Code for this step.</a>] ]
-]
----
-.left-column[
-  ### Prepare Sublime Text (Step #2)
-.footnote[.red.bold[] [Table of Contents](./)] 
-<!-- H -->]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-### Preparation of Sublime Text 
-#### Second step - Use '<a href='https://packagecontrol.io/' target='_blank'>Package Control</a>' to install more packages.
-
- - Go to Preferences >> Package Control
- - In Package Control select : install package
- - Install these two packages :
-   - 'MarkDownEditing'
-   - 'SideBarEnhancements'
- - (Optional) In Preferences 
-   - Color Scheme 
-     - Color Scheme - Default --> pick ```IDLE```
-
-<!-- B -->]
----
-.left-column[
   ### Set Up Linting
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
@@ -289,9 +239,9 @@ npm install -gy babel-eslint
 ```
 
 There is a closely related ESLint package for Sublime Text.  We will install it in the next section.
-<!-- Code for this begins at line #169 -->
+<!-- Code for this begins at line #154 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L169" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L154" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -315,10 +265,60 @@ npm install -g jsdoc
 ```
 
 There is a closely related JSDoc package for Sublime Text, which we will install in the next section.
-<!-- Code for this begins at line #177 -->
+<!-- Code for this begins at line #162 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L177" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L162" target="_blank">Code for this step.</a>] ]
 ]
+---
+.left-column[
+  ### Prepare Sublime Text (Step #1)
+.footnote[.red.bold[] [Table of Contents](./)]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+### Preparation of Sublime Text
+#### First step - add '<a href='https://packagecontrol.io/' target='_blank'>Package Control</a>'
+
+We need <a href='http://www.sublimetext.com/3' target='_blank'>Sublime Text 3</a> configured as follows :
+
+ - In your browser, go to the <a href='https://packagecontrol.io/installation' target='_blank'>Package Control installer URL</a>
+ - Copy the code snippet for **Sublime Text 3**
+ - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
+ - Go to View >> Show Console, to open the Console
+ - Paste the snippet into ST3's console, hit enter and respond to the two prompts.
+ - Go to View >> Hide Console, to close the Console
+
+#####Commands
+```terminal
+export ST3URL="https://packagecontrol.io/installation#st3";
+python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"
+```
+<!-- Code for this begins at line #169 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L169" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Prepare Sublime Text (Step #2)
+.footnote[.red.bold[] [Table of Contents](./)]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+### Preparation of Sublime Text
+#### Second step - Use '<a href='https://packagecontrol.io/' target='_blank'>Package Control</a>' to install more packages.
+
+ - Go to Preferences >> Package Control
+ - In Package Control select : install package
+ - Install these two packages :
+   - 'MarkDownEditing'
+   - 'SideBarEnhancements'
+ - (Optional) In Preferences
+   - Color Scheme
+     - Color Scheme - Default --> pick ```IDLE```
+
+<!-- B -->]
 ---
 .left-column[
   ### End Of Part #A
