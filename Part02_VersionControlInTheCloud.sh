@@ -279,6 +279,17 @@ fi
 explain ${DOCS}/Create_local_GitHub_repository.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
+  mkdir -p ~/.ssh;
+  touch ~/.ssh/known_hosts;
+
+  ssh-keygen -R github.com; echo $?;
+  ssh-keyscan -H -t rsa github.com >> ~/.ssh/known_hosts; echo $?;
+
+  IPADDR=$(host github.com  | awk '/has address/ { print $4 }')
+
+  ssh-keygen -R ${IPADDR}; echo $?;
+  ssh-keyscan -H -t rsa ${IPADDR} >> ~/.ssh/known_hosts; echo $?;
+
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
 
