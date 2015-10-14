@@ -279,6 +279,7 @@ fi
 explain ${DOCS}/Create_local_GitHub_repository.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
+  echo -e "Collecting GitHub public keys for 'known-hosts'";
   mkdir -p ~/.ssh;
   touch ~/.ssh/known_hosts;
 
@@ -293,7 +294,6 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
 
-#  ssh-add
   git init
   git add .
   set +e;    git commit -am 'First commit';    set -e;
