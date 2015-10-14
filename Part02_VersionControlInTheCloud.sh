@@ -294,6 +294,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
 
+  echo -e "Initializing 'git'";
   git init
   git add .
   set +e;    git commit -am 'First commit';    set -e;
