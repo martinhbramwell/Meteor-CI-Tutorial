@@ -139,7 +139,8 @@ fi
 #############################
 
 
-function reloadSaggerPetStore() {
+function reloadSwaggerPetStore() {
+  echo -e "\n\nInserting test values in Swagger Pet Store database . . . "
   curl -X POST --header "Content-Type: application/json" --header "Accept: application/json" -d "{
     \"id\": 6133627027,
     \"category\": {
@@ -179,4 +180,5 @@ function reloadSaggerPetStore() {
     \"name\": \"Mildred the Mild-Mannered Mandrill\",
     \"status\": \"available\"
   }" "http://petstore.swagger.io/v2/pet" 
+  echo -e ". . . inserted test values in Swagger Pet Store database.\n\n"
 }

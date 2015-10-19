@@ -27,10 +27,18 @@ RUN_RULE="";
 explain ${DOCS}/Another_NodeJS_moduleB.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
+  pushd ./packages/${PKG_NAME} >/dev/null;
 
-  reloadSaggerPetStore
+  reloadSwaggerPetStore
   wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js
+
+  popd >/dev/null;
+  
+  launchMeteorProcess "http://localhost:3000/"
+  echo "The 'tail' command shows . . . "
+  tail -f /var/log/meteor/ci4meteor.log  | bunyan
+  echo ". . . the tail end of log file."
 
   popd >/dev/null;
 
