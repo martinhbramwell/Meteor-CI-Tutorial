@@ -305,14 +305,14 @@ In ```package.js```, in **both** the ```onUse``` **and** the ```onTest``` sectio
 ```javascript
 Package.onUse(function(api) {
        :
-  api.addFiles(['logger.js', 'ourpackage.js'], ['server']);
+  api.addFiles(['logger.js', '${PKG_NAME}.js'], ['server']);
   api.export('Logger');
 });
 ``` 
 ```javascript
 Package.onTest(function(api) {
        :
-  api.addFiles(['logger.js', 'ourpackage-tests.js'], ['server']);
+  api.addFiles(['logger.js', '${PKG_NAME}-tests.js'], ['server']);
   api.export('Logger');
 });
 ```
