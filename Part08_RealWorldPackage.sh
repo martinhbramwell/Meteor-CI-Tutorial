@@ -31,16 +31,22 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd ./packages/${PKG_NAME} >/dev/null;
 
   reloadSwaggerPetStore
-  wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js
+#  wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js
 
   popd >/dev/null;
   
+  killMeteorProcess
   launchMeteorProcess "http://localhost:3000/"
+  echo "Contacting Swagger Pet Store . . . "
+  sleep 10
   echo "The 'tail' command shows . . . "
-  tail -f /var/log/meteor/ci4meteor.log  | bunyan
-  echo ". . . the tail end of log file."
+  tail -n 4 /var/log/meteor/ci4meteor.log  | bunyan
+  echo ". . . the tail end of log file.\n"
 
   popd >/dev/null;
+
+  killMeteorProcess
+  read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER   
 
 fi
 

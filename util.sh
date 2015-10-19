@@ -180,5 +180,5 @@ function reloadSwaggerPetStore() {
     \"name\": \"Mildred the Mild-Mannered Mandrill\",
     \"status\": \"available\"
   }" "http://petstore.swagger.io/v2/pet" 
-  echo -e ". . . inserted test values in Swagger Pet Store database.\n\n"
+  echo -e "\n. . . inserted test values in Swagger Pet Store database.\n\n"
 }
