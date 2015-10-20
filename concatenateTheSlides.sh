@@ -136,6 +136,7 @@ tar zcvf pack.tar.gz index.html \
 styles.css \
 gitlog.txt \
 fragments/typer.gif \
+fragments/loader.gif \
 PrepareTheMachine/concatenatedSlides.MD \
 VersionControlInTheCloud/concatenatedSlides.MD \
 UnitTestAPackage/concatenatedSlides.MD \
