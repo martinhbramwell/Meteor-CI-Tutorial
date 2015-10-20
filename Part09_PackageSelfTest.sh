@@ -18,7 +18,7 @@ explain ${DOCS}/Introduction.md
 
 echo ""
 echo ""
-explain ${DOCS}/UsageExampleEndToEnd.md MORE_ACTION # CODE_BLOCK
+explain ${DOCS}/UsageExampleEndToEnd.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 if [ "${RUN_RULE}" != "n" ]; then
 
   NGHTWTCH=~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/nightwatch;

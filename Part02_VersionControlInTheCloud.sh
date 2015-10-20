@@ -241,13 +241,13 @@ fi
 
 echo ""
 echo ""
+explain ${DOCS}/Create_remote_GitHub_repository_A.md #
+
+
+echo ""
+echo ""
 RUN_RULE="";
-explain ${DOCS}/Create_remote_GitHub_repository_A.md # MANUAL_INPUT_REQUIRED
-
-
-echo ""
-echo ""
-explain ${DOCS}/Create_remote_GitHub_repository_B.md MORE_ACTION # CODE_BLOCK
+explain ${DOCS}/Create_remote_GitHub_repository_B.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 if [ "${RUN_RULE}" != "n" ]; then
 
   export RMT_REPO="https://github.com/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}";
