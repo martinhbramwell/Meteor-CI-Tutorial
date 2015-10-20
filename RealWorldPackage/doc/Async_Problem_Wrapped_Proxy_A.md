@@ -1,13 +1,7 @@
 ---
 .left-column[
   ### The Async Problem (B)
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[

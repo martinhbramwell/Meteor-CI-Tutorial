@@ -1,13 +1,8 @@
 ---
 name: CreateRemoteGitHubRepository
 .left-column[
-  ### GitHub Repo  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  ### GitHub Repo
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -28,7 +23,7 @@ name: CreateRemoteGitHubRepository
 
 
 
-<!-- Code for this begins at line #254 -->
+<!-- Code for this begins at line #252 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L254" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L252" target="_blank">Code for this step.</a>] ]
 ]

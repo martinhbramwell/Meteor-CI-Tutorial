@@ -26,13 +26,7 @@ Now run ...
 ---
 .left-column[
   ### Console.log is bad!
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -57,13 +51,7 @@ However, *esLint* rightfully flags ```console.log()``` as **a bad thing!**  Writ
 ---
 .left-column[
   ### NPM module
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -95,13 +83,7 @@ We now need to fix ```"Error: Cannot find module 'bunyan'"!```
 ---
 .left-column[
   ### Specify Npm modules
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -144,13 +126,7 @@ Npm.depends({
 ---
 .left-column[
   ### Server Only
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -179,13 +155,7 @@ Npm.depends({
 ---
 .left-column[
   ### Add Bunyan Logging
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -212,13 +182,7 @@ Tinytest.add('Check Equality', function sanityCheckEQ(test) {
 ---
 .left-column[
   ### Goodbye Console
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -244,13 +208,7 @@ So, on the server-side, we now have much more control over logging <a href="http
 ---
 .left-column[
   ### Refactor Bunyan (A)
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -285,13 +243,7 @@ You'll get an error ```Logger is not defined```, however ...
 ---
 .left-column[
   ### Refactor Bunyan (B)
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -321,6 +273,7 @@ Continues ...
 ---
 .left-column[
   ### Package Upgrade (A)
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -349,6 +302,7 @@ Continues . . .
 ---
 .left-column[
   ### Package Upgrade (B)
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -366,9 +320,9 @@ meteor list
 ```
 To finish: commit the package, then commit the project and then watch CircleCI for rebuild success.
 
-<!-- Code for this begins at line #80 -->
+<!-- Code for this begins at line #78 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part07_ProductionLogging.sh#L80" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part07_ProductionLogging.sh#L78" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

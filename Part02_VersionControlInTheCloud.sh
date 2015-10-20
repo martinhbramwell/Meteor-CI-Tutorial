@@ -15,9 +15,9 @@ source ./util.sh
 
 explain ${DOCS}/Introduction.md
 
-RUN_RULE=a
-explain ${DOCS}/Set_Up_Project_Names.md MORE_ACTION
-RUN_RULE=
+RUN_RULE="a";
+explain ${DOCS}/Set_Up_Project_Names.md MORE_ACTION # MANUAL_INPUT_REQUIRED
+RUN_RULE="";
 if ! getUserData; then
     echo -e "#####################################################################"
     echo -e "#   The rest of this script will fail without correct values for : "
@@ -194,7 +194,7 @@ RDME
 fi
 
 
-RUN_RULE="";
+
 explain ${DOCS}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
@@ -242,9 +242,7 @@ fi
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Create_remote_GitHub_repository_A.md
-
-
+explain ${DOCS}/Create_remote_GitHub_repository_A.md # MANUAL_INPUT_REQUIRED
 
 
 echo ""

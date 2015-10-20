@@ -1,13 +1,7 @@
 ---
 .left-column[
   ### Calling Package Methods
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -20,11 +14,11 @@ Unit tests confirm our package works, but how do we actually use it from an appl
 In the main directory, ```${PKG_NAME}```, of our package we'll create  a template file, 
 <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.html' target='_blank'>usage_example.html</a>, and a template helper file, <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.js' target='_blank'>'usage_example.js'</a>.
 
-We must register them in our ```package.js``` file.
+We must register them in the ```onUse``` of our ```package.js``` file.
 ```javascript
          :
-api.addFiles(['logger.js', 'ourpackage.js'], ['server']);
-api.addFiles(['usage_example.html', 'usage_example.js' ], ['client']); // ADD <--
+  api.addFiles(['logger.js', '${PKG_NAME}.js'], ['server']);
+  api.addFiles(['usage_example.html', 'usage_example.js' ], ['client']); // ADD <--
 ```
 ##### Commands
 ```terminal
@@ -35,7 +29,7 @@ wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master
 Continues ...
 
 
-<!-- Code for this begins at line #82 -->
+<!-- Code for this begins at line #81 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L82" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L81" target="_blank">Code for this step.</a>] ]
 ]

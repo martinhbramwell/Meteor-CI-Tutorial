@@ -19,7 +19,6 @@ export PACKAGES=~/${PARENT_DIR}/packages
 export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_UID}
 
 
-
 echo ""
 echo ""
 explain ${DOCS}/Try_jsDoc_from_the_Command_Line_A.md MORE_ACTION # CODE_BLOCK
@@ -52,7 +51,7 @@ fi
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Configure_Sublime_Text_to_use_jsDoc.md
+explain ${DOCS}/Configure_Sublime_Text_to_use_jsDoc.md # MANUAL_INPUT_REQUIRED
 
 
 
@@ -73,7 +72,7 @@ fi
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin_B.md
+explain ${DOCS}/Use_Sublime_Text_jsDoc_plugin_B.md # MANUAL_INPUT_REQUIRED
 
 
 

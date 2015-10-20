@@ -24,6 +24,7 @@ Get started now by running ...
 ---
 .left-column[
   ### Revisit End-To-End Testing
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -34,7 +35,7 @@ Get started now by running ...
 The accompanying script creates a new subdirectory of ${PKG_NAME} called ```nightwatch``` and, into it, downloads the <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/test_usage_example.js' target='_blank'>code for a usage example end-to-end test</a>.  *Nightwatch* needs to be told where to find it, so you should now edit ```${PROJECT_NAME}/tests/nightwatch/config/nightwatch.json``` to look like this :
 ```javascript
   "src_folders": [
-    "./packages/ourpackage/nightwatch",   // ADD | <--
+    "./packages/${PKG_NAME}/nightwatch",   // ADD | <--
     "./tests/nightwatch/walkthroughs"
   ]
 ```
@@ -52,6 +53,7 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 ---
 .left-column[
   ### Finish Documentation
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -79,6 +81,7 @@ Continues ...
 ---
 .left-column[
   ### Left Title
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -101,6 +104,7 @@ Continues ...
 ---
 .left-column[
   ### Left Title
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -123,6 +127,7 @@ Continues ...
 ---
 .left-column[
   ### Left Title
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[

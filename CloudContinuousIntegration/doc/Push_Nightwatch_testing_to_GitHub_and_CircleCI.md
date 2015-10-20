@@ -2,6 +2,7 @@
 name: PushNightwatchTestingToGitHubAndCircleCI
 .left-column[
   ### Commit Nightwatch
+  <!-- input_type_indicator -->
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[

@@ -26,13 +26,8 @@ You should not need to use 'sudo' for this or any of the later parts.  In other 
 <!-- B -->]
 ---
 .left-column[
-  ### Set Up Project Names  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  ### Set Up Project Names
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -55,6 +50,7 @@ You will be asked to supply the following details :
 ---
 .left-column[
   ### Configure git for GitHub
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -83,6 +79,7 @@ git config --global push.default simple
 ---
 .left-column[
   ### Install Meteor
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -105,6 +102,7 @@ curl https://install.meteor.com/ | sh
 ---
 .left-column[
   ### Create Meteor Project
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -130,6 +128,7 @@ name: Check Meteor Works
 
 .left-column[
   ### Check Meteor Works
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -157,6 +156,7 @@ echo $A_METEOR_PID
 ---
 .left-column[
   ### Meteor App Metadata
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -183,6 +183,7 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/mas
 ---
 .left-column[
   ### Prepare SSH directory
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -224,6 +225,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
 name: CreateRemoteGitHubRepository
 .left-column[
   ### GitHub Repo
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -244,13 +246,8 @@ Continued . . .
 ---
 name: CreateRemoteGitHubRepository
 .left-column[
-  ### GitHub Repo  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  ### GitHub Repo
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -271,14 +268,15 @@ name: CreateRemoteGitHubRepository
 
 
 
-<!-- Code for this begins at line #254 -->
+<!-- Code for this begins at line #252 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L254" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L252" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateLocalGitHubRepository
 .left-column[
   ### Local GitHub Repo
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -300,9 +298,9 @@ git remote add ${PROJECT_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${P
 git push -u ${PROJECT_NAME}_origin master
 ```
 
-<!-- Code for this begins at line #281 -->
+<!-- Code for this begins at line #279 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L281" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L279" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

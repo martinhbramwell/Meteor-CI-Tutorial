@@ -146,8 +146,7 @@ code {
   text-shadow: 4px 5px 0px #737CA1;
 }
 
-.manual_input_reqd
-{
+.input_type_indicator{
   width: 100px;
   text-align: center;
   padding-right: 10%;

@@ -106,7 +106,6 @@ if [ "${RUN_RULE}" != "n" ]; then
 fi
 
 
-RUN_RULE="";
 explain ${DOCS}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
@@ -149,7 +148,9 @@ fi
 
 
 
-explain ${DOCS}/Control_a_packages_versions_A.md MORE_ACTION # CODE_BLOCK
+
+RUN_RULE="";
+explain ${DOCS}/Control_a_packages_versions_A.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 if [ "${RUN_RULE}" != "n" ]; then
 
   export RMT_REPO="https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}";

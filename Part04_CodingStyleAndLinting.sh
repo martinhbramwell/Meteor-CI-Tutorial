@@ -34,17 +34,17 @@ fi
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Configure_Sublime_Text_to_use_ESLint.md
+explain ${DOCS}/Configure_Sublime_Text_to_use_ESLint.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Customize_ESLint_in_Sublime_Text.md
+explain ${DOCS}/Customize_ESLint_in_Sublime_Text.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Try_ESLint_in_Sublime_Text.md
+explain ${DOCS}/Try_ESLint_in_Sublime_Text.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""

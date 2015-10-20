@@ -15,40 +15,40 @@ source ./util.sh
 RUN_RULE="";
 explain ${DOCS}/Introduction.md
 
+echo ""
+echo ""
+RUN_RULE="";
+explain ${DOCS}/Observe_ordinary_console_logging.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Observe_ordinary_console_logging.md
+explain ${DOCS}/Add_an_NPM_module_to_your_package.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Add_an_NPM_module_to_your_package.md
+explain ${DOCS}/Specify_Npm_modules.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Specify_Npm_modules.md
+explain ${DOCS}/Bunyan_Server_Side_OnlyLogging.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Bunyan_Server_Side_OnlyLogging.md
+explain ${DOCS}/Add_Bunyan_Logging.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Add_Bunyan_Logging.md
+explain ${DOCS}/Goodbye_console.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Goodbye_console.md
-
-echo ""
-echo ""
-explain ${DOCS}/Refactor_Bunyan_InstantiationA.md MORE_ACTION # CODE_BLOCK
+explain ${DOCS}/Refactor_Bunyan_InstantiationA.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
@@ -60,16 +60,14 @@ if [ "${RUN_RULE}" != "n" ]; then
 
 fi
 
-
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Refactor_Bunyan_InstantiationB.md
+explain ${DOCS}/Refactor_Bunyan_InstantiationB.md # MANUAL_INPUT_REQUIRED
 
 
 echo ""
 echo ""
-RUN_RULE="";
 explain ${DOCS}/Package_Upgrade_and_Project_Rebuild_A.md
 
 

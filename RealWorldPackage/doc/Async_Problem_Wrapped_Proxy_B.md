@@ -1,13 +1,7 @@
 ---
 .left-column[
   ### Export to Meteor
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -25,7 +19,7 @@ The 'api.export()' methods in both sections, (```onUse``` & ```onTest```), will 
 ```
 Also, in the ```onTest``` section, be sure to 'add' the following files :
 ```javascript
-  api.addFiles(['logger.js', 'ourpackage.js', 'ourpackage-tests.js'], ['server']);
+  api.addFiles(['logger.js', '${PKG_NAME}.js', '${PKG_NAME}-tests.js'], ['server']);
 ```
 
 

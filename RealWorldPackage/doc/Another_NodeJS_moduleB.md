@@ -1,7 +1,7 @@
 ---
 .left-column[
   ### Another NodeJS Module (B)
-  
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -11,26 +11,28 @@
 
 ... continuing.
 
-<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Download</a> **or** paste into the empty file, ```'${PKG_NAME}.js'```, the following code :
+<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Obtain the improved</a> ```'${PKG_NAME}.js'``` file, like this :
 
 ```javascript
 const Client = Npm.require('swagger-client');
-const swaggerSpecURL = 'http://petstore.swagger.io/v2/swagger.json';
+const TestPet = 6133627027;
 const swagger = new Client({
-  url: swaggerSpecURL,
-    swagger.pet.getPetById(
-      { petId: 6133627028 }, {responseContentType: 'application/json'},
-      function log(pet) { Logger.info('(Async) Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
-    );
-  },
-});
+  url: 'http://petstore.swagger.io/v2/swagger.json',
+  success: function getPet() {
+    for (idx = TestPet; idx < TestPet + 4; idx++) {
+      swagger.pet.getPetById(
+        { petId: idx}, {responseContentType: 'application/json'},
+        function log(pet) { Logger.info('(Async) Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
+        :
 ```
-Run ```tail -f /var/log/meteor/ci4meteor.log | bunyan```, to inspect the log file!
+After Meteor starts up, inspect the log file with :
+
+```tail -f /var/log/meteor/ci4meteor.log | bunyan -o short```
 
 Continues ...
 
 
-<!-- Code for this begins at line #29 -->
+<!-- Code for this begins at line #27 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L29" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L27" target="_blank">Code for this step.</a>] ]
 ]

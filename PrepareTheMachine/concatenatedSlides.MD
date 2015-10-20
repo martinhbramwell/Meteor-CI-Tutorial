@@ -26,6 +26,7 @@ You can hit the 'a' key at any of the pause points to have it run **a**ll the re
 layout: false
 .left-column[
   ### Java required
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -52,7 +53,8 @@ Steps performed :
 ]
 ---
 .left-column[
-  ### Install other tools 
+  ### Install other tools
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -84,6 +86,7 @@ apt-get install -y tree python-pip             # for demo convenience
 ---
 .left-column[
   ### Install NodeJS
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -111,6 +114,7 @@ apt-get -y autoremove
 ---
 .left-column[
   ### Selenium Web Driver for NodeJS
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -135,6 +139,7 @@ npm install -y --prefix ${HOME} selenium-webdriver
 ---
 .left-column[
   ### Install Selenium Web Driver
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -161,6 +166,7 @@ dpkg -i google-chrome-stable_current_amd64.deb
 ---
 .left-column[
   ### Install Bunyan
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -187,7 +193,8 @@ For ongoing server side logging during development or production we need a perma
 ]
 ---
 .left-column[
-  ### Install Sublime Text 3 editor. 
+  ### Install Sublime Text 3 editor
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -217,6 +224,7 @@ pip install -y beautifulsoup4 requests
 ---
 .left-column[
   ### Set Up Linting
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -246,6 +254,7 @@ There is a closely related ESLint package for Sublime Text.  We will install it 
 ---
 .left-column[
   ### Set Up Automatic Documentation
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -272,6 +281,7 @@ There is a closely related JSDoc package for Sublime Text, which we will install
 ---
 .left-column[
   ### Prepare Sublime Text (Step #1)
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -301,6 +311,7 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 ---
 .left-column[
   ### Prepare Sublime Text (Step #2)
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[

@@ -25,6 +25,7 @@ This one . . .
 ---
 .left-column[
   ### Create Meteor Packages
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -53,6 +54,7 @@ Continued . . .
 ---
 .left-column[
   ### Create Meteor Packages
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -84,6 +86,7 @@ Your package will be part of your project's run time, but not part of it at edit
 ---
 .left-column[
   ### Create Meteor Packages
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -126,6 +129,7 @@ For editing purposes your package now appears to be part of your project.  But w
 ---
 .left-column[
   ### Prepare SSH directory
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -145,7 +149,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
 ```
 
 
-<!-- Code for this begins at line #112 -->
+<!-- Code for this begins at line #111 -->
 <!-- B -->
 <div id="pubkey" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('pubkey'); return true;"
@@ -160,17 +164,12 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
     <i>Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L112" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L111" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
   ### Package Version Control
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -187,13 +186,14 @@ That's beyond the scope of this tutorial.  However, we must, in any case, repeat
 **Be sure to prepare a GitHub repo called ```${PKG_NAME}``` with its own deploy key in the same way you did for ```${PROJECT_NAME}```**
 
 Continues . . . 
-<!-- Code for this begins at line #154 -->
+<!-- Code for this begins at line #155 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L154" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L155" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
   ### Package Version Control
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -211,13 +211,14 @@ git remote add ${PKG_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PKG_N
 git push -u ${PKG_NAME}_origin master
 ```
 
-<!-- Code for this begins at line #180 -->
+<!-- Code for this begins at line #181 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L180" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L181" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
   ### Test a Meteor Package
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -235,13 +236,14 @@ meteor test-packages &
 tree
 ```
 To stop Meteor and move on to the next step in the tutorial script, after you have confirmed that it ran successful tests, just hit ```<enter>```.
-<!-- Code for this begins at line #204 -->
+<!-- Code for this begins at line #205 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L204" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L205" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
   ### Runner for TinyTest
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -261,9 +263,9 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 ./meteor-tinytest-runner.run
 ./tests/tinyTests/test-all.sh
 ```
-<!-- Code for this begins at line #233 -->
+<!-- Code for this begins at line #234 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L233" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L234" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

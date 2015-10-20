@@ -11,10 +11,16 @@ DOCS="./CloudContinuousIntegration/doc"
 source ./explain.sh
 source ./util.sh
 
-
+echo ""
+echo ""
+RUN_RULE="";
 explain ${DOCS}/Introduction.md
 
-explain ${DOCS}/Connect_CircleCI_to_GitHub.md
+echo ""
+echo ""
+RUN_RULE="";
+explain ${DOCS}/Connect_CircleCI_to_GitHub.md # MANUAL_INPUT_REQUIRED
+
 
 explain ${DOCS}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then

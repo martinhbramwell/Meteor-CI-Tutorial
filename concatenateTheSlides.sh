@@ -39,9 +39,12 @@ do
   rm -f ${FPA[1]}/concatenatedSlides.MD
 done
 
+
+
 GITHUB_DIR="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/"
 for idx_d in "${FILEPATHS[@]}"
 do
+
   FP="${idx_d}"
   FPA=(${FP//|/ })
   AFP="${FPA[1]}/doc/${FPA[2]}"
@@ -50,6 +53,7 @@ do
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #    Find line number of relevant code and add hyperlink at bottom of slide
 #    Expect a flag "CODEBLOCK", otherwise skip this file, and check the next one..
+
   LNUM=$(grep -nr "${FPA[2]}.*CODE_BLOCK" ${SCRIPT_FILE}  | cut -d : -f 1)
   if [[ "${LNUM}" -gt 0 ]]; then
     LNUM=$((LNUM+2))
@@ -96,7 +100,27 @@ do
     sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
 
 
-   fi
+  fi
+
+  SKIP_INTRO="Introduction.md"
+  SKIP_END="Fin.md"
+  if [ "${AFP/${SKIP_INTRO}}" = "${AFP}" ] ; then
+    if [ "${AFP/${SKIP_END}}" = "${AFP}" ] ; then
+      LNUM=$(grep -nr "${FPA[2]}.*MANUAL_INPUT_REQUIRED" ${SCRIPT_FILE}  | cut -d : -f 1)
+      PATTERN='input_type_indicator'
+      if [[ "${LNUM}" -gt 0 ]]; then
+        REPLACEMENT='  <br \/><br \/><div class="input_type_indicator"><img src=".\/fragments\/typer.gif" \/><br \/>Manual input is required here.<\/div><br \/>'
+  #      REPLACEMENT='Manual input'
+      else
+        REPLACEMENT='  <br \/><br \/><div class="input_type_indicator"><img src=".\/fragments\/loader.gif" \/><br \/>No manual input required here.<\/div><br \/>'
+  #      REPLACEMENT='No manual input'
+      fi
+      sed -i "s/.*${PATTERN}.*/${REPLACEMENT}/g" ${AFP}
+  #    echo "${AFP} does ${REPLACEMENT}"
+    fi  
+  fi  
+  
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   cat ${AFP} >> ${FPA[1]}/concatenatedSlides.MD
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

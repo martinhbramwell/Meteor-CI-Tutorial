@@ -2,6 +2,7 @@
 name: UseESLintOnTheCommandLine
 .left-column[
   ### Command Line ESLint
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -29,3 +30,5 @@ eslint ${PROJECT_NAME}.js
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part04_CodingStyleAndLinting.sh#L25" target="_blank">Code for this step.</a>] ]
 ]
+a
+b

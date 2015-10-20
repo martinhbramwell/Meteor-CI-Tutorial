@@ -26,13 +26,7 @@ Get started now by running ...
 ---
 .left-column[
   ### Another NodeJS Module (A)
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -59,7 +53,7 @@ Continues ...
 ---
 .left-column[
   ### Another NodeJS Module (B)
-  
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -69,32 +63,35 @@ Continues ...
 
 ... continuing.
 
-<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Download</a> **or** paste into the empty file, ```'${PKG_NAME}.js'```, the following code :
+<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Obtain the improved</a> ```'${PKG_NAME}.js'``` file, like this :
 
 ```javascript
 const Client = Npm.require('swagger-client');
-const swaggerSpecURL = 'http://petstore.swagger.io/v2/swagger.json';
+const TestPet = 6133627027;
 const swagger = new Client({
-  url: swaggerSpecURL,
-    swagger.pet.getPetById(
-      { petId: 6133627028 }, {responseContentType: 'application/json'},
-      function log(pet) { Logger.info('(Async) Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
-    );
-  },
-});
+  url: 'http://petstore.swagger.io/v2/swagger.json',
+  success: function getPet() {
+    for (idx = TestPet; idx < TestPet + 4; idx++) {
+      swagger.pet.getPetById(
+        { petId: idx}, {responseContentType: 'application/json'},
+        function log(pet) { Logger.info('(Async) Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
+        :
 ```
-Run ```tail -f /var/log/meteor/ci4meteor.log | bunyan```, to inspect the log file!
+After Meteor starts up, inspect the log file with :
+
+```tail -f /var/log/meteor/ci4meteor.log | bunyan -o short```
 
 Continues ...
 
 
-<!-- Code for this begins at line #29 -->
+<!-- Code for this begins at line #27 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L29" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L27" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
   ### The Async Problem (A)
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -104,15 +101,12 @@ Continues ...
 
 Examining the code ```'${PKG_NAME}.js'``` we see :
 ```javascript
-const swagger = new Client({
-  url: swaggerSpecURL,
-  success: function getPet() {
-    swagger.pet.getPetById(
-      { petId: 6133627028 }, {responseContentType: 'application/json'},
-      function log(pet) { Logger.info('(Async) Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
-    );
-  },
-});
+for (idx = TestPet; idx < TestPet + 4; idx++) {
+  swagger.pet.getPetById(
+    { petId: idx}, {responseContentType: 'application/json'},
+    function log(pet) { Logger.info('(Async) Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
+  );
+}
 ```
 The parameter ```'pet'``` passed by ```getPetById``` to the ```log``` callback function is completely inaccesible.  It's buried two levels deep inside nested, asynchronous callback functions.
 
@@ -126,13 +120,7 @@ Continues ...
 ---
 .left-column[
   ### The Async Problem (B)
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -166,13 +154,7 @@ Continues ...
 ---
 .left-column[
   ### Export to Meteor
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -190,7 +172,7 @@ The 'api.export()' methods in both sections, (```onUse``` & ```onTest```), will 
 ```
 Also, in the ```onTest``` section, be sure to 'add' the following files :
 ```javascript
-  api.addFiles(['logger.js', 'ourpackage.js', 'ourpackage-tests.js'], ['server']);
+  api.addFiles(['logger.js', '${PKG_NAME}.js', '${PKG_NAME}-tests.js'], ['server']);
 ```
 
 
@@ -201,13 +183,7 @@ Continues ...
 ---
 .left-column[
   ### The Async Problem (D)
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -237,13 +213,7 @@ Continues ...
 ---
 .left-column[
   ### The Async Problem (E)
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -278,13 +248,7 @@ Continues ...
 ---
 .left-column[
   ### Calling Package Methods
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -297,11 +261,11 @@ Unit tests confirm our package works, but how do we actually use it from an appl
 In the main directory, ```${PKG_NAME}```, of our package we'll create  a template file, 
 <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.html' target='_blank'>usage_example.html</a>, and a template helper file, <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.js' target='_blank'>'usage_example.js'</a>.
 
-We must register them in our ```package.js``` file.
+We must register them in the ```onUse``` of our ```package.js``` file.
 ```javascript
          :
-api.addFiles(['logger.js', 'ourpackage.js'], ['server']);
-api.addFiles(['usage_example.html', 'usage_example.js' ], ['client']); // ADD <--
+  api.addFiles(['logger.js', '${PKG_NAME}.js'], ['server']);
+  api.addFiles(['usage_example.html', 'usage_example.js' ], ['client']); // ADD <--
 ```
 ##### Commands
 ```terminal
@@ -312,20 +276,14 @@ wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master
 Continues ...
 
 
-<!-- Code for this begins at line #82 -->
+<!-- Code for this begins at line #81 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L82" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L81" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
   ### Make Package Method Callable
-  <br />
-  <br />
-  <div class="manual_input_reqd">
-  <img src="./fragments/typer.gif" />
-  Manual input required here.
-  </div>
-  <br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -356,6 +314,7 @@ Continues ...
 ---
 .left-column[
   ### Make Package Method Callable
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -391,6 +350,7 @@ Continues ...
 ---
 .left-column[
   ### Control Example Visibility
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[

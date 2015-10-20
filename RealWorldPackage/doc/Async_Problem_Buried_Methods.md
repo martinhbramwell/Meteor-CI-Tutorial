@@ -1,6 +1,7 @@
 ---
 .left-column[
   ### The Async Problem (A)
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -10,15 +11,12 @@
 
 Examining the code ```'${PKG_NAME}.js'``` we see :
 ```javascript
-const swagger = new Client({
-  url: swaggerSpecURL,
-  success: function getPet() {
-    swagger.pet.getPetById(
-      { petId: 6133627028 }, {responseContentType: 'application/json'},
-      function log(pet) { Logger.info('(Async) Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
-    );
-  },
-});
+for (idx = TestPet; idx < TestPet + 4; idx++) {
+  swagger.pet.getPetById(
+    { petId: idx}, {responseContentType: 'application/json'},
+    function log(pet) { Logger.info('(Async) Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
+  );
+}
 ```
 The parameter ```'pet'``` passed by ```getPetById``` to the ```log``` callback function is completely inaccesible.  It's buried two levels deep inside nested, asynchronous callback functions.
 

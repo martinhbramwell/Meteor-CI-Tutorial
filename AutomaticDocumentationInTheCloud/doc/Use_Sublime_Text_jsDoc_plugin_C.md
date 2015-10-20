@@ -1,6 +1,7 @@
 ---
 .left-column[
   ### jsDoc for ST3
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -17,7 +18,7 @@ If you run the jsdoc command again you should see an improved main page with a `
 
 Click on the ```TinyTest``` link and you should see something like the image to the right.
 
-<!-- Code for this begins at line #85 -->
+<!-- Code for this begins at line #84 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L85" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L84" target="_blank">Code for this step.</a>] ]
 ]

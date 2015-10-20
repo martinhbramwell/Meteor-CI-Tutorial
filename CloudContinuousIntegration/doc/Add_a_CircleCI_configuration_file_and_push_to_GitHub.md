@@ -1,6 +1,7 @@
 ---
 .left-column[
-  ### Configure CircleCI 
+  ### Configure CircleCI
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -25,7 +26,7 @@ git commit -am 'Added circle.yml and unit testing' && git push
 ```
 
 
-<!-- Code for this begins at line #21 -->
+<!-- Code for this begins at line #27 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L21" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L27" target="_blank">Code for this step.</a>] ]
 ]

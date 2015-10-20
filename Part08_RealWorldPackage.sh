@@ -15,15 +15,13 @@ source ./util.sh
 RUN_RULE="";
 explain ${DOCS}/Introduction.md
 
-
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Another_NodeJS_moduleA.md
+explain ${DOCS}/Another_NodeJS_moduleA.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
-RUN_RULE="";
 explain ${DOCS}/Another_NodeJS_moduleB.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
@@ -40,7 +38,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   echo "Contacting Swagger Pet Store . . . "
   sleep 10
   echo "The 'tail' command shows . . . "
-  tail -n 4 /var/log/meteor/ci4meteor.log  | bunyan
+  tail -n 9 /var/log/meteor/ci4meteor.log  | bunyan
   echo ". . . the tail end of log file.\n"
 
   popd >/dev/null;
@@ -52,32 +50,33 @@ fi
 
 echo ""
 echo ""
-RUN_RULE="";
 explain ${DOCS}/Async_Problem_Buried_Methods.md
 
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Async_Problem_Wrapped_Proxy_A.md
+explain ${DOCS}/Async_Problem_Wrapped_Proxy_A.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Async_Problem_Wrapped_Proxy_B.md
+explain ${DOCS}/Async_Problem_Wrapped_Proxy_B.md  # MANUAL_INPUT_REQUIRED
+
 
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Async_Problem_Sync_Namespace.md
+explain ${DOCS}/Async_Problem_Sync_Namespace.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Async_Problem_TinyTest_A.md
+explain ${DOCS}/Async_Problem_TinyTest_A.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
-explain ${DOCS}/Call_Into_Package_Methods.md MORE_ACTION # CODE_BLOCK
+RUN_RULE="";
+explain ${DOCS}/Call_Into_Package_Methods.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
@@ -93,16 +92,15 @@ fi
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Package_Dependencies.md
+explain ${DOCS}/Package_Dependencies.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
 RUN_RULE="";
-explain ${DOCS}/Declare_Callable_Method.md
+explain ${DOCS}/Declare_Callable_Method.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
-RUN_RULE="";
 explain ${DOCS}/View_and_Hide_The_Example.md
 
 

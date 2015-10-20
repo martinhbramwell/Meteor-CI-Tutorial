@@ -1,6 +1,7 @@
 ---
 .left-column[
   ### jsDoc for ST3
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -20,7 +21,7 @@ wget -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/M
 ```
 
 Continues . . .
-<!-- Code for this begins at line #63 -->
+<!-- Code for this begins at line #62 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L63" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L62" target="_blank">Code for this step.</a>] ]
 ]
