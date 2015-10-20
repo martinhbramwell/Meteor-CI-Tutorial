@@ -157,7 +157,7 @@ function reloadSwaggerPetStore() {
       \"id\": 99,
       \"name\": \"wild\"
     },
-    \"name\": \"Our fluffy little wolverine.\",
+    \"name\": \"Your fluffy little wolverine.\",
     \"status\": \"available\"
   }" "http://petstore.swagger.io/v2/pet"
   echo ""
