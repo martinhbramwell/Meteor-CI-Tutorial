@@ -31,7 +31,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd ./packages/${PKG_NAME} >/dev/null;
 
   reloadSwaggerPetStore
-#  wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js
+  wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js
 
   popd >/dev/null;
   

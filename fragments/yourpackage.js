@@ -2,7 +2,7 @@ const Client = Npm.require('swagger-client');
 const swaggerSpecURL = 'http://petstore.swagger.io/v2/swagger.json';
 Logger.debug('Swagger package :: ', 'starting');
 
-const TestPet = 6133627028;
+const TestPet = 6133627027;
 const swagger = new Client({
   url: swaggerSpecURL,
   success: function getPet() {
@@ -13,8 +13,6 @@ const swagger = new Client({
         function log(pet) { Logger.info('(Async) Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
       );
     }
-    );
-
   },
 });
 
