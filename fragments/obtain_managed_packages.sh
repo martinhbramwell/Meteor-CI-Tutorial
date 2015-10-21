@@ -8,9 +8,9 @@
 
 LOCAL_PACKAGES="~/packages";
 
-source managed_packages;
-
 pushd "$(dirname "$0")" >/dev/null;
+
+source managed_packages.sh;
 
 PKG_CNT="${#MANAGED_PACKAGES[@]}";
 printf " Cloning %s packages into '${LOCAL_PACKAGES}'.\n" "${PKG_CNT}"
