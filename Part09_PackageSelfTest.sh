@@ -21,10 +21,8 @@ echo ""
 explain ${DOCS}/UsageExampleEndToEnd.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 if [ "${RUN_RULE}" != "n" ]; then
 
-  NGHTWTCH=~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/nightwatch;
-  mkdir -p ${NGHTWTCH};
-
-  pushd ${NGHTWTCH} >/dev/null;
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
+  pushd ./packages/${PKG_NAME}/test_tools >/dev/null;
 
   NGHTWTCH_FILE=test_usage_example.js;
   wget -O ${NGHTWTCH_FILE} https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/${NGHTWTCH_FILE}
@@ -34,8 +32,6 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   popd >/dev/null;
 
-
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
   killMeteorProcess
   launchMeteorProcess "http://localhost:3000/"
@@ -72,7 +68,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   rm -fr ./docs
   jsdoc -d ./docs . ./nightwatch;
-  echo -e "\n Documentation has been generated ..."
+  echo -e "\n Documentation has been generated locally ..."
   echo -e "\n Look at : file://${HOME}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html\n\n"
 
   popd >/dev/null;
@@ -123,7 +119,6 @@ if [ "${RUN_RULE}" != "n" ]; then
   rm -f ${TEMP_ZIP}
 
   echo -e "To see your documentation on-line, open this link:\n\n          https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/"
-  rm -f ${TEMP_ZIP}
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 

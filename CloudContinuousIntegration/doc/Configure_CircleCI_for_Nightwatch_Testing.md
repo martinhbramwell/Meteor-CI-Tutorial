@@ -24,7 +24,7 @@ git commit -am 'Added Nightwatch testing';
 git push
 ```
 
-<!-- Code for this begins at line #171 -->
+<!-- Code for this begins at line #173 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L171" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L173" target="_blank">Code for this step.</a>] ]
 ]

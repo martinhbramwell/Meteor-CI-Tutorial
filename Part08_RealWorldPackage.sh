@@ -27,8 +27,8 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
 
-  mkdir -p tests
-  pushd ./tests >/dev/null;
+  mkdir -p test_tools
+  pushd ./test_tools >/dev/null;
 
   wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/reloadSwaggerPetStore.sh
   chmod a+x reloadSwaggerPetStore.sh
@@ -46,7 +46,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
   pushd ./packages/${PKG_NAME} >/dev/null;
 
-  source ./tests/reloadSwaggerPetStore.sh
+  source ./test_tools/reloadSwaggerPetStore.sh
   reloadSwaggerPetStore
   wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js
 
@@ -100,8 +100,8 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
 
-  wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.js
-  wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.html
+  wget -N https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.js
+  wget -N https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.html
   sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" usage_example.html
   sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" usage_example.html
   popd >/dev/null;

@@ -12,7 +12,7 @@
 The accompanying script creates a new subdirectory of ${PKG_NAME} called ```nightwatch``` and, into it, downloads the <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/test_usage_example.js' target='_blank'>code for a usage example end-to-end test</a>.  *Nightwatch* needs to be told where to find it, so you should now edit ```${PROJECT_NAME}/tests/nightwatch/config/nightwatch.json``` to look like this :
 ```javascript
   "src_folders": [
-    "./packages/${PKG_NAME}/nightwatch",   // ADD | <--
+    "./packages/${PKG_NAME}/test_tools",   // ADD | <--
     "./tests/nightwatch/walkthroughs"
   ]
 ```

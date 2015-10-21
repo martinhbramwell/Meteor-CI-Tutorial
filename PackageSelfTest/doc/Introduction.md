@@ -9,7 +9,7 @@ layout: false
 
 ## Package Self Test
 
-A major benefit of freely publishing a useful package is the feedback and collaboration that can come back to you.  However, the quality of the code, documention and tests, can convince or repel would-be contributors. If I can fork your repo, push it to continuous integration and see it thoroughly tested and see its documentation generated without intervention, I will be confident that Ì can contribute easily to an enduring project.
+A major benefit of freely publishing a useful package is the feedback and collaboration that can come back to you.  However, the quality of your code, documention and tests, can convince or repel would-be contributors. If I can fork your repo, push it to continuous integration and see it thoroughly tested and see its documentation generated without intervention, I will be confident that Ì can contribute easily to an enduring project.
 
 In this step we will finalize our code annotations, automate running and verifying the usage example and then complete our ```circle.yml``` file so that documentation generation and the verfication of usage examples all run automatically in CircleCI.
 

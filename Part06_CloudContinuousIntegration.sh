@@ -55,22 +55,24 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
 
-  # ci_help.sh is called by the circle.yml script.
-  # It loops through a list of packages, clones them and links them into the project
-#  cp ./fragments/ci_help.sh ~/${PARENT_DIR}/${PROJECT_NAME}/packages
-  wget -O ./packages/ci_help.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/ci_help.sh
+  # 'obtain_managed_packages.sh' is called by the circle.yml script.
+  # It depends on the array of package descriptions in 'managed_packages.sh'
+  # It loops through the listed packages, clones them and links them into the project
+
+  wget -O ./packages/managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/managed_packages.sh
+  wget -O ./packages/obtain_managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/obtain_managed_packages.sh
 
   # Fix project specific flag variables
-  sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" ./packages/ci_help.sh
-  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ./packages/ci_help.sh
-  sed -i -e "s/\${YOUR_UID}/${YOUR_UID}/" ./packages/ci_help.sh
+  sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" ./packages/managed_packages.sh
+  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ./packages/managed_packages.sh
+  sed -i -e "s/\${YOUR_UID}/${YOUR_UID}/" ./packages/managed_packages.sh
 
-  chmod a+x ./packages/ci_help.sh
+  chmod a+x ./packages/obtain_managed_packages.sh
 
-  # Add execution of ci_help.sh to circle.yml
+  # Add execution of obtain_managed_packages.sh to circle.yml
   sed -i '/ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE/c\
     # Pull each of our packages and link them into our project\
-    - ./packages/ci_help.sh\
+    - ./packages/obtain_managed_packages.sh\
     # ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE' circle.yml
 
   git add packages;
@@ -172,10 +174,10 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
   cp tests/nightwatch/config/example_circle.yml circle.yml;
-  # Add execution of ci_help.sh to circle.yml
+  # Add execution of obtain_managed_packages.sh to circle.yml
   sed -i '/ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE/c\
     # Pull each of our packages and link them into our project\
-    - ./packages/ci_help.sh\
+    - ./packages/obtain_managed_packages.sh\
     # ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE' circle.yml
 
   git add tests/nightwatch;

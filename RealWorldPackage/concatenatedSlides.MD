@@ -309,9 +309,9 @@ wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master
 Continues ...
 
 
-<!-- Code for this begins at line #99 -->
+<!-- Code for this begins at line #100 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L99" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L100" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -327,8 +327,8 @@ Continues ...
 ... continuing.
 
 The new files ```usage_example.html``` and ```usage_example.js``` :
- - implement client-side functionality and they
- - do it from within a template
+ - must implement client-side functionality and they
+ - must do it from within a template
 
 Simply specifying ```['client']``` in ```api.addFiles()``` answers the first issue, but two errors arise from the second one.
 
