@@ -83,7 +83,7 @@ fi
 echo ""
 echo ""
 TEMP_ZIP="/tmp/${PKG_NAME}_docs.zip"
-explain ${DOCS}/FirstPage.md MORE_ACTION # CODE_BLOCK
+explain ${DOCS}/PushAllToGitHubAndCircleCI.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;

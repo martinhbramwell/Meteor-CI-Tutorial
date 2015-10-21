@@ -25,10 +25,28 @@ echo ""
 explain ${DOCS}/Another_NodeJS_moduleB.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
+
+  mkdir -p tests
+  pushd ./tests >/dev/null;
+
+  wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/reloadSwaggerPetStore.sh
+  chmod a+x reloadSwaggerPetStore.sh
+
+  popd >/dev/null;
+  popd >/dev/null;
+
+fi
+
+echo ""
+echo ""
+explain ${DOCS}/Another_NodeJS_moduleC.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
   pushd ./packages/${PKG_NAME} >/dev/null;
 
-  reloadSwaggerPetStore
+  ./tests/reloadSwaggerPetStore.sh
   wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js
 
   popd >/dev/null;

@@ -44,7 +44,11 @@ Npm.depends({
 });
 ```
 
-<a href='http://petstore.swagger.io/#!/pet/getPetById' target='_blank'>Swagger Client</a> gives instant connectivity to remote REST APIs, based solely on  <a href='http://petstore.swagger.io/v2/swagger.json' target='_blank'>a machine readable API specification :  ```'swagger.json'```</a>
+<a href='http://petstore.swagger.io/#!/pet/getPetById' target='_blank'>Swagger Client</a> gives instant connectivity to remote REST APIs, based solely on  <a href='http://petstore.swagger.io/v2/swagger.json' target='_blank'>a machine readable API specification :  ```'swagger.json'```</a>.
+
+We are going to develop and test a Swagger client package.
+
+The first task is to prepare for testing.  End-to-end (a.k.a Functional, Acceptance) testing requires consistent test data, even when the tested functionality involves connection to third party systems.  
 
 Continues ...
 
@@ -60,6 +64,35 @@ Continues ...
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Let's Add a More Interesting Module (Part B)
+
+... continuing.
+
+Ideally, we should test against our own Swagger compliant REST API, but for simplicity sake we'll exploit Swagger's free on-line test/demo service.
+
+Swagger wipes all anonymous user data on their public server every 24 hours.  To ensure consistent results we use a script <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/tree/master/fragments/reloadSwaggerPetStore.sh" target="_blank">reloadSwaggerPetStore.sh</a> to write a few records to an out of the way location.  This will meet our continuous integration needs, so long as the service has tolerable uptime.
+
+##### Commands
+```terminal
+wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/reloadSwaggerPetStore.sh
+chmod a+x reloadSwaggerPetStore.sh
+```
+Continues ...
+
+
+<!-- Code for this begins at line #27 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L27" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Another NodeJS Module (C)
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Let's Add a More Interesting Module (Part C)
 
 ... continuing.
 
@@ -84,9 +117,9 @@ After Meteor starts up, inspect the log file with :
 Continues ...
 
 
-<!-- Code for this begins at line #27 -->
+<!-- Code for this begins at line #45 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L27" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L45" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -276,9 +309,9 @@ wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master
 Continues ...
 
 
-<!-- Code for this begins at line #81 -->
+<!-- Code for this begins at line #99 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L81" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L99" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

@@ -19,7 +19,11 @@ Npm.depends({
 });
 ```
 
-<a href='http://petstore.swagger.io/#!/pet/getPetById' target='_blank'>Swagger Client</a> gives instant connectivity to remote REST APIs, based solely on  <a href='http://petstore.swagger.io/v2/swagger.json' target='_blank'>a machine readable API specification :  ```'swagger.json'```</a>
+<a href='http://petstore.swagger.io/#!/pet/getPetById' target='_blank'>Swagger Client</a> gives instant connectivity to remote REST APIs, based solely on  <a href='http://petstore.swagger.io/v2/swagger.json' target='_blank'>a machine readable API specification :  ```'swagger.json'```</a>.
+
+We are going to develop and test a Swagger client package.
+
+The first task is to prepare for testing.  End-to-end (a.k.a Functional, Acceptance) testing requires consistent test data, even when the tested functionality involves connection to third party systems.  
 
 Continues ...
 

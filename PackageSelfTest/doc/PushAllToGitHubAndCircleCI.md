@@ -1,20 +1,22 @@
 ---
 .left-column[
   ### Left Title
-  <!-- input_type_indicator -->
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Friendly Title
+#### One Last Push
 
+Actually we have three last pushes to do: the package itself, its documentation and the enclosing test/demo project.
 
-```javascript
-Package.onUse(function(api) {
-});
+```terminal
 ```
 
 Continues ...
 
-<!-- B -->]
+<!-- Code for this begins at line #88 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L88" target="_blank">Code for this step.</a>] ]
+]

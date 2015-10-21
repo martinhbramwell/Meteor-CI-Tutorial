@@ -11,24 +11,15 @@
 
 ... continuing.
 
-<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Obtain the improved</a> ```'${PKG_NAME}.js'``` file, like this :
+Ideally, we should test against our own Swagger compliant REST API, but for simplicity sake we'll exploit Swagger's free on-line test/demo service.
 
-```javascript
-const Client = Npm.require('swagger-client');
-const TestPet = 6133627027;
-const swagger = new Client({
-  url: 'http://petstore.swagger.io/v2/swagger.json',
-  success: function getPet() {
-    for (idx = TestPet; idx < TestPet + 4; idx++) {
-      swagger.pet.getPetById(
-        { petId: idx}, {responseContentType: 'application/json'},
-        function log(pet) { Logger.info('(Async) Pet #' + pet.obj.id, ' -- ' + pet.obj.name);  }
-        :
+Swagger wipes all anonymous user data on their public server every 24 hours.  To ensure consistent results we use a script <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/tree/master/fragments/reloadSwaggerPetStore.sh" target="_blank">reloadSwaggerPetStore.sh</a> to write a few records to an out of the way location.  This will meet our continuous integration needs, so long as the service has tolerable uptime.
+
+##### Commands
+```terminal
+wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/reloadSwaggerPetStore.sh
+chmod a+x reloadSwaggerPetStore.sh
 ```
-After Meteor starts up, inspect the log file with :
-
-```tail -f /var/log/meteor/ci4meteor.log | bunyan -o short```
-
 Continues ...
 
 
