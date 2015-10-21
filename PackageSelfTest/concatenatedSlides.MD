@@ -87,12 +87,11 @@ Continues ...
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Friendly Title
+#### One Last Push
 
+Actually we have three last pushes to do: the package itself, its documentation and the enclosing test/demo project.
 
-```javascript
-Package.onUse(function(api) {
-});
+```terminal
 ```
 
 Continues ...
