@@ -84,15 +84,14 @@ name: AmendTheConfigurationAndPushAgain
 
 The command failed because we still must reference our package from the ```circle.yml``` file.
 
-We add the script <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/ci_help.sh" target="_blank">ci_help.sh</a> to the packages directory of our project.  It holds an array (```OUR_PACKAGES```) of package descriptions and a script to clone the packages and link them into the project.  Edit ```OUR_PACKAGES``` as needed.
-
-We also insert a call to ```ci_help.sh``` in ```circle.yml```.
+We add the script <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/obtain_managed_packages.sh" target="_blank">obtain_managed_packages.sh</a> to the packages directory of our project.  It uses the list, ```managed_packages.sh```, to clone our packages and link them into the project.  Edit the list as needed.
 ```ruby
     # Pull each of our packages and link them into our project
-    - ./packages/ci_help.sh```
+    - ./packages/obtain_managed_packages.sh```
 #####Commands
 ```terminal
-wget -O ./packages/ci_help.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/ci_help.sh
+wget -O ./packages/managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/managed_packages.sh;
+wget -O ./packages/obtain_managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/obtain_managed_packages.sh;
 git add packages;
 git commit -am 'Add script to clone packages and symlink to them';
 ```
