@@ -327,8 +327,8 @@ Continues ...
 ... continuing.
 
 The new files ```usage_example.html``` and ```usage_example.js``` :
- - implement client-side functionality and they
- - do it from within a template
+ - must implement client-side functionality and they
+ - must do it from within a template
 
 Simply specifying ```['client']``` in ```api.addFiles()``` answers the first issue, but two errors arise from the second one.
 

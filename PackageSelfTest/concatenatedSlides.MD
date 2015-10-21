@@ -9,7 +9,7 @@ layout: false
 
 ## Package Self Test
 
-A major benefit of freely publishing a useful package is the feedback and collaboration that can come back to you.  However, the quality of the code, documention and tests, can convince or repel would-be contributors. If I can fork your repo, push it to continuous integration and see it thoroughly tested and see its documentation generated without intervention, I will be confident that Ì can contribute easily to an enduring project.
+A major benefit of freely publishing a useful package is the feedback and collaboration that can come back to you.  However, the quality of your code, documention and tests, can convince or repel would-be contributors. If I can fork your repo, push it to continuous integration and see it thoroughly tested and see its documentation generated without intervention, I will be confident that Ì can contribute easily to an enduring project.
 
 In this step we will finalize our code annotations, automate running and verifying the usage example and then complete our ```circle.yml``` file so that documentation generation and the verfication of usage examples all run automatically in CircleCI.
 
@@ -35,7 +35,7 @@ Get started now by running ...
 The accompanying script creates a new subdirectory of ${PKG_NAME} called ```nightwatch``` and, into it, downloads the <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/test_usage_example.js' target='_blank'>code for a usage example end-to-end test</a>.  *Nightwatch* needs to be told where to find it, so you should now edit ```${PROJECT_NAME}/tests/nightwatch/config/nightwatch.json``` to look like this :
 ```javascript
   "src_folders": [
-    "./packages/${PKG_NAME}/nightwatch",   // ADD | <--
+    "./packages/${PKG_NAME}/test_tools",   // ADD | <--
     "./tests/nightwatch/walkthroughs"
   ]
 ```
@@ -61,44 +61,47 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 
 #### The Package Works But It Is Not Documented
 
-<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js' target='_blank'>yourpackage_documented.js</a> and <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example_documented.js' target='_blank'>usage_example_documented.js</a> are documented replacements for the previously created files ```${PKG_NAME}.js``` and ```usage_example.js```.<div style="word-wrap:break-word;">Rerunning jsDoc now will generate a much more complete documentation site than before.  View it at : <a href='file:///home/${USER}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html' target='_blank'>```file:///home/${USER}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html```</a></div>
+<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js' target='_blank'>yourpackage_documented.js</a> and <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example_documented.js' target='_blank'>usage_example_documented.js</a> are documented replacements for the previously created files ```${PKG_NAME}.js``` and ```usage_example.js```.<div style="word-wrap:break-word;">Rerunning jsDoc now will generate a much more complete documentation site than before.  View it locally at : <a href='file:///home/${USER}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html' target='_blank'>```file:///home/${USER}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html```</a>.
+
+Be aware that we still need to commit the docs directory to the ```gh-pages``` branch of the package repo so as to publish it as GitHub Pages.  Our CI system must be able to do that.</div>
 
 ##### Commands
 ```terminal
-pushd ./packages/${PKG_NAME};
 wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js
 wget -O usage_example.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example_documented.js
 jsdoc -d ./docs . ./nightwatch
-popd;
 ```
 
 Continues ...
 
-<!-- Code for this begins at line #56 -->
+<!-- Code for this begins at line #52 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L56" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L52" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
-  ### Left Title
+  ### The circle.yml File
   <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### One Last Push
+#### One Final Push
 
-Actually we have three last pushes to do: the package itself, its documentation and the enclosing test/demo project.
+Well, in fact, we have three last pushes to do: the package, its documentation and the enclosing test/demo project.
 
-```terminal
-```
+Also, we are not finished <a href="https://circleci.com/docs/configuration" target="_blank">configuring</a>  our ```circle.yml``` file.  It pulls the project and packages together and runs all their tests, but it neither verifies coding style compliance nor regenerates our documentation nor deploys to our public server.
+
+We'll verify coding style during CircleCI's ```test``` phase.
+
+We'll publish our documentation and deploy the application itself during the ```deployment``` phase.
 
 Continues ...
 
-<!-- Code for this begins at line #88 -->
+<!-- Code for this begins at line #84 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L88" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L84" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
