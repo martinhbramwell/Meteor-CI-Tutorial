@@ -145,6 +145,20 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
+  mkdir -p public
+
+  MARKER=favicon-32x32.png
+  wget -O ./public/${MARKER} https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/${MARKER}
+  # Add execution of obtain_managed_packages.sh to circle.yml
+
+
+  if [[ $(grep -c "${MARKER}" myproject.html) -lt 1 ]]; then
+    sed -i "/<head>/c<head>\
+    \\n  <link rel=\"shortcut icon\" href=\"/${MARKER}\" type=\"image/x-icon\" />" ${PROJECT_NAME}.html
+  else
+    echo "Previously patched."
+  fi;
+
 
   cat << LICMIT > LICENSE
 The MIT License (MIT)
