@@ -46,7 +46,8 @@ if [ "${RUN_RULE}" != "n" ]; then
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
   pushd ./packages/${PKG_NAME} >/dev/null;
 
-  ./tests/reloadSwaggerPetStore.sh
+  source ./tests/reloadSwaggerPetStore.sh
+  reloadSwaggerPetStore
   wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js
 
   popd >/dev/null;
