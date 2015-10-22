@@ -135,7 +135,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   echo -e "Removing temp file.\n"
   rm -f ${TEMP_ZIP}
 
-  echo -e "To see your documentation on-line, open this link:\n\n          https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/"
+  echo -e "To see your documentation on-line, wait a few minutes, then open this link:\n\n          https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/"
   rm -f ${TEMP_ZIP}
 
 fi

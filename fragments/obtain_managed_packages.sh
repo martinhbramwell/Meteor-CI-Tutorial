@@ -6,7 +6,7 @@
 #  then sets up a hyperlink from our project's packages directory 
 #  
 
-LOCAL_PACKAGES="~/packages";
+LOCAL_PACKAGES="${HOME}/packages";
 
 pushd "$(dirname "$0")" >/dev/null;
 
