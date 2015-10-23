@@ -186,6 +186,12 @@ if [ "${RUN_RULE}" != "n" ]; then
   if test -f ~/.ssh/id_rsa; then chmod 600 ~/.ssh/id_rsa; fi;
 
   set +e;   ssh-add;   set -e;
+  
+  cat << GITIG > .gitignore
+.npm
+backup
+docs
+GITIG
 
   git init
   git add .

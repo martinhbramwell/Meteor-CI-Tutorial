@@ -22,16 +22,15 @@ explain ${DOCS}/UsageExampleEndToEnd.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_RE
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
-  pushd ./packages/${PKG_NAME}/test_tools >/dev/null;
+    pushd ./packages/${PKG_NAME}/tools/testing >/dev/null;
 
-  NGHTWTCH_FILE=test_usage_example.js;
-  wget -O ${NGHTWTCH_FILE} https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/${NGHTWTCH_FILE}
-  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ${NGHTWTCH_FILE}
-  sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" ${NGHTWTCH_FILE}
-  sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" ${NGHTWTCH_FILE}
+    NGHTWTCH_FILE=test_usage_example.js;
+    wget -O ${NGHTWTCH_FILE} https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/${NGHTWTCH_FILE}
+    sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ${NGHTWTCH_FILE}
+    sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" ${NGHTWTCH_FILE}
+    sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" ${NGHTWTCH_FILE}
 
-  popd >/dev/null;
-
+    popd >/dev/null;
 
   killMeteorProcess
   launchMeteorProcess "http://localhost:3000/"
@@ -67,7 +66,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" usage_example.js;
 
   rm -fr ./docs
-  jsdoc -d ./docs . ./nightwatch;
+  jsdoc -d ./docs . ./tools/testing;
   echo -e "\n Documentation has been generated locally ..."
   echo -e "\n Look at : file://${HOME}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html\n\n"
 
@@ -75,11 +74,46 @@ if [ "${RUN_RULE}" != "n" ]; then
 
 fi
 
+echo ""
+echo ""
+explain ${DOCS}/IntegratingEverything.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
+    pushd packages/${PKG_NAME} >/dev/null;
+
+      echo -e "Committing master branch changes of the package.\n"
+
+      set +e
+      echo -e "Adding all remaining files.\n"
+      git add tools
+      echo "Increment package version number"
+      sed -i -r 's/(.*)(version: .)([0-9]+\.[0-9]+\.)([0-9]+)(.*)/echo "\1\2\3$((\4+1))\5"/ge' package.js;
+      echo "git add errors : $?"
+      git commit -am "save all we have done so far";
+      echo "git commit errors : $?"
+      git push
+      echo "git push errors : $?"
+      set -e
+
+    popd >/dev/null;
+
+    meteor list;
+    git commit -am "catach update to '${PKG_NAME}'";
+    echo "git commit errors : $?"
+    git push
+    echo "git push errors : $?"
+
+  popd >/dev/null;
+fi
+
+
+
 
 echo ""
 echo ""
 TEMP_ZIP="/tmp/${PKG_NAME}_docs.zip"
-explain ${DOCS}/PushAllToGitHubAndCircleCI.md MORE_ACTION # CODE_BLOCK
+explain ${DOCS}/CodeLintingHelperFile.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;

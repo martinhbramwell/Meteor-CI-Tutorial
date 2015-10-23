@@ -188,6 +188,7 @@ LICMIT
 .meteor/local
 .meteor/meteorite
 example_circle.yml
+backup
 GITIG
 
   cat << RDME > README.md

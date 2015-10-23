@@ -23,7 +23,7 @@ name: CreateRemoteGitHubRepository
 
 
 
-<!-- Code for this begins at line #266 -->
+<!-- Code for this begins at line #267 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L266" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L267" target="_blank">Code for this step.</a>] ]
 ]

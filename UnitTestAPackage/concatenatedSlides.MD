@@ -236,9 +236,9 @@ meteor test-packages &
 tree
 ```
 To stop Meteor and move on to the next step in the tutorial script, after you have confirmed that it ran successful tests, just hit ```<enter>```.
-<!-- Code for this begins at line #205 -->
+<!-- Code for this begins at line #211 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L205" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L211" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -263,9 +263,9 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 ./meteor-tinytest-runner.run
 ./tests/tinyTests/test-all.sh
 ```
-<!-- Code for this begins at line #234 -->
+<!-- Code for this begins at line #240 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L234" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L240" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
