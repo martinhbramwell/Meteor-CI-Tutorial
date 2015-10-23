@@ -226,7 +226,7 @@ Continues ...
 
 ... continuing.
 
-So far, we have made access to PetStore synchronous, but still, its methods are async.  To get at each one of them, we need to add this code to ```${PKG_NAME}.js```
+So far, we have made access to PetStore synchronous, however, its methods are still asynchronous.  To get at each one of them, we need to add this code to ```${PKG_NAME}.js```
 ```javascript
 PetStore.sync = {};
 PetStore.sync.getPetById = Meteor.wrapAsync(
