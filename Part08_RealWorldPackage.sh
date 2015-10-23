@@ -57,7 +57,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   echo "Contacting Swagger Pet Store . . . "
   sleep 10
   echo "The 'tail' command shows . . . "
-  tail -n 9 /var/log/meteor/ci4meteor.log  | bunyan
+  tail -n 9 /var/log/meteor/ci4meteor.log  | bunyan -o short
   echo ". . . the tail end of log file.\n"
 
   popd >/dev/null;
@@ -120,7 +120,22 @@ explain ${DOCS}/Declare_Callable_Method.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
-explain ${DOCS}/View_and_Hide_The_Example.md
+explain ${DOCS}/View_and_Hide_The_Example.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
+
+  killMeteorProcess
+  launchMeteorProcess "http://localhost:3000/"
+  echo -e "\n\n     Open the URL http://localhost:3000/\n"
+
+  read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+  killMeteorProcess
+
+  popd >/dev/null;
+
+fi
+
 
 
 

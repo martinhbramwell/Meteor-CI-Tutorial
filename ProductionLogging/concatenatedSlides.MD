@@ -285,7 +285,7 @@ Continues ...
 
 Rerun the tests while watching a ```tail``` of the log file.
 ```terminal
-tail -f /var/log/meteor/ci4meteor.log  | bunyan
+tail -f /var/log/meteor/ci4meteor.log  | bunyan -o short
 ```
 
 To complete this section, we need to correctly commit our changes and spawn a rebuild in CircleCI.  In the following steps, we're going to see how to : 
