@@ -298,7 +298,10 @@ To complete this section, we need to correctly commit our changes and spawn a re
 
 Continues . . . 
 
-<!-- B -->]
+<!-- Code for this begins at line #73 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part07_ProductionLogging.sh#L73" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Package Upgrade (B)
@@ -320,9 +323,9 @@ meteor list
 ```
 To finish: commit the package, then commit the project and then watch CircleCI for rebuild success.
 
-<!-- Code for this begins at line #78 -->
+<!-- Code for this begins at line #96 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part07_ProductionLogging.sh#L78" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part07_ProductionLogging.sh#L96" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

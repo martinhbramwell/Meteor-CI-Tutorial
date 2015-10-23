@@ -68,7 +68,25 @@ explain ${DOCS}/Refactor_Bunyan_InstantiationB.md # MANUAL_INPUT_REQUIRED
 
 echo ""
 echo ""
-explain ${DOCS}/Package_Upgrade_and_Project_Rebuild_A.md
+explain ${DOCS}/Package_Upgrade_and_Project_Rebuild_A.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
+  
+  killMeteorProcess
+  launchMeteorProcess "http://localhost:3000/"  "test-packages"
+  sleep 10
+  echo "The 'tail' command shows . . . "
+  tail -n 9 /var/log/meteor/ci4meteor.log  | bunyan -o short
+  echo ". . . the tail end of log file.\n"
+
+  popd >/dev/null;
+
+  killMeteorProcess
+  read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+
+fi
+
 
 
 echo ""
