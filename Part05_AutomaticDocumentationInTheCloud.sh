@@ -43,7 +43,7 @@ explain ${DOCS}/Try_jsDoc_from_the_Command_Line_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   echo "Paste this URI into your browser :"
-  echo -e "\n   ${HOME}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html\n\n"
+  echo -e "\n   file://${HOME}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html\n\n"
 
 fi
 

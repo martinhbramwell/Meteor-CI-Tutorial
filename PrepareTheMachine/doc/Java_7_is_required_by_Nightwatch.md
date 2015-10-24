@@ -23,7 +23,7 @@ Steps performed :
   apt-get update
   apt-get -y install oracle-java7-installer
 ```
-<!-- Code for this begins at line #57 -->
+<!-- Code for this begins at line #61 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L57" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L61" target="_blank">Code for this step.</a>] ]
 ]

@@ -24,7 +24,7 @@ apt-get install -y sublime-text-installer
 pip install -y beautifulsoup4 requests
 ```
 
-<!-- Code for this begins at line #143 -->
+<!-- Code for this begins at line #147 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L143" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L147" target="_blank">Code for this step.</a>] ]
 ]

@@ -101,9 +101,9 @@ if [ "${RUN_RULE}" != "n" ]; then
 
 
   touch .gitignore;
+  [[ $(grep -c ".npm" .gitignore) -lt 1 ]] && echo ".npm" >> .gitignore;
   git add .gitignore;
   git add logger.js;
-  [[ $(grep -c ".npm" .gitignore) -lt 1 ]] && echo ".npm" >> .gitignore;
   sed -i -r 's/(.*)(version: .)([0-9]+\.[0-9]+\.)([0-9]+)(.*)/echo "\1\2\3$((\4+1))\5"/ge' package.js;
   git commit -am 'add logging';
   git push;
