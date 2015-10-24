@@ -81,7 +81,7 @@ fi
 explain ${DOCS}/Install_NodeJS.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
   pushd /tmp
-  curl -sL https://deb.nodesource.com/setup | sudo bash -
+  curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
   apt-get install -y nodejs
   apt-get -y autoremove
   popd
