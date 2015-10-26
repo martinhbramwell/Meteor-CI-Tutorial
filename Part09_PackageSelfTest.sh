@@ -85,9 +85,11 @@ if [ "${RUN_RULE}" != "n" ]; then
       echo -e "Committing master branch changes of the package.\n"
 
       set +e
-      echo -e "Adding all remaining files.\n"
-      git add tools .eslintrc;
-      git add usage_example.html usage_example.js;
+      echo -e "Adding all remaining files.\n";
+      git add tools;
+      git add .eslintrc;
+      git add usage_example.html;
+      git add usage_example.js;
       echo "Increment package version number"
       sed -i -r 's/(.*)(version: .)([0-9]+\.[0-9]+\.)([0-9]+)(.*)/echo "\1\2\3$((\4+1))\5"/ge' package.js;
       echo "git add errors : $?"

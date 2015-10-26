@@ -39,7 +39,7 @@ The accompanying script creates a new subdirectory *(if needed)* of ${PKG_NAME} 
     "./tests/nightwatch/walkthroughs"
   ]
 ```
-Then  re-run nightwatch testing with ```./tests/nightwatch/runTests.js```.
+Then  re-run nightwatch testing with ```./tests/nightwatch/runTests.js | bunyan -o short```.
 ##### Commands
 ```terminal
 wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/test_usage_example.js
@@ -112,9 +112,9 @@ Our focus for the rest of this part is going to be on <a href="https://circleci.
 
 The ```circleci.yml``` quickly gets hard to read if it contains every instruction to executed, but it is perfectly capable of executing bash command files we supply.  
 
-<!-- Code for this begins at line #119 -->
+<!-- Code for this begins at line #121 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L119" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L121" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
