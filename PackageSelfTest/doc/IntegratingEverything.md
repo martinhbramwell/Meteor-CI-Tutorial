@@ -9,9 +9,9 @@
 
 #### Integrating Everything
 
-We have two last pushes to do: the package and its enclosing test/demo project.  However, we have a lot more work for CircleCI to do for us.
+We have two last pushes to do: the package and its enclosing test/demo project.  However, we want CircleCI to do a lot more work for us.
 
-We commit the package with a new version number, then the umbrella project referencing the new version.  That triggers CircleCI to launch a new build sequence.  At the moment, it pulls the project and packages together and runs all their tests, but it neither verifies coding style compliance nor regenerates our documentation nor deploys to our public server.
+Up to now, we commit the package with a new version number, then commit the umbrella project referencing the new version.  That triggers CircleCI to launch a new build sequence that pulls the project and packages together and runs all their tests, but it neither verifies coding style compliance nor regenerates our documentation nor deploys to our public server.
 
 Our focus for the rest of this part is going to be on <a href="https://circleci.com/docs/configuration" target="_blank">configuring</a> our ```circle.yml``` file.  We'll verify coding style during CircleCI's ```test``` phase.  We'll publish our documentation and deploy the application itself during the ```deployment``` phase.
 

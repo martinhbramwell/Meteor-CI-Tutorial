@@ -86,7 +86,8 @@ if [ "${RUN_RULE}" != "n" ]; then
 
       set +e
       echo -e "Adding all remaining files.\n"
-      git add tools
+      git add tools .eslintrc;
+      git add usage_example.html usage_example.js;
       echo "Increment package version number"
       sed -i -r 's/(.*)(version: .)([0-9]+\.[0-9]+\.)([0-9]+)(.*)/echo "\1\2\3$((\4+1))\5"/ge' package.js;
       echo "git add errors : $?"
@@ -99,7 +100,7 @@ if [ "${RUN_RULE}" != "n" ]; then
     popd >/dev/null;
 
     meteor list;
-    git commit -am "catach update to '${PKG_NAME}'";
+    git commit -am "catch update to '${PKG_NAME}'";
     echo "git commit errors : $?"
     git push
     echo "git push errors : $?"
