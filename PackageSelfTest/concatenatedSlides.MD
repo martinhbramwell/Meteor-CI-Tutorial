@@ -46,9 +46,9 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 ./tests/nightwatch/runTests.js | bunyan
 ```
 
-<!-- Code for this begins at line #23 -->
+<!-- Code for this begins at line #25 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L23" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L25" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -74,9 +74,9 @@ jsdoc -d ./docs . ./nightwatch
 
 Continues ...
 
-<!-- Code for this begins at line #51 -->
+<!-- Code for this begins at line #53 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L51" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L53" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -95,9 +95,26 @@ Up to now, we commit the package with a new version number, then commit the umbr
 
 Our focus for the rest of this part is going to be on <a href="https://circleci.com/docs/configuration" target="_blank">configuring</a> our ```circle.yml``` file.  We'll verify coding style during CircleCI's ```test``` phase.  We'll publish our documentation and deploy the application itself during the ```deployment``` phase.
 
-<!-- Code for this begins at line #81 -->
+<!-- Code for this begins at line #83 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L81" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L83" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Helper File - Code Linting
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+.footnote[.red.bold[] [Table of Contents](./)]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Code Linting Helper File
+
+The ```circleci.yml``` quickly gets hard to read if it contains every instruction to executed, but it is perfectly capable of executing bash command files we supply.  
+
+<!-- Code for this begins at line #121 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L121" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

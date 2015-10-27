@@ -23,7 +23,7 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 ./tests/nightwatch/runTests.js | bunyan
 ```
 
-<!-- Code for this begins at line #23 -->
+<!-- Code for this begins at line #25 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L23" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L25" target="_blank">Code for this step.</a>] ]
 ]
