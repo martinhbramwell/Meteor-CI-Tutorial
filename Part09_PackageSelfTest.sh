@@ -135,7 +135,7 @@ exit;
 
 echo ""
 echo ""
-explain ${DOCS}/CodeLintingHelperFile.md MORE_ACTION # CODE_BLOCK
+explain ${DOCS}/LastPage.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   TEMP_ZIP="/tmp/${PKG_NAME}_docs.zip"
@@ -195,12 +195,6 @@ echo ""
 echo ""
 RUN_RULE="";
 explain ${DOCS}/FirstPage.md
-
-
-echo ""
-echo ""
-RUN_RULE="";
-explain ${DOCS}/LastPage.md
 
 
 
