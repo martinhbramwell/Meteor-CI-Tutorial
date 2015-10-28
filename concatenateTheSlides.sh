@@ -1,6 +1,8 @@
 #!/bin/bash
 #
 
+source util.sh;
+
 declare -a FILEPATHS=()
 for filename in ./Part*.sh; do
   PT=$(echo ${filename} | sed 's/.\///g' | sed 's/_/_|/g' | sed 's/.sh/|/g');
@@ -40,7 +42,6 @@ do
 done
 
 
-
 GITHUB_DIR="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/"
 for idx_d in "${FILEPATHS[@]}"
 do
@@ -54,7 +55,13 @@ do
 #    Find line number of relevant code and add hyperlink at bottom of slide
 #    Expect a flag "CODEBLOCK", otherwise skip this file, and check the next one..
 
-  LNUM=$(grep -nr "${FPA[2]}.*CODE_BLOCK" ${SCRIPT_FILE}  | cut -d : -f 1)
+  LCNT=$(grep -cr "${FPA[2]}.*CODE_BLOCK" ${SCRIPT_FILE});
+  if [[ "${LCNT}" -gt 1 ]]; then
+    echo -e "\n\n\n    ${flashingRed}* * * * You have duplicate calls to explain * * * *${endColor} \n\n\n.";
+    exit;
+  fi;
+
+  LNUM=$(grep -nr "${FPA[2]}.*CODE_BLOCK" ${SCRIPT_FILE}  | cut -d : -f 1);
   if [[ "${LNUM}" -gt 0 ]]; then
     LNUM=$((LNUM+2))
 
@@ -117,9 +124,9 @@ do
       fi
       sed -i "s/.*${PATTERN}.*/${REPLACEMENT}/g" ${AFP}
   #    echo "${AFP} does ${REPLACEMENT}"
-    fi  
-  fi  
-  
+    fi
+  fi
+
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   cat ${AFP} >> ${FPA[1]}/concatenatedSlides.MD
