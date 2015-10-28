@@ -1,6 +1,10 @@
 #!/bin/bash
 #
 
+export green='\e[0;32m'
+export flashingRed='\e[5;31m'
+export endColor='\e[0m';
+
 function existingMeteor() {
 
   EXISTING_METEOR_PID=$(ps aux | grep meteor | grep -v grep | grep -c ~/.meteor/packages)
