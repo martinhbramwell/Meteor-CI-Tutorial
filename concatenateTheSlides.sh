@@ -41,16 +41,18 @@ do
   rm -f ${FPA[1]}/concatenatedSlides.MD
 done
 
-
+#
+# Process all mrkdown documents extracting just what a script user needs to see
+#
 GITHUB_DIR="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/"
 for idx_d in "${FILEPATHS[@]}"
 do
 
   FP="${idx_d}"
   FPA=(${FP//|/ })
-  AFP="${FPA[1]}/doc/${FPA[2]}"
+  AFP="${FPA[1]}/doc/${FPA[2]}" # The complete path of the markdown file.
   SCRIPT_FILE_NAME="${FPA[0]}${FPA[1]}"
-  SCRIPT_FILE="${SCRIPT_FILE_NAME}.sh"
+  SCRIPT_FILE="${SCRIPT_FILE_NAME}.sh" # The name of the script that 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #    Find line number of relevant code and add hyperlink at bottom of slide
 #    Expect a flag "CODEBLOCK", otherwise skip this file, and check the next one..
@@ -105,7 +107,6 @@ do
     export REPLACEMENT="blob/master/${SCRIPT_FILE}"
     ${DBGLOG} && echo "New : ${REPLACEMENT}"
     sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
-
 
   fi
 

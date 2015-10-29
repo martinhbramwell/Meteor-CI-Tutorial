@@ -138,15 +138,13 @@ name: Check Meteor Works
 
 This script will now stop any currently running Meteor process and start a new one for ```${PROJECT_NAME}```, cleanly.
 
-**When prompted**, test meteor in a browser.
-
-<a href='http://localhost:3000/' target='_blank'>http://localhost:3000/</a>
+**When prompted**, test Meteor with this link in a browser, <a href='http://localhost:3000/' target='_blank'>http://localhost:3000/</a>
 
 When you hit ```<Enter>```, to continue to the next step, Meteor will be killed automatically.
 #####Commands
 ```terminal
-A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print $2}')
-echo $A_METEOR_PID
+A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print \$2}')
+echo $A_METEOR_PID;
 ```
 
 <!-- Code for this begins at line #120 -->
@@ -292,7 +290,8 @@ In this step we :
  -  establish our GitHub project as the remote repository
  -  push our new files to GitHub
 
-**This step is NOT idempotent.**  If you have already pushed to GitHub you might get errors. If so, eliminate the project from GitHub and run this step again. *Also note : SSH may ask you to confirm GitHub's PK fingerprint.**
+**This step is NOT idempotent.**  If you have already pushed to GitHub you might get errors. If so, eliminate the project from GitHub and run this step again. *Also note : SSH may ask you to confirm GitHub's PK fingerprint.*
+
 #####Commands
 ```terminal
 git init

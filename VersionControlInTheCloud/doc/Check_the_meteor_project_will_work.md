@@ -13,15 +13,13 @@ name: Check Meteor Works
 
 This script will now stop any currently running Meteor process and start a new one for ```${PROJECT_NAME}```, cleanly.
 
-**When prompted**, test meteor in a browser.
-
-<a href='http://localhost:3000/' target='_blank'>http://localhost:3000/</a>
+**When prompted**, test Meteor with this link in a browser, <a href='http://localhost:3000/' target='_blank'>http://localhost:3000/</a>
 
 When you hit ```<Enter>```, to continue to the next step, Meteor will be killed automatically.
 #####Commands
 ```terminal
-A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print $2}')
-echo $A_METEOR_PID
+A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print \$2}')
+echo $A_METEOR_PID;
 ```
 
 <!-- Code for this begins at line #120 -->

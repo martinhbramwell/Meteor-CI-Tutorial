@@ -14,7 +14,8 @@ In this step we :
  -  establish our GitHub project as the remote repository
  -  push our new files to GitHub
 
-**This step is NOT idempotent.**  If you have already pushed to GitHub you might get errors. If so, eliminate the project from GitHub and run this step again. *Also note : SSH may ask you to confirm GitHub's PK fingerprint.**
+**This step is NOT idempotent.**  If you have already pushed to GitHub you might get errors. If so, eliminate the project from GitHub and run this step again. *Also note : SSH may ask you to confirm GitHub's PK fingerprint.*
+
 #####Commands
 ```terminal
 git init

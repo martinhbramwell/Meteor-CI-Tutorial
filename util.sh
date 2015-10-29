@@ -87,7 +87,7 @@ function getUserData()
   do
 
     echo -e "\n\n# ${FRAME// /\~}"
-    echo "Project path in ${HOME} directory : ${PARENT_DIR}"
+    echo "Projects folder in ${HOME} directory : ${PARENT_DIR}"
     echo "Project name : ${PROJECT_NAME}"
     echo "Package name : ${PKG_NAME}"
     echo "GitHub organization name : ${GITHUB_ORGANIZATION_NAME}"
@@ -104,7 +104,7 @@ function getUserData()
     elif [[ ! "X${CHOICE}X" == "XyX" ]]; then
 
       echo -e "\n Please supply the following details :\n";
-      read -p "The project path within the ${HOME} directory :  :: " -e -i "${PARENT_DIR}" INPUT
+      read -p "Your directory for projects in the ${HOME} directory :  :: " -e -i "${PARENT_DIR}" INPUT
       if [ ! "X${INPUT}X" == "XX" ]; then PARENT_DIR=${INPUT}; fi;
 
       read -p "The exact project name for use in GitHub :: " -e -i "${PROJECT_NAME}" INPUT
