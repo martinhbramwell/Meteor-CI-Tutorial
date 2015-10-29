@@ -122,6 +122,8 @@ if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages >/dev/null;
 
+    wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_per_package_ci_tasks.sh
+
   popd >/dev/null;
 
 fi;
@@ -129,7 +131,7 @@ fi;
 
 
 
-echo -e " ** Curtailed **"
+echo -e " * * Curtailed * * "
 exit;
 
 
