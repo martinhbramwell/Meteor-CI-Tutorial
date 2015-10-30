@@ -16,10 +16,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-echo"A";
-
 SUDOUSER=$(who am i | awk '{print $1}')
-echo"B";
 
 DOCS="./PrepareTheMachine/doc"
 
@@ -38,7 +35,6 @@ DOCS="./PrepareTheMachine/doc"
 #  unzip Meteor-CI-Tutorial.zip
 #  mv Meteor-CI-Tutorial-master/ Meteor-CI-Tutorial
 #  cd Meteor-CI-Tutorial
-echo"C";
 
 # Make sure we atart off with the right version of awk.
 apt-get -y install gawk;

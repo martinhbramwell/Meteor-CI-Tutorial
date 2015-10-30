@@ -26,7 +26,7 @@ apt-get install -y tree python-pip             # for demo convenience
 ```
 
 
-<!-- Code for this begins at line #85 -->
+<!-- Code for this begins at line #81 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L85" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L81" target="_blank">Code for this step.</a>] ]
 ]
