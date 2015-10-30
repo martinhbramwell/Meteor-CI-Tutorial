@@ -44,7 +44,7 @@ We installed command line ESLint in the first part, and will have it for Sublime
 
 ✖ 13 problems (10 errors, 3 warnings)
 ```
-##### Commands
+##### Example Commands
 ```terminal
 cd ~/${PARENT_DIR}/${PROJECT_NAME}/
 eslint ${PROJECT_NAME}.js

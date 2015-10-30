@@ -17,7 +17,7 @@ This script will now stop any currently running Meteor process and start a new o
 
 When you hit ```<Enter>```, to continue to the next step, Meteor will be killed automatically.
 
-#####Commands
+##### Example Commands
 ```terminal
 A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print \$2}')
 echo $A_METEOR_PID;

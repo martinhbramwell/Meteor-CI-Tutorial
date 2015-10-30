@@ -24,7 +24,7 @@ yourself@YourVM:~/projects/yourproject$ tree -L 2 ./packages/${PKG_NAME}
       :  etc
       :  etc
 ```
-##### Commands
+##### Example Commands
 ```terminal
 jsdoc -d ./packages/${PKG_NAME}/docs ./packages/${PKG_NAME}
 tree -L 2 ./packages/${PKG_NAME}

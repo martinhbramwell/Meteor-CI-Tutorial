@@ -13,7 +13,7 @@ This step is a repeat of the equivalent operation from the previous part.
 Names are made to be distinct, deliberately, so *git* meets no ambiguity about connecting local repos to the correct remote repo.
 
 In this step we prepare an aliased key for ```${PKG_NAME}```.
-##### Commands
+##### Example Commands
 ```terminal
 ssh-keygen -t rsa -b 4096 -C "github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}" -N "" -f "${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}"
 printf 'Host github-%s-%s\nHostName github.com\nUser git\nIdentityFile ~/.ssh/%s-%s\n\n' "${GITHUB_ORGANIZATION_NAME}" "${PKG_NAME}"  "${GITHUB_ORGANIZATION_NAME}" "${PKG_NAME}" >> config

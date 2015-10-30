@@ -23,7 +23,7 @@ Now edit ```circle.yml``` to re-enable use of ${PKG_NAME}, (not forgetting subst
         rm -fr ${PKG_NAME};   ln -s ~/packages/${YOUR_UID}/${PKG_NAME} ${PKG_NAME};
       popd;
 ```
-##### Commands
+##### Example Commands
 ```terminal
 git add tests/nightwatch;
 git add circle.yml;

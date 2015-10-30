@@ -16,7 +16,7 @@ This sequence installs the following dependencies, if they're not already presen
 - '<a href='https://git-scm.com/' target='_blank'>git</a>' and '<a href='http://www.openssh.com/' target='_blank'>ssh</a>' for version control
 - 'tree' and '<a href='https://pypi.python.org/pypi/pip' target='_blank'>pip</a>' for demo convenience 
 
-##### Commands
+##### Example Commands
 ```terminal
 apt-get install -y build-essential libssl-dev  # for selenium webdriver
 apt-get install -y libappindicator1            # for chrome

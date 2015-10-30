@@ -16,7 +16,7 @@ We add the script <a href="https://raw.githubusercontent.com/martinhbramwell/Met
 ```ruby
     # Pull each of our packages and link them into our project
     - ./packages/obtain_managed_packages.sh```
-#####Commands
+##### Example Commands
 ```terminal
 wget -O ./packages/managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/managed_packages.sh;
 wget -O ./packages/obtain_managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/obtain_managed_packages.sh;

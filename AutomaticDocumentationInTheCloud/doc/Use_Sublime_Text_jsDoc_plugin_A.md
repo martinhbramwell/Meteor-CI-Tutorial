@@ -15,7 +15,7 @@ DocBlockr tries to help finish annotations begun with ```/**```, as explained in
 
 Here is a partially documented <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js' target='_blank'>```yourpackage-tests.js```</a>
 
-##### Commands
+##### Example Commands
 ```ruby
 wget -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js
 ```

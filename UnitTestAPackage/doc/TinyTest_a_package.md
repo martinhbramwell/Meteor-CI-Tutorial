@@ -13,7 +13,7 @@ Meteor makes unit testing of packages very easy. One command and we see test res
 
 In the accompanying script, the ampersand ```"&"``` causes Meteor package testing to start up as a background process.  In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm that it is working.
 
-#####Commands
+##### Example Commands
 ```terminal
 meteor test-packages &
 tree

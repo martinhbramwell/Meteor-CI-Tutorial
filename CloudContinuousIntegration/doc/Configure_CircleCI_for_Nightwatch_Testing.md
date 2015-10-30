@@ -16,7 +16,7 @@ The Nightwatch runner's ```circle.yml``` can safely overwrite the one for TinyTe
 
 First, in the project main directory, make a copy of the ```circle.yml``` augmented for nightwatch, then patch it, adding the call to ```ci_help.sh``` as we did earlier, then push it to GitHub and see how it builds in CircleCI.
 
-##### Commands
+##### Example Commands
 ```terminal
 cp tests/nightwatch/config/example_circle.yml circle.yml;
 git add tests/nightwatch;

@@ -15,7 +15,7 @@ JSDoc can generate a very sophisticated documentation web site for you, directly
   - very detailed and complete documentation generator
   - used by Google for controlling data types in <a href="https://developers.google.com/closure/compiler/docs/js-for-compiler" target="_blank">their JavaScript compiler.</a>
 
-##### Commands
+##### Example Commands
 ```terminal
 npm install -g jsdoc
 ```

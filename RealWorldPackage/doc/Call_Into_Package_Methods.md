@@ -20,7 +20,7 @@ We must register them in the ```onUse``` of our ```package.js``` file.
   api.addFiles(['logger.js', '${PKG_NAME}.js'], ['server']);
   api.addFiles(['usage_example.html', 'usage_example.js' ], ['client']); // ADD <--
 ```
-##### Commands
+##### Example Commands
 ```terminal
 wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.html
 wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.js

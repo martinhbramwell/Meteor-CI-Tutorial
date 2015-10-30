@@ -18,7 +18,7 @@ In this step we create some of the project meta data files :
 
 The .eslintrc file is borrowed from the project <a href='https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc' target='_blank'>warehouseman:meteor-swagger-client</a>
 
-#####Commands
+##### Example Commands
 ```terminal
 wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
 wget -O ./public/favicon-32x32.png https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/favicon-32x32.png

@@ -17,7 +17,7 @@ The accompanying script creates a new subdirectory *(if needed)* of ${PKG_NAME} 
   ]
 ```
 Then  re-run nightwatch testing with ```./tests/nightwatch/runTests.js | bunyan -o short```.
-##### Commands
+##### Example Commands
 ```terminal
 wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/test_usage_example.js
 ./tests/nightwatch/runTests.js | bunyan

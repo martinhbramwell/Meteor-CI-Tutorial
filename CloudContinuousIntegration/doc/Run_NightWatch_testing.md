@@ -22,7 +22,7 @@ This command group starts Meteor in a background process, (stopping any already 
 ```
 
 
-##### Commands
+##### Example Commands
 ```terminal
  ./tests/nightwatch/runTests.js | bunyan
 ```

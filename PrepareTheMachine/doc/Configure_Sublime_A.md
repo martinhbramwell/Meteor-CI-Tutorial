@@ -19,7 +19,7 @@ We need <a href='http://www.sublimetext.com/3' target='_blank'>Sublime Text 3</a
  - Paste the snippet into ST3's console, hit enter and respond to the two prompts.
  - Go to ```View >> Hide Console```, to close the Console
 
-#####Commands
+##### Example Commands
 ```terminal
 export ST3URL="https://packagecontrol.io/installation#st3";
 python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"

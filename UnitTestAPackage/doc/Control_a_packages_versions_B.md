@@ -10,7 +10,7 @@
 #### Controlling Versions of your Meteor package
 . . . continued.
 
-#####Commands
+##### Example Commands
 ```terminal
 git init
 git add .

@@ -15,7 +15,7 @@ Ideally, we should test against our own Swagger compliant REST API, but for simp
 
 Swagger wipes all anonymous user data on their public server every 24 hours.  To ensure consistent results we use a script <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/tree/master/fragments/reloadSwaggerPetStore.sh" target="_blank">reloadSwaggerPetStore.sh</a> to write a few records to an out of the way location.  This will meet our continuous integration needs, so long as the service has tolerable uptime.
 
-##### Commands
+##### Example Commands
 ```terminal
 wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/reloadSwaggerPetStore.sh
 chmod a+x reloadSwaggerPetStore.sh

@@ -48,7 +48,7 @@ yourself@YourVM:~/projects/yourproject$ tree -L 2 ./packages/${PKG_NAME}
       :  etc
       :  etc
 ```
-##### Commands
+##### Example Commands
 ```terminal
 jsdoc -d ./packages/${PKG_NAME}/docs ./packages/${PKG_NAME}
 tree -L 2 ./packages/${PKG_NAME}
@@ -121,7 +121,7 @@ DocBlockr tries to help finish annotations begun with ```/**```, as explained in
 
 Here is a partially documented <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js' target='_blank'>```yourpackage-tests.js```</a>
 
-##### Commands
+##### Example Commands
 ```ruby
 wget -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js
 ```
@@ -228,7 +228,7 @@ A few minutes after this step completes, you'll find your documentation on the w
 
 <a href="https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/" target="_blank">https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/</a>.
 
-##### Commands
+##### Example Commands
 ```terminal
 zip -qr ../.tmp_docs.zip *
 git add docs/*

@@ -37,7 +37,7 @@ If you aim for "package only applications", if packages are to be reusable, your
 
 To create self-sufficient packages, begin by defining ```PACKAGE_DIRS``` as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
 
-##### Commands
+##### Example Commands
 ```terminal
 export PARENT_DIR=projects;
 export PACKAGES=~/${PARENT_DIR}/packages;
@@ -72,7 +72,7 @@ Now that Meteor can find your packages, you can create one and install it in you
 3. use ```add``` to add the package to your project
 4. use ```list``` to confirm the package was added.
 
-#####Commands
+##### Example Commands
 ```terminal
 cd ~/${PARENT_DIR}/packages/${YOUR_UID}
 meteor create --package ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}
@@ -103,7 +103,7 @@ That's easily fixed.  You simply need to establish a symbolic link from your pac
 1. step into the packages directory of your project
 2. create a symbolic link
 
-#####Commands
+##### Example Commands
 ```terminal
 cd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
 ln -s ${PACKAGES}/${YOUR_UID}/${PKG_NAME} ${PKG_NAME}
@@ -144,7 +144,7 @@ This step is a repeat of the equivalent operation from the previous part.
 Names are made to be distinct, deliberately, so *git* meets no ambiguity about connecting local repos to the correct remote repo.
 
 In this step we prepare an aliased key for ```${PKG_NAME}```.
-##### Commands
+##### Example Commands
 ```terminal
 ssh-keygen -t rsa -b 4096 -C "github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}" -N "" -f "${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}"
 printf 'Host github-%s-%s\nHostName github.com\nUser git\nIdentityFile ~/.ssh/%s-%s\n\n' "${GITHUB_ORGANIZATION_NAME}" "${PKG_NAME}"  "${GITHUB_ORGANIZATION_NAME}" "${PKG_NAME}" >> config
@@ -206,7 +206,7 @@ Continues . . .
 #### Controlling Versions of your Meteor package
 . . . continued.
 
-#####Commands
+##### Example Commands
 ```terminal
 git init
 git add .
@@ -234,7 +234,7 @@ Meteor makes unit testing of packages very easy. One command and we see test res
 
 In the accompanying script, the ampersand ```"&"``` causes Meteor package testing to start up as a background process.  In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm that it is working.
 
-#####Commands
+##### Example Commands
 ```terminal
 meteor test-packages &
 tree
@@ -261,7 +261,7 @@ In this step we :
 1. Get the installer for the test runner and then run it *(Note that it deletes itself after preparing everything for immediate use)*
 3. Run all tests
 
-##### Commands
+##### Example Commands
 ```terminal
 wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
 ./meteor-tinytest-runner.run

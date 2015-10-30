@@ -15,7 +15,7 @@ That's easily fixed.  You simply need to establish a symbolic link from your pac
 1. step into the packages directory of your project
 2. create a symbolic link
 
-#####Commands
+##### Example Commands
 ```terminal
 cd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
 ln -s ${PACKAGES}/${YOUR_UID}/${PKG_NAME} ${PKG_NAME}

@@ -15,7 +15,7 @@ In this step we :
 1. Get the installer for the test runner and then run it *(Note that it deletes itself after preparing everything for immediate use)*
 3. Run all tests
 
-##### Commands
+##### Example Commands
 ```terminal
 wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
 ./meteor-tinytest-runner.run

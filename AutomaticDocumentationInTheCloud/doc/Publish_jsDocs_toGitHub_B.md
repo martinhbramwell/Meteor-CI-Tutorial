@@ -13,7 +13,7 @@ A few minutes after this step completes, you'll find your documentation on the w
 
 <a href="https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/" target="_blank">https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/</a>.
 
-##### Commands
+##### Example Commands
 ```terminal
 zip -qr ../.tmp_docs.zip *
 git add docs/*

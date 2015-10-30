@@ -17,7 +17,7 @@ Steps performed :
  - use simple push
 
 
-#####Commands
+##### Example Commands
 ```terminal
 git config --global user.name "${YOUR_FULLNAME}"
 git config --global user.email "${YOUR_EMAIL}"

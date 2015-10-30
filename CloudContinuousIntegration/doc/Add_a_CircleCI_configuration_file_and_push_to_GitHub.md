@@ -18,7 +18,7 @@ grep: packages/yourpackage: No such file or directory
 ERROR: Found no packages to test. tests/tinyTests/test-all.sh returned exit code 1
 ```
 
-#####Commands
+##### Example Commands
 ```terminal
 cp example_circle.yml circle.yml
 git add circle.yml tests

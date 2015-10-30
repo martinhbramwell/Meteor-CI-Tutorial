@@ -58,7 +58,7 @@ grep: packages/yourpackage: No such file or directory
 ERROR: Found no packages to test. tests/tinyTests/test-all.sh returned exit code 1
 ```
 
-#####Commands
+##### Example Commands
 ```terminal
 cp example_circle.yml circle.yml
 git add circle.yml tests
@@ -88,7 +88,7 @@ We add the script <a href="https://raw.githubusercontent.com/martinhbramwell/Met
 ```ruby
     # Pull each of our packages and link them into our project
     - ./packages/obtain_managed_packages.sh```
-#####Commands
+##### Example Commands
 ```terminal
 wget -O ./packages/managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/managed_packages.sh;
 wget -O ./packages/obtain_managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/obtain_managed_packages.sh;
@@ -151,7 +151,7 @@ This command group starts Meteor in a background process, (stopping any already 
 ```
 
 
-##### Commands
+##### Example Commands
 ```terminal
  ./tests/nightwatch/runTests.js | bunyan
 ```
@@ -177,7 +177,7 @@ The Nightwatch runner's ```circle.yml``` can safely overwrite the one for TinyTe
 
 First, in the project main directory, make a copy of the ```circle.yml``` augmented for nightwatch, then patch it, adding the call to ```ci_help.sh``` as we did earlier, then push it to GitHub and see how it builds in CircleCI.
 
-##### Commands
+##### Example Commands
 ```terminal
 cp tests/nightwatch/config/example_circle.yml circle.yml;
 git add tests/nightwatch;

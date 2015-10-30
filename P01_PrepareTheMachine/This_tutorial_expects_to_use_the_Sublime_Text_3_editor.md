@@ -17,7 +17,7 @@ Steps performed :
  
 If you just want to quickly follow the tutorial then *do* execute this group of commands, otherwise install your usual editor/IDE.
 
-##### Commands
+##### Example Commands
 ```terminal
 add-apt-repository -y ppa:webupd8team/sublime-text-3
 apt-get update

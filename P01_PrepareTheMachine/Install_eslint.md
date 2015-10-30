@@ -15,7 +15,7 @@ Linting detects code style contraventions, improves maintainability, and flags m
   - thorough Linter for ECMA Script 6 and earlier
   - preferred by Facebook, AirBnB and many other big names
 
-##### Commands
+##### Example Commands
 ```terminal
 npm install -gy eslint
 npm install -gy eslint-plugin-react

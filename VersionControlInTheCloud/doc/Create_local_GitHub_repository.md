@@ -16,7 +16,7 @@ In this step we :
 
 **This step is NOT idempotent.**  If you have already pushed to GitHub you might get errors. If so, eliminate the project from GitHub and run this step again. *Also note : SSH may ask you to confirm GitHub's PK fingerprint.*
 
-#####Commands
+##### Example Commands
 ```terminal
 git init
 git add .

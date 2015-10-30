@@ -13,7 +13,7 @@
 
 The <a href='https://code.google.com/p/selenium/wiki/ChromeDriver' target='_blank'>Chrome Driver</a> is the most convenient.  **Note**: This is not the Selenium Webdriver for NodeJS installed in the previous step.
 
-##### Commands
+##### Example Commands
 ```terminal
 wget http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
 unzip -o chromedriver_linux64.zip -d /usr/local/bin

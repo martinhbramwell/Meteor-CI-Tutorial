@@ -66,7 +66,7 @@ Steps performed :
  - use simple push
 
 
-#####Commands
+##### Example Commands
 ```terminal
 git config --global user.name "${YOUR_FULLNAME}"
 git config --global user.email "${YOUR_EMAIL}"
@@ -90,7 +90,7 @@ git config --global push.default simple
 
 In this step we simply run Meteor's installation
 
-##### Commands
+##### Example Commands
 ```terminal
 curl https://install.meteor.com/ | sh
 ```
@@ -115,7 +115,7 @@ Here we create a container directory called ```${PARENT_DIR}``` and inside it we
 
 If the project was created earlier you'll be invited to delete it and start a new one.
 
-##### Commands
+##### Example Commands
 ```terminal
 mkdir -p ~/${PARENT_DIR}
 meteor create ${PROJECT_NAME}
@@ -144,7 +144,7 @@ This script will now stop any currently running Meteor process and start a new o
 
 When you hit ```<Enter>```, to continue to the next step, Meteor will be killed automatically.
 
-#####Commands
+##### Example Commands
 ```terminal
 A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print \$2}')
 echo $A_METEOR_PID;
@@ -174,7 +174,7 @@ In this step we create some of the project meta data files :
 
 The .eslintrc file is borrowed from the project <a href='https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc' target='_blank'>warehouseman:meteor-swagger-client</a>
 
-#####Commands
+##### Example Commands
 ```terminal
 wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
 wget -O ./public/favicon-32x32.png https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/favicon-32x32.png
@@ -203,7 +203,7 @@ We want to do something more realistic -- one deploy key per repository per deve
 
 In this step we prepare an aliased key for ```${PROJECT_NAME}```.
 
-##### Commands
+##### Example Commands
 ```terminal
 ssh-keygen -t rsa -b 4096 -C "github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}" -N "" -f "${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}"
 printf 'Host github-%s-%s\nHostName github.com\nUser git\nIdentityFile ~/.ssh/%s-%s\n\n' "${GITHUB_ORGANIZATION_NAME}" "${PROJECT_NAME}"  "${GITHUB_ORGANIZATION_NAME}" "${PROJECT_NAME}" >> config
@@ -297,7 +297,7 @@ In this step we :
 
 **This step is NOT idempotent.**  If you have already pushed to GitHub you might get errors. If so, eliminate the project from GitHub and run this step again. *Also note : SSH may ask you to confirm GitHub's PK fingerprint.*
 
-#####Commands
+##### Example Commands
 ```terminal
 git init
 git add .

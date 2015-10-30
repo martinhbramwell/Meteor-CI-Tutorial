@@ -41,7 +41,7 @@ Steps performed :
 
 **Legal Notice** : Normally, the PPA installer will prompt you to accept Oracle's license.  If you run this step . . . **you accept the license agreement, implicitly!**
 
-##### Commands
+##### Example Commands
 ```terminal
   add-apt-repository -y ppa:webupd8team/java
   apt-get update
@@ -70,7 +70,7 @@ This sequence installs the following dependencies, if they're not already presen
 - '<a href='https://git-scm.com/' target='_blank'>git</a>' and '<a href='http://www.openssh.com/' target='_blank'>ssh</a>' for version control
 - 'tree' and '<a href='https://pypi.python.org/pypi/pip' target='_blank'>pip</a>' for demo convenience 
 
-##### Commands
+##### Example Commands
 ```terminal
 apt-get install -y build-essential libssl-dev  # for selenium webdriver
 apt-get install -y libappindicator1            # for chrome
@@ -101,7 +101,7 @@ You must have NodeJS to do Nightwatch testing.
 
 It can run on a separate computer from <a href='https://www.meteor.com/' target='_blank'>Meteor</a>, (but we'll do it all in this one).
 
-##### Commands
+##### Example Commands
 ```terminal
 curl -sL https://deb.nodesource.com/setup | sudo bash -
 apt-get install -y nodejs
@@ -128,7 +128,7 @@ The <a href='https://nodejs.org/' target='_blank'>NodeJS</a> module <a href='htt
 
 We must first ensure that root has not taken ownership of the local .npm directory *(that can happen if you ran npm with sudo when you didn't need to)*.
 
-##### Commands
+##### Example Commands
 ```terminal
 sudo chown -R ${USER}:${USER} ~/.npm
 npm install -y --prefix ${HOME} selenium-webdriver
@@ -154,7 +154,7 @@ npm install -y --prefix ${HOME} selenium-webdriver
 
 The <a href='https://code.google.com/p/selenium/wiki/ChromeDriver' target='_blank'>Chrome Driver</a> is the most convenient.  **Note**: This is not the Selenium Webdriver for NodeJS installed in the previous step.
 
-##### Commands
+##### Example Commands
 ```terminal
 wget http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
 unzip -o chromedriver_linux64.zip -d /usr/local/bin
@@ -212,7 +212,7 @@ Steps performed :
  
 If you just want to quickly follow the tutorial then *do* execute this group of commands, otherwise install your usual editor/IDE.
 
-##### Commands
+##### Example Commands
 ```terminal
 add-apt-repository -y ppa:webupd8team/sublime-text-3
 apt-get update
@@ -241,7 +241,7 @@ Linting detects code style contraventions, improves maintainability, and flags m
   - thorough Linter for ECMA Script 6 and earlier
   - preferred by Facebook, AirBnB and many other big names
 
-##### Commands
+##### Example Commands
 ```terminal
 npm install -gy eslint
 npm install -gy eslint-plugin-react
@@ -271,7 +271,7 @@ JSDoc can generate a very sophisticated documentation web site for you, directly
   - very detailed and complete documentation generator
   - used by Google for controlling data types in <a href="https://developers.google.com/closure/compiler/docs/js-for-compiler" target="_blank">their JavaScript compiler.</a>
 
-##### Commands
+##### Example Commands
 ```terminal
 npm install -g jsdoc
 ```
@@ -303,7 +303,7 @@ We need <a href='http://www.sublimetext.com/3' target='_blank'>Sublime Text 3</a
  - Paste the snippet into ST3's console, hit enter and respond to the two prompts.
  - Go to ```View >> Hide Console```, to close the Console
 
-#####Commands
+##### Example Commands
 ```terminal
 export ST3URL="https://packagecontrol.io/installation#st3";
 python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"

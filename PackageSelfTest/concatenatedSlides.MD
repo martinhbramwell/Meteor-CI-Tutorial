@@ -40,7 +40,7 @@ The accompanying script creates a new subdirectory *(if needed)* of ${PKG_NAME} 
   ]
 ```
 Then  re-run nightwatch testing with ```./tests/nightwatch/runTests.js | bunyan -o short```.
-##### Commands
+##### Example Commands
 ```terminal
 wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/test_usage_example.js
 ./tests/nightwatch/runTests.js | bunyan
@@ -65,7 +65,7 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 
 Be aware that we still need to commit the docs directory to the ```gh-pages``` branch of the package repo so as to publish it as GitHub Pages.  Our CI system must be able to do that.</div>
 
-##### Commands
+##### Example Commands
 ```terminal
 wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js
 wget -O usage_example.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example_documented.js

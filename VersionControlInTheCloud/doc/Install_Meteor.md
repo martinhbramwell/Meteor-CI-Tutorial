@@ -11,7 +11,7 @@
 
 In this step we simply run Meteor's installation
 
-##### Commands
+##### Example Commands
 ```terminal
 curl https://install.meteor.com/ | sh
 ```

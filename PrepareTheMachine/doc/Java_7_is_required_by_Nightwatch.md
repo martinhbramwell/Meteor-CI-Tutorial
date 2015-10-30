@@ -17,7 +17,7 @@ Steps performed :
 
 **Legal Notice** : Normally, the PPA installer will prompt you to accept Oracle's license.  If you run this step . . . **you accept the license agreement, implicitly!**
 
-##### Commands
+##### Example Commands
 ```terminal
   add-apt-repository -y ppa:webupd8team/java
   apt-get update
