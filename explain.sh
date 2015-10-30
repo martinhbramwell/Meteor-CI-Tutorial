@@ -22,7 +22,7 @@ function highlight()
   echo -en ${NC};
 }
 
-FRAME=$(printf "%-80s" "~");
+FRAME=$(printf "^v^v^%-80s^v^v^" "~");
 function explain()
 {
   echo -e "\n\n\n\n${FRAME// /\~}"

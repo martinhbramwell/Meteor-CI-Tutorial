@@ -14,10 +14,10 @@ We need <a href='http://www.sublimetext.com/3' target='_blank'>Sublime Text 3</a
 
  - In your browser, go to the <a href='https://packagecontrol.io/installation' target='_blank'>Package Control installer URL</a>
  - Copy the code snippet for **Sublime Text 3**
- - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
- - Go to View >> Show Console, to open the Console
+ - Find Sublime Text in ```Start >> Development```, add it to the panel and start it up.
+ - Go to ```View >> Show Console```, to open the Console
  - Paste the snippet into ST3's console, hit enter and respond to the two prompts.
- - Go to View >> Hide Console, to close the Console
+ - Go to ```View >> Hide Console```, to close the Console
 
 #####Commands
 ```terminal

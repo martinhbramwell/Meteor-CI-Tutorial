@@ -9,7 +9,7 @@
 
 #### Install “JSDoc”.
 
-JSDoc can generate a very sophisticated documentation web site for you, directly from annotations you make in your code.  When you use JSDoc together with an annotations package in your text editor, documenting your work simply becomes an integral part in how you think about it.
+JSDoc can generate a very sophisticated documentation web site for you, directly from annotations you make in your code.  When you use JSDoc together with an annotations package in your text editor, documenting your work simply becomes an integral part of how you think about it.
 
 <a href='http://usejsdoc.org/' target='_blank'>jsdoc.org</a> : 
   - very detailed and complete documentation generator
@@ -21,6 +21,7 @@ npm install -g jsdoc
 ```
 
 There is a closely related JSDoc package for Sublime Text, which we will install in the next section.
+
 <!-- Code for this begins at line #171 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L171" target="_blank">Code for this step.</a>] ]

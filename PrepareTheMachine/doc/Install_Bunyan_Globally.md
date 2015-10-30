@@ -9,11 +9,9 @@
 
 #### Install 'bunyan'
 
-Bunyan is a logging package with the special advantage of writing
-run-time logs as JSON.
+Bunyan is a logging package with the special advantage of writing run-time logs as JSON.
 
-This makes subsequent analysis and long-term
-storage of production system logs much more efficient.
+This makes subsequent analysis and long-term storage of production system logs much more efficient.
 
 It is in two parts :
  - a local node module to replace 'console.log'
