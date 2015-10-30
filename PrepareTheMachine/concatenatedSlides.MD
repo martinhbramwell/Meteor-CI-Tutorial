@@ -99,6 +99,7 @@ apt-get install -y tree python-pip             # for demo convenience
 You must have NodeJS to do Nightwatch testing.
 
 It can run on a separate computer from <a href='https://www.meteor.com/' target='_blank'>Meteor</a>, (but we'll do it all in this one).
+
 ##### Commands
 ```terminal
 curl -sL https://deb.nodesource.com/setup | sudo bash -
@@ -125,6 +126,7 @@ apt-get -y autoremove
 The <a href='https://nodejs.org/' target='_blank'>NodeJS</a> module <a href='https://github.com/SeleniumHQ/selenium' target='_blank'>Selenium Webdriver</a> is required for running Meteor TinyTest on the command line, rather than in a browser.  **Note**: The next step after this one installs a different Selenium driver.
 
 We must first ensure that root has not taken ownership of the local .npm directory *(that can happen if you ran npm with sudo when you didn't need to)*.
+
 ##### Commands
 ```terminal
 sudo chown -R ${USER}:${USER} ~/.npm
@@ -150,6 +152,7 @@ npm install -y --prefix ${HOME} selenium-webdriver
 <a href='http://nightwatchjs.org/' target='_blank'>Nightwatch</a> leverages <a href='http://www.seleniumhq.org/' target='_blank'>Selenium</a>, which has drivers for the major browsers.
 
 The <a href='https://code.google.com/p/selenium/wiki/ChromeDriver' target='_blank'>Chrome Driver</a> is the most convenient.  **Note**: This is not the Selenium Webdriver for NodeJS installed in the previous step.
+
 ##### Commands
 ```terminal
 wget http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
@@ -174,11 +177,9 @@ dpkg -i google-chrome-stable_current_amd64.deb
 
 #### Install 'bunyan'
 
-Bunyan is a logging package with the special advantage of writing
-run-time logs as JSON.
+Bunyan is a logging package with the special advantage of writing run-time logs as JSON.
 
-This makes subsequent analysis and long-term
-storage of production system logs much more efficient.
+This makes subsequent analysis and long-term storage of production system logs much more efficient.
 
 It is in two parts :
  - a local node module to replace 'console.log'
@@ -208,7 +209,8 @@ Steps performed :
  - gets the <a href='https://en.wikipedia.org/wiki/Personal_Package_Archive' target='_blank'>PPA</a> for <a href='http://www.sublimetext.com/3' target='_blank'>Sublime Text 3</a>
  - installs it. 
  
-If you just want to quickly follow the tutorial then *do* execute this group of commands, otherwise install your usual editor/IDE.  Slimetits ain't bad, tho'.
+If you just want to quickly follow the tutorial then *do* execute this group of commands, otherwise install your usual editor/IDE.
+
 ##### Commands
 ```terminal
 add-apt-repository -y ppa:webupd8team/sublime-text-3
@@ -247,6 +249,7 @@ npm install -gy babel-eslint
 ```
 
 There is a closely related ESLint package for Sublime Text.  We will install it in the next section.
+
 <!-- Code for this begins at line #163 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L163" target="_blank">Code for this step.</a>] ]
@@ -262,7 +265,7 @@ There is a closely related ESLint package for Sublime Text.  We will install it 
 
 #### Install “JSDoc”.
 
-JSDoc can generate a very sophisticated documentation web site for you, directly from annotations you make in your code.  When you use JSDoc together with an annotations package in your text editor, documenting your work simply becomes an integral part in how you think about it.
+JSDoc can generate a very sophisticated documentation web site for you, directly from annotations you make in your code.  When you use JSDoc together with an annotations package in your text editor, documenting your work simply becomes an integral part of how you think about it.
 
 <a href='http://usejsdoc.org/' target='_blank'>jsdoc.org</a> : 
   - very detailed and complete documentation generator
@@ -274,6 +277,7 @@ npm install -g jsdoc
 ```
 
 There is a closely related JSDoc package for Sublime Text, which we will install in the next section.
+
 <!-- Code for this begins at line #171 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L171" target="_blank">Code for this step.</a>] ]
@@ -294,10 +298,10 @@ We need <a href='http://www.sublimetext.com/3' target='_blank'>Sublime Text 3</a
 
  - In your browser, go to the <a href='https://packagecontrol.io/installation' target='_blank'>Package Control installer URL</a>
  - Copy the code snippet for **Sublime Text 3**
- - Find Sublime Text in 'Start >> Development', add it to the panel and start it up.
- - Go to View >> Show Console, to open the Console
+ - Find Sublime Text in ```Start >> Development```, add it to the panel and start it up.
+ - Go to ```View >> Show Console```, to open the Console
  - Paste the snippet into ST3's console, hit enter and respond to the two prompts.
- - Go to View >> Hide Console, to close the Console
+ - Go to ```View >> Hide Console```, to close the Console
 
 #####Commands
 ```terminal
