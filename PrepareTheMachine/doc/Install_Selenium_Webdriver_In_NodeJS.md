@@ -20,7 +20,7 @@ npm install -y --prefix ${HOME} selenium-webdriver
 ```
 
 
-<!-- Code for this begins at line #104 -->
+<!-- Code for this begins at line #106 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L104" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh#L106" target="_blank">Code for this step.</a>] ]
 ]

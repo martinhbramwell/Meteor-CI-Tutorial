@@ -71,8 +71,8 @@ function italicsZone(count) {
 }
 
 function terminalSyntaxHighlight(count, line) {
-  if (count%2 > 0) return "\033[0m"line;
-  return line; 
+  if (count%2 > 0) return "\033[0m"line"\n";
+  return "\n"line; 
 }
 
 BEGIN {

@@ -18,13 +18,13 @@ That's easily fixed.  You simply need to establish a symbolic link from your pac
 #####Commands
 ```terminal
 cd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
-ln -s ${PACKAGE_DIRS}/${YOUR_UID}/${PKG_NAME} ${PKG_NAME}
+ln -s ${PACKAGES}/${YOUR_UID}/${PKG_NAME} ${PKG_NAME}
 ```
 For editing purposes your package now appears to be part of your project.  But wait!  It won't be "git managed", will it?!
 
 
 
-<!-- Code for this begins at line #100 -->
+<!-- Code for this begins at line #102 -->
 <!-- B -->
 <div id="symwarn" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('symwarn'); return true;"
@@ -39,5 +39,5 @@ For editing purposes your package now appears to be part of your project.  But w
     <i>Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L100" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L102" target="_blank">Code for this step.</a>] ]
 ]

@@ -25,7 +25,7 @@ git remote add ${PROJECT_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${P
 git push -u ${PROJECT_NAME}_origin master
 ```
 
-<!-- Code for this begins at line #294 -->
+<!-- Code for this begins at line #297 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L294" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L297" target="_blank">Code for this step.</a>] ]
 ]

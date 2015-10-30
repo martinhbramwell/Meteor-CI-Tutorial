@@ -46,9 +46,9 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 ./tests/nightwatch/runTests.js | bunyan
 ```
 
-<!-- Code for this begins at line #25 -->
+<!-- Code for this begins at line #27 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L25" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L27" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -74,9 +74,9 @@ jsdoc -d ./docs . ./nightwatch
 
 Continues ...
 
-<!-- Code for this begins at line #53 -->
+<!-- Code for this begins at line #55 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L53" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L55" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -95,9 +95,9 @@ Up to now, we commit the package with a new version number, then commit the umbr
 
 Our focus for the rest of this part is going to be on <a href="https://circleci.com/docs/configuration" target="_blank">configuring</a> our ```circle.yml``` file.  We'll verify coding style during CircleCI's ```test``` phase.  We'll publish our documentation and deploy the application itself during the ```deployment``` phase.
 
-<!-- Code for this begins at line #83 -->
+<!-- Code for this begins at line #85 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L83" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L85" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -112,9 +112,9 @@ Our focus for the rest of this part is going to be on <a href="https://circleci.
 
 The ```circleci.yml``` quickly gets hard to read if it contains every instruction to executed, but it is perfectly capable of executing bash command files we supply.  
 
-<!-- Code for this begins at line #122 -->
+<!-- Code for this begins at line #124 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L122" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L124" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

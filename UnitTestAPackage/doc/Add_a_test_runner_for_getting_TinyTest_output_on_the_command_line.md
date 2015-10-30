@@ -21,7 +21,7 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 ./meteor-tinytest-runner.run
 ./tests/tinyTests/test-all.sh
 ```
-<!-- Code for this begins at line #240 -->
+<!-- Code for this begins at line #242 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L240" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L242" target="_blank">Code for this step.</a>] ]
 ]

@@ -6,13 +6,15 @@ ORANGE='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
+FRAME=$(printf '^v%.s' {1..52});
 function highlight()
 {
+  echo -e "\n\n\n\n${FRAME// /\~}"
 #  echo -en ${ORANGE};
-  envsubst '$PARENT_DIR, $PROJECT_NAME, $PKG_NAME, $GITHUB_ORGANIZATION_NAME, $PACKAGE_DEVELOPER, $YOUR_EMAIL, $YOUR_UID, $YOUR_FULLNAME' < $1 | \
+  envsubst '$PARENT_DIR, $PROJECT_NAME, $PKG_NAME, $GITHUB_ORGANIZATION_NAME, $PACKAGE_DEVELOPER, $PACKAGES, $YOUR_EMAIL, $YOUR_UID, $YOUR_FULLNAME' < $1 | \
   sed '1,/o 0 o/d;/<!-- B -->/,$d' | \
   ./cleanBeforeLineWrap.awk | \
-  fold -w 110 -s | \
+  fold -w 104 -s | \
   ./cleanAfterLineWrap.awk;
 
 # fmt --width=180 --goal=95;
@@ -22,10 +24,8 @@ function highlight()
   echo -en ${NC};
 }
 
-FRAME=$(printf "^v^v^%-80s^v^v^" "~");
 function explain()
 {
-  echo -e "\n\n\n\n${FRAME// /\~}"
 
   if [ ! -r "$1" ]; then
     echo -e "FIXME";

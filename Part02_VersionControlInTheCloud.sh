@@ -1,6 +1,9 @@
 #!/bin/bash
 
-set -e
+set -e;
+#
+source  ./checkForVirtualMachine.sh;
+
 #
 if [[ $EUID -eq 0 ]]; then
    echo -e "This script SHOULD NOT be run with 'sudo' (as root). "
@@ -152,7 +155,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   # Add execution of obtain_managed_packages.sh to circle.yml
 
 
-  if [[ $(grep -c "${MARKER}" myproject.html) -lt 1 ]]; then
+  if [[ $(grep -c "${MARKER}" ${PROJECT_NAME}.html) -lt 1 ]]; then
     sed -i "/<head>/c<head>\
     \\n  <link rel=\"shortcut icon\" href=\"/${MARKER}\" type=\"image/x-icon\" />" ${PROJECT_NAME}.html
   else

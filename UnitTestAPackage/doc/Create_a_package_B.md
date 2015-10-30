@@ -26,7 +26,8 @@ meteor add ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}
 meteor list
 ```
 Your package will be part of your project's run time, but not part of it at edit time. That's next . . .
-<!-- Code for this begins at line #33 -->
+
+<!-- Code for this begins at line #35 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L33" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L35" target="_blank">Code for this step.</a>] ]
 ]

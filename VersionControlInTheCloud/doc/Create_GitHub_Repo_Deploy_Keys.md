@@ -14,6 +14,7 @@ If you follow <a href='https://help.github.com/articles/generating-ssh-keys/' ta
 We want to do something more realistic -- one deploy key per repository per developer, with a way to manage numerous keys easily.  The trick is in a file called ```~/.ssh/config```. It keeps multiple keys with aliased names that *git* will use to push to the correct repo for you, automatically.
 
 In this step we prepare an aliased key for ```${PROJECT_NAME}```.
+
 ##### Commands
 ```terminal
 ssh-keygen -t rsa -b 4096 -C "github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}" -N "" -f "${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}"
@@ -22,7 +23,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
 ```
 
 
-<!-- Code for this begins at line #215 -->
+<!-- Code for this begins at line #218 -->
 <!-- B -->
 <div id="gotkey" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('gotkey'); return true;"
@@ -37,5 +38,5 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
     <i>Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L215" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L218" target="_blank">Code for this step.</a>] ]
 ]

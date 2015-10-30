@@ -1,8 +1,10 @@
 #!/bin/bash
 #
 
-set -e
+set -e;
 #
+source  ./checkForVirtualMachine.sh;
+
 
 MINFREESPACE=1500000
 FREESPACE=$(df / | grep dev | awk '{print $4}')

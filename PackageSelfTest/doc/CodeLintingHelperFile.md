@@ -11,7 +11,7 @@
 
 The ```circleci.yml``` quickly gets hard to read if it contains every instruction to executed, but it is perfectly capable of executing bash command files we supply.  
 
-<!-- Code for this begins at line #122 -->
+<!-- Code for this begins at line #124 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L122" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L124" target="_blank">Code for this step.</a>] ]
 ]

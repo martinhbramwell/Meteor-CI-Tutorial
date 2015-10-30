@@ -21,7 +21,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
 ```
 
 
-<!-- Code for this begins at line #111 -->
+<!-- Code for this begins at line #113 -->
 <!-- B -->
 <div id="pubkey" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('pubkey'); return true;"
@@ -36,5 +36,5 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
     <i>Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L111" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L113" target="_blank">Code for this step.</a>] ]
 ]

@@ -1,5 +1,7 @@
 #!/bin/bash
-set -e
+set -e;
+#
+source  ./checkForVirtualMachine.sh;
 #
 if [[ $EUID -eq 0 ]]; then
    echo -e "This script SHOULD NOT be run with 'sudo' (as root). "

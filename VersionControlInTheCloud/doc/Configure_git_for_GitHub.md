@@ -23,7 +23,8 @@ git config --global user.name "${YOUR_FULLNAME}"
 git config --global user.email "${YOUR_EMAIL}"
 git config --global push.default simple
 ```
-<!-- Code for this begins at line #38 -->
+
+<!-- Code for this begins at line #41 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L38" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L41" target="_blank">Code for this step.</a>] ]
 ]

@@ -86,7 +86,7 @@ function getUserData()
   while [[ ! "X${CHOICE}X" == "XyX" ]]
   do
 
-    echo -e "\n\n# ${FRAME// /\~}"
+    echo -e "${FRAME// /\~}"
     echo "Projects folder in ${HOME} directory : ${PARENT_DIR}"
     echo "Project name : ${PROJECT_NAME}"
     echo "Package name : ${PKG_NAME}"

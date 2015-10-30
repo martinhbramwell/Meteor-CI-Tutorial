@@ -26,7 +26,7 @@ To complete this section, we need to correctly commit our changes and spawn a re
 
 Continues . . . 
 
-<!-- Code for this begins at line #73 -->
+<!-- Code for this begins at line #75 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part07_ProductionLogging.sh#L73" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part07_ProductionLogging.sh#L75" target="_blank">Code for this step.</a>] ]
 ]

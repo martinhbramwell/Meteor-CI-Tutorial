@@ -19,7 +19,7 @@ meteor list
 ```
 To finish: commit the package, then commit the project and then watch CircleCI for rebuild success.
 
-<!-- Code for this begins at line #96 -->
+<!-- Code for this begins at line #98 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part07_ProductionLogging.sh#L96" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part07_ProductionLogging.sh#L98" target="_blank">Code for this step.</a>] ]
 ]

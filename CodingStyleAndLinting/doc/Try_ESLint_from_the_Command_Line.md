@@ -26,9 +26,9 @@ cd ~/${PARENT_DIR}/${PROJECT_NAME}/
 eslint ${PROJECT_NAME}.js
 ```
 
-<!-- Code for this begins at line #25 -->
+<!-- Code for this begins at line #27 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part04_CodingStyleAndLinting.sh#L25" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part04_CodingStyleAndLinting.sh#L27" target="_blank">Code for this step.</a>] ]
 ]
 a
 b

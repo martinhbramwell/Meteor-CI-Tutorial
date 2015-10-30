@@ -72,9 +72,10 @@ git config --global user.name "${YOUR_FULLNAME}"
 git config --global user.email "${YOUR_EMAIL}"
 git config --global push.default simple
 ```
-<!-- Code for this begins at line #38 -->
+
+<!-- Code for this begins at line #41 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L38" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L41" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -95,9 +96,9 @@ curl https://install.meteor.com/ | sh
 ```
 
 
-<!-- Code for this begins at line #49 -->
+<!-- Code for this begins at line #52 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L49" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L52" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -110,7 +111,7 @@ curl https://install.meteor.com/ | sh
 
 #### Create a Meteor project.
 
-Here we create a container directory called ```${PARENT_DIR}``` and inside it we start a Meteor project called ```${PROJECT_NAME}```
+Here we create a container directory called ```${PARENT_DIR}``` and inside it we start a Meteor project called ```${PROJECT_NAME}```.
 
 If the project was created earlier you'll be invited to delete it and start a new one.
 
@@ -120,9 +121,9 @@ mkdir -p ~/${PARENT_DIR}
 meteor create ${PROJECT_NAME}
 ```
 
-<!-- Code for this begins at line #76 -->
+<!-- Code for this begins at line #79 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L76" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L79" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: Check Meteor Works
@@ -149,9 +150,9 @@ A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print \$2}')
 echo $A_METEOR_PID;
 ```
 
-<!-- Code for this begins at line #120 -->
+<!-- Code for this begins at line #123 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L120" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L123" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -181,9 +182,9 @@ sed -i "/<head>/c<head>\
     \\n  <link rel=\"shortcut icon\" href=\"/favicon-32x32.png\" type=\"image/x-icon\" />" ${PROJECT_NAME}.html
 ```
 
-<!-- Code for this begins at line #145 -->
+<!-- Code for this begins at line #148 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L145" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L148" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -201,6 +202,7 @@ If you follow <a href='https://help.github.com/articles/generating-ssh-keys/' ta
 We want to do something more realistic -- one deploy key per repository per developer, with a way to manage numerous keys easily.  The trick is in a file called ```~/.ssh/config```. It keeps multiple keys with aliased names that *git* will use to push to the correct repo for you, automatically.
 
 In this step we prepare an aliased key for ```${PROJECT_NAME}```.
+
 ##### Commands
 ```terminal
 ssh-keygen -t rsa -b 4096 -C "github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}" -N "" -f "${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}"
@@ -209,7 +211,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
 ```
 
 
-<!-- Code for this begins at line #215 -->
+<!-- Code for this begins at line #218 -->
 <!-- B -->
 <div id="gotkey" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('gotkey'); return true;"
@@ -224,7 +226,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
     <i>Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L215" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L218" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateRemoteGitHubRepository
@@ -273,9 +275,9 @@ name: CreateRemoteGitHubRepository
 
 
 
-<!-- Code for this begins at line #267 -->
+<!-- Code for this begins at line #270 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L267" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L270" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateLocalGitHubRepository
@@ -304,9 +306,9 @@ git remote add ${PROJECT_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${P
 git push -u ${PROJECT_NAME}_origin master
 ```
 
-<!-- Code for this begins at line #294 -->
+<!-- Code for this begins at line #297 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L294" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh#L297" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
