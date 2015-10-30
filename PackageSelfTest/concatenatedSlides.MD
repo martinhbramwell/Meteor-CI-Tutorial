@@ -112,49 +112,9 @@ Our focus for the rest of this part is going to be on <a href="https://circleci.
 
 The ```circleci.yml``` quickly gets hard to read if it contains every instruction to executed, but it is perfectly capable of executing bash command files we supply.  
 
-<!-- Code for this begins at line #121 -->
+<!-- Code for this begins at line #122 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L121" target="_blank">Code for this step.</a>] ]
-]
----
-.left-column[
-  ### Helper File - Code Linting
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)]
-<!-- H -->]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### Code Linting Helper File
-
-The ```circleci.yml``` quickly gets hard to read if it contains every instruction to executed, but it is perfectly capable of executing bash command files we supply.  
-
-<!-- Code for this begins at line #121 -->
-<!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L121" target="_blank">Code for this step.</a>] ]
-]
----
-.left-column[
-  ### Left Title
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)]
-<!-- H -->]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### Friendly Title
-
-
-```javascript
-Package.onUse(function(api) {
-});
-```
-
-Continues ...
-
-<!-- Code for this begins at line #88 -->
-<!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L88" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L122" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -186,6 +146,29 @@ Continues ...
     href="javascript:ReverseContentDisplay('usage')">
     <i>Hover Note</i>
 </a>
+]
+---
+.left-column[
+  ### Left Title
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+.footnote[.red.bold[] [Table of Contents](./)]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Friendly Title
+
+
+```javascript
+Package.onUse(function(api) {
+});
+```
+
+Continues ...
+
+<!-- Code for this begins at line #88 -->
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L88" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

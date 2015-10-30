@@ -113,6 +113,7 @@ curl https://install.meteor.com/ | sh
 Here we create a container directory called ```${PARENT_DIR}``` and inside it we start a Meteor project called ```${PROJECT_NAME}```
 
 If the project was created earlier you'll be invited to delete it and start a new one.
+
 ##### Commands
 ```terminal
 mkdir -p ~/${PARENT_DIR}
@@ -138,15 +139,14 @@ name: Check Meteor Works
 
 This script will now stop any currently running Meteor process and start a new one for ```${PROJECT_NAME}```, cleanly.
 
-**When prompted**, test meteor in a browser.
-
-<a href='http://localhost:3000/' target='_blank'>http://localhost:3000/</a>
+**When prompted**, test Meteor with this link in a browser, <a href='http://localhost:3000/' target='_blank'>http://localhost:3000/</a>
 
 When you hit ```<Enter>```, to continue to the next step, Meteor will be killed automatically.
+
 #####Commands
 ```terminal
-A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print $2}')
-echo $A_METEOR_PID
+A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print \$2}')
+echo $A_METEOR_PID;
 ```
 
 <!-- Code for this begins at line #120 -->
@@ -172,6 +172,7 @@ In this step we create some of the project meta data files :
  -  public/favicon-32x32.png
 
 The .eslintrc file is borrowed from the project <a href='https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc' target='_blank'>warehouseman:meteor-swagger-client</a>
+
 #####Commands
 ```terminal
 wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
@@ -292,7 +293,8 @@ In this step we :
  -  establish our GitHub project as the remote repository
  -  push our new files to GitHub
 
-**This step is NOT idempotent.**  If you have already pushed to GitHub you might get errors. If so, eliminate the project from GitHub and run this step again. *Also note : SSH may ask you to confirm GitHub's PK fingerprint.**
+**This step is NOT idempotent.**  If you have already pushed to GitHub you might get errors. If so, eliminate the project from GitHub and run this step again. *Also note : SSH may ask you to confirm GitHub's PK fingerprint.*
+
 #####Commands
 ```terminal
 git init
