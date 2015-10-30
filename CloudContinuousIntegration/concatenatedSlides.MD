@@ -66,9 +66,9 @@ git commit -am 'Added circle.yml and unit testing' && git push
 ```
 
 
-<!-- Code for this begins at line #27 -->
+<!-- Code for this begins at line #29 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L27" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L29" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: AmendTheConfigurationAndPushAgain
@@ -97,9 +97,9 @@ git commit -am 'Add script to clone packages and symlink to them';
 ```
 
 
-<!-- Code for this begins at line #54 -->
+<!-- Code for this begins at line #56 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L54" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L56" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -123,9 +123,9 @@ then make it executable and run it.
 The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample ```circle.yml``` that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
 
 
-<!-- Code for this begins at line #100 -->
+<!-- Code for this begins at line #102 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L100" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L102" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -155,9 +155,9 @@ This command group starts Meteor in a background process, (stopping any already 
 ```terminal
  ./tests/nightwatch/runTests.js | bunyan
 ```
-<!-- Code for this begins at line #116 -->
+<!-- Code for this begins at line #118 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L116" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L118" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: ConfigureCircleCIforNightwatchTesting
@@ -185,9 +185,9 @@ git commit -am 'Added Nightwatch testing';
 git push
 ```
 
-<!-- Code for this begins at line #173 -->
+<!-- Code for this begins at line #175 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L173" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L175" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

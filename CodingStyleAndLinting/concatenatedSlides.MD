@@ -50,9 +50,9 @@ cd ~/${PARENT_DIR}/${PROJECT_NAME}/
 eslint ${PROJECT_NAME}.js
 ```
 
-<!-- Code for this begins at line #25 -->
+<!-- Code for this begins at line #27 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part04_CodingStyleAndLinting.sh#L25" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part04_CodingStyleAndLinting.sh#L27" target="_blank">Code for this step.</a>] ]
 ]
 a
 b
@@ -166,9 +166,9 @@ eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
 Great!  All clean!
 
 **Note 2015/09/27** - The current version mishandles ```.eslintignore``` when there are symlinks, resulting in the false warning "File ignored because of your .eslintignore file. Use --no-ignore to override"
-<!-- Code for this begins at line #53 -->
+<!-- Code for this begins at line #55 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part04_CodingStyleAndLinting.sh#L53" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part04_CodingStyleAndLinting.sh#L55" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

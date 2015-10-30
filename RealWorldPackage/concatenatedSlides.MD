@@ -79,9 +79,9 @@ chmod a+x reloadSwaggerPetStore.sh
 Continues ...
 
 
-<!-- Code for this begins at line #27 -->
+<!-- Code for this begins at line #29 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L27" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L29" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -117,9 +117,9 @@ After Meteor starts up, inspect the log file with :
 Continues ...
 
 
-<!-- Code for this begins at line #45 -->
+<!-- Code for this begins at line #47 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L45" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L47" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -309,9 +309,9 @@ wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master
 Continues ...
 
 
-<!-- Code for this begins at line #100 -->
+<!-- Code for this begins at line #102 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L100" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh#L102" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
