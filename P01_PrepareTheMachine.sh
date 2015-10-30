@@ -34,50 +34,41 @@ read -p "Hit <enter> ::  " -n 1 -r REPLY
 
 RUN_RULE="";
 explain ${BINDIR}/Java_7_is_required_by_Nightwatch.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then Java_7_is_required_by_Nightwatch; fi;
+if [ "${RUN_RULE}" != "n" ]; then 
+  Java_7_is_required_by_Nightwatch_A;
+  apt-get update; 
+  Java_7_is_required_by_Nightwatch_B;
+fi;
 
 explain ${BINDIR}/Install_other_tools.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Install_other_tools; fi;
 
-
-
 explain ${BINDIR}/Install_NodeJS.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Install_NodeJS; fi;
 
-
-
-
 explain ${BINDIR}/Install_Selenium_Webdriver_In_NodeJS.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then Install_Selenium_Webdriver_In_NodeJS fi;
-
-
-
+if [ "${RUN_RULE}" != "n" ]; then Install_Selenium_Webdriver_In_NodeJS; fi;
 
 explain ${BINDIR}/Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
   Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome;
-fi
-
-
+fi;
 
 explain ${BINDIR}/Install_Bunyan_Globally.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Install_Bunyan_Globally; fi;
 
-
-
-
 explain ${BINDIR}/This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
-  This_tutorial_expects_to_use_the_Sublime_Text_3_editor;
+  This_tutorial_expects_to_use_the_Sublime_Text_3_editor_A;
+  apt-get update;
+  This_tutorial_expects_to_use_the_Sublime_Text_3_editor_B;
 fi;
 
 explain ${BINDIR}/Install_eslint.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Install_eslint; fi;
 
-
 explain ${BINDIR}/Install_jsdoc.md ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Install_jsdoc; fi;
-
 
 highlight ${BINDIR}/Configure_Sublime_A.md # CODE_BLOCK explain
 echo "";

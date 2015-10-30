@@ -25,11 +25,12 @@ function installToolsForTheseScripts() {
 
 }
 
-function Java_7_is_required_by_Nightwatch() {
+function Java_7_is_required_by_Nightwatch_A() {
   echo -e # -- Get PPAs for Oracle Java 7 and update APT --
-  add-apt-repository -y ppa:webupd8team/java
-  apt-get update
+  add-apt-repository -y ppa:webupd8team/java;
+}
 
+function Java_7_is_required_by_Nightwatch_B() {
   echo -e # -- Install Oracle Java 7 --
   echo -debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
   echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
@@ -46,6 +47,7 @@ function Install_other_tools() {
 
 function Install_NodeJS() {
   pushd /tmp >/dev/null;
+  # This script calls apt-get update
   curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
   apt-get install -y nodejs
   apt-get -y autoremove
@@ -89,10 +91,12 @@ function Install_Bunyan_Globally() {
 
 }
 
-function This_tutorial_expects_to_use_the_Sublime_Text_3_editor() {
+function This_tutorial_expects_to_use_the_Sublime_Text_3_editor_A() {
   echo -e # -- Get PPAs for Sublime Text editor --
-  add-apt-repository -y ppa:webupd8team/sublime-text-3
-  apt-get update
+  add-apt-repository -y ppa:webupd8team/sublime-text-3;
+}
+
+function This_tutorial_expects_to_use_the_Sublime_Text_3_editor_B() {
   echo -e # -- Install Sublime Text editor --
   apt-get install -y sublime-text-installer
   echo -e # -- Install HTML parser for obtaining installer for ST3 Package Control --

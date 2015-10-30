@@ -134,16 +134,17 @@
       <h2>First steps</h2>
       <p>To begin, you will need to obtain the tutorial.  Open up a terminal window, then copy'n paste these commands into it:
       <p class="console">
-              export URI="https://github.com/martinhbramwell"
+              export BRANCH="master" # modularize 
+        <br />export URI="https://github.com/martinhbramwell"
         <br />export TUT="Meteor-CI-Tutorial"
-        <br />export FILE="archive/master.zip"
+        <br />export FILE="archive/${BRANCH}.zip"
         <br />
         <br />echo "Downloading : \n${URI}/${TUT}/${FILE}"
         <br />echo " &nbsp; &nbsp; &nbsp; &nbsp;  as : ${TUT}.zip"
         <br />
         <br />wget -O ${TUT}.zip ${URI}/${TUT}/${FILE}
         <br />unzip ${TUT}.zip
-        <br />mv ${TUT}-master ${TUT}
+        <br />mv ${TUT}-${BRANCH} ${TUT}
         <br />cd ${TUT}
         <br />
         <br /># Ready to run the first script :
