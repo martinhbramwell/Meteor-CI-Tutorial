@@ -6,34 +6,19 @@ ORANGE='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-# function awkWork()
-# {
-# #  echo -en ${PURPLE};
-#   envsubst '$PARENT_DIR, $PROJECT_NAME, $PKG_NAME, $GITHUB_ORGANIZATION_NAME, $PACKAGE_DEVELOPER, $YOUR_EMAIL, $YOUR_UID, $YOUR_FULLNAME' < $1 | \
-# #  cat $1 | \
-#   sed '1,/o 0 o/d;/<!-- B -->/,$d' | \
-#   ./clean.awk;
-#   # | \
-# #  awk '{while(match($0,"[$]{[^}]*}")) {var=substr($0,RSTART+2,RLENGTH -3);gsub("[$]{"var"}",ENVIRON[var])}}1' | \
-# #  sed "s|\(\[\)\([a-z A-Z0-9'.:/-]*\)\(\]([a-zA-Z0-9/:._-?=]*)\)|\2 |g" | \
-
-# #  fold -w 90 -s;
-# #  echo -en ${NC};
-# }
-
 function highlight()
 {
 #  echo -en ${ORANGE};
   envsubst '$PARENT_DIR, $PROJECT_NAME, $PKG_NAME, $GITHUB_ORGANIZATION_NAME, $PACKAGE_DEVELOPER, $YOUR_EMAIL, $YOUR_UID, $YOUR_FULLNAME' < $1 | \
   sed '1,/o 0 o/d;/<!-- B -->/,$d' | \
-  ./clean.awk | \
-  fold -w 95 -s;
-#   | \
+  ./cleanBeforeLineWrap.awk | \
+  fold -w 110 -s | \
+  ./cleanAfterLineWrap.awk;
+
 # fmt --width=180 --goal=95;
 #  awk '{while(match($0,"[$]{[^}]*}")) {var=substr($0,RSTART+2,RLENGTH -3);gsub("[$]{"var"}",ENVIRON[var])}}1' | \
 #  sed "s|\(\[\)\([a-z A-Z0-9'.:/-]*\)\(\]([a-zA-Z0-9/:._-?=]*)\)|\2 |g" | \
-  #
-#  fold -w 95 -s;
+
   echo -en ${NC};
 }
 
