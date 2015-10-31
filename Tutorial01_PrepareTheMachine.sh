@@ -8,7 +8,7 @@ source ./scripts/util.sh
 checkForVirtualMachine;
 
 export SUDOUSER=$(who am i | awk '{print $1}');
-export BINDIR="./Tutorial01_PrepareTheMachine";
+export BINDIR="./P01_PrepareTheMachine";
 
 source ${BINDIR}/PrepareTheMachine_functions.sh;
 
