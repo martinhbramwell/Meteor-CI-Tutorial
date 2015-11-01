@@ -3,7 +3,6 @@
 set -e;
 #
 source ./scripts/util.sh
-verifyFreeSpace;
 checkForVirtualMachine;
 verifyRootUser;
 
@@ -14,6 +13,20 @@ export SECTION="PrepareTheMachine";
 export NEXT_SECTION="VersionControlInTheCloud";
 printf -v BINDIR "./Tutorial%02d_%s" ${SECTION_NUM} ${SECTION};
 source "${BINDIR}/${SECTION}_functions.sh";
+verifyFreeSpace;
+
+printf  "
+        The first step requires installing some tools that make these expanantions more readable :
+         - gawk
+         - python-pygments
+
+"
+read -p "  'q' or <enter> ::  " -n 1 -r USER_ANSWER
+
+CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+RUN_RULE=${CHOICE};
+if [ "X${CHOICE}X" == "XqX" ]; then echo ""; exit 0; fi;
+
 installToolsForTheseScripts
 
 source ./scripts/explain.sh
