@@ -26,7 +26,6 @@ This command group starts Meteor in a background process, (stopping any already 
 ```terminal
  ./tests/nightwatch/runTests.js | bunyan
 ```
-<!-- Code for this begins at line #118 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L81" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L81" target="_blank">Code for this step.</a>] ]
 ]

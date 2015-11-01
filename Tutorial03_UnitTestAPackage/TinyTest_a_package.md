@@ -19,7 +19,6 @@ meteor test-packages &
 tree
 ```
 To stop Meteor and move on to the next step in the tutorial script, after you have confirmed that it ran successful tests, just hit ```<enter>```.
-<!-- Code for this begins at line #213 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L180" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L180" target="_blank">Code for this step.</a>] ]
 ]

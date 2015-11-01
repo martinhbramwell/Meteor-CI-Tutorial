@@ -66,9 +66,8 @@ git commit -am 'Added circle.yml and unit testing' && git push
 ```
 
 
-<!-- Code for this begins at line #29 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L1" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L1" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: AmendTheConfigurationAndPushAgain
@@ -84,22 +83,21 @@ name: AmendTheConfigurationAndPushAgain
 
 The command failed because we still must reference our package from the ```circle.yml``` file.
 
-We add the script <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/obtain_managed_packages.sh" target="_blank">obtain_managed_packages.sh</a> to the packages directory of our project.  It uses the list, ```managed_packages.sh```, to clone our packages and link them into the project.  Edit the list as needed.
+We add the script <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/obtain_managed_packages.sh" target="_blank">obtain_managed_packages.sh</a> to the packages directory of our project.  It uses the list, ```managed_packages.sh```, to clone our packages and link them into the project.  Edit the list as needed.
 ```ruby
     # Pull each of our packages and link them into our project
     - ./packages/obtain_managed_packages.sh```
 ##### Example Commands
 ```terminal
-wget -O ./packages/managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/managed_packages.sh;
-wget -O ./packages/obtain_managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/obtain_managed_packages.sh;
+wget -O ./packages/managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/managed_packages.sh;
+wget -O ./packages/obtain_managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/obtain_managed_packages.sh;
 git add packages;
 git commit -am 'Add script to clone packages and symlink to them';
 ```
 
 
-<!-- Code for this begins at line #56 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L26" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L26" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -116,16 +114,15 @@ Nightwatch tests applications end-to-end by directly controlling the browser.  M
 
 To install: pull this file out of GitHub
 ```terminal
-wget -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/master/meteor-nightwatch-runner.run
+wget -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/modularize/meteor-nightwatch-runner.run
 ```
 then make it executable and run it.
 
 The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample ```circle.yml``` that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
 
 
-<!-- Code for this begins at line #102 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L67" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L67" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -155,9 +152,8 @@ This command group starts Meteor in a background process, (stopping any already 
 ```terminal
  ./tests/nightwatch/runTests.js | bunyan
 ```
-<!-- Code for this begins at line #118 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L81" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L81" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: ConfigureCircleCIforNightwatchTesting
@@ -185,9 +181,8 @@ git commit -am 'Added Nightwatch testing';
 git push
 ```
 
-<!-- Code for this begins at line #175 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L136" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L136" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

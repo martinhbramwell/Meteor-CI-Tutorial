@@ -17,7 +17,6 @@ Our focus for this part is going to be on <a href="https://circleci.com/docs/con
 
 Continues ...
 
-<!-- Code for this begins at line #88 -->
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L88" target="_blank">Code for this step.</a>] ]
 ]

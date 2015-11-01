@@ -9,7 +9,7 @@
 
 #### End To End Test of the Usage Example
 
-The accompanying script creates a new subdirectory *(if needed)* of ${PKG_NAME} called ```tools/testing``` and, into it, downloads the <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/test_usage_example.js' target='_blank'>code for a usage example end-to-end test</a>.  *Nightwatch* needs to be told where to find it, so you should now edit ```${PROJECT_NAME}/tests/nightwatch/config/nightwatch.json``` to look like this :
+The accompanying script creates a new subdirectory *(if needed)* of ${PKG_NAME} called ```tools/testing``` and, into it, downloads the <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/test_usage_example.js' target='_blank'>code for a usage example end-to-end test</a>.  *Nightwatch* needs to be told where to find it, so you should now edit ```${PROJECT_NAME}/tests/nightwatch/config/nightwatch.json``` to look like this :
 ```javascript
   "src_folders": [
     "./packages/${PKG_NAME}/tools/testing",   // ADD | <--
@@ -19,11 +19,10 @@ The accompanying script creates a new subdirectory *(if needed)* of ${PKG_NAME} 
 Then  re-run nightwatch testing with ```./tests/nightwatch/runTests.js | bunyan -o short```.
 ##### Example Commands
 ```terminal
-wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/test_usage_example.js
+wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/test_usage_example.js
 ./tests/nightwatch/runTests.js | bunyan
 ```
 
-<!-- Code for this begins at line #27 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L2" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L2" target="_blank">Code for this step.</a>] ]
 ]

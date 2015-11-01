@@ -13,14 +13,13 @@ Nightwatch tests applications end-to-end by directly controlling the browser.  M
 
 To install: pull this file out of GitHub
 ```terminal
-wget -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/master/meteor-nightwatch-runner.run
+wget -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/modularize/meteor-nightwatch-runner.run
 ```
 then make it executable and run it.
 
 The installer prepares a Nightwatch test directory and then deletes itself, leaving only what's necessary. It includes a sample ```circle.yml``` that expects the TinyTest runner to have been installed first; it will run TinyTests and Nightwatch tests in CircleCI one after the other.
 
 
-<!-- Code for this begins at line #102 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L67" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L67" target="_blank">Code for this step.</a>] ]
 ]

@@ -143,10 +143,10 @@ function checkNotRoot() {
 }
 
 function checkForVirtualMachine() {
-  echo -e "Attempting to confirm we're running in a virtual machine . . .\n";
+  echo -e "Attempting to confirm we're running in a virtual machine . . .";
   VIRTUAL=false;
 
-  MSG="Found a '%s' virtual machine.\n";
+  MSG="Found a '%s' virtual machine.\n\n";
 
   if [[ -d /proc/vz ]]; then
     if [[ -f /proc/vz/veinfo ]]; then

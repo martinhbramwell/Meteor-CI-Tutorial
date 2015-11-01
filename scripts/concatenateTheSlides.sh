@@ -64,7 +64,7 @@ function substituteFieldsInSlide() {
   if [[ "${LNUM}" -gt 0 ]]; then
 
     DBGLOG=false;
-    if [[ "${FPA[1]}" == "VersionControlInTheCloud" && "${LNUM}" -lt 1  || "${LNUM}" -eq 999 ]]; then
+    if [[ "${FPA[1]}" == "RealWorldPackage" && "${LNUM}" -lt 0  || "${LNUM}" -eq -1 ]]; then
       DBGLOG=true;
     fi;
 
@@ -99,11 +99,13 @@ function substituteFieldsInSlide() {
   #     ${DBGLOG} && echo "New : ${REPLACEMENT}"
   #     sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
   # #
-    export PATTERN='blob\/master\/[A-Za-z0-9_]*.sh'
+    export PATTERN="blob\/${CURRENT_BRANCH_OF_GIT}\/[A-Za-z0-9_]*.sh"
 #    echo "Old : ${PATTERN}"
-    export REPLACEMENT="blob/master/${FUNCTIONS_FILE}"
+    export REPLACEMENT="blob/${CURRENT_BRANCH_OF_GIT}/${FUNCTIONS_FILE}"
     ${DBGLOG} && echo "New : ${REPLACEMENT}"
     sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
+
+    sed -i "0,/master/s|master|${CURRENT_BRANCH_OF_GIT}|" ${AFP}
 
   fi;
 
@@ -136,7 +138,11 @@ deleteAllPreviouslyConcatenatedMarkdownFiles;
 #
 # Process all markdown documents extracting just what a script user needs to see
 #
-GITHUB_DIR="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/"
+CURRENT_BRANCH_OF_GIT=$(git rev-parse --abbrev-ref HEAD);
+printf -v GITHUB_DIR "https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/%s/" ${CURRENT_BRANCH_OF_GIT};
+printf "
+   We're building for the %s branch of the repository.\n\n" ${CURRENT_BRANCH_OF_GIT};
+
 for idx_d in "${FILEPATHS[@]}"
 do
   FP="${idx_d}";

@@ -48,9 +48,8 @@ Steps performed :
   apt-get -y install oracle-java7-installer
 ```
 
-<!-- Code for this begins at line #68 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L28" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L28" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -80,9 +79,8 @@ apt-get install -y tree python-pip             # for demo convenience
 ```
 
 
-<!-- Code for this begins at line #83 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L40" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L40" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -109,9 +107,8 @@ apt-get -y autoremove
 ```
 
 
-<!-- Code for this begins at line #94 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L48" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L48" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -135,9 +132,8 @@ npm install -y --prefix ${HOME} selenium-webdriver
 ```
 
 
-<!-- Code for this begins at line #106 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L57" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L57" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -163,9 +159,8 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
 ```
 
-<!-- Code for this begins at line #118 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L65" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L65" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -189,9 +184,8 @@ It is in two parts :
 For ongoing server side logging during development or production we need a permanent home for the logs.  The standard place for that in Ubuntu is ```/var/log/```.  So we also need to create a directory for Meteor with suitable permissions.
 
 
-<!-- Code for this begins at line #138 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L82" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L82" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -220,9 +214,8 @@ apt-get install -y sublime-text-installer
 pip install -y beautifulsoup4 requests
 ```
 
-<!-- Code for this begins at line #154 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L94" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L94" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -250,9 +243,8 @@ npm install -gy babel-eslint
 
 There is a closely related ESLint package for Sublime Text.  We will install it in the next section.
 
-<!-- Code for this begins at line #165 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L106" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L106" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -278,9 +270,8 @@ npm install -g jsdoc
 
 There is a closely related JSDoc package for Sublime Text, which we will install in the next section.
 
-<!-- Code for this begins at line #173 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L112" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L112" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -308,9 +299,9 @@ We need <a href='http://www.sublimetext.com/3' target='_blank'>Sublime Text 3</a
 export ST3URL="https://packagecontrol.io/installation#st3";
 python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"
 ```
-<!-- Code for this begins at line #180 -->
+
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L116" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L116" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

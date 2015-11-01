@@ -69,19 +69,18 @@ Continues ...
 
 Ideally, we should test against our own Swagger compliant REST API, but for simplicity sake we'll exploit Swagger's free on-line test/demo service.
 
-Swagger wipes all anonymous user data on their public server every 24 hours.  To ensure consistent results we use a script <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/tree/master/fragments/reloadSwaggerPetStore.sh" target="_blank">reloadSwaggerPetStore.sh</a> to write a few records to an out of the way location.  This will meet our continuous integration needs, so long as the service has tolerable uptime.
+Swagger wipes all anonymous user data on their public server every 24 hours.  To ensure consistent results we use a script <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/tree/modularize/fragments/reloadSwaggerPetStore.sh" target="_blank">reloadSwaggerPetStore.sh</a> to write a few records to an out of the way location.  This will meet our continuous integration needs, so long as the service has tolerable uptime.
 
 ##### Example Commands
 ```terminal
-wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/reloadSwaggerPetStore.sh
+wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/reloadSwaggerPetStore.sh
 chmod a+x reloadSwaggerPetStore.sh
 ```
 Continues ...
 
 
-<!-- Code for this begins at line #29 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L2" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L2" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -96,7 +95,7 @@ Continues ...
 
 ... continuing.
 
-<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Obtain the improved</a> ```'${PKG_NAME}.js'``` file, like this :
+<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/yourpackage.js' target='_blank'>Obtain the improved</a> ```'${PKG_NAME}.js'``` file, like this :
 
 ```javascript
 const Client = Npm.require('swagger-client');
@@ -117,9 +116,8 @@ After Meteor starts up, inspect the log file with :
 Continues ...
 
 
-<!-- Code for this begins at line #47 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L17" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L17" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -292,7 +290,7 @@ Continues ...
 Unit tests confirm our package works, but how do we actually use it from an application?
 
 In the main directory, ```${PKG_NAME}```, of our package we'll create  a template file, 
-<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.html' target='_blank'>usage_example.html</a>, and a template helper file, <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.js' target='_blank'>'usage_example.js'</a>.
+<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/usage_example.html' target='_blank'>usage_example.html</a>, and a template helper file, <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/usage_example.js' target='_blank'>'usage_example.js'</a>.
 
 We must register them in the ```onUse``` of our ```package.js``` file.
 ```javascript
@@ -302,16 +300,15 @@ We must register them in the ```onUse``` of our ```package.js``` file.
 ```
 ##### Example Commands
 ```terminal
-wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.html
-wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.js
+wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/usage_example.html
+wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/usage_example.js
 ```
 
 Continues ...
 
 
-<!-- Code for this begins at line #102 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L43" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L43" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

@@ -73,9 +73,8 @@ git config --global user.email "${YOUR_EMAIL}"
 git config --global push.default simple
 ```
 
-<!-- Code for this begins at line #41 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L3" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L3" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -96,9 +95,8 @@ curl https://install.meteor.com/ | sh
 ```
 
 
-<!-- Code for this begins at line #52 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L13" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L13" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -121,9 +119,8 @@ mkdir -p ~/${PARENT_DIR}
 meteor create ${PROJECT_NAME}
 ```
 
-<!-- Code for this begins at line #79 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L35" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L35" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: Check Meteor Works
@@ -150,9 +147,8 @@ A_METEOR_PID=$(ps aux | grep meteor | grep tools/main.js | awk '{print \$2}')
 echo $A_METEOR_PID;
 ```
 
-<!-- Code for this begins at line #123 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L76" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L76" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -172,19 +168,18 @@ In this step we create some of the project meta data files :
  -  .eslintrc
  -  public/favicon-32x32.png
 
-The .eslintrc file is borrowed from the project <a href='https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc' target='_blank'>warehouseman:meteor-swagger-client</a>
+The .eslintrc file is borrowed from the project <a href='https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/modularize/.eslintrc' target='_blank'>warehouseman:meteor-swagger-client</a>
 
 ##### Example Commands
 ```terminal
-wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
-wget -O ./public/favicon-32x32.png https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/favicon-32x32.png
+wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/modularize/.eslintrc
+wget -O ./public/favicon-32x32.png https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/favicon-32x32.png
 sed -i "/<head>/c<head>\
     \\n  <link rel=\"shortcut icon\" href=\"/favicon-32x32.png\" type=\"image/x-icon\" />" ${PROJECT_NAME}.html
 ```
 
-<!-- Code for this begins at line #148 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L99" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L99" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -211,7 +206,6 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
 ```
 
 
-<!-- Code for this begins at line #218 -->
 <!-- B -->
 <div id="gotkey" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('gotkey'); return true;"
@@ -226,7 +220,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
     <i>Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L167" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L167" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateRemoteGitHubRepository
@@ -274,7 +268,7 @@ name: CreateRemoteGitHubRepository
 1. Click ```Add key```.
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L208" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L208" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateLocalGitHubRepository
@@ -300,11 +294,11 @@ git init
 git add .
 git commit -am 'First commit'
 git remote add ${PROJECT_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
-git push -u ${PROJECT_NAME}_origin master
+git push -u ${PROJECT_NAME}_origin modularize
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L232" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L232" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

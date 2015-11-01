@@ -23,7 +23,6 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
 ```
 
 
-<!-- Code for this begins at line #218 -->
 <!-- B -->
 <div id="gotkey" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('gotkey'); return true;"
@@ -38,5 +37,5 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
     <i>Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L167" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L167" target="_blank">Code for this step.</a>] ]
 ]

@@ -10,7 +10,7 @@ function verifyFreeSpace() {
 
 function verifyRootUser() {
   if [[ $EUID -ne 0 ]]; then
-     echo -e "This script must be run with 'sudo' (run as root). "
+     echo -e "\n   This script must be run with 'sudo' (run as root). "
      exit 1
   fi
 }

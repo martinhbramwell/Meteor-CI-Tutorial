@@ -216,7 +216,7 @@ So, on the server-side, we now have much more control over logging <a href="http
 
 #### Refactor Bunyan Instantiation (Part A)
 
-<a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/logger.js" target="_blank">Download</a> the file ```'logger.js'``` that separates out Bunyan setup. When it is registered in ```package.js```, logs will be saved to a server-side file under ```/var/log/meteor```.
+<a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/logger.js" target="_blank">Download</a> the file ```'logger.js'``` that separates out Bunyan setup. When it is registered in ```package.js```, logs will be saved to a server-side file under ```/var/log/meteor```.
 ```javascript
 const Bunyan = Npm.require('bunyan');
 Logger = Bunyan.createLogger({
@@ -236,9 +236,8 @@ Tinytest.add('Check Equality', function sanityCheckEQ(test) {
 
 You'll get an error ```Logger is not defined```, however ...
 
-<!-- Code for this begins at line #55 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L1" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L1" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -298,9 +297,8 @@ To complete this section, we need to correctly commit our changes and spawn a re
 
 Continues . . . 
 
-<!-- Code for this begins at line #75 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L12" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L12" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -323,9 +321,8 @@ meteor list
 ```
 To finish: commit the package, then commit the project and then watch CircleCI for rebuild success.
 
-<!-- Code for this begins at line #98 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L30" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L30" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

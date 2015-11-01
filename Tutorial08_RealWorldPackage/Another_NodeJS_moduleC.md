@@ -11,7 +11,7 @@
 
 ... continuing.
 
-<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Obtain the improved</a> ```'${PKG_NAME}.js'``` file, like this :
+<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/yourpackage.js' target='_blank'>Obtain the improved</a> ```'${PKG_NAME}.js'``` file, like this :
 
 ```javascript
 const Client = Npm.require('swagger-client');
@@ -32,7 +32,6 @@ After Meteor starts up, inspect the log file with :
 Continues ...
 
 
-<!-- Code for this begins at line #47 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L17" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L17" target="_blank">Code for this step.</a>] ]
 ]

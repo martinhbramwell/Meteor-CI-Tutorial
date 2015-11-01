@@ -19,7 +19,6 @@ That's beyond the scope of this tutorial.  However, we must, in any case, repeat
 
 Continues . . . 
 
-<!-- Code for this begins at line #157 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L128" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L128" target="_blank">Code for this step.</a>] ]
 ]
