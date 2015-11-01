@@ -9,7 +9,7 @@ function assembleMapsOfDirectoryAndFileNames() {
   for filename in ./Tutorial*.sh; do
     PT=$(echo ${filename} | sed 's/.\///g' | sed 's/_/_|/g' | sed 's/.sh/|/g');
     TUTSPATH=$(echo ${filename} | sed 's/.\///g' | sed 's/.sh//g');
-    echo "${PT}   ºº   ${TUTSPATH}";
+#    echo "${PT}   ºº   ${TUTSPATH}";
     TUTSPATHS+=(${TUTSPATH});
     while read -r line; do
       FN=$(echo "${line}" | sed 's/\.md.*/.md/g');
@@ -47,7 +47,7 @@ function applyManualVsAutomaticIndicator() {
 #        REPLACEMENT='No manual input'
       fi
       sed -i "s/.*${PATTERN}.*/${REPLACEMENT}/g" ${AFP};
-      echo "${AFP} does ${REPLACEMENT}"
+#      echo "${AFP} does ${REPLACEMENT}"
     fi
   fi
 
@@ -59,7 +59,7 @@ function substituteFieldsInSlide() {
 #  FUNCTIONS_FILE="${FPA[0]}${FPA[1]}/${FPA[1]}_functions.sh";
 #  ls -l ${FUNCTIONS_FILE};
   readarray -t LNUMS <<<"$(grep -nr ${FPA[2]} ${FUNCTIONS_FILE}  | cut -d : -f 1)"
-  echo "FPA :: |- ${FPA[0]} -|- ${FPA[1]} -|- ${FPA[2]} -|- ${LNUMS[0]} -|";
+#  echo "FPA :: |- ${FPA[0]} -|- ${FPA[1]} -|- ${FPA[2]} -|- ${LNUMS[0]} -|";
   LNUM=${LNUMS[0]};
   if [[ "${LNUM}" -gt 0 ]]; then
 

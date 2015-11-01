@@ -9,7 +9,7 @@ layout: false
 
 ## A Real World Package
 
-'Part07_ProductionLogging.sh' introduced how to ```require``` a NodeJS module into Meteor but it was a simple case.
+'Tutorial07_ProductionLogging.sh' introduced how to ```require``` a NodeJS module into Meteor but it was a simple case.
 
 Although Meteor is built on NodeJS, there's a fundamental divergence of design philosophy.  NodeJS achieves very efficient processing of requests using "non-blocking", **asynchronous** callbacks.  Meanwhile, Meteor achieves a very efficient development platform with event-driven **synchronous** programming, by hiding the complexity of asynchronous coding within synchronous wrappers.
 
@@ -17,7 +17,7 @@ An understanding of synchronous wrappers of NodeJS modules opens the doors to th
 
 Get started now by running ...
 ```terminal
-./Part08_RealWorldPackage.sh
+./scripts/Tutorial08_RealWorldPackage.sh
 ```
 
 

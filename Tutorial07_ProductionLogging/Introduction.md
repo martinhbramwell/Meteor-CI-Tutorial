@@ -9,7 +9,7 @@ layout: false
 
 ## Production Logging
 
-In, 'Part06_CloudContinuousIntegration.sh' we got most of our intended toolkit functioning without actually doing any Meteor development.
+In, 'Tutorial06_CloudContinuousIntegration.sh' we got most of our intended toolkit functioning without actually doing any Meteor development.
 
 The next step is mainly about the inner workings of packages, but the goal is to get rid of those pernicious ```console.log()``` statements.
 
@@ -17,7 +17,7 @@ We look at scaleable logging: run-time logs that track critical server-side acti
 
 Now run ...
 ```terminal
-./Part07_ProductionLogging.sh
+./scripts/Tutorial07_ProductionLogging.sh
 ```
 
 

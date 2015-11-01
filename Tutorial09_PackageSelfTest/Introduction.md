@@ -15,7 +15,7 @@ In this step we will finalize our code annotations, automate running and verifyi
 
 Get started now by running ...
 ```terminal
-./Part09_PackageSelfTest.sh
+./scripts/Tutorial09_PackageSelfTest.sh
 ```
 
 

@@ -11,11 +11,11 @@ layout: false
 
 These scripts will get you started easily with Meteor package development, testing, documenting, logging, code style linting and continuous integration.
 
-The previous script, 'Part04_CodingStyleAndLinting.sh', set up code quality checks.
+The previous script, 'Tutorial04_CodingStyleAndLinting.sh', set up code quality checks.
 
 This one . . .  
 ```terminal
-./Part05_AutomaticDocumentationInTheCloud.sh
+./scripts/Tutorial05_AutomaticDocumentationInTheCloud.sh
 ```
 . . . continues the componentization efforts of earlier parts, by making it very easy to document the code and the tests of each package as it is developed.
 

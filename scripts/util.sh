@@ -173,7 +173,22 @@ function checkForVirtualMachine() {
 
 }
 
+function endOfSectionScript() {
 
+  printf "\n\n\n  Done! You have finished part #%d, '%s', of the tutorial.\n
+             Are you ready to begin part #%d, '%s'.?
+               If so, hit [y]es, or <Enter>.
+               If NOT then hit [n]o or <ctrl-c>.\n\n" \
+          ${1} ${2} $(($1+1)) ${3}
+  printf -v NEWSCRIPT "Tutorial%02d_%s.sh" $(($1+1)) ${3}
+  read -p "  'y' or 'n' ::  " -n 1 -r USER_ANSWER
+  CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+  if [[ "X${CHOICE}X" == "XyX"  || "X${CHOICE}X" == "XX" ]]; then
+    echo -e "\n\nStarting Part #${SECTNUM}.";
+    echo bash ./scripts/${NEWSCRIPT};
+  fi;
+
+}
 
 PROJECT_NAME="  ** NOT DEFINED ** ";
 if [ -f ./udata.sh ]; then

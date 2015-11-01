@@ -36,5 +36,5 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
     <i>Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L113" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L87" target="_blank">Code for this step.</a>] ]
 ]

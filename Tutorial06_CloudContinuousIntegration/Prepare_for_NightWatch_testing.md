@@ -22,5 +22,5 @@ The installer prepares a Nightwatch test directory and then deletes itself, leav
 
 <!-- Code for this begins at line #102 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh#L102" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L67" target="_blank">Code for this step.</a>] ]
 ]

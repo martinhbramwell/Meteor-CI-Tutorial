@@ -23,5 +23,5 @@ wget -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/M
 Continues . . .
 <!-- Code for this begins at line #64 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh#L64" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial05_AutomaticDocumentationInTheCloud/AutomaticDocumentationInTheCloud_functions.sh#L24" target="_blank">Code for this step.</a>] ]
 ]

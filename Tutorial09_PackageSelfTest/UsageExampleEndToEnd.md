@@ -25,5 +25,5 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 
 <!-- Code for this begins at line #27 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L27" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L2" target="_blank">Code for this step.</a>] ]
 ]

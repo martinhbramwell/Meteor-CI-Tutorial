@@ -28,7 +28,7 @@ eslint ${PROJECT_NAME}.js
 
 <!-- Code for this begins at line #27 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part04_CodingStyleAndLinting.sh#L27" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial04_CodingStyleAndLinting/CodingStyleAndLinting_functions.sh#L1" target="_blank">Code for this step.</a>] ]
 ]
 a
 b

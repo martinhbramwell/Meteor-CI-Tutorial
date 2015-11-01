@@ -29,5 +29,5 @@ Your package will be part of your project's run time, but not part of it at edit
 
 <!-- Code for this begins at line #35 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L35" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L12" target="_blank">Code for this step.</a>] ]
 ]

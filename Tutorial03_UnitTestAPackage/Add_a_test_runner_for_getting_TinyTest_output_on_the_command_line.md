@@ -23,5 +23,5 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 ```
 <!-- Code for this begins at line #242 -->
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh#L242" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L208" target="_blank">Code for this step.</a>] ]
 ]

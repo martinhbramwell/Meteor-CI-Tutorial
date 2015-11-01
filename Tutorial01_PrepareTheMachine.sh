@@ -1,22 +1,19 @@
 #!/bin/bash
-#
 
 set -e;
 #
 source ./scripts/util.sh
-
-checkForVirtualMachine;
-
-export SUDOUSER=$(who am i | awk '{print $1}');
-export SECTION_NUM="1";
-export SECTION="PrepareTheMachine";
-export BINDIR="./Tutorial0${SECTION_NUM}_${SECTION}";
-source "${BINDIR}/${SECTION}_functions.sh";
-
 verifyFreeSpace;
-
+checkForVirtualMachine;
 verifyRootUser;
 
+export SUDOUSER=$(who am i | awk '{print $1}');
+
+export SECTION_NUM="1";
+export SECTION="PrepareTheMachine";
+export NEXT_SECTION="VersionControlInTheCloud";
+printf -v BINDIR "./Tutorial%02d_%s" ${SECTION_NUM} ${SECTION};
+source "${BINDIR}/${SECTION}_functions.sh";
 installToolsForTheseScripts
 
 source ./scripts/explain.sh
@@ -85,11 +82,13 @@ EnforceOwnershipAndPermissions;
 
 ## FLAG FOR INCLUSION IN SLIDES - ${BINDIR}/Fin.md explain
 
-echo -e "\n\n\nDone! You have finished with 'Part01_PrepareTheMachine.sh'."
-echo -e "\n\n  Now you can execute ::  './Part02_VersionControlInTheCloud.sh'?"
+  printf "
 
+       Done! You have finished part #%d, '%s', of the tutorial.
 
-echo -e "\n\n";
+          Now you can execute ::  ./Tutorial%02d_%s.sh
+
+  " ${SECTION_NUM} ${SECTION} $(($SECTION_NUM+1)) ${NEXT_SECTION};
+
 
 exit 0;
-

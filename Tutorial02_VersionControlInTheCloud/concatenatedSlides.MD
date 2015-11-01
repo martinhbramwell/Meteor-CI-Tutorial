@@ -11,11 +11,11 @@ layout: false
 
 These scripts will get you started easily with Meteor package development, testing, documenting, logging, code style linting and continuous integration.
 
-The previous script, 'Part01_PrepareTheMachine.sh', set up necessary preconditions for the remaining scripts, (basically all tasks that require root access). 
+The previous script, 'Tutorial01_PrepareTheMachine.sh', set up necessary preconditions for the remaining scripts, (basically all tasks that require root access). 
 
 This one . . .  
 ```terminal
-./Part02_VersionControlInTheCloud.sh
+./scripts/Tutorial02_VersionControlInTheCloud.sh
 ```
 . . . prepares a Meteor project, with version control *in the cloud* in GitHub.  You will need to understand a bit about Public and Private Keys and about Secure Shell.  Try reading <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">GitHub's getting started documents.</a>
 

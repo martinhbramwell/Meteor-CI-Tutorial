@@ -2,83 +2,43 @@
 
 set -e;
 #
-source  ./checkForVirtualMachine.sh;
-#
-if [[ $EUID -eq 0 ]]; then
-   echo -e "This script SHOULD NOT be run with 'sudo' (as root). "
-   exit 1
-fi
+source ./scripts/util.sh
 
-DOCS="./CodingStyleAndLinting/doc"
-source ./explain.sh
-source ./util.sh
+checkForVirtualMachine;
+checkNotRoot;
 
-explain ${DOCS}/Introduction.md
+export SUDOUSER=$(who am i | awk '{print $1}');
 
-
-export PACKAGES=~/${PARENT_DIR}/packages
-export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_UID}
+export SECTION_NUM="4";
+export SECTION="CodingStyleAndLinting";
+export NEXT_SECTION="AutomaticDocumentationInTheCloud";
+printf -v BINDIR "./Tutorial%02d_%s" ${SECTION_NUM} ${SECTION};
+source "${BINDIR}/${SECTION}_functions.sh";
 
 
-echo ""
-echo ""
-explain ${DOCS}/Try_ESLint_from_the_Command_Line.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then
+source ./scripts/explain.sh
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/ >/dev/null;
-  set +e
-  eslint ./${PROJECT_NAME}.js
-  set -e
-  popd >/dev/null;
-
-fi
-
-echo ""
-echo ""
 RUN_RULE="";
-explain ${DOCS}/Configure_Sublime_Text_to_use_ESLint.md # MANUAL_INPUT_REQUIRED
+explain ${BINDIR}/Introduction.md
 
-echo ""
-echo ""
+explain ${BINDIR}/Try_ESLint_from_the_Command_Line.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then Try_ESLint_from_the_Command_Line; fi;
+
 RUN_RULE="";
-explain ${DOCS}/Customize_ESLint_in_Sublime_Text.md # MANUAL_INPUT_REQUIRED
+explain ${BINDIR}/Configure_Sublime_Text_to_use_ESLint.md # MANUAL_INPUT_REQUIRED
 
-echo ""
-echo ""
 RUN_RULE="";
-explain ${DOCS}/Try_ESLint_in_Sublime_Text.md # MANUAL_INPUT_REQUIRED
+explain ${BINDIR}/Customize_ESLint_in_Sublime_Text.md # MANUAL_INPUT_REQUIRED
 
-echo ""
-echo ""
-explain ${DOCS}/Try_ESLint_Command_Line_Again.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then
+RUN_RULE="";
+explain ${BINDIR}/Try_ESLint_in_Sublime_Text.md # MANUAL_INPUT_REQUIRED
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/ >/dev/null;
-  set +e
-  eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
-  set -e
-  popd >/dev/null;
+explain ${BINDIR}/Try_ESLint_Command_Line_Again.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then Try_ESLint_Command_Line_Again; fi;
 
-fi
+## FLAG FOR INCLUSION IN SLIDES - ${BINDIR}/Fin.md explain
 
-
-## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain
-
-
-echo -e "\n\n\nDone! You have finished with 'Part04_CodingStyleAndLinting.sh'."
-echo -e "\n\n   Are you ready to begin './Part05_AutomaticDocumentationInTheCloud.sh'?"
-echo -e "         If so, hit [y]es, or <Enter>.  If NOT then hit [n]o or <ctrl-c>."
-
-
-read -p "  'y' or 'n' ::  " -n 1 -r USER_ANSWER
-CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
-if [[ "X${CHOICE}X" == "XyX"  || "X${CHOICE}X" == "XX" ]]; then
-  echo -e "\n\nStarting Part #4.";
-  ./Part05_AutomaticDocumentationInTheCloud.sh
-fi;
-
-
-echo -e "\n\n";
+endOfSectionScript ${SECTION_NUM} ${SECTION} ${NEXT_SECTION};
 
 exit 0;
 
