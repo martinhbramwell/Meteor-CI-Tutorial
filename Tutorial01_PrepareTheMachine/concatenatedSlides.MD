@@ -152,11 +152,11 @@ The <a href='https://code.google.com/p/selenium/wiki/ChromeDriver' target='_blan
 
 ##### Example Commands
 ```terminal
-wget http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
-unzip -o chromedriver_linux64.zip -d /usr/local/bin
+wget http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux${CPU_WIDTH}.zip
+unzip -o chromedriver_linux${CPU_WIDTH}.zip -d /usr/local/bin
 chmod a+rx /usr/local/bin/chromedriver
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-dpkg -i google-chrome-stable_current_amd64.deb
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd${CPU_WIDTH}.deb
+dpkg -i google-chrome-stable_current_amd${CPU_WIDTH}.deb
 ```
 
 <!-- B -->
@@ -276,7 +276,7 @@ There is a closely related JSDoc package for Sublime Text, which we will install
 ---
 .left-column[
   ### Prepare Sublime Text (Step #1)
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -306,7 +306,7 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 ---
 .left-column[
   ### Prepare Sublime Text (Step #2)
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[

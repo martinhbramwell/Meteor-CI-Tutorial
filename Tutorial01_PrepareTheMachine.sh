@@ -83,14 +83,14 @@ if [ "${RUN_RULE}" != "n" ]; then Install_eslint; fi;
 explain ${BINDIR}/Install_jsdoc.md ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Install_jsdoc; fi;
 
-highlight ${BINDIR}/Configure_Sublime_A.md # CODE_BLOCK explain
+highlight ${BINDIR}/Configure_Sublime_A.md # CODE_BLOCK explain MANUAL_INPUT_REQUIRED
 echo "";
 Configure_Sublime_A;
 echo "";
 read -p "Hit <enter> ::  " -n 1 -r REPLY
 
 
-highlight ${BINDIR}/Configure_Sublime_B.md # explain
+highlight ${BINDIR}/Configure_Sublime_B.md # explain MANUAL_INPUT_REQUIRED
 
 EnforceOwnershipAndPermissions;
 

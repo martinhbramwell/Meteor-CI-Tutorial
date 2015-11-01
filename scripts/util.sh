@@ -5,6 +5,8 @@ export green='\e[0;32m'
 export flashingRed='\e[5;31m'
 export endColor='\e[0m';
 
+export CPU_WIDTH=$(lshw -class cpu 2>/dev/null | grep width | sed 's/  //g' | cut -d' ' -f3);
+echo "CPU type : ${CPU_WIDTH}-bit";
 function existingMeteor() {
 
   EXISTING_METEOR_PID=$(ps aux | grep meteor | grep -v grep | grep -c ~/.meteor/packages)
