@@ -8,9 +8,11 @@ checkForVirtualMachine;
 checkNotRoot;
 
 export SUDOUSER=$(who am i | awk '{print $1}');
-export BINDIR="./P02_VersionControlInTheCloud";
 
-source ${BINDIR}/VersionControlInTheCloud_functions.sh;
+export SECTION_NUM="2";
+export SECTION="VersionControlInTheCloud";
+export BINDIR="./Tutorial0${SECTION_NUM}_${SECTION}";
+source "${BINDIR}/${SECTION}_functions.sh";
 
 source ./scripts/explain.sh
 

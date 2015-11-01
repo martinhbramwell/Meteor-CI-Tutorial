@@ -8,9 +8,10 @@ source ./scripts/util.sh
 checkForVirtualMachine;
 
 export SUDOUSER=$(who am i | awk '{print $1}');
-export BINDIR="./P01_PrepareTheMachine";
-
-source ${BINDIR}/PrepareTheMachine_functions.sh;
+export SECTION_NUM="1";
+export SECTION="PrepareTheMachine";
+export BINDIR="./Tutorial0${SECTION_NUM}_${SECTION}";
+source "${BINDIR}/${SECTION}_functions.sh";
 
 verifyFreeSpace;
 
@@ -35,9 +36,9 @@ read -p "Hit <enter> ::  " -n 1 -r REPLY
 
 RUN_RULE="";
 explain ${BINDIR}/Java_7_is_required_by_Nightwatch.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then 
+if [ "${RUN_RULE}" != "n" ]; then
   Java_7_is_required_by_Nightwatch_A;
-  apt-get update; 
+  apt-get update;
   Java_7_is_required_by_Nightwatch_B;
 fi;
 

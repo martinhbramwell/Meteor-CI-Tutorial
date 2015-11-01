@@ -2,24 +2,28 @@
 
 set -e;
 #
-source  ./checkForVirtualMachine.sh;
-#
-if [[ $EUID -eq 0 ]]; then
-   echo -e "This script SHOULD NOT be run with 'sudo' (as root). "
-   exit 1
-fi
+source ./scripts/util.sh
 
-DOCS="./UnitTestAPackage/doc"
-source ./explain.sh
-source ./util.sh
+checkForVirtualMachine;
+checkNotRoot;
 
-explain ${DOCS}/Introduction.md
+export SUDOUSER=$(who am i | awk '{print $1}');
+
+export SECTION_NUM="3";
+export SECTION="UnitTestAPackage";
+export BINDIR="./Tutorial0${SECTION_NUM}_${SECTION}";
+source "${BINDIR}/${SECTION}_functions.sh";
+
+
+source ./scripts/explain.sh
+
+explain ${BINDIR}/Introduction.md
 
 
 export PACKAGES=~/${PARENT_DIR}/packages
 export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_UID}
 
-explain ${DOCS}/Create_a_package_A.md MORE_ACTION # CODE_BLOCK
+explain ${BINDIR}/Create_a_package_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   mkdir -p ${PACKAGES}/${YOUR_UID}
@@ -30,7 +34,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
 fi
 
-explain ${DOCS}/Create_a_package_B.md MORE_ACTION # CODE_BLOCK
+explain ${BINDIR}/Create_a_package_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ${PACKAGES}/${YOUR_UID} >/dev/null;
@@ -97,7 +101,7 @@ fi
 
 
 
-explain ${DOCS}/Create_a_package_C.md MORE_ACTION # CODE_BLOCK
+explain ${BINDIR}/Create_a_package_C.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   mkdir -p ~/${PARENT_DIR}/${PROJECT_NAME}/packages
@@ -108,7 +112,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 fi
 
 
-explain ${DOCS}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
+explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   SET_UP_SSH=true;
@@ -152,7 +156,7 @@ fi
 
 
 RUN_RULE="";
-explain ${DOCS}/Control_a_packages_versions_A.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+explain ${BINDIR}/Control_a_packages_versions_A.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 if [ "${RUN_RULE}" != "n" ]; then
 
   export RMT_REPO="https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}";
@@ -178,7 +182,7 @@ fi
 
 
 
-explain ${DOCS}/Control_a_packages_versions_B.md  MORE_ACTION # CODE_BLOCK
+explain ${BINDIR}/Control_a_packages_versions_B.md  MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ${PACKAGES}/${YOUR_UID}/${PKG_NAME} >/dev/null;
@@ -188,7 +192,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   if test -f ~/.ssh/id_rsa; then chmod 600 ~/.ssh/id_rsa; fi;
 
   set +e;   ssh-add;   set -e;
-  
+
   cat << GITIG > .gitignore
 .npm
 backup
@@ -208,7 +212,7 @@ fi
 
 
 
-explain ${DOCS}/TinyTest_a_package.md MORE_ACTION # CODE_BLOCK
+explain ${BINDIR}/TinyTest_a_package.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
@@ -237,7 +241,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 fi
 
 
-explain ${DOCS}/Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md MORE_ACTION # CODE_BLOCK
+explain ${BINDIR}/Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
 
   pushd ~/${PARENT_DIR} >/dev/null;
@@ -268,7 +272,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 
 fi
 
-## FLAG FOR INCLUSION IN SLIDES - ${DOCS}/Fin.md explain
+## FLAG FOR INCLUSION IN SLIDES - ${BINDIR}/Fin.md explain
 
 echo -e "\n\n\nDone! You have finished with 'Part03_UnitTestAPackage.sh'."
 echo -e "\n\n   Are you ready to begin './Part04_CodingStyleAndLinting.sh'?"
