@@ -3,13 +3,22 @@
 
 source ./scripts/util.sh;
 
+collectSectionNames;
+
 declare -a TUTSPATHS=();
 declare -a FILEPATHS=();
 function assembleMapsOfDirectoryAndFileNames() {
-  for filename in ./Tutorial*.sh; do
-    PT=$(echo ${filename} | sed 's/.\///g' | sed 's/_/_|/g' | sed 's/.sh/|/g');
-    TUTSPATH=$(echo ${filename} | sed 's/.\///g' | sed 's/.sh//g');
-#    echo "${PT}   ºº   ${TUTSPATH}";
+
+  IDX=0;
+  for section in "${TUTORIAL_SECTIONS[@]}"; do
+
+    IDX=$(( ${IDX} + 1));
+
+    printf -v PT "Tutorial%02d_|%s|" "${IDX}" "${section}";
+    printf -v TUTSPATH "Tutorial%02d_%s" "${IDX}" "${section}";
+    printf -v SECTION_SCRIPT_FILE_NAME "Tutorial%02d_%s.sh" "${IDX}" "${section}";
+
+
     TUTSPATHS+=(${TUTSPATH});
     while read -r line; do
       FN=$(echo "${line}" | sed 's/\.md.*/.md/g');
@@ -18,7 +27,7 @@ function assembleMapsOfDirectoryAndFileNames() {
   #    echo -e "Processing the file :: ${PT}${FN}\n";
   #    ls -l ${PT}/${FN}.*;
       FILEPATHS+=("${PT}${FN}");
-    done < <(grep -E 'explain.*BINDIR|BINDIR.*explain'  ${filename})
+    done < <(grep -E 'explain.*BINDIR|BINDIR.*explain'  ${SECTION_SCRIPT_FILE_NAME})
   done
 
 }
@@ -112,6 +121,11 @@ function substituteFieldsInSlide() {
 
 }
 
+makeJavaScriptSectionList;
+assembleMapsOfDirectoryAndFileNames;
+echo ${TUTSPATHS};
+# exit;
+
 SKIP=true;
 if [[ "X$1X" == "XyX" ]]; then
   SKIP=false;
@@ -187,6 +201,7 @@ if  ${SKIP} ;  then  exit 0; fi;
 
 git log -1 --pretty=%B > gitlog.txt
 
+echo -e "\n\n\  FAIL !!  \n\n\n";
 tar zcvf pack.tar.gz index.html \
 styles.css \
 gitlog.txt \

@@ -43,12 +43,14 @@ if [ "${RUN_RULE}" != "n" ]; then Configure_git_for_GitHub; fi;
 explain ${BINDIR}/Install_Meteor.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Install_Meteor; fi;
 
-export METEOR_PORT=3000
 explain ${BINDIR}/Create_Meteor_project.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Create_Meteor_project; fi;
 
 explain ${BINDIR}/Check_the_meteor_project_will_work.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then Check_the_meteor_project_will_work; fi;
+if [ "${RUN_RULE}" != "n" ]; then
+  export METEOR_PORT=3000
+  Check_the_meteor_project_will_work;
+fi;
 
 export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc"
 explain ${BINDIR}/Add_Meteor_application_development_support_files.md MORE_ACTION # CODE_BLOCK
