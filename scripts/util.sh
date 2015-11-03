@@ -67,6 +67,22 @@ export YOUR_FULLNAME="${YOUR_FULLNAME}"
 UDATA
 }
 
+function didNotGetUserData()
+{
+
+    echo -e "#####################################################################"
+    echo -e "#   The rest of this script will fail without correct values for : "
+    echo -e "#    - project name"
+    echo -e "#    - package name"
+    echo -e "#    - project owner name"
+    echo -e "#    - project owner full name"
+    echo -e "#    - project owner email."
+    echo -e "#   Please ensure you have entered these values correctly."
+    echo -e "#####################################################################"
+    exit 1;
+
+}
+
 function getUserData()
 {
 

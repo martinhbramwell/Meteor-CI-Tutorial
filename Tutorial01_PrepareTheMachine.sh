@@ -8,11 +8,10 @@ checkForVirtualMachine;
 
 export SUDOUSER=$(who am i | awk '{print $1}');
 
-export SECTION_NUM="1";
-export SECTION="PrepareTheMachine";
-export NEXT_SECTION="VersionControlInTheCloud";
-printf -v BINDIR "./Tutorial%02d_%s" ${SECTION_NUM} ${SECTION};
+
+setSection 1;
 source "${BINDIR}/${SECTION}_functions.sh";
+
 verifyFreeSpace;
 verifyRootUser;
 

@@ -9,12 +9,8 @@ checkNotRoot;
 
 export SUDOUSER=$(who am i | awk '{print $1}');
 
-export SECTION_NUM="2";
-export SECTION="VersionControlInTheCloud";
-export NEXT_SECTION="UnitTestAPackage";
-printf -v BINDIR "./Tutorial%02d_%s" ${SECTION_NUM} ${SECTION};
+setSection 2;
 source "${BINDIR}/${SECTION}_functions.sh";
-
 
 source ./scripts/explain.sh
 
@@ -24,18 +20,7 @@ explain ${BINDIR}/Introduction.md
 RUN_RULE="a";
 explain ${BINDIR}/Set_Up_Project_Names.md MORE_ACTION # MANUAL_INPUT_REQUIRED
 RUN_RULE="";
-if ! getUserData; then
-    echo -e "#####################################################################"
-    echo -e "#   The rest of this script will fail without correct values for : "
-    echo -e "#    - project name"
-    echo -e "#    - package name"
-    echo -e "#    - project owner name"
-    echo -e "#    - project owner full name"
-    echo -e "#    - project owner email."
-    echo -e "#   Please ensure you have entered these values correctly."
-    echo -e "#####################################################################"
-    exit 1;
-fi;
+if ! getUserData; then didNotGetUserData; fi;
 
 explain ${BINDIR}/Configure_git_for_GitHub.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Configure_git_for_GitHub; fi;

@@ -13,33 +13,21 @@ collectSectionNames;
 # Loop through all sections getting their functions
 # source ./scripts/TutorialSections.sh;
 II=1;
-echo "Getting functions from: ";
+# echo "Getting functions from: ";
 while [ ${II} -lt ${#TUTORIAL_SECTIONS[@]} ]
 do
   setSection ${II};
-  echo " - ${BINDIR}/${SECTION}_functions.sh";
+#  echo " - ${BINDIR}/${SECTION}_functions.sh";
   source "${BINDIR}/${SECTION}_functions.sh";
   II=$[$II+1]
 done;
-exit;
 
 verifyFreeSpace;
 verifyRootUser;
 
-if ! getUserData; then
-    echo -e "#####################################################################"
-    echo -e "#   The rest of this script will fail without correct values for : "
-    echo -e "#    - project name"
-    echo -e "#    - package name"
-    echo -e "#    - project owner name"
-    echo -e "#    - project owner full name"
-    echo -e "#    - project owner email."
-    echo -e "#   Please ensure you have entered these values correctly."
-    echo -e "#####################################################################"
-    exit 1;
-fi;
+if ! getUserData; then didNotGetUserData; fi;
 
-
+exit;
 #  installToolsForTheseScripts  for GAWK ????
 
 # source ./scripts/explain.sh
@@ -68,7 +56,7 @@ fi;
 
 # explain ${BINDIR}/Install_other_tools.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
- Install_other_tools; 
+  Install_other_tools; 
 # fi;
 
 # explain ${BINDIR}/Install_NodeJS.md MORE_ACTION # CODE_BLOCK

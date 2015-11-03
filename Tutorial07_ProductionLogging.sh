@@ -9,10 +9,8 @@ checkNotRoot;
 
 export SUDOUSER=$(who am i | awk '{print $1}');
 
-export SECTION_NUM="7";
-export SECTION="ProductionLogging";
-export NEXT_SECTION="RealWorldPackage";
-printf -v BINDIR "./Tutorial%02d_%s" ${SECTION_NUM} ${SECTION};
+
+setSection 7;
 source "${BINDIR}/${SECTION}_functions.sh";
 
 

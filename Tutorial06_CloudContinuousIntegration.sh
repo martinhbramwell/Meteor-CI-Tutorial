@@ -9,12 +9,8 @@ checkNotRoot;
 
 export SUDOUSER=$(who am i | awk '{print $1}');
 
-export SECTION_NUM="6";
-export SECTION="CloudContinuousIntegration";
-export NEXT_SECTION="ProductionLogging";
-printf -v BINDIR "./Tutorial%02d_%s" ${SECTION_NUM} ${SECTION};
+setSection 6;
 source "${BINDIR}/${SECTION}_functions.sh";
-
 
 source ./scripts/explain.sh
 
