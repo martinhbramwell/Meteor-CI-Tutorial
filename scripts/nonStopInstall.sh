@@ -3,13 +3,9 @@
 set -e;
 #
 source ./scripts/util.sh
-checkForVirtualMachine;
-
-
-export SUDOUSER=$(who am i | awk '{print $1}');
+# checkForVirtualMachine;                                       FIX ME
 
 collectSectionNames;
-
 # Loop through all sections getting their functions
 # source ./scripts/TutorialSections.sh;
 II=1;
@@ -25,7 +21,28 @@ done;
 verifyFreeSpace;
 verifyRootUser;
 
-if ! getUserData; then didNotGetUserData; fi;
+# installToolsForTheseScripts;
+
+
+# if ! getUserData; then didNotGetUserData; fi;                 # FIX ME
+if ! getNonStopData; then didNotGetNSData; fi;                 # FIX ME
+
+source ./scripts/explain.sh
+RUN_RULE="";
+
+# Install_other_tools;                                                   # FIX ME
+
+Configure_git_for_GitHub;
+
+setSection 2;                                                             # FIX ME
+# explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then Create_GitHub_Repo_Deploy_Keys ${PROJECT_NAME}; fi;
+
+explain ${BINDIR}/Create_remote_GitHub_repository_A.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then Create_GitHub_Repo_For_Org ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT}; fi;
+
+explain ${BINDIR}/Create_remote_GitHub_repository_B.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+if [ "${RUN_RULE}" != "n" ]; then Create_remote_GitHub_repository_B; fi;
 
 exit;
 #  installToolsForTheseScripts  for GAWK ????
@@ -56,7 +73,7 @@ exit;
 
 # explain ${BINDIR}/Install_other_tools.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  Install_other_tools; 
+  # Install_other_tools;
 # fi;
 
 # explain ${BINDIR}/Install_NodeJS.md MORE_ACTION # CODE_BLOCK
@@ -135,7 +152,7 @@ export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger
 
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  Create_GitHub_Repo_Deploy_Keys;
+  Create_GitHub_Repo_Deploy_Keys ${PROJECT_NAME};
 fi;
 
 explain ${BINDIR}/Create_remote_GitHub_repository_A.md #

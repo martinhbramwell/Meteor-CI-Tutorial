@@ -1,12 +1,13 @@
 #!/bin/bash
 #
 
+export SUDOUSER=$(who am i | awk '{print $1}');
+export GITHUB_SHTTP="https://api.github.com";
+
 export green='\e[0;32m'
 export flashingRed='\e[5;31m'
 export endColor='\e[0m';
 
-export CPU_WIDTH=$(lshw -class cpu 2>/dev/null | grep width | sed 's/  //g' | cut -d' ' -f3);
-echo "CPU type : ${CPU_WIDTH}-bit";
 function existingMeteor() {
 
   EXISTING_METEOR_PID=$(ps aux | grep meteor | grep -v grep | grep -c ~/.meteor/packages)
@@ -65,6 +66,21 @@ export YOUR_EMAIL="${YOUR_EMAIL}"
 export YOUR_UID="${YOUR_UID}"
 export YOUR_FULLNAME="${YOUR_FULLNAME}"
 UDATA
+
+chown ${SUDOUSER}:${SUDOUSER} udata.sh;
+
+}
+
+function saveNonStopData()
+{
+cat << NSDATA > nsdata.sh
+export GITHUB_PERSONAL_TOKEN="${GITHUB_PERSONAL_TOKEN}";
+export REPLACE_EXISTING_PROJECT="${REPLACE_EXISTING_PROJECT}";
+export REPLACE_EXISTING_PACKAGE="${REPLACE_EXISTING_PACKAGE}";
+NSDATA
+
+chown ${SUDOUSER}:${SUDOUSER} nsdata.sh;
+
 }
 
 function didNotGetUserData()
@@ -72,11 +88,28 @@ function didNotGetUserData()
 
     echo -e "#####################################################################"
     echo -e "#   The rest of this script will fail without correct values for : "
+    echo -e "#    - projects directory"
     echo -e "#    - project name"
     echo -e "#    - package name"
     echo -e "#    - project owner name"
-    echo -e "#    - project owner full name"
-    echo -e "#    - project owner email."
+    echo -e "#    - developer id"
+    echo -e "#    - developer name"
+    echo -e "#    - developer full name"
+    echo -e "#    - developer email."
+    echo -e "#   Please ensure you have entered these values correctly."
+    echo -e "#####################################################################"
+    exit 1;
+
+}
+
+function didNotGetNSData()
+{
+
+    echo -e "#####################################################################"
+    echo -e "#   The rest of this script will fail without correct values for : "
+    echo -e "#    - developer personal token"
+    echo -e "#    - approve to delete and replace project '${PROJECT_NAME}'"
+    echo -e "#    - approve to delete and replace package '${PKG_NAME}'"
     echo -e "#   Please ensure you have entered these values correctly."
     echo -e "#####################################################################"
     exit 1;
@@ -85,18 +118,17 @@ function didNotGetUserData()
 
 function getUserData()
 {
-
   if [ -f ./udata.sh ]; then
     source ./udata.sh
   else
-    export PARENT_DIR=""
-    export PROJECT_NAME=""
-    export PKG_NAME=""
-    export GITHUB_ORGANIZATION_NAME=""
-    export PACKAGE_DEVELOPER=""
-    export YOUR_EMAIL=""
-    export YOUR_UID=""
-    export YOUR_FULLNAME=""
+    export PARENT_DIR="";
+    export PROJECT_NAME="";
+    export PKG_NAME="";
+    export GITHUB_ORGANIZATION_NAME="";
+    export PACKAGE_DEVELOPER="";
+    export YOUR_EMAIL="";
+    export YOUR_UID="";
+    export YOUR_FULLNAME="";
   fi
 
 
@@ -153,6 +185,159 @@ function getUserData()
   return;
 }
 
+
+function getNonStopData()
+{
+  if [ -f ./nsdata.sh ]; then
+    source ./nsdata.sh
+  else
+    export GITHUB_PERSONAL_TOKEN="";
+    export REPLACE_EXISTING_PROJECT="";
+    export REPLACE_EXISTING_PACKAGE="";
+  fi
+
+
+  CHOICE="n"
+  while [[ ! "X${CHOICE}X" == "XyX" ]]
+  do
+
+    echo -e "${FRAME// /\~}"
+    echo "GitHub personal token : ${GITHUB_PERSONAL_TOKEN}";
+    echo "You approve deleting and replacing project '${PROJECT_NAME}' : ${REPLACE_EXISTING_PROJECT}"
+    echo "You approve deleting and replacing package '${PKG_NAME}' : ${REPLACE_EXISTING_PACKAGE}"
+
+    read -ep "Is this correct? (y/n/q) ::  " -n 1 -r USER_ANSWER
+    CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+    if [[ "X${CHOICE}X" == "XqX" ]]; then
+      echo skip out
+      return 1;
+    elif [[ ! "X${CHOICE}X" == "XyX" ]]; then
+
+      echo -e "\n Please supply the following details :\n";
+      read -p "Your GitHub personal token :: " -e -i "${GITHUB_PERSONAL_TOKEN}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then GITHUB_PERSONAL_TOKEN=${INPUT}; fi;
+
+      read -p "Should the project '${PROJECT_NAME}' be COMPLETELY ERASED? (yes/no) :: " -e -i "${REPLACE_EXISTING_PROJECT}" INPUT
+      if [ "X${INPUT}X" == "XyesX" ]; then REPLACE_EXISTING_PROJECT="yes"; else REPLACE_EXISTING_PROJECT="no"; fi;
+
+      read -p "Should the package '${PKG_NAME}' be COMPLETELY ERASED? (yes/no) :: " -e -i "${REPLACE_EXISTING_PACKAGE}" INPUT
+      if [ "X${INPUT}X" == "XyesX" ]; then REPLACE_EXISTING_PACKAGE="yes"; else REPLACE_EXISTING_PACKAGE="no"; fi;
+
+    fi;
+    echo "  "
+  done;
+  saveNonStopData;
+  return;
+}
+
+function getRepo() {
+ EXISTING_REPO=$(curl -sH "${AUTH}" ${GITHUB_SHTTP}/repos/${GITHUB_ORGANIZATION_NAME}/${REPO} | jq '.name';);
+};
+
+function dropRepo() {
+  curl -sH "${AUTH}" -X DELETE ${GITHUB_SHTTP}/repos/${GITHUB_ORGANIZATION_NAME}/${REPO};
+}
+
+function makeRepo() {
+  curl -iH "${AUTH}" \
+       -X POST -d "{ \"name\": \"${REPO}\", \"auto_init\": true, \"private\": false, \"gitignore_template\": \"Meteor\" }" \
+    ${GITHUB_SHTTP}/orgs/${GITHUB_ORGANIZATION_NAME}/repos;
+}
+
+
+function Create_GitHub_Repo_For_Org() {
+  echo "Token = ${GITHUB_PERSONAL_TOKEN}";
+  echo "Org = ${GITHUB_ORGANIZATION_NAME}";
+  echo " P1 = ${1}";
+  echo " P2 = ${2}";
+  export AUTH="Authorization: token ${GITHUB_PERSONAL_TOKEN}";
+  export REPO=${1};
+  export EXISTING_REPO=;
+
+  SWITCH=0;
+
+  getRepo;
+  echo "EXISTING_REPO = ${EXISTING_REPO}";
+
+  if [ "${EXISTING_REPO}" == "\"${1}\"" ]; then
+    SWITCH=$(($SWITCH+1));
+  fi;
+  if [ "${2}" == "yes" ]; then
+    SWITCH=$(($SWITCH+2));
+  fi;
+
+  echo "SWITCH=${SWITCH}";
+  case ${SWITCH} in
+  0)  echo "Repo '${1}' forbids overwrite but doesn't exist.";
+      echo "Creating repo '${1}' now.";
+      makeRepo;
+    ;;
+  1)  echo "Repo '${1}' forbids overwrite and does exist";
+    ;;
+  2)  echo "Repo '${1}' allows overwrite and doesn't exist";
+      echo "Creating repo '${1}' now.";
+      makeRepo;
+    ;;
+  3)  echo "Repo '${1}' allows overwrite and does exist";
+      echo "Dropping and recreating repo '${1}' now.";
+      dropRepo;
+      makeRepo;
+    ;;
+  *) echo "impossible"
+    ;;  esac
+
+  exit;
+
+
+
+  exit;
+}
+
+
+function Create_GitHub_Repo_Deploy_Keys() {
+
+  export REPO_NAME=${1};
+  SET_UP_SSH=true;
+
+  mkdir -p ~/.ssh;
+  chmod 700 ~/.ssh
+  pushd  ~/.ssh  >/dev/null;
+
+    eval `ssh-agent -s`;
+    touch config;
+
+    if [ -f github-${GITHUB_ORGANIZATION_NAME}-${REPO_NAME} ]; then SET_UP_SSH=false;  fi
+    if [ -f github-${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}.pub ]; then SET_UP_SSH=false;  fi
+
+    if cat config | grep -c "Host github-${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}"; then
+      SET_UP_SSH=false;
+    fi
+
+    if [ ${SET_UP_SSH} == true ]; then
+      echo "Creating deploy key for ${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}";
+      ssh-keygen -t rsa -b 4096 -C "github-${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}" -N "" -f "${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}"
+
+      echo "Appending git host alias 'github-${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}' to $(pwd)/config";
+      printf 'Host github-%s-%s\nHostName github.com\nUser git\nIdentityFile ~/.ssh/%s-%s\n\n' "${GITHUB_ORGANIZATION_NAME}" "${REPO_NAME}"  "${GITHUB_ORGANIZATION_NAME}" "${REPO_NAME}" >> config
+      ls -la
+
+      echo "Adding 'github-${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}' to ssh agent";
+      ssh-add ${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}
+      ssh-add -l
+
+    else
+      echo -e "#########################################################################################"
+      echo -e "#   Found deploy keys for ${GITHUB_ORGANIZATION_NAME}-${REPO_NAME} already present.  Will NOT overwrite."
+      echo -e "#   Please ensure you have a correctly configured SSH directory for use with GitHub."
+      echo -e "#########################################################################################"
+    fi
+
+  popd >/dev/null;
+
+}
+
+
+
 function checkNotRoot() {
   if [[ $EUID -eq 0 ]]; then
     echo -e "This script SHOULD NOT be run with 'sudo' (as root). ";
@@ -160,34 +345,47 @@ function checkNotRoot() {
   fi;
 }
 
+export CPU_WIDTH=;
 function checkForVirtualMachine() {
-  echo -e "Attempting to confirm we're running in a virtual machine . . .";
+  echo -e "Analyzing environment . . .";
+
+  CPU_WIDTH=$(lshw -class cpu 2>/dev/null | grep width | sed 's/  //g' | cut -d' ' -f3);
+
   VIRTUAL=false;
 
-  MSG="Found a '%s' virtual machine.\n\n";
+  MSG="Found a '%s' virtual machine.\n";
 
   if [[ -d /proc/vz ]]; then
     if [[ -f /proc/vz/veinfo ]]; then
-      printf "${MSG}" "Virtuozzo"; return 0;
+      printf "${MSG}" "Virtuozzo"; VIRTUAL=true;
     fi;
   fi;
 
   DMESG_CHK=$(dmesg | grep -i virtual);
-  if [[ 0 < $(echo "${DMESG_CHK}" | grep -c drive) ]]; then  printf "${MSG}" "Microsoft VirtualPC"; return 0; fi;
-  if [[ 0 < $(dmesg | grep -i xen) ]]; then  printf "${MSG}" "Xen"; return 0; fi;
-  if [[ 0 < $(echo "${DMESG_CHK}" | grep -c QEMU) ]]; then  printf "${MSG}" "QEMU"; return 0; fi;
-  if [[ 0 < $(echo "${DMESG_CHK}" | grep -c KVM) ]]; then  printf "${MSG}" "KVM"; return 0; fi;
+  if [[ 0 < $(echo "${DMESG_CHK}" | grep -c drive) ]]; then  printf "${MSG}" "Microsoft VirtualPC"; VIRTUAL=true; fi;
+  if [[ 0 < $(dmesg | grep -i xen) ]]; then  printf "${MSG}" "Xen"; VIRTUAL=true; fi;
+  if [[ 0 < $(echo "${DMESG_CHK}" | grep -c QEMU) ]]; then  printf "${MSG}" "QEMU"; VIRTUAL=true; fi;
+  if [[ 0 < $(echo "${DMESG_CHK}" | grep -c KVM) ]]; then  printf "${MSG}" "KVM"; VIRTUAL=true; fi;
 
+  # if [[ 0 < $(echo "${DMESG_CHK}" | grep -c drive) ]]; then  printf "${MSG}" "Microsoft VirtualPC"; return 0; fi;
+  # if [[ 0 < $(dmesg | grep -i xen) ]]; then  printf "${MSG}" "Xen"; return 0; fi;
+  # if [[ 0 < $(echo "${DMESG_CHK}" | grep -c QEMU) ]]; then  printf "${MSG}" "QEMU"; return 0; fi;
+  # if [[ 0 < $(echo "${DMESG_CHK}" | grep -c KVM) ]]; then  printf "${MSG}" "KVM"; return 0; fi;
 
-  echo " **PLEASE PLEASE PLEASE**";
-  echo " Only run these scripts on a Virtual Machine running Ubuntu 12.04LTS or newer";
-  echo " ";
-  echo " I have made no attempt to validate the script in other environments,";
-  echo " so failure and damage are the likely result if you do not respect this warning.";
-  echo " ";
-  echo " ";
+  if [[ ${VIRTUAL} -eq true ]]; then
+    echo "CPU type : ${CPU_WIDTH}-bit";
+  else
+    echo " **PLEASE PLEASE PLEASE**";
+    echo " Only run these scripts on a Virtual Machine running Ubuntu 12.04LTS or newer";
+    echo " ";
+    echo " I have made no attempt to validate the script in other environments,";
+    echo " so failure and damage are the likely result if you do not respect this warning.";
+    echo " ";
+    echo " ";
 
-  exit 1;
+    exit 1;
+
+  fi;
 
 }
 

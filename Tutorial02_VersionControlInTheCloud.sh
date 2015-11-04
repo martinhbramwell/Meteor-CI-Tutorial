@@ -44,7 +44,7 @@ if [ "${RUN_RULE}" != "n" ]; then
 fi;
 
 explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then Create_GitHub_Repo_Deploy_Keys; fi;
+if [ "${RUN_RULE}" != "n" ]; then Create_GitHub_Repo_Deploy_Keys ${PROJECT_NAME}; fi;
 
 explain ${BINDIR}/Create_remote_GitHub_repository_A.md #
 

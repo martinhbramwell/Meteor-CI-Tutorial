@@ -20,8 +20,9 @@ function installToolsForTheseScripts() {
   apt-get -y install gawk;
   update-alternatives --set awk /usr/bin/gawk;
 
-  # These scripts also need "Pygmentize"
-  apt-get -y install python-pygments;
+  # These scripts also need "Pygmentize" to colorize text
+  # and "jq" to parse JSON
+  apt-get -y install python-pygments jq;
 
 }
 

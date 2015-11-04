@@ -84,47 +84,6 @@ function Create_a_package_C(){
 }
 
 
-function Create_GitHub_Repo_Deploy_Keys(){
-
-  SET_UP_SSH=true;
-
-  mkdir -p ~/.ssh;
-  chmod 700 ~/.ssh
-  pushd  ~/.ssh  >/dev/null;
-    touch config;
-
-    if [ -f github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME} ]; then SET_UP_SSH=false;  fi
-    if [ -f github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}.pub ]; then SET_UP_SSH=false;  fi
-
-    if cat config | grep -c "Host github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}"; then
-      SET_UP_SSH=false;
-    fi
-
-    if [ ${SET_UP_SSH} == true ]; then
-      echo "Creating deploy key for ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}";
-      ssh-keygen -t rsa -b 4096 -C "github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}" -N "" -f "${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}"
-
-      echo "Appending git host alias 'github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}' to $(pwd)/config";
-      printf 'Host github-%s-%s\nHostName github.com\nUser git\nIdentityFile ~/.ssh/%s-%s\n\n' "${GITHUB_ORGANIZATION_NAME}" "${PKG_NAME}"  "${GITHUB_ORGANIZATION_NAME}" "${PKG_NAME}" >> config
-      ls -la
-
-      echo "Adding 'github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}' to ssh agent";
-      ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
-      ssh-add -l
-
-    else
-      echo -e "#########################################################################################"
-      echo -e "#   Found deploy keys for ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME} already present.  Will NOT overwrite."
-      echo -e "#   Please ensure you have a correctly configured SSH directory for use with GitHub."
-      echo -e "#########################################################################################"
-    fi
-
-  popd >/dev/null;
-
-
-}
-
-
 function Control_a_packages_versions_A(){
 
 
