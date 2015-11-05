@@ -2,12 +2,14 @@
 
 set -e;
 #
+declare NOT_TESTING=true;
+
 source ./scripts/util.sh
-# checkForVirtualMachine;                                       FIX ME
+checkForVirtualMachine;
+echo -e "\n - o 0 o - \n";
 
 collectSectionNames;
 # Loop through all sections getting their functions
-# source ./scripts/TutorialSections.sh;
 II=1;
 # echo "Getting functions from: ";
 while [ ${II} -lt ${#TUTORIAL_SECTIONS[@]} ]
@@ -19,35 +21,51 @@ do
 done;
 
 verifyFreeSpace;
-verifyRootUser;
+echo -e "\n - o 0 o - \n";
+checkNotRoot;
+# verifyRootUser;
 
-# installToolsForTheseScripts;
+${NOT_TESTING} && installToolsForTheseScripts;
+echo -e "\n - o 0 o - \n";
 
-
-# if ! getUserData; then didNotGetUserData; fi;                 # FIX ME
-if ! getNonStopData; then didNotGetNSData; fi;                 # FIX ME
+${NOT_TESTING} && if ! getUserData; then didNotGetUserData; fi;
+${NOT_TESTING} && if ! getNonStopData; then didNotGetNSData; fi;
 
 source ./scripts/explain.sh
 RUN_RULE="";
 
-# Install_other_tools;                                                   # FIX ME
+${NOT_TESTING} && Install_other_tools;
+echo -e "\n - o 0 o - \n";
 
 Configure_git_for_GitHub;
+echo -e "\n - o 0 o - \n";
 
-setSection 2;                                                             # FIX ME
+setSection 2;
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
-# if [ "${RUN_RULE}" != "n" ]; then Create_GitHub_Repo_Deploy_Keys ${PROJECT_NAME}; fi;
+# if [ "${RUN_RULE}" != "n" ]; then
+${NOT_TESTING} && Create_GitHub_Repo_Deploy_Keys ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT};
+${NOT_TESTING} && Create_GitHub_Repo_Deploy_Keys ${PKG_NAME} ${REPLACE_EXISTING_PACKAGE};
+echo -e "\n - o 0 o - \n";
+# fi;
 
-explain ${BINDIR}/Create_remote_GitHub_repository_A.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then Create_GitHub_Repo_For_Org ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT}; fi;
+# explain ${BINDIR}/Create_remote_GitHub_repository_A.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then 
 
-explain ${BINDIR}/Create_remote_GitHub_repository_B.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
-if [ "${RUN_RULE}" != "n" ]; then Create_remote_GitHub_repository_B; fi;
+${NOT_TESTING} && Create_GitHub_Repo_For_Org ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT};
+${NOT_TESTING} && Create_GitHub_Repo_For_Org ${PKG_NAME} ${REPLACE_EXISTING_PACKAGE};
+echo -e "\n - o 0 o - \n";
 
-exit;
-#  installToolsForTheseScripts  for GAWK ????
 
-# source ./scripts/explain.sh
+
+
+# explain ${BINDIR}/Create_remote_GitHub_repository_B.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+# if [ "${RUN_RULE}" != "n" ]; then Create_remote_GitHub_repository_B; fi;
+
+${NOT_TESTING} && Add_GitHub_Repo_Deploy_Key ${PROJECT_NAME}  ${REPLACE_EXISTING_PROJECT};
+${NOT_TESTING} && Add_GitHub_Repo_Deploy_Key ${PKG_NAME}  ${REPLACE_EXISTING_PACKAGE};
+echo -e "\n - o 0 o - \n";
+
+
 
 # highlight ${BINDIR}/Introduction.md # explain
 # echo ""
@@ -61,15 +79,22 @@ exit;
 # echo ""
 # read -p "Hit <enter> ::  " -n 1 -r REPLY
 
+setSection 1;
 
 # RUN_RULE="";
 # explain ${BINDIR}/Java_7_is_required_by_Nightwatch.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
+${NOT_TESTING} && {
   Java_7_is_required_by_Nightwatch_A;
   This_tutorial_expects_to_use_the_Sublime_Text_3_editor_A;
-  apt-get update;
+
+  # will NOT call "sudo apt-get update;" because Node  JS installer does it.
+  Install_NodeJS;
+
   Java_7_is_required_by_Nightwatch_B;
+}
 # fi;
+  echo -e "\n - o 0 o - \n";
 
 # explain ${BINDIR}/Install_other_tools.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
@@ -78,64 +103,71 @@ exit;
 
 # explain ${BINDIR}/Install_NodeJS.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  Install_NodeJS; 
+# ${NOT_TESTING} && Install_NodeJS;
 # fi;
 
 # explain ${BINDIR}/Install_Selenium_Webdriver_In_NodeJS.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then 
-  Install_Selenium_Webdriver_In_NodeJS; 
+  ${NOT_TESTING} && Install_Selenium_Webdriver_In_NodeJS;
+  echo -e "\n - o 0 o - \n";
 # fi;
 
 # explain ${BINDIR}/Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome;
+  ${NOT_TESTING} && Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome;
 # fi;
-
 # explain ${BINDIR}/Install_Bunyan_Globally.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then 
-  Install_Bunyan_Globally; 
+  ${NOT_TESTING} && Install_Bunyan_Globally; 
+  echo -e "\n - o 0 o - \n";
 # fi;
 
 # explain ${BINDIR}/This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  This_tutorial_expects_to_use_the_Sublime_Text_3_editor_B;
+  ${NOT_TESTING} && This_tutorial_expects_to_use_the_Sublime_Text_3_editor_B;
+  echo -e "\n - o 0 o - \n";
 # fi;
 
 # explain ${BINDIR}/Install_eslint.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then 
-  Install_eslint; 
+  ${NOT_TESTING} && Install_eslint; 
+  echo -e "\n - o 0 o - \n";
 # fi;
 
 # explain ${BINDIR}/Install_jsdoc.md ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then 
-  Install_jsdoc; 
+  ${NOT_TESTING} && Install_jsdoc; 
+  echo -e "\n - o 0 o - \n";
 # fi;
 
 
 EnforceOwnershipAndPermissions;
 
+setSection 2;
 
-
-export SECTION_NUM="2";
-export SECTION="VersionControlInTheCloud";
-export NEXT_SECTION="UnitTestAPackage";
-printf -v BINDIR "./Tutorial%02d_%s" ${SECTION_NUM} ${SECTION};
-source "${BINDIR}/${SECTION}_functions.sh";
+# export SECTION_NUM="2";
+# export SECTION="VersionControlInTheCloud";
+# export NEXT_SECTION="UnitTestAPackage";
+# printf -v BINDIR "./Tutorial%02d_%s" ${SECTION_NUM} ${SECTION};
+# source "${BINDIR}/${SECTION}_functions.sh";
 
 
 # explain ${BINDIR}/Configure_git_for_GitHub.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
- Configure_git_for_GitHub;
+# Configure_git_for_GitHub;
 # fi;
 
 # explain ${BINDIR}/Install_Meteor.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  Install_Meteor;
+  ${NOT_TESTING} && Install_Meteor ${FORCE};
+  echo -e "\n - o 0 o - \n";
 # fi;
+
 
 # explain ${BINDIR}/Create_Meteor_project.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  Create_Meteor_project;
+  ${NOT_TESTING} && Create_Meteor_project;
+  echo -e "\n - o 0 o - \n";
 # fi;
 
 # explain ${BINDIR}/Check_the_meteor_project_will_work.md MORE_ACTION # CODE_BLOCK
@@ -144,31 +176,39 @@ source "${BINDIR}/${SECTION}_functions.sh";
 #   Check_the_meteor_project_will_work;
 # fi;
 
+
 export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc"
 # explain ${BINDIR}/Add_Meteor_application_development_support_files.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  Add_Meteor_application_development_support_files;
+  ${NOT_TESTING} && Add_Meteor_application_development_support_files;
+  echo -e "\n - o 0 o - \n";
 # fi;
 
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  Create_GitHub_Repo_Deploy_Keys ${PROJECT_NAME};
-fi;
+#   Create_GitHub_Repo_Deploy_Keys ${PROJECT_NAME};
+# fi;
 
-explain ${BINDIR}/Create_remote_GitHub_repository_A.md #
+# explain ${BINDIR}/Create_remote_GitHub_repository_A.md #
 
-RUN_RULE="";
-explain ${BINDIR}/Create_remote_GitHub_repository_B.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
-if [ "${RUN_RULE}" != "n" ]; then
- Create_remote_GitHub_repository_B;
-fi;
+# RUN_RULE="";
+# explain ${BINDIR}/Create_remote_GitHub_repository_B.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+# if [ "${RUN_RULE}" != "n" ]; then
+#  Create_remote_GitHub_repository_B;
+# fi;
 
-explain ${BINDIR}/Create_local_GitHub_repository.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then
-  Create_local_GitHub_repository;
-fi;
+echo -e "\n - o 0 o -|||||||||||||| \n";
+NOT_TESTING=true;
 
 
+# explain ${BINDIR}/Create_local_GitHub_repository.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then
+  ${NOT_TESTING} && Create_local_GitHub_repository;
+  echo -e "\n - o 0 o - \n";
+# fi;
+
+
+   echo "                   - o 0 o - "; exit;
 
 
 

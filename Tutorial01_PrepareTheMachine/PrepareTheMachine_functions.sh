@@ -17,48 +17,50 @@ function verifyRootUser() {
 
 function installToolsForTheseScripts() {
   # Make sure we atart off with the right version of awk.
-  apt-get -y install gawk;
-  update-alternatives --set awk /usr/bin/gawk;
+  sudo apt-get -y install gawk;
+  sudo update-alternatives --set awk /usr/bin/gawk;
 
   # These scripts also need "Pygmentize" to colorize text
   # and "jq" to parse JSON
-  apt-get -y install python-pygments jq;
+  sudo apt-get -y install python-pygments jq;
 
 }
 
 function Java_7_is_required_by_Nightwatch_A() {
   echo -e # -- Get PPAs for Oracle Java 7 and update APT --
-  add-apt-repository -y ppa:webupd8team/java;
+  sudo add-apt-repository -y ppa:webupd8team/java;
 }
 
 function Java_7_is_required_by_Nightwatch_B() {
   echo -e # -- Install Oracle Java 7 --
   echo -debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
   echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
-  apt-get -y install oracle-java7-installer
+  sudo apt-get -y install oracle-java7-installer
 }
 
 function Install_other_tools() {
-  apt-get install -y build-essential libssl-dev  # for selenium webdriver
-  apt-get install -y libappindicator1            # for chrome
-  apt-get install -y curl                        # for Meteor
-  apt-get install -y git ssh                     # for version control
-  apt-get install -y tree  python-pip            # for demo convenience
+  sudo apt-get install -y build-essential libssl-dev  # for selenium webdriver
+  sudo apt-get install -y libappindicator1            # for chrome
+  sudo apt-get install -y curl                        # for Meteor
+  sudo apt-get install -y git ssh                     # for version control
+  sudo apt-get install -y tree  python-pip            # for demo convenience
 }
 
 function Install_NodeJS() {
   pushd /tmp >/dev/null;
   # This script calls apt-get update
   curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
-  apt-get install -y nodejs
-  apt-get -y autoremove
+  sudo apt-get install -y nodejs
+  sudo apt-get -y autoremove
   popd >/dev/null;
 }
 
 function Install_Selenium_Webdriver_In_NodeJS() {
 
   mkdir -p ~/.npm
+  mkdir -p ~/node_modules
   sudo chown -R ${SUDOUSER}:${SUDOUSER} ~/.npm
+  sudo chown -R ${SUDOUSER}:${SUDOUSER} ~/node_modules
   npm install -y --prefix $HOME selenium-webdriver
 
 }
@@ -68,16 +70,21 @@ function Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome() {
 
   # Install 'chromedriver'
   export CHROMEDRIVER_VERSION=$(wget -qO - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-  echo -e "Will install Chrome Driver version : ${CHROMEDRIVER_VERSION}"
-  wget http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux${CPU_WIDTH}.zip
-  unzip -o chromedriver_linux${CPU_WIDTH}.zip -d /usr/local/bin
+  echo -e "Will install Chrome Driver version : ${CHROMEDRIVER_VERSION} for a ${CPU_WIDTH} width CPU";
+  DRV_FILE="chromedriver_linux${CPU_WIDTH}.zip"  
+  wget -O ${DRV_FILE} http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/${DRV_FILE};
+  unzip -o ${DRV_FILE} -d /usr/local/bin
   chmod a+rx /usr/local/bin/chromedriver
 
+  ARCH_NAME="amd64";
+  if [[ ${CPU_WIDTH} -ne 64  ]]; then ARCH_NAME="i386"; fi;
+  DEB_FILE="google-chrome-stable_current_${ARCH_NAME}.deb";
   # Install 'chrome'
-  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd${CPU_WIDTH}.deb
-  dpkg -i google-chrome-stable_current_amd${CPU_WIDTH}.deb
+  wget -O ${DEB_FILE} https://dl.google.com/linux/direct/${DEB_FILE}
+  sudo dpkg -i ${DEB_FILE}
 
   popd  >/dev/null;
+
 }
 
 function Install_Bunyan_Globally() {
@@ -94,24 +101,24 @@ function Install_Bunyan_Globally() {
 
 function This_tutorial_expects_to_use_the_Sublime_Text_3_editor_A() {
   echo -e # -- Get PPAs for Sublime Text editor --
-  add-apt-repository -y ppa:webupd8team/sublime-text-3;
+  sudo add-apt-repository -y ppa:webupd8team/sublime-text-3;
 }
 
 function This_tutorial_expects_to_use_the_Sublime_Text_3_editor_B() {
   echo -e # -- Install Sublime Text editor --
-  apt-get install -y sublime-text-installer
+  sudo apt-get install -y sublime-text-installer
   echo -e # -- Install HTML parser for obtaining installer for ST3 Package Control --
   pip install beautifulsoup4 requests
 }
 
 function Install_eslint() {
-  npm install -gy eslint
-  npm install -gy eslint-plugin-react
-  npm install -gy babel-eslint
+  npm install -y eslint
+  npm install -y eslint-plugin-react
+  npm install -y babel-eslint
 }
 
 function Install_jsdoc() {
-  npm install -g jsdoc;
+  npm install -y jsdoc;
 }
 
 function Configure_Sublime_A() {

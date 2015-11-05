@@ -239,20 +239,21 @@ function dropRepo() {
 }
 
 function makeRepo() {
-  curl -iH "${AUTH}" \
+  NEW_REPO=$(curl -sH "${AUTH}" \
        -X POST -d "{ \"name\": \"${REPO}\", \"auto_init\": true, \"private\": false, \"gitignore_template\": \"Meteor\" }" \
-    ${GITHUB_SHTTP}/orgs/${GITHUB_ORGANIZATION_NAME}/repos;
+    ${GITHUB_SHTTP}/orgs/${GITHUB_ORGANIZATION_NAME}/repos);
 }
 
 
 function Create_GitHub_Repo_For_Org() {
-  echo "Token = ${GITHUB_PERSONAL_TOKEN}";
-  echo "Org = ${GITHUB_ORGANIZATION_NAME}";
-  echo " P1 = ${1}";
-  echo " P2 = ${2}";
+  # echo "Token = ${GITHUB_PERSONAL_TOKEN}";
+  # echo "Org = ${GITHUB_ORGANIZATION_NAME}";
+  # echo " P1 = ${1}";
+  # echo " P2 = ${2}";
   export AUTH="Authorization: token ${GITHUB_PERSONAL_TOKEN}";
   export REPO=${1};
   export EXISTING_REPO=;
+  export NEW_REPO=;
 
   SWITCH=0;
 
@@ -266,7 +267,7 @@ function Create_GitHub_Repo_For_Org() {
     SWITCH=$(($SWITCH+2));
   fi;
 
-  echo "SWITCH=${SWITCH}";
+#  echo "SWITCH=${SWITCH}";
   case ${SWITCH} in
   0)  echo "Repo '${1}' forbids overwrite but doesn't exist.";
       echo "Creating repo '${1}' now.";
@@ -286,17 +287,21 @@ function Create_GitHub_Repo_For_Org() {
   *) echo "impossible"
     ;;  esac
 
-  exit;
+  getRepo;
+  echo "Repo name is '${EXISTING_REPO}'";
+  
+}
 
 
-
-  exit;
+function Make_GitHub_Repo_Deploy_Key_Title() {
+  export REPO_DEPLOY_KEY_TITLE="github-${1}-${2}";
 }
 
 
 function Create_GitHub_Repo_Deploy_Keys() {
 
   export REPO_NAME=${1};
+  export OVERWRITE=${2};
   SET_UP_SSH=true;
 
   mkdir -p ~/.ssh;
@@ -306,28 +311,39 @@ function Create_GitHub_Repo_Deploy_Keys() {
     eval `ssh-agent -s`;
     touch config;
 
-    if [ -f github-${GITHUB_ORGANIZATION_NAME}-${REPO_NAME} ]; then SET_UP_SSH=false;  fi
-    if [ -f github-${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}.pub ]; then SET_UP_SSH=false;  fi
+    Make_GitHub_Repo_Deploy_Key_Title ${GITHUB_ORGANIZATION_NAME} ${REPO_NAME};
+    echo "REPO_DEPLOY_KEY_TITLE - ${REPO_DEPLOY_KEY_TITLE}";
 
-    if cat config | grep -c "Host github-${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}"; then
-      SET_UP_SSH=false;
-    fi
+    if [[ "${OVERWRITE}" != "yes" ]]; then
+      if [ -f ${REPO_DEPLOY_KEY_TITLE} ]; then SET_UP_SSH=false;  fi;
+      if [ -f ${REPO_DEPLOY_KEY_TITLE}.pub ]; then SET_UP_SSH=false;  fi;
+      if cat config | grep -c "Host ${REPO_DEPLOY_KEY_TITLE}"; then
+        SET_UP_SSH=false;
+      fi
+    else
+      rm -f ${REPO_DEPLOY_KEY_TITLE};
+      rm -f ${REPO_DEPLOY_KEY_TITLE}.pub;
+    fi;
 
     if [ ${SET_UP_SSH} == true ]; then
-      echo "Creating deploy key for ${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}";
-      ssh-keygen -t rsa -b 4096 -C "github-${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}" -N "" -f "${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}"
+      echo "Creating deploy key for ${REPO_DEPLOY_KEY_TITLE}";
+      ssh-keygen -t rsa -b 4096 -C "${REPO_DEPLOY_KEY_TITLE}" -N "" -f "${REPO_DEPLOY_KEY_TITLE}"
 
-      echo "Appending git host alias 'github-${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}' to $(pwd)/config";
-      printf 'Host github-%s-%s\nHostName github.com\nUser git\nIdentityFile ~/.ssh/%s-%s\n\n' "${GITHUB_ORGANIZATION_NAME}" "${REPO_NAME}"  "${GITHUB_ORGANIZATION_NAME}" "${REPO_NAME}" >> config
-      ls -la
+      if cat config | grep -c "Host ${REPO_DEPLOY_KEY_TITLE}"; then
+        echo "git host alias '${REPO_DEPLOY_KEY_TITLE}' already present in $(pwd)/config";
+      else
+        echo "Appending git host alias '${REPO_DEPLOY_KEY_TITLE}' to $(pwd)/config";
+        printf 'Host github-%s-%s\nHostName github.com\nUser git\nIdentityFile ~/.ssh/%s-%s\n\n' "${GITHUB_ORGANIZATION_NAME}" "${REPO_NAME}"  "${GITHUB_ORGANIZATION_NAME}" "${REPO_NAME}" >> config
+      fi;
+      # ls -la
 
-      echo "Adding 'github-${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}' to ssh agent";
-      ssh-add ${GITHUB_ORGANIZATION_NAME}-${REPO_NAME}
+      echo "Adding '${REPO_DEPLOY_KEY_TITLE}' to ssh agent";
+      ssh-add ${REPO_DEPLOY_KEY_TITLE}
       ssh-add -l
 
     else
       echo -e "#########################################################################################"
-      echo -e "#   Found deploy keys for ${GITHUB_ORGANIZATION_NAME}-${REPO_NAME} already present.  Will NOT overwrite."
+      echo -e "#   Found deploy keys for ${REPO_DEPLOY_KEY_TITLE} already present.  Will NOT overwrite."
       echo -e "#   Please ensure you have a correctly configured SSH directory for use with GitHub."
       echo -e "#########################################################################################"
     fi
@@ -336,6 +352,100 @@ function Create_GitHub_Repo_Deploy_Keys() {
 
 }
 
+
+function getRepoDeployKey() {
+
+#  echo "AUTH = ${AUTH}";
+  KEYS_ARRAY=$(curl -sH "${AUTH}" \
+    ${GITHUB_SHTTP}/repos/${GITHUB_ORGANIZATION_NAME}/${REPO}/keys);
+
+  IDX=0;
+
+ # EXISTING_REPO_DEPLOY_KEY_TITLE=$(echo ${KEYS_ARRAY} | jq ".[${IDX}].title");
+ # echo ${EXISTING_REPO_DEPLOY_KEY_TITLE};
+  # exit;
+
+  LIM=$(echo ${KEYS_ARRAY} | jq ". | length";)
+  while [  ${IDX} -lt ${LIM}  ]; do
+    EXISTING_REPO_DEPLOY_KEY_TITLE=$(echo ${KEYS_ARRAY} | jq ".[${IDX}].title");
+#    echo "${EXISTING_REPO_DEPLOY_KEY_TITLE}   vs   ${REPO_DEPLOY_KEY_TITLE}";
+    if [[ ${EXISTING_REPO_DEPLOY_KEY_TITLE} == "\"${REPO_DEPLOY_KEY_TITLE}\"" ]]; then
+      EXISTING_REPO_DEPLOY_KEY_ID=$(echo ${KEYS_ARRAY} | jq ".[${IDX}].id";);
+      let IDX=${LIM};
+    fi;
+
+#    echo "Key #$IDX is :: " ${EXISTING_REPO_DEPLOY_KEY_TITLE};
+    let IDX=IDX+1;
+  done
+#  echo "Key #$IDX id is :: " ${EXISTING_REPO_DEPLOY_KEY_ID};
+
+};
+
+function dropRepoDeployKey() {
+  curl -sH "${AUTH}" -X DELETE \
+     ${GITHUB_SHTTP}/repos/${GITHUB_ORGANIZATION_NAME}/${REPO}/keys/${EXISTING_REPO_DEPLOY_KEY_ID};
+}
+
+function addRepoDeployKey() {
+  
+  REPOKEY=$(cat /home/${SUDOUSER}/.ssh/${REPO_DEPLOY_KEY_TITLE}.pub);
+  RESP=$(curl -sH "${AUTH}" \
+       -X POST -d "{ \"title\": \"${REPO_DEPLOY_KEY_TITLE}\", \"read_only\": false, \"key\": \"${REPOKEY}\" }" \
+    ${GITHUB_SHTTP}/repos/${GITHUB_ORGANIZATION_NAME}/${REPO}/keys);
+  EXISTING_REPO_DEPLOY_KEY_TITLE=$(echo -e "${RESP}" | jq ".title");
+#y  echo -e "\nº\n${EXISTING_REPO_DEPLOY_KEY_TITLE}\nº\n";
+}
+
+
+function Add_GitHub_Repo_Deploy_Key() {
+  # echo "Token = ${GITHUB_PERSONAL_TOKEN}";
+  # echo "Org = ${GITHUB_ORGANIZATION_NAME}";
+  echo " P1 = ${1}";
+  echo " P2 = ${2}";
+  export AUTH="Authorization: token ${GITHUB_PERSONAL_TOKEN}";
+  export REPO=${1};
+  export EXISTING_REPO_DEPLOY_KEY_ID=;
+  export EXISTING_REPO_DEPLOY_KEY_TITLE=;
+  Make_GitHub_Repo_Deploy_Key_Title ${GITHUB_ORGANIZATION_NAME} ${REPO};
+
+  SWITCH=0;
+
+  getRepoDeployKey;
+  echo "REPO_DEPLOY_KEY_TITLE = ${REPO_DEPLOY_KEY_TITLE}";
+  echo "EXISTING_REPO_DEPLOY_KEY_TITLE = ${EXISTING_REPO_DEPLOY_KEY_TITLE}";
+  echo "EXISTING_REPO_DEPLOY_KEY_ID = ${EXISTING_REPO_DEPLOY_KEY_ID}";
+
+  if [ "${EXISTING_REPO_DEPLOY_KEY_TITLE}" == "\"${REPO_DEPLOY_KEY_TITLE}\"" ]; then
+    SWITCH=$(($SWITCH+1));
+  fi;
+  if [ "${2}" == "yes" ]; then
+    SWITCH=$(($SWITCH+2));
+  fi;
+
+  echo "SWITCH=${SWITCH}";
+  case ${SWITCH} in
+  0)  echo "Repo '${1}' forbids overwrite but deploy key doesn't exist.";
+      echo "Creating deploy key for repo '${1}' now.";
+      addRepoDeployKey;
+    ;;
+  1)  echo "Repo '${1}' forbids overwrite and deploy key does exist";
+    ;;
+  2)  echo "Repo '${1}' allows overwrite and deploy key doesn't exist";
+      echo "Creating deploy key for repo '${1}' now.";
+      addRepoDeployKey;
+    ;;
+  3)  echo "Repo '${1}' allows overwrite and deploy key does exist";
+      echo "Dropping and recreating deploy key for repo '${1}' now.";
+      dropRepoDeployKey;
+      addRepoDeployKey;
+    ;;
+  *) echo "impossible"
+    ;;  esac
+
+  getRepo;
+  echo "Repo deploy key name is '${EXISTING_REPO_DEPLOY_KEY_TITLE}'";
+  
+}
 
 
 function checkNotRoot() {
@@ -460,6 +570,10 @@ PROJECT_NAME="  ** NOT DEFINED ** ";
 if [ -f ./udata.sh ]; then
   source ./udata.sh
   echo "Project name : '${PROJECT_NAME}'"
+fi
+
+if [ -f ./nsdata.sh ]; then
+  source ./nsdata.sh;
 fi
 
 #############################

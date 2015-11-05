@@ -2,7 +2,7 @@
 #
 function Configure_git_for_GitHub() {
 
-  echo -e "#   -- Configuring git ... "
+  # echo -e "#   -- Configuring git -- "
 
   git config --global user.email "${YOUR_EMAIL}"
   git config --global user.name "${YOUR_FULLNAME}"
@@ -10,10 +10,13 @@ function Configure_git_for_GitHub() {
 
 }
 
+export FORCE="force";
 function Install_Meteor() {
 
   INSTALLMETEOR=true;
-  if [[ $(meteor --version) =~ .*Meteor.* ]];
+  if [[  "${1}" == "${FORCE}"  ]]; then
+    INSTALLMETEOR=true;
+  elif [[ $(meteor --version) =~ .*Meteor.* ]];
   then
     echo -e "\nMeteor has been installed already.\n  You can remove it and [r]einstall it OR [s]kip this step.";
     read -p "  'r' or 's' ::  " -n 1 -r USER_ANSWER;
@@ -24,7 +27,7 @@ function Install_Meteor() {
   fi
 
   if ${INSTALLMETEOR}; then
-    curl https://install.meteor.com/ | sh;
+    curl -s https://install.meteor.com/ | sh;
     touch /usr/local/bin/meteor;
     chmod a+x /usr/local/bin/meteor;
   fi;
@@ -39,22 +42,30 @@ function Create_Meteor_project() {
   pushd ~/${PARENT_DIR} >/dev/null;
 
 
-  BUILD_IT=true
+  BUILD_IT=true;
   if [[ -d ~/${PARENT_DIR}/${PROJECT_NAME} ]]; then
-    echo "";
-    echo "";
-    echo "The project, '${PROJECT_NAME}', was created earlier.
-            You can delete it and [r]ecreate it OR [s]kip this step."
-    read -p "  'r' or 's' ::  " -n 1 -r USER_ANSWER
-    CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
-    if [[ "X${CHOICE}X" == "XsX" ]]; then
-      BUILD_IT=false
-    else
+    if [[  "XX${REPLACE_EXISTING_PROJECT}XX" == "XXXX"  ]]; then
+      echo "";
+      echo "";
+      echo "The project, '${PROJECT_NAME}', was created earlier.
+              You can delete it and [r]ecreate it OR [s]kip this step."
+      read -p "  'r' or 's' ::  " -n 1 -r USER_ANSWER
+      CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+      if [[ "X${CHOICE}X" == "XsX" ]]; then
+        BUILD_IT=false
+      else
+        echo "";
+        echo "Deleting old ${PROJECT_NAME}. . . ";
+        rm -fr ${PROJECT_NAME}
+      fi;
+      echo ""
+    elif [[  "${REPLACE_EXISTING_PROJECT}" == "yes"  ]]; then
       echo "";
       echo "Deleting old ${PROJECT_NAME}. . . ";
       rm -fr ${PROJECT_NAME}
+    else
+      BUILD_IT=false;
     fi;
-    echo ""
   fi
 
   if ${BUILD_IT}; then
