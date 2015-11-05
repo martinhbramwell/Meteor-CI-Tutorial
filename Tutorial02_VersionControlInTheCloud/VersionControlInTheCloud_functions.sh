@@ -233,11 +233,13 @@ function Create_remote_GitHub_repository_B() {
 
   done
 
+  Make_GitHub_Repo_Deploy_Key_Title ${GITHUB_ORGANIZATION_NAME} ${PROJECT_NAME};
+
   echo -e "Go to the 'Deploy Key' configuration page for the GitHub repo at : ";
   echo -e "\n    https://github.com/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/settings/keys";
   echo -e "\nThen click the [Add deploy key] button and fill in the fields as follows : \n";
-  echo -e " - Title -- fill with :      ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME} \n";
-  echo -e " - Key -- fill with :      $(cat ~/.ssh/${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}.pub) \n";
+  echo -e " - Title -- fill with :      ${REPO_DEPLOY_KEY_TITLE} \n";
+  echo -e " - Key -- fill with :      $(cat ~/.ssh/${REPO_DEPLOY_KEY_TITLE}.pub) \n";
   echo -e " - Allow write access -- checked";
 
 }

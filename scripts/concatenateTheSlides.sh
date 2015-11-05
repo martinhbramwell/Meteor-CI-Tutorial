@@ -110,11 +110,13 @@ function substituteFieldsInSlide() {
   # #
     export PATTERN="blob\/${CURRENT_BRANCH_OF_GIT}\/[A-Za-z0-9_]*.sh"
 #    echo "Old : ${PATTERN}"
-    export REPLACEMENT="blob/${CURRENT_BRANCH_OF_GIT}/${FUNCTIONS_FILE}"
+#    export REPLACEMENT="blob/${CURRENT_BRANCH_OF_GIT}/${FUNCTIONS_FILE}"
+    export REPLACEMENT="blob/master/${FUNCTIONS_FILE}"
     ${DBGLOG} && echo "New : ${REPLACEMENT}"
     sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
 
-    sed -i "0,/master/s|master|${CURRENT_BRANCH_OF_GIT}|" ${AFP}
+#    sed -i "0,/blob\/master/s|blob\/master|blob\/${CURRENT_BRANCH_OF_GIT}|" ${AFP}
+    sed -i "0,/modularize/s|modularize|master|" ${AFP}
 
   fi;
 
@@ -150,7 +152,8 @@ deleteAllPreviouslyConcatenatedMarkdownFiles;
 #
 # Process all markdown documents extracting just what a script user needs to see
 #
-CURRENT_BRANCH_OF_GIT=$(git rev-parse --abbrev-ref HEAD);
+# CURRENT_BRANCH_OF_GIT=$(git rev-parse --abbrev-ref HEAD);
+CURRENT_BRANCH_OF_GIT="master";
 printf -v GITHUB_DIR "https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/%s/" ${CURRENT_BRANCH_OF_GIT};
 printf "
    We're building for the %s branch of the repository.\n\n" ${CURRENT_BRANCH_OF_GIT};

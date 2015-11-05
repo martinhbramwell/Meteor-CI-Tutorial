@@ -15,7 +15,7 @@ The previous script, 'Tutorial03_UnitTestAPackage.sh', got us started with a pac
 
 This one . . .  
 ```terminal
-./scripts/Tutorial04_CodingStyleAndLinting.sh
+./Tutorial04_CodingStyleAndLinting.sh
 ```
 . . .  brings in the capability of applying code style and quality rules: while editing, before committing and during continuous integration.
 

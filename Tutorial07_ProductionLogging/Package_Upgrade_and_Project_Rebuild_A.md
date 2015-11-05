@@ -27,5 +27,5 @@ To complete this section, we need to correctly commit our changes and spawn a re
 Continues . . . 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L12" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L12" target="_blank">Code for this step.</a>] ]
 ]

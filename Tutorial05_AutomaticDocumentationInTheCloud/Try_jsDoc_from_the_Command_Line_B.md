@@ -20,5 +20,5 @@ If you open the index file in your browser from its file system location . . .
  ![http://i.imgur.com/LBfHmi3.png](http://i.imgur.com/LBfHmi3.png)
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial05_AutomaticDocumentationInTheCloud/AutomaticDocumentationInTheCloud_functions.sh#L16" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial05_AutomaticDocumentationInTheCloud/AutomaticDocumentationInTheCloud_functions.sh#L16" target="_blank">Code for this step.</a>] ]
 ]

@@ -13,7 +13,7 @@ The preceding script, 'Tutorial05_AutomaticDocumentationInTheCloud.sh', set up s
 
 Now, this script . . .  
 ```terminal
-./scripts/Tutorial06_CloudContinuousIntegration.sh
+./Tutorial06_CloudContinuousIntegration.sh
 ```
 . . . will move those tasks out of your PC and into CircleCI: a continuous integration server in the cloud.
 

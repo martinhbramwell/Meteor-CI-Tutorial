@@ -15,7 +15,7 @@ The previous script, 'Tutorial02_VersionControlInTheCloud.sh', set up a Meteor a
 
 This one . . .  
 ```terminal
-./scripts/Tutorial03_UnitTestAPackage.sh
+./Tutorial03_UnitTestAPackage.sh
 ```
 . . . prepares a Meteor project with an associated external package, tested with TinyTest, and **stored separately in GitHub**.
 
@@ -50,7 +50,7 @@ source ~/.profile;
 Continued . . . 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L5" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L5" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -82,7 +82,7 @@ meteor list
 Your package will be part of your project's run time, but not part of it at edit time. That's next . . .
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L16" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L16" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -124,7 +124,7 @@ For editing purposes your package now appears to be part of your project.  But w
     <i>Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L105" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L105" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -163,7 +163,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
     <i>Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L87" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L87" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -187,7 +187,7 @@ That's beyond the scope of this tutorial.  However, we must, in any case, repeat
 Continues . . . 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L116" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L116" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -207,11 +207,11 @@ git init
 git add .
 git commit -am 'First commit'
 git remote add ${PKG_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
-git push -u ${PKG_NAME}_origin modularize
+git push -u ${PKG_NAME}_origin master
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L145" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L145" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -235,7 +235,7 @@ tree
 ```
 To stop Meteor and move on to the next step in the tutorial script, after you have confirmed that it ran successful tests, just hit ```<enter>```.
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L187" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L187" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -256,12 +256,12 @@ In this step we :
 
 ##### Example Commands
 ```terminal
-wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/modularize/meteor-tinytest-runner.run
+wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
 ./meteor-tinytest-runner.run
 ./tests/tinyTests/test-all.sh
 ```
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L215" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L215" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

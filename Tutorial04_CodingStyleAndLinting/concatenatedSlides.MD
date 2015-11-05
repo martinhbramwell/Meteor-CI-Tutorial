@@ -15,7 +15,7 @@ The previous script, 'Tutorial03_UnitTestAPackage.sh', got us started with a pac
 
 This one . . .  
 ```terminal
-./scripts/Tutorial04_CodingStyleAndLinting.sh
+./Tutorial04_CodingStyleAndLinting.sh
 ```
 . . .  brings in the capability of applying code style and quality rules: while editing, before committing and during continuous integration.
 
@@ -51,7 +51,7 @@ eslint ${PROJECT_NAME}.js
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial04_CodingStyleAndLinting/CodingStyleAndLinting_functions.sh#L1" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial04_CodingStyleAndLinting/CodingStyleAndLinting_functions.sh#L1" target="_blank">Code for this step.</a>] ]
 ]
 a
 b
@@ -166,7 +166,7 @@ Great!  All clean!
 
 **Note 2015/09/27** - The current version mishandles ```.eslintignore``` when there are symlinks, resulting in the false warning "File ignored because of your .eslintignore file. Use --no-ignore to override"
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial04_CodingStyleAndLinting/CodingStyleAndLinting_functions.sh#L12" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial04_CodingStyleAndLinting/CodingStyleAndLinting_functions.sh#L12" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

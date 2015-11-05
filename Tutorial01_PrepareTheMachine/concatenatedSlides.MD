@@ -13,7 +13,7 @@ These scripts will get you started easily with continuous integration developmen
 
 This first script, run with . . .  
 ```terminal
-sudo ./scripts/Tutorial01_PrepareTheMachine.sh
+sudo ./Tutorial01_PrepareTheMachine.sh
 ```
 . . . sets up all necessary preconditions for the remaining scripts.  As much as possible, this first step handles all tasks that require root access.
 
@@ -49,7 +49,7 @@ Steps performed :
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L29" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L29" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -80,7 +80,7 @@ apt-get install -y tree python-pip             # for demo convenience
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L41" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L41" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -108,7 +108,7 @@ apt-get -y autoremove
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L49" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L49" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -128,12 +128,13 @@ We must first ensure that root has not taken ownership of the local .npm directo
 ##### Example Commands
 ```terminal
 sudo chown -R ${USER}:${USER} ~/.npm
+sudo chown -R ${SUDOUSER}:${SUDOUSER} ~/node_modules
 npm install -y --prefix ${HOME} selenium-webdriver
 ```
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L58" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L58" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -160,7 +161,7 @@ dpkg -i google-chrome-stable_current_amd${CPU_WIDTH}.deb
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L68" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L68" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -185,7 +186,7 @@ For ongoing server side logging during development or production we need a perma
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L90" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L90" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -215,7 +216,7 @@ pip install -y beautifulsoup4 requests
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L102" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L102" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -236,15 +237,15 @@ Linting detects code style contraventions, improves maintainability, and flags m
 
 ##### Example Commands
 ```terminal
-npm install -gy eslint
-npm install -gy eslint-plugin-react
-npm install -gy babel-eslint
+npm install -y eslint
+npm install -y eslint-plugin-react
+npm install -y babel-eslint
 ```
 
 There is a closely related ESLint package for Sublime Text.  We will install it in the next section.
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L114" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L114" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -265,13 +266,13 @@ JSDoc can generate a very sophisticated documentation web site for you, directly
 
 ##### Example Commands
 ```terminal
-npm install -g jsdoc
+npm install -y jsdoc
 ```
 
 There is a closely related JSDoc package for Sublime Text, which we will install in the next section.
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L120" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L120" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -301,7 +302,7 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L124" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L124" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

@@ -17,13 +17,13 @@ Linting detects code style contraventions, improves maintainability, and flags m
 
 ##### Example Commands
 ```terminal
-npm install -gy eslint
-npm install -gy eslint-plugin-react
-npm install -gy babel-eslint
+npm install -y eslint
+npm install -y eslint-plugin-react
+npm install -y babel-eslint
 ```
 
 There is a closely related ESLint package for Sublime Text.  We will install it in the next section.
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L114" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L114" target="_blank">Code for this step.</a>] ]
 ]

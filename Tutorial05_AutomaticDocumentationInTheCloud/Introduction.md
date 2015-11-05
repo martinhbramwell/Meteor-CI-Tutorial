@@ -15,7 +15,7 @@ The previous script, 'Tutorial04_CodingStyleAndLinting.sh', set up code quality 
 
 This one . . .  
 ```terminal
-./scripts/Tutorial05_AutomaticDocumentationInTheCloud.sh
+./Tutorial05_AutomaticDocumentationInTheCloud.sh
 ```
 . . . continues the componentization efforts of earlier parts, by making it very easy to document the code and the tests of each package as it is developed.
 

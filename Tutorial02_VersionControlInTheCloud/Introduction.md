@@ -15,7 +15,7 @@ The previous script, 'Tutorial01_PrepareTheMachine.sh', set up necessary precond
 
 This one . . .  
 ```terminal
-./scripts/Tutorial02_VersionControlInTheCloud.sh
+./Tutorial02_VersionControlInTheCloud.sh
 ```
 . . . prepares a Meteor project, with version control *in the cloud* in GitHub.  You will need to understand a bit about Public and Private Keys and about Secure Shell.  Try reading <a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">GitHub's getting started documents.</a>
 

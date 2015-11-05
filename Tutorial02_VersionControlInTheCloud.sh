@@ -9,6 +9,8 @@ checkNotRoot;
 
 export SUDOUSER=$(who am i | awk '{print $1}');
 
+collectSectionNames;
+
 setSection 2;
 source "${BINDIR}/${SECTION}_functions.sh";
 

@@ -15,7 +15,7 @@ The previous script, 'Tutorial02_VersionControlInTheCloud.sh', set up a Meteor a
 
 This one . . .  
 ```terminal
-./scripts/Tutorial03_UnitTestAPackage.sh
+./Tutorial03_UnitTestAPackage.sh
 ```
 . . . prepares a Meteor project with an associated external package, tested with TinyTest, and **stored separately in GitHub**.
 

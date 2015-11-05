@@ -16,9 +16,9 @@ git init
 git add .
 git commit -am 'First commit'
 git remote add ${PKG_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
-git push -u ${PKG_NAME}_origin modularize
+git push -u ${PKG_NAME}_origin master
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L145" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L145" target="_blank">Code for this step.</a>] ]
 ]

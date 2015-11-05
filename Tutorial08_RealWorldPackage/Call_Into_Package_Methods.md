@@ -12,7 +12,7 @@
 Unit tests confirm our package works, but how do we actually use it from an application?
 
 In the main directory, ```${PKG_NAME}```, of our package we'll create  a template file, 
-<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/usage_example.html' target='_blank'>usage_example.html</a>, and a template helper file, <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/usage_example.js' target='_blank'>'usage_example.js'</a>.
+<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.html' target='_blank'>usage_example.html</a>, and a template helper file, <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.js' target='_blank'>'usage_example.js'</a>.
 
 We must register them in the ```onUse``` of our ```package.js``` file.
 ```javascript
@@ -22,13 +22,13 @@ We must register them in the ```onUse``` of our ```package.js``` file.
 ```
 ##### Example Commands
 ```terminal
-wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/usage_example.html
-wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/usage_example.js
+wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.html
+wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.js
 ```
 
 Continues ...
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L43" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L43" target="_blank">Code for this step.</a>] ]
 ]

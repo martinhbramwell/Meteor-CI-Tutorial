@@ -17,7 +17,7 @@ An understanding of synchronous wrappers of NodeJS modules opens the doors to th
 
 Get started now by running ...
 ```terminal
-./scripts/Tutorial08_RealWorldPackage.sh
+./Tutorial08_RealWorldPackage.sh
 ```
 
 

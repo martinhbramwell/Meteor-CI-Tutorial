@@ -22,9 +22,9 @@ git init
 git add .
 git commit -am 'First commit'
 git remote add ${PROJECT_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
-git push -u ${PROJECT_NAME}_origin modularize
+git push -u ${PROJECT_NAME}_origin master
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L246" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L248" target="_blank">Code for this step.</a>] ]
 ]

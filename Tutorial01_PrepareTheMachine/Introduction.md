@@ -13,7 +13,7 @@ These scripts will get you started easily with continuous integration developmen
 
 This first script, run with . . .  
 ```terminal
-sudo ./scripts/Tutorial01_PrepareTheMachine.sh
+sudo ./Tutorial01_PrepareTheMachine.sh
 ```
 . . . sets up all necessary preconditions for the remaining scripts.  As much as possible, this first step handles all tasks that require root access.
 

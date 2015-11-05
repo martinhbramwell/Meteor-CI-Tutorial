@@ -21,5 +21,5 @@ For ongoing server side logging during development or production we need a perma
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/modularize/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L90" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L90" target="_blank">Code for this step.</a>] ]
 ]

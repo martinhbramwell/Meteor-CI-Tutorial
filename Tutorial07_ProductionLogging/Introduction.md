@@ -17,7 +17,7 @@ We look at scaleable logging: run-time logs that track critical server-side acti
 
 Now run ...
 ```terminal
-./scripts/Tutorial07_ProductionLogging.sh
+./Tutorial07_ProductionLogging.sh
 ```
 
 
