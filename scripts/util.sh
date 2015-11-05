@@ -399,9 +399,9 @@ function addRepoDeployKey() {
 
 function Add_GitHub_Repo_Deploy_Key() {
   # echo "Token = ${GITHUB_PERSONAL_TOKEN}";
-  # echo "Org = ${GITHUB_ORGANIZATION_NAME}";
-  echo " P1 = ${1}";
-  echo " P2 = ${2}";
+  # # echo "Org = ${GITHUB_ORGANIZATION_NAME}";
+  # echo " P1 = ${1}";
+  # echo " P2 = ${2}";
   export AUTH="Authorization: token ${GITHUB_PERSONAL_TOKEN}";
   export REPO=${1};
   export EXISTING_REPO_DEPLOY_KEY_ID=;
@@ -445,6 +445,23 @@ function Add_GitHub_Repo_Deploy_Key() {
   getRepo;
   echo "Repo deploy key name is '${EXISTING_REPO_DEPLOY_KEY_TITLE}'";
   
+}
+
+function pushPseudoStash() {
+
+  export PSTSH="../pseudo_stash";
+  mkdir -p "${PSTSH}";
+  
+  mv README.md "${PSTSH}";
+  mv .gitignore "${PSTSH}";
+
+}
+
+function popPseudoStash() {
+  
+  mv "${PSTSH}"/README.md .;
+  mv "${PSTSH}"/.gitignore .;
+
 }
 
 

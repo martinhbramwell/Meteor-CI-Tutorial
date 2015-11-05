@@ -2,7 +2,8 @@
 
 set -e;
 #
-declare NOT_TESTING=true;
+declare NOT_TESTING=false;
+declare NONSTOP="nonstop";
 
 source ./scripts/util.sh
 checkForVirtualMachine;
@@ -39,32 +40,6 @@ echo -e "\n - o 0 o - \n";
 
 Configure_git_for_GitHub;
 echo -e "\n - o 0 o - \n";
-
-setSection 2;
-# explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
-# if [ "${RUN_RULE}" != "n" ]; then
-${NOT_TESTING} && Create_GitHub_Repo_Deploy_Keys ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT};
-${NOT_TESTING} && Create_GitHub_Repo_Deploy_Keys ${PKG_NAME} ${REPLACE_EXISTING_PACKAGE};
-echo -e "\n - o 0 o - \n";
-# fi;
-
-# explain ${BINDIR}/Create_remote_GitHub_repository_A.md MORE_ACTION # CODE_BLOCK
-# if [ "${RUN_RULE}" != "n" ]; then 
-
-${NOT_TESTING} && Create_GitHub_Repo_For_Org ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT};
-${NOT_TESTING} && Create_GitHub_Repo_For_Org ${PKG_NAME} ${REPLACE_EXISTING_PACKAGE};
-echo -e "\n - o 0 o - \n";
-
-
-
-
-# explain ${BINDIR}/Create_remote_GitHub_repository_B.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
-# if [ "${RUN_RULE}" != "n" ]; then Create_remote_GitHub_repository_B; fi;
-
-${NOT_TESTING} && Add_GitHub_Repo_Deploy_Key ${PROJECT_NAME}  ${REPLACE_EXISTING_PROJECT};
-${NOT_TESTING} && Add_GitHub_Repo_Deploy_Key ${PKG_NAME}  ${REPLACE_EXISTING_PACKAGE};
-echo -e "\n - o 0 o - \n";
-
 
 
 # highlight ${BINDIR}/Introduction.md # explain
@@ -164,6 +139,26 @@ setSection 2;
 # fi;
 
 
+# explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then
+${NOT_TESTING} && Create_GitHub_Repo_Deploy_Keys ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT};
+echo -e "\n - o 0 o - \n";
+# fi;
+
+# explain ${BINDIR}/Create_remote_GitHub_repository_A.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then 
+
+${NOT_TESTING} && Create_GitHub_Repo_For_Org ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT};
+echo -e "\n - o 0 o - \n";
+
+
+# explain ${BINDIR}/Create_remote_GitHub_repository_B.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+# if [ "${RUN_RULE}" != "n" ]; then Create_remote_GitHub_repository_B; fi;
+
+${NOT_TESTING} && Add_GitHub_Repo_Deploy_Key ${PROJECT_NAME}  ${REPLACE_EXISTING_PROJECT};
+echo -e "\n - o 0 o - \n";
+
+
 # explain ${BINDIR}/Create_Meteor_project.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
   ${NOT_TESTING} && Create_Meteor_project;
@@ -197,9 +192,6 @@ export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger
 #  Create_remote_GitHub_repository_B;
 # fi;
 
-echo -e "\n - o 0 o -|||||||||||||| \n";
-NOT_TESTING=true;
-
 
 # explain ${BINDIR}/Create_local_GitHub_repository.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
@@ -207,7 +199,74 @@ NOT_TESTING=true;
   echo -e "\n - o 0 o - \n";
 # fi;
 
+setSection 3;
 
+# explain ${BINDIR}/Create_a_package_A.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then
+${NOT_TESTING} && Create_a_package_A;
+echo -e "\n - o 0 o - A\n";
+# fi;
+
+
+# explain ${BINDIR}/Create_a_package_B.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then
+${NOT_TESTING} && Create_a_package_B;
+echo -e "\n - o 0 o - B\n";
+# fi;
+
+# explain ${BINDIR}/Create_a_package_C.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then
+${NOT_TESTING} && Create_a_package_C;
+echo -e "\n - o 0 o - C\n";
+# fi;
+
+
+
+# explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then
+#   Create_GitHub_Repo_Deploy_Keys;
+# fi;
+${NOT_TESTING} && Create_GitHub_Repo_Deploy_Keys ${PKG_NAME} ${REPLACE_EXISTING_PACKAGE};
+echo -e "\n - o 0 o - \n";
+
+
+${NOT_TESTING} && Create_GitHub_Repo_For_Org ${PKG_NAME} ${REPLACE_EXISTING_PACKAGE};
+echo -e "\n - o 0 o - \n";
+
+
+
+# RUN_RULE="";
+# explain ${BINDIR}/Control_a_packages_versions_A.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+# if [ "${RUN_RULE}" != "n" ]; then
+${NOT_TESTING} && Control_a_packages_versions_A ${NONSTOP};
+echo -e "\n - o 0 o - \n";
+# fi;
+
+
+${NOT_TESTING} && Add_GitHub_Repo_Deploy_Key ${PKG_NAME}  ${REPLACE_EXISTING_PACKAGE};
+echo -e "\n - o 0 o - \n";
+
+
+# explain ${BINDIR}/Control_a_packages_versions_B.md  MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then
+${NOT_TESTING} && Control_a_packages_versions_B;
+echo -e "\n - o 0 o - \n";
+# fi;
+
+echo -e "\n - o 0 o -|||||||||||||| \n";
+NOT_TESTING=true;
+setSection 3;
+
+
+# explain ${BINDIR}/TinyTest_a_package.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then
+#   TinyTest_a_package;
+# fi;
+
+# explain ${BINDIR}/Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then
+${NOT_TESTING} && Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line ${NONSTOP};
+# fi;
    echo "                   - o 0 o - "; exit;
 
 

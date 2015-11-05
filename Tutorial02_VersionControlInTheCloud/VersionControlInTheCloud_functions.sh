@@ -260,10 +260,11 @@ function Create_local_GitHub_repository() {
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
 
+  pushPseudoStash;
+
   echo -e "Initializing 'git'";
   git init
   git add .
-  set +e;    git commit -am 'First commit';    set -e;
   if [[ $(git remote) = ${PROJECT_NAME}_origin ]];
   then
     echo -e "Remote, named ${PROJECT_NAME}_origin has already been defined for repo ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git";
@@ -271,6 +272,12 @@ function Create_local_GitHub_repository() {
     echo -e "Defining remote, named ${PROJECT_NAME}_origin for repo ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git";
     git remote add ${PROJECT_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
   fi;
+
+  git pull ${PROJECT_NAME}_origin master;
+
+  popPseudoStash;
+
+  set +e;    git commit -am 'First commit';    set -e;
 
   git push -u ${PROJECT_NAME}_origin master
 
