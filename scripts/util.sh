@@ -528,6 +528,7 @@ function collectSectionNames() {
     TUTORIAL_SECTIONS+=(${arrIN[1]});
     # echo "${IDX} : ${arrIN[1]}";
     IDX=$((${IDX}+1));
+    
   done
 
 }

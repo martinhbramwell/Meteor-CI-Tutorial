@@ -24,8 +24,8 @@ function assembleMapsOfDirectoryAndFileNames() {
       FN=$(echo "${line}" | sed 's/\.md.*/.md/g');
       FN=$(echo "${FN}" | sed 's/.*BINDIR}\///g');
       FN=$(echo "${FN}" | sed 's/.md//g');
-  #    echo -e "Processing the file :: ${PT}${FN}\n";
-  #    ls -l ${PT}/${FN}.*;
+      # echo -e "Processing the file :: ${PT}${FN}\n";
+      # ls -l ${PT}/${FN}.*;
       FILEPATHS+=("${PT}${FN}");
     done < <(grep -E 'explain.*BINDIR|BINDIR.*explain'  ${SECTION_SCRIPT_FILE_NAME})
   done
@@ -144,8 +144,6 @@ elif [[ "X$1X" != "XnX" ]]; then
   if [ "X${CHOICE}X" == "XqX" ]; then exit 0; fi;
   if [ "X${CHOICE}X" == "XyX" ]; then SKIP=false; fi;
 fi;
-
-assembleMapsOfDirectoryAndFileNames;
 
 deleteAllPreviouslyConcatenatedMarkdownFiles;
 
