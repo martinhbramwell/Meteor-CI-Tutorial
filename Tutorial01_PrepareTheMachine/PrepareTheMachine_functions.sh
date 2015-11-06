@@ -17,6 +17,7 @@ function verifyRootUser() {
 
 function installToolsForTheseScripts() {
   # Make sure we atart off with the right version of awk.
+  sudo apt-get -y install git;
   sudo apt-get -y install gawk;
   sudo update-alternatives --set awk /usr/bin/gawk;
 
