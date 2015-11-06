@@ -333,7 +333,7 @@ function Create_GitHub_Repo_Deploy_Keys() {
         echo "git host alias '${REPO_DEPLOY_KEY_TITLE}' already present in $(pwd)/config";
       else
         echo "Appending git host alias '${REPO_DEPLOY_KEY_TITLE}' to $(pwd)/config";
-        printf 'Host github-%s-%s\nHostName github.com\nUser git\nIdentityFile ~/.ssh/%s-%s\n\n' "${GITHUB_ORGANIZATION_NAME}" "${REPO_NAME}"  "${GITHUB_ORGANIZATION_NAME}" "${REPO_NAME}" >> config
+        printf 'Host github-%s-%s\nHostName github.com\nUser git\nIdentityFile ~/.ssh/github-%s-%s\n\n' "${GITHUB_ORGANIZATION_NAME}" "${REPO_NAME}"  "${GITHUB_ORGANIZATION_NAME}" "${REPO_NAME}" >> config
       fi;
       # ls -la
 
