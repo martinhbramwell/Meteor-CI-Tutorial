@@ -2,7 +2,7 @@
 
 set -e;
 #
-declare NOT_TESTING=false;
+declare NOT_TESTING=true;
 declare NONSTOP="nonstop";
 
 source ./scripts/util.sh
@@ -138,6 +138,10 @@ setSection 2;
   echo -e "\n - o 0 o - \n";
 # fi;
 
+echo -e "\n - o 0 o -|||||||||||||| \n";
+NOT_TESTING=true;
+setSection 3;
+
 
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
@@ -252,10 +256,6 @@ echo -e "\n - o 0 o - \n";
 ${NOT_TESTING} && Control_a_packages_versions_B;
 echo -e "\n - o 0 o - \n";
 # fi;
-
-echo -e "\n - o 0 o -|||||||||||||| \n";
-NOT_TESTING=true;
-setSection 3;
 
 
 # explain ${BINDIR}/TinyTest_a_package.md MORE_ACTION # CODE_BLOCK
