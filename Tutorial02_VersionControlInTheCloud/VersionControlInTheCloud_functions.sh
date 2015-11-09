@@ -247,6 +247,9 @@ function Create_remote_GitHub_repository_B() {
 
 function Create_local_GitHub_repository() {
 
+  declare DATA_TO_FETCH=false;
+  if [[  "${1}" == "${NONSTOP}"  ]]; then DATA_TO_FETCH=true; fi;
+
   echo -e "Collecting GitHub public keys for 'known-hosts'";
   mkdir -p ~/.ssh;
   touch ~/.ssh/known_hosts;
@@ -259,10 +262,12 @@ function Create_local_GitHub_repository() {
   ssh-keygen -R ${IPADDR};
   ssh-keyscan -H -t rsa ${IPADDR} >> ~/.ssh/known_hosts;
 
+  printf "\nDeploy key is : %s\n" "$(ssh-keygen -lf ~/.ssh/github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}.pub)";
+
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
 
-  pushPseudoStash;
+  ${DATA_TO_FETCH} && pushPseudoStash  && echo -e "\nStashed";
 
   echo -e "Initializing 'git'";
   git init
@@ -275,13 +280,18 @@ function Create_local_GitHub_repository() {
     git remote add ${PROJECT_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
   fi;
 
-  git pull ${PROJECT_NAME}_origin master;
+  ${DATA_TO_FETCH} && {
+    git fetch ${PROJECT_NAME}_origin && echo -e "\nFetched";
+    git pull ${PROJECT_NAME}_origin master && echo -e "\nPulled";
+    popPseudoStash && echo -e "\nDestashed";
+  }
 
-  popPseudoStash;
+  set +e;
+  git commit -am 'First commit' && echo -e "\nCommitted";
+  set -e;
+  
 
-  set +e;    git commit -am 'First commit';    set -e;
-
-  git push -u ${PROJECT_NAME}_origin master
+  git push -u ${PROJECT_NAME}_origin master && echo -e "\nPushed";
 
   popd >/dev/null;
   popd >/dev/null;

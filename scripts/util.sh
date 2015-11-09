@@ -355,9 +355,11 @@ function Create_GitHub_Repo_Deploy_Keys() {
 
 function getRepoDeployKey() {
 
+echo curl -sH "${AUTH}" ${GITHUB_SHTTP}/repos/${GITHUB_ORGANIZATION_NAME}/${REPO}/keys;
 #  echo "AUTH = ${AUTH}";
   KEYS_ARRAY=$(curl -sH "${AUTH}" \
     ${GITHUB_SHTTP}/repos/${GITHUB_ORGANIZATION_NAME}/${REPO}/keys);
+
 
   IDX=0;
 

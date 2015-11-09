@@ -109,7 +109,7 @@ function This_tutorial_expects_to_use_the_Sublime_Text_3_editor_B() {
   echo -e # -- Install Sublime Text editor --
   sudo apt-get install -y sublime-text-installer
   echo -e # -- Install HTML parser for obtaining installer for ST3 Package Control --
-  pip install beautifulsoup4 requests
+  sudo pip install beautifulsoup4 requests
 }
 
 function Install_eslint() {
