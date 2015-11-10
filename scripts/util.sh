@@ -231,7 +231,7 @@ function getNonStopData()
 }
 
 function getRepo() {
- EXISTING_REPO=$(curl -sH "${AUTH}" ${GITHUB_SHTTP}/repos/${GITHUB_ORGANIZATION_NAME}/${REPO} | jq '.name';);
+  EXISTING_REPO=$(curl -sH "${AUTH}" ${GITHUB_SHTTP}/repos/${GITHUB_ORGANIZATION_NAME}/${REPO} | jq '.name';);
 };
 
 function dropRepo() {
@@ -355,28 +355,33 @@ function Create_GitHub_Repo_Deploy_Keys() {
 
 function getRepoDeployKey() {
 
-echo curl -sH "${AUTH}" ${GITHUB_SHTTP}/repos/${GITHUB_ORGANIZATION_NAME}/${REPO}/keys;
-#  echo "AUTH = ${AUTH}";
+  # echo curl -sH "${AUTH}" ${GITHUB_SHTTP}/repos/${GITHUB_ORGANIZATION_NAME}/${REPO}/keys;
   KEYS_ARRAY=$(curl -sH "${AUTH}" \
     ${GITHUB_SHTTP}/repos/${GITHUB_ORGANIZATION_NAME}/${REPO}/keys);
 
+  # echo "AUTH = ${AUTH}";
+  # echo ${KEYS_ARRAY};
+  if echo ${KEYS_ARRAY} | grep -c "Bad credentials"; then
+    echo -e "GitHub responds :: \n ${KEYS_ARRAY}";
+    exit;
+  fi;
+
+  if echo ${KEYS_ARRAY} | grep -c "Not Found"; then
+    LIM=0;
+  else
+    LIM=$(echo ${KEYS_ARRAY} | jq ". | length";);
+  fi;
 
   IDX=0;
-
- # EXISTING_REPO_DEPLOY_KEY_TITLE=$(echo ${KEYS_ARRAY} | jq ".[${IDX}].title");
- # echo ${EXISTING_REPO_DEPLOY_KEY_TITLE};
-  # exit;
-
-  LIM=$(echo ${KEYS_ARRAY} | jq ". | length";)
   while [  ${IDX} -lt ${LIM}  ]; do
     EXISTING_REPO_DEPLOY_KEY_TITLE=$(echo ${KEYS_ARRAY} | jq ".[${IDX}].title");
-#    echo "${EXISTING_REPO_DEPLOY_KEY_TITLE}   vs   ${REPO_DEPLOY_KEY_TITLE}";
+    # echo "${EXISTING_REPO_DEPLOY_KEY_TITLE}   vs   ${REPO_DEPLOY_KEY_TITLE}";
     if [[ ${EXISTING_REPO_DEPLOY_KEY_TITLE} == "\"${REPO_DEPLOY_KEY_TITLE}\"" ]]; then
       EXISTING_REPO_DEPLOY_KEY_ID=$(echo ${KEYS_ARRAY} | jq ".[${IDX}].id";);
       let IDX=${LIM};
     fi;
 
-#    echo "Key #$IDX is :: " ${EXISTING_REPO_DEPLOY_KEY_TITLE};
+    # echo "Key #$IDX is :: " ${EXISTING_REPO_DEPLOY_KEY_TITLE};
     let IDX=IDX+1;
   done
 #  echo "Key #$IDX id is :: " ${EXISTING_REPO_DEPLOY_KEY_ID};
@@ -416,6 +421,7 @@ function Add_GitHub_Repo_Deploy_Key() {
   echo "REPO_DEPLOY_KEY_TITLE = ${REPO_DEPLOY_KEY_TITLE}";
   echo "EXISTING_REPO_DEPLOY_KEY_TITLE = ${EXISTING_REPO_DEPLOY_KEY_TITLE}";
   echo "EXISTING_REPO_DEPLOY_KEY_ID = ${EXISTING_REPO_DEPLOY_KEY_ID}";
+
 
   if [ "${EXISTING_REPO_DEPLOY_KEY_TITLE}" == "\"${REPO_DEPLOY_KEY_TITLE}\"" ]; then
     SWITCH=$(($SWITCH+1));

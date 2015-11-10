@@ -2,7 +2,7 @@
 
 set -e;
 #
-declare NOT_TESTING=false;
+declare NOT_TESTING=true;
 declare NONSTOP="nonstop";
 CRP=$(sudo pwd);
 
@@ -202,8 +202,6 @@ export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger
   ${NOT_TESTING} && Create_local_GitHub_repository ${NONSTOP};
   echo -e "\n   Created local GitHub repository for '${PROJECT_NAME}'\n          - o 0 o - \n";
 # fi;
-
-exit;
 
 setSection 3;
 
