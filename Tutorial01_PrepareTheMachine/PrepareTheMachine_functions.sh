@@ -58,11 +58,13 @@ function Install_NodeJS() {
 
 function Install_Selenium_Webdriver_In_NodeJS() {
 
-  mkdir -p ~/.npm
-  mkdir -p ~/node_modules
-  sudo chown -R ${SUDOUSER}:${SUDOUSER} ~/.npm
-  sudo chown -R ${SUDOUSER}:${SUDOUSER} ~/node_modules
-  npm install -y --prefix $HOME selenium-webdriver
+  mkdir -p ~/.npm;
+  mkdir -p ~/node_modules;
+  sudo chown -R ${SUDOUSER}:${SUDOUSER} ~/.npm;
+  sudo chown -R ${SUDOUSER}:${SUDOUSER} ~/node_modules;
+  npm install -y --prefix $HOME selenium-webdriver;
+
+  rm -fr ~/etc;
 
 }
 
@@ -113,13 +115,13 @@ function This_tutorial_expects_to_use_the_Sublime_Text_3_editor_B() {
 }
 
 function Install_eslint() {
-  npm install -y eslint
-  npm install -y eslint-plugin-react
-  npm install -y babel-eslint
+  sudo npm install -y --global --prefix /usr eslint
+  sudo npm install -y --global --prefix /usr eslint-plugin-react
+  sudo npm install -y --global --prefix /usr babel-eslint
 }
 
 function Install_jsdoc() {
-  npm install -y jsdoc;
+  sudo npm install -y --global --prefix /usr jsdoc;
 }
 
 function Configure_Sublime_A() {
