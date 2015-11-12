@@ -29,7 +29,7 @@ RUN_RULE="";
 explain ${BINDIR}/Customize_ESLint_in_Sublime_Text.md # MANUAL_INPUT_REQUIRED
 
 RUN_RULE="";
-explain ${BINDIR}/Try_ESLint_in_Sublime_Text.md # MANUAL_INPUT_REQUIRED
+explain ${BINDIR}/Correct_the_indicated_code_quality_defects.md # MANUAL_INPUT_REQUIRED
 
 explain ${BINDIR}/Try_ESLint_Command_Line_Again.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Try_ESLint_Command_Line_Again; fi;

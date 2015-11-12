@@ -18,3 +18,32 @@ function Try_ESLint_Command_Line_Again() {
   popd >/dev/null;
 
 }
+
+function Customize_ESLint_in_Sublime_Text() {
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/ >/dev/null;
+
+    echo wget -O .eslintrc https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/modified_eslintrc;
+    cp .eslintrc ./packages/${PKG_NAME}/
+
+  popd >/dev/null;
+
+}
+
+
+function Correct_the_indicated_code_quality_defects() {
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/ >/dev/null;
+
+    wget -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/package-tests_T04_05.js;
+
+  popd >/dev/null;
+
+
+}
+
+# function () {
+# }
+
+# function () {
+# }
