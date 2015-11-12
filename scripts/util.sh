@@ -8,6 +8,15 @@ export green='\e[0;32m'
 export flashingRed='\e[5;31m'
 export endColor='\e[0m';
 
+function verifyFreeSpace() {
+  MINFREESPACE=1500000
+  FREESPACE=$(df / | grep dev | awk '{print $4}')
+  if [[  ${FREESPACE} -lt ${MINFREESPACE} ]]; then
+    echo You have only ${FREESPACE} bytes free.  You should have ${MINFREESPACE};
+    exit 1;
+  fi;
+}
+
 function existingMeteor() {
 
   EXISTING_METEOR_PID=$(ps aux | grep meteor | grep -v grep | grep -c ~/.meteor/packages)

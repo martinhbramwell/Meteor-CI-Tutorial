@@ -2,13 +2,25 @@
 
 set -e;
 #
-declare NOT_TESTING=true;
+declare NOT_TESTING=true;  # true OR false
 declare NONSTOP="nonstop";
 CRP=$(sudo pwd);
 
 source ./scripts/util.sh
 checkForVirtualMachine;
 echo -e "\n   Checked for virtual machine\n          - o 0 o - \n";
+
+
+verifyFreeSpace;
+echo -e "\n   Verified Free Space\n          - o 0 o - \n";
+checkNotRoot;
+# verifyRootUser;
+
+${NOT_TESTING} && {
+  if ! getUserData; then didNotGetUserData; fi;
+  if ! getNonStopData; then didNotGetNSData; fi;
+}
+export PACKAGES=~/${PARENT_DIR}/packages
 
 collectSectionNames;
 # Loop through all sections getting their functions
@@ -22,20 +34,11 @@ do
   II=$[$II+1]
 done;
 
-verifyFreeSpace;
-echo -e "\n   Verified Free Space\n          - o 0 o - \n";
-checkNotRoot;
-# verifyRootUser;
-
 ${NOT_TESTING} && {
   installToolsForTheseScripts;
   echo -e "\n   Installed Tools For These Scripts\n          - o 0 o - \n";
 }
 
-${NOT_TESTING} && {
-  if ! getUserData; then didNotGetUserData; fi;
-  if ! getNonStopData; then didNotGetNSData; fi;
-}
 
 source ./scripts/explain.sh
 RUN_RULE="";
@@ -232,6 +235,8 @@ export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger
   }
 # fi;
 
+
+
 setSection 3;
 
 
@@ -242,6 +247,7 @@ setSection 3;
     echo -e "\n   Created package '${PKG_NAME}': A\n          - o 0 o - \n";
   }
 # fi;
+
 
 
 # explain ${BINDIR}/Create_a_package_B.md MORE_ACTION # CODE_BLOCK
@@ -259,6 +265,7 @@ setSection 3;
     echo -e "\n   Created package '${PKG_NAME}' : C\n          - o 0 o - \n";
   }
 # fi;
+
 
 
 
@@ -318,10 +325,6 @@ setSection 3;
 
 
 
-echo -e "\n - o 0 o -|||||||||||||| \n";
-NOT_TESTING=true;
-
-
 
 
 
@@ -354,6 +357,10 @@ NOT_TESTING=true;
 
   }
 
+
+
+echo -e "\n - o 0 o -|||||||||||||| \n";
+NOT_TESTING=true;
 
 
 

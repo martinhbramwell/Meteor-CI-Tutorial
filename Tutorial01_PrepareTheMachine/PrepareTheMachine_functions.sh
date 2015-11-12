@@ -1,13 +1,4 @@
 
-function verifyFreeSpace() {
-  MINFREESPACE=1500000
-  FREESPACE=$(df / | grep dev | awk '{print $4}')
-  if [[  ${FREESPACE} -lt ${MINFREESPACE} ]]; then
-    echo You have only ${FREESPACE} bytes free.  You should have ${MINFREESPACE};
-    exit 1;
-  fi;
-}
-
 function verifyRootUser() {
   if [[ $EUID -ne 0 ]]; then
      echo -e "\n   This script must be run with 'sudo' (run as root). "

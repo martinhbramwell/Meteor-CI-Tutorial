@@ -1,13 +1,21 @@
-export PACKAGES=~/${PARENT_DIR}/packages
-export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_UID}
-
+PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_UID}
 
 function Create_a_package_A(){
 
   mkdir -p ${PACKAGES}/${YOUR_UID};
   mkdir -p ${PACKAGES}/thirdparty;
-  HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.profile) || echo -e "\nConfiguring PACKAGE_DIRS as '${PACKAGE_DIRS}'.";
-  [[ ${HAS_PACKAGE_DIRS} -lt 1 ]] && echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile  || echo "PACKAGE_DIRS previously configured as '${PACKAGE_DIRS}'.";
+  echo "export PACKAGE_DIRS=\"${PACKAGE_DIRS}\"";
+  echo "export PACKAGES=\"${PACKAGES}\"";
+  echo "export PARENT_DIR=\"${PARENT_DIR}\"";
+
+  while [[ $(grep -c PACKAGE_DIRS ~/.profile) -gt 0 ]]; do
+    echo -e "Got";
+    sed -i '/PACKAGE_DIRS/d' ~/.profile;
+  done;
+
+#  HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.profile) || echo -e "\nConfiguring PACKAGE_DIRS as '${PACKAGE_DIRS}'.";
+  echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS};" >> ~/.profile;
+
   source ~/.profile;
 
 }
