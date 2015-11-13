@@ -347,13 +347,6 @@ setSection 3;
 
 
 
-
-echo -e "\n - o 0 o -|||||||||||||| \n";
-NOT_TESTING=true;
-
-
-
-
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
   ${NOT_TESTING} && {
 
@@ -394,6 +387,22 @@ NOT_TESTING=true;
 # RUN_RULE="";
 # explain ${BINDIR}/Publish_jsDocs_toGitHub_A.md
 
+  }
+
+
+
+
+
+echo -e "\n - o 0 o -|||||||||||||| \n";
+NOT_TESTING=true;
+
+
+
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+  ${NOT_TESTING} && {
+
+    setSection 5;
+
 # TEMP_ZIP="/tmp/${PKG_NAME}_BINDIR.zip"
 # explain ${BINDIR}/Publish_jsDocs_toGitHub_B.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
@@ -402,6 +411,13 @@ NOT_TESTING=true;
 # fi;
 
   }
+
+
+
+
+
+
+
 
 
    echo "                   - o 0 o - "; exit;

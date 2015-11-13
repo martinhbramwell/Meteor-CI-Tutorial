@@ -117,11 +117,11 @@ DocBlockr tries to help finish annotations begun with ```/**```, as explained in
 
  ![https://camo.githubusercontent.com/087348d3e797f4ccc91528459b0473f6d34eadf3/687474703a2f2f73706164676f732e6769746875622e696f2f7375626c696d652d6a73646f63732f696d616765732f6c6f6e672d617267732e676966](https://camo.githubusercontent.com/087348d3e797f4ccc91528459b0473f6d34eadf3/687474703a2f2f73706164676f732e6769746875622e696f2f7375626c696d652d6a73646f63732f696d616765732f6c6f6e672d617267732e676966)
 
-Here is a partially documented <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js' target='_blank'>```yourpackage-tests.js```</a>
+Here is a partially documented <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/package-tests_T05_05.js' target='_blank'>```yourpackage-tests.js```</a>
 
 ##### Example Commands
 ```ruby
-wget -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage-tests.js
+wget -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/package-tests_T05_05.js
 ```
 
 Continues . . .
@@ -179,7 +179,7 @@ If you run the jsdoc command again you should see an improved main page with a `
 Click on the ```TinyTest``` link and you should see something like the image to the right.
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial05_AutomaticDocumentationInTheCloud/AutomaticDocumentationInTheCloud_functions.sh#L35" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial05_AutomaticDocumentationInTheCloud/AutomaticDocumentationInTheCloud_functions.sh#L46" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: PublishJsDocsToGitHub_A
@@ -220,13 +220,13 @@ name: PublishJsDocsToGitHub_B
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 #### Your jsDoc Documents as a GitHub Pages Website
 
-A few minutes after this step completes, you'll find your documentation on the web at :
-
-<a href="https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/" target="_blank">https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/</a>.
+Shortly after this step completes, you would expect to find your documentation on the web. You won't find it; instead you'll get a 404 error.  GitHub has <a href="https://help.github.com/articles/troubleshooting-github-pages-build-failures/#deploy-key-used-for-push" target="_blank">a rule</a> about ```gh-pages``` and deploy keys.  The fix is to edit a file online in the repo (eg, README.md) and save it.  However. **first** you must verify your user email address!  After that, (as an implicit by a verified user) the site will appear at :  <a href="https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/" target="_blank">https://${GITHUB_ORG_NAME}.github.io/${PKG_NAME}/</a>.
 
 ##### Example Commands
 ```terminal
-zip -qr ../.tmp_docs.zip *
+zip -qr /tmp/${PKG_NAME}_docs.zip *
+git checkout gh-pages
+unzip -o /tmp/${PKG_NAME}_docs.zip
 git add docs/*
 git commit -am "Preliminary package documentation."
 git push
@@ -234,7 +234,7 @@ git push
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial05_AutomaticDocumentationInTheCloud/AutomaticDocumentationInTheCloud_functions.sh#L47" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial05_AutomaticDocumentationInTheCloud/AutomaticDocumentationInTheCloud_functions.sh#L59" target="_blank">Code for this step.</a>] ]
 ]
 
 ---

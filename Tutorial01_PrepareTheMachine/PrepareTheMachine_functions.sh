@@ -1,9 +1,9 @@
 
 function verifyRootUser() {
   if [[ $EUID -ne 0 ]]; then
-     echo -e "\n   This script must be run with 'sudo' (run as root). "
-     exit 1
-  fi
+     echo -e "\n   This script must be run with 'sudo' (run as root). ";
+     exit 1;
+  fi;
 }
 
 function installToolsForTheseScripts() {
@@ -65,7 +65,7 @@ function Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome() {
   # Install 'chromedriver'
   export CHROMEDRIVER_VERSION=$(wget -N -qO - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
   echo -e "Will install Chrome Driver version : ${CHROMEDRIVER_VERSION} for a ${CPU_WIDTH} width CPU";
-  DRV_FILE="chromedriver_linux${CPU_WIDTH}.zip"  
+  DRV_FILE="chromedriver_linux${CPU_WIDTH}.zip"
   wget -N -O ${DRV_FILE} http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/${DRV_FILE};
   sudo unzip -o ${DRV_FILE} -d /usr/local/bin
   sudo chmod a+rx /usr/local/bin/chromedriver
@@ -83,13 +83,19 @@ function Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome() {
 
 function Install_Bunyan_Globally() {
 
-  sudo chown -R ${SUDOUSER}:${SUDOUSER} ~/.npm
-  sudo npm install -y --global --prefix /usr bunyan
+  NPM_DIR="${HOME}/.npm";
+  sudo chown -R ${SUDOUSER}:${SUDOUSER} ${NPM_DIR};
 
-  LOG_DIR="/var/log/meteor"
-  sudo mkdir -p ${LOG_DIR}
-  sudo chown ${SUDOUSER}:${SUDOUSER} ${LOG_DIR}
-  sudo chmod ug+rwx ${LOG_DIR}
+  pushd ${HOME}  >/dev/null;
+
+    sudo npm install -y --global --prefix /usr bunyan;
+
+  popd  >/dev/null;
+
+  LOG_DIR="/var/log/meteor";
+  sudo mkdir -p ${LOG_DIR};
+  sudo chown ${SUDOUSER}:${SUDOUSER} ${LOG_DIR};
+  sudo chmod ug+rwx ${LOG_DIR};
 
 }
 
@@ -106,13 +112,25 @@ function This_tutorial_expects_to_use_the_Sublime_Text_3_editor_B() {
 }
 
 function Install_eslint() {
-  sudo npm install -y --global --prefix /usr eslint
-  sudo npm install -y --global --prefix /usr eslint-plugin-react
-  sudo npm install -y --global --prefix /usr babel-eslint
+
+  pushd ${HOME}  >/dev/null;
+
+    sudo npm install -y --global --prefix /usr eslint
+    sudo npm install -y --global --prefix /usr eslint-plugin-react
+    sudo npm install -y --global --prefix /usr babel-eslint
+
+  popd  >/dev/null;
+
 }
 
 function Install_jsdoc() {
-  sudo npm install -y --global --prefix /usr jsdoc;
+
+  pushd ${HOME}  >/dev/null;
+
+    sudo npm install -y --global --prefix /usr jsdoc;
+
+  popd  >/dev/null;
+
 }
 
 function Configure_Sublime_A() {

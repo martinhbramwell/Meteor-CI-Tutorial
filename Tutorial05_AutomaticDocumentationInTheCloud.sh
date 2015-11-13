@@ -40,7 +40,6 @@ if [ "${RUN_RULE}" != "n" ]; then Use_Sublime_Text_jsDoc_plugin_C; fi;
 RUN_RULE="";
 explain ${BINDIR}/Publish_jsDocs_toGitHub_A.md
 
-TEMP_ZIP="/tmp/${PKG_NAME}_BINDIR.zip"
 explain ${BINDIR}/Publish_jsDocs_toGitHub_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Publish_jsDocs_toGitHub_B; fi;
 

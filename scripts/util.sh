@@ -65,7 +65,7 @@ function killMeteorProcess()
 
 function saveUserData()
 {
-cat << UDATA > udata.sh
+cat << UDATA > ~/.udata.sh
 export PARENT_DIR="${PARENT_DIR}"
 export PROJECT_NAME="${PROJECT_NAME}"
 export PKG_NAME="${PKG_NAME}"
@@ -76,19 +76,19 @@ export YOUR_UID="${YOUR_UID}"
 export YOUR_FULLNAME="${YOUR_FULLNAME}"
 UDATA
 
-chown ${SUDOUSER}:${SUDOUSER} udata.sh;
+chown ${SUDOUSER}:${SUDOUSER} ~/.udata.sh;
 
 }
 
 function saveNonStopData()
 {
-cat << NSDATA > nsdata.sh
+cat << NSDATA > ~/.nsdata.sh
 export GITHUB_PERSONAL_TOKEN="${GITHUB_PERSONAL_TOKEN}";
 export REPLACE_EXISTING_PROJECT="${REPLACE_EXISTING_PROJECT}";
 export REPLACE_EXISTING_PACKAGE="${REPLACE_EXISTING_PACKAGE}";
 NSDATA
 
-chown ${SUDOUSER}:${SUDOUSER} nsdata.sh;
+chown ${SUDOUSER}:${SUDOUSER} ~/.nsdata.sh;
 
 }
 
@@ -127,8 +127,8 @@ function didNotGetNSData()
 
 function getUserData()
 {
-  if [ -f ./udata.sh ]; then
-    source ./udata.sh
+  if [ -f ~/.udata.sh ]; then
+    source ~/.udata.sh
   else
     export PARENT_DIR="";
     export PROJECT_NAME="";
@@ -197,8 +197,8 @@ function getUserData()
 
 function getNonStopData()
 {
-  if [ -f ./nsdata.sh ]; then
-    source ./nsdata.sh
+  if [ -f ~/.nsdata.sh ]; then
+    source ~/.nsdata.sh
   else
     export GITHUB_PERSONAL_TOKEN="";
     export REPLACE_EXISTING_PROJECT="";
@@ -602,13 +602,13 @@ function endOfSectionScript() {
 }
 
 PROJECT_NAME="  ** NOT DEFINED ** ";
-if [ -f ./udata.sh ]; then
-  source ./udata.sh
+if [ -f ~/.udata.sh ]; then
+  source ~/.udata.sh
   echo "Project name : '${PROJECT_NAME}'"
 fi
 
-if [ -f ./nsdata.sh ]; then
-  source ./nsdata.sh;
+if [ -f ~/.nsdata.sh ]; then
+  source ~/.nsdata.sh;
 fi
 
 #############################

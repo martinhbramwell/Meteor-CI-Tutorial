@@ -55,6 +55,7 @@ function Use_Sublime_Text_jsDoc_plugin_C() {
 }
 
 
+TEMP_ZIP="/tmp/${PKG_NAME}_docs.zip";
 function Publish_jsDocs_toGitHub_B() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
@@ -68,27 +69,35 @@ function Publish_jsDocs_toGitHub_B() {
 
     popd >/dev/null;
 
-    echo -e "Committing master branch changes of the package.\n"
-
     set +e
-    git add docs/*
-    echo "git add errors : $?"
-    git commit -am "Preliminary package documentation."
-    echo "git commit errors : $?"
-    git push
-    echo "git push errors : $?"
+    git add .eslintrc
+
+    if [[ 1 -gt $(git status | grep -c "nothing to commit") ]]; then
+      # git add docs/*
+      echo -e "Committing master branch changes of the package.\n"
+
+      # echo "git add errors : $?"
+      git commit -am "Committing .eslintrc and related alterations."
+      echo "git commit errors : $?"
+      git push
+      echo "git push errors : $?"
+    fi;
+
     set -e
 
   popd >/dev/null;
 
   echo -e "Pushing to remote repo and publishing docs as a GitHub Pages website.\n"
-  ./scripts/PushDocsToGitHubPagesBranch.sh ${PKG_NAME} ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} ${TEMP_ZIP} ${PKG_NAME}_origin
+  ./scripts/PushDocsToGitHubPagesBranch.sh \
+              ${PKG_NAME} \
+              ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} \
+              ${TEMP_ZIP} \
+              ${PKG_NAME}_origin;
 
   echo -e "Removing temp file.\n"
   rm -f ${TEMP_ZIP}
 
   echo -e "To see your documentation on-line, wait a few minutes, then open this link:\n\n          https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/"
-  rm -f ${TEMP_ZIP}
 
 }
 

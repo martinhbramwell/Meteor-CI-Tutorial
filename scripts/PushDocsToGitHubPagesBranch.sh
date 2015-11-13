@@ -6,6 +6,9 @@ shopt -s extglob;
 GITHUBPAGES="gh-pages"
 function PushDocsToGitHubPagesBranch() {
 
+echo " 1 = $1";
+echo " 2 = $2";
+
 	if git rev-parse --verify ${GITHUBPAGES} >/dev/null 2>&1; then
 
 		echo -e "Found existing '${GITHUBPAGES}' branch.";
@@ -66,14 +69,25 @@ function PushDocsToGitHubPagesBranch() {
 # popd >/dev/null;
 #                        <--
 
-echo -e "In git managed directory '~/${2}', attempting to publish the decompressed contents of '${3}' to the 'gh-pages' branch of the '${1}' repo at remote '${4}'."
+REPO=${1};
+GDIR=${2};
+ZIPPD=${3};
+REMOTE=${4};
+
+# In git managed directory 'pkg00', attempting to publish the decompressed contents of
+#      '/home/dude/project_isle/prj00/packages/pkg00' to the
+#          'gh-pages' branch of the './scripts/PushDocsToGitHubPagesBranch.sh' repo at remote 'pkg00_origin'.
+
+echo -e "In git managed directory '${GDIR}', attempting to publish the decompressed contents of
+     '${ZIPPD}' to the
+         'gh-pages' branch of the '${REPO}' repo at remote '${REMOTE}'."
 
 VALID=true;
-if grep "$1" $2/.git/config  >/dev/null 2>&1; then
+if grep "${REPO}" ${GDIR}/.git/config  >/dev/null 2>&1; then
 
-   	echo "* * * The directory ($2) appears to contain valid git repo : '$1' * * *";
+   	echo "* * * The directory (${GDIR}) appears to contain valid git repo : '${REPO}' * * *";
 
-	pushd $2 >/dev/null;
+	pushd ${GDIR} >/dev/null;
 	IFS_BK=${IFS};
 	IFS=' ' read -a UNCOMMITED_CHANGES <<< $(git diff --shortstat);
 	IFS=${IFS_BK};
@@ -84,24 +98,24 @@ if grep "$1" $2/.git/config  >/dev/null 2>&1; then
 		pwd
 		popd >/dev/null;
   	exit 1;
-	elif [[  $(git log $4/master..master | grep -c commit) -gt 0  ]]; then
+	elif [[  $(git log ${REMOTE}/master..master | grep -c commit) -gt 0  ]]; then
 		echo -e "\n\n * * * Git Error : Recent commits have not been pushed.  Cannot proceed * * * \n";
 		popd >/dev/null;
   	exit 1;
-  elif [[ $(unzip -l $3 | grep -c index.html) -gt 0 ]]; then
+  elif [[ $(unzip -l ${ZIPPD} | grep -c index.html) -gt 0 ]]; then
 
-		echo "The zip file ($3) seems to have files!"
-		PushDocsToGitHubPagesBranch $3 $4
+		echo "The zip file (${ZIPPD}) seems to have files!";
+		PushDocsToGitHubPagesBranch ${ZIPPD} ${REMOTE}
 
 	else
-		echo -e "\n\n * * * $3  doesn't apppear to be a valid zip file * * * \n";
+		echo -e "\n\n * * * ${ZIPPD}  doesn't apppear to be a valid zip file * * * \n";
 		VALID=false;
 	fi;
 
 	popd >/dev/null;
 
 else
-   	echo -e "\n\n * * * The directory ($2) DOES NOT appear to contain a valid git repo for : '$1' * * * \n";
+   	echo -e "\n\n * * * The directory (${GDIR}) DOES NOT appear to contain a valid git repo for : '${REPO}' * * * \n";
 	VALID=false;
 fi;
 
