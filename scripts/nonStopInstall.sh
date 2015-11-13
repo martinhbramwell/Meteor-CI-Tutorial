@@ -327,6 +327,87 @@ setSection 3;
 
 
 
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+  ${NOT_TESTING} && {
+
+    setSection 4;
+
+    Customize_ESLint_in_Sublime_Text;
+    echo -e "\n   Customized ESLint in Sublime Text. : \n          - o 0 o - \n";
+
+    Correct_the_indicated_code_quality_defects;
+    echo -e "\n   Corrected the indicated code-quality defects. : \n          - o 0 o - \n";
+
+    Try_ESLint_Command_Line_Again;
+    echo -e "\n   Corrected the indicated code-quality defects. : \n          - o 0 o - \n";
+
+  }
+
+
+
+
+
+
+echo -e "\n - o 0 o -|||||||||||||| \n";
+NOT_TESTING=true;
+
+
+
+
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+  ${NOT_TESTING} && {
+
+    setSection 5;
+
+# explain ${BINDIR}/Try_jsDoc_from_the_Command_Line_A.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then 
+    Try_jsDoc_from_the_Command_Line_A;
+    echo -e "\n   Ran jsDoc against ./packages/${PKG_NAME}\n          - o 0 o - \n";
+# fi;
+
+# explain ${BINDIR}/Try_jsDoc_from_the_Command_Line_B.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then
+#   Try_jsDoc_from_the_Command_Line_B;
+# fi;
+
+# RUN_RULE="";
+# explain ${BINDIR}/Configure_Sublime_Text_to_use_jsDoc.md # MANUAL_INPUT_REQUIRED
+
+# explain ${BINDIR}/Use_Sublime_Text_jsDoc_plugin_A.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then 
+    Use_Sublime_Text_jsDoc_plugin_A;
+    echo -e "\n   Patched ./packages/${PKG_NAME}/${PKG_NAME}-tests.js for slide 5\n          - o 0 o - \n";
+# fi;
+
+# RUN_RULE="";
+# explain ${BINDIR}/Use_Sublime_Text_jsDoc_plugin_B.md # MANUAL_INPUT_REQUIRED
+# if [ "${RUN_RULE}" != "n" ]; then 
+    Use_Sublime_Text_jsDoc_plugin_B;
+    echo -e "\n   Patched ./packages/${PKG_NAME}/${PKG_NAME}-tests.js for slide 6\n          - o 0 o - \n";
+
+# explain ${BINDIR}/Use_Sublime_Text_jsDoc_plugin_C.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then 
+    Use_Sublime_Text_jsDoc_plugin_C;
+    echo -e "\n   Rebuilt documentation after patches\n          - o 0 o - \n";
+# fi;
+
+# RUN_RULE="";
+# explain ${BINDIR}/Publish_jsDocs_toGitHub_A.md
+
+# TEMP_ZIP="/tmp/${PKG_NAME}_BINDIR.zip"
+# explain ${BINDIR}/Publish_jsDocs_toGitHub_B.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then
+    Publish_jsDocs_toGitHub_B;
+    echo -e "\n   Published documentation to GitHub pages\n          - o 0 o - \n";
+# fi;
+
+  }
+
+
+   echo "                   - o 0 o - "; exit;
+
+
+
 
 
 
@@ -359,11 +440,6 @@ setSection 3;
 
 
 
-echo -e "\n - o 0 o -|||||||||||||| \n";
-NOT_TESTING=true;
-
-
-
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
   ${NOT_TESTING} && {
 
@@ -371,16 +447,14 @@ NOT_TESTING=true;
 
     explain ${BINDIR}/Configure_Sublime_Text_to_use_ESLint.md; # MANUAL_INPUT_REQUIRED
 
-    Customize_ESLint_in_Sublime_Text;
-    echo -e "\n   Customized ESLint in Sublime Text. : \n          - o 0 o - \n";
-
-    Correct_the_indicated_code_quality_defects;
-    echo -e "\n   Corrected the indicated code-quality defects. : \n          - o 0 o - \n";
-
-    Try_ESLint_Command_Line_Again;
-    echo -e "\n   Corrected the indicated code-quality defects. : \n          - o 0 o - \n";
-
   }
+
+
+
+echo -e "\n - o 0 o -|||||||||||||| \n";
+NOT_TESTING=true;
+
+
 
    echo "                   - o 0 o - "; exit;
 
