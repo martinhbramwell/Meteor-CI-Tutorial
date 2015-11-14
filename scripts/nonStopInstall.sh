@@ -2,7 +2,7 @@
 
 set -e;
 #
-declare NOT_TESTING=true;  # true OR false
+declare NOT_TESTING=false;  # true OR false
 declare NONSTOP="nonstop";
 CRP=$(sudo pwd);
 
@@ -387,22 +387,6 @@ setSection 3;
 # RUN_RULE="";
 # explain ${BINDIR}/Publish_jsDocs_toGitHub_A.md
 
-  }
-
-
-
-
-
-echo -e "\n - o 0 o -|||||||||||||| \n";
-NOT_TESTING=true;
-
-
-
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-  ${NOT_TESTING} && {
-
-    setSection 5;
-
 # TEMP_ZIP="/tmp/${PKG_NAME}_BINDIR.zip"
 # explain ${BINDIR}/Publish_jsDocs_toGitHub_B.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
@@ -414,20 +398,75 @@ NOT_TESTING=true;
 
 
 
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+  ${NOT_TESTING} && {
+
+    setSection 6;
+
+    # explain ${BINDIR}/Connect_CircleCI_to_GitHub.md # MANUAL_INPUT_REQUIRED
+
+    # explain ${BINDIR}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+      Add_a_CircleCI_configuration_file_and_push_to_GitHub ${NONSTOP};
+      echo -e "\n   Added a CircleCI configuration file and push to GitHub\n          - o 0 o - \n";
+    # fi;
 
 
+  }
+
+
+
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+  ${NOT_TESTING} && {
+
+    setSection 6;
+
+
+    # explain ${BINDIR}/Amend_the_configuration_and_push_again.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+      Amend_the_configuration_and_push_again ${NONSTOP};
+      echo -e "\n   Amended the configuration and push again\n          - o 0 o - \n";
+    # fi;
+
+  }
+
+
+
+echo -e "\n - o 0 o -|||||||||||||| \n";
+NOT_TESTING=true;
+
+
+
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+  ${NOT_TESTING} && {
+
+    setSection 6;
+
+    # explain ${BINDIR}/Prepare_for_NightWatch_testing.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+      Prepare_for_NightWatch_testing;
+      echo -e "\n   Prepared for NightWatch testing\n          - o 0 o - \n";
+    # fi;
+
+    # explain ${BINDIR}/Run_NightWatch_testing.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+      Run_NightWatch_testing ${NONSTOP};
+      echo -e "\n   Ran NightWatch_testing\n          - o 0 o - \n";
+    # fi;
+
+    # explain ${BINDIR}/Configure_CircleCI_for_Nightwatch_Testing.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+      Configure_CircleCI_for_Nightwatch_Testing;
+      echo -e "\n   Configured CircleCI for Nightwatch Testing\n          - o 0 o - \n";
+    # fi;
+
+
+  }
 
 
 
 
    echo "                   - o 0 o - "; exit;
-
-
-
-
-
-
-
 
 
 
@@ -465,6 +504,16 @@ NOT_TESTING=true;
 
   }
 
+
+
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+  ${NOT_TESTING} && {
+
+    setSection 6;
+
+    explain ${BINDIR}/Connect_CircleCI_to_GitHub.md # MANUAL_INPUT_REQUIRED
+
+  }
 
 
 echo -e "\n - o 0 o -|||||||||||||| \n";
