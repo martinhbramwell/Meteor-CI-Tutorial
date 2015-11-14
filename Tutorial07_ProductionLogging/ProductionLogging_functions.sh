@@ -9,11 +9,26 @@ function Refactor_Bunyan_InstantiationA() {
 
 }
 
+
+
+function Refactor_Bunyan_InstantiationB() {
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
+
+  wget -N -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/package-tests_T07_10.js
+  wget -N -O package.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/package_T07_10.js
+
+  popd >/dev/null;
+
+}
+
+
+
 function Package_Upgrade_and_Project_Rebuild_A() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
-  killMeteorProcess
+  killMeteorProcess;
   launchMeteorProcess "http://localhost:3000/"  "test-packages"
   sleep 10
   echo "The 'tail' command shows . . . "
@@ -39,6 +54,10 @@ function Package_Upgrade_and_Project_Rebuild_B() {
   [[ $(grep -c ".npm" .gitignore) -lt 1 ]] && echo ".npm" >> .gitignore;
   git add .gitignore;
   git add logger.js;
+
+  echo "    ¡¡¡¡ add changed files to fragments !!!  ";
+  read -n 1 -r USER_ANSWER;
+
   sed -i -r 's/(.*)(version: .)([0-9]+\.[0-9]+\.)([0-9]+)(.*)/echo "\1\2\3$((\4+1))\5"/ge' package.js;
   git commit -am 'add logging';
   git push;

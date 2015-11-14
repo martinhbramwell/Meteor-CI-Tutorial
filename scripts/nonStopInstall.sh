@@ -2,7 +2,7 @@
 
 set -e;
 #
-declare NOT_TESTING=false;  # true OR false
+declare NOT_TESTING=true;  # true OR false
 declare NONSTOP="nonstop";
 CRP=$(sudo pwd);
 
@@ -20,7 +20,7 @@ ${NOT_TESTING} && {
   if ! getUserData; then didNotGetUserData; fi;
   if ! getNonStopData; then didNotGetNSData; fi;
 }
-export PACKAGES=~/${PARENT_DIR}/packages
+export PACKAGES=~/${PARENT_DIR}/packages;
 
 collectSectionNames;
 # Loop through all sections getting their functions
@@ -353,7 +353,7 @@ setSection 3;
     setSection 5;
 
 # explain ${BINDIR}/Try_jsDoc_from_the_Command_Line_A.md MORE_ACTION # CODE_BLOCK
-# if [ "${RUN_RULE}" != "n" ]; then 
+# if [ "${RUN_RULE}" != "n" ]; then
     Try_jsDoc_from_the_Command_Line_A;
     echo -e "\n   Ran jsDoc against ./packages/${PKG_NAME}\n          - o 0 o - \n";
 # fi;
@@ -367,19 +367,19 @@ setSection 3;
 # explain ${BINDIR}/Configure_Sublime_Text_to_use_jsDoc.md # MANUAL_INPUT_REQUIRED
 
 # explain ${BINDIR}/Use_Sublime_Text_jsDoc_plugin_A.md MORE_ACTION # CODE_BLOCK
-# if [ "${RUN_RULE}" != "n" ]; then 
+# if [ "${RUN_RULE}" != "n" ]; then
     Use_Sublime_Text_jsDoc_plugin_A;
     echo -e "\n   Patched ./packages/${PKG_NAME}/${PKG_NAME}-tests.js for slide 5\n          - o 0 o - \n";
 # fi;
 
 # RUN_RULE="";
 # explain ${BINDIR}/Use_Sublime_Text_jsDoc_plugin_B.md # MANUAL_INPUT_REQUIRED
-# if [ "${RUN_RULE}" != "n" ]; then 
+# if [ "${RUN_RULE}" != "n" ]; then
     Use_Sublime_Text_jsDoc_plugin_B;
     echo -e "\n   Patched ./packages/${PKG_NAME}/${PKG_NAME}-tests.js for slide 6\n          - o 0 o - \n";
 
 # explain ${BINDIR}/Use_Sublime_Text_jsDoc_plugin_C.md MORE_ACTION # CODE_BLOCK
-# if [ "${RUN_RULE}" != "n" ]; then 
+# if [ "${RUN_RULE}" != "n" ]; then
     Use_Sublime_Text_jsDoc_plugin_C;
     echo -e "\n   Rebuilt documentation after patches\n          - o 0 o - \n";
 # fi;
@@ -411,36 +411,11 @@ setSection 3;
       echo -e "\n   Added a CircleCI configuration file and push to GitHub\n          - o 0 o - \n";
     # fi;
 
-
-  }
-
-
-
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-  ${NOT_TESTING} && {
-
-    setSection 6;
-
-
     # explain ${BINDIR}/Amend_the_configuration_and_push_again.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
       Amend_the_configuration_and_push_again ${NONSTOP};
       echo -e "\n   Amended the configuration and push again\n          - o 0 o - \n";
     # fi;
-
-  }
-
-
-
-echo -e "\n - o 0 o -|||||||||||||| \n";
-NOT_TESTING=true;
-
-
-
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-  ${NOT_TESTING} && {
-
-    setSection 6;
 
     # explain ${BINDIR}/Prepare_for_NightWatch_testing.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
@@ -465,6 +440,57 @@ NOT_TESTING=true;
 
 
 
+echo -e "\n - o 0 o -|||||||||||||| \n";
+NOT_TESTING=true;
+
+
+
+
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+  ${NOT_TESTING} && {
+
+    setSection 7;
+
+    # RUN_RULE="";
+    # explain ${BINDIR}/Observe_ordinary_console_logging.md # MANUAL_INPUT_REQUIRED
+
+    # RUN_RULE="";
+    # explain ${BINDIR}/Add_an_NPM_module_to_your_package.md # MANUAL_INPUT_REQUIRED
+
+    # RUN_RULE="";
+    # explain ${BINDIR}/Specify_Npm_modules.md # MANUAL_INPUT_REQUIRED
+
+    # RUN_RULE="";
+    # explain ${BINDIR}/Bunyan_Server_Side_OnlyLogging.md # MANUAL_INPUT_REQUIRED
+
+    # RUN_RULE="";
+    # explain ${BINDIR}/Add_Bunyan_Logging.md # MANUAL_INPUT_REQUIRED
+
+    # RUN_RULE="";
+    # explain ${BINDIR}/Goodbye_console.md # MANUAL_INPUT_REQUIRED
+
+    # RUN_RULE="";
+    # explain ${BINDIR}/Refactor_Bunyan_InstantiationA.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+    # if [ "${RUN_RULE}" != "n" ]; then
+      Refactor_Bunyan_InstantiationA;
+    # fi;
+
+    # RUN_RULE="";
+    # explain ${BINDIR}/Refactor_Bunyan_InstantiationB.md # MANUAL_INPUT_REQUIRED
+
+      Refactor_Bunyan_InstantiationB;
+
+    # explain ${BINDIR}/Package_Upgrade_and_Project_Rebuild_A.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    #   # Package_Upgrade_and_Project_Rebuild_A;
+    # fi;
+
+    # explain ${BINDIR}/Package_Upgrade_and_Project_Rebuild_B.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+      Package_Upgrade_and_Project_Rebuild_B;
+    # fi;
+
+}
 
    echo "                   - o 0 o - "; exit;
 
