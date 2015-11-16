@@ -72,7 +72,7 @@ function Package_Dependencies() {
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
 
   wget -O package.js -N https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/package_T08_11.js;
-  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" package.js;
+  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/g" package.js;
   sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" package.js;
 
 }
