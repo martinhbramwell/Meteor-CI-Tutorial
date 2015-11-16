@@ -17,6 +17,8 @@ function Refactor_Bunyan_InstantiationB() {
 
   wget -N -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/package-tests_T07_10.js
   wget -N -O package.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/package_T07_10.js
+  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" package.js
+  sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" package.js
 
   popd >/dev/null;
 
@@ -55,18 +57,22 @@ function Package_Upgrade_and_Project_Rebuild_B() {
   git add .gitignore;
   git add logger.js;
 
-  echo "    ¡¡¡¡ add changed files to fragments !!!  ";
-  read -n 1 -r USER_ANSWER;
-
   sed -i -r 's/(.*)(version: .)([0-9]+\.[0-9]+\.)([0-9]+)(.*)/echo "\1\2\3$((\4+1))\5"/ge' package.js;
   git commit -am 'add logging';
   git push;
+  echo -e "Pushed $(cat package.js | grep 'version:') of package ${PKG_NAME}";
 
   popd >/dev/null;
+
+  echo "    ¡¡¡¡ what is wrong with meteor list !!!  ";
+  echo "   error: unknown package in top-level dependencies: 0ur0rg:pkg09  ";
+  read -n 1 -r USER_ANSWER;
 
   meteor list;
   git commit -am 'added logging to ${PKG_NAME}';
   git push;
+
+  echo -e "Pushed project ${PROJECT_NAME}";
 
   popd >/dev/null;
 

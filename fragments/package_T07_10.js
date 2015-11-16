@@ -1,5 +1,5 @@
 Package.describe({
-  name: '0ur0rg:pkg01',
+  name: '${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}',
   version: '0.0.2',
   // Brief, one-line summary of the package.
   summary: '',
@@ -13,14 +13,14 @@ Package.describe({
 Package.onUse(function onUse(api) {
   api.versionsFrom('1.2.1');
   api.use('ecmascript');
-  api.addFiles(['logger.js', 'pkg01.js'], ['server']);
+  api.addFiles(['logger.js', '${PKG_NAME}.js'], ['server']);
   api.export('Logger');
 });
 
 Package.onTest(function onTest(api) {
   api.use('ecmascript');
   api.use('tinytest');
-  api.addFiles(['logger.js', 'pkg01-tests.js'], ['server']);
+  api.addFiles(['logger.js', '${PKG_NAME}-tests.js'], ['server']);
   api.export('Logger');
 });
 

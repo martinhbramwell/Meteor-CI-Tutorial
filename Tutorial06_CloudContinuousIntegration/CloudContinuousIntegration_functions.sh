@@ -9,8 +9,12 @@ function Add_a_CircleCI_configuration_file_and_push_to_GitHub() {
   git add circle.yml;
   git add tests;
   set +e;    git commit -am 'Added circle.yml and unit testing';   set -e;
-#  git push -u ${PROJECT_NAME}_origin master;
-  git push;
+
+#  echo -e "\n#####  eval \"\$(ssh-agent -s)\" ##### ";
+  eval "$(ssh-agent -s)";
+
+#  echo -e "\n#####  git push -u ${PROJECT_NAME}_origin master ##### ";
+  git push -u ${PROJECT_NAME}_origin master;
 
   echo -e "
 

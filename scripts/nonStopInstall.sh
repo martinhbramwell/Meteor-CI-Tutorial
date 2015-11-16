@@ -10,6 +10,9 @@ source ./scripts/util.sh
 checkForVirtualMachine;
 echo -e "\n   Checked for virtual machine\n          - o 0 o - \n";
 
+## MYAUTH="\"Authorization: token af8e88bf5ededc05916a6a588d7e191c6123\"";
+## GITHUB="https://api.github.com/repos/0ur0rg";
+## curl -X DELETE -H "${MYAUTH}" ${GITHUB}/prj09  &&  curl -X DELETE -H "${MYAUTH}" ${GITHUB}/pkg09 && rm -fr .ssh/config && rm -fr .ssh/github-0ur0rg-p* && rm -fr ~/project_isle
 
 verifyFreeSpace;
 echo -e "\n   Verified Free Space\n          - o 0 o - \n";
@@ -51,6 +54,8 @@ ${NOT_TESTING} && {
 Configure_git_for_GitHub;
 echo -e "\n   Configured git for GitHub\n          - o 0 o - \n";
 
+set +e; killall -qs SIGKILL ssh-agent; set -e;
+echo -e "\n   killed extraneous ssh-agent instances\n          - o 0 o - \n";
 
 # highlight ${BINDIR}/Introduction.md # explain
 # echo ""
@@ -162,6 +167,12 @@ setSection 2;
     echo -e "\n   Installed Meteor\n          - o 0 o - \n";
   }
 # fi;
+
+
+
+echo -e "\n - o 0 o -|||||||||||||| \n";
+NOT_TESTING=true;
+
 
 
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
@@ -437,12 +448,6 @@ setSection 3;
 
 
   }
-
-
-
-echo -e "\n - o 0 o -|||||||||||||| \n";
-NOT_TESTING=true;
-
 
 
 
