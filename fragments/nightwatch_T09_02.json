@@ -1,0 +1,46 @@
+{
+  "nightwatch": {
+    "version": "0.7.6"
+  },
+  "src_folders": [
+       "./packages/${PKG_NAME}/tools/testing", 
+       "./tests/nightwatch/walkthroughs"
+  ],
+  "output_folder": "./tests/nightwatch/reports",
+  "globals_path": "./tests/nightwatch/config/globals.json",
+  "selenium": {
+    "start_process": true,
+    "server_path": "./tests/nightwatch/bin/selenium-server-standalone.jar",
+    "log_path": "tests/nightwatch/logs",
+    "host": "127.0.0.1",
+    "port": 4444,
+    "cli_args": {
+      "webdriver.chrome.driver": "tests/nightwatch/bin/chromedriver/lib/chromedriver/chromedriver"
+    }
+  },
+  "test_settings": {
+    "default": {
+      "launch_url": "http://localhost:5000",
+      "selenium_host": "127.0.0.1",
+      "selenium_port": 4444,
+      "pathname": "/wd/hub",
+      "silent": true,
+      "disable_colors": false,
+      "firefox_profile": false,
+      "ie_driver": "",
+      "screenshots": {
+        "enabled": false,
+        "path": "./tests/nightwatch/screenshots"
+      },
+      "desiredCapabilities": {
+        "browserName": "chrome",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true,
+        "loggingPrefs": {
+          "browser": "ALL"
+        }
+      },
+      "exclude": ""
+    }
+  }
+}

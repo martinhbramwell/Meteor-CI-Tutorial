@@ -1,4 +1,16 @@
 
+function UsageExampleEndToEnd_prep() {
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/tests/nightwatch/config/ >/dev/null;
+
+  wget -O nightwatch.json -N https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/nightwatch_T09_02.json;
+  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" nightwatch.json;
+
+  popd >/dev/null;
+
+}
+
+
 function UsageExampleEndToEnd() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;

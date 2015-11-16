@@ -2,7 +2,7 @@
 
 set -e;
 #
-declare NOT_TESTING=true;  # true OR false
+declare NOT_TESTING=false;  # true OR false
 declare NONSTOP="nonstop";
 CRP=$(sudo pwd);
 
@@ -29,10 +29,10 @@ collectSectionNames;
 # Loop through all sections getting their functions
 II=1;
 # echo "Getting functions from: ";
-while [ ${II} -lt ${#TUTORIAL_SECTIONS[@]} ]
+while [ ${II} -le ${#TUTORIAL_SECTIONS[@]} ]
 do
   setSection ${II};
-#  echo " - ${BINDIR}/${SECTION}_functions.sh";
+  # echo " - ${BINDIR}/${SECTION}_functions.sh";
   source "${BINDIR}/${SECTION}_functions.sh";
   II=$[$II+1]
 done;
@@ -167,6 +167,12 @@ setSection 2;
     echo -e "\n   Installed Meteor\n          - o 0 o - \n";
   }
 # fi;
+
+
+
+echo -e "\n - o 0 o -|||||||||||||| \n";
+NOT_TESTING=true;
+
 
 
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
@@ -471,13 +477,15 @@ setSection 3;
     # RUN_RULE="";
     # explain ${BINDIR}/Refactor_Bunyan_InstantiationA.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
     # if [ "${RUN_RULE}" != "n" ]; then
-      Refactor_Bunyan_InstantiationA;
+    Refactor_Bunyan_InstantiationA;
+    echo -e "\n   Brought in the 'logger.js' file.\n          - o 0 o - \n";
     # fi;
 
     # RUN_RULE="";
     # explain ${BINDIR}/Refactor_Bunyan_InstantiationB.md # MANUAL_INPUT_REQUIRED
 
-      Refactor_Bunyan_InstantiationB;
+    Refactor_Bunyan_InstantiationB;
+    echo -e "\n   Brought in edited 'package.js' and '${PKG_NAME}-tests.js' files.\n          - o 0 o - \n";
 
     # explain ${BINDIR}/Package_Upgrade_and_Project_Rebuild_A.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
@@ -486,7 +494,9 @@ setSection 3;
 
     # explain ${BINDIR}/Package_Upgrade_and_Project_Rebuild_B.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
-      Package_Upgrade_and_Project_Rebuild_B;
+    Package_Upgrade_and_Project_Rebuild_B;
+    echo -e "\n   Pushed production logging example to cloud.\n          - o 0 o - \n";
+
     # fi;
 
 }
@@ -498,88 +508,124 @@ ${NOT_TESTING} && {
     setSection 8;
 
 
-# echo ""
-# echo ""
-# RUN_RULE="";
-# explain ${BINDIR}/Another_NodeJS_moduleA.md # MANUAL_INPUT_REQUIRED
+    # echo ""
+    # echo ""
+    # RUN_RULE="";
+    # explain ${BINDIR}/Another_NodeJS_moduleA.md # MANUAL_INPUT_REQUIRED
 
-# echo ""
-# echo ""
-# explain ${BINDIR}/Another_NodeJS_moduleB.md MORE_ACTION # CODE_BLOCK
-# if [ "${RUN_RULE}" != "n" ]; then
-  Another_NodeJS_moduleB;
-# fi;
+    # echo ""
+    # echo ""
+    # explain ${BINDIR}/Another_NodeJS_moduleB.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    Another_NodeJS_moduleB;
+    echo -e "\n   Obtained script that resets sample data in Swagger Pet Store.\n          - o 0 o - \n";
+    # fi;
 
-# echo ""
-# echo ""
-# explain ${BINDIR}/Another_NodeJS_moduleC.md MORE_ACTION # CODE_BLOCK
-# if [ "${RUN_RULE}" != "n" ]; then
-  Another_NodeJS_moduleC ${NONSTOP};
-# fi;
+    # echo ""
+    # echo ""
+    # explain ${BINDIR}/Another_NodeJS_moduleC.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    Another_NodeJS_moduleC ${NONSTOP};
+    echo -e "\n   Reset Pet Store sample data.\n          - o 0 o - \n";
+    # fi;
 
-# echo ""
-# echo ""
-# explain ${BINDIR}/Async_Problem_Buried_Methods.md
+    # echo ""
+    # echo ""
+    # explain ${BINDIR}/Async_Problem_Buried_Methods.md
 
-# echo ""
-# echo ""
-# RUN_RULE="";
-# explain ${BINDIR}/Async_Problem_Wrapped_Proxy_A.md # MANUAL_INPUT_REQUIRED
+    # echo ""
+    # echo ""
+    # RUN_RULE="";
+    # explain ${BINDIR}/Async_Problem_Wrapped_Proxy_A.md # MANUAL_INPUT_REQUIRED
 
-# echo ""
-# echo ""
-# RUN_RULE="";
-# explain ${BINDIR}/Async_Problem_Wrapped_Proxy_B.md  # MANUAL_INPUT_REQUIRED
+    # echo ""
+    # echo ""
+    # RUN_RULE="";
+    # explain ${BINDIR}/Async_Problem_Wrapped_Proxy_B.md  # MANUAL_INPUT_REQUIRED
 
 
-# echo ""
-# echo ""
-# RUN_RULE="";
-# explain ${BINDIR}/Async_Problem_Sync_Namespace.md # MANUAL_INPUT_REQUIRED
+    # echo ""
+    # echo ""
+    # RUN_RULE="";
+    # explain ${BINDIR}/Async_Problem_Sync_Namespace.md # MANUAL_INPUT_REQUIRED
 
-# echo ""
-# echo ""
-# RUN_RULE="";
-# explain ${BINDIR}/Async_Problem_TinyTest_A.md # MANUAL_INPUT_REQUIRED
+    # echo ""
+    # echo ""
+    # RUN_RULE="";
+    # explain ${BINDIR}/Async_Problem_TinyTest_A.md # MANUAL_INPUT_REQUIRED
     Async_Problem_TinyTest_A;
+    echo -e "\n   Brought in a '${PKG_NAME}-tests.js' file, edited for the Async problem example.\n          - o 0 o - \n";
 
-# echo ""
-# echo ""
-# RUN_RULE="";
-# explain ${BINDIR}/Call_Into_Package_Methods.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
-# if [ "${RUN_RULE}" != "n" ]; then
+    # echo ""
+    # echo ""
+    # RUN_RULE="";
+    # explain ${BINDIR}/Call_Into_Package_Methods.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+    # if [ "${RUN_RULE}" != "n" ]; then
     Call_Into_Package_Methods;
-# fi;
+    echo -e "\n   Brought in 'usage_example.js' and 'usage_example.html' files, edited for the Async problem example.\n          - o 0 o - \n";
+    # fi;
 
-# echo ""
-# echo ""
-# RUN_RULE="";
-# explain ${BINDIR}/Package_Dependencies.md # MANUAL_INPUT_REQUIRED
+    # echo ""
+    # echo ""
+    # RUN_RULE="";
+    # explain ${BINDIR}/Package_Dependencies.md # MANUAL_INPUT_REQUIRED
     Package_Dependencies;
+    echo -e "\n   Brought in a 'package.js' file, edited for the Async problem example.\n          - o 0 o - \n";
 
-# echo ""
-# echo ""
-# RUN_RULE="";
-# explain ${BINDIR}/Declare_Callable_Method.md # MANUAL_INPUT_REQUIRED
+    # echo ""
+    # echo ""
+    # RUN_RULE="";
+    # explain ${BINDIR}/Declare_Callable_Method.md # MANUAL_INPUT_REQUIRED
     Declare_Callable_Method;
+    echo -e "\n   Brought in a '${PKG_NAME}.js' file, edited for the Async problem example.\n          - o 0 o - \n";
 
-# echo ""
-# echo ""
-# explain ${BINDIR}/View_and_Hide_The_Example.md MORE_ACTION # CODE_BLOCK
-# if [ "${RUN_RULE}" != "n" ]; then
-    View_and_Hide_The_Example;
-# fi;
-
-
+    # echo ""
+    # echo ""
+    # explain ${BINDIR}/View_and_Hide_The_Example.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+  # View_and_Hide_The_Example;
+  #  echo -e "\n   \n          - o 0 o - \n";
+    # fi;
 
 }
 
 
 
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+${NOT_TESTING} && {
+
+    setSection 9;
 
 
-echo -e "\n - o 0 o -|||||||||||||| \n";
-NOT_TESTING=true;
+    UsageExampleEndToEnd_prep;
+    echo -e "\n   Brought in an edited 'nightwatch.json' file.\n          - o 0 o - \n";
+
+    # explain ${BINDIR}/UsageExampleEndToEnd.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+    # if [ "${RUN_RULE}" != "n" ]; then
+    UsageExampleEndToEnd;
+    echo -e "\n   Brought in a NightWatch 'test_usage_example.js' file.\n          - o 0 o - \n";
+    # fi;
+
+    # explain ${BINDIR}/FinishDocumentation.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    FinishDocumentation;
+    echo -e "\n   Brought in '${PKG_NAME}.js' and 'usage_example.js' files edited  with jsDoc annotations.\n          - o 0 o - \n";
+    # fi;
+
+    # explain ${BINDIR}/IntegratingEverything.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    IntegratingEverything;
+    echo -e "\n   Committed latest changes to project '${PROJECT_NAME}' and package '${PKG_NAME}'.\n          - o 0 o - \n";
+    # fi;
+
+    # explain ${BINDIR}/CodeLintingHelperFile.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    #  CodeLintingHelperFile;
+    # fi;
+
+
+}
+
 
 
 
