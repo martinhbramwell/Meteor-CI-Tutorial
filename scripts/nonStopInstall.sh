@@ -2,7 +2,7 @@
 
 set -e;
 #
-declare NOT_TESTING=false;  # true OR false
+declare NOT_TESTING=true;  # true OR false
 declare NONSTOP="nonstop";
 CRP=$(sudo pwd);
 
@@ -167,8 +167,6 @@ setSection 2;
     echo -e "\n   Installed Meteor\n          - o 0 o - \n";
   }
 # fi;
-
-
 
 
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
@@ -493,14 +491,9 @@ setSection 3;
 
 }
 
-echo -e "\n - o 0 o -|||||||||||||| \n";
-NOT_TESTING=true;
-
-
-
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-  ${NOT_TESTING} && {
+${NOT_TESTING} && {
 
     setSection 8;
 
@@ -579,7 +572,14 @@ NOT_TESTING=true;
 
 
 
-  }
+}
+
+
+
+
+
+echo -e "\n - o 0 o -|||||||||||||| \n";
+NOT_TESTING=true;
 
 
 

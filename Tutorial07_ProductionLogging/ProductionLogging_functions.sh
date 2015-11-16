@@ -64,10 +64,6 @@ function Package_Upgrade_and_Project_Rebuild_B() {
 
   popd >/dev/null;
 
-  echo "    ¡¡¡¡ what is wrong with meteor list !!!  ";
-  echo "   error: unknown package in top-level dependencies: 0ur0rg:pkg09  ";
-  read -n 1 -r USER_ANSWER;
-
   meteor list;
   git commit -am 'added logging to ${PKG_NAME}';
   git push;
