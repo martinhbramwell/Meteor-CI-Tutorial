@@ -2,7 +2,7 @@
 
 set -e;
 #
-declare NOT_TESTING=true;  # true OR false
+declare NOT_TESTING=false;  # true OR false
 declare NONSTOP="nonstop";
 CRP=$(sudo pwd);
 
@@ -54,7 +54,7 @@ ${NOT_TESTING} && {
 Configure_git_for_GitHub;
 echo -e "\n   Configured git for GitHub\n          - o 0 o - \n";
 
-set +e; killall -qs SIGKILL ssh-agent; set -e;
+set +e; killall -qs SIGKILL ssh-agent; set -e; 
 echo -e "\n   killed extraneous ssh-agent instances\n          - o 0 o - \n";
 
 # highlight ${BINDIR}/Introduction.md # explain
@@ -168,10 +168,6 @@ setSection 2;
   }
 # fi;
 
-
-
-echo -e "\n - o 0 o -|||||||||||||| \n";
-NOT_TESTING=true;
 
 
 
@@ -496,6 +492,96 @@ setSection 3;
     # fi;
 
 }
+
+echo -e "\n - o 0 o -|||||||||||||| \n";
+NOT_TESTING=true;
+
+
+
+
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+  ${NOT_TESTING} && {
+
+    setSection 8;
+
+
+# echo ""
+# echo ""
+# RUN_RULE="";
+# explain ${BINDIR}/Another_NodeJS_moduleA.md # MANUAL_INPUT_REQUIRED
+
+# echo ""
+# echo ""
+# explain ${BINDIR}/Another_NodeJS_moduleB.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then
+  Another_NodeJS_moduleB;
+# fi;
+
+# echo ""
+# echo ""
+# explain ${BINDIR}/Another_NodeJS_moduleC.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then
+  Another_NodeJS_moduleC ${NONSTOP};
+# fi;
+
+# echo ""
+# echo ""
+# explain ${BINDIR}/Async_Problem_Buried_Methods.md
+
+# echo ""
+# echo ""
+# RUN_RULE="";
+# explain ${BINDIR}/Async_Problem_Wrapped_Proxy_A.md # MANUAL_INPUT_REQUIRED
+
+# echo ""
+# echo ""
+# RUN_RULE="";
+# explain ${BINDIR}/Async_Problem_Wrapped_Proxy_B.md  # MANUAL_INPUT_REQUIRED
+
+
+# echo ""
+# echo ""
+# RUN_RULE="";
+# explain ${BINDIR}/Async_Problem_Sync_Namespace.md # MANUAL_INPUT_REQUIRED
+
+# echo ""
+# echo ""
+# RUN_RULE="";
+# explain ${BINDIR}/Async_Problem_TinyTest_A.md # MANUAL_INPUT_REQUIRED
+    Async_Problem_TinyTest_A;
+
+# echo ""
+# echo ""
+# RUN_RULE="";
+# explain ${BINDIR}/Call_Into_Package_Methods.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+# if [ "${RUN_RULE}" != "n" ]; then
+    Call_Into_Package_Methods;
+# fi;
+
+# echo ""
+# echo ""
+# RUN_RULE="";
+# explain ${BINDIR}/Package_Dependencies.md # MANUAL_INPUT_REQUIRED
+    Package_Dependencies;
+
+# echo ""
+# echo ""
+# RUN_RULE="";
+# explain ${BINDIR}/Declare_Callable_Method.md # MANUAL_INPUT_REQUIRED
+    Declare_Callable_Method;
+
+# echo ""
+# echo ""
+# explain ${BINDIR}/View_and_Hide_The_Example.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then
+    View_and_Hide_The_Example;
+# fi;
+
+
+
+  }
+
+
 
    echo "                   - o 0 o - "; exit;
 

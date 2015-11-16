@@ -25,18 +25,32 @@ function Another_NodeJS_moduleC() {
 
   popd >/dev/null;
 
-  killMeteorProcess
-  launchMeteorProcess "http://localhost:3000/"
-  echo "Contacting Swagger Pet Store . . . "
-  sleep 10
-  echo "The 'tail' command shows . . . "
-  tail -n 9 /var/log/meteor/ci4meteor.log  | bunyan -o short
-  echo ". . . the tail end of log file.\n"
+  if [[ "${1}" != "${NONSTOP}" ]]; then
+    killMeteorProcess
+    launchMeteorProcess "http://localhost:3000/"
+    echo "Contacting Swagger Pet Store . . . "
+    sleep 10
+    echo "The 'tail' command shows . . . "
+    tail -n 9 /var/log/meteor/ci4meteor.log  | bunyan -o short
+    echo ". . . the tail end of log file.\n"
 
-  popd >/dev/null;
+    popd >/dev/null;
 
-  killMeteorProcess
-  read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+    killMeteorProcess
+    read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+  fi;
+
+}
+
+function Async_Problem_TinyTest_A() {
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
+
+  wget -O ${PKG_NAME}-tests.js -N https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/package-tests_T08_09.js;
+  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ${PKG_NAME}-tests.js;
+  sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" ${PKG_NAME}-tests.js;
+  sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" ${PKG_NAME}-tests.js;
+  sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" ${PKG_NAME}-tests.js;
 
 }
 
@@ -49,6 +63,26 @@ function Call_Into_Package_Methods() {
   sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" usage_example.html
   sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" usage_example.html
   popd >/dev/null;
+
+}
+
+
+function Package_Dependencies() {
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
+
+  wget -O package.js -N https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/package_T08_11.js;
+  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" package.js;
+  sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" package.js;
+
+}
+
+
+function Declare_Callable_Method() {
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
+
+  wget -O ${PKG_NAME}.js -N https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/package_main_T08_12.js;
 
 }
 

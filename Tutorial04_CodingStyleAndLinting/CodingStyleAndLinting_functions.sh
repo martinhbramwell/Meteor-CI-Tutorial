@@ -23,7 +23,7 @@ function Customize_ESLint_in_Sublime_Text() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/ >/dev/null;
 
-    echo wget -O .eslintrc https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/modified_eslintrc;
+    wget -O .eslintrc https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/modified_eslintrc;
     cp .eslintrc ./packages/${PKG_NAME}/
 
   popd >/dev/null;

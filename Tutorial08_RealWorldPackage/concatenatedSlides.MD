@@ -308,7 +308,7 @@ Continues ...
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L43" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L57" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -329,9 +329,9 @@ The new files ```usage_example.html``` and ```usage_example.js``` :
 
 Simply specifying ```['client']``` in ```api.addFiles()``` answers the first issue, but two errors arise from the second one.
 
-We need to declare a dependency on ```templating``` to solve the error, ```No plugin known to handle file 'usage_example.html'``` and we need to declare a dependency on the package, ```session``` to solve the client-side 'ReferenceError' seen on Session, Template and Meteor.  Update the ```Package.onUse()``` section with :
+We need to declare a dependency on ```templating``` to solve the error, "No plugin known to handle file 'usage_example.html'"" and we need to declare a dependency on the package, ```session``` to solve the client-side 'ReferenceError' seen on Session, Template and Meteor.  Update the ```Package.onUse()``` section with :
 ```javascript
-Package.onUse(function(api) {
+Package.onUse(function onUse(api) {
   api.use(['ecmascript', 'templating', 'session']);
 ```
 
