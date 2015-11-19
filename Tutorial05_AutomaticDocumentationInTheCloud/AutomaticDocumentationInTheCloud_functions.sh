@@ -25,7 +25,7 @@ function Use_Sublime_Text_jsDoc_plugin_A() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
 
-  wget -N -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/package-tests_T05_05.js
+  wget -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/package-tests_T05_05.js
 
   popd >/dev/null;
 
@@ -36,7 +36,7 @@ function Use_Sublime_Text_jsDoc_plugin_B() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
 
-  wget -N -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/package-tests_T05_06.js
+  wget -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/package-tests_T05_06.js
 
   popd >/dev/null;
 
@@ -69,6 +69,8 @@ function Publish_jsDocs_toGitHub_B() {
 
     popd >/dev/null;
 
+    eval "$(ssh-agent -s)";
+
     set +e
     git add .eslintrc
 
@@ -100,23 +102,3 @@ function Publish_jsDocs_toGitHub_B() {
   echo -e "To see your documentation on-line, wait a few minutes, then open this link:\n\n          https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/"
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

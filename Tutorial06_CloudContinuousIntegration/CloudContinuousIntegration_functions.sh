@@ -42,8 +42,8 @@ function Amend_the_configuration_and_push_again() {
   # It depends on the array of package descriptions in 'managed_packages.sh'
   # It loops through the listed packages, clones them and links them into the project
 
-  wget -N -O ./packages/managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/managed_packages.sh
-  wget -N -O ./packages/obtain_managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/obtain_managed_packages.sh
+  wget -O ./packages/managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/managed_packages.sh
+  wget -O ./packages/obtain_managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/obtain_managed_packages.sh
 
   # Fix project specific flag variables
   sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" ./packages/managed_packages.sh
@@ -86,7 +86,7 @@ function Prepare_for_NightWatch_testing() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
-    wget -N -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/master/meteor-nightwatch-runner.run;
+    wget -N https://github.com/warehouseman/meteor-nightwatch-runner/raw/master/meteor-nightwatch-runner.run;
     chmod ug+x meteor-nightwatch-runner.run;
 
     ./meteor-nightwatch-runner.run;

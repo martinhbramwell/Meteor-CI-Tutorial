@@ -15,8 +15,8 @@ function Refactor_Bunyan_InstantiationB() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
 
-  wget -N -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/package-tests_T07_10.js
-  wget -N -O package.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/package_T07_10.js
+  wget -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/package-tests_T07_10.js
+  wget -O package.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/package_T07_10.js
   sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" package.js
   sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" package.js
 
@@ -51,6 +51,7 @@ function Package_Upgrade_and_Project_Rebuild_B() {
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
   pushd ./packages/${PKG_NAME} >/dev/null;
 
+  eval "$(ssh-agent -s)";
 
   touch .gitignore;
   [[ $(grep -c ".npm" .gitignore) -lt 1 ]] && echo ".npm" >> .gitignore;

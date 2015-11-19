@@ -3,7 +3,7 @@ function UsageExampleEndToEnd_prep() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/tests/nightwatch/config/ >/dev/null;
 
-  wget -O nightwatch.json -N https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/nightwatch_T09_02.json;
+  wget -O nightwatch.json https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/nightwatch_T09_02.json;
   sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" nightwatch.json;
 
   popd >/dev/null;
@@ -67,6 +67,8 @@ function IntegratingEverything() {
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
     pushd packages/${PKG_NAME} >/dev/null;
 
+      eval "$(ssh-agent -s)";
+
       echo -e "Committing master branch changes of the package.\n"
 
       set +e
@@ -98,11 +100,25 @@ function IntegratingEverything() {
 
 function CodeLintingHelperFile() {
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages >/dev/null;
+  chmod a+x ./fragments/perform_per_package_ci_tasks.sh;
+  chmod a+x ./fragments/perform_ci_tasks.sh;
+  cp ./fragments/perform_per_package_ci_tasks.sh ~/${PARENT_DIR}/${PROJECT_NAME}/packages;
+  cp ./fragments/perform_ci_tasks.sh ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/tools;
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
+    pushd ./packages >/dev/null;
+      pushd ./${PKG_NAME} >/dev/null;
+        pushd ./tools >/dev/null;
 
-    wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_per_package_ci_tasks.sh
+          # wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_per_package_ci_tasks.sh
 
+        popd >/dev/null;
+        git add ./tools/perform_ci_tasks.sh;
+      popd >/dev/null;
+    popd >/dev/null;
+    git add ./packages/perform_per_package_ci_tasks.sh;
   popd >/dev/null;
+
+
 
 }
 

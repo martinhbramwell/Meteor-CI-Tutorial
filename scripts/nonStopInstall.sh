@@ -6,6 +6,10 @@ declare NOT_TESTING=false;  # true OR false
 declare NONSTOP="nonstop";
 CRP=$(sudo pwd);
 
+
+rm -fr ~/project_isle/prj09/.meteor/local/db;
+
+
 source ./scripts/util.sh
 checkForVirtualMachine;
 echo -e "\n   Checked for virtual machine\n          - o 0 o - \n";
@@ -54,8 +58,8 @@ ${NOT_TESTING} && {
 Configure_git_for_GitHub;
 echo -e "\n   Configured git for GitHub\n          - o 0 o - \n";
 
-set +e; killall -qs SIGKILL ssh-agent; set -e; 
-echo -e "\n   killed extraneous ssh-agent instances\n          - o 0 o - \n";
+set +e; killall -qs SIGKILL ssh-agent; set -e;
+echo -e "\n   Killed extraneous ssh-agent instances\n          - o 0 o - \n";
 
 # highlight ${BINDIR}/Introduction.md # explain
 # echo ""
@@ -143,6 +147,7 @@ ${NOT_TESTING} && {
   }
 # fi;
 
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
 EnforceOwnershipAndPermissions;
 
@@ -170,7 +175,7 @@ setSection 2;
 
 
 
-echo -e "\n - o 0 o -|||||||||||||| \n";
+echo -e "\n - o 0 o -||| \n"; #
 NOT_TESTING=true;
 
 
@@ -192,6 +197,7 @@ NOT_TESTING=true;
   }
 
 
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 # explain ${BINDIR}/Create_remote_GitHub_repository_B.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 # if [ "${RUN_RULE}" != "n" ]; then Create_remote_GitHub_repository_B; fi;
 
@@ -250,6 +256,7 @@ export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger
 
 setSection 3;
 
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
 # explain ${BINDIR}/Create_a_package_A.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
@@ -306,6 +313,7 @@ setSection 3;
   }
 # fi;
 
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
   ${NOT_TESTING} && {
     Add_GitHub_Repo_Deploy_Key ${PKG_NAME}  ${REPLACE_EXISTING_PACKAGE};
@@ -369,6 +377,7 @@ setSection 3;
     echo -e "\n   Ran jsDoc against ./packages/${PKG_NAME}\n          - o 0 o - \n";
 # fi;
 
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 # explain ${BINDIR}/Try_jsDoc_from_the_Command_Line_B.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
 #   Try_jsDoc_from_the_Command_Line_B;
@@ -428,27 +437,30 @@ setSection 3;
       echo -e "\n   Amended the configuration and push again\n          - o 0 o - \n";
     # fi;
 
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
     # explain ${BINDIR}/Prepare_for_NightWatch_testing.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
       Prepare_for_NightWatch_testing;
       echo -e "\n   Prepared for NightWatch testing\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
     # fi;
 
     # explain ${BINDIR}/Run_NightWatch_testing.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
       Run_NightWatch_testing ${NONSTOP};
       echo -e "\n   Ran NightWatch_testing\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
     # fi;
 
     # explain ${BINDIR}/Configure_CircleCI_for_Nightwatch_Testing.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
       Configure_CircleCI_for_Nightwatch_Testing;
       echo -e "\n   Configured CircleCI for Nightwatch Testing\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
     # fi;
 
 
   }
-
 
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
@@ -481,11 +493,13 @@ setSection 3;
     echo -e "\n   Brought in the 'logger.js' file.\n          - o 0 o - \n";
     # fi;
 
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
     # RUN_RULE="";
     # explain ${BINDIR}/Refactor_Bunyan_InstantiationB.md # MANUAL_INPUT_REQUIRED
 
     Refactor_Bunyan_InstantiationB;
     echo -e "\n   Brought in edited 'package.js' and '${PKG_NAME}-tests.js' files.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # explain ${BINDIR}/Package_Upgrade_and_Project_Rebuild_A.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
@@ -496,6 +510,7 @@ setSection 3;
     # if [ "${RUN_RULE}" != "n" ]; then
     Package_Upgrade_and_Project_Rebuild_B;
     echo -e "\n   Pushed production logging example to cloud.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # fi;
 
@@ -519,6 +534,7 @@ ${NOT_TESTING} && {
     # if [ "${RUN_RULE}" != "n" ]; then
     Another_NodeJS_moduleB;
     echo -e "\n   Obtained script that resets sample data in Swagger Pet Store.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
     # fi;
 
     # echo ""
@@ -527,6 +543,7 @@ ${NOT_TESTING} && {
     # if [ "${RUN_RULE}" != "n" ]; then
     Another_NodeJS_moduleC ${NONSTOP};
     echo -e "\n   Reset Pet Store sample data.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
     # fi;
 
     # echo ""
@@ -555,6 +572,7 @@ ${NOT_TESTING} && {
     # explain ${BINDIR}/Async_Problem_TinyTest_A.md # MANUAL_INPUT_REQUIRED
     Async_Problem_TinyTest_A;
     echo -e "\n   Brought in a '${PKG_NAME}-tests.js' file, edited for the Async problem example.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # echo ""
     # echo ""
@@ -563,6 +581,7 @@ ${NOT_TESTING} && {
     # if [ "${RUN_RULE}" != "n" ]; then
     Call_Into_Package_Methods;
     echo -e "\n   Brought in 'usage_example.js' and 'usage_example.html' files, edited for the Async problem example.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
     # fi;
 
     # echo ""
@@ -571,6 +590,7 @@ ${NOT_TESTING} && {
     # explain ${BINDIR}/Package_Dependencies.md # MANUAL_INPUT_REQUIRED
     Package_Dependencies;
     echo -e "\n   Brought in a 'package.js' file, edited for the Async problem example.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # echo ""
     # echo ""
@@ -578,6 +598,7 @@ ${NOT_TESTING} && {
     # explain ${BINDIR}/Declare_Callable_Method.md # MANUAL_INPUT_REQUIRED
     Declare_Callable_Method;
     echo -e "\n   Brought in a '${PKG_NAME}.js' file, edited for the Async problem example.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # echo ""
     # echo ""
@@ -590,7 +611,6 @@ ${NOT_TESTING} && {
 }
 
 
-
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 ${NOT_TESTING} && {
 
@@ -599,35 +619,62 @@ ${NOT_TESTING} && {
 
     UsageExampleEndToEnd_prep;
     echo -e "\n   Brought in an edited 'nightwatch.json' file.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # explain ${BINDIR}/UsageExampleEndToEnd.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
     # if [ "${RUN_RULE}" != "n" ]; then
     UsageExampleEndToEnd;
     echo -e "\n   Brought in a NightWatch 'test_usage_example.js' file.\n          - o 0 o - \n";
     # fi;
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # explain ${BINDIR}/FinishDocumentation.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
     FinishDocumentation;
     echo -e "\n   Brought in '${PKG_NAME}.js' and 'usage_example.js' files edited  with jsDoc annotations.\n          - o 0 o - \n";
     # fi;
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # explain ${BINDIR}/IntegratingEverything.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
     IntegratingEverything;
     echo -e "\n   Committed latest changes to project '${PROJECT_NAME}' and package '${PKG_NAME}'.\n          - o 0 o - \n";
     # fi;
-
-    # explain ${BINDIR}/CodeLintingHelperFile.md MORE_ACTION # CODE_BLOCK
-    # if [ "${RUN_RULE}" != "n" ]; then
-    #  CodeLintingHelperFile;
-    # fi;
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
 
 }
 
 
+echo -e "\n - o 0 o -|||>>> \n"; #
+NOT_TESTING=true;
 
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+${NOT_TESTING} && {
+
+    setSection 9;
+
+    # explain ${BINDIR}/CodeLintingHelperFile.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    CodeLintingHelperFile;
+    echo -e "\n   Brought in CI helper file for cloud based esLint, jsDoc and GitHub Pages.\n          - o 0 o - \n";
+    # fi;
+
+}
+
+
+pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
+  git branch;
+  git status;
+#  read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER;
+  STASHED=$(git stash);
+    echo ${STASHED};
+    git checkout gh-pages;
+    ls -la;
+    git checkout master;
+  if [[ "${STASHED}" != "No local changes to save" ]]; then git stash pop; fi;
+popd >/dev/null;
+exit;
 
    echo "                   - o 0 o - "; exit;
 
@@ -678,9 +725,6 @@ ${NOT_TESTING} && {
 
   }
 
-
-echo -e "\n - o 0 o -|||||||||||||| \n";
-NOT_TESTING=true;
 
 
 

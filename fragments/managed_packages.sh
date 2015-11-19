@@ -5,7 +5,7 @@
 #    ORG_NAME  |  PKG_NAME  |  SUB_DIR  
 #
 MANAGED_PACKAGES=(
-  "${GITHUB_ORGANIZATION_NAME}|${PKG_NAME}|${YOUR_UID}" \
-  "dude-awap|dummy|thirdparty/dudeAwap"
+  "dude-awap|dummy|thirdparty/dudeAwap" \
+  "${GITHUB_ORGANIZATION_NAME}|${PKG_NAME}|${YOUR_UID}"
 );
 

@@ -114,7 +114,7 @@ function Add_Meteor_application_development_support_files() {
   mkdir -p public
 
   MARKER=favicon-32x32.png
-  wget -N -O ./public/${MARKER} https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/${MARKER}
+  wget -O ./public/${MARKER} https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/${MARKER}
   # Add execution of obtain_managed_packages.sh to circle.yml
 
 
@@ -163,9 +163,9 @@ GITIG
 A bare minimum app and package for running TinyTest and NightWatch in CircleCI
 RDME
 
-  wget -N -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
-  # wget -N -N https://raw.githubusercontent.com/airbnb/javascript/master/packages/eslint-config-airbnb/.eslintrc
-  # wget -N -N https://raw.githubusercontent.com/meteor/meteor/devel/scripts/admin/eslint/.eslintrc
+  wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
+  # wget -N https://raw.githubusercontent.com/airbnb/javascript/master/packages/eslint-config-airbnb/.eslintrc
+  # wget -N https://raw.githubusercontent.com/meteor/meteor/devel/scripts/admin/eslint/.eslintrc
 
   ls -la
 

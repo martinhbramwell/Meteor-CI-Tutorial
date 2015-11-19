@@ -66,7 +66,7 @@ function Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome() {
   export CHROMEDRIVER_VERSION=$(wget -N -qO - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
   echo -e "Will install Chrome Driver version : ${CHROMEDRIVER_VERSION} for a ${CPU_WIDTH} width CPU";
   DRV_FILE="chromedriver_linux${CPU_WIDTH}.zip"
-  wget -N -O ${DRV_FILE} http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/${DRV_FILE};
+  wget -O ${DRV_FILE} http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/${DRV_FILE};
   sudo unzip -o ${DRV_FILE} -d /usr/local/bin
   sudo chmod a+rx /usr/local/bin/chromedriver
 
@@ -74,7 +74,7 @@ function Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome() {
   if [[ ${CPU_WIDTH} -ne 64  ]]; then ARCH_NAME="i386"; fi;
   DEB_FILE="google-chrome-stable_current_${ARCH_NAME}.deb";
   # Install 'chrome'
-  wget -N -O ${DEB_FILE} https://dl.google.com/linux/direct/${DEB_FILE}
+  wget -O ${DEB_FILE} https://dl.google.com/linux/direct/${DEB_FILE}
   sudo dpkg -i ${DEB_FILE}
 
   popd  >/dev/null;
