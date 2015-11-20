@@ -3,7 +3,7 @@ function UsageExampleEndToEnd_prep() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/tests/nightwatch/config/ >/dev/null;
 
-  wget -O nightwatch.json https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/nightwatch_T09_02.json;
+  wget -O nightwatch.json https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/nightwatch_T09_02.json;
   sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" nightwatch.json;
 
   popd >/dev/null;
@@ -17,7 +17,7 @@ function UsageExampleEndToEnd() {
     pushd ./packages/${PKG_NAME}/tools/testing >/dev/null;
 
     NGHTWTCH_FILE=test_usage_example.js;
-    wget -O ${NGHTWTCH_FILE} https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/${NGHTWTCH_FILE}
+    wget -O ${NGHTWTCH_FILE} https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/${NGHTWTCH_FILE}
     sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ${NGHTWTCH_FILE}
     sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" ${NGHTWTCH_FILE}
     sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" ${NGHTWTCH_FILE}
@@ -43,12 +43,12 @@ function FinishDocumentation() {
   cp ${PKG_NAME}.js backup/${PKG_NAME}_$(date +%Y%m%d%H%M).js
   cp usage_example.js backup/usage_example_$(date +%Y%m%d%H%M).js
 
-  wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/yourpackage_documented.js
+  wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js
   sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ${PKG_NAME}.js;
   sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" ${PKG_NAME}.js;
   sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" ${PKG_NAME}.js;
 
-  wget -O usage_example.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/usage_example_documented.js
+  wget -O usage_example.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example_documented.js
   sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" usage_example.js;
   sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" usage_example.js;
   sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" usage_example.js;
@@ -69,7 +69,7 @@ function IntegratingEverything() {
 
       eval "$(ssh-agent -s)";
 
-      echo -e "Committing modularize branch changes of the package.\n"
+      echo -e "Committing master branch changes of the package.\n"
 
       set +e
       echo -e "Adding all remaining files.\n";
@@ -144,7 +144,7 @@ function CodeLintingHelperFile() {
       pushd ./${PKG_NAME} >/dev/null;
         pushd ./tools >/dev/null;
 
-          wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/perform_ci_tasks.sh
+          wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_ci_tasks.sh
           sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" perform_ci_tasks.sh;
           sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" perform_ci_tasks.sh;
           chmod a+x perform_ci_tasks.sh;
@@ -159,18 +159,18 @@ function CodeLintingHelperFile() {
         if [ "${PSH/${UP2DT}}" != "${PSH}" ]; then
           echo "Pushed ${PKG_NAME}";
         fi;
-        
+
 
       popd >/dev/null;
 
-      wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/perform_per_package_ci_tasks.sh
+      wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_per_package_ci_tasks.sh
       chmod a+x perform_per_package_ci_tasks.sh;
 
     popd >/dev/null;
 
     git add ./packages/perform_per_package_ci_tasks.sh;
 
-    wget -O circle.yml https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/fragments/circle_T09.yml
+    wget -O circle.yml https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/circle_T09.yml
     git add circle.yml;
 
     STS="$(git status)";

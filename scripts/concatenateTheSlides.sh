@@ -102,22 +102,6 @@ function substituteFieldsInSlide() {
     ${DBGLOG} && echo "New : ${REPLACEMENT}"
     sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
 
-  #     export PATTERN='begins at line #[0-9]*'
-  #     ${DBGLOG} && echo "Old : ${PATTERN}"
-  #     export REPLACEMENT="begins at line #${LNUM}"
-  #     ${DBGLOG} && echo "New : ${REPLACEMENT}"
-  #     sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
-  # #
-#     export PATTERN="blob\/${CURRENT_BRANCH_OF_GIT}\/[A-Za-z0-9_]*.sh"
-# #    echo "Old : ${PATTERN}"
-# #    export REPLACEMENT="blob/${CURRENT_BRANCH_OF_GIT}/${FUNCTIONS_FILE}"
-#     export REPLACEMENT="blob/master/${FUNCTIONS_FILE}"
-#     ${DBGLOG} && echo "New : ${REPLACEMENT}"
-#     sed -i "0,/${PATTERN}/s|${PATTERN}|${REPLACEMENT}|" ${AFP}
-
-# #    sed -i "0,/blob\/master/s|blob\/master|blob\/${CURRENT_BRANCH_OF_GIT}|" ${AFP}
-#     sed -i "0,/modularize/s|modularize|master|" ${AFP}
-
   fi;
 
 
