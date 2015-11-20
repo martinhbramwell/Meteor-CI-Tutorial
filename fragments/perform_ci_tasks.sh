@@ -22,8 +22,13 @@ declare TEMP_DIR="${HOME}/tmp";
 declare DOCS_ZIP="${TEMP_DIR}/pkg_docs.zip";
 function commitDocsToGitHubPages() {
 
+  set -e;
+  
   echo -e "Publishing to GitHub Pages.";
   mkdir -p ${TEMP_DIR};
+
+  echo -e "Current directory.";
+  pwd;
 
   pushd docs >/dev/null;
     echo -e "Zipping up the documentation directory.\n"
@@ -33,30 +38,41 @@ function commitDocsToGitHubPages() {
 
   eval "$(ssh-agent -s)";
 
-  ls -la;
-  echo "master";
+  git config --global user.email "${YOUR_EMAIL}";
+  git config --global user.name "${YOUR_FULLNAME}";
+  git config --global push.default simple
+
+  echo " | master | ";
   git branch;
 
   git checkout gh-pages;
-  ls -la;
-  echo "GH";
+
+  echo " | check which branch | ";
   git branch;
-  # echo "C";
+  # echo "C | ";
 
+  echo " | find and delete | ";
   find . -not -path "./.git*" -not -path "./tools*" -delete;
+
+  echo " | unzip | ";
   unzip ${DOCS_ZIP};
+
+  echo " | git add | ";
   git add -A;
+
+  echo " | git commit | ";
   git commit -am "Automated update of GitHub Pages documentation.";
+
+  echo " | git push | ";
   git push;
+  STT=$?;
+  echo "Push status :: ${STT}";
+  if [[ ${STT} -gt 0 ]]; then exit 1; fi;
 
-
-  # rm -fr *;
-  # echo "D";
-  # ls -la
-  # echo "E";
+  echo " | checkout master | ";
   git checkout master;
-  ls -la
-  echo "master";
+
+  echo " | check which branch | ";
   git branch;
 
 
@@ -64,28 +80,8 @@ function commitDocsToGitHubPages() {
 
 }
 
-
-
-echo -e "
-   In Meteor package ::  0ur0rg:pkg09
-       Code maintenance functions :
-        * code style check (esLint)
-        * regenerate documentation (jsDoc)
-        * publish docs GitHub pages site
-";
-
-
-#### checkCodeStyle;
+checkCodeStyle;
 
 generateDocs;
 
 commitDocsToGitHubPages;
-
-  # if [[ ! $(type -t PushDocsToGitHubPagesBranch) == "function" ]]; then
-  #   wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/modularize/scripts/PushDocsToGitHubPagesBranch.sh;
-  # fi;
-  # ./PushDocsToGitHubPagesBranch.sh \
-  #             ${PKG_NAME} \
-  #             ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} \
-  #             ${DOCS_ZIP} \
-  #             ${PKG_NAME}_origin;

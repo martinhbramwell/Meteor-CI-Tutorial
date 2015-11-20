@@ -3,6 +3,7 @@
 # Loop through managed packages.
 #    Run the codeMaintenance script for each package that has one.
 #
+set -e;
 
 pushd "$(dirname "$0")" >/dev/null;
 echo -e "We're in $(pwd)";
