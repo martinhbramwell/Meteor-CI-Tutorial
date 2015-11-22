@@ -221,8 +221,6 @@ rm -f filesForGHPages.tar.gz
 unzip -o ./fragments/favicons.zip
 rm ./fragments/favicons.zip
 
-git rm ./fragments/logger.js
-
 MSG=$(cat gitlog.txt)
 echo "Add anything new"
 git add .
