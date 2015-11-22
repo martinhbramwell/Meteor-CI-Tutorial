@@ -4,26 +4,14 @@
     <title>Meteor Development Infrastructure</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
-    </script>
+    <!-- script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script -->
+    <script src="/scripts/tutorial_sections.js"></script>
     <script>
       var getLocation = function(href) {
           var lnk = document.createElement("a");
           lnk.href = href;
           return lnk;
-      };
-      var sections = {
-
-        A: "PrepareTheMachine",
-        B: "VersionControlInTheCloud",
-        C: "UnitTestAPackage",
-        D: "CodingStyleAndLinting",
-        E: "AutomaticDocumentationInTheCloud",
-        F: "CloudContinuousIntegration",
-        G: "ProductionLogging",
-        H: "RealWorldPackage",
-        I: "PackageSelfTest"
-
       };
 
     </script>
@@ -57,8 +45,8 @@
            data-ad-client="ca-pub-7072964173126749"
            data-ad-slot="1681627511">
       </ins>
-      -->
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      -->
       <!-- br />If you find this tutorial series helpful you can <b>help it get better</b>: disable AdBlock for this URL and check out what our sponsors provide.
       <hr / -->
 
@@ -134,27 +122,28 @@
       <h2>First steps</h2>
       <p>To begin, you will need to obtain the tutorial.  Open up a terminal window, then copy'n paste these commands into it:
       <p class="console">
-              export URI="https://github.com/martinhbramwell"
+              export BRANCH="master" # modularize
+        <br />export URI="https://github.com/martinhbramwell"
         <br />export TUT="Meteor-CI-Tutorial"
-        <br />export FILE="archive/master.zip"
+        <br />export FILE="archive/${BRANCH}.zip"
         <br />
         <br />echo "Downloading : \n${URI}/${TUT}/${FILE}"
         <br />echo " &nbsp; &nbsp; &nbsp; &nbsp;  as : ${TUT}.zip"
         <br />
         <br />wget -O ${TUT}.zip ${URI}/${TUT}/${FILE}
         <br />unzip ${TUT}.zip
-        <br />mv ${TUT}-master ${TUT}
+        <br />mv ${TUT}-${BRANCH} ${TUT}
         <br />cd ${TUT}
         <br />
         <br /># Ready to run the first script :
-        <br /># &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  sudo ./Part01_PrepareTheMachine.sh
+        <br /># &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  sudo ./Tutorial01_PrepareTheMachine.sh
         <br />
         <br />
       </p>
-      <p>The result should look like <a target="_blank" href="./dldrslt.html">this</a>.</p>
+      <p>The result should look like <a target="_blank" href="./fragments/dldrslt.html">this</a>.</p>
       <p>Then you can run the first script with: </p>
       <p class="console">
-              sudo ./Part01_PrepareTheMachine.sh
+              sudo ./Tutorial01_PrepareTheMachine.sh
         <br />
         <br />
       </p>
@@ -165,15 +154,15 @@
           <li>Tutorial slide shows - <a target="_blank" href="https://martinhbramwell.github.io/Meteor-CI-Tutorial/">https://martinhbramwell.github.io/Meteor-CI-Tutorial/</a></li>
           <li>Tutorial's individual scripts</li>
           <ul>
-            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part01_PrepareTheMachine.sh">Part01_PrepareTheMachine.sh</a></li>
-            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part02_VersionControlInTheCloud.sh">Part02_VersionControlInTheCloud.sh</a></li>
-            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part03_UnitTestAPackage.sh">Part03_UnitTestAPackage.sh</a></li>
-            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part04_CodingStyleAndLinting.sh">Part04_CodingStyleAndLinting.sh</a></li>
-            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part05_AutomaticDocumentationInTheCloud.sh">Part05_AutomaticDocumentationInTheCloud.sh</a></li>
-            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part06_CloudContinuousIntegration.sh">Part06_CloudContinuousIntegration.sh</a></li>
-            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part07_ProductionLogging.sh">Part07_ProductionLogging.sh</a></li>
-            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part08_RealWorldPackage.sh">Part08_RealWorldPackage.sh</a></li>
-            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh">Part09_PackageSelfTest.sh</a></li>
+            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine.sh">Tutorial01_PrepareTheMachine.sh</a></li>
+            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud.sh">Tutorial02_VersionControlInTheCloud.sh</a></li>
+            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage.sh">Tutorial03_UnitTestAPackage.sh</a></li>
+            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial04_CodingStyleAndLinting.sh">Tutorial04_CodingStyleAndLinting.sh</a></li>
+            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial05_AutomaticDocumentationInTheCloud.sh">Tutorial05_AutomaticDocumentationInTheCloud.sh</a></li>
+            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration.sh">Tutorial06_CloudContinuousIntegration.sh</a></li>
+            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging.sh">Tutorial07_ProductionLogging.sh</a></li>
+            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage.sh">Tutorial08_RealWorldPackage.sh</a></li>
+            <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest.sh">Tutorial09_PackageSelfTest.sh</a></li>
 
           </ul>
         </ul>
