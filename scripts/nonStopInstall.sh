@@ -2,7 +2,7 @@
 
 set -e;
 #
-declare NOT_TESTING=false;  # true OR false
+declare NOT_TESTING=true;  # true OR false
 declare NONSTOP="nonstop";
 CRP=$(sudo pwd);
 
