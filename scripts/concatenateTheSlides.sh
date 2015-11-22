@@ -180,28 +180,29 @@ do
 
 done
 
-exit;
 
-if  ${SKIP} ;  then  exit 0; fi;
+if  ${SKIP} ;  then  exit 0; fi;  #  Exit if we aren't going to commit to gh-pages branch
 
-git log -1 --pretty=%B > gitlog.txt
+git log -1 --pretty=%B > gitlog.txt # Save the most recent commit message, so gh-pages branch can commit with the same.
+
+# Add all the supporting files to the list of filesForGHPages.txt
+  cat << fFGHPtxt > filesForGHPages.txt
+index.html
+styles.css
+gitlog.txt
+fragments/typer.gif
+fragments/loader.gif
+fFGHPtxt
+
+# Add all the concatenated slides to the list of filesForGHPages.txt
+for idx_t in "${TUTSPATHS[@]}"; do echo ${idx_t}/concatenatedSlides.MD >> filesForGHPages.txt; done;
+
+# cat filesForGHPages.txt;
+
+tar zcvf filesForGHPages.tar.gz -T filesForGHPages.txt;
 
 echo -e "\n\n\  FAIL !!  \n\n\n";
-tar zcvf pack.tar.gz index.html \
-styles.css \
-gitlog.txt \
-fragments/typer.gif \
-fragments/loader.gif \
-PrepareTheMachine/concatenatedSlides.MD \
-VersionControlInTheCloud/concatenatedSlides.MD \
-UnitTestAPackage/concatenatedSlides.MD \
-CodingStyleAndLinting/concatenatedSlides.MD \
-AutomaticDocumentationInTheCloud/concatenatedSlides.MD \
-CloudContinuousIntegration/concatenatedSlides.MD \
-ProductionLogging/concatenatedSlides.MD \
-RealWorldPackage/concatenatedSlides.MD \
-PackageSelfTest/concatenatedSlides.MD
-
+exit;
 
 export STASH_CREATED=$(git stash) && echo $STASH_CREATED
 if [[ "${STASH_CREATED}" != "No local changes to save" ]];
@@ -211,8 +212,8 @@ then
 fi;
 git checkout gh-pages
 echo "On branch gh-pages"
-tar zxvf pack.tar.gz
-rm -f pack.tar.gz
+tar zxvf filesForGHPages.tar.gz
+rm -f filesForGHPages.tar.gz
 MSG=$(cat gitlog.txt)
 echo "Add anything new"
 git add .
