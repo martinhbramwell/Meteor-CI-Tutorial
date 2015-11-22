@@ -33,7 +33,7 @@ layout: false
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Java 7 is required by Nightwatch. 
-Java 7 is required by Selenium, which is required by Nightwatch.  Selenium seems to hold the strategic high ground when it comes to testing web applications, so like it or not, you gotta install Java.
+Java 7 is required by Selenium, which is required by Nightwatch.  Selenium seems to hold the strategic high ground when it comes to testing web applications so, like it or not, you gotta install Java.
 
 Steps performed :
  - Gets the <a href="https://en.wikipedia.org/wiki/Personal_Package_Archive" target="_blank">PPA</a> for <a href="http://www.oracle.com/technetwork/indexes/downloads/index.html?ssSourceSiteId=ocomen" target="_blank">Oracle Java</a>
@@ -43,9 +43,9 @@ Steps performed :
 
 ##### Example Commands
 ```terminal
-  add-apt-repository -y ppa:webupd8team/java
-  apt-get update
-  apt-get -y install oracle-java7-installer
+  sudo add-apt-repository -y ppa:webupd8team/java
+  sudo apt-get update
+  sudo apt-get -y install oracle-java7-installer
 ```
 
 <!-- B -->
@@ -71,11 +71,11 @@ This sequence installs the following dependencies, if they're not already presen
 
 ##### Example Commands
 ```terminal
-apt-get install -y build-essential libssl-dev  # for selenium webdriver
-apt-get install -y libappindicator1            # for chrome
-apt-get install -y curl                        # for Meteor
-apt-get install -y git ssh                     # for version control
-apt-get install -y tree python-pip             # for demo convenience
+sudo apt-get install -y build-essential libssl-dev  # for selenium webdriver
+sudo apt-get install -y libappindicator1            # for chrome
+sudo apt-get install -y curl                        # for Meteor
+sudo apt-get install -y git ssh                     # for version control
+sudo apt-get install -y tree python-pip             # for demo convenience
 ```
 
 
@@ -102,8 +102,8 @@ It can run on a separate computer from <a href='https://www.meteor.com/' target=
 ##### Example Commands
 ```terminal
 curl -sL https://deb.nodesource.com/setup | sudo bash -
-apt-get install -y nodejs
-apt-get -y autoremove
+sudo apt-get install -y nodejs
+sudo apt-get -y autoremove
 ```
 
 
@@ -154,10 +154,10 @@ The <a href='https://code.google.com/p/selenium/wiki/ChromeDriver' target='_blan
 ##### Example Commands
 ```terminal
 wget http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux${CPU_WIDTH}.zip
-unzip -o chromedriver_linux${CPU_WIDTH}.zip -d /usr/local/bin
-chmod a+rx /usr/local/bin/chromedriver
+sudo unzip -o chromedriver_linux${CPU_WIDTH}.zip -d /usr/local/bin
+sudo chmod a+rx /usr/local/bin/chromedriver
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd${CPU_WIDTH}.deb
-dpkg -i google-chrome-stable_current_amd${CPU_WIDTH}.deb
+sudo dpkg -i google-chrome-stable_current_amd${CPU_WIDTH}.deb
 ```
 
 <!-- B -->
@@ -209,10 +209,10 @@ If you just want to quickly follow the tutorial then *do* execute this group of 
 
 ##### Example Commands
 ```terminal
-add-apt-repository -y ppa:webupd8team/sublime-text-3
-apt-get update
-apt-get install -y sublime-text-installer
-pip install -y beautifulsoup4 requests
+sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
+sudo apt-get update
+sudo apt-get install -y sublime-text-installer
+sudo pip install -y beautifulsoup4 requests
 ```
 
 <!-- B -->
@@ -237,9 +237,9 @@ Linting detects code style contraventions, improves maintainability, and flags m
 
 ##### Example Commands
 ```terminal
-npm install -y eslint
-npm install -y eslint-plugin-react
-npm install -y babel-eslint
+sudo npm install -y eslint
+sudo npm install -y eslint-plugin-react
+sudo npm install -y babel-eslint
 ```
 
 There is a closely related ESLint package for Sublime Text.  We will install it in the next section.
@@ -266,7 +266,7 @@ JSDoc can generate a very sophisticated documentation web site for you, directly
 
 ##### Example Commands
 ```terminal
-npm install -y jsdoc
+sudo npm install -y jsdoc
 ```
 
 There is a closely related JSDoc package for Sublime Text, which we will install in the next section.
