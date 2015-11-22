@@ -15,7 +15,7 @@ Steps performed :
  - gets the <a href='https://en.wikipedia.org/wiki/Personal_Package_Archive' target='_blank'>PPA</a> for <a href='http://www.sublimetext.com/3' target='_blank'>Sublime Text 3</a>
  - installs it. 
  
-If you just want to quickly follow the tutorial then *do* execute this group of commands, otherwise install your usual editor/IDE.
+If you just want to quickly follow the tutorial, then *do* execute this group of commands, otherwise install your usual editor/IDE.
 
 ##### Example Commands
 ```terminal

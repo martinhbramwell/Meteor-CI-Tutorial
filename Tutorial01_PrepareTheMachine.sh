@@ -75,7 +75,7 @@ if [ "${RUN_RULE}" != "n" ]; then Install_Bunyan_Globally; fi;
 explain ${BINDIR}/This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
   This_tutorial_expects_to_use_the_Sublime_Text_3_editor_A;
-  apt-get update;
+  sudo apt-get update;
   This_tutorial_expects_to_use_the_Sublime_Text_3_editor_B;
 fi;
 
