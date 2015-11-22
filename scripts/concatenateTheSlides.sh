@@ -202,6 +202,7 @@ for idx_t in "${TUTSPATHS[@]}"; do echo ${idx_t}/concatenatedSlides.MD >> filesF
 # cat filesForGHPages.txt;
 
 tar zcvf filesForGHPages.tar.gz -T filesForGHPages.txt;
+rm filesForGHPages.txt;
 
 eval "$(ssh-agent -s)";
 
@@ -221,7 +222,6 @@ unzip ./fragments/favicons.zip
 rm ./fragments/favicons.zip
 
 git rm tempClean.sh;
-git rm filesForGHPages.txt;
 
 MSG=$(cat gitlog.txt)
 echo "Add anything new"
