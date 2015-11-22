@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Download Result</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script>
+  </head>
+  <body>
+    <div ID="Introduction" style="margin-left:55px; margin-right:55px;">
+      <!--
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:728px;height:90px"
+           data-ad-client="ca-pub-7072964173126749"
+           data-ad-slot="1681627511">
+      </ins>
+      -->
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      <!-- br />If you find this tutorial series helpful you can <b>help it get better</b>: disable AdBlock for this URL and check out what our sponsors provide.
+      <hr / -->
+      <h1>Terminal log when installing Meteor-CI-Tutorial</h1>
+      <p class="console">
+              <span class="pwd"><span class="pwd">yourself@YourVM:~/$</span></span> export URI="https://github.com/martinhbramwell"
+        <br /><span class="pwd">yourself@YourVM:~/$</span> export TUT="Meteor-CI-Tutorial"
+        <br /><span class="pwd">yourself@YourVM:~/$</span> export FILE="archive/master.zip"
+        <br /><span class="pwd">yourself@YourVM:~/$</span> echo "Downloading : ${URI}/${TUT}/${FILE}"
+        <br />Downloading : https://github.com/martinhbramwell/Meteor-CI-Tutorial/archive/master.zip
+        <br /><span class="pwd">yourself@YourVM:~/$</span> echo " as : ${TUT}.zip"
+        <br /> as : Meteor-CI-Tutorial.zip
+        <br /><span class="pwd">yourself@YourVM:~/$</span> wget -O ${TUT}.zip ${URI}/${TUT}/${FILE}
+        <br />--2015-09-05 12:09:34--  https://github.com/martinhbramwell/Meteor-CI-Tutorial/archive/master.zip
+        <br />Resolving github.com (github.com)... 192.30.252.129
+        <br />Connecting to github.com (github.com)|192.30.252.129|:443... connected.
+        <br />HTTP request sent, awaiting response... 302 Found
+        <br />Location: https://codeload.github.com/martinhbramwell/Meteor-CI-Tutorial/zip/master [following]
+        <br />--2015-09-05 12:09:35--  https://codeload.github.com/martinhbramwell/Meteor-CI-Tutorial/zip/master
+        <br />Resolving codeload.github.com (codeload.github.com)... 192.30.252.147
+        <br />Connecting to codeload.github.com (codeload.github.com)|192.30.252.147|:443... connected.
+        <br />HTTP request sent, awaiting response... 200 OK
+        <br />Length: unspecified [application/zip]
+        <br />Saving to: ‘Meteor-CI-Tutorial.zip’
+        <br />
+        <br />    [ &lt;=>                                                   ] 69,314      --.-K/s   in 0.1s    
+        <br />
+        <br />2015-09-05 12:09:35 (690 KB/s) - ‘Meteor-CI-Tutorial.zip’ saved [69314]
+        <br />
+        <br /><span class="pwd">yourself@YourVM:~/$</span> unzip ${TUT}.zip
+        <br />Archive:  Meteor-CI-Tutorial.zip
+        <br />2cbb9342613357229b761899660649b47787c4ea
+        <br />   creating: Meteor-CI-Tutorial-master/
+        <br />  inflating: Meteor-CI-Tutorial-master/.gitignore  
+        <br />   creating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/concatenatedSlides.MD  
+        <br />   creating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Add_Bunyan_Logging.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Add_an_NPM_module_to_your_package.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Another_NodeJS_moduleA.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Another_NodeJS_moduleB.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Bunyan_Server_Side_OnlyLogging.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Fin.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Goodbye_console.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Introduction.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Observe_ordinary_console_logging.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Prepare_for_NightWatch_testing.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Push_Nightwatch_testing_to_GitHub_and_CircleCI.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Refactor_Bunyan_InstantiationA.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Refactor_Bunyan_InstantiationB.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Run_NightWatch_testing.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/Specify_Npm_modules.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/The_Async_ProblemA.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/The_Async_ProblemB.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/CloudContinuousIntegration/doc/The_Async_ProblemC.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/LICENSE  
+        <br />   creating: Meteor-CI-Tutorial-master/PrepareTheMachine/
+        <br />  inflating: Meteor-CI-Tutorial-master/PrepareTheMachine/concatenatedSlides.MD  
+        <br />   creating: Meteor-CI-Tutorial-master/PrepareTheMachine/doc/
+        <br />  inflating: Meteor-CI-Tutorial-master/PrepareTheMachine/doc/Configure_Sublime_A.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/PrepareTheMachine/doc/Configure_Sublime_B.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/PrepareTheMachine/doc/Fin.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/PrepareTheMachine/doc/Install_Bunyan_Globally.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/PrepareTheMachine/doc/Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/PrepareTheMachine/doc/Install_NodeJS.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/PrepareTheMachine/doc/Install_Selenium_Webdriver_In_NodeJS.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/PrepareTheMachine/doc/Install_eslint.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/PrepareTheMachine/doc/Install_other_tools.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/PrepareTheMachine/doc/Introduction.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/PrepareTheMachine/doc/Java_7_is_required_by_Nightwatch.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/PrepareTheMachine/doc/This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/PrepareTheMachine/doc/dummy.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/README.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/Part01_PrepareTheMachine.sh  
+        <br />  inflating: Meteor-CI-Tutorial-master/Part02_UnitTestThePackage.sh  
+        <br />  inflating: Meteor-CI-Tutorial-master/Part03_CloudContinuousIntegration.sh  
+        <br />   creating: Meteor-CI-Tutorial-master/UnitTestThePackage/
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/concatenatedSlides.MD  
+        <br />   creating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Add_Meteor_application_development_support_files.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Check_the_meteor_project_will_work.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Configure_Sublime_Text_to_use_ESLint.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Configure_git_for_GitHub.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Create_Meteor_project.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Create_SSH_keys_directory_if_not_exist.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Create_a_package_and_TinyTest_it.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Create_local_GitHub_repository.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Create_remote_GitHub_repository.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Customize_ESLint_in_Sublime_Text.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Fin.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Goodbye_console.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Install_Meteor.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Introduction.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Set_Up_Project_Names.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Try_ESLint_from_the_Command_Line.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/Try_ESLint_in_Sublime_Text.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/UnitTestThePackage/doc/dummy.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/concatenateTheSlides.sh  
+        <br />  inflating: Meteor-CI-Tutorial-master/explain.sh  
+        <br />  inflating: Meteor-CI-Tutorial-master/index.html  
+        <br />  inflating: Meteor-CI-Tutorial-master/styles.css  
+        <br />  inflating: Meteor-CI-Tutorial-master/switch.sh  
+        <br />  inflating: Meteor-CI-Tutorial-master/util.sh  
+        <br />   creating: Meteor-CI-Tutorial-master/working/
+        <br /> extracting: Meteor-CI-Tutorial-master/working/README.md  
+        <br />  inflating: Meteor-CI-Tutorial-master/working/logger.js  
+        <br />  inflating: Meteor-CI-Tutorial-master/working/package.js  
+        <br />  inflating: Meteor-CI-Tutorial-master/working/yourpackage-tests.js  
+        <br />  inflating: Meteor-CI-Tutorial-master/working/yourpackage.js  
+        <br /><span class="pwd">yourself@YourVM:~/$</span> mv ${TUT}-master ${TUT}
+        <br /><span class="pwd">yourself@YourVM:~/$</span> cd ${TUT}
+        <br /><span class="pwd">yourself@YourVM:~/Meteor-CI-Tutorial$</span> 
+        <br /><span class="pwd">yourself@YourVM:~/Meteor-CI-Tutorial$</span> # Ready to run the first script : 
+        <br /><span class="pwd">yourself@YourVM:~/Meteor-CI-Tutorial$</span> # &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  sudo ./Part01_PrepareTheMachine.sh
+        </p>
+      <!-- hr />
+      This tutorial has been made possible, in part,  by :<br / -->
+      <!--
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:728px;height:90px"
+           data-ad-client="ca-pub-7072964173126749"
+           data-ad-slot="1681627511">
+      </ins>
+      -->
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </body>
+</html>
