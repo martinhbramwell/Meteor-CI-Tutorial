@@ -19,6 +19,7 @@ source ./scripts/explain.sh
 RUN_RULE="";
 explain ${BINDIR}/Introduction.md
 
+export PACKAGES=~/${PARENT_DIR}/packages;
 explain ${BINDIR}/Create_a_package_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Create_a_package_A; fi;
 

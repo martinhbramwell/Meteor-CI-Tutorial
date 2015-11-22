@@ -596,7 +596,7 @@ function endOfSectionScript() {
   CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
   if [[ "X${CHOICE}X" == "XyX"  || "X${CHOICE}X" == "XX" ]]; then
     echo -e "\n\nStarting Part #${SECTNUM}.";
-    echo bash ./scripts/${NEWSCRIPT};
+    bash ./${NEWSCRIPT};
   fi;
 
 }

@@ -1,15 +1,15 @@
-PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_UID}
+export PACKAGES=~/${PARENT_DIR}/packages;
+export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_UID}
 
 function Create_a_package_A(){
 
   mkdir -p ${PACKAGES}/${YOUR_UID};
   mkdir -p ${PACKAGES}/thirdparty;
-  echo "export PACKAGE_DIRS=\"${PACKAGE_DIRS}\"";
-  echo "export PACKAGES=\"${PACKAGES}\"";
   echo "export PARENT_DIR=\"${PARENT_DIR}\"";
+  echo "export PACKAGES=\"${PACKAGES}\"";
+  echo "export PACKAGE_DIRS=\"${PACKAGE_DIRS}\"";
 
   while [[ $(grep -c PACKAGE_DIRS ~/.profile) -gt 0 ]]; do
-    echo -e "Got";
     sed -i '/PACKAGE_DIRS/d' ~/.profile;
   done;
 

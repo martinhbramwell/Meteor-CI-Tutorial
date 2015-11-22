@@ -15,7 +15,6 @@ To create self-sufficient packages, begin by defining ```PACKAGE_DIRS``` as a pe
 
 ##### Example Commands
 ```terminal
-export PARENT_DIR=projects;
 export PACKAGES=~/${PARENT_DIR}/packages;
 export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_UID};
 mkdir -p ${PACKAGES}/${YOUR_UID}; mkdir -p ${PACKAGES}/thirdparty;
