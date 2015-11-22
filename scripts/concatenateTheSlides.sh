@@ -218,7 +218,7 @@ echo "- - - switched branch - - -";
 
 tar zxvf filesForGHPages.tar.gz
 rm -f filesForGHPages.tar.gz
-unzip ./fragments/favicons.zip
+unzip -o ./fragments/favicons.zip
 rm ./fragments/favicons.zip
 
 git rm tempClean.sh;
