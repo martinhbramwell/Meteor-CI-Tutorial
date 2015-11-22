@@ -39,7 +39,6 @@ To create self-sufficient packages, begin by defining ```PACKAGE_DIRS``` as a pe
 
 ##### Example Commands
 ```terminal
-export PARENT_DIR=projects;
 export PACKAGES=~/${PARENT_DIR}/packages;
 export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_UID};
 mkdir -p ${PACKAGES}/${YOUR_UID}; mkdir -p ${PACKAGES}/thirdparty;
@@ -50,7 +49,7 @@ source ~/.profile;
 Continued . . . 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L3" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L4" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
