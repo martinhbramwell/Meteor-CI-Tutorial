@@ -190,8 +190,10 @@ git log -1 --pretty=%B > gitlog.txt # Save the most recent commit message, so gh
 index.html
 styles.css
 gitlog.txt
+scripts/tutorial_sections.js
 fragments/typer.gif
 fragments/loader.gif
+fragments/favicons.zip
 fFGHPtxt
 
 # Add all the concatenated slides to the list of filesForGHPages.txt
@@ -201,8 +203,7 @@ for idx_t in "${TUTSPATHS[@]}"; do echo ${idx_t}/concatenatedSlides.MD >> filesF
 
 tar zcvf filesForGHPages.tar.gz -T filesForGHPages.txt;
 
-echo -e "\n\n\  FAIL !!  \n\n\n";
-exit;
+eval "$(ssh-agent -s)";
 
 export STASH_CREATED=$(git stash) && echo $STASH_CREATED
 if [[ "${STASH_CREATED}" != "No local changes to save" ]];
@@ -211,9 +212,17 @@ then
   echo "Changes to master branch have been stashed"
 fi;
 git checkout gh-pages
-echo "On branch gh-pages"
+git branch;
+echo "- - - switched branch - - -";
+
 tar zxvf filesForGHPages.tar.gz
 rm -f filesForGHPages.tar.gz
+unzip ./fragments/favicons.zip
+rm ./fragments/favicons.zip
+
+git rm tempClean.sh;
+git rm filesForGHPages.txt;
+
 MSG=$(cat gitlog.txt)
 echo "Add anything new"
 git add .
@@ -223,7 +232,9 @@ echo "Committed"
 git push
 echo "Pushed"
 git checkout master
-echo "- - - back on branch master - - -"
+git branch;
+echo "- - - switched branch - - -";
+
 if [[ "${STASH_CREATED}" != "No local changes to save" ]];
 then
   git stash apply;
