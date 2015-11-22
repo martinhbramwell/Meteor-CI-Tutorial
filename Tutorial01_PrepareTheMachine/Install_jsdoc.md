@@ -17,7 +17,7 @@ JSDoc can generate a very sophisticated documentation web site for you, directly
 
 ##### Example Commands
 ```terminal
-npm install -y jsdoc
+sudo npm install -y jsdoc
 ```
 
 There is a closely related JSDoc package for Sublime Text, which we will install in the next section.

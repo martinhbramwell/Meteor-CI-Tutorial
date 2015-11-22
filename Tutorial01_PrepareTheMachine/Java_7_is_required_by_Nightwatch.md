@@ -9,7 +9,7 @@ layout: false
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Java 7 is required by Nightwatch. 
-Java 7 is required by Selenium, which is required by Nightwatch.  Selenium seems to hold the strategic high ground when it comes to testing web applications, so like it or not, you gotta install Java.
+Java 7 is required by Selenium, which is required by Nightwatch.  Selenium seems to hold the strategic high ground when it comes to testing web applications so, like it or not, you gotta install Java.
 
 Steps performed :
  - Gets the <a href="https://en.wikipedia.org/wiki/Personal_Package_Archive" target="_blank">PPA</a> for <a href="http://www.oracle.com/technetwork/indexes/downloads/index.html?ssSourceSiteId=ocomen" target="_blank">Oracle Java</a>
@@ -19,9 +19,9 @@ Steps performed :
 
 ##### Example Commands
 ```terminal
-  add-apt-repository -y ppa:webupd8team/java
-  apt-get update
-  apt-get -y install oracle-java7-installer
+  sudo add-apt-repository -y ppa:webupd8team/java
+  sudo apt-get update
+  sudo apt-get -y install oracle-java7-installer
 ```
 
 <!-- B -->

@@ -2,6 +2,8 @@
 
 set -e;
 #
+sudo pwd;
+
 source ./scripts/util.sh
 checkForVirtualMachine;
 
@@ -14,7 +16,7 @@ setSection 1;
 source "${BINDIR}/${SECTION}_functions.sh";
 
 verifyFreeSpace;
-verifyRootUser;
+# verifyRootUser;
 
 printf  "
         The first step requires installing some tools that make these explanations more readable :
@@ -49,7 +51,7 @@ RUN_RULE="";
 explain ${BINDIR}/Java_7_is_required_by_Nightwatch.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
   Java_7_is_required_by_Nightwatch_A;
-  apt-get update;
+  sudo apt-get update;
   Java_7_is_required_by_Nightwatch_B;
 fi;
 

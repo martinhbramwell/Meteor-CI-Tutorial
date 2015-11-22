@@ -18,11 +18,11 @@ This sequence installs the following dependencies, if they're not already presen
 
 ##### Example Commands
 ```terminal
-apt-get install -y build-essential libssl-dev  # for selenium webdriver
-apt-get install -y libappindicator1            # for chrome
-apt-get install -y curl                        # for Meteor
-apt-get install -y git ssh                     # for version control
-apt-get install -y tree python-pip             # for demo convenience
+sudo apt-get install -y build-essential libssl-dev  # for selenium webdriver
+sudo apt-get install -y libappindicator1            # for chrome
+sudo apt-get install -y curl                        # for Meteor
+sudo apt-get install -y git ssh                     # for version control
+sudo apt-get install -y tree python-pip             # for demo convenience
 ```
 
 

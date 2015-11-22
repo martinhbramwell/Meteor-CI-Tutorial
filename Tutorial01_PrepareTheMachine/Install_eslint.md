@@ -17,9 +17,9 @@ Linting detects code style contraventions, improves maintainability, and flags m
 
 ##### Example Commands
 ```terminal
-npm install -y eslint
-npm install -y eslint-plugin-react
-npm install -y babel-eslint
+sudo npm install -y eslint
+sudo npm install -y eslint-plugin-react
+sudo npm install -y babel-eslint
 ```
 
 There is a closely related ESLint package for Sublime Text.  We will install it in the next section.

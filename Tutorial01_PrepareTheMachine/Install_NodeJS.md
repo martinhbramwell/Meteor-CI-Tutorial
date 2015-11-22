@@ -18,8 +18,8 @@ It can run on a separate computer from <a href='https://www.meteor.com/' target=
 ##### Example Commands
 ```terminal
 curl -sL https://deb.nodesource.com/setup | sudo bash -
-apt-get install -y nodejs
-apt-get -y autoremove
+sudo apt-get install -y nodejs
+sudo apt-get -y autoremove
 ```
 
 
