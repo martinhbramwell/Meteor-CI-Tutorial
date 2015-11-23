@@ -481,6 +481,26 @@ function popPseudoStash() {
 
 }
 
+function prepareKnownHost() {
+
+  declare HOST=${1};
+
+  echo -e "Collecting GitHub public keys for 'known-hosts'";
+  mkdir -p ~/.ssh;
+  touch ~/.ssh/known_hosts;
+
+  ssh-keygen -R ${HOST};
+  ssh-keyscan -H -t rsa ${HOST} >> ~/.ssh/known_hosts;
+
+  IPADDR=$(host ${HOST}  | awk '/has address/ { print $4 }')
+
+  ssh-keygen -R ${IPADDR};
+  ssh-keyscan -H -t rsa ${IPADDR} >> ~/.ssh/known_hosts;
+
+  printf "\nDeploy key is : %s\n" "$(ssh-keygen -lf ~/.ssh/github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}.pub)";
+
+}
+
 
 function checkNotRoot() {
   if [[ $EUID -eq 0 ]]; then
@@ -600,6 +620,7 @@ function endOfSectionScript() {
   fi;
 
 }
+
 
 PROJECT_NAME="  ** NOT DEFINED ** ";
 if [ -f ~/.udata.sh ]; then

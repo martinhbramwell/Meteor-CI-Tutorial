@@ -30,7 +30,7 @@ explain ${BINDIR}/Create_a_package_C.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Create_a_package_C; fi;
 
 explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then Create_GitHub_Repo_Deploy_Keys; fi;
+if [ "${RUN_RULE}" != "n" ]; then Create_GitHub_Repo_Deploy_Keys ${PKG_NAME}; fi;
 
 RUN_RULE="";
 explain ${BINDIR}/Control_a_packages_versions_A.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED

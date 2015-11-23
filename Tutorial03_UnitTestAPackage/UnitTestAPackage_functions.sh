@@ -1,7 +1,7 @@
 export PACKAGES=~/${PARENT_DIR}/packages;
 export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_UID}
 
-function Create_a_package_A(){
+function Create_a_package_A() {
 
   mkdir -p ${PACKAGES}/${YOUR_UID};
   mkdir -p ${PACKAGES}/thirdparty;
@@ -21,7 +21,7 @@ function Create_a_package_A(){
 }
 
 
-function Create_a_package_B(){
+function Create_a_package_B() {
 
   pushd ${PACKAGES}/${YOUR_UID} >/dev/null;
 
@@ -121,7 +121,7 @@ function Create_a_package_C() {
 }
 
 
-function Control_a_packages_versions_A(){
+function Control_a_packages_versions_A() {
 
   export RMT_REPO="https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}";
   set +e;   wget -q --spider ${RMT_REPO}; EXISTS=$?;    set -e;
@@ -135,41 +135,43 @@ function Control_a_packages_versions_A(){
 
   done
 
-  if [[  "${1}" != "${NONSTOP}"  ]]; then
+  Make_GitHub_Repo_Deploy_Key_Title ${GITHUB_ORGANIZATION_NAME} ${PKG_NAME};
 
-    echo -e "Go to the 'Deploy Key' configuration page for the GitHub repo at : ";
-    echo -e "\n    https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}/settings/keys";
-    echo -e "\nThen click the [Add deploy key] button and fill in the fields as follows : \n";
-    echo -e " - Title -- fill with :      ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME} \n";
-    echo -e " - Key -- fill with :      $(cat ~/.ssh/${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}.pub) \n";
-    echo -e " - Allow write access -- checked";
-
-  fi;
-
+  echo -e "Go to the 'Deploy Key' configuration page for the GitHub repo at : ";
+  echo -e "\n    https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}/settings/keys";
+  echo -e "\nThen click the [Add deploy key] button and fill in the fields as follows : \n";
+  echo -e " - Title -- fill with :      ${REPO_DEPLOY_KEY_TITLE} \n";
+  echo -e " - Key -- fill with :      $(cat ~/.ssh/${REPO_DEPLOY_KEY_TITLE}.pub) \n";
+  echo -e " - Allow write access -- checked";
 
 }
 
 
-function Control_a_packages_versions_B(){
+function Control_a_packages_versions_B() {
+
+  declare DATA_TO_FETCH=false;
+  if [[  "${1}" == "${NONSTOP}"  ]]; then DATA_TO_FETCH=true; fi;
+
+  prepareKnownHost "github.com";
 
   pushd ${PACKAGES}/${YOUR_UID}/${PKG_NAME} >/dev/null;
 
-  mkdir -p ~/.ssh;
-  chmod 700 ~/.ssh;
-  if test -f ~/.ssh/id_rsa; then chmod 600 ~/.ssh/id_rsa; fi;
-
-  set +e;   ssh-add;   set -e;
-
-  cat << GITIG > .gitignore
+    cat << GITIG > .gitignore
 .npm
 backup
 docs
 GITIG
 
-  pushPseudoStash;
+  # mkdir -p ~/.ssh;
+  # chmod 700 ~/.ssh;
+  # if test -f ~/.ssh/id_rsa; then chmod 600 ~/.ssh/id_rsa; fi;
 
+  # set +e;   ssh-add;   set -e;
+
+  ${DATA_TO_FETCH} && pushPseudoStash  && echo -e "\nStashed";
+
+  echo -e "Initializing 'git'";
   git init;
-  git add .;
 
   if [[ $(git remote) = ${PKG_NAME}_origin ]];
   then
@@ -179,20 +181,28 @@ GITIG
     git remote add ${PKG_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git;
   fi;
 
-  git pull ${PKG_NAME}_origin master;
+  ${DATA_TO_FETCH} && {
+    git fetch ${PKG_NAME}_origin && echo -e "\nFetched";
+    git pull ${PROJECT_NAME}_origin master && echo -e "\nPulled";  # When hand built, master does not yet exist
+    # git pull ${PKG_NAME}_origin && echo -e "\nPulled";
+    popPseudoStash && echo -e "\nDestashed";
+  }
 
-  popPseudoStash;
+  set +e;
+  git add .;
+  git commit -am 'First commit' && echo -e "\nCommitted";
+  set -e;
 
-  set +e;    git commit -am 'First commit';    set -e;
+  eval "$(ssh-agent -s)";
 
-  git push -u ${PKG_NAME}_origin master
+  git push -u ${PKG_NAME}_origin master && echo -e "\nPushed";
 
   popd >/dev/null;
 
 }
 
 
-function TinyTest_a_package(){
+function TinyTest_a_package() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
@@ -220,7 +230,7 @@ function TinyTest_a_package(){
 }
 
 
-function Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line(){
+function Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line() {
 
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;

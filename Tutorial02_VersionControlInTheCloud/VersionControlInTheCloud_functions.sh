@@ -250,19 +250,7 @@ function Create_local_GitHub_repository() {
   declare DATA_TO_FETCH=false;
   if [[  "${1}" == "${NONSTOP}"  ]]; then DATA_TO_FETCH=true; fi;
 
-  echo -e "Collecting GitHub public keys for 'known-hosts'";
-  mkdir -p ~/.ssh;
-  touch ~/.ssh/known_hosts;
-
-  ssh-keygen -R github.com;
-  ssh-keyscan -H -t rsa github.com >> ~/.ssh/known_hosts;
-
-  IPADDR=$(host github.com  | awk '/has address/ { print $4 }')
-
-  ssh-keygen -R ${IPADDR};
-  ssh-keyscan -H -t rsa ${IPADDR} >> ~/.ssh/known_hosts;
-
-  printf "\nDeploy key is : %s\n" "$(ssh-keygen -lf ~/.ssh/github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}.pub)";
+  prepareKnownHost "github.com";
 
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
@@ -270,8 +258,8 @@ function Create_local_GitHub_repository() {
   ${DATA_TO_FETCH} && pushPseudoStash  && echo -e "\nStashed";
 
   echo -e "Initializing 'git'";
-  git init
-  git add .
+  git init;
+
   if [[ $(git remote) = ${PROJECT_NAME}_origin ]];
   then
     echo -e "Remote, named ${PROJECT_NAME}_origin has already been defined for repo ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git";
@@ -288,9 +276,10 @@ function Create_local_GitHub_repository() {
   }
 
   set +e;
+  git add .;
   git commit -am 'First commit' && echo -e "\nCommitted";
   set -e;
-  
+
 
   git push -u ${PROJECT_NAME}_origin master && echo -e "\nPushed";
 
