@@ -9,12 +9,12 @@
 
 #### Package Upgrade and Project Rebuild (Part B)
 
-Simply committing the changes we made to the package will not change the containing project and so there'll be no rebuild in CircleCI.  However, the command, ```meteor list```, does more than list packages, it reads ```package.js``` files and updates project information accordingly. If we change our package version number and run ```meteor list``` it will update ```.meteor/versions```.  **That** we can commit, and committing will spawn a rebuild.
+Simply committing the changes we made to the package will not change the containing project and so there'll be no rebuild in CircleCI.  However, the command, ```meteor list```, does more than list packages, it reads ```package.js``` files and updates project information accordingly. If we change our package version number and run ```meteor list``` it will update ```.meteor/versions```.  ∗∗That∗∗ we can commit, and committing will spawn a rebuild.
 ##### Example Commands
 ```terminal
 echo ".npm" >> .gitignore
 git add .gitignore, logger.js
-sed -i -r 's/(.*)(version: .)([0-9]+\.[0-9]+\.)([0-9]+)(.*)/echo "\1\2\3$((\4+1))\5"/ge' package.js # Increment version number
+sed -i -r 's/(.∗)(version: .)([0-9]+\.[0-9]+\.)([0-9]+)(.∗)/echo "\1\2\3$((\4+1))\5"/ge' package.js # Increment version number
 meteor list
 ```
 To finish: commit the package, then commit the project and then watch CircleCI for rebuild success.

@@ -11,7 +11,7 @@
 
 ... continuing.
 
-<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Obtain the improved</a> ```'${PKG_NAME}.js'``` file, like this :
+<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Obtain a new</a> ```'${PKG_NAME}.js'``` file, that's improved like this :
 
 ```javascript
 const Client = Npm.require('swagger-client');
@@ -27,7 +27,9 @@ const swagger = new Client({
 ```
 After Meteor starts up, inspect the log file with :
 
-```tail -f /var/log/meteor/ci4meteor.log | bunyan -o short```
+```
+tail -f /var/log/meteor/ci4meteor.log | bunyan -o short
+```
 
 Continues ...
 

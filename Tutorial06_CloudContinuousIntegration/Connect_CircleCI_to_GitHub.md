@@ -15,5 +15,5 @@ By <a href="http://imgur.com/z3atLCi.png" target="_blank">signing up to CircleCi
 
 Once CircleCI <a href="http://i.imgur.com/DtaBko1.png" target="_blank">has analyzed our repository</a> and <a href="http://i.imgur.com/OuxEBqp.png" target="_blank">has attempted a first build</a>, we can <a href="http://i.imgur.com/QdJ8GF7.png?1" target="_blank">turn to the build results page</a>. However, there will be <a href="http://i.imgur.com/3xO3BWx.png" target="_blank">no results</a> until we describe our build requirements.
 
-Our next task is to commit a build definition file '```circle.yml```'' to GitHub.
+Our next task is to commit a build definition file '```circle.yml```' to GitHub.
 <!-- B -->]

@@ -36,7 +36,7 @@ By <a href="http://imgur.com/z3atLCi.png" target="_blank">signing up to CircleCi
 
 Once CircleCI <a href="http://i.imgur.com/DtaBko1.png" target="_blank">has analyzed our repository</a> and <a href="http://i.imgur.com/OuxEBqp.png" target="_blank">has attempted a first build</a>, we can <a href="http://i.imgur.com/QdJ8GF7.png?1" target="_blank">turn to the build results page</a>. However, there will be <a href="http://i.imgur.com/3xO3BWx.png" target="_blank">no results</a> until we describe our build requirements.
 
-Our next task is to commit a build definition file '```circle.yml```'' to GitHub.
+Our next task is to commit a build definition file '```circle.yml```' to GitHub.
 <!-- B -->]
 ---
 .left-column[
@@ -85,8 +85,10 @@ The command failed because we still must reference our package from the ```circl
 
 We add the script <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/obtain_managed_packages.sh" target="_blank">obtain_managed_packages.sh</a> to the packages directory of our project.  It uses the list, ```managed_packages.sh```, to clone our packages and link them into the project.  Edit the list as needed.
 ```ruby
-    # Pull each of our packages and link them into our project
-    - ./packages/obtain_managed_packages.sh```
+  # Pull each of our packages and link them into our project
+  - ./packages/obtain_managed_packages.sh
+```
+
 ##### Example Commands
 ```terminal
 wget -O ./packages/managed_packages.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/managed_packages.sh;

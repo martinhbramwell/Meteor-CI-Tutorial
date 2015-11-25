@@ -9,7 +9,7 @@
 
 #### Meteor is Incompatible With NodeJS  (Part A)
 
-Examining the code ```'${PKG_NAME}.js'``` we see :
+Examining the code of ```'${PKG_NAME}.js'``` we see :
 ```javascript
 for (idx = TestPet; idx < TestPet + 4; idx++) {
   swagger.pet.getPetById(
@@ -18,7 +18,7 @@ for (idx = TestPet; idx < TestPet + 4; idx++) {
   );
 }
 ```
-The parameter ```'pet'``` passed by ```getPetById``` to the ```log``` callback function is completely inaccesible.  It's buried two levels deep inside nested, asynchronous callback functions.
+The parameter ```'pet'``` passed by ```getPetById``` to the ```log``` callback function is completely inaccessible.  It's buried two levels deep inside nested, asynchronous callback functions.
 
 *How are we supposed to get at it?*
 

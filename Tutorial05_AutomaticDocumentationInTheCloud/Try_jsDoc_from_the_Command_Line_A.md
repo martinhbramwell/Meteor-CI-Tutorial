@@ -15,11 +15,10 @@ In a directory you specify, JSDoc creates a documentation web site like this :
 yourself@YourVM:~/projects/yourproject$ tree -L 2 ./packages/${PKG_NAME}
 ./packages/yourpackage
 ├── docs
-│   ├── files.html
+│   ├── fonts
 │   ├── index.html
-│   └── symbols
-│       ├── _global_.html
-│       └── src
+│   ├── scripts
+│   └── styles
 ├── package.js
       :  etc
       :  etc

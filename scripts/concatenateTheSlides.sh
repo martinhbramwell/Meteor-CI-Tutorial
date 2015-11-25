@@ -172,13 +172,15 @@ do
 
   applyManualVsAutomaticIndicator;
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  cat ${AFP} >> ${FPA[0]}${FPA[1]}/concatenatedSlides.MD
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#        Append to slide show file replacing fake asterisks with real asterisks
+  cat ${AFP} | sed 's/∗/*/g' >> ${FPA[0]}${FPA[1]}/concatenatedSlides.MD
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 done
+
+
 
 
 if  ${SKIP} ;  then  exit 0; fi;  #  Exit if we aren't going to commit to gh-pages branch

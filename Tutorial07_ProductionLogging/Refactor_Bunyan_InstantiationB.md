@@ -11,7 +11,7 @@
 
 ... continuing ... we still need to 'wire' ```Logger``` into our package.
 
-In ```package.js```, in **both** the ```onUse``` **and** the ```onTest``` sections, we need the "api" to add ```logger.js``` and export the ```Logger``` object.
+In ```package.js```, in ∗∗both∗∗ the ```onUse``` ∗∗and∗∗ the ```onTest``` sections, we need the "api" to add ```logger.js``` and export the ```Logger``` object.
 ```javascript
 Package.onUse(function(api) {
        :

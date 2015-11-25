@@ -11,16 +11,16 @@
 
 . . . continued.
 
-To have DocBlockr help finish the annotations for ```'Check inequality'``` type ```/**``` followed by ```<enter>```. It will attempt to create appropriate tags.  You can ```<tab>``` and ```<shift-tab>``` back and forth between incomplete fields.
+To have DocBlockr help finish the annotations for ```'Check inequality'``` type ```/∗∗``` followed by ```<enter>```. It will attempt to create appropriate tags.  You can ```<tab>``` and ```<shift-tab>``` back and forth between incomplete fields.
 
 TinyTest's structure is atypical -- so the suggestions are less useful than usual.
 
 ```javascript
-/**
- * [sanityCheckNEQ description]
- * @param  {[type]} test) { test.notEqual(true, false);} [description]
- * @return {[type]} [description]
- */
+/∗∗
+ ∗ [sanityCheckNEQ description]
+ ∗ @param  {[type]} test) { test.notEqual(true, false);} [description]
+ ∗ @return {[type]} [description]
+ ∗/
 ```
 
 Simply copy from the 'Check Equality' test and adapt.  The use of the tags ```@namespace``` and ```@memberof Tinytest``` is just one of jsDoc's many workaround tricks for special cases.

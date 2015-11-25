@@ -13,13 +13,13 @@ Meteor supports 'npm' modules with the package NPM.
 
 Edit ```'${PKG_NAME}-tests.js'``` again adding :
 
-```const Bunyan = require('bunyan');```
+       ```const Bunyan = require('bunyan');```
 
 ```javascript
-/**
- * Tinytest unit tests
- * @namespace Tinytest
- */
+/∗∗
+ ∗ Tinytest unit tests
+ ∗ @namespace Tinytest
+ ∗/
 const Bunyan = require('bunyan');  //  ADD! <--
 ```
 

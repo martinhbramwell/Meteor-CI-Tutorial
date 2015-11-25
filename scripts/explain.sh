@@ -13,13 +13,9 @@ function highlight()
 #  echo -en ${ORANGE};
   envsubst '$PARENT_DIR, $PROJECT_NAME, $PKG_NAME, $GITHUB_ORGANIZATION_NAME, $PACKAGE_DEVELOPER, $PACKAGES, $YOUR_EMAIL, $YOUR_UID, $YOUR_FULLNAME, $CPU_WIDTH' < $1 | \
   sed '1,/o 0 o/d;/<!-- B -->/,$d' | \
-  ./scripts/cleanBeforeLineWrap.awk | \
+  ./scripts/cleanBeforeLineWrap.awk  | \
   fold -w 104 -s | \
   ./scripts/cleanAfterLineWrap.awk;
-
-# fmt --width=180 --goal=95;
-#  awk '{while(match($0,"[$]{[^}]*}")) {var=substr($0,RSTART+2,RLENGTH -3);gsub("[$]{"var"}",ENVIRON[var])}}1' | \
-#  sed "s|\(\[\)\([a-z A-Z0-9'.:/-]*\)\(\]([a-zA-Z0-9/:._-?=]*)\)|\2 |g" | \
 
   echo -en ${NC};
 }
@@ -34,7 +30,6 @@ function explain()
   fi;
 
   highlight $1;
-
 
   if [ "${RUN_RULE}" != "a" ]; then
     if [[ "${2/MORE_}" != "ACTION" ]]; then

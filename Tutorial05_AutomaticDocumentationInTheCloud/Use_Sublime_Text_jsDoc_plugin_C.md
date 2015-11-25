@@ -16,7 +16,7 @@
 
 If you run the jsdoc command again you should see an improved main page with a ```TinyTest``` link under a section header "Namespaces".
 
-Click on the ```TinyTest``` link and you should see something like the image to the right.
+Click on the ```TinyTest``` link in the Home page of the documentation, and you should see something like the image to the right.
 
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial05_AutomaticDocumentationInTheCloud/AutomaticDocumentationInTheCloud_functions.sh#L46" target="_blank">Code for this step.</a>] ]

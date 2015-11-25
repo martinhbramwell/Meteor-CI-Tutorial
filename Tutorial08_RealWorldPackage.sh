@@ -2,7 +2,8 @@
 
 set -e;
 #
-source ./scripts/util.sh
+source ./scripts/util.sh;
+declare NONSTOP="nonstop";
 
 checkForVirtualMachine;
 checkNotRoot;
