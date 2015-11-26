@@ -98,6 +98,52 @@ function IntegratingEverything() {
 
 }
 
+
+
+function CodeMaintenanceHelperFile_B() {
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
+    pushd ./packages >/dev/null;
+      pushd ./${PKG_NAME}/tools >/dev/null;
+        echo -e "#!/bin/bash\n#\necho 'I will perform CI tasks on ${PKG_NAME}.';" > perform_ci_tasks.sh
+        chmod a+x perform_ci_tasks.sh;
+      popd >/dev/null;
+
+      wget -N https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_per_package_ci_tasks.sh
+      chmod a+x perform_per_package_ci_tasks.sh;
+
+    popd >/dev/null;
+  popd >/dev/null;
+
+  echo "Executing 'perform_per_package_ci_tasks.sh' . . .";
+  ~/${PARENT_DIR}/${PROJECT_NAME}/packages/perform_per_package_ci_tasks.sh;
+  echo ". . . Executed.";
+
+
+}
+
+
+
+
+function CodeMaintenanceHelperFile_C() {
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/tools >/dev/null;
+
+    # wget -N https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_ci_tasks.sh
+    sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" perform_ci_tasks.sh;
+    sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" perform_ci_tasks.sh;
+    chmod a+x perform_ci_tasks.sh;
+
+  popd >/dev/null;
+
+  echo "Executing 'perform_per_package_ci_tasks.sh' . . .";
+  ~/${PARENT_DIR}/${PROJECT_NAME}/packages/perform_per_package_ci_tasks.sh;
+  echo ". . . Executed.";
+
+}
+
+
+
 function AllowCircleCIToBeMeInGitHub() {
  echo -e "
    https://github.com/login/oauth/authorize
@@ -127,15 +173,7 @@ function AllowCircleCIToBeMeInGitHub() {
 
 }
 
-function CodeLintingHelperFile() {
-
-  # chmod a+x ./fragments/perform_per_package_ci_tasks.sh;
-  # cp ./fragments/perform_per_package_ci_tasks.sh ~/${PARENT_DIR}/${PROJECT_NAME}/packages/;
-
-  # chmod a+x ./fragments/perform_ci_tasks.sh;
-  # cp ./fragments/perform_ci_tasks.sh ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/tools/;
-
-  # cp ./fragments/circle_T09.yml ~/${PARENT_DIR}/${PROJECT_NAME}/circle.yml;
+function CodeMaintenanceHelperFile() {
 
   CLEAN="nothing to commit";
   UP2DT="Everything up-to-date";

@@ -109,7 +109,7 @@ function substituteFieldsInSlide() {
 
 makeJavaScriptSectionList;
 assembleMapsOfDirectoryAndFileNames;
-echo ${TUTSPATHS};
+# echo ${TUTSPATHS};
 # exit;
 
 SKIP=true;

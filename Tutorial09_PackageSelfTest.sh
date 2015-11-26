@@ -31,10 +31,13 @@ if [ "${RUN_RULE}" != "n" ]; then FinishDocumentation; fi;
 explain ${BINDIR}/IntegratingEverything.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then IntegratingEverything; fi;
 
+explain ${BINDIR}/CodeMaintenanceHelperFile_A.md;
 
+explain ${BINDIR}/CodeMaintenanceHelperFile_B.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then CodeMaintenanceHelperFile_B; fi;
 
-explain ${BINDIR}/CodeLintingHelperFile.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then CodeLintingHelperFile; fi;
+explain ${BINDIR}/CodeMaintenanceHelperFile_C.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then CodeMaintenanceHelperFile_C; fi;
 
 
 

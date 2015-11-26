@@ -1,20 +1,22 @@
 
 function checkCodeStyle() {
+
   echo -e "Checking code style";
   if [[ ">${CIRCLE_ARTIFACTS}<" == "><" ]]; then CIRCLE_ARTIFACTS="."; fi;
   script -qc "eslint ." ${CIRCLE_ARTIFACTS}/esLintReport.txt  > /dev/null;
   echo -e "#################################################################
   Generated esLint report :";
-  #cat ${CIRCLE_ARTIFACTS}/esLintReport.txt;
+  cat ${CIRCLE_ARTIFACTS}/esLintReport.txt;
   echo -e "#################################################################\n";
-
 
 }
 
 
 function generateDocs() {
-  echo -e "Regenerating documentation.";
+
+  echo -e "Regenerating documentation . . .";
   jsdoc -d ./docs .;
+  echo -e " . . . documentation regenerated.";
 
 }
 
@@ -75,13 +77,10 @@ function commitDocsToGitHubPages() {
   echo " | check which branch | ";
   git branch;
 
-
-  #                                    exit;
-
 }
 
 checkCodeStyle;
 
 generateDocs;
 
-commitDocsToGitHubPages;
+# commitDocsToGitHubPages;

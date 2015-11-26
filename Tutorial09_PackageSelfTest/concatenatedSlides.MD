@@ -32,7 +32,7 @@ Get started now by running ...
 
 #### End To End Test of the Usage Example
 
-The accompanying script creates a new subdirectory *(if needed)* of ${PKG_NAME} called ```tools/testing``` and, into it, downloads the <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/test_usage_example.js' target='_blank'>code for a usage example end-to-end test</a>.  *Nightwatch* needs to be told where to find it, so you should now edit ```${PROJECT_NAME}/tests/nightwatch/config/nightwatch.json``` to look like this :
+The accompanying script creates a new subdirectory *(if needed)* of ${PKG_NAME} called ```tools/testing``` and, into it, downloads the <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/test_usage_example.js' target='_blank'>code for a usage example end-to-end test</a>.  *Nightwatch* needs to be told where to find it, so now edit ```${PROJECT_NAME}/tests/nightwatch/config/nightwatch.json``` to look like this :
 ```javascript
   "src_folders": [
     "./packages/${PKG_NAME}/tools/testing",   // ADD | <--
@@ -93,7 +93,7 @@ We have two last pushes to do: the package and its enclosing test/demo project. 
 
 Up to now, we commit the package with a new version number, then commit the umbrella project referencing the new version.  That triggers CircleCI to launch a new build sequence that pulls the project and packages together and runs all their tests, but it neither verifies coding style compliance nor regenerates our documentation nor deploys to our public server.
 
-Our focus for the rest of this part is going to be on <a href="https://circleci.com/docs/configuration" target="_blank">configuring</a> our ```circle.yml``` file.  We'll verify coding style during CircleCI's ```test``` phase.  We'll publish our documentation and deploy the application itself during the ```deployment``` phase.
+Our focus for the rest of this part is going to be on <a href="https://circleci.com/docs/configuration" target="_blank">configuring</a> our ```circle.yml``` file.  We'll verify coding style during CircleCI's ```test``` phase.  We'll publish our documentation and deploy the application itself during the ```deployment``` phase.  For now we'll just commit/push and check it all works.
 
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L65" target="_blank">Code for this step.</a>] ]
@@ -107,12 +107,72 @@ Our focus for the rest of this part is going to be on <a href="https://circleci.
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Code Linting Helper File
+#### Code Maintenance Helper File (Part A)
 
-The ```circleci.yml``` quickly gets hard to read if it contains every instruction to executed, but it is perfectly capable of executing bash command files we supply.  
+Let's take a step back and a fresh look at what we are doing here.
+
+Our project only exists to act as an integration and test harness for our package -- but, we might want multiple packages.  Back in  <a href="./index.html?part=F#4" target="_blank">Tutorial 6</a> we introduced the file ```obtain_managed_packages.sh``` that iterates through a list of packages in ```managed_packages.sh```, cloning each in turn from GitHub into CircleCI.
+
+Linting code and publishing docs are just two out of N additional integration tasks we might want to perform.  Since we can't know in advance what they are, we'll offer each package an opportunity to **run it's own** maintenance tasks. So, in this step we'll introduce two more new files; at the project level ```perform_per_package_ci_tasks.sh``` will iterate through our ```managed_packages.sh``` list calling ```perform_ci_tasks.sh``` in each package.
+
+Continued . . .
+
+<!-- B -->]
+---
+.left-column[
+  ### Helper File - Code Linting
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+.footnote[.red.bold[] [Table of Contents](./)]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Code Maintenance Helper File (Part B)
+
+. . . continuing.
+
+In this step we create a dummy package maintenance file with a single command to be executed: 
+
+```terminal
+echo "I will perform CI tasks on ${PKG_NAME}.";
+```
+
+We also download ```perform_per_package_ci_tasks.sh``` and run it, expecting the result :
+
+```ruby
+Delegating to 1 package in '../../packages'.
+
+   Package 1 of 1 :: Found code maintenance routine at '../../packages/${YOUR_UID}/${PKG_NAME}/tools/perform_ci_tasks.sh'.
+I will perform CI tasks on ${PKG_NAME}.
+```
+
+As long as a package has a valid bash executable at ```./tools/perform_ci_tasks.sh``` then linting, documenting and other tasks will be executed as part of continuous integration.
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L130" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L103" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Helper File - Code Linting
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+.footnote[.red.bold[] [Table of Contents](./)]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Code Maintenance Helper File (Part C)
+
+We now need to make the package level code maintenance script actually do something.
+
+The prepared script, <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_ci_tasks.sh" target="_blank">perform_ci_tasks.sh</a>, has three functions: ```generateDocs()```, ```checkCodeStyle()``` and ```commitDocsToGitHubPages()```.
+
+The function,  ```generateDocs()``` simply writes documents locally without trying to publish on GitHub Pages. 
+
+The function, ```checkCodeStyle()``` should write it's results to CircleCI's <a href="https://circleci.com/docs/build-artifacts" target="_blank">build artifacts directory</a> specified by <a href="https://circleci.com/docs/environment-variables" target="_blank">the environment variable</a> ```CIRCLE_ARTIFACTS```.  Of course, if we are working locally, that variable will be ```null```.  We have to set it to something, so we simply make it: "```.```".
+
+Continued . . . 
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L128" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
