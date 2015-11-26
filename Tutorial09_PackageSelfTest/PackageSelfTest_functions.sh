@@ -129,7 +129,7 @@ function CodeMaintenanceHelperFile_C() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/tools >/dev/null;
 
-    # wget -N https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_ci_tasks.sh
+    wget -N https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_ci_tasks.sh
     sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" perform_ci_tasks.sh;
     sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" perform_ci_tasks.sh;
     chmod a+x perform_ci_tasks.sh;
@@ -139,6 +139,41 @@ function CodeMaintenanceHelperFile_C() {
   echo "Executing 'perform_per_package_ci_tasks.sh' . . .";
   ~/${PARENT_DIR}/${PROJECT_NAME}/packages/perform_per_package_ci_tasks.sh;
   echo ". . . Executed.";
+
+}
+
+
+
+function ScriptAuthorization() {
+
+  echo -e "
+
+  Copy the following link address to your browser to open your project's config page -- 
+         \"Checkout keys for ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}\"
+    , then add a user key and (optionally) delete the redundant deploy key.
+
+    URL :: 
+
+         https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/edit#checkout
+
+";
+
+}
+
+
+
+function PushDocsToGitHubPagesFromCIBuild() {
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
+
+    pushd ./packages/${PKG_NAME}/tools >/dev/null;
+
+          sed -i -e "s/# commitDocs/commitDocs/" perform_ci_tasks.sh;
+
+    popd >/dev/null;
+    wget -O circle.yml https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/circle_T09.yml;
+
+  popd >/dev/null;
 
 }
 

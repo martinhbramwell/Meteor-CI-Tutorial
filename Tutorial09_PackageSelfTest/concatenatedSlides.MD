@@ -60,7 +60,7 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 
 #### The Package Works But It Is Not Documented
 
-<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js' target='_blank'>yourpackage_documented.js</a> and <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example_documented.js' target='_blank'>usage_example_documented.js</a> are documented replacements for the previously created files ```${PKG_NAME}.js``` and ```usage_example.js```.
+The files <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js' target='_blank'>"yourpackage_documented.js"</a> and <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example_documented.js' target='_blank'>"usage_example_documented.js"</a> are to the less well documented files ```${PKG_NAME}.js``` and ```usage_example.js```.
 
 <div style='word-wrap:break-word;'>Rerunning jsDoc now will generate a much more complete documentation site than before.  View it locally at : <a href='file:///home/${USER}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html' target='_blank'>file:///home/${USER}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html</a>.</div>
 
@@ -113,7 +113,7 @@ Let's take a step back and a fresh look at what we are doing here.
 
 Our project only exists to act as an integration and test harness for our package -- but, we might want multiple packages.  Back in  <a href="./index.html?part=F#4" target="_blank">Tutorial 6</a> we introduced the file ```obtain_managed_packages.sh``` that iterates through a list of packages in ```managed_packages.sh```, cloning each in turn from GitHub into CircleCI.
 
-Linting code and publishing docs are just two out of N additional integration tasks we might want to perform.  Since we can't know in advance what they are, we'll offer each package an opportunity to **run it's own** maintenance tasks. So, in this step we'll introduce two more new files; at the project level ```perform_per_package_ci_tasks.sh``` will iterate through our ```managed_packages.sh``` list calling ```perform_ci_tasks.sh``` in each package.
+Linting code and publishing docs are just two out of N additional integration tasks we might want to perform.  Since we know in advance neither the number of packages, nor the number of tasks for each package, we'll offer each one an opportunity to **run it's own** maintenance tasks. So, we'll introduce two more files; at the project level ```perform_per_package_ci_tasks.sh``` will iterate through our ```managed_packages.sh``` list calling ```perform_ci_tasks.sh``` in each package.
 
 Continued . . .
 
@@ -170,9 +170,66 @@ The function,  ```generateDocs()``` simply writes documents locally without tryi
 
 The function, ```checkCodeStyle()``` should write it's results to CircleCI's <a href="https://circleci.com/docs/build-artifacts" target="_blank">build artifacts directory</a> specified by <a href="https://circleci.com/docs/environment-variables" target="_blank">the environment variable</a> ```CIRCLE_ARTIFACTS```.  Of course, if we are working locally, that variable will be ```null```.  We have to set it to something, so we simply make it: "```.```".
 
-Continued . . . 
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L128" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Helper File - Code Linting
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+.footnote[.red.bold[] [Table of Contents](./)]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Build Script Authorization
+
+The function, ```commitDocsToGitHubPages()```, presents us with a problem.
+
+When we authorized CircleCI to access our GitHub project, all it got was a deploy key with read-only privileges on that single project.  This will fail when we push our documentation to the *gh-pages* branches of our packages.  As CircleCI's manual page, <a href="https://circleci.com/docs/github-security-ssh-keys" target="_blank">*GitHub security and SSH keys*</a> indicates, we need a a heightened privileges "UserKey".
+
+Open your project's config page, "Checkout keys for ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}", add a user key and (optionally) delete the redundant deploy key :
+
+```ruby
+https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/edit#checkout
+``` 
+
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L147" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Helper File - Code Linting
+  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+.footnote[.red.bold[] [Table of Contents](./)]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Push Docs To GitHub Pages From CI Build
+
+Now that our build script has sufficient privileges, we can enable the call to ```commitDocsToGitHubPages```, which is commented out at the bottom of the file ```./tools/perform_ci_tasks.sh``` :
+
+```ruby
+checkCodeStyle;
+generateDocs;
+# commitDocsToGitHubPages;    # <--  uncomment
+```
+
+We'll also update our ```circle.yml``` script adding the call to ```perform_per_package_ci_tasks.sh```, as follows :
+
+```ruby
+test:
+  override:
+    # Perform per package CI Tasks
+    - ${HOME}/${CIRCLE_PROJECT_REPONAME}/packages/perform_per_package_ci_tasks.sh
+```
+
+
+
+
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L165" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

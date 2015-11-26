@@ -39,6 +39,12 @@ if [ "${RUN_RULE}" != "n" ]; then CodeMaintenanceHelperFile_B; fi;
 explain ${BINDIR}/CodeMaintenanceHelperFile_C.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then CodeMaintenanceHelperFile_C; fi;
 
+explain ${BINDIR}/ScriptAuthorization.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+if [ "${RUN_RULE}" != "n" ]; then ScriptAuthorization; fi;
+
+explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then PushDocsToGitHubPagesFromCIBuild; fi;
+
 
 
 
