@@ -24,7 +24,7 @@ Get started now by running ...
 ---
 .left-column[
   ### Revisit End-To-End Testing
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -52,7 +52,7 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 ---
 .left-column[
   ### Finish Documentation
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -60,7 +60,7 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 
 #### The Package Works But It Is Not Documented
 
-The files <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js' target='_blank'>"yourpackage_documented.js"</a> and <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example_documented.js' target='_blank'>"usage_example_documented.js"</a> are to the less well documented files ```${PKG_NAME}.js``` and ```usage_example.js```.
+The files <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage_documented.js' target='_blank'>"yourpackage_documented.js"</a> and <a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example_documented.js' target='_blank'>"usage_example_documented.js"</a> are to replace the less well documented files ```${PKG_NAME}.js``` and ```usage_example.js```.
 
 <div style='word-wrap:break-word;'>Rerunning jsDoc now will generate a much more complete documentation site than before.  View it locally at : <a href='file:///home/${USER}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html' target='_blank'>file:///home/${USER}/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/docs/index.html</a>.</div>
 
@@ -81,7 +81,7 @@ Continues ...
 ---
 .left-column[
   ### Integrating Everything
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -101,7 +101,7 @@ Our focus for the rest of this part is going to be on <a href="https://circleci.
 ---
 .left-column[
   ### Helper File - Code Linting
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -121,7 +121,7 @@ Continued . . .
 ---
 .left-column[
   ### Helper File - Code Linting
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -131,7 +131,7 @@ Continued . . .
 
 . . . continuing.
 
-In this step we create a dummy package maintenance file with a single command to be executed: 
+In this step, we create a dummy package maintenance file with a single command to be executed: 
 
 ```terminal
 echo "I will perform CI tasks on ${PKG_NAME}.";
@@ -154,7 +154,7 @@ As long as a package has a valid bash executable at ```./tools/perform_ci_tasks.
 ---
 .left-column[
   ### Helper File - Code Linting
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -164,11 +164,15 @@ As long as a package has a valid bash executable at ```./tools/perform_ci_tasks.
 
 We now need to make the package level code maintenance script actually do something.
 
-The prepared script, <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_ci_tasks.sh" target="_blank">perform_ci_tasks.sh</a>, has three functions: ```generateDocs()```, ```checkCodeStyle()``` and ```commitDocsToGitHubPages()```.
+The prepared script, <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_ci_tasks.sh" target="_blank">"perform_ci_tasks.sh"</a>, has 3 functions: 
 
-The function,  ```generateDocs()``` simply writes documents locally without trying to publish on GitHub Pages. 
+1)  ```generateDocs()``` simply writes documents locally without trying to publish on GitHub Pages. 
 
-The function, ```checkCodeStyle()``` should write it's results to CircleCI's <a href="https://circleci.com/docs/build-artifacts" target="_blank">build artifacts directory</a> specified by <a href="https://circleci.com/docs/environment-variables" target="_blank">the environment variable</a> ```CIRCLE_ARTIFACTS```.  Of course, if we are working locally, that variable will be ```null```.  We have to set it to something, so we simply make it: "```.```".
+2) ```checkCodeStyle()``` should write it's results to CircleCI's <a href="https://circleci.com/docs/build-artifacts" target="_blank">build artifacts directory</a> specified by <a href="https://circleci.com/docs/environment-variables" target="_blank">the environment variable</a> ```CIRCLE_ARTIFACTS```.  Of course, if we are working locally, that variable will be ```null```.  We have to set it to something, so we simply make it: "```.```".
+
+3) ```commitDocsToGitHubPages()``` is temporarily commented out.
+
+Executing, ```perform_per_package_ci_tasks.sh```, now will show ```esLint``` and ```jsDoc``` completing their respective tasks.
 
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L128" target="_blank">Code for this step.</a>] ]
@@ -176,7 +180,7 @@ The function, ```checkCodeStyle()``` should write it's results to CircleCI's <a 
 ---
 .left-column[
   ### Helper File - Code Linting
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -186,7 +190,7 @@ The function, ```checkCodeStyle()``` should write it's results to CircleCI's <a 
 
 The function, ```commitDocsToGitHubPages()```, presents us with a problem.
 
-When we authorized CircleCI to access our GitHub project, all it got was a deploy key with read-only privileges on that single project.  This will fail when we push our documentation to the *gh-pages* branches of our packages.  As CircleCI's manual page, <a href="https://circleci.com/docs/github-security-ssh-keys" target="_blank">*GitHub security and SSH keys*</a> indicates, we need a a heightened privileges "UserKey".
+When we authorized CircleCI to access our GitHub project, all it got was a deploy key with read-only privileges on that single project.  This will fail when we push our documentation to the *gh-pages* branches of our packages.  As CircleCI's manual page, <a href="https://circleci.com/docs/github-security-ssh-keys" target="_blank">*GitHub security and SSH keys*</a> indicates, we need a heightened privileges "UserKey".
 
 Open your project's config page, "Checkout keys for ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}", add a user key and (optionally) delete the redundant deploy key :
 
@@ -200,13 +204,13 @@ https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/edit#checkou
 ---
 .left-column[
   ### Helper File - Code Linting
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Push Docs To GitHub Pages From CI Build
+#### Push Docs To GitHub Pages From CI Build (Part A)
 
 Now that our build script has sufficient privileges, we can enable the call to ```commitDocsToGitHubPages```, which is commented out at the bottom of the file ```./tools/perform_ci_tasks.sh``` :
 
@@ -216,7 +220,7 @@ generateDocs;
 # commitDocsToGitHubPages;    # <--  uncomment
 ```
 
-We'll also update our ```circle.yml``` script adding the call to ```perform_per_package_ci_tasks.sh```, as follows :
+We'll also update our ```circle.yml``` script, adding the call to ```perform_per_package_ci_tasks.sh```, as follows :
 
 ```ruby
 test:
@@ -226,15 +230,29 @@ test:
 ```
 
 
-
-
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L165" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
+  ### Helper File - Code Linting
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+.footnote[.red.bold[] [Table of Contents](./)]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Pushing Docs To GitHub Pages From CI Build (Part B)
+
+
+
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L182" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
   ### Left Title
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -265,7 +283,7 @@ Continues ...
 ---
 .left-column[
   ### Left Title
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[

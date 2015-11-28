@@ -9,12 +9,27 @@ function Try_ESLint_from_the_Command_Line() {
 }
 
 
+function Ignore_Some_Files() {
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/ >/dev/null;
+
+    echo "./docs" > .eslintignore
+    echo "./backup" >> .eslintignore
+
+  popd >/dev/null;
+}
+
+
 function Try_ESLint_Command_Line_Again() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/ >/dev/null;
-  set +e
-  eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
-  set -e
+
+    set +e;
+
+      eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js;
+
+    set -e;
+    
   popd >/dev/null;
 
 }

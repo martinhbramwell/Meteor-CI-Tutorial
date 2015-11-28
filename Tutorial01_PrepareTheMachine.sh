@@ -1,10 +1,12 @@
 #!/bin/bash
 
+
 set -e;
 #
 sudo pwd;
 
-source ./scripts/util.sh
+source ./scripts/util.sh;
+
 checkForVirtualMachine;
 
 
@@ -18,19 +20,19 @@ source "${BINDIR}/${SECTION}_functions.sh";
 verifyFreeSpace;
 # verifyRootUser;
 
-printf  "
-        The first step requires installing some tools that make these explanations more readable :
-         - gawk
-         - python-pygments
+# printf  "
+#         The first step requires installing some tools that make these explanations more readable :
+#          - gawk
+#          - python-pygments
 
-"
-read -p "  'q' or <enter> ::  " -n 1 -r USER_ANSWER
+# "
+# read -p "  'q' or <enter> ::  " -n 1 -r USER_ANSWER
 
-CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
-RUN_RULE=${CHOICE};
-if [ "X${CHOICE}X" == "XqX" ]; then echo ""; exit 0; fi;
+# CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+# RUN_RULE=${CHOICE};
+# if [ "X${CHOICE}X" == "XqX" ]; then echo ""; exit 0; fi;
 
-installToolsForTheseScripts
+installToolsForTheseScripts;
 
 source ./scripts/explain.sh
 
@@ -51,7 +53,6 @@ RUN_RULE="";
 explain ${BINDIR}/Java_7_is_required_by_Nightwatch.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
   Java_7_is_required_by_Nightwatch_A;
-  sudo apt-get update;
   Java_7_is_required_by_Nightwatch_B;
 fi;
 
@@ -75,7 +76,6 @@ if [ "${RUN_RULE}" != "n" ]; then Install_Bunyan_Globally; fi;
 explain ${BINDIR}/This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
   This_tutorial_expects_to_use_the_Sublime_Text_3_editor_A;
-  sudo apt-get update;
   This_tutorial_expects_to_use_the_Sublime_Text_3_editor_B;
 fi;
 

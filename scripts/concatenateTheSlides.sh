@@ -42,6 +42,10 @@ function deleteAllPreviouslyConcatenatedMarkdownFiles() {
 
 function applyManualVsAutomaticIndicator() {
 
+  NON_ANIMATED=${1};
+  IMAGE_TYPE="gif";
+  if [[ "${NON_ANIMATED}" == "true" ]]; then IMAGE_TYPE="png"; fi;
+
   SKIP_INTRO="Introduction.md";
   SKIP_END="Fin.md";
   if [ "${AFP/${SKIP_INTRO}}" = "${AFP}" ] ; then
@@ -49,10 +53,14 @@ function applyManualVsAutomaticIndicator() {
       LNUM=$(grep -nr "${FPA[2]}.*MANUAL_INPUT_REQUIRED" ${SCRIPT_FILE}  | cut -d : -f 1);
       PATTERN='input_type_indicator';
       if [[ "${LNUM}" -gt 0 ]]; then
-        REPLACEMENT='  <br \/><br \/><div class="input_type_indicator"><img src=".\/fragments\/typer.gif" \/><br \/>Manual input is required here.<\/div><br \/>';
+        REPLACEMENT="  <br \/><br \/><div class='input_type_indicator'><img src='.\/fragments\/typer.${IMAGE_TYPE}' \/><br \/>Manual input is required here.<\/div><br \/>";
+        # REPLACEMENT='  <br \/><br \/><div class="input_type_indicator"><img src=".\/fragments\/typer.${IMAGE_TYPE}" \/><br \/>Manual input is required here.<\/div><br \/>';
+
 #        REPLACEMENT='Manual input'
       else
-        REPLACEMENT='  <br \/><br \/><div class="input_type_indicator"><img src=".\/fragments\/loader.gif" \/><br \/>No manual input required here.<\/div><br \/>';
+        REPLACEMENT="  <br \/><br \/><div class='input_type_indicator'><img src='.\/fragments\/loader.${IMAGE_TYPE}' \/><br \/>No manual input required here.<\/div><br \/>";
+        # REPLACEMENT='  <br \/><br \/><div class="input_type_indicator"><img src=".\/fragments\/loader.${IMAGE_TYPE}" \/><br \/>No manual input required here.<\/div><br \/>';
+
 #        REPLACEMENT='No manual input'
       fi
       sed -i "s/.*${PATTERN}.*/${REPLACEMENT}/g" ${AFP};
@@ -170,7 +178,7 @@ do
      ;;
   esac
 
-  applyManualVsAutomaticIndicator;
+  applyManualVsAutomaticIndicator ${SKIP};
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

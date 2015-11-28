@@ -162,7 +162,7 @@ function ScriptAuthorization() {
 
 
 
-function PushDocsToGitHubPagesFromCIBuild() {
+function PushDocsToGitHubPagesFromCIBuild_A() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
@@ -174,6 +174,14 @@ function PushDocsToGitHubPagesFromCIBuild() {
     wget -O circle.yml https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/circle_T09.yml;
 
   popd >/dev/null;
+
+}
+
+
+
+function PushDocsToGitHubPagesFromCIBuild_B() {
+
+  echo "to be completed"
 
 }
 

@@ -24,7 +24,6 @@ explain ${BINDIR}/Introduction.md
 explain ${BINDIR}/UsageExampleEndToEnd.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 if [ "${RUN_RULE}" != "n" ]; then UsageExampleEndToEnd; fi;
 
-
 explain ${BINDIR}/FinishDocumentation.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then FinishDocumentation; fi;
 
@@ -42,8 +41,11 @@ if [ "${RUN_RULE}" != "n" ]; then CodeMaintenanceHelperFile_C; fi;
 explain ${BINDIR}/ScriptAuthorization.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 if [ "${RUN_RULE}" != "n" ]; then ScriptAuthorization; fi;
 
-explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then PushDocsToGitHubPagesFromCIBuild; fi;
+explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_A.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then PushDocsToGitHubPagesFromCIBuild_A; fi;
+
+explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then PushDocsToGitHubPagesFromCIBuild_B; fi;
 
 
 

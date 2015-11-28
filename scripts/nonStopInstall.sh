@@ -2,7 +2,7 @@
 
 set -e;
 #
-declare NOT_TESTING=true;  # true OR false
+declare NOT_TESTING=false;  # true OR false
 declare NONSTOP="nonstop";
 CRP=$(sudo pwd);
 
@@ -147,8 +147,6 @@ ${NOT_TESTING} && {
   }
 # fi;
 
-pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
-
 EnforceOwnershipAndPermissions;
 
 setSection 2;
@@ -159,7 +157,6 @@ setSection 2;
 # printf -v BINDIR "./Tutorial%02d_%s" ${SECTION_NUM} ${SECTION};
 # source "${BINDIR}/${SECTION}_functions.sh";
 
-
 # explain ${BINDIR}/Configure_git_for_GitHub.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
 # Configure_git_for_GitHub;
@@ -168,17 +165,10 @@ setSection 2;
 # explain ${BINDIR}/Install_Meteor.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
   ${NOT_TESTING} && {
-    Install_Meteor ${FORCE};
+    Install_Meteor ${NONSTOP};
     echo -e "\n   Installed Meteor\n          - o 0 o - \n";
   }
 # fi;
-
-
-
-echo -e "\n - o 0 o -||| \n"; #  
-NOT_TESTING=true;
-
-
 
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
@@ -197,7 +187,6 @@ NOT_TESTING=true;
   }
 
 
-pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 # explain ${BINDIR}/Create_remote_GitHub_repository_B.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 # if [ "${RUN_RULE}" != "n" ]; then Create_remote_GitHub_repository_B; fi;
 
@@ -215,6 +204,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
   }
 # fi;
 
+
 # explain ${BINDIR}/Check_the_meteor_project_will_work.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
 #   export METEOR_PORT=3000
@@ -230,6 +220,9 @@ export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger
     echo -e "\n   Added Meteor application development support files\n          - o 0 o - \n";
   }
 # fi;
+
+echo -e "\n - o 0 o -||| \n"; #  
+NOT_TESTING=true;
 
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
@@ -252,6 +245,7 @@ export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger
   }
 # fi;
 
+exit;
 
 
 setSection 3;
@@ -356,6 +350,9 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
     Correct_the_indicated_code_quality_defects;
     echo -e "\n   Corrected the indicated code-quality defects. : \n          - o 0 o - \n";
+
+    Ignore_Some_Files;
+    echo -e "\n   Marked some files to be ignores. : \n          - o 0 o - \n";
 
     Try_ESLint_Command_Line_Again;
     echo -e "\n   Corrected the indicated code-quality defects. : \n          - o 0 o - \n";

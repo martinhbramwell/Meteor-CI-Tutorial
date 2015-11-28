@@ -17,6 +17,31 @@ function verifyFreeSpace() {
   fi;
 }
 
+
+function aptNotYetInstalled() {
+
+  set +e;
+#  echo -e "\n  $1";
+  return $(dpkg-query -W --showformat='${Status}\n' $1 2>/dev/null | grep -c "install ok installed");
+  set -e;
+
+}
+
+function aptNotYetInSources() {
+
+#  echo -e "\n  $1";
+  return $(grep -r --exclude='*.save' --exclude='*.gpg' "$1" /etc/apt  | grep -v "#" | grep -c $1;);
+
+}
+
+function npmNotYetInstalled() {
+
+#  echo -e "\n  $1  $2";
+  return $(npm list $2 $1 | grep -c "empty";);
+
+}
+
+
 function existingMeteor() {
 
   EXISTING_METEOR_PID=$(ps aux | grep meteor | grep -v grep | grep -c ~/.meteor/packages)
@@ -65,15 +90,17 @@ function killMeteorProcess()
 
 function saveUserData()
 {
-cat << UDATA > ~/.udata.sh
-export PARENT_DIR="${PARENT_DIR}"
-export PROJECT_NAME="${PROJECT_NAME}"
-export PKG_NAME="${PKG_NAME}"
-export GITHUB_ORGANIZATION_NAME="${GITHUB_ORGANIZATION_NAME}"
-export PACKAGE_DEVELOPER="${PACKAGE_DEVELOPER}"
-export YOUR_EMAIL="${YOUR_EMAIL}"
-export YOUR_UID="${YOUR_UID}"
-export YOUR_FULLNAME="${YOUR_FULLNAME}"
+cat << UDATA > ~/.udata.sh;
+export PARENT_DIR="${PARENT_DIR}";
+export PROJECT_NAME="${PROJECT_NAME}";
+export PKG_NAME="${PKG_NAME}";
+export GITHUB_ORGANIZATION_NAME="${GITHUB_ORGANIZATION_NAME}";
+export PACKAGE_DEVELOPER="${PACKAGE_DEVELOPER}";
+export YOUR_EMAIL="${YOUR_EMAIL}";
+export YOUR_UID="${YOUR_UID}";
+export YOUR_FULLNAME="${YOUR_FULLNAME}";
+export METEOR_UID="${METEOR_UID}";
+export METEOR_PWD="${METEOR_PWD}";
 UDATA
 
 chown ${SUDOUSER}:${SUDOUSER} ~/.udata.sh;
@@ -100,11 +127,11 @@ function didNotGetUserData()
     echo -e "#    - projects directory"
     echo -e "#    - project name"
     echo -e "#    - package name"
-    echo -e "#    - project owner name"
+    echo -e "#    - github organization name"
     echo -e "#    - developer id"
+    echo -e "#    - developer email."
     echo -e "#    - developer name"
     echo -e "#    - developer full name"
-    echo -e "#    - developer email."
     echo -e "#   Please ensure you have entered these values correctly."
     echo -e "#####################################################################"
     exit 1;
@@ -135,11 +162,12 @@ function getUserData()
     export PKG_NAME="";
     export GITHUB_ORGANIZATION_NAME="";
     export PACKAGE_DEVELOPER="";
-    export YOUR_EMAIL="";
     export YOUR_UID="";
     export YOUR_FULLNAME="";
+    export YOUR_EMAIL="";
+    export METEOR_UID="";
+    export METEOR_PWD="";
   fi
-
 
   CHOICE="n"
   while [[ ! "X${CHOICE}X" == "XyX" ]]
@@ -154,6 +182,8 @@ function getUserData()
     echo "GutHub user full name : ${YOUR_FULLNAME}"
     echo "Project owner local user id : ${YOUR_UID}"
     echo "Project owner email : ${YOUR_EMAIL}"
+    echo "Meteor server user ID : ${METEOR_UID}"
+    echo "Meteor server password : ${METEOR_PWD}"
 
     read -ep "Is this correct? (y/n/q) ::  " -n 1 -r USER_ANSWER
     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
@@ -178,14 +208,20 @@ function getUserData()
       read -p "The project owner user id in GitHub :: " -e -i "${PACKAGE_DEVELOPER}" INPUT
       if [ ! "X${INPUT}X" == "XX" ]; then PACKAGE_DEVELOPER=${INPUT}; fi;
 
+      read -p "The project owner name to use within the project :: " -e -i "${YOUR_UID}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then YOUR_UID=${INPUT}; fi;
+
       read -p "The project owner full name to use to publish it in GitHub :: " -e -i "${YOUR_FULLNAME}" INPUT
       if [ ! "X${INPUT}X" == "XX" ]; then YOUR_FULLNAME=${INPUT}; fi;
 
       read -p "The email address for the project owner in GitHub :: " -e -i "${YOUR_EMAIL}" INPUT
       if [ ! "X${INPUT}X" == "XX" ]; then YOUR_EMAIL=${INPUT}; fi;
 
-      read -p "The project owner name to use within the project :: " -e -i "${YOUR_UID}" INPUT
-      if [ ! "X${INPUT}X" == "XX" ]; then YOUR_UID=${INPUT}; fi;
+      read -p "Meteor account user name for Meteor deployment server :: " -e -i "${METEOR_UID}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then METEOR_UID=${INPUT}; fi;
+
+      read -p "Meteor account password for Meteor deployment server :: " -e -i "${METEOR_PWD}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then METEOR_PWD=${INPUT}; fi;
 
     fi;
     echo "  "

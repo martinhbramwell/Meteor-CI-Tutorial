@@ -42,7 +42,7 @@ dependencies:
 test:
   # Tests that replace CircleCI's inferred tests
   override:
-    # Run all unit tests
+    # Perform per package CI Tasks
     - ${HOME}/${CIRCLE_PROJECT_REPONAME}/packages/perform_per_package_ci_tasks.sh
     # Run all unit tests
     - ${HOME}/${CIRCLE_PROJECT_REPONAME}/tests/tinyTests/test-all.sh

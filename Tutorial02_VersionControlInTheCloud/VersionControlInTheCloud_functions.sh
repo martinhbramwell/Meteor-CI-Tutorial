@@ -14,17 +14,25 @@ export FORCE="force";
 function Install_Meteor() {
 
   INSTALLMETEOR=true;
-  if [[  "${1}" == "${FORCE}"  ]]; then
-    INSTALLMETEOR=true;
-  elif [[ $(meteor --version) =~ .*Meteor.* ]];
+  if [[ $(meteor --version) =~ .*Meteor.* ]];
   then
-    echo -e "\nMeteor has been installed already.\n  You can remove it and [r]einstall it OR [s]kip this step.";
-    read -p "  'r' or 's' ::  " -n 1 -r USER_ANSWER;
-    CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]');
-    if [[ "X${CHOICE}X" == "XsX" ]]; then
+
+    if [[ "${1}" == "${NONSTOP}" ]]; then
+
       INSTALLMETEOR=false;
+
+    else
+
+      echo -e "\nMeteor has been installed already.\n  You can remove it and [r]einstall it OR [s]kip this step.";
+      read -p "  'r' or 's' ::  " -n 1 -r USER_ANSWER;
+      CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]');
+      if [[ "X${CHOICE}X" == "XsX" ]]; then
+        INSTALLMETEOR=false;
+      fi;
+
     fi;
-  fi
+
+  fi;
 
   if ${INSTALLMETEOR}; then
     curl -s https://install.meteor.com/ | sh;

@@ -1,0 +1,19 @@
+#!/usr/bin/expect -f
+
+set USERNAME [lindex $argv 0]
+set PASSWORD [lindex $argv 1]
+
+spawn meteor login;
+expect "Username: ";
+send "${USERNAME}\r";
+sleep 3;
+expect "Password: ";
+send "${PASSWORD}\r";
+sleep 3;
+expect "Logged in as ${USERNAME}.";
+
+exit;
+# send "${USERNAME}\r";
+# sleep 1;
+# expect "Password:";
+# send "${PASSWORD}\r";
