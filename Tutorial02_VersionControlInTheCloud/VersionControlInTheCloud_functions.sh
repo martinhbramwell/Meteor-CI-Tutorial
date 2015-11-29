@@ -278,8 +278,9 @@ function Create_local_GitHub_repository() {
 
   ${DATA_TO_FETCH} && {
     git fetch ${PROJECT_NAME}_origin && echo -e "\nFetched";
+    BRNCH=$(git branch); BRNCH="${BRNCH#* }";
     # git pull ${PROJECT_NAME}_origin master && echo -e "\nPulled";  # When hand built, master does not yet exist
-    git pull ${PROJECT_NAME}_origin && echo -e "\nPulled";
+    git pull ${PROJECT_NAME}_origin ${BRNCH} && echo -e "\nPulled";
     popPseudoStash && echo -e "\nDestashed";
   }
 

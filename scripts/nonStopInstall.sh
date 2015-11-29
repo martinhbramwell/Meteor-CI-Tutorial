@@ -221,7 +221,7 @@ export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger
   }
 # fi;
 
-echo -e "\n - o 0 o -||| \n"; #  
+echo -e "\n - o 0 o -||| \n";   #  
 NOT_TESTING=true;
 
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
@@ -246,7 +246,6 @@ NOT_TESTING=true;
 # fi;
 
 exit;
-
 
 setSection 3;
 
