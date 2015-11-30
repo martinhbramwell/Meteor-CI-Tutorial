@@ -2,7 +2,7 @@
 
 set -e;
 #
-declare NOT_TESTING=false;  # true OR false
+declare PROCESS_THIS=true;  # true OR false
 CRP=$(sudo pwd);
 
 
@@ -22,7 +22,7 @@ echo -e "\n   Verified Free Space\n          - o 0 o - \n";
 checkNotRoot;
 # verifyRootUser;
 
-${NOT_TESTING} && {
+${PROCESS_THIS} && {
   if ! getUserData; then didNotGetUserData; fi;
   if ! getNonStopData; then didNotGetNSData; fi;
 }
@@ -40,7 +40,7 @@ do
   II=$[$II+1]
 done;
 
-${NOT_TESTING} && {
+${PROCESS_THIS} && {
   installToolsForTheseScripts;
   echo -e "\n   Installed Tools For These Scripts\n          - o 0 o - \n";
 }
@@ -49,7 +49,7 @@ ${NOT_TESTING} && {
 source ./scripts/explain.sh
 RUN_RULE="";
 
-${NOT_TESTING} && {
+${PROCESS_THIS} && {
   Install_other_tools;
   echo -e "\n   Installed Other Tools\n          - o 0 o - \n";
 }
@@ -77,7 +77,7 @@ setSection 1;
 # RUN_RULE="";
 # explain ${BINDIR}/Java_7_is_required_by_Nightwatch.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-${NOT_TESTING} && {
+${PROCESS_THIS} && {
   Java_7_is_required_by_Nightwatch_A;
   This_tutorial_expects_to_use_the_Sublime_Text_3_editor_A;
 
@@ -96,12 +96,12 @@ ${NOT_TESTING} && {
 
 # explain ${BINDIR}/Install_NodeJS.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-# ${NOT_TESTING} && Install_NodeJS;
+# ${PROCESS_THIS} && Install_NodeJS;
 # fi;
 
 # explain ${BINDIR}/Install_Selenium_Webdriver_In_NodeJS.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Install_Selenium_Webdriver_In_NodeJS;
     echo -e "\n   Install Selenium Webdriver In NodeJS\n          - o 0 o - \n";
   }
@@ -109,14 +109,14 @@ ${NOT_TESTING} && {
 
 # explain ${BINDIR}/Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome;
     echo -e "\n   Installed Google Chrome and the Selenium Web Driver for Chrome\n          - o 0 o - \n";
   }
 # fi;
 # explain ${BINDIR}/Install_Bunyan_Globally.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Install_Bunyan_Globally;
     echo -e "\n   Installed Bunyan Globally\n          - o 0 o - \n";
   }
@@ -124,7 +124,7 @@ ${NOT_TESTING} && {
 
 # explain ${BINDIR}/This_tutorial_expects_to_use_the_Sublime_Text_3_editor.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     This_tutorial_expects_to_use_the_Sublime_Text_3_editor_B;
     echo -e "\n   Prepared the Sublime Text editor\n          - o 0 o - \n";
   }
@@ -132,7 +132,7 @@ ${NOT_TESTING} && {
 
 # explain ${BINDIR}/Install_eslint.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Install_eslint;
     echo -e "\n   Installed ESLint\n          - o 0 o - \n";
   }
@@ -140,7 +140,7 @@ ${NOT_TESTING} && {
 
 # explain ${BINDIR}/Install_jsdoc.md ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Install_jsdoc;
     echo -e "\n   Installed JSDoc\n          - o 0 o - \n";
   }
@@ -163,19 +163,19 @@ setSection 2;
 
 # explain ${BINDIR}/Install_Meteor.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Install_Meteor ${NONSTOP};
     echo -e "\n   Installed Meteor\n          - o 0 o - \n";
   }
 # fi;
 
 echo -e "\n - o 0 o -||| \n";   #  
-NOT_TESTING=true;
+PROCESS_THIS=true;
 
 
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Create_GitHub_Repo_Deploy_Keys ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT};
     echo -e "\n   Created GitHub Repo Deploy Keys for '${PROJECT_NAME}'?\n          - o 0 o - \n";
   }
@@ -184,7 +184,7 @@ NOT_TESTING=true;
 # explain ${BINDIR}/Create_remote_GitHub_repository_A.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
 
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Create_GitHub_Repo_For_Org ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT};
     echo -e "\n   Created GitHub Repo For '${PROJECT_NAME}' \n          - o 0 o - \n";
   }
@@ -193,7 +193,7 @@ NOT_TESTING=true;
 # explain ${BINDIR}/Create_remote_GitHub_repository_B.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 # if [ "${RUN_RULE}" != "n" ]; then Create_remote_GitHub_repository_B; fi;
 
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Add_GitHub_Repo_Deploy_Key ${PROJECT_NAME}  ${REPLACE_EXISTING_PROJECT};
     echo -e "\n   Added GitHub Repo Deploy Key for '${PROJECT_NAME}'\n          - o 0 o - \n";
   }
@@ -201,7 +201,7 @@ NOT_TESTING=true;
 
 # explain ${BINDIR}/Create_Meteor_project.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Create_Meteor_project;
     echo -e "\n   Created Meteor project '${PROJECT_NAME}' \n          - o 0 o - \n";
   }
@@ -218,7 +218,7 @@ NOT_TESTING=true;
 export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc"
 # explain ${BINDIR}/Add_Meteor_application_development_support_files.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Add_Meteor_application_development_support_files;
     echo -e "\n   Added Meteor application development support files\n          - o 0 o - \n";
   }
@@ -240,7 +240,7 @@ echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
 
 # explain ${BINDIR}/Create_local_GitHub_repository.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Create_local_GitHub_repository ${NONSTOP};
     echo -e "\n   Created local GitHub repository for '${PROJECT_NAME}'\n          - o 0 o - \n";
   }
@@ -254,7 +254,7 @@ echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
 
 # explain ${BINDIR}/Create_a_package_A.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Create_a_package_A;
     echo -e "\n   Created package '${PKG_NAME}': A\n          - o 0 o - \n";
   }
@@ -264,7 +264,7 @@ echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
 
 # explain ${BINDIR}/Create_a_package_B.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Create_a_package_B;
     echo -e "\n   Created package '${PKG_NAME}' : B\n          - o 0 o - \n";
   }
@@ -272,7 +272,7 @@ echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
 
 # explain ${BINDIR}/Create_a_package_C.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Create_a_package_C;
     echo -e "\n   Created package '${PKG_NAME}' : C\n          - o 0 o - \n";
   }
@@ -285,13 +285,13 @@ echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
 # if [ "${RUN_RULE}" != "n" ]; then
 #   Create_GitHub_Repo_Deploy_Keys;
 # fi;
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Create_GitHub_Repo_Deploy_Keys ${PKG_NAME} ${REPLACE_EXISTING_PACKAGE};
     echo -e "\n   Created GitHub Repo Deploy Keys for '${PKG_NAME}'\n          - o 0 o - \n";
   }
 
 
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Create_GitHub_Repo_For_Org ${PKG_NAME} ${REPLACE_EXISTING_PACKAGE};
     echo -e "\n   Created GitHub Repo for '${PKG_NAME}'\n          - o 0 o - \n";
   }
@@ -301,7 +301,7 @@ echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
 # RUN_RULE="";
 # explain ${BINDIR}/Control_a_packages_versions_A.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 # if [ "${RUN_RULE}" != "n" ]; then
-  # ${NOT_TESTING} && {
+  # ${PROCESS_THIS} && {
   #   Control_a_packages_versions_A ${NONSTOP};
   #   echo -e "\n   Controlling '${PKG_NAME}' package's versions : A\n          - o 0 o - \n";
   # }
@@ -309,7 +309,7 @@ echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
 
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Add_GitHub_Repo_Deploy_Key ${PKG_NAME}  ${REPLACE_EXISTING_PACKAGE};
     echo -e "\n   Added GitHub Repo Deploy Key for '${PKG_NAME}' \n          - o 0 o - \n";
   }
@@ -318,7 +318,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 # explain ${BINDIR}/Control_a_packages_versions_B.md  MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Control_a_packages_versions_B "${NONSTOP}";
     echo -e "\n   Controlled '${PKG_NAME}' package's versions : B\n          - o 0 o - \n";
   }
@@ -334,7 +334,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 # explain ${BINDIR}/Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
     Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line ${NONSTOP};
     echo -e "\n   Added a test runner for getting TinyTest output on the command line. : B\n          - o 0 o - \n";
   }
@@ -343,7 +343,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
 
     setSection 4;
 
@@ -366,7 +366,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
 
     setSection 5;
 
@@ -418,7 +418,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
 
     setSection 6;
 
@@ -463,7 +463,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
 
     setSection 7;
 
@@ -515,10 +515,8 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 }
 
-exit;
-
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-${NOT_TESTING} && {
+${PROCESS_THIS} && {
 
     setSection 8;
 
@@ -610,9 +608,8 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 }
 
-
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-${NOT_TESTING} && {
+${PROCESS_THIS} && {
 
     setSection 9;
 
@@ -647,10 +644,10 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 
 echo -e "\n - o 0 o -|||>>> \n"; #
-NOT_TESTING=true;
+PROCESS_THIS=true;
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-${NOT_TESTING} && {
+${PROCESS_THIS} && {
 
     setSection 9;
 
@@ -686,7 +683,7 @@ exit;
 
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
 
     setSection 1;
 
@@ -706,7 +703,7 @@ exit;
 
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
 
     setSection 4;
 
@@ -717,7 +714,7 @@ exit;
 
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-  ${NOT_TESTING} && {
+  ${PROCESS_THIS} && {
 
     setSection 6;
 

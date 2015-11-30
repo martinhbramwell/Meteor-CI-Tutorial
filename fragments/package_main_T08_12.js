@@ -30,9 +30,11 @@ Meteor.methods({
       { petId: petNum},
       {responseContentType: 'application/json'}
     );
-    return aPetVO.status === 404
-    ? {name: JSON.parse(aPetVO.data).message}
-    : aPetVO.obj;
+    if (aPetVO.status === 404) {
+      return {name: JSON.parse(aPetVO.data).message};
+    }
+    Logger.info('Pet is ', aPetVO.obj.name);
+    return aPetVO.obj;
   },
 });
 
