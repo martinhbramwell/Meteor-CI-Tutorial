@@ -183,8 +183,8 @@ GITIG
 
   ${DATA_TO_FETCH} && {
     git fetch ${PKG_NAME}_origin && echo -e "\nFetched";
-    git pull ${PROJECT_NAME}_origin master && echo -e "\nPulled";  # When hand built, master does not yet exist
-    # git pull ${PKG_NAME}_origin && echo -e "\nPulled";
+#    BRNCH=$(git branch); BRNCH="${BRNCH#* }";  # When hand built, master does not yet exist, so we can't specify it in the pull
+    git pull ${PKG_NAME}_origin master && echo -e "\nPulled";
     popPseudoStash && echo -e "\nDestashed";
   }
 

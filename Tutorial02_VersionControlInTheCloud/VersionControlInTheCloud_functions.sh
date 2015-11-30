@@ -2,7 +2,7 @@
 #
 function Configure_git_for_GitHub() {
 
-  # echo -e "#   -- Configuring git -- "
+  # echo -e "#    -- Configuring git -- "
 
   git config --global user.email "${YOUR_EMAIL}"
   git config --global user.name "${YOUR_FULLNAME}"
@@ -258,6 +258,8 @@ function Create_local_GitHub_repository() {
   declare DATA_TO_FETCH=false;
   if [[  "${1}" == "${NONSTOP}"  ]]; then DATA_TO_FETCH=true; fi;
 
+  echo "DATA_TO_FETCH = ${DATA_TO_FETCH}";
+
   prepareKnownHost "github.com";
 
   pushd ~/${PARENT_DIR} >/dev/null;
@@ -270,17 +272,17 @@ function Create_local_GitHub_repository() {
 
   if [[ $(git remote) = ${PROJECT_NAME}_origin ]];
   then
-    echo -e "Remote, named ${PROJECT_NAME}_origin has already been defined for repo ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git";
+    echo -e "\nRemote, named ${PROJECT_NAME}_origin has already been defined for repo ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git";
   else
-    echo -e "Defining remote, named ${PROJECT_NAME}_origin for repo ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git";
+    echo -e "\nDefining remote, named ${PROJECT_NAME}_origin for repo ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git";
     git remote add ${PROJECT_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}:${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.git
   fi;
 
   ${DATA_TO_FETCH} && {
-    git fetch ${PROJECT_NAME}_origin && echo -e "\nFetched";
-    BRNCH=$(git branch); BRNCH="${BRNCH#* }";
-    # git pull ${PROJECT_NAME}_origin master && echo -e "\nPulled";  # When hand built, master does not yet exist
-    git pull ${PROJECT_NAME}_origin ${BRNCH} && echo -e "\nPulled";
+    git fetch ${PROJECT_NAME}_origin master && echo -e "\nFetched";
+    # BRNCH=$(git branch); BRNCH="${BRNCH#* }"; # When hand built, master does not yet exist, so we can't specify it in the pull
+    # echo "Branch is : ${BRNCH}";
+    git pull ${PROJECT_NAME}_origin master && echo -e "\nPulled";
     popPseudoStash && echo -e "\nDestashed";
   }
 

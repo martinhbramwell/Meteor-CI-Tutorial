@@ -3,7 +3,6 @@
 set -e;
 #
 declare NOT_TESTING=false;  # true OR false
-declare NONSTOP="nonstop";
 CRP=$(sudo pwd);
 
 
@@ -170,6 +169,10 @@ setSection 2;
   }
 # fi;
 
+echo -e "\n - o 0 o -||| \n";   #  
+NOT_TESTING=true;
+
+
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
   ${NOT_TESTING} && {
@@ -220,9 +223,7 @@ export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger
     echo -e "\n   Added Meteor application development support files\n          - o 0 o - \n";
   }
 # fi;
-
-echo -e "\n - o 0 o -||| \n";   #  
-NOT_TESTING=true;
+echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
@@ -245,11 +246,11 @@ NOT_TESTING=true;
   }
 # fi;
 
-exit;
+
 
 setSection 3;
 
-pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
 # explain ${BINDIR}/Create_a_package_A.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
@@ -300,10 +301,10 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 # RUN_RULE="";
 # explain ${BINDIR}/Control_a_packages_versions_A.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 # if [ "${RUN_RULE}" != "n" ]; then
-  ${NOT_TESTING} && {
-    Control_a_packages_versions_A ${NONSTOP};
-    echo -e "\n   Controlling '${PKG_NAME}' package's versions : A\n          - o 0 o - \n";
-  }
+  # ${NOT_TESTING} && {
+  #   Control_a_packages_versions_A ${NONSTOP};
+  #   echo -e "\n   Controlling '${PKG_NAME}' package's versions : A\n          - o 0 o - \n";
+  # }
 # fi;
 
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
@@ -313,13 +314,17 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     echo -e "\n   Added GitHub Repo Deploy Key for '${PKG_NAME}' \n          - o 0 o - \n";
   }
 
+
+
 # explain ${BINDIR}/Control_a_packages_versions_B.md  MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
   ${NOT_TESTING} && {
-    Control_a_packages_versions_B;
+    Control_a_packages_versions_B "${NONSTOP}";
     echo -e "\n   Controlled '${PKG_NAME}' package's versions : B\n          - o 0 o - \n";
   }
 # fi;
+
+
 
 
 # explain ${BINDIR}/TinyTest_a_package.md MORE_ACTION # CODE_BLOCK
@@ -334,8 +339,6 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     echo -e "\n   Added a test runner for getting TinyTest output on the command line. : B\n          - o 0 o - \n";
   }
 # fi;
-
-
 
 
 
@@ -512,6 +515,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 }
 
+exit;
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 ${NOT_TESTING} && {

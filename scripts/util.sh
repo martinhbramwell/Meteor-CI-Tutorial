@@ -1,6 +1,8 @@
 #!/bin/bash
 #
 
+declare NONSTOP="nonstop";
+
 export SUDOUSER=$(who am i | awk '{print $1}');
 export GITHUB_SHTTP="https://api.github.com";
 
