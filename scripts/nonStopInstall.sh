@@ -2,12 +2,8 @@
 
 set -e;
 #
-declare PROCESS_THIS=true;  # true OR false
+declare PROCESS_THIS=false;  # true OR false
 CRP=$(sudo pwd);
-
-
-rm -fr ~/project_isle/prj09/.meteor/local/db;
-
 
 source ./scripts/util.sh
 checkForVirtualMachine;
@@ -169,8 +165,7 @@ setSection 2;
   }
 # fi;
 
-echo -e "\n - o 0 o -||| \n";   #  
-PROCESS_THIS=true;
+echo -e "\n - o 0 o -||| \n";   #  PROCESS_THIS=true;
 
 
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
@@ -354,7 +349,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     echo -e "\n   Corrected the indicated code-quality defects. : \n          - o 0 o - \n";
 
     Ignore_Some_Files;
-    echo -e "\n   Marked some files to be ignores. : \n          - o 0 o - \n";
+    echo -e "\n   Marked some files to be ignored. : \n          - o 0 o - \n";
 
     Try_ESLint_Command_Line_Again;
     echo -e "\n   Corrected the indicated code-quality defects. : \n          - o 0 o - \n";
@@ -651,11 +646,43 @@ ${PROCESS_THIS} && {
 
     setSection 9;
 
-    # explain ${BINDIR}/CodeLintingHelperFile.md MORE_ACTION # CODE_BLOCK
+    # explain ${BINDIR}/CodeMaintenanceHelperFile_B.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
-    CodeLintingHelperFile;
-    echo -e "\n   Brought in CI helper file for cloud based esLint, jsDoc and GitHub Pages.\n          - o 0 o - \n";
+    CodeMaintenanceHelperFile_B;
+    echo -e "\n   Made and tested a mock version of 'perform_ci_tasks.sh'.\n          - o 0 o - \n";
     # fi;
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+    # explain ${BINDIR}/CodeMaintenanceHelperFile_C.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    CodeMaintenanceHelperFile_C;
+    echo -e "\n   Obtained and tested the final 'perform_ci_tasks.sh'.\n          - o 0 o - \n";
+    # fi;
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+    # explain ${BINDIR}/ScriptAuthorization.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+    # if [ "${RUN_RULE}" != "n" ]; then
+    ScriptAuthorization;
+    read -p "  Hit <enter> when key created. " -n 1 -r USER_ANSWER
+    echo -e "\n   .\n          - o 0 o - \n";
+    # fi;
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+    # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_A.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    PushDocsToGitHubPagesFromCIBuild_A;
+    echo -e "\n   Enabled 'commitDocs' function and got 'circle_T09.yml'.\n          - o 0 o - \n";
+    # fi;
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+    # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    PushDocsToGitHubPagesFromCIBuild_B;
+    echo -e "\n   .\n          - o 0 o - \n";
+    # fi;
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+exit;
 
 }
 
