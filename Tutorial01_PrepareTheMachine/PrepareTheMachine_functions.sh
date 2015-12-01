@@ -7,6 +7,7 @@ function verifyRootUser() {
 }
 
 
+
 function installToolsForTheseScripts() {
 
   INST=();
@@ -20,10 +21,10 @@ function installToolsForTheseScripts() {
   if [[ ${#INST[@]} -lt 1 ]]; then return 0; fi;
 
   printf  "
-          The first step requires installing some missing tools that 
+          The first step requires installing some missing tools that
         make these explanations more readable.  These are :  ";
   echo "";
-  for var in "${INST[@]}"; 
+  for var in "${INST[@]}";
   do
     echo "          - ${var}";
   done;
@@ -37,22 +38,22 @@ function installToolsForTheseScripts() {
   if [ "X${CHOICE}X" == "XqX" ]; then echo ""; exit 0; fi;
 
   # Make sure we atart off with the right version of awk.
-  X="git"; if aptNotYetInstalled "${X}"; then 
+  X="git"; if aptNotYetInstalled "${X}"; then
     sudo apt-get -y install "${X}";
   fi;
 
-  if aptNotYetInstalled gawk; then 
+  if aptNotYetInstalled gawk; then
     sudo apt-get -y install gawk;
     sudo update-alternatives --set awk /usr/bin/gawk;
   fi;
 
   # These scripts also need "Pygmentize" to colorize text
   # and "jq" to parse JSON
-  X="python-pygments"; if aptNotYetInstalled "${X}"; then 
+  X="python-pygments"; if aptNotYetInstalled "${X}"; then
     sudo apt-get -y install "${X}";
   fi;
-  
-  X="jq"; if aptNotYetInstalled "${X}"; then 
+
+  X="jq"; if aptNotYetInstalled "${X}"; then
     sudo apt-get -y install "${X}";
   fi;
 
@@ -65,11 +66,11 @@ function Java_7_is_required_by_Nightwatch_A() {
   if aptNotYetInSources ${PPA}; then
     echo "go";
     sudo add-apt-repository -y ppa:${PPA};
-    sudo apt-get update;
+    pushd /tmp  >/dev/null; sudo apt-get update; popd >/dev/null;
   else
     echo "Found '${PPA}' among apt sources already.";
   fi;
-   
+
 }
 
 
@@ -88,37 +89,37 @@ function Java_7_is_required_by_Nightwatch_B() {
 function Install_other_tools() {
 
   X="build-essential";             # for selenium webdriver
-  if aptNotYetInstalled "${X}"; then 
+  if aptNotYetInstalled "${X}"; then
     sudo apt-get -y install "${X}";
   fi;
 
   X="libssl-dev";                  # for selenium webdriver
-  if aptNotYetInstalled "${X}"; then 
+  if aptNotYetInstalled "${X}"; then
     sudo apt-get -y install "${X}";
   fi;
-  
+
   X="libappindicator1";            # for chrome
-  if aptNotYetInstalled "${X}"; then 
+  if aptNotYetInstalled "${X}"; then
     sudo apt-get -y install "${X}";
   fi;
-  
+
   X="curl";                        # for Meteor
-  if aptNotYetInstalled "${X}"; then 
+  if aptNotYetInstalled "${X}"; then
     sudo apt-get -y install "${X}";
   fi;
-  
+
   X="ssh";                         # for version control
-  if aptNotYetInstalled "${X}"; then 
+  if aptNotYetInstalled "${X}"; then
     sudo apt-get -y install "${X}";
   fi;
-  
+
   X="tree";                        # for demo convenience
-  if aptNotYetInstalled "${X}"; then 
+  if aptNotYetInstalled "${X}"; then
     sudo apt-get -y install "${X}";
   fi;
-  
+
   X="python-pip";                  # for demo convenience
-  if aptNotYetInstalled "${X}"; then 
+  if aptNotYetInstalled "${X}"; then
     sudo apt-get -y install "${X}";
   fi;
 
@@ -128,7 +129,7 @@ function Install_other_tools() {
 function Install_NodeJS() {
 
   # for Nightwatch testing
-  if aptNotYetInstalled "nodejs"; then 
+  if aptNotYetInstalled "nodejs"; then
     pushd /tmp >/dev/null;
       # This script calls apt-get update
       curl -sL https://deb.nodesource.com/setup_4.x | sudo bash -
@@ -145,7 +146,7 @@ function Install_Selenium_Webdriver_In_NodeJS() {
   mkdir -p ~/node_modules;
   sudo chown -R ${SUDOUSER}:${SUDOUSER} ~/.npm;
   sudo chown -R ${SUDOUSER}:${SUDOUSER} ~/node_modules;
-  
+
   X="selenium-webdriver";
   WHERE="--prefix $HOME";
   if ! npmNotYetInstalled ${X} "${WHERE}"; then
@@ -166,7 +167,7 @@ function Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome() {
     then
         echo "Chromedriver is already installed."
     else
-    
+
       # Install 'chromedriver'
       export CHROMEDRIVER_VERSION=$(wget -N -qO - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
       echo -e "Will install Chrome Driver version : ${CHROMEDRIVER_VERSION} for a ${CPU_WIDTH} width CPU";
@@ -174,11 +175,11 @@ function Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome() {
       wget -O ${DRV_FILE} http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/${DRV_FILE};
       sudo unzip -o ${DRV_FILE} -d /usr/local/bin;
       sudo chmod a+rx ${X};
-    
+
     fi;
-    
+
     X="google-chrome-stable";            # Google Chrome browser
-    if aptNotYetInstalled "${X}"; then 
+    if aptNotYetInstalled "${X}"; then
 
       ARCH_NAME="amd64";
       if [[ ${CPU_WIDTH} -ne 64  ]]; then ARCH_NAME="i386"; fi;
@@ -189,7 +190,7 @@ function Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome() {
     else
         echo "${X} is already installed.";
     fi;
-  
+
   popd  >/dev/null;
 
 }
@@ -210,7 +211,7 @@ function Install_Bunyan_Globally() {
       sudo npm install -y ${WHERE} ${X};
 
     popd  >/dev/null;
-  
+
   else
     echo "Node package '${X}' is already installed.";
   fi;
@@ -230,37 +231,37 @@ function This_tutorial_expects_to_use_the_Sublime_Text_3_editor_A() {
   if aptNotYetInSources ${PPA}; then
     echo "go";
     sudo add-apt-repository -y ppa:${PPA};
-    sudo apt-get update;
+    pushd /tmp  >/dev/null; sudo apt-get update; popd >/dev/null;
   else
     echo "Found '${PPA}' among apt sources already.";
   fi;
-  
+
 }
 
 function This_tutorial_expects_to_use_the_Sublime_Text_3_editor_B() {
 
   echo -e # -- Install Sublime Text editor  --
-  X="sublime-text-installer"; if aptNotYetInstalled "${X}"; then 
+  X="sublime-text-installer"; if aptNotYetInstalled "${X}"; then
     sudo apt-get -y install "${X}";
   else
     echo "${X} is already installed";
   fi;
 
-  echo -e # -- Install HTML parser for obtaining installer for ST3 Package Control -- 
+  echo -e # -- Install HTML parser for obtaining installer for ST3 Package Control --
   X="beautifulsoup4";
-  if python -c "from bs4 import BeautifulSoup"; 2>/dev/null; then 
+  if python -c "from bs4 import BeautifulSoup" 2>/dev/null; then
     echo "${X} is already installed";
   else
     sudo pip install "${X}";
   fi;
-  
+
   echo -e # -- Install HTML requester for obtaining installer for ST3 Package Control  --
-  X="requests"; if python -c "import ${X}[security]" 2>/dev/null; then 
+  X="requests"; if python -c "import ${X}[security]" 2>/dev/null; then
     echo "${X} is already installed";
   else
     sudo pip install "${X}";
   fi;
-  
+
 }
 
 function Install_eslint() {

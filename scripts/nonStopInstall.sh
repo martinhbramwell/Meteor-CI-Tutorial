@@ -145,7 +145,7 @@ ${PROCESS_THIS} && {
     echo -e "\n   Installed JSDoc\n          - o 0 o - \n";
   }
 # fi;
-
+exit;
 EnforceOwnershipAndPermissions;
 
 setSection 2;

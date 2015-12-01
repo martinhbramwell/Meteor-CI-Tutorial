@@ -101,8 +101,6 @@ export PACKAGE_DEVELOPER="${PACKAGE_DEVELOPER}";
 export YOUR_EMAIL="${YOUR_EMAIL}";
 export YOUR_UID="${YOUR_UID}";
 export YOUR_FULLNAME="${YOUR_FULLNAME}";
-export METEOR_UID="${METEOR_UID}";
-export METEOR_PWD="${METEOR_PWD}";
 UDATA
 
 chown ${SUDOUSER}:${SUDOUSER} ~/.udata.sh;
@@ -116,6 +114,8 @@ export GITHUB_PERSONAL_TOKEN="${GITHUB_PERSONAL_TOKEN}";
 export CIRCLECI_PERSONAL_TOKEN="${CIRCLECI_PERSONAL_TOKEN}";
 export REPLACE_EXISTING_PROJECT="${REPLACE_EXISTING_PROJECT}";
 export REPLACE_EXISTING_PACKAGE="${REPLACE_EXISTING_PACKAGE}";
+export METEOR_UID="${METEOR_UID}";
+export METEOR_PWD="${METEOR_PWD}";
 NSDATA
 
 chown ${SUDOUSER}:${SUDOUSER} ~/.nsdata.sh;
@@ -168,8 +168,6 @@ function getUserData()
     export YOUR_UID="";
     export YOUR_FULLNAME="";
     export YOUR_EMAIL="";
-    export METEOR_UID="";
-    export METEOR_PWD="";
   fi
 
   CHOICE="n"
@@ -185,8 +183,6 @@ function getUserData()
     echo "GutHub user full name : ${YOUR_FULLNAME}"
     echo "Project owner local user id : ${YOUR_UID}"
     echo "Project owner email : ${YOUR_EMAIL}"
-    echo "Meteor server user ID : ${METEOR_UID}"
-    echo "Meteor server password : ${METEOR_PWD}"
 
     read -ep "Is this correct? (y/n/q) ::  " -n 1 -r USER_ANSWER
     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
@@ -220,12 +216,6 @@ function getUserData()
       read -p "The email address for the project owner in GitHub :: " -e -i "${YOUR_EMAIL}" INPUT
       if [ ! "X${INPUT}X" == "XX" ]; then YOUR_EMAIL=${INPUT}; fi;
 
-      read -p "Meteor account user name for Meteor deployment server :: " -e -i "${METEOR_UID}" INPUT
-      if [ ! "X${INPUT}X" == "XX" ]; then METEOR_UID=${INPUT}; fi;
-
-      read -p "Meteor account password for Meteor deployment server :: " -e -i "${METEOR_PWD}" INPUT
-      if [ ! "X${INPUT}X" == "XX" ]; then METEOR_PWD=${INPUT}; fi;
-
     fi;
     echo "  "
   done;
@@ -243,6 +233,8 @@ function getNonStopData()
     export CIRCLECI_PERSONAL_TOKEN="";
     export REPLACE_EXISTING_PROJECT="";
     export REPLACE_EXISTING_PACKAGE="";
+    export METEOR_UID="";
+    export METEOR_PWD="";
   fi
 
 
@@ -253,8 +245,10 @@ function getNonStopData()
     echo -e "${FRAME// /\~}"
     echo "GitHub personal token : ${GITHUB_PERSONAL_TOKEN}";
     echo "CircleCI personal token : ${CIRCLECI_PERSONAL_TOKEN}";
-    echo "You approve deleting and replacing project '${PROJECT_NAME}' : ${REPLACE_EXISTING_PROJECT}"
-    echo "You approve deleting and replacing package '${PKG_NAME}' : ${REPLACE_EXISTING_PACKAGE}"
+    echo "You approve deleting and replacing project '${PROJECT_NAME}' : ${REPLACE_EXISTING_PROJECT}";
+    echo "You approve deleting and replacing package '${PKG_NAME}' : ${REPLACE_EXISTING_PACKAGE}";
+    echo "Meteor server user ID : ${METEOR_UID}";
+    echo "Meteor server password : ${METEOR_PWD}";
 
     read -ep "Is this correct? (y/n/q) ::  " -n 1 -r USER_ANSWER
     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
@@ -275,6 +269,12 @@ function getNonStopData()
 
       read -p "Should the package '${PKG_NAME}' be COMPLETELY ERASED? (yes/no) :: " -e -i "${REPLACE_EXISTING_PACKAGE}" INPUT
       if [ "X${INPUT}X" == "XyesX" ]; then REPLACE_EXISTING_PACKAGE="yes"; else REPLACE_EXISTING_PACKAGE="no"; fi;
+
+      read -p "Meteor account user name for Meteor deployment server :: " -e -i "${METEOR_UID}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then METEOR_UID=${INPUT}; fi;
+
+      read -p "Meteor account password for Meteor deployment server :: " -e -i "${METEOR_PWD}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then METEOR_PWD=${INPUT}; fi;
 
     fi;
     echo "  "
