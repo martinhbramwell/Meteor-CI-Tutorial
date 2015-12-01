@@ -73,6 +73,7 @@ function Publish_jsDocs_toGitHub_B() {
 
     set +e
     git add .eslintrc
+    git add .eslintignore
 
     if [[ 1 -gt $(git status | grep -c "nothing to commit") ]]; then
       # git add docs/*

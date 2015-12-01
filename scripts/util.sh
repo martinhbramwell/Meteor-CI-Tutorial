@@ -113,6 +113,7 @@ function saveNonStopData()
 {
 cat << NSDATA > ~/.nsdata.sh
 export GITHUB_PERSONAL_TOKEN="${GITHUB_PERSONAL_TOKEN}";
+export CIRCLECI_PERSONAL_TOKEN="${CIRCLECI_PERSONAL_TOKEN}";
 export REPLACE_EXISTING_PROJECT="${REPLACE_EXISTING_PROJECT}";
 export REPLACE_EXISTING_PACKAGE="${REPLACE_EXISTING_PACKAGE}";
 NSDATA
@@ -239,6 +240,7 @@ function getNonStopData()
     source ~/.nsdata.sh
   else
     export GITHUB_PERSONAL_TOKEN="";
+    export CIRCLECI_PERSONAL_TOKEN="";
     export REPLACE_EXISTING_PROJECT="";
     export REPLACE_EXISTING_PACKAGE="";
   fi
@@ -250,6 +252,7 @@ function getNonStopData()
 
     echo -e "${FRAME// /\~}"
     echo "GitHub personal token : ${GITHUB_PERSONAL_TOKEN}";
+    echo "CircleCI personal token : ${CIRCLECI_PERSONAL_TOKEN}";
     echo "You approve deleting and replacing project '${PROJECT_NAME}' : ${REPLACE_EXISTING_PROJECT}"
     echo "You approve deleting and replacing package '${PKG_NAME}' : ${REPLACE_EXISTING_PACKAGE}"
 
@@ -263,6 +266,9 @@ function getNonStopData()
       echo -e "\n Please supply the following details :\n";
       read -p "Your GitHub personal token :: " -e -i "${GITHUB_PERSONAL_TOKEN}" INPUT
       if [ ! "X${INPUT}X" == "XX" ]; then GITHUB_PERSONAL_TOKEN=${INPUT}; fi;
+
+      read -p "Your CircleCI personal token :: " -e -i "${CIRCLECI_PERSONAL_TOKEN}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then CIRCLECI_PERSONAL_TOKEN=${INPUT}; fi;
 
       read -p "Should the project '${PROJECT_NAME}' be COMPLETELY ERASED? (yes/no) :: " -e -i "${REPLACE_EXISTING_PROJECT}" INPUT
       if [ "X${INPUT}X" == "XyesX" ]; then REPLACE_EXISTING_PROJECT="yes"; else REPLACE_EXISTING_PROJECT="no"; fi;

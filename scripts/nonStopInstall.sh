@@ -2,8 +2,12 @@
 
 set -e;
 #
-declare PROCESS_THIS=false;  # true OR false
+declare PROCESS_THIS=true;  # true OR false
 CRP=$(sudo pwd);
+
+
+rm -fr ~/project_isle/prj09/.meteor/local/db;
+
 
 source ./scripts/util.sh
 checkForVirtualMachine;
@@ -352,11 +356,9 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     echo -e "\n   Marked some files to be ignored. : \n          - o 0 o - \n";
 
     Try_ESLint_Command_Line_Again;
-    echo -e "\n   Corrected the indicated code-quality defects. : \n          - o 0 o - \n";
+    echo -e "\n   Reran linting. : \n          - o 0 o - \n";
 
   }
-
-
 
 
 
@@ -616,7 +618,6 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     # explain ${BINDIR}/UsageExampleEndToEnd.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
     # if [ "${RUN_RULE}" != "n" ]; then
     UsageExampleEndToEnd;
-    echo -e "\n   Brought in a NightWatch 'test_usage_example.js' file.\n          - o 0 o - \n";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
@@ -647,21 +648,21 @@ ${PROCESS_THIS} && {
     setSection 9;
 
     # explain ${BINDIR}/CodeMaintenanceHelperFile_B.md MORE_ACTION # CODE_BLOCK
-    # if [ "${RUN_RULE}" != "n" ]; then
-    CodeMaintenanceHelperFile_B;
+    # if [ "${RUN_RULE}" != "n" ]; then 
+    CodeMaintenanceHelperFile_B; 
     echo -e "\n   Made and tested a mock version of 'perform_ci_tasks.sh'.\n          - o 0 o - \n";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # explain ${BINDIR}/CodeMaintenanceHelperFile_C.md MORE_ACTION # CODE_BLOCK
-    # if [ "${RUN_RULE}" != "n" ]; then
+    # if [ "${RUN_RULE}" != "n" ]; then 
     CodeMaintenanceHelperFile_C;
     echo -e "\n   Obtained and tested the final 'perform_ci_tasks.sh'.\n          - o 0 o - \n";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # explain ${BINDIR}/ScriptAuthorization.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
-    # if [ "${RUN_RULE}" != "n" ]; then
+    # if [ "${RUN_RULE}" != "n" ]; then 
     ScriptAuthorization;
     read -p "  Hit <enter> when key created. " -n 1 -r USER_ANSWER
     echo -e "\n   .\n          - o 0 o - \n";
@@ -669,15 +670,15 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_A.md MORE_ACTION # CODE_BLOCK
-    # if [ "${RUN_RULE}" != "n" ]; then
-    PushDocsToGitHubPagesFromCIBuild_A;
+    # if [ "${RUN_RULE}" != "n" ]; then 
+    PushDocsToGitHubPagesFromCIBuild_A; 
     echo -e "\n   Enabled 'commitDocs' function and got 'circle_T09.yml'.\n          - o 0 o - \n";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
-    # if [ "${RUN_RULE}" != "n" ]; then
-    PushDocsToGitHubPagesFromCIBuild_B;
+    # if [ "${RUN_RULE}" != "n" ]; then 
+    PushDocsToGitHubPagesFromCIBuild_B; 
     echo -e "\n   .\n          - o 0 o - \n";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";

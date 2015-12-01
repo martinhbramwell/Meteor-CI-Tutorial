@@ -21,16 +21,20 @@ echo " 2 = $2";
 		git add .gitignore
 
 		git checkout --orphan ${GITHUBPAGES}
-		echo "Clean out all but '$1' and hidden files";
-#		rm -fr !($1) 2> /dev/null
-		rm -fr *
-		ls -la
-		echo "Committing locally"
-		git commit -am "Cleaned out"
-		echo "Pushing to new remote repository : $2"
-		git push --set-upstream $2 ${GITHUBPAGES}
-		echo "Switching back to work on local master"
-		git checkout master
+		echo "Clean out all but '$1' & unecessary hidden files.";
+		rm -fr *;
+		rm -f .eslintrc;
+		rm -f .eslintignore;
+		ls -la;
+
+		echo "Committing locally";
+		git commit -am "Cleaned out";
+
+		echo "Pushing to new remote repository : $2";
+		git push --set-upstream $2 ${GITHUBPAGES};
+
+		echo "Switching back to work on local master";
+		git checkout master;
 	fi;
 
 	MSG=$(git log -1 --pretty=%B)

@@ -179,9 +179,69 @@ function PushDocsToGitHubPagesFromCIBuild_A() {
 
 
 
+function waitForCircleCI_ToHave_GitHub_User_Key() {
+
+  echo -e "
+  Cannot proceeed until the CircleCI project has a GitHub User Key.
+  If none are found you must create one.
+  ";
+
+  CCIURI="https://circleci.com/api/v1/project";
+  CIRCLECI_PERSONAL_TOKEN="8e9c471170763a3944cfb5e0420a06e1b0030a43";
+  KEY_CNT=0;
+  set +e;
+  while [ ${KEY_CNT} -lt 1 ]; do
+    KEY_CNT=$( curl -s ${CCIURI}/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/checkout-key?circle-token=${CIRCLECI_PERSONAL_TOKEN} | grep -c "github-user-key" );
+    echo "          Found ${KEY_CNT} GitHub User Keys in CircleCI.";
+    if [ ${KEY_CNT} -lt 1 ]; then
+      sleep 5;
+    fi;
+  done;
+  echo " ";
+  set -e;
+
+}
+
+
+
 function PushDocsToGitHubPagesFromCIBuild_B() {
 
-  echo "to be completed"
+  waitForCircleCI_ToHave_GitHub_User_Key;
+
+  CLEAN="nothing to commit";
+  UP2DT="Everything up-to-date";
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
+    pushd ./packages >/dev/null;
+      pushd ./${PKG_NAME} >/dev/null;
+
+        git add ./tools/perform_ci_tasks.sh;
+        STS="$(git status)";
+        if [ "${STS/${CLEAN}}" = "${STS}" ]; then
+          git commit -am "Added code maintenance tasks";
+        fi;
+        PSH=$(git push);
+        if [ "${PSH/${UP2DT}}" != "${PSH}" ]; then
+          echo "Pushed ${PKG_NAME}";
+        fi;
+
+      popd >/dev/null;
+
+    popd >/dev/null;
+
+    git add ./packages/perform_per_package_ci_tasks.sh;
+    git add circle.yml;
+
+    STS="$(git status)";
+    if [ "${STS/${CLEAN}}" = "${STS}" ]; then
+      git commit -am "Added code maintenance tasks and augmented circle.yml";
+    fi;
+    PSH=$(git push);
+    if [ "${PSH/${UP2DT}}" != "${PSH}" ]; then
+          echo "Pushed ${PROJECT_NAME}";
+    fi;
+
+  popd >/dev/null;
+
 
 }
 
