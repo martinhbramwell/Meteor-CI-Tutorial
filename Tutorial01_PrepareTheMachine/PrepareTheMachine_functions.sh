@@ -7,7 +7,6 @@ function verifyRootUser() {
 }
 
 
-
 function installToolsForTheseScripts() {
 
   INST=();
@@ -114,6 +113,11 @@ function Install_other_tools() {
   fi;
 
   X="tree";                        # for demo convenience
+  if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="expect";                        # for demo convenience
   if aptNotYetInstalled "${X}"; then
     sudo apt-get -y install "${X}";
   fi;

@@ -1,6 +1,6 @@
 ---
 .left-column[
-  ### Helper File - Code Linting
+  ### Helper File - Arbitrary # of Tasks.
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
@@ -9,7 +9,7 @@
 
 #### Code Maintenance Helper File (Part C)
 
-We now need to make the package level code maintenance script actually do something.
+We now need to make the package level maintenance script actually do something.
 
 The prepared script, <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_ci_tasks.sh" target="_blank">"perform_ci_tasks.sh"</a>, has 3 functions: 
 

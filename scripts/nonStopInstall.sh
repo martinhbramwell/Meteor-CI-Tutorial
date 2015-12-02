@@ -6,11 +6,9 @@ declare PROCESS_THIS=true;  # true OR false
 CRP=$(sudo pwd);
 
 
-rm -fr ~/project_isle/prj09/.meteor/local/db;
+source ./scripts/util.sh;
 
-
-source ./scripts/util.sh
-checkForVirtualMachine;
+#  checkForVirtualMachine;            FIXME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 echo -e "\n   Checked for virtual machine\n          - o 0 o - \n";
 
 ## MYAUTH="\"Authorization: token af8e88bf5ededc05916a6a588d7e191c6123\"";
@@ -145,7 +143,7 @@ ${PROCESS_THIS} && {
     echo -e "\n   Installed JSDoc\n          - o 0 o - \n";
   }
 # fi;
-exit;
+
 EnforceOwnershipAndPermissions;
 
 setSection 2;
@@ -222,7 +220,6 @@ export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger
     echo -e "\n   Added Meteor application development support files\n          - o 0 o - \n";
   }
 # fi;
-echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
@@ -248,8 +245,6 @@ echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
 
 
 setSection 3;
-
-echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
 # explain ${BINDIR}/Create_a_package_A.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
@@ -305,8 +300,6 @@ echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW
   #   echo -e "\n   Controlling '${PKG_NAME}' package's versions : A\n          - o 0 o - \n";
   # }
 # fi;
-
-pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
   ${PROCESS_THIS} && {
     Add_GitHub_Repo_Deploy_Key ${PKG_NAME}  ${REPLACE_EXISTING_PACKAGE};
@@ -635,34 +628,22 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
-
-}
-
-
-echo -e "\n - o 0 o -|||>>> \n"; #
-PROCESS_THIS=true;
-
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-${PROCESS_THIS} && {
-
-    setSection 9;
-
     # explain ${BINDIR}/CodeMaintenanceHelperFile_B.md MORE_ACTION # CODE_BLOCK
-    # if [ "${RUN_RULE}" != "n" ]; then 
-    CodeMaintenanceHelperFile_B; 
+    # if [ "${RUN_RULE}" != "n" ]; then
+    CodeMaintenanceHelperFile_B;
     echo -e "\n   Made and tested a mock version of 'perform_ci_tasks.sh'.\n          - o 0 o - \n";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # explain ${BINDIR}/CodeMaintenanceHelperFile_C.md MORE_ACTION # CODE_BLOCK
-    # if [ "${RUN_RULE}" != "n" ]; then 
+    # if [ "${RUN_RULE}" != "n" ]; then
     CodeMaintenanceHelperFile_C;
     echo -e "\n   Obtained and tested the final 'perform_ci_tasks.sh'.\n          - o 0 o - \n";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # explain ${BINDIR}/ScriptAuthorization.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
-    # if [ "${RUN_RULE}" != "n" ]; then 
+    # if [ "${RUN_RULE}" != "n" ]; then
     ScriptAuthorization;
     read -p "  Hit <enter> when key created. " -n 1 -r USER_ANSWER
     echo -e "\n   .\n          - o 0 o - \n";
@@ -670,23 +651,62 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_A.md MORE_ACTION # CODE_BLOCK
-    # if [ "${RUN_RULE}" != "n" ]; then 
-    PushDocsToGitHubPagesFromCIBuild_A; 
+    # if [ "${RUN_RULE}" != "n" ]; then
+    PushDocsToGitHubPagesFromCIBuild_A;
     echo -e "\n   Enabled 'commitDocs' function and got 'circle_T09.yml'.\n          - o 0 o - \n";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
-    # if [ "${RUN_RULE}" != "n" ]; then 
-    PushDocsToGitHubPagesFromCIBuild_B; 
-    echo -e "\n   .\n          - o 0 o - \n";
+    # if [ "${RUN_RULE}" != "n" ]; then
+    PushDocsToGitHubPagesFromCIBuild_B;
+    echo -e "\n   Pushed project and package to GitHub.\n          - o 0 o - \n";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+}
+
+
+echo -e "\n - o 0 o -|||>>> \n"; #
+PROCESS_THIS=true;
+
+
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+${PROCESS_THIS} && {
+
+  setSection 9;
+
+
+
+    # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    InspectBuildResults;
+    echo -e "\n   Deployed to Meteor Servers.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+
+    # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    ConnectToMeteorServers;
+    echo -e "\n   Connected to Meteor Servers.\n          - o 0 o - \n";
+    # fi;
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+
+    # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    DeployToMeteorServers;
+    echo -e "\n   Deployed to Meteor Servers.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+
+  echo " ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~ ";
 
 exit;
 
 }
 
+exit;
 
 pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
   git branch;

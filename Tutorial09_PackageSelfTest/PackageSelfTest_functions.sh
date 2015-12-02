@@ -148,11 +148,11 @@ function ScriptAuthorization() {
 
   echo -e "
 
-  Copy the following link address to your browser to open your project's config page -- 
+  Copy the following link address to your browser to open your project's config page --
          \"Checkout keys for ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}\"
     , then add a user key and (optionally) delete the redundant deploy key.
 
-    URL :: 
+    URL ::
 
          https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/edit#checkout
 
@@ -241,6 +241,117 @@ function PushDocsToGitHubPagesFromCIBuild_B() {
     fi;
 
   popd >/dev/null;
+
+
+}
+
+
+
+function ConnectToMeteorServers() {
+
+  CAS=0;
+  set +e;
+  WHOAMI=$(meteor whoami 2>/dev/null);
+  CAS=$(( $CAS + $? ));
+  if [[ "${METEOR_UID}" != "${WHOAMI}" ]]; then CAS=$(( $CAS + 2 )); fi;
+  set -e;
+
+  echo "Meteor server connection :: ";
+  case ${CAS} in
+      0)
+          echo "Already logged in as '${METEOR_UID}'.";
+          ;;
+      2)
+          echo "Logging out from '${WHOAMI}' and logging in as '${METEOR_UID}'.";
+          meteor logout;
+          ./fragments/meteorAutoLogin.exp ${METEOR_UID} ${METEOR_PWD};
+          ;;
+      3)
+          echo "Logging in as '${METEOR_UID}'.";
+          ./fragments/meteorAutoLogin.exp ${METEOR_UID} ${METEOR_PWD};
+          ;;
+      *)
+          echo "This can't be happening!"
+  esac;
+
+}
+
+
+function DeployToMeteorServers() {
+
+  PRJURI="${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}.meteor.com";
+  echo -e "Deploying '${PROJECT_NAME}' app to Meteor site '${PRJURI}'";
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
+
+    meteor deploy ${PRJURI};
+     #>/dev/null;
+
+    echo -e "Deployment details sent.";
+    CALL_STATUS=1;
+    CNT=10;
+    while [ ${CALL_STATUS} -gt 0 ]; do
+      set +e;
+      CALL_STATUS=$( wget  -q --spider http://${PRJURI}/; echo $?; );
+      set -e;
+      echo "          Call status ${CALL_STATUS} when connecting to ${PRJURI}.";
+      if [ ${CALL_STATUS} -gt 0 ]; then
+        sleep 6;
+        CNT=$(( CNT - 1 ));
+        if [ $CNT -lt 1 ]; then
+          echo "Can't connect.";
+          exit 1;
+        fi;
+      fi;
+    done;
+    echo " ";
+
+
+  popd >/dev/null;
+
+}
+
+
+function InspectBuildResults() {
+
+  echo -e "Checking build status.";
+  tput sc; # save cursor
+  BUILD_RUNNING='"running"'; #   running OR success
+  BUILD_STATUS=${BUILD_RUNNING};
+  LIM=20;
+  SLP=30;
+  CNT=0;
+  TO=5;
+  while [[ ${BUILD_STATUS} == ${BUILD_RUNNING} ]]; do
+    BUILD_STATUS=$( curl -s https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}?circle-token=${CIRCLECI_PERSONAL_TOKEN} -H "Accept: application/json"  | jq '.[0].status' );
+    tput rc;tput el;
+    printf  "          Build status %s for '%s/%s' :: Elapsed %s seconds." ${BUILD_STATUS} ${GITHUB_ORGANIZATION_NAME} ${PROJECT_NAME} ${TO};
+    TO=$(( SLP*CNT ));
+    if [[ ${BUILD_STATUS} == ${BUILD_RUNNING} ]]; then
+      sleep ${SLP};
+      CNT=$(( CNT + 1 ));
+      if [ $CNT -gt ${LIM} ]; then
+        tput rc;tput el;
+        echo "Build still running after $((TO/60)) minutes.  Cannot get artifacts.";
+        exit 1;
+      fi;
+    fi;
+  done;
+  echo -e "\n           Build is not running. (${BUILD_STATUS})";
+
+  BUILD_NUM=$(curl -s https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}?circle-token=${CIRCLECI_PERSONAL_TOKEN}  -H "Accept: application/json"  | jq '.[0].build_num');
+  echo -e "            Collecting artifacts of CircleCI build #${BUILD_NUM};";
+  curl -s https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/${BUILD_NUM}/artifacts?circle-token=${CIRCLECI_PERSONAL_TOKEN} -H "Accept: application/json" > /tmp/circleci_artifacts.json;
+
+  echo -e "\n\n        Here's the linting result :";
+  ESLINT_RESULT_URL=$(cat /tmp/circleci_artifacts.json | jq '.[] | .url' | grep esLintReport);
+  wget -qO- ${ESLINT_RESULT_URL//\"/};
+  printf "%0.s~" {1..80};
+
+  echo -e "\n\n      ...and here's the NightWatch result :";
+  NGHTWTCH_RESULT_URL=$(cat /tmp/circleci_artifacts.json | jq '.[] | .url' | grep 'result.json');
+  wget -qO- ${NGHTWTCH_RESULT_URL//\"/} | bunyan -o short;
+  printf "%0.s~" {1..80};
 
 
 }

@@ -1,6 +1,6 @@
 ---
 .left-column[
-  ### Helper File - Code Linting
+  ### Helper File - Arbitrary # of Packages.
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]

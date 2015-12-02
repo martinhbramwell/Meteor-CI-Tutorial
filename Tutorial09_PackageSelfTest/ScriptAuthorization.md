@@ -1,6 +1,6 @@
 ---
 .left-column[
-  ### Helper File - Code Linting
+  ### Helper File - GitHub "UserKey"
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
