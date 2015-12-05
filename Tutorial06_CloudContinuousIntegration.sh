@@ -4,6 +4,17 @@ set -e;
 #
 source ./scripts/util.sh
 
+#  DELETE ME   ####################################### FIXME
+# collectSectionNames;
+# setSection 6;
+# source "${BINDIR}/${SECTION}_functions.sh";
+# # StartCircleCiBuild;
+# # echo "CIRCLECI_PERSONAL_TOKEN = ${CIRCLECI_PERSONAL_TOKEN}";
+# Connect_CircleCI_to_GitHub_B;
+# exit;
+#  DELETE ME    ####################################### FIXME
+
+
 checkForVirtualMachine;
 checkNotRoot;
 
@@ -20,7 +31,11 @@ RUN_RULE="";
 explain ${BINDIR}/Introduction.md
 
 RUN_RULE="";
-explain ${BINDIR}/Connect_CircleCI_to_GitHub.md # MANUAL_INPUT_REQUIRED
+explain ${BINDIR}/Connect_CircleCI_to_GitHub_A.md # MANUAL_INPUT_REQUIRED
+
+RUN_RULE="";
+explain ${BINDIR}/Connect_CircleCI_to_GitHub_B.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+if [ "${RUN_RULE}" != "n" ]; then Connect_CircleCI_to_GitHub_B; fi;
 
 explain ${BINDIR}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Add_a_CircleCI_configuration_file_and_push_to_GitHub; fi;

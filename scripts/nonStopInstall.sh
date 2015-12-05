@@ -2,7 +2,7 @@
 
 set -e;
 #
-declare PROCESS_THIS=true;  # true OR false
+declare PROCESS_THIS=false;  # true OR false
 CRP=$(sudo pwd);
 
 
@@ -166,8 +166,6 @@ setSection 2;
     echo -e "\n   Installed Meteor\n          - o 0 o - \n";
   }
 # fi;
-
-echo -e "\n - o 0 o -||| \n";   #  PROCESS_THIS=true;
 
 
 # explain ${BINDIR}/Create_GitHub_Repo_Deploy_Keys.md MORE_ACTION # CODE_BLOCK
@@ -405,6 +403,8 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
   }
 
+echo -e "\n - o 0 o -|||>>> \n"; #
+PROCESS_THIS=true;
 
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
@@ -412,7 +412,11 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
     setSection 6;
 
-    # explain ${BINDIR}/Connect_CircleCI_to_GitHub.md # MANUAL_INPUT_REQUIRED
+    # explain ${BINDIR}/Connect_CircleCI_to_GitHub_B.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+    # if [ "${RUN_RULE}" != "n" ]; then
+      Connect_CircleCI_to_GitHub_B;
+      echo -e "\n   Verified CircelCI tokens\n          - o 0 o - \n";      
+    # fi;
 
     # explain ${BINDIR}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
@@ -450,7 +454,6 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 
   }
-
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
   ${PROCESS_THIS} && {
@@ -628,6 +631,18 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
+}
+
+
+echo -e "\n - o 0 o -|||>>> \n"; #
+PROCESS_THIS=true;
+
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+${PROCESS_THIS} && {
+
+  setSection 9;
+
+
     # explain ${BINDIR}/CodeMaintenanceHelperFile_B.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
     CodeMaintenanceHelperFile_B;
@@ -639,14 +654,6 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     # if [ "${RUN_RULE}" != "n" ]; then
     CodeMaintenanceHelperFile_C;
     echo -e "\n   Obtained and tested the final 'perform_ci_tasks.sh'.\n          - o 0 o - \n";
-    # fi;
-pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
-
-    # explain ${BINDIR}/ScriptAuthorization.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
-    # if [ "${RUN_RULE}" != "n" ]; then
-    ScriptAuthorization;
-    read -p "  Hit <enter> when key created. " -n 1 -r USER_ANSWER
-    echo -e "\n   .\n          - o 0 o - \n";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
@@ -664,21 +671,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
-}
-
-
-echo -e "\n - o 0 o -|||>>> \n"; #
-PROCESS_THIS=true;
-
-
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-${PROCESS_THIS} && {
-
-  setSection 9;
-
-
-
-    # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
+    # explain ${BINDIR}/InspectBuildResults.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
     InspectBuildResults;
     echo -e "\n   Deployed to Meteor Servers.\n          - o 0 o - \n";
@@ -702,11 +695,16 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
   echo " ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~ ";
 
-exit;
 
 }
 
+
+echo -e "\n - o 0 o -|||>>> \n"; #
 exit;
+
+
+
+
 
 pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
   git branch;

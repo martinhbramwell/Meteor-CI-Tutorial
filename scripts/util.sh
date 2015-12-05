@@ -101,6 +101,7 @@ export PACKAGE_DEVELOPER="${PACKAGE_DEVELOPER}";
 export YOUR_EMAIL="${YOUR_EMAIL}";
 export YOUR_UID="${YOUR_UID}";
 export YOUR_FULLNAME="${YOUR_FULLNAME}";
+export CIRCLECI_PERSONAL_TOKEN="${CIRCLECI_PERSONAL_TOKEN}";
 UDATA
 
 chown ${SUDOUSER}:${SUDOUSER} ~/.udata.sh;
@@ -111,7 +112,6 @@ function saveNonStopData()
 {
 cat << NSDATA > ~/.nsdata.sh
 export GITHUB_PERSONAL_TOKEN="${GITHUB_PERSONAL_TOKEN}";
-export CIRCLECI_PERSONAL_TOKEN="${CIRCLECI_PERSONAL_TOKEN}";
 export REPLACE_EXISTING_PROJECT="${REPLACE_EXISTING_PROJECT}";
 export REPLACE_EXISTING_PACKAGE="${REPLACE_EXISTING_PACKAGE}";
 export METEOR_UID="${METEOR_UID}";
@@ -168,6 +168,7 @@ function getUserData()
     export YOUR_UID="";
     export YOUR_FULLNAME="";
     export YOUR_EMAIL="";
+    export CIRCLECI_PERSONAL_TOKEN="";
   fi
 
   CHOICE="n"
@@ -183,6 +184,7 @@ function getUserData()
     echo "GutHub user full name : ${YOUR_FULLNAME}"
     echo "Project owner local user id : ${YOUR_UID}"
     echo "Project owner email : ${YOUR_EMAIL}"
+    echo "CircleCI personal token : ${CIRCLECI_PERSONAL_TOKEN}";
 
     read -ep "Is this correct? (y/n/q) ::  " -n 1 -r USER_ANSWER
     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
@@ -216,6 +218,9 @@ function getUserData()
       read -p "The email address for the project owner in GitHub :: " -e -i "${YOUR_EMAIL}" INPUT
       if [ ! "X${INPUT}X" == "XX" ]; then YOUR_EMAIL=${INPUT}; fi;
 
+      read -p "Your CircleCI personal token (leave this blank for now) :: " -e -i "${CIRCLECI_PERSONAL_TOKEN}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then CIRCLECI_PERSONAL_TOKEN=${INPUT}; fi;
+
     fi;
     echo "  "
   done;
@@ -230,7 +235,6 @@ function getNonStopData()
     source ~/.nsdata.sh
   else
     export GITHUB_PERSONAL_TOKEN="";
-    export CIRCLECI_PERSONAL_TOKEN="";
     export REPLACE_EXISTING_PROJECT="";
     export REPLACE_EXISTING_PACKAGE="";
     export METEOR_UID="";
@@ -244,7 +248,6 @@ function getNonStopData()
 
     echo -e "${FRAME// /\~}"
     echo "GitHub personal token : ${GITHUB_PERSONAL_TOKEN}";
-    echo "CircleCI personal token : ${CIRCLECI_PERSONAL_TOKEN}";
     echo "You approve deleting and replacing project '${PROJECT_NAME}' : ${REPLACE_EXISTING_PROJECT}";
     echo "You approve deleting and replacing package '${PKG_NAME}' : ${REPLACE_EXISTING_PACKAGE}";
     echo "Meteor server user ID : ${METEOR_UID}";
@@ -260,9 +263,6 @@ function getNonStopData()
       echo -e "\n Please supply the following details :\n";
       read -p "Your GitHub personal token :: " -e -i "${GITHUB_PERSONAL_TOKEN}" INPUT
       if [ ! "X${INPUT}X" == "XX" ]; then GITHUB_PERSONAL_TOKEN=${INPUT}; fi;
-
-      read -p "Your CircleCI personal token :: " -e -i "${CIRCLECI_PERSONAL_TOKEN}" INPUT
-      if [ ! "X${INPUT}X" == "XX" ]; then CIRCLECI_PERSONAL_TOKEN=${INPUT}; fi;
 
       read -p "Should the project '${PROJECT_NAME}' be COMPLETELY ERASED? (yes/no) :: " -e -i "${REPLACE_EXISTING_PROJECT}" INPUT
       if [ "X${INPUT}X" == "XyesX" ]; then REPLACE_EXISTING_PROJECT="yes"; else REPLACE_EXISTING_PROJECT="no"; fi;
@@ -281,7 +281,7 @@ function getNonStopData()
   done;
   saveNonStopData;
   return;
-}
+};
 
 function getRepo() {
   EXISTING_REPO=$(curl -sH "${AUTH}" ${GITHUB_SHTTP}/repos/${GITHUB_ORGANIZATION_NAME}/${REPO} | jq '.name';);

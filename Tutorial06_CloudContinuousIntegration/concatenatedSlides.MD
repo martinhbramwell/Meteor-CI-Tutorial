@@ -23,12 +23,12 @@ Now, this script . . .
 .left-column[
   ### Configure CircleCI
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Connect CircleCI to GitHub
+#### Connect CircleCI to GitHub (Part A)
 
 A complete introduction to CircleCI is beyond the scopè of this series, however you can learn all the essential elements in the YouTube video: <a href="https://www.youtube.com/watch?v=oIRbUGJKcrs" target="_blank">"Android Continuous Integration with CircleCI"</a>
 
@@ -36,8 +36,33 @@ By <a href="http://imgur.com/z3atLCi.png" target="_blank">signing up to CircleCi
 
 Once CircleCI <a href="http://i.imgur.com/DtaBko1.png" target="_blank">has analyzed our repository</a> and <a href="http://i.imgur.com/OuxEBqp.png" target="_blank">has attempted a first build</a>, we can <a href="http://i.imgur.com/QdJ8GF7.png?1" target="_blank">turn to the build results page</a>. However, there will be <a href="http://i.imgur.com/3xO3BWx.png" target="_blank">no results</a> until we describe our build requirements.
 
-Our next task is to commit a build definition file '```circle.yml```' to GitHub.
+Continued . . .
 <!-- B -->]
+---
+.left-column[
+  ### Configure CircleCI
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
+.footnote[.red.bold[] [Table of Contents](./)]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Connect CircleCI to GitHub (Part B)
+
+. . . continuing.
+
+
+Our initial build readies us to do two important things :
+
+1. *Obtain an <a href="https://circleci.com/docs/api#getting-started" target="_blank">API Token</a> so we can automate our interactions with CircleCI*  : Open the page <a href="https://circleci.com/account/api" target="_blank">API Tokens</a>, invent a name for the token (eg; who will use it), and click *Create*.  The named token will remain available on that page, any time you need it.
+
+2. *Authorize our ```circle.yml``` scripts to write back into GitHub, with a <a href="https://circleci.com/docs/github-security-ssh-keys" target="_blank">User Checkout Key</a>* : To push changes back to GitHub you must get a *User Key* from : <div style='word-wrap:break-word;'><a href="https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/{PROJECT_NAME}/edit#checkout" target="_blank">https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/{PROJECT_NAME}/edit#checkout</a></div>
+
+Our next task is to commit/push '```circle.yml```', a build definition file.
+
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L147" target="_blank">Code for this step.</a>] ]
+]
 ---
 .left-column[
   ### Configure CircleCI
@@ -49,7 +74,7 @@ Our next task is to commit a build definition file '```circle.yml```' to GitHub.
 
 #### Add a CircleCI Configuration File and Push to GitHub
 
-The file <a href="https://circleci.com/docs/configuration" target="_blank">Configuring CircleCI</a> documents how to prepare a '```circle.yml```' file.
+The file "<a href="https://circleci.com/docs/configuration" target="_blank">Configuring CircleCI</a>" documents how to prepare a '```circle.yml```' file.
 
 In this step, we get a minimal '```circle.yml```' from the example ('```example_circle.yml```') provided with the installer for <a href="https://github.com/warehouseman/meteor-tinytest-runner" target="_blank">warehouseman:meteor-tinytest-runner</a>, that we used in <a href="http://localhost:8000/Meteor-CI-Tutorial/index.html?part=C#9" target="_blank">"Part C"</a>.  It will not succeed, for an obvious reason :
 ```ruby
@@ -67,7 +92,7 @@ git commit -am 'Added circle.yml and unit testing' && git push
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L1" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L161" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: AmendTheConfigurationAndPushAgain
@@ -83,7 +108,7 @@ name: AmendTheConfigurationAndPushAgain
 
 The command failed because we still must reference our package from the ```circle.yml``` file.
 
-We add the script <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/obtain_managed_packages.sh" target="_blank">obtain_managed_packages.sh</a> to the packages directory of our project.  It uses the list, ```managed_packages.sh```, to clone our packages and link them into the project.  Edit the list as needed.
+We add the script "<a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/obtain_managed_packages.sh" target="_blank">obtain_managed_packages.sh</a>" to the packages directory of our project.  It uses the list, ```managed_packages.sh```, to clone our packages and link them into the project.  Edit the list as needed.
 ```ruby
   # Pull each of our packages and link them into our project
   - ./packages/obtain_managed_packages.sh
@@ -99,7 +124,7 @@ git commit -am 'Add script to clone packages and symlink to them';
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L36" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L211" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -124,7 +149,7 @@ The installer prepares a Nightwatch test directory and then deletes itself, leav
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L85" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L260" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -155,7 +180,7 @@ This command group starts Meteor in a background process, (stopping any already 
  ./tests/nightwatch/runTests.js | bunyan
 ```
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L98" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L273" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: ConfigureCircleCIforNightwatchTesting
@@ -184,7 +209,7 @@ git push
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L159" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L334" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

@@ -1,3 +1,175 @@
+function ValidateCircleCiPersonalToken() {
+
+  echo -e "\n Testing token validity. Will try to create a new CircleCi environment variable :\n";
+  RESLT=$(curl -sX POST -H "Content-Type: application/json" \
+  -d "{\"name\":\"YOUR_FULLNAME\", \"value\":\"${YOUR_FULLNAME}\"}" \
+  https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/envvar?circle-token=${CIRCLECI_PERSONAL_TOKEN} \
+  -H "Accept: application/json");
+
+  echo "Result was ${RESLT}";
+  if [[ $(echo ${RESLT} | grep -c YOUR_FULLNAME) -gt 0 ]]; then
+    echo "Token was able to authorize creation of an environment variable in CircleCI.";
+    return 0;
+  fi;
+
+  echo "Token seems unable to authorize creation of an environment variable in CircleCI.";
+  return 1;
+
+}
+
+
+function ObtainCircleCiPersonalToken() {
+
+  if ValidateCircleCiPersonalToken; then return 0; fi;
+
+  echo -e "
+
+    ################################################################################################
+
+    To get an API Token ::
+
+    Copy the following link into a browser to open the API Tokens page of your
+    CircleCI user's profile. Give a name for the token, eg. 'Personal token for ${YOUR_FULLNAME}'.
+    Then click 'Create'. Look in the table for the 40 character code and paste it here below . . .
+
+          https://circleci.com/account/api
+
+    ################################################################################################
+    ";
+
+  if [ -f ~/.udata.sh ]; then
+    source ~/.udata.sh
+  else
+    export CIRCLECI_PERSONAL_TOKEN="";
+  fi
+
+  CHOICE="n"
+  while [[ ! "X${CHOICE}X" == "XyX" ]]
+  do
+
+#    echo -e "${FRAME// /\~}"
+    echo "CircleCI personal token : ${CIRCLECI_PERSONAL_TOKEN}";
+
+    read -ep "Is this correct? (y/n/q) ::  " -n 1 -r USER_ANSWER
+    CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+    if [[ "X${CHOICE}X" == "XqX" ]]; then
+      echo skip out
+      return 1;
+    elif [[ ! "X${CHOICE}X" == "XyX" ]]; then
+
+      echo -e "\n Please supply the following details :\n";
+      read -p "Your CircleCI personal token :: " -e -i "${CIRCLECI_PERSONAL_TOKEN}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then CIRCLECI_PERSONAL_TOKEN=${INPUT}; fi;
+
+    elif [[ "X${CHOICE}X" == "XyX" ]]; then
+
+      if ! ValidateCircleCiPersonalToken; then CHOICE="n"; fi;
+
+    fi;
+    echo "   ";
+  done;
+  echo "Recording CircleCI token for later use.";
+  saveUserData;
+
+}
+
+
+function CheckForGitHubUserKey() {
+
+  echo -e "\n Checking for a \"github-user-key\" for \"${PACKAGE_DEVELOPER}\".\n";
+  KEYCNT=$(curl -s https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/checkout-key?circle-token=${CIRCLECI_PERSONAL_TOKEN}  -H "Accept: application/json" | grep "github-user-key" | grep -c "${PACKAGE_DEVELOPER}");
+  if [[ ${KEYCNT} -gt 0 ]]; then
+    echo -e "Found a seemingly valid \"github-user-key\" for \"${PACKAGE_DEVELOPER}\".";
+    return 0;
+  fi;
+
+  echo -e "Did not find any \"github-user-key\" for \"${PACKAGE_DEVELOPER}\".";
+  return 1;
+
+}
+
+function CreateGitHubUserKey() {
+
+  echo -e "\n Attempting to create a \"github-user-key\" for \"${PACKAGE_DEVELOPER}\".\n";
+
+  KEYCNT=$(curl -sX POST \
+     --header "Content-Type: application/json" \
+     -d '{"type":"github-user-key"}' \
+     https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/checkout-key?circle-token=${CIRCLECI_PERSONAL_TOKEN} \
+     -H "Accept: application/json" | grep "github-user-key" | grep -c "${PACKAGE_DEVELOPER}");
+  echo -e "\n~~~~~~~~~~~~~~~ ${KEYCNT} ";
+
+  if [[ ${KEYCNT} -gt 0 ]]; then
+    echo -e "Created a valid \"github-user-key\" for \"${PACKAGE_DEVELOPER}\".";
+    return 0;
+  fi;
+
+  echo -e "Failed to create a \"github-user-key\" for \"${PACKAGE_DEVELOPER}\".";
+  return 1;
+
+}
+
+function EnsureGitHubSshAccess() {
+
+  if CheckForGitHubUserKey; then return 0; fi;
+  if CreateGitHubUserKey; then return 0; fi;
+
+  echo -e "
+
+  ####################################################################################################
+
+  CircleCI needs greater privileges in GitHub before it can create a \"github-user-key\" for \"${PACKAGE_DEVELOPER}\".
+
+  Copy the following link into a browser to access the page 'Checkout keys for ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}' ::
+
+     https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/edit#checkout
+
+  Click the green 'Authorize w/ GitHub' button.  GitHub will ask if you do indeed permit this action.
+  Click the green 'Authorize Application' button, to agree.
+
+  ####################################################################################################
+  ";
+
+  CHOICE="n"
+  while [[ ! "X${CHOICE}X" == "XyX" ]]
+  do
+
+    read -ep "Have you authorized CircleCI to access GitHub SSH keys? (y/n/q) ::  " -n 1 -r USER_ANSWER
+    CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+    if [[ "X${CHOICE}X" == "XqX" ]]; then
+      echo skip out
+      return 1;
+    elif [[ ! "X${CHOICE}X" == "XyX" ]]; then
+
+      echo -e "\n Please try again :\n";
+
+    elif [[ "X${CHOICE}X" == "XyX" ]]; then
+
+      if ! CreateGitHubUserKey; then CHOICE="n"; fi;
+
+    fi;
+    echo "      ";
+
+  done;
+
+
+}
+
+
+function Connect_CircleCI_to_GitHub_B() {
+
+  ObtainCircleCiPersonalToken;
+  echo -e "We have connectivity to the CircleCI API.\n\n"
+
+  EnsureGitHubSshAccess;
+  echo -e "We have a \"GitHub User Key\" that should bestow write privileges from CircleCI to GitHub project: '${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}'.
+     Validity can only be proven during an actual build run.
+  "
+
+  return 0;
+
+}
+
 function Add_a_CircleCI_configuration_file_and_push_to_GitHub() {
 
 
@@ -19,9 +191,10 @@ function Add_a_CircleCI_configuration_file_and_push_to_GitHub() {
   echo -e "
 
     ############################################################################################
-    #   Open your CircleCI site and explore the most recent build.  In the build section at the
-    #   line 'tests/tinyTests/test-all.sh' you will find that tests failed for lack of a package
-    #   to test.  We need to clone our package and depend a symbolic link to it.
+    #   Open the page https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/tree/master and explore
+    #   the most recent build.  In the build section at the line 'tests/tinyTests/test-all.sh'
+    #   you will find that tests failed for lack of a package to test.  We need to clone our package
+    #   and depend a symbolic link to it.
     ############################################################################################
     ";
   if [[ "${1}" != "${NONSTOP}" ]]; then
@@ -32,6 +205,20 @@ function Add_a_CircleCI_configuration_file_and_push_to_GitHub() {
   popd >/dev/null;
 
 }
+
+# function StartCircleCiBuild() {
+
+#   echo -e "\n >>  - - - - - -  ";
+#   # TEMP_PROJECTS_STORE="/tmp/circleci_projects.json";
+#   # curl -s https://circleci.com/api/v1/projects?circle-token=${CIRCLECI_PERSONAL_TOKEN} -H "Accept: application/json" > ${TEMP_PROJECTS_STORE};
+#   # cat ${TEMP_PROJECTS_STORE} | jq ".[].reponame";
+
+#   TEMP_BUILDS_STORE="/tmp/circleci_builds.json";
+#   curl -s https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/prj08?circle-token=${CIRCLECI_PERSONAL_TOKEN} -H "Accept: application/json" > ${TEMP_BUILDS_STORE};
+#   cat ${TEMP_BUILDS_STORE} | jq ".[]";
+#   echo -e "\n- - - - - - <<";
+
+# }
 
 function Amend_the_configuration_and_push_again() {
 

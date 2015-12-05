@@ -127,12 +127,19 @@ function CodeMaintenanceHelperFile_B() {
 
 function CodeMaintenanceHelperFile_C() {
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/tools >/dev/null;
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
+    pushd ./tools >/dev/null;
 
-    wget -N https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_ci_tasks.sh
-    sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" perform_ci_tasks.sh;
-    sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" perform_ci_tasks.sh;
-    chmod a+x perform_ci_tasks.sh;
+      wget -N https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_ci_tasks.sh
+      sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" perform_ci_tasks.sh;
+      sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" perform_ci_tasks.sh;
+      chmod a+x perform_ci_tasks.sh;
+
+    popd >/dev/null;
+
+    # If executed locally this script leaves resideu that should not be version controlled.
+    ESLNTRPT="esLintReport.txt";
+    if [[ $(cat .gitignore | grep -c ${ESLNTRPT}) -lt 1 ]]; then echo ${ESLNTRPT} >> .gitignore; fi;
 
   popd >/dev/null;
 
@@ -148,13 +155,13 @@ function ScriptAuthorization() {
 
   echo -e "
 
-  Copy the following link address to your browser to open your project's config page --
-         \"Checkout keys for ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}\"
-    , then add a user key and (optionally) delete the redundant deploy key.
-
-    URL ::
+  Copy the following link address to your browser . . .
 
          https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/edit#checkout
+
+  . . . to open your project's config page \"Checkout keys for ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}\"
+
+  Confirm there is a valid user key and (optionally) delete the redundant deploy key.
 
 ";
 

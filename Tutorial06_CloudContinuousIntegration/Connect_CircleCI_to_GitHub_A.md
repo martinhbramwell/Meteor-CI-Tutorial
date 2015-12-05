@@ -2,12 +2,12 @@
 .left-column[
   ### Configure CircleCI
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Connect CircleCI to GitHub
+#### Connect CircleCI to GitHub (Part A)
 
 A complete introduction to CircleCI is beyond the scopè of this series, however you can learn all the essential elements in the YouTube video: <a href="https://www.youtube.com/watch?v=oIRbUGJKcrs" target="_blank">"Android Continuous Integration with CircleCI"</a>
 
@@ -15,5 +15,5 @@ By <a href="http://imgur.com/z3atLCi.png" target="_blank">signing up to CircleCi
 
 Once CircleCI <a href="http://i.imgur.com/DtaBko1.png" target="_blank">has analyzed our repository</a> and <a href="http://i.imgur.com/OuxEBqp.png" target="_blank">has attempted a first build</a>, we can <a href="http://i.imgur.com/QdJ8GF7.png?1" target="_blank">turn to the build results page</a>. However, there will be <a href="http://i.imgur.com/3xO3BWx.png" target="_blank">no results</a> until we describe our build requirements.
 
-Our next task is to commit a build definition file '```circle.yml```' to GitHub.
+Continued . . .
 <!-- B -->]
