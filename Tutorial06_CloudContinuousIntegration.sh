@@ -4,17 +4,6 @@ set -e;
 #
 source ./scripts/util.sh
 
-#  DELETE ME   ####################################### FIXME
-# collectSectionNames;
-# setSection 6;
-# source "${BINDIR}/${SECTION}_functions.sh";
-# # StartCircleCiBuild;
-# # echo "CIRCLECI_PERSONAL_TOKEN = ${CIRCLECI_PERSONAL_TOKEN}";
-# Connect_CircleCI_to_GitHub_B;
-# exit;
-#  DELETE ME    ####################################### FIXME
-
-
 checkForVirtualMachine;
 checkNotRoot;
 

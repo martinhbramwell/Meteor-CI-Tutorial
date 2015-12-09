@@ -190,9 +190,9 @@ Executing, ```perform_per_package_ci_tasks.sh```, now will show ```esLint``` and
 
 The function, ```commitDocsToGitHubPages()```, presents us with a problem.
 
-When we authorized CircleCI to access our GitHub project, all it got was a deploy key with read-only privileges on that single project.  This will fail when we push our documentation to the *gh-pages* branches of our packages.  As CircleCI's manual page, <a href="https://circleci.com/docs/github-security-ssh-keys" target="_blank">*GitHub security and SSH keys*</a> indicates, we need a heightened privileges "UserKey".
+Back in Part #6 we authorized CircleCI to access our GitHub project with a "GitHub User Key" -- now we're going to need it.  Without it, our ```circle.yml``` script will fail when it tries to push our documentation to the *gh-pages* branches of our packages.  As CircleCI's manual page, <a href="https://circleci.com/docs/github-security-ssh-keys" target="_blank">*GitHub security and SSH keys*</a> indicates, we need a heightened privileges "UserKey", in order to push back to GitHub from CircleCI.
 
-Open your project's config page, "Checkout keys for ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}", add a user key and (optionally) delete the redundant deploy key :
+Open your project's page, "Checkout keys for ${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}", ensure "${PACKAGE_DEVELOPER} user key" exists and (optionally) delete the redundant deploy key :
 
 ```ruby
 https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/edit#checkout

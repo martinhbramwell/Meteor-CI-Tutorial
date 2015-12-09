@@ -88,6 +88,48 @@ function CheckForGitHubUserKey() {
 
 }
 
+function CheckForGitHubDeployKey() {
+
+  echo -e "\n Checking if CircleCI has permission to access GitHub.";
+  TEMP_DK_SPEC="/tmp/circleci_dk_spec.json";
+  curl -sX POST --header "Content-Type: application/json" -d '{"type":"deploy-key"}' https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/checkout-key?circle-token=${CIRCLECI_PERSONAL_TOKEN} -H "Accept: application/json" > ${TEMP_DK_SPEC};
+  KEYCNT=$(cat ${TEMP_DK_SPEC} | jq ".type" | grep -c "deploy-key";);
+  if [[ ${KEYCNT} -gt 0 ]]; then
+    echo -e "  Was able to trial create a test deploy-key.";
+    FINGERPRINT=$(cat ${TEMP_DK_SPEC} | jq ".fingerprint");
+    FINGERPRINT=${FINGERPRINT%\"};
+    FINGERPRINT=${FINGERPRINT#\"};
+    echo "  Deleting trial deploy-key :: ${FINGERPRINT}.";
+    curl -X DELETE https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/checkout-key/${FINGERPRINT}?circle-token=${CIRCLECI_PERSONAL_TOKEN} -H "Accept: application/json";
+    return 0;
+  fi;
+
+  echo -e "   ** Failed to trial create a test deploy-key **";
+  return 1;
+
+}
+
+
+function CheckForRepoWatched() {
+
+  echo -e "\n Verify CircleCI is watching repo :: '${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}'.\n";
+
+  REPONAME=$(curl -s https://circleci.com/api/v1/projects?circle-token=${CIRCLECI_PERSONAL_TOKEN} -H "Accept: application/json" \
+    | jq '.[0].reponame');
+  REPONAME=${REPONAME%\"}; REPONAME=${REPONAME#\"};
+#  echo "${REPONAME} vs ${PROJECT_NAME}";
+
+  if [[ "${REPONAME}" == "${PROJECT_NAME}" ]]; then
+    echo -e "CircleCI is watching '${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}'.";
+    return 0;
+  fi;
+
+  echo -e "CircleCI is NOT watching '${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}'.";
+  return 1;
+
+}
+
+
 function CreateGitHubUserKey() {
 
   echo -e "\n Attempting to create a \"github-user-key\" for \"${PACKAGE_DEVELOPER}\".\n";
@@ -97,7 +139,7 @@ function CreateGitHubUserKey() {
      -d '{"type":"github-user-key"}' \
      https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/checkout-key?circle-token=${CIRCLECI_PERSONAL_TOKEN} \
      -H "Accept: application/json" | grep "github-user-key" | grep -c "${PACKAGE_DEVELOPER}");
-  echo -e "\n~~~~~~~~~~~~~~~ ${KEYCNT} ";
+  # echo -e "\n~~~~~~~~~~~~~~~ ${KEYCNT} ";
 
   if [[ ${KEYCNT} -gt 0 ]]; then
     echo -e "Created a valid \"github-user-key\" for \"${PACKAGE_DEVELOPER}\".";
@@ -106,6 +148,93 @@ function CreateGitHubUserKey() {
 
   echo -e "Failed to create a \"github-user-key\" for \"${PACKAGE_DEVELOPER}\".";
   return 1;
+
+}
+
+
+function EnsureCircleCiAccessToGitHub() {
+
+  if CheckForGitHubDeployKey; then return 0; fi;
+
+  echo -e "
+
+  ####################################################################################################
+
+    CircleCI needs to be authorized to access GitHub.
+    To set this up now, use your browser to open this URL ::
+
+    https://github.com/organizations/${GITHUB_ORGANIZATION_NAME}/settings/oauth_application_policy
+
+    Then either correctly enable CircleCI access, or add CircleCI from GitHub's integrations directory.
+
+  ####################################################################################################
+  ";
+  CHOICE="n"
+  while [[ ! "X${CHOICE}X" == "XyX" ]]
+  do
+
+    read -ep "Have you authorized CircleCI to access GitHub? (y/n/q) ::  " -n 1 -r USER_ANSWER
+    CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+    if [[ "X${CHOICE}X" == "XqX" ]]; then
+      echo skip out
+      return 1;
+    elif [[ ! "X${CHOICE}X" == "XyX" ]]; then
+
+      echo -e "\n Please try again :\n";
+
+    elif [[ "X${CHOICE}X" == "XyX" ]]; then
+
+      if ! CheckForGitHubDeployKey; then CHOICE="n"; fi;
+
+    fi;
+    echo "       ";
+
+  done;
+
+}
+
+function EnsureRepoIsWatched() {
+
+  if CheckForRepoWatched; then return 0; fi;
+
+  echo -e "
+
+  ####################################################################################################
+
+  CircleCI needs be told to watch the GitHub repo: '${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}'.
+
+  Copy the following link into a browser to access the page  ::
+
+     https://circleci.com/add-projects
+
+  If there is no button named '${GITHUB_ORGANIZATION_NAME}' follow CircleCI's \"Missing an organization?\" instructions.
+  Then, click the green 'Build project' button beside the name '${PROJECT_NAME}'.
+
+  ####################################################################################################
+  ";
+
+  CHOICE="n"
+  while [[ ! "X${CHOICE}X" == "XyX" ]]
+  do
+
+    read -ep "Have you instructed CircleCI to watch the repo '${PROJECT_NAME}'? (y/n/q) ::  " -n 1 -r USER_ANSWER
+    CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+    if [[ "X${CHOICE}X" == "XqX" ]]; then
+      echo skip out
+      return 1;
+    elif [[ ! "X${CHOICE}X" == "XyX" ]]; then
+
+      echo -e "\n Please try again :\n";
+
+    elif [[ "X${CHOICE}X" == "XyX" ]]; then
+
+      if ! CheckForRepoWatched; then CHOICE="n"; fi;
+
+    fi;
+    echo "       ";
+
+  done;
+
 
 }
 
@@ -148,7 +277,7 @@ function EnsureGitHubSshAccess() {
       if ! CreateGitHubUserKey; then CHOICE="n"; fi;
 
     fi;
-    echo "      ";
+    echo "       ";
 
   done;
 
@@ -159,9 +288,17 @@ function EnsureGitHubSshAccess() {
 function Connect_CircleCI_to_GitHub_B() {
 
   ObtainCircleCiPersonalToken;
-  echo -e "We have connectivity to the CircleCI API.\n\n"
+  echo -e "We have connectivity to the CircleCI API.\n\n";
+
+  EnsureCircleCiAccessToGitHub;
+  echo -e "\nCircleCI has permission to access GitHub.\n\n";
 
   EnsureGitHubSshAccess;
+  echo -e "We have a \"GitHub User Key\" that should bestow write privileges from CircleCI to GitHub project: '${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}'.
+     Validity can only be proven during an actual build run.
+  "
+
+  EnsureRepoIsWatched;
   echo -e "We have a \"GitHub User Key\" that should bestow write privileges from CircleCI to GitHub project: '${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}'.
      Validity can only be proven during an actual build run.
   "
