@@ -26,7 +26,7 @@ Now run ...
 ---
 .left-column[
   ### Console.log is bad!
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -51,7 +51,7 @@ However, *esLint* rightfully flags ```console.log()``` as **a bad thing!**  Writ
 ---
 .left-column[
   ### NPM module
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -63,7 +63,7 @@ Meteor supports 'npm' modules with the package NPM.
 
 Edit ```'${PKG_NAME}-tests.js'``` again adding :
 
-```const Bunyan = require('bunyan');```
+       ```const Bunyan = require('bunyan');```
 
 ```javascript
 /**
@@ -83,7 +83,7 @@ We now need to fix ```"Error: Cannot find module 'bunyan'"!```
 ---
 .left-column[
   ### Specify Npm modules
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -126,7 +126,7 @@ Npm.depends({
 ---
 .left-column[
   ### Server Only
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -155,7 +155,7 @@ Npm.depends({
 ---
 .left-column[
   ### Add Bunyan Logging
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -182,7 +182,7 @@ Tinytest.add('Check Equality', function sanityCheckEQ(test) {
 ---
 .left-column[
   ### Goodbye Console
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -208,7 +208,7 @@ So, on the server-side, we now have much more control over logging <a href="http
 ---
 .left-column[
   ### Refactor Bunyan (A)
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -242,7 +242,7 @@ You'll get an error ```Logger is not defined```, however ...
 ---
 .left-column[
   ### Refactor Bunyan (B)
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -272,7 +272,7 @@ Continues ...
 ---
 .left-column[
   ### Package Upgrade (A)
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -303,7 +303,7 @@ Continues . . .
 ---
 .left-column[
   ### Package Upgrade (B)
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[

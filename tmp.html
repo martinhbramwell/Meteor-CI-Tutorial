@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Error</title>
+<style type="text/css">
+body {
+font-family: 'Helvetica Neue', Helvetica, Arial, san-serif;
+padding: 0;
+margin: 0;
+text-align: center;
+}
+.meteor {
+padding-top: 200px;
+padding-bottom: 20px;
+height: 142px;
+}
+.message {
+padding-top: 50px;
+font-size: 3em;
+color: #777;
+letter-spacing: -1px;
+font-weight: bold;
+}
+
+.submessage {
+padding-top: 20px;
+font-size: 1.5em;
+color: #777;
+letter-spacing: -1px;
+font-weight: bold;
+}
+
+.counter {
+padding-top: 30px;
+font-size: 1em;
+color: #aaa;
+letter-spacing: -1px;
+}
+
+</style>
+</head>
+<body>
+<div class="meteor"><img src="//warehouse.meteor.com/mother-assets/meteor-logo-final.png"/></div>
+<div class="message">
+This site is down.
+</div>
+<div class="submessage">
+Try again later.
+</div>
+<div id="counter" class="counter">
+</div>
+
+
+<script type="text/javascript">
+var refreshTime = 0 ;
+if (refreshTime) {
+var counterDiv = document.getElementById("counter");
+var countdown = function () {
+if (refreshTime < 1) {
+counterDiv.innerHTML =
+"Retrying...";
+location.reload(true);
+} else {
+counterDiv.innerHTML =
+"Retrying in " + refreshTime + " seconds...";
+refreshTime = refreshTime - 1;
+setTimeout(countdown, 1000);
+}
+}
+countdown();
+}
+</script>
+
+</body>
+</html>
+

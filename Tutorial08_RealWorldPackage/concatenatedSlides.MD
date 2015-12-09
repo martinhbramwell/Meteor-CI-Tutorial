@@ -26,7 +26,7 @@ Get started now by running ...
 ---
 .left-column[
   ### Another NodeJS Module (A)
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -57,7 +57,7 @@ Continues ...
 ---
 .left-column[
   ### Another NodeJS Module (B)
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -85,7 +85,7 @@ Continues ...
 ---
 .left-column[
   ### Another NodeJS Module (C)
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -95,7 +95,7 @@ Continues ...
 
 ... continuing.
 
-<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Obtain the improved</a> ```'${PKG_NAME}.js'``` file, like this :
+<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Obtain a new</a> ```'${PKG_NAME}.js'``` file, that's improved like this :
 
 ```javascript
 const Client = Npm.require('swagger-client');
@@ -111,7 +111,9 @@ const swagger = new Client({
 ```
 After Meteor starts up, inspect the log file with :
 
-```tail -f /var/log/meteor/ci4meteor.log | bunyan -o short```
+```
+tail -f /var/log/meteor/ci4meteor.log | bunyan -o short
+```
 
 Continues ...
 
@@ -122,7 +124,7 @@ Continues ...
 ---
 .left-column[
   ### The Async Problem (A)
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -130,7 +132,7 @@ Continues ...
 
 #### Meteor is Incompatible With NodeJS  (Part A)
 
-Examining the code ```'${PKG_NAME}.js'``` we see :
+Examining the code of ```'${PKG_NAME}.js'``` we see :
 ```javascript
 for (idx = TestPet; idx < TestPet + 4; idx++) {
   swagger.pet.getPetById(
@@ -139,7 +141,7 @@ for (idx = TestPet; idx < TestPet + 4; idx++) {
   );
 }
 ```
-The parameter ```'pet'``` passed by ```getPetById``` to the ```log``` callback function is completely inaccesible.  It's buried two levels deep inside nested, asynchronous callback functions.
+The parameter ```'pet'``` passed by ```getPetById``` to the ```log``` callback function is completely inaccessible.  It's buried two levels deep inside nested, asynchronous callback functions.
 
 *How are we supposed to get at it?*
 
@@ -151,7 +153,7 @@ Continues ...
 ---
 .left-column[
   ### The Async Problem (B)
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -185,7 +187,7 @@ Continues ...
 ---
 .left-column[
   ### Export to Meteor
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -214,7 +216,7 @@ Continues ...
 ---
 .left-column[
   ### The Async Problem (D)
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -244,7 +246,7 @@ Continues ...
 ---
 .left-column[
   ### The Async Problem (E)
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -279,7 +281,7 @@ Continues ...
 ---
 .left-column[
   ### Calling Package Methods
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -304,16 +306,16 @@ wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master
 wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example.js
 ```
 
-Continues ...
+Start ```meteor``` now (not ```meteor test-packages```).  Continues ...
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L62" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L61" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
   ### Make Package Method Callable
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -329,7 +331,7 @@ The new files ```usage_example.html``` and ```usage_example.js``` :
 
 Simply specifying ```['client']``` in ```api.addFiles()``` answers the first issue, but two errors arise from the second one.
 
-We need to declare a dependency on ```templating``` to solve the error, "No plugin known to handle file 'usage_example.html'"" and we need to declare a dependency on the package, ```session``` to solve the client-side 'ReferenceError' seen on Session, Template and Meteor.  Update the ```Package.onUse()``` section with :
+We need to declare a dependency on ```templating``` to solve the error, "No plugin known to handle file 'usage_example.html'" and we need to declare a dependency on the package, ```session``` to solve the client-side 'ReferenceError' seen on Session, Template and Meteor.  Update the ```Package.onUse()``` section with :
 ```javascript
 Package.onUse(function onUse(api) {
   api.use(['ecmascript', 'templating', 'session']);
@@ -344,7 +346,7 @@ Continues ...
 ---
 .left-column[
   ### Make Package Method Callable
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -380,7 +382,7 @@ Continues ...
 ---
 .left-column[
   ### Control Example Visibility
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[

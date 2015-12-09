@@ -1,0 +1,28 @@
+
+    [4mAdd the NPM logger module Bunyan to your package.[24m
+
+Meteor supports 'npm' modules with the package NPM. 
+
+Edit [7m'pkg06-tests.js'[27m again adding :
+
+   [7mconst Bunyan = require('bunyan');[27m
+
+[0m|   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·  |<
+
+   
+   /[39;49;00m[[39;49;00m1m[39;49;00m
+    [39;49;00m[39;49;00m[[39;49;00m1;94m[39;49;00m [39;49;00mTinytest[39;49;00m [39;49;00munit[39;49;00m [39;49;00mtests[39;49;00m
+    [39;49;00m[39;49;00m[[39;49;00m0m[39;49;00m [39;49;00m@namespace[39;49;00m [39;49;00mTinytest[39;49;00m
+    [39;49;00m[39;49;00m[[39;49;00m1;94m/[39;49;00m
+   const[39;49;00m [39;49;00m[31mBunyan[39;49;00m [39;49;00m=[39;49;00m [39;49;00mrequire[39;49;00m([39;49;00m[33m'bunyan'[39;49;00m)[39;49;00m;[39;49;00m  [39;49;00m//[39;49;00m  [39;49;00mADD![39;49;00m [39;49;00m<[39;49;00m--[39;49;00m
+
+|   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·   ·  |<
+
+... save, start up Meteor and observe the command line logs and the browser console. The NodeJS command 
+on its own, [21mwill not work[1m. We need [7mrequire[27m from the Npm package, so try [7mconst 
+Bunyan = Npm.require('bunyan'); [27m  instead.
+
+We now need to fix [7m"Error: Cannot find module 'bunyan'"![27m
+
+
+

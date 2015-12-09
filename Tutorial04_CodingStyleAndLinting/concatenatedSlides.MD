@@ -26,7 +26,7 @@ This is useful for an individual developer, but increases in importance with the
 name: UseESLintOnTheCommandLine
 .left-column[
   ### Command Line ESLint
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -58,7 +58,7 @@ b
 ---
 .left-column[
   ### ESLint for ST3
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -80,7 +80,7 @@ Steps to perform :
 ---
 .left-column[
   ### Sublime ESLint
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -106,7 +106,7 @@ You have reconfigured the ESLint rule ```'quotes'```.  The complete list of conf
 ---
 .left-column[
   ### Sublime ESLint
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -148,7 +148,34 @@ Tinytest.add('example', function checkSanity(test) {
 ---
 .left-column[
   ### Command Line ESLint
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+.footnote[.red.bold[] [Table of Contents](./)] 
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Ignore Files
+
+It's worth mentioning how to skip files that esLint should not process.
+
+If esLint finds an ```.eslintignore``` file in the current directory it will not analyze any files or descend into any directories listed in the file.
+
+In later parts of this tutorial we'll have additional files, some of which should not be processed.  We might as well mask them off now . . . 
+
+##### Example commands
+
+```terminal
+echo "./docs" > .eslintignore
+echo "./backup" >> .eslintignore
+```
+
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial04_CodingStyleAndLinting/CodingStyleAndLinting_functions.sh#L12" target="_blank">Code for this step.</a>] ]
+]
+---
+.left-column[
+  ### Command Line ESLint
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -166,7 +193,7 @@ Great!  All clean!
 
 **Note 2015/09/27** - The current version mishandles ```.eslintignore``` when there are symlinks, resulting in the false warning "File ignored because of your .eslintignore file. Use --no-ignore to override"
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial04_CodingStyleAndLinting/CodingStyleAndLinting_functions.sh#L12" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial04_CodingStyleAndLinting/CodingStyleAndLinting_functions.sh#L23" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

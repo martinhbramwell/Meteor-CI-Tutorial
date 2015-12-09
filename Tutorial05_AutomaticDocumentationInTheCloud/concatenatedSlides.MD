@@ -26,7 +26,7 @@ This one . . .
 name: TryJSDocFromTheCommandLine_A
 .left-column[
   ### Command Line jsDoc (Step #1)
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -39,11 +39,10 @@ In a directory you specify, JSDoc creates a documentation web site like this :
 yourself@YourVM:~/projects/yourproject$ tree -L 2 ./packages/${PKG_NAME}
 ./packages/yourpackage
 ├── docs
-│   ├── files.html
+│   ├── fonts
 │   ├── index.html
-│   └── symbols
-│       ├── _global_.html
-│       └── src
+│   ├── scripts
+│   └── styles
 ├── package.js
       :  etc
       :  etc
@@ -61,7 +60,7 @@ continued ...
 name: TryJSDocFromTheCommandLine_B
 .left-column[
   ### Command Line jsDoc (Step #2)
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -84,7 +83,7 @@ If you open the index file in your browser from its file system location . . .
 ---
 .left-column[
   ### jsDoc for ST3
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -105,7 +104,7 @@ Steps to perform :
 ---
 .left-column[
   ### jsDoc for ST3
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
@@ -113,7 +112,7 @@ Steps to perform :
 
 #### Use the Sublime Text package "DocBlockr"
 
-DocBlockr tries to help finish annotations begun with ```/**```, as explained in the <a href='https://github.com/spadgos/sublime-jsdocs#usage' target='_blank'>usage instructions</a>.
+DocBlockr tries to help finish annotations begun with the flag ```/**```, as explained in the <a href='https://github.com/spadgos/sublime-jsdocs#usage' target='_blank'>usage instructions</a>.
 
  ![https://camo.githubusercontent.com/087348d3e797f4ccc91528459b0473f6d34eadf3/687474703a2f2f73706164676f732e6769746875622e696f2f7375626c696d652d6a73646f63732f696d616765732f6c6f6e672d617267732e676966](https://camo.githubusercontent.com/087348d3e797f4ccc91528459b0473f6d34eadf3/687474703a2f2f73706164676f732e6769746875622e696f2f7375626c696d652d6a73646f63732f696d616765732f6c6f6e672d617267732e676966)
 
@@ -131,7 +130,7 @@ Continues . . .
 ---
 .left-column[
   ### jsDoc for ST3
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/typer.gif" /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -161,7 +160,7 @@ Continues . . .
 ---
 .left-column[
   ### jsDoc for ST3
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -176,7 +175,7 @@ Continues . . .
 
 If you run the jsdoc command again you should see an improved main page with a ```TinyTest``` link under a section header "Namespaces".
 
-Click on the ```TinyTest``` link and you should see something like the image to the right.
+Click on the ```TinyTest``` link in the Home page of the documentation, and you should see something like the image to the right.
 
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial05_AutomaticDocumentationInTheCloud/AutomaticDocumentationInTheCloud_functions.sh#L46" target="_blank">Code for this step.</a>] ]
@@ -185,7 +184,7 @@ Click on the ```TinyTest``` link and you should see something like the image to 
 name: PublishJsDocsToGitHub_A
 .left-column[
   ### 'GitHub Pages' Web Site
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
@@ -213,14 +212,14 @@ Continued . . .
 name: PublishJsDocsToGitHub_B
 .left-column[
   ### 'GitHub Pages' Web Site
-  <br /><br /><div class="input_type_indicator"><img src="./fragments/loader.gif" /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [Table of Contents](./)] 
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 #### Your jsDoc Documents as a GitHub Pages Website
 
-Shortly after this step completes, you would expect to find your documentation on the web. You won't find it; instead you'll get a 404 error.  GitHub has <a href="https://help.github.com/articles/troubleshooting-github-pages-build-failures/#deploy-key-used-for-push" target="_blank">a rule</a> about ```gh-pages``` and deploy keys.  The fix is to edit a file online in the repo (eg, README.md) and save it.  However. **first** you must verify your user email address!  After that, (as an implicit by a verified user) the site will appear at :  <a href="https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/" target="_blank">https://${GITHUB_ORG_NAME}.github.io/${PKG_NAME}/</a>.
+Shortly after this step completes, you would expect to find your documentation on the web. You won't find it; instead you'll get a 404 error.  GitHub has <a href="https://help.github.com/articles/troubleshooting-github-pages-build-failures/#deploy-key-used-for-push" target="_blank">a rule</a> about ```gh-pages``` and deploy keys.  The fix is to edit a file online in the repo (eg, README.md) and save it.  However. **first** you must verify your user email address!  After that, (as an implicit commit/push by a verified user) the site will appear at :  <a href="https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/" target="_blank">https://${GITHUB_ORGANIZATION_NAME}.github.io/${PKG_NAME}/</a>.
 
 ##### Example Commands
 ```terminal

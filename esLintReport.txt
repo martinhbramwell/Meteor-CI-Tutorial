@@ -1,0 +1,7 @@
+Script started on Wed 02 Dec 2015 02:10:08 PM UTC
+
+[4m/home/ubuntu/packages/yourself/pkg12/usage_example.js[24m
+  [90m42:9[39m  [33mwarning[39m  Unexpected console statement  [90mno-console[39m
+
+[33m[1m✖ 1 problem (0 errors, 1 warning)
+[22m[39m
