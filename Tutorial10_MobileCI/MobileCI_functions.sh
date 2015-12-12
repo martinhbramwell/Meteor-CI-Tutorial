@@ -1,5 +1,59 @@
 #!/bin/bash
 
+function prepareAndroidSDK() {
+
+  echo "     ~     ~     ~     ~     ~     ~     ~     ~     ~";
+
+  ANDROID_SDK="android-sdk-linux";
+  ENV_FILE="/etc/environment";
+  pushd /home/hasan/opt2 >/dev/null;
+
+  mkdir -p Downloads;
+  pushd Downloads >/dev/null;
+  wget -nc http://dl-ssl.google.com/android/repository/tools_r22.6.4-linux.zip
+  popd >/dev/null;
+
+  mkdir -p ${ANDROID_SDK};
+  pushd ${ANDROID_SDK} >/dev/null;
+  if [[ -x ./tools/android ]]; then
+    echo -e "Android SDK is here already. ";
+  else
+    unzip ../Downloads/tools_r23.0.5-linux.zip;
+  fi;
+
+  rm -fr ./platforms/
+  rm -fr ./platform-tools/
+  rm -fr ./extras/
+  rm -fr ./build-tools/
+  rm -fr ./temp/
+
+  chmod ug+rw -R .;
+
+  popd >/dev/null;
+
+  popd >/dev/null;
+
+  if [[ $(grep -c "export ANDROID_HOME=/home/hasan/opt2/${ANDROID_SDK}"  ${ENV_FILE}) -lt 1 ]];
+  then
+    while [[ $(grep -c ANDROID_HOME ${ENV_FILE}) -gt 0 ]]; do
+      sudo sed -i "/ANDROID_HOME/d" ${ENV_FILE};
+    done;
+    echo -e "\nexport ANDROID_HOME=/home/hasan/opt2/${ANDROID_SDK};\n" | sudo tee -a ${ENV_FILE};
+  fi;
+
+  source ${ENV_FILE};
+
+  echo "Y" | ${ANDROID_HOME}/tools/android update sdk -u -a --filter 2;
+  echo "Y" | ${ANDROID_HOME}/tools/android update sdk -u -a --filter 3;
+  echo "Y" | ${ANDROID_HOME}/tools/android update sdk -u -a --filter 4;
+  echo "Y" | ${ANDROID_HOME}/tools/android update sdk -u -a --filter 27;
+  echo "Y" | ${ANDROID_HOME}/tools/android update sdk -u -a --filter 76;
+  
+}
+
+
+
+
 function InstallAndroidStudioSDK() {
 
   PROGRAMS="${HOME}/programs";
@@ -73,7 +127,7 @@ echo "   ~                              Temporary build directory : " ${BUILD_DI
 echo "### ~   ~   ~    "
 
   wget http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
-  echo "Y" | ${ANDROID_SDK_ROOT}/tools/android update sdk -u -a --filter platform-tools,7,android-22,extra-android-support;
+  echo "Y" | ${ANDROID_SDK_ROOT}/tools/android update sdk -u -a --filter platform-tools,6,android-22,extra-android-support;
 
 keytool -genkeypair -dname "cn=Martin Bramwell, ou=IT, o=Warehouseman, c=CA" \
 -alias ${PROJ} -keypass ${KEYSTORE_PWD} -storepass ${KEYSTORE_PWD} -validity 3650;
