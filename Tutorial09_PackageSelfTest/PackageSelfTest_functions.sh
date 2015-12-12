@@ -286,7 +286,7 @@ function ConnectToMeteorServers() {
 
 function DeployToMeteorServers() {
 
-  PRJURI="${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}.meteor.com";
+  PRJURI="${PROJECT_NAME}-${GITHUB_ORGANIZATION_NAME}.meteor.com";
   echo -e "Deploying '${PROJECT_NAME}' app to Meteor site '${PRJURI}'";
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;

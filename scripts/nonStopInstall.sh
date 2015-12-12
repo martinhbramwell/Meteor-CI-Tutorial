@@ -1,8 +1,8 @@
 #!/bin/bash
 
-set -e;
+#set -e;
 #
-declare PROCESS_THIS=true;  # true OR false
+declare PROCESS_THIS=false;  # true OR false
 CRP=$(sudo pwd);
 
 
@@ -33,11 +33,13 @@ II=1;
 while [ ${II} -le ${#TUTORIAL_SECTIONS[@]} ]
 do
   setSection ${II};
-  # echo " - ${BINDIR}/${SECTION}_functions.sh";
+#  echo " - ${BINDIR}/${SECTION}_functions.sh";
   source "${BINDIR}/${SECTION}_functions.sh";
   II=$[$II+1]
 done;
 
+
+# ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   
 ${PROCESS_THIS} && {
   installToolsForTheseScripts;
   echo -e "\n   Installed Tools For These Scripts\n          - o 0 o - \n";
@@ -95,6 +97,14 @@ ${PROCESS_THIS} && {
 # explain ${BINDIR}/Install_NodeJS.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
 # ${PROCESS_THIS} && Install_NodeJS;
+# fi;
+
+# explain ${BINDIR}/Ready_for_Android_Studio.md MORE_ACTION # CODE_BLOCK
+# if [ "${RUN_RULE}" != "n" ]; then
+  ${PROCESS_THIS} && {
+    Ready_for_Android_Studio;
+    echo -e "\n   Verified ready for Android Studio.\n          - o 0 o - \n";
+  }
 # fi;
 
 # explain ${BINDIR}/Install_Selenium_Webdriver_In_NodeJS.md MORE_ACTION # CODE_BLOCK
@@ -657,20 +667,6 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
-}
-
-echo -e "\n - o 0 o -|||>>> \n"; #
-PROCESS_THIS=true;
-
-echo -e "\n - o 0 o -|||>>> \n"; #
-exit;
-
-
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-${PROCESS_THIS} && {
-
-  setSection 9;
-
     # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_A.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
     PushDocsToGitHubPagesFromCIBuild_A;
@@ -684,6 +680,17 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     echo -e "\n   Pushed project and package to GitHub.\n          - o 0 o - \n";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+}
+
+echo -e "\n - o 0 o -|||>>> \n"; #
+PROCESS_THIS=true;
+
+
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+${PROCESS_THIS} && {
+
+  setSection 9;
 
     # explain ${BINDIR}/InspectBuildResults.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
@@ -713,6 +720,16 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 }
 
 
+
+setSection 10;
+
+echo -e "
+
+   * * * Ready for Android SDK * * * 
+"
+# Ready_for_Android_Studio;
+# InstallAndroidStudioSDK;
+
 echo -e "\n - o 0 o -|||>>> \n"; #
 exit;
 
@@ -733,7 +750,8 @@ pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
 popd >/dev/null;
 exit;
 
-   echo "                   - o 0 o - "; exit;
+   echo "                   - o 0 o - "; 
+   exit;
 
 
 

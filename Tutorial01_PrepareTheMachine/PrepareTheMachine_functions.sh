@@ -58,6 +58,89 @@ function installToolsForTheseScripts() {
 
 }
 
+
+function Ready_for_Android_Studio() {
+
+  NOTREADY=false;
+
+  X="lib32ncurses5"; if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="lib32ncurses5-dev"; if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="lib32stdc++6"; if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="lib32z1"; if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  echo -e "\nChecking GUI type is KDE or gnome . . .";
+  GUI=$(ps -A | grep -v "kdev" | egrep "gnome|kde");
+  set +e;
+  KDE=$(echo "${GUI}" | egrep -c "kde");
+  GNOME=$(echo "${GUI}" | egrep -c "gnome");
+  GUICNT=$(echo "${GUI}" | egrep -c "gnome|kde");
+  set -e;
+  if [[ ${GUICNT} -lt 1 ]]; then
+    echo " 
+
+          * * * WARNING * * * 
+
+    You don't seem to be running KDE or GNOME as needed for Android Studio.
+    See the 'Android Studio' System Requirements :
+       http://developer.android.com/sdk/index.html#Requirements
+    ";
+    NOTREADY=true;
+  else
+
+    if [[ ${GNOME} -gt 1 ]]; then echo "It's GNOME."; fi;
+    if [[ ${KDE} -gt 1 ]]; then echo "It's KDE. "; fi;
+
+  fi;
+
+  echo -e "\nChecking screen resolution > 1280 . . .";
+  XDIMS=$(xdpyinfo  | grep dimensions | sed "s/^\s*.*:\s*//" | sed "s/\s.*//");
+  XWIDTH=$(echo ${XDIMS} | sed "s/x.*//");
+  if [[ ${XWIDTH} -lt 1280 ]]; then 
+    echo " 
+
+          * * * WARNING * * * 
+
+    You don't seem to have enough screen resolution '${XDIMS}'' for Android Studio.
+    See the 'Android Studio' System Requirements :
+       http://developer.android.com/sdk/index.html#Requirements
+    ";
+    NOTREADY=true;
+  else
+    echo "It's ${XDIMS}";
+  fi;
+
+  echo -e "\nChecking gclib version > 2.15 . . .";
+  GCLIBVER=$(ldd --version | egrep ldd);
+  GCLIBVER=${GCLIBVER##*\) };
+  #   (Ubuntu EGLIBC 2.19-0ubuntu6.6) 2.19
+  if [[ "${GCLIBVER}" < "2.15" ]]; then 
+    echo " 
+
+          * * * WARNING * * * 
+
+    It seems you are using an old (${GCLIBVER}) version of gclib 
+    See the 'Android Studio' System Requirements :
+       http://developer.android.com/sdk/index.html#Requirements
+    ";
+    NOTREADY=true;
+  else
+    echo "It's ${GCLIBVER}";
+  fi;
+
+  if ${NOTREADY}; then echo "Please revise your installation.  Quitting . . . "; exit 1; fi;
+}
+
 function Java_7_is_required_by_Nightwatch_A() {
 
   echo -e "# -- Get PPAs for Oracle Java 7 and update APT --";

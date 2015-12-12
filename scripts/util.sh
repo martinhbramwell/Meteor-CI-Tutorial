@@ -11,12 +11,31 @@ export flashingRed='\e[5;31m'
 export endColor='\e[0m';
 
 function verifyFreeSpace() {
-  MINFREESPACE=1500000
-  FREESPACE=$(df / | grep dev | awk '{print $4}')
-  if [[  ${FREESPACE} -lt ${MINFREESPACE} ]]; then
-    echo You have only ${FREESPACE} bytes free.  You should have ${MINFREESPACE};
-    exit 1;
-  fi;
+  MINFREESPACE=7000000;
+  FREESPACE=$(df / | grep dev | awk '{print $4}');
+
+  CHOICE="n";
+  while [[ ! "X${CHOICE}X" == "XyX" ]]
+  do
+
+    if [[  ${FREESPACE} -lt ${MINFREESPACE} ]]; then
+      echo -e "
+      You have only ${FREESPACE} bytes free.  You should have ${MINFREESPACE}.
+      Hit 'y' to continue, 'r' to retry or 'q' to quit.
+      ";
+      read -ep "Have you cleared enough space? (y/r/q) ::  " -n 1 -r USER_ANSWER
+      CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+      if [[ "X${CHOICE}X" == "XqX" ]]; then
+        echo "Continuing . . . "
+        return 1;
+      elif [[ ! "X${CHOICE}X" == "XrX" ]]; then
+        FREESPACE=$(df / | grep dev | awk '{print $4}');
+      fi;
+    else
+      CHOICE="y";
+    fi;
+
+  done;
 }
 
 
