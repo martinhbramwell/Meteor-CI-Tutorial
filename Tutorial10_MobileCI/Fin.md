@@ -8,7 +8,7 @@
 
 #### Fin
 
-talk about mobile . . .
+Thank you!
 
 
 

@@ -379,14 +379,14 @@ Continues ...
 ---
 .left-column[
     ### End Of Part #F
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Fin
 
-Thank you!
+talk about mobile . . .
 
 
 
