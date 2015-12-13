@@ -2,13 +2,13 @@
 
 #set -e;
 #
-declare PROCESS_THIS=false;  # true OR false
+declare PROCESS_THIS=true;  # true OR false
 CRP=$(sudo pwd);
 
 
 source ./scripts/util.sh;
 
-#  checkForVirtualMachine;            FIXME !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+checkForVirtualMachine;
 echo -e "\n   Checked for virtual machine\n          - o 0 o - \n";
 
 ## MYAUTH="\"Authorization: token af8e88bf5ededc05916a6a588d7e191c6123\"";
@@ -416,8 +416,6 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
   }
 
 
-
-
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 
@@ -686,6 +684,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 echo -e "\n - o 0 o -|||>>> \n"; #
 PROCESS_THIS=true;
 
+      read -ep "Ready to watch build?  ::  " -n 1 -r USER_ANSWER
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 ${PROCESS_THIS} && {
@@ -721,7 +720,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 
 
-setSection 10;
+# setSection 10;
 
 echo -e "
 

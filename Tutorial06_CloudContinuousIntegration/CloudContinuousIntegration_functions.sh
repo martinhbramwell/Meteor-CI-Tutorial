@@ -114,12 +114,14 @@ function CheckForRepoWatched() {
 
   echo -e "\n Verify CircleCI is watching repo :: '${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}'.\n";
 
-  REPONAME=$(curl -s https://circleci.com/api/v1/projects?circle-token=${CIRCLECI_PERSONAL_TOKEN} -H "Accept: application/json" \
-    | jq '.[0].reponame');
-  REPONAME=${REPONAME%\"}; REPONAME=${REPONAME#\"};
+
+  REPONAME_CNT=$(curl -s https://circleci.com/api/v1/projects?circle-token=${CIRCLECI_PERSONAL_TOKEN} -H "Accept: application/json" \
+    | jq '.[].reponame' | grep -c ${PROJECT_NAME});
+
+#  REPONAME=${REPONAME%\"}; REPONAME=${REPONAME#\"};
 #  echo "${REPONAME} vs ${PROJECT_NAME}";
 
-  if [[ "${REPONAME}" == "${PROJECT_NAME}" ]]; then
+  if [[ ${REPONAME_CNT} -gt 0 ]]; then
     echo -e "CircleCI is watching '${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}'.";
     return 0;
   fi;
@@ -234,7 +236,6 @@ function EnsureRepoIsWatched() {
     echo "       ";
 
   done;
-
 
 }
 

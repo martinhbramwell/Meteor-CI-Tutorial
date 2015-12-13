@@ -325,14 +325,18 @@ function InspectBuildResults() {
   tput sc; # save cursor
   BUILD_RUNNING='"running"'; #   running OR success
   BUILD_STATUS=${BUILD_RUNNING};
-  LIM=20;
-  SLP=30;
-  CNT=0;
+  LIM=40;
+  SLP=15;
+  CNT=1;
   TO=5;
   while [[ ${BUILD_STATUS} == ${BUILD_RUNNING} ]]; do
-    BUILD_STATUS=$( curl -s https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}?circle-token=${CIRCLECI_PERSONAL_TOKEN} -H "Accept: application/json"  | jq '.[0].status' );
+    RESP=$( curl -s https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}?circle-token=${CIRCLECI_PERSONAL_TOKEN}               -H "Accept: application/json"  | jq '.[0] | {status, build_num}' );
+    BUILD_STATUS=$( echo ${RESP} | jq '.status' );
+    # echo ${BUILD_STATUS};"success";
+    BUILD_NUMBER=$( echo ${RESP} | jq '.build_num' );
+    # echo ${BUILD_NUMBER};
     tput rc;tput el;
-    printf  "          Build status %s for '%s/%s' :: Elapsed %s seconds." ${BUILD_STATUS} ${GITHUB_ORGANIZATION_NAME} ${PROJECT_NAME} ${TO};
+    printf  "          Build status %s for '%s/%s'; build #%s :: Elapsed %s seconds." ${BUILD_STATUS} ${GITHUB_ORGANIZATION_NAME} ${PROJECT_NAME} ${BUILD_NUMBER} ${TO};
     TO=$(( SLP*CNT ));
     if [[ ${BUILD_STATUS} == ${BUILD_RUNNING} ]]; then
       sleep ${SLP};

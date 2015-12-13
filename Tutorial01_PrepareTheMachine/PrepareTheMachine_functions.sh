@@ -16,7 +16,7 @@ function installToolsForTheseScripts() {
   X="python-pygments"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
   X="jq"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
 
-  echo "${#INST[@]} not installed";
+  echo "${#INST[@]} packages not installed.";
   if [[ ${#INST[@]} -lt 1 ]]; then return 0; fi;
 
   printf  "
@@ -257,7 +257,7 @@ function Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome() {
 
       # Install 'chromedriver'
       export CHROMEDRIVER_VERSION=$(wget -N -qO - http://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-      echo -e "Will install Chrome Driver version : ${CHROMEDRIVER_VERSION} for a ${CPU_WIDTH} width CPU";
+      echo -e "Will install Chrome Driver version : ${CHROMEDRIVER_VERSION} for a ${CPU_WIDTH}-bit width CPU";
       DRV_FILE="chromedriver_linux${CPU_WIDTH}.zip";
       wget -O ${DRV_FILE} http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/${DRV_FILE};
       sudo unzip -o ${DRV_FILE} -d /usr/local/bin;

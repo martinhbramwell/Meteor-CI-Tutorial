@@ -89,7 +89,7 @@ function InstallAndroidStudioSDK() {
     sed -i "/ANDROID_SDK_ROOT/d" ~/.profile;
   done;
   echo -e "\nexport ANDROID_SDK_ROOT=\${ANDROID_HOME};" >> ~/.profile;
-;
+
   while [[ $(grep -c "platform-tools" ~/.profile) -gt 0 ]]; do
     sed -i "/platform-tools/d" ~/.profile;
   done;

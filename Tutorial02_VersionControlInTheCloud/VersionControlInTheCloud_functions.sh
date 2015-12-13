@@ -14,6 +14,7 @@ export FORCE="force";
 function Install_Meteor() {
 
   INSTALLMETEOR=true;
+  sudo chmod a+rx /usr/local/bin/meteor;
   if [[ $(meteor --version) =~ .*Meteor.* ]];
   then
 
