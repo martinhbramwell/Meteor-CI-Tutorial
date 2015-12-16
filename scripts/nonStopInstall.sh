@@ -2,7 +2,7 @@
 
 #set -e;
 #
-declare PROCESS_THIS=true;  # true OR false
+declare PROCESS_THIS=false;  # true OR false
 CRP=$(sudo pwd);
 
 
@@ -10,10 +10,6 @@ source ./scripts/util.sh;
 
 checkForVirtualMachine;
 echo -e "\n   Checked for virtual machine\n          - o 0 o - \n";
-
-## MYAUTH="\"Authorization: token af8e88bf5ededc05916a6a588d7e191c6123\"";
-## GITHUB="https://api.github.com/repos/0ur0rg";
-## curl -X DELETE -H "${MYAUTH}" ${GITHUB}/prj09  &&  curl -X DELETE -H "${MYAUTH}" ${GITHUB}/pkg09 && rm -fr .ssh/config && rm -fr .ssh/github-0ur0rg-p* && rm -fr ~/project_isle
 
 verifyFreeSpace;
 echo -e "\n   Verified Free Space\n          - o 0 o - \n";
@@ -24,6 +20,7 @@ ${PROCESS_THIS} && {
   if ! getUserData; then didNotGetUserData; fi;
   if ! getNonStopData; then didNotGetNSData; fi;
 }
+
 export PACKAGES=~/${PARENT_DIR}/packages;
 
 collectSectionNames;
@@ -39,7 +36,7 @@ do
 done;
 
 
-# ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   
+# ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~
 ${PROCESS_THIS} && {
   installToolsForTheseScripts;
   echo -e "\n   Installed Tools For These Scripts\n          - o 0 o - \n";
@@ -427,7 +424,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     # explain ${BINDIR}/Connect_CircleCI_to_GitHub_B.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
     # if [ "${RUN_RULE}" != "n" ]; then
       Connect_CircleCI_to_GitHub_B;
-      echo -e "\n   Verified CircelCI tokens\n          - o 0 o - \n";      
+      echo -e "\n   Verified CircelCI tokens\n          - o 0 o - \n";
     # fi;
 
     # explain ${BINDIR}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md MORE_ACTION # CODE_BLOCK
@@ -679,22 +676,46 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
-}
-
-echo -e "\n - o 0 o -|||>>> \n"; #
-PROCESS_THIS=true;
-
-      read -ep "Ready to watch build?  ::  " -n 1 -r USER_ANSWER
-
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-${PROCESS_THIS} && {
-
-  setSection 9;
-
     # explain ${BINDIR}/InspectBuildResults.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
     InspectBuildResults;
     echo -e "\n   Deployed to Meteor Servers.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+}
+
+
+
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+${PROCESS_THIS} && {
+
+  setSection 10;
+
+
+    # explain ${BINDIR}/?????????????????????????.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    PrepareAndroidSDK;
+    echo -e "\n   Prepared Android SDK.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+
+}
+
+
+echo -e "\n - o 0 o -|||>>> \n"; #
+PROCESS_THIS=true;
+
+
+
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+${PROCESS_THIS} && {
+
+  setSection 10;
+
+    # explain ${BINDIR}/?????????????????????????.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    BuildAndroidAPK;
+    echo -e "\n   Built project APK.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
 
@@ -713,21 +734,9 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
 
-  echo " ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~ ";
-
-
 }
 
 
-
-# setSection 10;
-
-echo -e "
-
-   * * * Ready for Android SDK * * * 
-"
-# Ready_for_Android_Studio;
-# InstallAndroidStudioSDK;
 
 echo -e "\n - o 0 o -|||>>> \n"; #
 exit;
@@ -749,7 +758,7 @@ pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
 popd >/dev/null;
 exit;
 
-   echo "                   - o 0 o - "; 
+   echo "                   - o 0 o - ";
    exit;
 
 

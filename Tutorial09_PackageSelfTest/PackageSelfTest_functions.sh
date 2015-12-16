@@ -253,82 +253,146 @@ function PushDocsToGitHubPagesFromCIBuild_B() {
 }
 
 
+function InspectBuildResults() {
 
-function ConnectToMeteorServers() {
+  echo -e "Checking build status.";
 
-  CAS=0;
-  set +e;
-  WHOAMI=$(meteor whoami 2>/dev/null);
-  CAS=$(( $CAS + $? ));
-  if [[ "${METEOR_UID}" != "${WHOAMI}" ]]; then CAS=$(( $CAS + 2 )); fi;
-  set -e;
+  tput sc; # save cursor
+  BUILD_RUNNING='"running"'; #   running OR success
+  # :retried, :canceled, :infrastructure_fail, :timedout, :not_run, :running
+  # , :failed, :queued, :scheduled, :not_running, :no_tests, :fixed, :success
+  BUILD_STATUS=${BUILD_RUNNING};
+  LIM=40; # 40
+  SLP=15;
+  CNT=1;
+  TO=5;
 
-  echo "Meteor server connection :: ";
-  case ${CAS} in
-      0)
-          echo "Already logged in as '${METEOR_UID}'.";
-          ;;
-      2)
-          echo "Logging out from '${WHOAMI}' and logging in as '${METEOR_UID}'.";
-          meteor logout;
-          ./fragments/meteorAutoLogin.exp ${METEOR_UID} ${METEOR_PWD};
-          ;;
-      3)
-          echo "Logging in as '${METEOR_UID}'.";
-          ./fragments/meteorAutoLogin.exp ${METEOR_UID} ${METEOR_PWD};
-          ;;
-      *)
-          echo "This can't be happening!"
+  BUILD_STATUS="starting";
+  printf  "          Build status '%s' for '%s/%s'; build #%s :: Elapsed %s seconds." ${BUILD_STATUS} ${GITHUB_ORGANIZATION_NAME} ${PROJECT_NAME} ${BUILD_NUMBER} ${TO};
+
+#  BUILD_STATUS=$(cat ./tst/status_file);
+#  echo ${BUILD_STATUS}
+
+  while [ ${CNT} -lt ${LIM} ]; do
+
+    sleep ${SLP};
+    TO=$(( SLP*CNT ));
+    CNT=$(( CNT + 1 ));
+
+    # BUILD_STATUS=$(cat ./tst/status_file);
+    RESP=$( curl -s https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}?circle-token=${CIRCLECI_PERSONAL_TOKEN}               -H "Accept: application/json"  | jq '.[0] | {status, build_num}' );
+    BUILD_STATUS=$( echo ${RESP} | jq '.status' );
+    BUILD_STATUS=$(eval echo ${BUILD_STATUS});
+  #   echo ${BUILD_STATUS};"success";
+    BUILD_NUMBER=$( echo ${RESP} | jq '.build_num' );
+    # echo ${BUILD_NUMBER};
+
+    tput rc;tput el;
+    case "${BUILD_STATUS}" in
+
+      not_running)
+        ;&
+      queued)
+        ;&
+      retried)
+        ;&
+      running)
+        ;&
+      scheduled)
+        printf  "          Build status '%s' for '%s/%s'; build #%s :: Elapsed %s seconds." ${BUILD_STATUS} ${GITHUB_ORGANIZATION_NAME} ${PROJECT_NAME} ${BUILD_NUMBER} ${TO};
+        ;;
+      *) CNT=${LIM};
+        ;;
+
+    esac
+
+    # BUILD_STATUS=$( echo ${RESP} | jq '.status' );
+    # BUILD_NUMBER=$( echo ${RESP} | jq '.build_num' );
+    # echo ${BUILD_NUMBER};
+
+
+  done;
+
+   echo ${BUILD_STATUS};
+
+# canceled failed infrastructure_fail no_tests not_run timedout
+# queued  retried  running  scheduled not_running
+# success fixed
+  tput rc;tput el;
+  case "${BUILD_STATUS}" in
+
+    not_running)
+      ;&
+    queued)
+      ;&
+    retried)
+      ;&
+    running)
+      ;&
+    scheduled)
+      echo "Build still '${BUILD_STATUS}' after $((TO/60)) minutes.  Cannot get artifacts.";
+      exit 1;
+      ;;
+    canceled)
+      ;&
+    failed)
+      ;&
+    infrastructure_fail)
+      ;&
+    no_tests)
+      ;&
+    timedout)
+      ;&
+    not_run)
+      echo "Build aborted with status '${BUILD_STATUS}'.  Cannot get artifacts.";
+      exit 1;
+      ;;
+    *)
+      echo -e "\n        Finished waiting.\n";
+      ;;
+
   esac;
 
-}
+  BUILD_NUM=$(curl -s https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}?circle-token=${CIRCLECI_PERSONAL_TOKEN}  -H "Accept: application/json"  | jq '.[0].build_num');
+  echo -e "            Collecting artifacts of CircleCI build #${BUILD_NUM};";
+  curl -s https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/${BUILD_NUM}/artifacts?circle-token=${CIRCLECI_PERSONAL_TOKEN} -H "Accept: application/json" > /tmp/circleci_artifacts.json;
 
+  echo -e "\n\n        Here's the linting result :";
+  ESLINT_RESULT_URL=$(cat /tmp/circleci_artifacts.json | jq '.[] | .url' | grep esLintReport);
+  wget -qO- ${ESLINT_RESULT_URL//\"/};
+  printf "%0.s~" {1..80};
 
-function DeployToMeteorServers() {
-
-  PRJURI="${PROJECT_NAME}-${GITHUB_ORGANIZATION_NAME}.meteor.com";
-  echo -e "Deploying '${PROJECT_NAME}' app to Meteor site '${PRJURI}'";
-
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
-
-    meteor deploy ${PRJURI};
-     #>/dev/null;
-
-    echo -e "Deployment details sent.";
-    CALL_STATUS=1;
-    CNT=10;
-    while [ ${CALL_STATUS} -gt 0 ]; do
-      set +e;
-      CALL_STATUS=$( wget  -q --spider http://${PRJURI}/; echo $?; );
-      set -e;
-      echo "          Call status ${CALL_STATUS} when connecting to ${PRJURI}.";
-      if [ ${CALL_STATUS} -gt 0 ]; then
-        sleep 6;
-        CNT=$(( CNT - 1 ));
-        if [ $CNT -lt 1 ]; then
-          echo "Can't connect.";
-          exit 1;
-        fi;
-      fi;
-    done;
-    echo " ";
-
-
-  popd >/dev/null;
+  echo -e "\n\n      ...and here's the NightWatch result :";
+  NGHTWTCH_RESULT_URL=$(cat /tmp/circleci_artifacts.json | jq '.[] | .url' | grep 'result.json');
+  wget -qO- ${NGHTWTCH_RESULT_URL//\"/} | bunyan -o short;
+  printf "%0.s~" {1..80};
 
 }
 
 
-function InspectBuildResults() {
+function InspectBuildResults__SCRAP() {
 
   echo -e "Checking build status.";
   tput sc; # save cursor
   BUILD_RUNNING='"running"'; #   running OR success
+  # :retried, :canceled, :infrastructure_fail, :timedout, :not_run, :running, :failed, :queued, :scheduled, :not_running, :no_tests, :fixed, :success
   BUILD_STATUS=${BUILD_RUNNING};
   LIM=40;
   SLP=15;
   CNT=1;
   TO=5;
+
+  while [[ ${BUILD_STATUS} == ${BUILD_RUNNING} ]]; do
+
+    sleep ${SLP};
+    CNT=$(( CNT + 1 ));
+    if [ $CNT -gt ${LIM} ]; then
+      tput rc;tput el;
+      echo "Build still running after $((TO/60)) minutes.  Cannot get artifacts.";
+      exit 1;
+    fi;
+  done;
+
   while [[ ${BUILD_STATUS} == ${BUILD_RUNNING} ]]; do
     RESP=$( curl -s https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}?circle-token=${CIRCLECI_PERSONAL_TOKEN}               -H "Accept: application/json"  | jq '.[0] | {status, build_num}' );
     BUILD_STATUS=$( echo ${RESP} | jq '.status' );
@@ -369,7 +433,7 @@ function InspectBuildResults() {
 
 
 
-function AllowCircleCIToBeMeInGitHub() {
+function AllowCircleCIToBeMeInGitHub___SCRAP() {
  echo -e "
    https://github.com/login/oauth/authorize
   ?client_id=78a2ba87f071c28e65bb
@@ -390,15 +454,10 @@ function AllowCircleCIToBeMeInGitHub() {
   echo -e "
   ";
 
-# curl -X POST --header "Content-Type: application/json" -d '{"type":"github-user-key"}' https://circleci.com/api/v1/project/yourorg/yourproject/checkout-key?circle-token=df1534d919e12b3cc1bb8da2840c709c49681464
-
-# curl https://circleci.com/api/v1/me?circle-token=df1534d919e12b3cc1bb8da2840c709c49681464
-
-# curl https://circleci.com/api/v1/project/yourorg/yourproject/checkout-key?circle-token=df1534d919e12b3cc1bb8da2840c709c49681464
-
 }
 
-function CodeMaintenanceHelperFile() {
+
+function CodeMaintenanceHelperFile__SCRAP() {
 
   CLEAN="nothing to commit";
   UP2DT="Everything up-to-date";
@@ -452,8 +511,3 @@ function CodeMaintenanceHelperFile() {
 
 
 }
-
-
-# function () {
-# }
-

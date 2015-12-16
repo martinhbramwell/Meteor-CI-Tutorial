@@ -3,8 +3,20 @@
 
 declare NONSTOP="nonstop";
 
+export TMP_DIRECTORY="${HOME}/tmp";
+mkdir -p ${TMP_DIRECTORY};
+
 export SUDOUSER=$(who am i | awk '{print $1}');
 export GITHUB_SHTTP="https://api.github.com";
+
+export ANDROID_PLACE="${HOME}/.android";
+export ANDROID_SDK="android-sdk-linux";
+export ANDROID_HOME="${ANDROID_PLACE}/${ANDROID_SDK}";
+export ENV_FILE="${HOME}/.profile";
+
+export KEYSTORE_PATH="${HOME}/.meteorci-tutorial-keystore";
+export ZIPALIGN_PATH="${ANDROID_HOME}/build-tools/23.0.1";
+export ALIGNMENT=4
 
 export green='\e[0;32m'
 export flashingRed='\e[5;31m'
@@ -135,6 +147,7 @@ export REPLACE_EXISTING_PROJECT="${REPLACE_EXISTING_PROJECT}";
 export REPLACE_EXISTING_PACKAGE="${REPLACE_EXISTING_PACKAGE}";
 export METEOR_UID="${METEOR_UID}";
 export METEOR_PWD="${METEOR_PWD}";
+export KEYSTORE_PWD="${KEYSTORE_PWD}";
 NSDATA
 
 chown ${SUDOUSER}:${SUDOUSER} ~/.nsdata.sh;
@@ -188,6 +201,7 @@ function getUserData()
     export YOUR_FULLNAME="";
     export YOUR_EMAIL="";
     export CIRCLECI_PERSONAL_TOKEN="";
+    export PROJECT_URI="${PROJECT_NAME}-${GITHUB_ORGANIZATION_NAME}.meteor.com";
   fi
 
   CHOICE="n"
@@ -243,7 +257,9 @@ function getUserData()
     fi;
     echo "  "
   done;
+
   saveUserData;
+
   return;
 }
 
@@ -258,6 +274,7 @@ function getNonStopData()
     export REPLACE_EXISTING_PACKAGE="";
     export METEOR_UID="";
     export METEOR_PWD="";
+    export KEYSTORE_PWD="";
   fi
 
 
@@ -271,6 +288,7 @@ function getNonStopData()
     echo "You approve deleting and replacing package '${PKG_NAME}' : ${REPLACE_EXISTING_PACKAGE}";
     echo "Meteor server user ID : ${METEOR_UID}";
     echo "Meteor server password : ${METEOR_PWD}";
+    echo "Password for '${KEYSTORE_PATH}' : ${KEYSTORE_PWD}";
 
     read -ep "Is this correct? (y/n/q) ::  " -n 1 -r USER_ANSWER
     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
@@ -294,6 +312,9 @@ function getNonStopData()
 
       read -p "Meteor account password for Meteor deployment server :: " -e -i "${METEOR_PWD}" INPUT
       if [ ! "X${INPUT}X" == "XX" ]; then METEOR_PWD=${INPUT}; fi;
+
+      read -p "Password for disposable Android app signature keys :: " -e -i "${KEYSTORE_PWD}" INPUT
+      if [ ! "X${INPUT}X" == "XX" ]; then KEYSTORE_PWD=${INPUT}; fi;
 
     fi;
     echo "  "
@@ -694,6 +715,12 @@ fi
 if [ -f ~/.nsdata.sh ]; then
   source ~/.nsdata.sh;
 fi
+
+
+export BUILD_DIRECTORY="${HOME}/${PARENT_DIR}/${PROJECT_NAME}";
+export PROJECT_URI="${PROJECT_NAME}-${GITHUB_ORGANIZATION_NAME}.meteor.com";
+export TARGET_SERVER_URL="https://${PROJECT_URI}/";
+
 
 #############################
 
