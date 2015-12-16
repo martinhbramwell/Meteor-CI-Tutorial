@@ -293,7 +293,7 @@ wget -qO- ${NGHTWTCH_RESULT_URL//\"/} | bunyan -o short;
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L322" target="_blank">Code for this step.</a>]  ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L256" target="_blank">Code for this step.</a>]  ]
 ]
 ---
 .left-column[
