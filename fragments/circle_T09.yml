@@ -5,6 +5,9 @@
 #             https://circleci.com/docs/configuration
 #
 machine:
+  environment:
+    METEOR_CMD: ${HOME}/.meteor/meteor
+    # ADD_MORE_ENVIRONMENT_VARIABLES_ABOVE_THIS_LINE
   node:
     # Can't be certain that this build wlll work with all future versions: so specify.
     version: 4.1.0
@@ -27,7 +30,7 @@ dependencies:
     # Make a place for meteor logs
     - sudo mkdir -p /var/log/meteor; sudo chmod a+rwx /var/log/meteor; touch /var/log/meteor/ci4meteor.log
     # If Meteor is already cached, do not need to build it again.
-    - if [ ! -e ~/.meteor/meteor ]; then curl https://install.meteor.com | /bin/sh; fi
+    - if [ ! -e ${METEOR_CMD} ]; then curl https://install.meteor.com | /bin/sh; fi
     # Prepare Linting dependencies
     - if [ ! -d ~/nvm/versions/node/v4.1.0/lib/node_modules/eslint ]; then npm install -gy eslint; fi;
     - if [ ! -d ~/nvm/versions/node/v4.1.0/lib/node_modules/eslint-plugin-react ]; then npm install -gy eslint-plugin-react; fi;
@@ -47,7 +50,7 @@ test:
     # Run all unit tests
     - ${HOME}/${CIRCLE_PROJECT_REPONAME}/tests/tinyTests/test-all.sh
     # Launch Meteor in background
-    - ~/.meteor/meteor:
+    - ${METEOR_CMD}:
           background: true
     # Prepare for end to end tests
     - mkdir -p ${CIRCLE_TEST_REPORTS}/nightwatch/

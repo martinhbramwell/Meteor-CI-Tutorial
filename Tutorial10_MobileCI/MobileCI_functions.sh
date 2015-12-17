@@ -257,6 +257,19 @@ function PrepareCIwithAndroidSDK() {
         echo "Edited circle.yml.";
       fi;
 
+      ANDROID_HOME_PHRASE="ANDROID_HOME: /usr/local/android-sdk-linux";
+
+      echo "Edit circle.yml adding 'ANDROID_HOME_PHRASE' if not done before.";
+      DONE_BEFORE=$(cat circle.yml | grep -c "${ANDROID_HOME_PHRASE}" | { grep -v grep || true; });
+      if [[  ${DONE_BEFORE} -lt 1 ]]; then
+        # Insert 'ANDROID_HOME_PHRASE' to circle.yml
+        sed -i '/    # ADD_MORE_ENVIRONMENT_VARIABLES_ABOVE_THIS_LINE/c\
+    ANDROID_HOME: /usr/local/android-sdk-linux \
+    # ADD_MORE_ENVIRONMENT_VARIABLES_ABOVE_THIS_LINE' circle.yml
+        echo "Edited circle.yml.";
+      fi;
+exit;
+
     popd >/dev/null;
   popd >/dev/null;
 
