@@ -11,7 +11,7 @@ source ./scripts/util.sh;
 checkForVirtualMachine;
 echo -e "\n   Checked for virtual machine\n          - o 0 o - \n";
 
-verifyFreeSpace;
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  verifyFreeSpace;
 echo -e "\n   Verified Free Space\n          - o 0 o - \n";
 checkNotRoot;
 # verifyRootUser;

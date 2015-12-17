@@ -239,28 +239,32 @@ function PrepareCIwithAndroidSDK() {
       pushd ${ANDROID_TOOLS_DIR} >/dev/null;
 
         ANDROID_DEP_SCRIPT="install-android-dependencies.sh";
-        wget -O ${ANDROID_DEP_SCRIPT} \
-                  ${TUTORIAL_FRAGMENTS}/MobileCI/${ANDROID_DEP_SCRIPT};
+        echo "Obtain ${ANDROID_DEP_SCRIPT}";
 
-        chmod a+x ${ANDROID_DEP_SCRIPT}:
+        wget -nc ${TUTORIAL_FRAGMENTS}/MobileCI/android/${ANDROID_DEP_SCRIPT};
+        chmod a+x ${ANDROID_DEP_SCRIPT};
 
       popd >/dev/null;
 
-      DONE_BEFORE=$(cat circle.yml | grep -c "install-android-dependencies.sh");
+      echo "Edit circle.yml adding call to ${ANDROID_DEP_SCRIPT} if not done before.";
+      DONE_BEFORE=$(cat circle.yml | grep -c "${ANDROID_DEP_SCRIPT}" | { grep -v grep || true; });
       if [[  ${DONE_BEFORE} -lt 1 ]]; then
         # Add execution of 'PrepareAndroidSDK' to circle.yml
         sed -i '/ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE/c\
-          # Install Android dependencies\
-          - source ./tools/android/install-android-dependencies.sh && PrepareAndroidSDK\
-          # ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE' circle.yml
+    # Install Android dependencies\
+    - source ./tools/android/install-android-dependencies.sh && PrepareAndroidSDK\
+    # ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE' circle.yml
+        echo "Edited circle.yml.";
       fi;
 
     popd >/dev/null;
   popd >/dev/null;
 
+  echo "Adding environment variable to project in CircleCI.";
   export HEADER_JSON="--header \"Content-Type: application/json\"";
   export VAR_JSON="'{\"name\":\"KEYSTORE_PWD\", \"value\":\"${KEYSTORE_PWD}\"}'";
   eval curl -s -X POST ${HEADER_JSON} -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/envvar?circle-token=${CIRCLECI_PERSONAL_TOKEN};
+  echo -e "\nAdded env var.";
 
  }
 
