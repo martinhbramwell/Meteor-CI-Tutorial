@@ -29,5 +29,5 @@ git commit -am "Added code maintenance package iterator and augmented circle.yml
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L214" target="_blank">Code for this step.</a>]  ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L213" target="_blank">Code for this step.</a>]  ]
 ]

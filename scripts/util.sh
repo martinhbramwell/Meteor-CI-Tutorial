@@ -22,6 +22,9 @@ export green='\e[0;32m'
 export flashingRed='\e[5;31m'
 export endColor='\e[0m';
 
+export TUTORIAL_REPO="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial";
+export TUTORIAL_FRAGMENTS="${TUTORIAL_REPO}/master/fragments";
+
 function verifyFreeSpace() {
   MINFREESPACE=7000000;
   FREESPACE=$(df / | grep dev | awk '{print $4}');

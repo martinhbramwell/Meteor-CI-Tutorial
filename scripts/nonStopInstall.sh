@@ -685,12 +685,10 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 }
 
 
-
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 ${PROCESS_THIS} && {
 
   setSection 10;
-
 
     # explain ${BINDIR}/?????????????????????????.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
@@ -698,26 +696,11 @@ ${PROCESS_THIS} && {
     echo -e "\n   Prepared Android SDK.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
-
-}
-
-
-echo -e "\n - o 0 o -|||>>> \n"; #
-PROCESS_THIS=true;
-
-
-
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-${PROCESS_THIS} && {
-
-  setSection 10;
-
     # explain ${BINDIR}/?????????????????????????.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
     BuildAndroidAPK;
     echo -e "\n   Built project APK.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
-
 
     # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
@@ -734,6 +717,23 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
 
+
+}
+
+echo -e "\n - o 0 o -|||>>> \n"; #
+PROCESS_THIS=true;
+
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+${PROCESS_THIS} && {
+
+  setSection 10;
+
+    # explain ${BINDIR}/?????????????.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    PrepareCIwithAndroidSDK;
+    echo -e "\n   Prepared CircleCI for installing AndroidSDK.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
 }
 
 
@@ -742,75 +742,5 @@ echo -e "\n - o 0 o -|||>>> \n"; #
 exit;
 
 
-
-
-
-pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
-  git branch;
-  git status;
-#  read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER;
-  STASHED=$(git stash);
-    echo ${STASHED};
-    git checkout gh-pages;
-    ls -la;
-    git checkout master;
-  if [[ "${STASHED}" != "No local changes to save" ]]; then git stash pop; fi;
-popd >/dev/null;
-exit;
-
-   echo "                   - o 0 o - ";
-   exit;
-
-
-
-
-
-
-
-
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-  ${PROCESS_THIS} && {
-
-    setSection 1;
-
-    highlight ${BINDIR}/Configure_Sublime_A.md; # CODE_BLOCK explain MANUAL_INPUT_REQUIRED
-    echo "";
-    Configure_Sublime_A;
-    echo "";
-    read -p "Hit <enter> ::  " -n 1 -r REPLY;
-
-
-    highlight ${BINDIR}/Configure_Sublime_B.md; # explain MANUAL_INPUT_REQUIRED
-    echo "";
-    read -p "Hit <enter> ::  " -n 1 -r REPLY;
-
-  }
-
-
-
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-  ${PROCESS_THIS} && {
-
-    setSection 4;
-
-    explain ${BINDIR}/Configure_Sublime_Text_to_use_ESLint.md; # MANUAL_INPUT_REQUIRED
-
-  }
-
-
-
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-  ${PROCESS_THIS} && {
-
-    setSection 6;
-
-    explain ${BINDIR}/Connect_CircleCI_to_GitHub.md # MANUAL_INPUT_REQUIRED
-
-  }
-
-
-
-
-   echo "                   - o 0 o - "; exit;
 
 exit 0;

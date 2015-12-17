@@ -53,7 +53,7 @@ function PrepareAndroidSDK() {
         unzip ~/Downloads/tools_r23.0.5-linux.zip;
       fi;
 
-      echo -e "Cleaning all development toolkit plugins from '$(pwd)'.";
+      # echo -e "Cleaning all development toolkit plugins from '$(pwd)'.";
       # rm -fr ./platforms/
       # rm -fr ./platform-tools/
       # rm -fr ./extras/
@@ -87,13 +87,20 @@ function PrepareAndroidSDK() {
 
   echo -e "Obtaining SDK plugins.";
 
-  getPlugin "Android SDK Platform-tools, revision 23.1 rc1" ${ANDROID_HOME}/platform-tools/adb;
+  # 3
+  getPlugin "Android SDK Platform-tools, revision 23.0.1" ${ANDROID_HOME}/platform-tools/adb;
 
+  # 4
   getPlugin "Android SDK Build-tools, revision 23.0.1" ${ANDROID_HOME}/build-tools/23.0.1/zipalign;
 
+  # 25
+  getPlugin "SDK Platform Android 6.0, API 23, revision 1" ${ANDROID_HOME}/platforms/android-23/android.jar;
+
+  # 26
   getPlugin "SDK Platform Android 5.1.1, API 22, revision 2" ${ANDROID_HOME}/platforms/android-22/android.jar;
 
-  getPlugin "Intel x86 Atom_64 System Image, Android API 22, revision 2" ${ANDROID_HOME}/system-images/android-22/default/x86_64/system.img;
+  # 76
+#  getPlugin "Intel x86 Atom_64 System Image, Android API 22, revision 2" ${ANDROID_HOME}/system-images/android-22/default/x86_64/system.img;
 
 }
 
@@ -107,9 +114,9 @@ function BuildAndroidAPK() {
   echo "   ~                              Temporary build directory : " ${TMP_DIRECTORY}
   echo "### ~   ~   ~    "
 
-  set -e;
-  KTEXISTS=$(keytool -list -v  -storepass ${KEYSTORE_PWD} | grep "Alias name" | grep -c "${PROJECT_NAME}"); # -alias  ;
   set +e;
+  KTEXISTS=$(keytool -list -v  -storepass ${KEYSTORE_PWD} | grep "Alias name" | grep -c "${PROJECT_NAME}"); # -alias  ;
+  set -e;
   echo ${KTEXISTS};
   if [[ ${KTEXISTS} -lt 1 ]]; then
     keytool -genkeypair -dname "cn=Martin Bramwell, ou=IT, o=Warehouseman, c=CA" \
@@ -219,4 +226,41 @@ function DeployToMeteorServers() {
   popd >/dev/null;
 
 }
+
+
+export ANDROID_TOOLS_DIR="./tools/android";
+export METEOR_TOOLS_DIR="./tools/meteor";
+function PrepareCIwithAndroidSDK() {
+
+  pushd ~/${PARENT_DIR} >/dev/null;
+    pushd ${PROJECT_NAME} >/dev/null;
+
+      mkdir -p ${ANDROID_TOOLS_DIR};
+      pushd ${ANDROID_TOOLS_DIR} >/dev/null;
+
+        ANDROID_DEP_SCRIPT="install-android-dependencies.sh";
+        wget -O ${ANDROID_DEP_SCRIPT} \
+                  ${TUTORIAL_FRAGMENTS}/MobileCI/${ANDROID_DEP_SCRIPT};
+
+        chmod a+x ${ANDROID_DEP_SCRIPT}:
+
+      popd >/dev/null;
+
+      DONE_BEFORE=$(cat circle.yml | grep -c "install-android-dependencies.sh");
+      if [[  ${DONE_BEFORE} -lt 1 ]]; then
+        # Add execution of 'PrepareAndroidSDK' to circle.yml
+        sed -i '/ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE/c\
+          # Install Android dependencies\
+          - source ./tools/android/install-android-dependencies.sh && PrepareAndroidSDK\
+          # ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE' circle.yml
+      fi;
+
+    popd >/dev/null;
+  popd >/dev/null;
+
+  export HEADER_JSON="--header \"Content-Type: application/json\"";
+  export VAR_JSON="'{\"name\":\"KEYSTORE_PWD\", \"value\":\"${KEYSTORE_PWD}\"}'";
+  eval curl -s -X POST ${HEADER_JSON} -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/envvar?circle-token=${CIRCLECI_PERSONAL_TOKEN};
+
+ }
 

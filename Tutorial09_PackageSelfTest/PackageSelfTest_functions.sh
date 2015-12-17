@@ -194,7 +194,6 @@ function waitForCircleCI_ToHave_GitHub_User_Key() {
   ";
 
   CCIURI="https://circleci.com/api/v1/project";
-  CIRCLECI_PERSONAL_TOKEN="8e9c471170763a3944cfb5e0420a06e1b0030a43";
   KEY_CNT=0;
   set +e;
   while [ ${KEY_CNT} -lt 1 ]; do
