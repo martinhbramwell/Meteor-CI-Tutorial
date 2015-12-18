@@ -716,8 +716,6 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     echo -e "\n   Deployed to Meteor Servers.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
-
-
 }
 
 echo -e "\n - o 0 o -|||>>> \n"; #
@@ -733,6 +731,28 @@ ${PROCESS_THIS} && {
     PrepareCIwithAndroidSDK;
     echo -e "\n   Prepared CircleCI for installing AndroidSDK.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+    # explain ${BINDIR}/?????????????.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    PrepareCIwithAndroidBuilder;
+    echo -e "\n   Prepared CircleCI with Android Builder.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+    # explain ${BINDIR}/?????????????.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    PrepareCIwithMeteorDeployment;
+    echo -e "\n   Prepare CircleCI with Meteor deployment capability.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+    # explain ${BINDIR}/?????????????.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    PushFinalChanges;
+    echo -e "\n   Pushing latest changes to GitHub for rebuild on CircleCI.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+# TODO ::
+#  - git add tools/android/install-android-dependencies.sh
+#  - git commit circle.yml tools/android/install-android-dependencies.sh
 
 }
 

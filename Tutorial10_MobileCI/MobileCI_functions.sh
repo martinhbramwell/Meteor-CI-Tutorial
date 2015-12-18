@@ -228,8 +228,10 @@ function DeployToMeteorServers() {
 }
 
 
+export ANDROID_HOME_PHRASE="    ANDROID_HOME: \/usr\/local\/android-sdk-linux";
 export ANDROID_TOOLS_DIR="./tools/android";
 export METEOR_TOOLS_DIR="./tools/meteor";
+export MRKv="    # ADD_MORE_ENVIRONMENT_VARIABLES_ABOVE_THIS_LINE";
 function PrepareCIwithAndroidSDK() {
 
   pushd ~/${PARENT_DIR} >/dev/null;
@@ -257,18 +259,13 @@ function PrepareCIwithAndroidSDK() {
         echo "Edited circle.yml.";
       fi;
 
-      ANDROID_HOME_PHRASE="ANDROID_HOME: /usr/local/android-sdk-linux";
-
       echo "Edit circle.yml adding 'ANDROID_HOME_PHRASE' if not done before.";
       DONE_BEFORE=$(cat circle.yml | grep -c "${ANDROID_HOME_PHRASE}" | { grep -v grep || true; });
       if [[  ${DONE_BEFORE} -lt 1 ]]; then
         # Insert 'ANDROID_HOME_PHRASE' to circle.yml
-        sed -i '/    # ADD_MORE_ENVIRONMENT_VARIABLES_ABOVE_THIS_LINE/c\
-    ANDROID_HOME: /usr/local/android-sdk-linux \
-    # ADD_MORE_ENVIRONMENT_VARIABLES_ABOVE_THIS_LINE' circle.yml
+        sed -ie "s/^${MRKv}.*/${ANDROID_HOME_PHRASE}\n${MRKv}/g" circle.yml
         echo "Edited circle.yml.";
       fi;
-exit;
 
     popd >/dev/null;
   popd >/dev/null;
@@ -281,3 +278,143 @@ exit;
 
  }
 
+export DPLM="deployment:";
+export PRDC="  production:";
+export BRMA="    branch: master";
+export CMDS="    commands:";
+export MRKd="      # ADD_MORE_DEPLOYMENT_COMMANDS_ABOVE_THIS_LINE";
+function addMissingDeploymentSection() {
+
+  if [[ $(cat $1 | grep -c "^${MRKd}") -lt 1 ]]; then
+    if [[ $(cat $1 | grep -c "^${CMDS}") -lt 1 ]]; then
+      if [[ $(cat $1 | grep -c "^${BRMA}") -lt 1 ]]; then
+        if [[ $(cat $1 | grep -c "^${PRDC}") -lt 1 ]]; then
+          if [[ $(cat $1 | grep -c "^${DPLM}") -lt 1 ]]; then
+            echo -e "${DPLM}\n${PRDC}\n${BRMA}\n${CMDS}\n${MRKd}\n" >> $1;
+            return 0;
+          fi;
+          sed -ie "s/^.*${DPLM}.*/${DPLM}\n${PRDC}\n${BRMA}\n${CMDS}\n${MRKd}\n/g" $1;
+          return 0;
+        fi;
+        sed -ie "s/^${PRDC}.*/${PRDC}\n${BRMA}\n${CMDS}\n${MRKd}\n/g" $1;
+        return 0;
+      fi;
+      sed -ie "s/^${BRMA}.*/${BRMA}\n${CMDS}\n${MRKd}\n/g" $1;
+      return 0;
+    fi;
+    sed -ie "s/^${CMDS}.*/${CMDS}\n${MRKd}\n/g" $1;
+    return 0;
+  fi;
+
+}
+
+
+export ANDROID_BUILD_SCRIPT="build-android-apk.sh";
+export BLD_CMNT="      # Build the AndroidAPK.";
+export BLD_CMD="      - source .\/tools\/android\/${ANDROID_BUILD_SCRIPT} \&\& BuildAndroidAPK";
+function PrepareCIwithAndroidBuilder() {
+
+  pushd ~/${PARENT_DIR} >/dev/null;
+    pushd ${PROJECT_NAME} >/dev/null;
+      pushd ${ANDROID_TOOLS_DIR} >/dev/null;
+
+        echo "Obtain ${ANDROID_BUILD_SCRIPT}";
+
+        wget -nc ${TUTORIAL_FRAGMENTS}/MobileCI/android/${ANDROID_BUILD_SCRIPT};
+        chmod a+x ${ANDROID_BUILD_SCRIPT};
+
+      popd >/dev/null;
+
+      addMissingDeploymentSection circle.yml;
+
+      echo "Edit circle.yml adding call to ${ANDROID_BUILD_SCRIPT} if not done before.";
+      DONE_BEFORE=$(cat circle.yml | grep -c "${ANDROID_BUILD_SCRIPT}" | { grep -v grep || true; });
+      if [[  ${DONE_BEFORE} -lt 1 ]]; then
+        # Add execution of 'PrepareAndroidSDK' to circle.yml
+        sed -ie "s/^${MRKd}.*/${BLD_CMNT}\n${BLD_CMD}\n${MRKd}\n/g" circle.yml
+        echo "Edited circle.yml.";
+      fi;
+
+    popd >/dev/null;
+  popd >/dev/null;
+
+}
+
+
+export TARGET_SERVER_PHRASE="    TARGET_SERVER_URL: \${CIRCLE_PROJECT_REPONAME}-\${CIRCLE_PROJECT_USERNAME}.meteor.com";
+export METEOR_DEPLOY_SCRIPT="deploy-to-server.sh";
+export METEOR_LOGIN_EXPECT="meteorAutoLogin.exp";
+export DPLY_CMNT="     # Deploying to meteor.com";
+export DPLY_CMD="      - source .\/tools\/meteor\/deploy-to-server.sh \&\& DeployToMeteorServer";
+function PrepareCIwithMeteorDeployment() {
+
+  pushd ~/${PARENT_DIR} >/dev/null;
+    pushd ${PROJECT_NAME} >/dev/null;
+      mkdir -p ${METEOR_TOOLS_DIR};
+      pushd ${METEOR_TOOLS_DIR} >/dev/null;
+
+        echo "Obtain ${METEOR_DEPLOY_SCRIPT}";
+        wget -nc ${TUTORIAL_FRAGMENTS}/MobileCI/meteor/${METEOR_DEPLOY_SCRIPT};
+        chmod a+x ${METEOR_DEPLOY_SCRIPT};
+
+        echo "Obtain ${METEOR_LOGIN_EXPECT}";
+        wget -nc ${TUTORIAL_FRAGMENTS}/MobileCI/meteor/${METEOR_LOGIN_EXPECT};
+        chmod a+x ${METEOR_LOGIN_EXPECT};
+
+      popd >/dev/null;
+
+      echo "Edit circle.yml adding call to ${METEOR_DEPLOY_SCRIPT} if not done before.";
+      DONE_BEFORE=$(cat circle.yml | grep -c "${METEOR_DEPLOY_SCRIPT}" | { grep -v grep || true; });
+      if [[  ${DONE_BEFORE} -lt 1 ]]; then
+        # Add execution of 'PrepareAndroidSDK' to circle.yml
+        sed -ie "s/^${MRKd}.*/${DPLY_CMNT}\n${DPLY_CMD}\n${MRKd}\n/g" circle.yml
+        echo "Edited circle.yml.";
+      fi;
+
+
+      echo "Edit circle.yml adding 'TARGET_SERVER_PHRASE' if not done before.";
+      DONE_BEFORE=$(cat circle.yml | grep -c "${TARGET_SERVER_PHRASE}" | { grep -v grep || true; });
+      if [[  ${DONE_BEFORE} -lt 1 ]]; then
+        # Insert 'TARGET_SERVER_PHRASE' to circle.yml
+        sed -ie "s/^${MRKv}.*/${TARGET_SERVER_PHRASE}\n${MRKv}/g" circle.yml
+        echo "Edited circle.yml.";
+      fi;
+
+    popd >/dev/null;
+  popd >/dev/null;
+
+  echo "Adding environment variables to project in CircleCI.";
+  export HEADER_JSON="--header \"Content-Type: application/json\"";
+  export VAR_JSON="'{\"name\":\"METEOR_UID\", \"value\":\"${METEOR_UID}\"}'";
+  eval curl -s -X POST ${HEADER_JSON} -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/envvar?circle-token=${CIRCLECI_PERSONAL_TOKEN};
+  export VAR_JSON="'{\"name\":\"METEOR_PWD\", \"value\":\"${METEOR_PWD}\"}'";
+  eval curl -s -X POST ${HEADER_JSON} -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/envvar?circle-token=${CIRCLECI_PERSONAL_TOKEN};
+  echo -e "\nAdded env vars.";
+
+}
+
+
+function PushFinalChanges() {
+
+  CLEAN="nothing to commit";
+  UP2DT="Everything up-to-date";
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
+
+    git add ./tools/android/build-android-apk.sh;
+    git add ./tools/android/install-android-dependencies.sh;
+    git add ./tools/meteor/deploy-to-server.sh;
+    git add ./tools/meteor/meteorAutoLogin.exp;
+
+    STS="$(git status)";
+    if [ "${STS/${CLEAN}}" = "${STS}" ]; then
+      git commit -am "Added code maintenance tasks and augmented circle.yml";
+    fi;
+
+    PSH=$(git push);
+    if [ "${PSH/${UP2DT}}" != "${PSH}" ]; then
+          echo "Pushed ${PROJECT_NAME}";
+    fi;
+
+  popd >/dev/null;
+
+}
