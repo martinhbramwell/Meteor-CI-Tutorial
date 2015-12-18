@@ -12,5 +12,5 @@ var sections = {
   , G: "Tutorial07_ProductionLogging"
   , H: "Tutorial08_RealWorldPackage"
   , I: "Tutorial09_PackageSelfTest"
-  , J: "Tutorial10_MobileCI"
+  , J: "Tutorial10_AutomatedDeployment"
 };

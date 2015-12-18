@@ -52,13 +52,6 @@ if [ "${RUN_RULE}" != "n" ]; then PushDocsToGitHubPagesFromCIBuild_B; fi;
 explain ${BINDIR}/InspectBuildResults.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then InspectBuildResults; fi;
 
-explain ${BINDIR}/ConnectToMeteorServers.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then ConnectToMeteorServers; fi;
-
-explain ${BINDIR}/DeployToMeteorServers.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then DeployToMeteorServers; fi;
-
-
 
 
 echo -e " * * Curtailed * * "
