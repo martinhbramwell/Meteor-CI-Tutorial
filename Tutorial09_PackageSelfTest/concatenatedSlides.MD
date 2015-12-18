@@ -264,7 +264,7 @@ git commit -am "Added code maintenance package iterator and augmented circle.yml
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L214" target="_blank">Code for this step.</a>]  ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L213" target="_blank">Code for this step.</a>]  ]
 ]
 ---
 .left-column[
@@ -293,35 +293,7 @@ wget -qO- ${NGHTWTCH_RESULT_URL//\"/} | bunyan -o short;
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L256" target="_blank">Code for this step.</a>]  ]
-]
----
-.left-column[
-  ### Final Deployment
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)]
-<!-- H -->]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### Connect To Meteor Servers
-
-<!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L257" target="_blank">Code for this step.</a>]  ]
-]
----
-.left-column[
-  ### Final Deployment
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)]
-<!-- H -->]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### Deploy To Meteor Servers
-
-<!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L287" target="_blank">Code for this step.</a>]  ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L255" target="_blank">Code for this step.</a>]  ]
 ]
 ---
 .left-column[
