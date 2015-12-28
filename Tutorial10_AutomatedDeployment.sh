@@ -2,7 +2,8 @@
 
 set -e;
 #
-source ./scripts/util.sh
+source ./scripts/manageShellVars.sh;
+source ./scripts/util.sh;
 
 checkForVirtualMachine;
 checkNotRoot;
@@ -11,7 +12,7 @@ export SUDOUSER=$(who am i | awk '{print $1}');
 
 collectSectionNames;
 
-setSection 9;
+setSection 10;
 source "${BINDIR}/${SECTION}_functions.sh";
 
 
@@ -21,16 +22,15 @@ RUN_RULE="";
 explain ${BINDIR}/Introduction.md
 
 
-explain ${BINDIR}/PrepareAndroidSDK.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
-if [ "${RUN_RULE}" != "n" ]; then PrepareAndroidSDK; fi;
+explain ${BINDIR}/PrepareAndroidSDK_A.md;
 
-explain ${BINDIR}/BuildAndroidAPK.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+explain ${BINDIR}/PrepareAndroidSDK_B.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then PrepareAndroidSDK_B; fi;
+
+explain ${BINDIR}/BuildAndroidAPK.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then BuildAndroidAPK; fi;
 
-explain ${BINDIR}/ConnectToMeteorServers.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
-if [ "${RUN_RULE}" != "n" ]; then ConnectToMeteorServers; fi;
-
-explain ${BINDIR}/DeployToMeteorServers.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+explain ${BINDIR}/DeployToMeteorServers.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then DeployToMeteorServers; fi;
 
 explain ${BINDIR}/PrepareCIwithAndroidSDK.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED

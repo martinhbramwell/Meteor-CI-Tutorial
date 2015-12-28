@@ -37,39 +37,46 @@ function ObtainCircleCiPersonalToken() {
     ################################################################################################
     ";
 
-  if [ -f ~/.udata.sh ]; then
-    source ~/.udata.sh
-  else
-    export CIRCLECI_PERSONAL_TOKEN="";
-  fi
-
-  CHOICE="n"
-  while [[ ! "X${CHOICE}X" == "XyX" ]]
-  do
-
-#    echo -e "${FRAME// /\~}"
-    echo "CircleCI personal token : ${CIRCLECI_PERSONAL_TOKEN}";
-
-    read -ep "Is this correct? (y/n/q) ::  " -n 1 -r USER_ANSWER
-    CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
-    if [[ "X${CHOICE}X" == "XqX" ]]; then
-      echo skip out
-      return 1;
-    elif [[ ! "X${CHOICE}X" == "XyX" ]]; then
-
-      echo -e "\n Please supply the following details :\n";
-      read -p "Your CircleCI personal token :: " -e -i "${CIRCLECI_PERSONAL_TOKEN}" INPUT
-      if [ ! "X${INPUT}X" == "XX" ]; then CIRCLECI_PERSONAL_TOKEN=${INPUT}; fi;
-
-    elif [[ "X${CHOICE}X" == "XyX" ]]; then
-
-      if ! ValidateCircleCiPersonalToken; then CHOICE="n"; fi;
-
-    fi;
-    echo "   ";
+  until ValidateCircleCiPersonalToken; do
+    loadShellVars;
+    PARM_NAMES=("CIRCLECI_PERSONAL_TOKEN");
+    askUserForParameters PARM_NAMES[@];
   done;
-  echo "Recording CircleCI token for later use.";
-  saveUserData;
+
+
+#   if [ -f ~/.udata.sh ]; then
+#     source ~/.udata.sh
+#   else
+#     export CIRCLECI_PERSONAL_TOKEN="";
+#   fi
+
+#   CHOICE="n"
+#   while [[ ! "X${CHOICE}X" == "XyX" ]]
+#   do
+
+# #    echo -e "${FRAME// /\~}"
+#     echo "CircleCI personal token : ${CIRCLECI_PERSONAL_TOKEN}";
+
+#     read -ep "Is this correct? (y/n/q) ::  " -n 1 -r USER_ANSWER
+#     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+#     if [[ "X${CHOICE}X" == "XqX" ]]; then
+#       echo skip out
+#       return 1;
+#     elif [[ ! "X${CHOICE}X" == "XyX" ]]; then
+
+#       echo -e "\n Please supply the following details :\n";
+#       read -p "Your CircleCI personal token :: " -e -i "${CIRCLECI_PERSONAL_TOKEN}" INPUT
+#       if [ ! "X${INPUT}X" == "XX" ]; then CIRCLECI_PERSONAL_TOKEN=${INPUT}; fi;
+
+#     elif [[ "X${CHOICE}X" == "XyX" ]]; then
+
+#       if ! ValidateCircleCiPersonalToken; then CHOICE="n"; fi;
+
+#     fi;
+#     echo "   ";
+#   done;
+#   echo "Recording CircleCI token for later use.";
+#   saveUserData;
 
 }
 
@@ -318,7 +325,7 @@ function Add_a_CircleCI_configuration_file_and_push_to_GitHub() {
 
   git add circle.yml;
   git add tests;
-  set +e;    git commit -am 'Added circle.yml and unit testing';   set -e;
+  set +e;    git commit -am 'Added circle.yml and unit testing.';   set -e;
 
 #  echo -e "\n#####  eval \"\$(ssh-agent -s)\" ##### ";
   eval "$(ssh-agent -s)";
@@ -384,7 +391,7 @@ function Amend_the_configuration_and_push_again() {
     # ADD_MORE_DEPENDENCY_PREPARATIONS_ABOVE_THIS_LINE' circle.yml
 
   git add packages;
-  set +e;    git commit -am 'Add script to clone packages and symlink to them';   set -e;
+  set +e;    git commit -am "Add script to clone packages and symlink to them${SKIP_CI}";   set -e;
 #  git push -u ${PROJECT_NAME}_origin master;
   git push;
 
@@ -494,7 +501,7 @@ function Configure_CircleCI_for_Nightwatch_Testing() {
 
   git add tests/nightwatch;
 
-  set +e;    git commit -am 'Added Nightwatch testing';   set -e;
+  set +e;    git commit -am "Added Nightwatch testing${SKIP_CI}";   set -e;
   git push
 
   popd >/dev/null;

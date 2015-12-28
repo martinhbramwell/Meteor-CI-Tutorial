@@ -1,11 +1,12 @@
 #!/bin/bash
 
-#set -e;
-#
+set -e;
+
 declare PROCESS_THIS=false;  # true OR false
 CRP=$(sudo pwd);
 
 
+source ./scripts/manageShellVars.sh;
 source ./scripts/util.sh;
 
 checkForVirtualMachine;
@@ -16,10 +17,12 @@ echo -e "\n   Verified Free Space\n          - o 0 o - \n";
 checkNotRoot;
 # verifyRootUser;
 
-${PROCESS_THIS} && {
-  if ! getUserData; then didNotGetUserData; fi;
-  if ! getNonStopData; then didNotGetNSData; fi;
-}
+loadShellVars;
+PARM_NAMES=("PARENT_DIR" "PROJECT_NAME" "PKG_NAME" "YOUR_FULLNAME" \
+  "PACKAGE_DEVELOPER" "YOUR_EMAIL" "YOUR_UID" "GITHUB_ORGANIZATION_NAME" \
+   "CIRCLECI_PERSONAL_TOKEN" "METEOR_UID" "METEOR_PWD" "KEYSTORE_PWD" \
+   "GITHUB_PERSONAL_TOKEN" "REPLACE_EXISTING_PROJECT" "REPLACE_EXISTING_PACKAGE");
+askUserForParameters PARM_NAMES[@];
 
 export PACKAGES=~/${PARENT_DIR}/packages;
 
@@ -56,6 +59,10 @@ echo -e "\n   Configured git for GitHub\n          - o 0 o - \n";
 
 set +e; killall -qs SIGKILL ssh-agent; set -e;
 echo -e "\n   Killed extraneous ssh-agent instances\n          - o 0 o - \n";
+
+
+#    ~    ~    ~    ~    ~    ~    ~    ~    1    ~    ~    ~    ~    ~    ~
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 
 # highlight ${BINDIR}/Introduction.md # explain
 # echo ""
@@ -153,6 +160,8 @@ ${PROCESS_THIS} && {
 
 EnforceOwnershipAndPermissions;
 
+#    ~    ~    ~    ~    ~    ~    ~    ~    2    ~    ~    ~    ~    ~    ~
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 setSection 2;
 
 # export SECTION_NUM="2";
@@ -248,6 +257,8 @@ export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger
 # fi;
 
 
+#    ~    ~    ~    ~    ~    ~    ~    ~    3    ~    ~    ~    ~    ~    ~
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 
 setSection 3;
 
@@ -255,7 +266,7 @@ setSection 3;
 # if [ "${RUN_RULE}" != "n" ]; then
   ${PROCESS_THIS} && {
     Create_a_package_A;
-    echo -e "\n   Created package '${PKG_NAME}': A\n          - o 0 o - \n";
+    echo -e "\n   Created package '${PKG_NAME}': (A)\n          - o 0 o - \n";
   }
 # fi;
 
@@ -265,7 +276,7 @@ setSection 3;
 # if [ "${RUN_RULE}" != "n" ]; then
   ${PROCESS_THIS} && {
     Create_a_package_B;
-    echo -e "\n   Created package '${PKG_NAME}' : B\n          - o 0 o - \n";
+    echo -e "\n   Created package '${PKG_NAME}' : (B)\n          - o 0 o - \n";
   }
 # fi;
 
@@ -273,7 +284,7 @@ setSection 3;
 # if [ "${RUN_RULE}" != "n" ]; then
   ${PROCESS_THIS} && {
     Create_a_package_C;
-    echo -e "\n   Created package '${PKG_NAME}' : C\n          - o 0 o - \n";
+    echo -e "\n   Created package '${PKG_NAME}' : (C)\n          - o 0 o - \n";
   }
 # fi;
 
@@ -339,6 +350,7 @@ setSection 3;
 
 
 
+#    ~    ~    ~    ~    ~    ~    ~    ~    4    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
   ${PROCESS_THIS} && {
 
@@ -360,7 +372,7 @@ setSection 3;
 
 
 
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+#    ~    ~    ~    ~    ~    ~    ~    5    ~    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 
   ${PROCESS_THIS} && {
@@ -412,14 +424,15 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
   }
 
-
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+#    ~    ~    ~    ~    ~    ~    ~    6    ~    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 
 
   ${PROCESS_THIS} && {
 
     setSection 6;
+
+    SKIP_CI=", but [ci skip].";
 
     # explain ${BINDIR}/Connect_CircleCI_to_GitHub_B.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
     # if [ "${RUN_RULE}" != "n" ]; then
@@ -461,16 +474,18 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
     # fi;
 
+    SKIP_CI="";
 
   }
 
 
-
-
+#    ~    ~    ~    ~    ~    ~    ~    7    ~    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
   ${PROCESS_THIS} && {
 
     setSection 7;
+
+    # SKIP_CI=", but [ci skip].";
 
     # RUN_RULE="";
     # explain ${BINDIR}/Observe_ordinary_console_logging.md # MANUAL_INPUT_REQUIRED
@@ -518,14 +533,18 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
     # fi;
 
+    SKIP_CI="";
+
 }
 
 
+#    ~    ~    ~    ~    ~    ~    ~    8    ~    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 ${PROCESS_THIS} && {
 
     setSection 8;
 
+    SKIP_CI=", but [ci skip].";
 
     # echo ""
     # echo ""
@@ -612,16 +631,19 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
   #  echo -e "\n   \n          - o 0 o - \n";
     # fi;
 
+    SKIP_CI="";
+
 }
 
 
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+#    ~    ~    ~    ~    ~    ~    ~    9    ~    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 
 ${PROCESS_THIS} && {
 
     setSection 9;
 
+    SKIP_CI=", but [ci skip].";
 
     UsageExampleEndToEnd_prep;
     echo -e "\n   Brought in an edited 'nightwatch.json' file.\n          - o 0 o - \n";
@@ -669,12 +691,31 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
+
+    SKIP_CI="";
+
+}
+
+
+echo -e "\n - o 0 o -|||>>> \n"; #
+PROCESS_THIS=true;
+
+
+#    ~    ~    ~    ~    ~    ~    ~    9 A  ~    ~    ~    ~    ~    ~    ~
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+
+${PROCESS_THIS} && {
+
+    setSection 9;
+
+
     # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
     PushDocsToGitHubPagesFromCIBuild_B;
     echo -e "\n   Pushed project and package to GitHub.\n          - o 0 o - \n";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
 
     # explain ${BINDIR}/InspectBuildResults.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
@@ -684,15 +725,22 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 }
 
+exit;
 
+
+#    ~    ~    ~    ~    ~    ~    10 A ~    ~    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 ${PROCESS_THIS} && {
 
   setSection 10;
 
-    # explain ${BINDIR}/?????????????????????????.md MORE_ACTION # CODE_BLOCK
+  SKIP_CI=", but [ci skip].";
+
+    # explain ${BINDIR}/PrepareAndroidSDK_A.md;
+
+    # explain ${BINDIR}/PrepareAndroidSDK_B.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
-    PrepareAndroidSDK;
+    PrepareAndroidSDK_B;
     echo -e "\n   Prepared Android SDK.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
@@ -702,13 +750,6 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     echo -e "\n   Built project APK.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
-    # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
-    # if [ "${RUN_RULE}" != "n" ]; then
-    ConnectToMeteorServers;
-    echo -e "\n   Connected to Meteor Servers.\n          - o 0 o - \n";
-    # fi;
-pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
-
 
     # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
@@ -716,15 +757,21 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     echo -e "\n   Deployed to Meteor Servers.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
+    SKIP_CI="";
+
+
 }
 
-echo -e "\n - o 0 o -|||>>> \n"; #
-PROCESS_THIS=true;
+exit;
 
+
+#    ~    ~    ~    ~    ~    ~   10 B  ~    ~    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 ${PROCESS_THIS} && {
 
   setSection 10;
+
+  SKIP_CI=", but [ci skip].";
 
     # explain ${BINDIR}/?????????????.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
@@ -753,6 +800,9 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 # TODO ::
 #  - git add tools/android/install-android-dependencies.sh
 #  - git commit circle.yml tools/android/install-android-dependencies.sh
+
+    SKIP_CI="";
+
 
 }
 

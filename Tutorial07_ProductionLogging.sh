@@ -2,6 +2,7 @@
 
 set -e;
 #
+source ./scripts/manageShellVars.sh;
 source ./scripts/util.sh
 
 checkForVirtualMachine;

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+loadShellVars;
+
 export TMP_PLUGIN_LIST="/tmp/plugins.txt";
 export PLUGIN_NAME="";
 export PLUGIN_NUM="";
@@ -31,7 +33,7 @@ function getPlugin() {
 }
 
 
-function PrepareAndroidSDK() {
+function PrepareAndroidSDK_B() {
 
   echo "     ~     ~     ~     ~     ~     ~     ~     ~     ~  ";
 
@@ -71,18 +73,21 @@ function PrepareAndroidSDK() {
   if [[ $(grep -c "export ANDROID_HOME=${ANDROID_HOME}"  ${ENV_FILE}) -lt 1 ]];
   then
     while [[ $(grep -c ANDROID_HOME ${ENV_FILE}) -gt 0 ]]; do
-      sudo sed -i "/ANDROID_HOME/d" ${ENV_FILE};
+      sed -i "/ANDROID_HOME/d" ${ENV_FILE};
     done;
-    echo -e "\nexport ANDROID_HOME=${ANDROID_HOME};\n" | sudo tee -a ${ENV_FILE};
+    echo -e "\nexport ANDROID_HOME=${ANDROID_HOME};\n" | tee -a ${ENV_FILE};
   fi;
 
   while [[ $(grep -c "platform-tools" ${ENV_FILE}) -gt 0 ]]; do
   sed -i "/platform-tools/d" ${ENV_FILE};
   done;
   echo -e "\nexport PATH=\$PATH:\$ANDROID_HOME/platform-tools:\$ANDROID_HOME/tools;" \
-              | sudo tee -a ${ENV_FILE};
+              | tee -a ${ENV_FILE};
 
 
+  echo -e "Loading new variable with the command :
+              source ${ENV_FILE};
+  ";
   source ${ENV_FILE};
 
   echo -e "Obtaining SDK plugins.";
@@ -104,9 +109,24 @@ function PrepareAndroidSDK() {
 
 }
 
+function checkKeyToolPassword() {
+
+  while [ ${#KEYSTORE_PWD} -lt 6 ]; do
+
+    echo -e "
+     Your Key Tool password is too short.
+     ";
+    askUserForParameters PARM_NAMES[@];
+
+  done;
+
+}
 
 
 function BuildAndroidAPK() {
+
+  PARM_NAMES=("KEYSTORE_PWD");
+  checkKeyToolPassword;
 
   echo "### Configuration for your '"${PROJECT_NAME}"' project is :"
   echo "   ~                                      Target Server is  : " ${TARGET_SERVER_URL}
@@ -115,13 +135,23 @@ function BuildAndroidAPK() {
   echo "### ~   ~   ~    "
 
   set +e;
-  KTEXISTS=$(keytool -list -v  -storepass ${KEYSTORE_PWD} | grep "Alias name" | grep -c "${PROJECT_NAME}"); # -alias  ;
+  KTEXISTS=$(keytool -list -v  -storepass ${KEYSTORE_PWD} | grep "Alias name" | grep -c "${PROJECT_NAME}");
   set -e;
-  echo ${KTEXISTS};
+
+
+  CCODE=$(curl -s ipinfo.io | jq '.country');
   if [[ ${KTEXISTS} -lt 1 ]]; then
-    keytool -genkeypair -dname "cn=Martin Bramwell, ou=IT, o=Warehouseman, c=CA" \
+    echo "Creating key pair for '${PROJECT_NAME}'.";
+    until keytool -genkeypair -dname "cn=${YOUR_FULLNAME}, ou=IT, o=${GITHUB_ORGANIZATION_NAME}, c=${CCODE}" \
   -alias ${PROJECT_NAME} -keypass ${KEYSTORE_PWD} -storepass ${KEYSTORE_PWD} -validity 3650;
-    echo "Created key pair for '${PROJECT_NAME}'.";
+    do
+      echo -e "
+
+        Looks like you entered the wrong key store password.
+      ";
+      KEYSTORE_PWD="none";
+      askUserForParameters PARM_NAMES[@];
+    done;
   else
     echo "Have a key pair for '${PROJECT_NAME}'.";
   fi;
@@ -132,39 +162,64 @@ function BuildAndroidAPK() {
 
   pushd ${BUILD_DIRECTORY} >/dev/null;
 
+    rm -f ./getAPK.html;
+    echo "Deleted unwanted Android app download link template copy.";
+
     mkdir -p public;
-    # touch public/${PROJECT_NAME}.apk;
-    # rm public/${PROJECT_NAME}.apk;
-    # touch public/${PROJECT_NAME}.apk;
-
-    echo "Building project : ${BUILD_DIRECTORY} in ${TARGET_DIRECTORY} for server ${TARGET_SERVER_URL}";
-    meteor add-platform android;
-    meteor build ${TARGET_DIRECTORY}         --server=${TARGET_SERVER_URL};
-    echo "Stashing plain version.";
-    mv ${TARGET_DIRECTORY}/android/release-unsigned.apk ${TARGET_DIRECTORY}/android/${PROJECT_NAME}_unaligned.apk
-    echo "Building debug version.";
-    meteor build ${TARGET_DIRECTORY} --debug --server=${TARGET_SERVER_URL}
-    echo "Built.";
-
-    echo "<body><a target='_blank' href='./${PROJECT_NAME}.apk'>Get the Android app.</a></body>" > ./getAPK.html
+    echo "<body><a target='_blank' href='./${PROJECT_NAME}.apk'>Get the Android app.</a></body>" \
+            > ./public/getAPK.html;
     echo "Created Android app download link.";
+
+    set +e; meteor add-platform android 2>/dev/null; set -e;
+    echo "Added android platform to meteor project";
+
+    meteor build ${TARGET_DIRECTORY}         --server=${TARGET_SERVER_URL};
+    echo "Built project : ${BUILD_DIRECTORY} in ${TARGET_DIRECTORY} for server ${TARGET_SERVER_URL}";
+    mv ${TARGET_DIRECTORY}/android/release-unsigned.apk ${TARGET_DIRECTORY}/android/${PROJECT_NAME}_unaligned.apk
+    echo "Stashed plain version.";
+    meteor build ${TARGET_DIRECTORY} --debug --server=${TARGET_SERVER_URL}
+    echo "Built debug version.";
+
+    cp ./public/getAPK.html .;
+    echo "Restored Android app download link template copy.";
 
   popd >/dev/null;
 
   pushd ${TARGET_DIRECTORY}/android >/dev/null;
     jarsigner -storepass ${KEYSTORE_PWD} -tsa http://timestamp.digicert.com -digestalg SHA1 ${PROJECT_NAME}_unaligned.apk ${PROJECT_NAME};
+    echo -e "Signed the APK file.";
+
     ${ZIPALIGN_PATH}/zipalign -f ${ALIGNMENT} ${PROJECT_NAME}_unaligned.apk ${PROJECT_NAME}.apk;
-    echo -e "Aligned";
-    ls -l;
+    echo -e "Aligned the APK file.";
+
     mv ${PROJECT_NAME}.apk ${BUILD_DIRECTORY}/public;
+    echo -e "Placed signed and aligned APK file into project's public directory.";
+
   popd  >/dev/null;
   #
 
 }
 
+function logInToMeteor() {
+
+  set +e;
+  ./fragments/meteorAutoLogin.exp ${METEOR_UID} ${METEOR_PWD};
+  E=$?;
+#  echo "Result is ${E}";
+  until [[ $E -eq 0 ]]; do
+    askUserForParameters PARM_NAMES[@];
+    ./fragments/meteorAutoLogin.exp ${METEOR_UID} ${METEOR_PWD};
+    E=$?;
+  done;
+#  echo -e "Log in result :: $E";
+  set -e;
+
+}
 
 
-function ConnectToMeteorServers() {
+function ConnectToMeteor() {
+
+  PARM_NAMES=("METEOR_UID" "METEOR_PWD");
 
   CAS=0;
   set +e;
@@ -181,22 +236,38 @@ function ConnectToMeteorServers() {
       2)
           echo "Logging out from '${WHOAMI}' and logging in as '${METEOR_UID}'.";
           meteor logout;
-          ./fragments/meteorAutoLogin.exp ${METEOR_UID} ${METEOR_PWD};
+          logInToMeteor;
           ;;
       3)
           echo "Logging in as '${METEOR_UID}'.";
-          ./fragments/meteorAutoLogin.exp ${METEOR_UID} ${METEOR_PWD};
+          logInToMeteor;
+          # set +e;
+          # ./fragments/meteorAutoLogin.exp ${METEOR_UID} ${METEOR_PWD};
+          # E=$?;
+          # echo "Result is ${E}";
+          # exit;
+          # until [[ $E -eq 0 ]]; do
+          #   askUserForParameters PARM_NAMES[@];
+          #   ./fragments/meteorAutoLogin.exp ${METEOR_UID} ${METEOR_PWD};
+          #   E=$?;
+          # done;
+          # echo -e "Log in result :: $E";
+          # set -e;
           ;;
       *)
           echo "This can't be happening!"
   esac;
+  echo -e "
+    Done connecting to Meteor."
 
 }
 
 
-function DeployToMeteorServers() {
+function DeployToMeteor() {
 
-  echo -e "Deploying '${PROJECT_NAME}' app to Meteor site '${PROJECT_URI}'";
+  echo -e "
+
+     Deploying '${PROJECT_NAME}' app to Meteor site '${PROJECT_URI}'";
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
@@ -220,12 +291,20 @@ function DeployToMeteorServers() {
         fi;
       fi;
     done;
-    echo " ";
+    echo -w " Finished looking for http://${PROJECT_URI}/";
 
 
   popd >/dev/null;
 
 }
+
+function DeployToMeteorServers() {
+
+  ConnectToMeteor;
+  DeployToMeteor;
+
+}
+
 
 
 export ANDROID_HOME_PHRASE="    ANDROID_HOME: \/usr\/local\/android-sdk-linux";
@@ -407,7 +486,7 @@ function PushFinalChanges() {
 
     STS="$(git status)";
     if [ "${STS/${CLEAN}}" = "${STS}" ]; then
-      git commit -am "Added code maintenance tasks and augmented circle.yml";
+      git commit -am "Added support and scripts for Android APK build and Meteor deploy${SKIP_CI}";
     fi;
 
     PSH=$(git push);

@@ -66,7 +66,7 @@ function Package_Upgrade_and_Project_Rebuild_B() {
   popd >/dev/null;
 
   meteor list;
-  git commit -am "added logging to ${PKG_NAME}";
+  git commit -am "added logging to ${PKG_NAME}${SKIP_CI}";
   git push;
 
   echo -e "Pushed project ${PROJECT_NAME}";

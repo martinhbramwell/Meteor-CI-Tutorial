@@ -2,9 +2,8 @@
 
 
 set -e;
-#
-sudo pwd;
 
+source ./scripts/manageShellVars.sh;
 source ./scripts/util.sh;
 
 checkForVirtualMachine;

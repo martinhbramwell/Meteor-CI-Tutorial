@@ -2,7 +2,9 @@
 
 set -e;
 #
+source ./scripts/manageShellVars.sh;
 source ./scripts/util.sh;
+
 declare NONSTOP="nonstop";
 
 checkForVirtualMachine;

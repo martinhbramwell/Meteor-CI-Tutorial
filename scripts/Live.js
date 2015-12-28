@@ -28,6 +28,7 @@
       currentLinkElements = {},
       oldLinkElements = {},
       interval = 2500,
+      reloadDelay = 1500;
       loaded = false,
       active = { "html": 1, "css": 1, "js": 1 };
 
@@ -41,6 +42,11 @@
         Live.checkForChanges();
       }
       setTimeout(Live.heartbeat, interval);
+    },
+
+    // performs a cycle per interval
+    reloadInAMoment: function () {
+      document.location.reload();
     },
 
     // loads all local css and js resources upon first activation
@@ -168,7 +174,7 @@
         case "text/javascript":
         case "application/javascript":
         case "application/x-javascript":
-          document.location.reload();
+          setTimeout(Live.reloadInAMoment, reloadDelay);
       }
     },
 

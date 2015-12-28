@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 
+source ./scripts/manageShellVars.sh;
 source ./scripts/util.sh;
 
 collectSectionNames;

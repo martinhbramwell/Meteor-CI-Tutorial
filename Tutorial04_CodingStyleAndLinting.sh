@@ -2,7 +2,8 @@
 
 set -e;
 #
-source ./scripts/util.sh
+source ./scripts/manageShellVars.sh;
+source ./scripts/util.sh;
 
 checkForVirtualMachine;
 checkNotRoot;

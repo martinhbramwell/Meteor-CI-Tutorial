@@ -2,7 +2,8 @@
 
 set -e;
 #
-source ./scripts/util.sh
+source ./scripts/manageShellVars.sh;
+source ./scripts/util.sh;
 
 checkForVirtualMachine;
 checkNotRoot;
@@ -21,8 +22,14 @@ explain ${BINDIR}/Introduction.md
 
 RUN_RULE="a";
 explain ${BINDIR}/Set_Up_Project_Names.md MORE_ACTION # MANUAL_INPUT_REQUIRED
-RUN_RULE="";
-if ! getUserData; then didNotGetUserData; fi;
+
+loadShellVars;
+PARM_NAMES=("PARENT_DIR" "PROJECT_NAME" "PKG_NAME" "YOUR_FULLNAME" \
+  "PACKAGE_DEVELOPER" "YOUR_EMAIL" "YOUR_UID" "GITHUB_ORGANIZATION_NAME" \
+   "CIRCLECI_PERSONAL_TOKEN" "METEOR_UID" "METEOR_PWD" "KEYSTORE_PWD");
+askUserForParameters PARM_NAMES[@];
+# RUN_RULE="";
+# if ! getUserData; then didNotGetUserData; fi;
 
 explain ${BINDIR}/Configure_git_for_GitHub.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Configure_git_for_GitHub; fi;
