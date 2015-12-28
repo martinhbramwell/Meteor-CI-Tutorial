@@ -227,7 +227,6 @@
     }
   };
 
-  window.console ? console.log("This document was loaded from the server : " + document.location.hostname + " (" + document.location.hostname.indexOf("github.io") + ")") : null;
   // start listening
   if (document.location.protocol === "file:") {
     window.console ? console.log("Live.js doesn't support the file protocol. It needs http.") : null;

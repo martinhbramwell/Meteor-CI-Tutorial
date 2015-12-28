@@ -207,9 +207,9 @@
     <script>
       var part = getLocation(window.location.href).search.replace('?part=', '').replace('/', '');
       var blockId = part in sections ? 'SlideShows' : 'Introduction';
-      console.debug('Block = ' + blockId);
+//      console.debug('Block = ' + blockId);
       var slideShowID = sections[part];
-      console.debug('slideShowID = ' + slideShowID);
+//      console.debug('slideShowID = ' + slideShowID);
 
       var block = document.getElementById(blockId);
       block.style.display = "block";
