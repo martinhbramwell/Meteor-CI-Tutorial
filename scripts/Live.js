@@ -227,13 +227,18 @@
     }
   };
 
+  window.console ? console.log("This document was loaded from the server : " + document.location.hostname + " (" + document.location.hostname.indexOf("github.io") + ")") : null;
   // start listening
-  if (document.location.protocol != "file:") {
+  if (document.location.protocol === "file:") {
+    window.console ? console.log("Live.js doesn't support the file protocol. It needs http.") : null;
+  }
+  else if (document.location.hostname === "martinhbramwell.github.io") {
+    window.console ? console.log("Live.js is disabled.") : null;
+  }
+  else {
     if (!window.liveJsLoaded)
       Live.heartbeat();
 
     window.liveJsLoaded = true;
   }
-  else if (window.console)
-    console.log("Live.js doesn't support the file protocol. It needs http.");
 })();
