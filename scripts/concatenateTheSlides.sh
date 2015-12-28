@@ -202,6 +202,7 @@ index.html
 styles.css
 gitlog.txt
 scripts/tutorial_sections.js
+scripts/Live.js
 fragments/typer.gif
 fragments/loader.gif
 fragments/favicons.zip
