@@ -307,7 +307,7 @@ function DeployToMeteorServers() {
 
 
 
-export ANDROID_HOME_PHRASE="    ANDROID_HOME: \/usr\/local\/android-sdk-linux";
+# export ANDROID_HOME_PHRASE="    ANDROID_HOME: \/usr\/local\/android-sdk-linux";
 export ANDROID_TOOLS_DIR="./tools/android";
 export METEOR_TOOLS_DIR="./tools/meteor";
 export MRKv="    # ADD_MORE_ENVIRONMENT_VARIABLES_ABOVE_THIS_LINE";
@@ -338,13 +338,13 @@ function PrepareCIwithAndroidSDK() {
         echo "Edited circle.yml.";
       fi;
 
-      echo "Edit circle.yml adding 'ANDROID_HOME_PHRASE' if not done before.";
-      DONE_BEFORE=$(cat circle.yml | grep -c "${ANDROID_HOME_PHRASE}" | { grep -v grep || true; });
-      if [[  ${DONE_BEFORE} -lt 1 ]]; then
-        # Insert 'ANDROID_HOME_PHRASE' to circle.yml
-        sed -ie "s/^${MRKv}.*/${ANDROID_HOME_PHRASE}\n${MRKv}/g" circle.yml
-        echo "Edited circle.yml.";
-      fi;
+      # echo "Edit circle.yml adding 'ANDROID_HOME_PHRASE' if not done before.";
+      # DONE_BEFORE=$(cat circle.yml | grep -c "${ANDROID_HOME_PHRASE}" | { grep -v grep || true; });
+      # if [[  ${DONE_BEFORE} -lt 1 ]]; then
+      #   # Insert 'ANDROID_HOME_PHRASE' to circle.yml
+      #   sed -ie "s/^${MRKv}.*/${ANDROID_HOME_PHRASE}\n${MRKv}/g" circle.yml
+      #   echo "Edited circle.yml.";
+      # fi;
 
     popd >/dev/null;
   popd >/dev/null;
