@@ -59,6 +59,8 @@ Since Cordova only recently <a href="https://cordova.apache.org/announcements/20
 
 The ```android update sdk``` command switch ```--filter``` expects an identifier of a single plugin.   We can get the list of identifier codes with the command... ```android list sdk -a -u --extended``` ...which shows identifiers, eg; *build-tools-23.0.1*. <font size="2">Note that the *numeric* identifiers are NOT reliable.</font>
 
+<a href="http://www.alteridem.net/2014/08/19/using-android-x86-as-an-emulator-in-hyper-v-for-windows/" target="_blank">Using Android-X86 as an Emulator in Hyper-V for Windows</a>
+
 ```ruby
 id: 4 or "build-tools-23.0.1"
      Type: BuildTool
@@ -192,7 +194,7 @@ curl -s -X POST -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGA
 #### Prepare Circle CI with Meteor Deployment
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L428" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L432" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[
@@ -206,7 +208,7 @@ curl -s -X POST -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGA
 #### Push Final Changes
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L476" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L480" target="_blank">Code for this step.</a>] ]
 ]
 ---
 .left-column[

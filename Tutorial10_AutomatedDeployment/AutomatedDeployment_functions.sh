@@ -372,16 +372,16 @@ function addMissingDeploymentSection() {
             echo -e "${DPLM}\n${PRDC}\n${BRMA}\n${CMDS}\n${MRKd}\n" >> $1;
             return 0;
           fi;
-          sed -ie "s/^.*${DPLM}.*/${DPLM}\n${PRDC}\n${BRMA}\n${CMDS}\n${MRKd}\n/g" $1;
+          sed -i "s/^.*${DPLM}.*/${DPLM}\n${PRDC}\n${BRMA}\n${CMDS}\n${MRKd}\n/g" $1;
           return 0;
         fi;
-        sed -ie "s/^${PRDC}.*/${PRDC}\n${BRMA}\n${CMDS}\n${MRKd}\n/g" $1;
+        sed -i "s/^${PRDC}.*/${PRDC}\n${BRMA}\n${CMDS}\n${MRKd}\n/g" $1;
         return 0;
       fi;
-      sed -ie "s/^${BRMA}.*/${BRMA}\n${CMDS}\n${MRKd}\n/g" $1;
+      sed -i "s/^${BRMA}.*/${BRMA}\n${CMDS}\n${MRKd}\n/g" $1;
       return 0;
     fi;
-    sed -ie "s/^${CMDS}.*/${CMDS}\n${MRKd}\n/g" $1;
+    sed -i "s/^${CMDS}.*/${CMDS}\n${MRKd}\n/g" $1;
     return 0;
   fi;
 
@@ -395,6 +395,7 @@ function PrepareCIwithAndroidBuilder() {
 
   pushd ~/${PARENT_DIR} >/dev/null;
     pushd ${PROJECT_NAME} >/dev/null;
+      ls -l ./circle.y*;
       pushd ${ANDROID_TOOLS_DIR} >/dev/null;
 
         echo "Obtain ${ANDROID_BUILD_SCRIPT}";
@@ -404,14 +405,17 @@ function PrepareCIwithAndroidBuilder() {
 
       popd >/dev/null;
 
+      ls -l ./circle.y*;
       addMissingDeploymentSection circle.yml;
 
       echo "Edit circle.yml adding call to ${ANDROID_BUILD_SCRIPT} if not done before.";
+      ls -l ./circle.y*;
       DONE_BEFORE=$(cat circle.yml | grep -c "${ANDROID_BUILD_SCRIPT}" | { grep -v grep || true; });
       if [[  ${DONE_BEFORE} -lt 1 ]]; then
         # Add execution of 'PrepareAndroidSDK' to circle.yml
-        sed -ie "s/^${MRKd}.*/${BLD_CMNT}\n${BLD_CMD}\n${MRKd}\n/g" circle.yml
+        sed -i "s/^${MRKd}.*/${BLD_CMNT}\n${BLD_CMD}\n${MRKd}\n/g" circle.yml
         echo "Edited circle.yml.";
+        ls -l ./circle.y*;
       fi;
 
     popd >/dev/null;
@@ -423,8 +427,8 @@ function PrepareCIwithAndroidBuilder() {
 export TARGET_SERVER_PHRASE="    TARGET_SERVER_URL: \${CIRCLE_PROJECT_REPONAME}-\${CIRCLE_PROJECT_USERNAME}.meteor.com";
 export METEOR_DEPLOY_SCRIPT="deploy-to-server.sh";
 export METEOR_LOGIN_EXPECT="meteorAutoLogin.exp";
-export DPLY_CMNT="     # Deploying to meteor.com";
-export DPLY_CMD="      - source .\/tools\/meteor\/deploy-to-server.sh \&\& DeployToMeteorServer";
+export DPLY_CMNT="      # Deploying to meteor.com";
+export  DPLY_CMD="      - source .\/tools\/meteor\/deploy-to-server.sh \&\& DeployToMeteorServer";
 function PrepareCIwithMeteorDeployment() {
 
   pushd ~/${PARENT_DIR} >/dev/null;

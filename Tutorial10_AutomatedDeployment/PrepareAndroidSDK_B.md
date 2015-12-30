@@ -13,6 +13,8 @@ Since Cordova only recently <a href="https://cordova.apache.org/announcements/20
 
 The ```android update sdk``` command switch ```--filter``` expects an identifier of a single plugin.   We can get the list of identifier codes with the command... ```android list sdk -a -u --extended``` ...which shows identifiers, eg; *build-tools-23.0.1*. <font size="2">Note that the *numeric* identifiers are NOT reliable.</font>
 
+<a href="http://www.alteridem.net/2014/08/19/using-android-x86-as-an-emulator-in-hyper-v-for-windows/" target="_blank">Using Android-X86 as an Emulator in Hyper-V for Windows</a>
+
 ```ruby
 id: 4 or "build-tools-23.0.1"
      Type: BuildTool

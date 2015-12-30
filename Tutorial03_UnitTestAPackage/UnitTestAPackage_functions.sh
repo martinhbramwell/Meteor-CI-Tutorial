@@ -237,9 +237,13 @@ function Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line() {
 
   killMeteorProcess
 
-  wget -N -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
+  wget https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
+
   chmod ug+x meteor-tinytest-runner.run
   ./meteor-tinytest-runner.run
+
+  cat ./tests/tinyTests/ci/installSeleniumWebdriver.sh;
+
   chmod a+rx ./tests/tinyTests/*.sh
   ./tests/tinyTests/test-all.sh
 

@@ -27,7 +27,9 @@ export TUTORIAL_FRAGMENTS="${TUTORIAL_REPO}/master/fragments";
 
 function verifyFreeSpace() {
   MINFREESPACE=7000000;
-  FREESPACE=$(df / | grep dev | awk '{print $4}');
+  # FREESPACE=$(df / | grep dev | awk '{print $4}');
+
+  FREESPACE=$(df -k .  | grep -v Available  | awk '{print $4}');
 
   CHOICE="n";
   while [[ ! "X${CHOICE}X" == "XyX" ]]
@@ -616,8 +618,8 @@ export CPU_WIDTH=;
 function checkForVirtualMachine() {
   echo -e "Analyzing environment . . .";
 
-  CPU_WIDTH=$(lshw -class cpu 2>/dev/null | grep width | sed 's/  //g' | cut -d' ' -f3);
-
+  CPU_WIDTH=$(lshw -class cpu 2>/dev/null | grep width | sed 's/^[ \t]*//' | cut -d' ' -f2);
+  # echo $CPU_WIDTH;
   VIRTUAL=false;
 
   MSG="Found a '%s' virtual machine.\n";

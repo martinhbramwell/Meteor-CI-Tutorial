@@ -2,7 +2,7 @@
 
 set -e;
 
-declare PROCESS_THIS=false;  # true OR false
+declare PROCESS_THIS=true;  # true OR false
 CRP=$(sudo pwd);
 
 
@@ -12,10 +12,10 @@ source ./scripts/util.sh;
 checkForVirtualMachine;
 echo -e "\n   Checked for virtual machine\n          - o 0 o - \n";
 
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  verifyFreeSpace;
-echo -e "\n   Verified Free Space\n          - o 0 o - \n";
+verifyFreeSpace;
+echo -e "\n   Verified Free Space (${FREESPACE})\n          - o 0 o - \n";
+
 checkNotRoot;
-# verifyRootUser;
 
 loadShellVars;
 PARM_NAMES=("PARENT_DIR" "PROJECT_NAME" "PKG_NAME" "YOUR_FULLNAME" \
@@ -23,6 +23,10 @@ PARM_NAMES=("PARENT_DIR" "PROJECT_NAME" "PKG_NAME" "YOUR_FULLNAME" \
    "CIRCLECI_PERSONAL_TOKEN" "METEOR_UID" "METEOR_PWD" "KEYSTORE_PWD" \
    "GITHUB_PERSONAL_TOKEN" "REPLACE_EXISTING_PROJECT" "REPLACE_EXISTING_PACKAGE");
 askUserForParameters PARM_NAMES[@];
+
+export BUILD_DIRECTORY="${HOME}/${PARENT_DIR}/${PROJECT_NAME}";
+export PROJECT_URI="${PROJECT_NAME}-${GITHUB_ORGANIZATION_NAME}.meteor.com";
+export TARGET_SERVER_URL="https://${PROJECT_URI}/";
 
 export PACKAGES=~/${PARENT_DIR}/packages;
 
@@ -323,7 +327,6 @@ setSection 3;
   }
 
 
-
 # explain ${BINDIR}/Control_a_packages_versions_B.md  MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
   ${PROCESS_THIS} && {
@@ -331,7 +334,6 @@ setSection 3;
     echo -e "\n   Controlled '${PKG_NAME}' package's versions : B\n          - o 0 o - \n";
   }
 # fi;
-
 
 
 
@@ -347,6 +349,10 @@ setSection 3;
     echo -e "\n   Added a test runner for getting TinyTest output on the command line. : B\n          - o 0 o - \n";
   }
 # fi;
+
+
+echo -e "\n - o 0 o -|||>>> \n"; #
+PROCESS_THIS=true;
 
 
 
@@ -697,10 +703,6 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 }
 
 
-echo -e "\n - o 0 o -|||>>> \n"; #
-PROCESS_THIS=true;
-
-
 #    ~    ~    ~    ~    ~    ~    ~    9 A  ~    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 
@@ -711,8 +713,10 @@ ${PROCESS_THIS} && {
 
     # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
+    SKIP_CI="";
     PushDocsToGitHubPagesFromCIBuild_B;
     echo -e "\n   Pushed project and package to GitHub.\n          - o 0 o - \n";
+    SKIP_CI=", but [ci skip].";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
@@ -723,9 +727,16 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     echo -e "\n   Deployed to Meteor Servers.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
+    # explain ${BINDIR}/PrepareAndroidSDK_A.md;
+
+    # explain ${BINDIR}/PrepareAndroidSDK_B.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    PrepareAndroidSDK_B;
+    echo -e "\n   Prepared Android SDK.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
 }
 
-exit;
 
 
 #    ~    ~    ~    ~    ~    ~    10 A ~    ~    ~    ~    ~    ~    ~    ~
@@ -736,13 +747,6 @@ ${PROCESS_THIS} && {
 
   SKIP_CI=", but [ci skip].";
 
-    # explain ${BINDIR}/PrepareAndroidSDK_A.md;
-
-    # explain ${BINDIR}/PrepareAndroidSDK_B.md MORE_ACTION # CODE_BLOCK
-    # if [ "${RUN_RULE}" != "n" ]; then
-    PrepareAndroidSDK_B;
-    echo -e "\n   Prepared Android SDK.\n          - o 0 o - \n";
-pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # explain ${BINDIR}/?????????????????????????.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
@@ -750,34 +754,18 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     echo -e "\n   Built project APK.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
-
     # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
     DeployToMeteorServers;
     echo -e "\n   Deployed to Meteor Servers.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
-    SKIP_CI="";
-
-
-}
-
-exit;
-
-
-#    ~    ~    ~    ~    ~    ~   10 B  ~    ~    ~    ~    ~    ~    ~    ~
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-${PROCESS_THIS} && {
-
-  setSection 10;
-
-  SKIP_CI=", but [ci skip].";
-
     # explain ${BINDIR}/?????????????.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
     PrepareCIwithAndroidSDK;
     echo -e "\n   Prepared CircleCI for installing AndroidSDK.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
 
     # explain ${BINDIR}/?????????????.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
@@ -791,26 +779,47 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     echo -e "\n   Prepare CircleCI with Meteor deployment capability.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
+
     # explain ${BINDIR}/?????????????.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
+    SKIP_CI="";
     PushFinalChanges;
     echo -e "\n   Pushing latest changes to GitHub for rebuild on CircleCI.\n          - o 0 o - \n";
+    SKIP_CI=", but [ci skip].";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
 # TODO ::
 #  - git add tools/android/install-android-dependencies.sh
 #  - git commit circle.yml tools/android/install-android-dependencies.sh
 
-    SKIP_CI="";
-
 
 }
+
 
 
 
 echo -e "\n - o 0 o -|||>>> \n"; #
 exit;
 
-
-
 exit 0;
+
+
+
+
+#     SKIP_CI="";
+
+# }
+
+# echo -e "\n - o 0 o -|||>>> \n"; #
+# PROCESS_THIS=true;
+
+
+# #    ~    ~    ~    ~    ~    ~   10 B  ~    ~    ~    ~    ~    ~    ~    ~
+# #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+# ${PROCESS_THIS} && {
+
+#   setSection 10;
+
+#   SKIP_CI=", but [ci skip].";
+
+
