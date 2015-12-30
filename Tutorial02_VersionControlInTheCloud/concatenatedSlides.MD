@@ -28,7 +28,7 @@ You should not need to use 'sudo' for this or any of the later parts.  In other 
 .left-column[
   ### Set Up Project Names
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -38,13 +38,16 @@ You should not need to use 'sudo' for this or any of the later parts.  In other 
 This step writes some names you specify to a file.  You won't have to repeat this.
 
 You will be asked to supply the following details :
- - The sudirectory path in your home directory
+ - Your directory for projects in your ${HOME} directory
  - The exact project name for use in GitHub
  - The exact package name for use in GitHub
  - The exact name for the GitHub organization
- - The project owner's name for publishing on GitHub
- - The project owner name to for internal use
+ - The project owner user id in GitHub
  - The email address for the project owner in GitHub
+ - The project owner name to use within the project
+ - The project owner full name to use to publish it in GitHub
+
+
 
 <!-- B -->]
 ---
@@ -249,7 +252,7 @@ name: CreateRemoteGitHubRepository
 .left-column[
   ### GitHub Repo
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -261,7 +264,7 @@ name: CreateRemoteGitHubRepository
 1. Log in to [GitHub](https://github.com/) as ```${PACKAGE_DEVELOPER}```
 1. **Either** create the ```${GITHUB_ORGANIZATION_NAME}``` organization if it *does not exist*, **or** <a href='http://i.imgur.com/7wHRARZ.png' target='_blank'>switch to operate in that role</a> if it *does exist*.
 1. <a href='http://i.imgur.com/X2K6NJf.png' target='_blank'>Create a project</a> with the exact name ```${PROJECT_NAME}``` . Don't set any other values. We'll do that automatically.
-1. Select <a href='http://i.imgur.com/VKCUsx4.png' target='_blank'>[Settings]</a> *(project page bottom-right)* then <a href='http://i.imgur.com/lZfef0a.png' target='_blank'>[DeployKeys]</a> *(settings page bottom-left)*, then <a href='http://i.imgur.com/njWlTvX.png' target='_blank'>[Add deploy key]</a>
+1. Select <a href='http://i.imgur.com/VKCUsx4.png' target='_blank'>[Settings]</a> *(project page right-most tab)* then <a href='http://i.imgur.com/lZfef0a.png' target='_blank'>[DeployKeys]</a> *(settings page bottom-left)*, then <a href='http://i.imgur.com/njWlTvX.png' target='_blank'>[Add deploy key]</a>
 1. Copy the contents of ```~/.ssh/github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}``` to <a href='http://i.imgur.com/70Lsp1u.png' target='_blank'>the [Key] field</a>
 1. Give the key a name in the ```Title``` field
 1. Select ```Allow write access```.

@@ -630,18 +630,19 @@ function checkForVirtualMachine() {
     fi;
   fi;
 
-  DMESG_CHK=$(dmesg | grep -i virtual);
+  DMESG_CHK=$(dmesg | grep -i -e "docker" -e "virtual");
   if [[ 0 < $(echo "${DMESG_CHK}" | grep -c drive) ]]; then  printf "${MSG}" "Microsoft VirtualPC"; VIRTUAL=true; fi;
   if [[ 0 < $(dmesg | grep -i xen) ]]; then  printf "${MSG}" "Xen"; VIRTUAL=true; fi;
   if [[ 0 < $(echo "${DMESG_CHK}" | grep -c QEMU) ]]; then  printf "${MSG}" "QEMU"; VIRTUAL=true; fi;
   if [[ 0 < $(echo "${DMESG_CHK}" | grep -c KVM) ]]; then  printf "${MSG}" "KVM"; VIRTUAL=true; fi;
+  if [[ 0 < $(echo "${DMESG_CHK}" | grep -c docker) ]]; then  printf "${MSG}" "Docker"; VIRTUAL=true; fi;
 
   # if [[ 0 < $(echo "${DMESG_CHK}" | grep -c drive) ]]; then  printf "${MSG}" "Microsoft VirtualPC"; return 0; fi;
   # if [[ 0 < $(dmesg | grep -i xen) ]]; then  printf "${MSG}" "Xen"; return 0; fi;
   # if [[ 0 < $(echo "${DMESG_CHK}" | grep -c QEMU) ]]; then  printf "${MSG}" "QEMU"; return 0; fi;
   # if [[ 0 < $(echo "${DMESG_CHK}" | grep -c KVM) ]]; then  printf "${MSG}" "KVM"; return 0; fi;
 
-  if [[ ${VIRTUAL} -eq true ]]; then
+  if ${VIRTUAL}; then
     echo "CPU type : ${CPU_WIDTH}-bit";
   else
     echo " **PLEASE PLEASE PLEASE**";

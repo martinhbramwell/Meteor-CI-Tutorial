@@ -20,7 +20,6 @@ source ./scripts/explain.sh
 RUN_RULE="";
 explain ${BINDIR}/Introduction.md
 
-RUN_RULE="a";
 explain ${BINDIR}/Set_Up_Project_Names.md MORE_ACTION # MANUAL_INPUT_REQUIRED
 
 loadShellVars;
