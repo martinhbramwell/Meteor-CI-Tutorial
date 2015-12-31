@@ -11,7 +11,7 @@ function highlight()
 {
   echo -e "\n\n\n\n${FRAME// /\~}"
 #  echo -en ${ORANGE};
-  envsubst '$PARENT_DIR, $PROJECT_NAME, $PKG_NAME, $GITHUB_ORGANIZATION_NAME, $PACKAGE_DEVELOPER, $PACKAGES, $YOUR_EMAIL, $YOUR_UID, $YOUR_FULLNAME, $CPU_WIDTH' < $1 | \
+  envsubst '$PARENT_DIR, $PROJECT_NAME, $PKG_NAME, $GITHUB_ORGANIZATION_NAME, $PACKAGE_DEVELOPER, $PACKAGES, $YOUR_EMAIL, $YOUR_UID, $YOUR_FULLNAME, $USER, $CPU_WIDTH' < $1 | \
   sed '1,/o 0 o/d;/<!-- B -->/,$d' | \
   ./scripts/cleanBeforeLineWrap.awk  | \
   fold -w 104 -s | \

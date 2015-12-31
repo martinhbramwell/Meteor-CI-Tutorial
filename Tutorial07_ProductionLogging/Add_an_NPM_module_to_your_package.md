@@ -2,14 +2,14 @@
 .left-column[
   ### NPM module
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [Table of Contents](./)]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Add the NPM logger module Bunyan to your package.
 
-Meteor supports 'npm' modules with the package NPM. 
+Meteor supports 'npm' modules with the package ```Npm```.
 
 Edit ```'${PKG_NAME}-tests.js'``` again adding :
 
