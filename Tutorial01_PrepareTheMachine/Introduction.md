@@ -1,6 +1,7 @@
 layout: false
 last_update: 2015-12-18
-.left-column[
+last_update: 2015-12-18
+ .left-column[
   ### Part A INTRODUCTION
 
 .footnote[.red.bold[] [
