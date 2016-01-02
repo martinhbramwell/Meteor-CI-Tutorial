@@ -27,52 +27,52 @@ function underline(s) {
 
 function boldZone(count) {
   if (count%2 > 0) return "\033[1m";
-  return "\033[21m"; 
+  return "\033[21m";
 }
 
 function paleZone(count) {
   if (count%2 > 0) return "\033[2m";
-  return "\033[22m"; 
+  return "\033[22m";
 }
 
 function invertedZone(count) {
   if (count%2 > 0) return "\033[7m";
-  return "\033[27m"; 
+  return "\033[27m";
 }
 
 function lightGreenZone(count) {
   if (count%2 > 0) return "\033[1;92m";
-  return "\033[0m"; 
+  return "\033[0m";
 }
 
 function magentaZone(count) {
   if (count%2 > 0) return "\033[1;35m";
-  return "\033[0m"; 
+  return "\033[0m";
 }
 
 function greenZone(count) {
   if (count%2 > 0) return "\033[1;32m";
-  return "\033[0m"; 
+  return "\033[0m";
 }
 
 function blueZone(count) {
   if (count%2 > 0) return "\033[1;34m";
-  return "\033[0m"; 
+  return "\033[0m";
 }
 
 function lightBlueZone(count) {
   if (count%2 > 0) return "\033[1;94m";
-  return "\033[0m"; 
+  return "\033[0m";
 }
 
 function italicsZone(count) {
   if (count%2 > 0) return "\033[1;94m";
-  return "\033[0m"; 
+  return "\033[0m";
 }
 
 function terminalSyntaxHighlight(count, line) {
   if (count%2 > 0) return "\033[0m"line"\n";
-  return "\n"line; 
+  return "\n"line;
 }
 
 BEGIN {
@@ -86,5 +86,6 @@ BEGIN {
   boldOn=1;
   italicsOn=1;
   terminalSyntaxOn=1;
+  linelength=99;
 }
 
