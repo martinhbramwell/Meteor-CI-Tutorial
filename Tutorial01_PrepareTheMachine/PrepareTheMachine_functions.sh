@@ -15,6 +15,7 @@ function installToolsForTheseScripts() {
   X="git"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
   X="python-pygments"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
   X="jq"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
+  X="envsubst"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
 
   echo "${#INST[@]} packages not installed.";
   if [[ ${#INST[@]} -lt 1 ]]; then return 0; fi;
@@ -87,9 +88,9 @@ function Ready_for_Android_Studio() {
   GUICNT=$(echo "${GUI}" | egrep -c "gnome|kde");
   set -e;
   if [[ ${GUICNT} -lt 1 ]]; then
-    echo " 
+    echo "
 
-          * * * WARNING * * * 
+          * * * WARNING * * *
 
     You don't seem to be running KDE or GNOME as needed for Android Studio.
     See the 'Android Studio' System Requirements :
@@ -106,10 +107,10 @@ function Ready_for_Android_Studio() {
   echo -e "\nChecking screen resolution > 1280 . . .";
   XDIMS=$(xdpyinfo  | grep dimensions | sed "s/^\s*.*:\s*//" | sed "s/\s.*//");
   XWIDTH=$(echo ${XDIMS} | sed "s/x.*//");
-  if [[ ${XWIDTH} -lt 1280 ]]; then 
-    echo " 
+  if [[ ${XWIDTH} -lt 1280 ]]; then
+    echo "
 
-          * * * WARNING * * * 
+          * * * WARNING * * *
 
     You don't seem to have enough screen resolution '${XDIMS}'' for Android Studio.
     See the 'Android Studio' System Requirements :
@@ -124,12 +125,12 @@ function Ready_for_Android_Studio() {
   GCLIBVER=$(ldd --version | egrep ldd);
   GCLIBVER=${GCLIBVER##*\) };
   #   (Ubuntu EGLIBC 2.19-0ubuntu6.6) 2.19
-  if [[ "${GCLIBVER}" < "2.15" ]]; then 
-    echo " 
+  if [[ "${GCLIBVER}" < "2.15" ]]; then
+    echo "
 
-          * * * WARNING * * * 
+          * * * WARNING * * *
 
-    It seems you are using an old (${GCLIBVER}) version of gclib 
+    It seems you are using an old (${GCLIBVER}) version of gclib
     See the 'Android Studio' System Requirements :
        http://developer.android.com/sdk/index.html#Requirements
     ";
@@ -303,10 +304,11 @@ function Install_Bunyan_Globally() {
     echo "Node package '${X}' is already installed.";
   fi;
 
-#  LOG_DIR="/var/log/meteor";
-#  sudo mkdir -p ${LOG_DIR};
-#  sudo chown ${SUDOUSER}:${SUDOUSER} ${LOG_DIR};
-#  sudo chmod ug+rwx ${LOG_DIR};
+  export LOG_DIR="/var/log/meteor";
+  sudo mkdir -p ${LOG_DIR};
+  sudo chown ${USER}:${USER} ${LOG_DIR};
+  sudo chmod ug+rwx ${LOG_DIR};
+  touch ${LOG_DIR}/ci4meteor.log;
 
 }
 
