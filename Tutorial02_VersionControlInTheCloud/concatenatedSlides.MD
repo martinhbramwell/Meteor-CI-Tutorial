@@ -1,5 +1,5 @@
 layout: false
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### PART B INTRODUCTION
 
@@ -31,7 +31,7 @@ You should not need to use 'sudo' for this or any of the later parts.  In other 
 
 <!-- B -->]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Set Up Project Names
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -63,7 +63,7 @@ You will be asked to supply the following details :
 
 <!-- B -->]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Configure git for GitHub
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -98,7 +98,7 @@ git config --global push.default simple
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L3" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Install Meteor
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -126,7 +126,7 @@ curl https://install.meteor.com/ | sh
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L14" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Create Meteor Project
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -158,7 +158,7 @@ meteor create ${PROJECT_NAME}
 ---
 name: Check Meteor Works
 
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Check Meteor Works
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -190,7 +190,7 @@ echo $A_METEOR_PID;
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L96" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Meteor App Metadata
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -227,7 +227,7 @@ sed -i "/<head>/c<head>\
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L119" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Prepare SSH directory
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -275,7 +275,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
 ]
 ---
 name: CreateRemoteGitHubRepository
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### GitHub Repo
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -303,7 +303,7 @@ Continued . . .
 <!-- B -->]
 ---
 name: CreateRemoteGitHubRepository
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### GitHub Repo
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -335,7 +335,7 @@ Table of Contents](./)
 ]
 ---
 name: CreateLocalGitHubRepository
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Local GitHub Repo
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -370,7 +370,7 @@ git push -u ${PROJECT_NAME}_origin master
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L257" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
     ### End Of Part #B
 .footnote[.red.bold[] [

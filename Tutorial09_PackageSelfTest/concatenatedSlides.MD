@@ -1,5 +1,5 @@
 layout: false
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### PART I Introduction
 
@@ -28,7 +28,7 @@ Get started now by running ...
 
 <!-- B -->]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Revisit End-To-End Testing
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -62,7 +62,7 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L2" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Finish Documentation
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -97,7 +97,7 @@ Continues ...
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L38" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Integrating Everything
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -123,7 +123,7 @@ Our focus for the rest of this part is going to be on <a href="https://circleci.
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L65" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Helper File - Package Iterator
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -149,7 +149,7 @@ Continued . . .
 
 <!-- B -->]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Helper File - Arbitrary # of Packages.
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -188,7 +188,7 @@ As long as a package has a valid bash executable at ```./tools/perform_ci_tasks.
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L103" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Helper File - Arbitrary # of Tasks.
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -220,7 +220,7 @@ Executing, ```perform_per_package_ci_tasks.sh```, now will show ```esLint``` and
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L128" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Helper File - GitHub "UserKey"
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -250,7 +250,7 @@ https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/edit#checkou
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L154" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Helper File - Commit gh-pages Branch (Part A)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -288,7 +288,7 @@ test:
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L172" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Helper File - Commit gh-pages Branch (Part B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -327,7 +327,7 @@ git commit -am "Added code maintenance package iterator and augmented circle.yml
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L213" target="_blank">Code for this step.</a>]  ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -362,7 +362,7 @@ wget -qO- ${NGHTWTCH_RESULT_URL//\"/} | bunyan -o short;
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L255" target="_blank">Code for this step.</a>]  ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Left Title
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -399,7 +399,7 @@ Continues ...
 </a>
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Left Title
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -427,7 +427,7 @@ Continues ...
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L88" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
     ### End Of Part #F
 .footnote[.red.bold[] [

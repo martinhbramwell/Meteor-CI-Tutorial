@@ -39,7 +39,38 @@ function deleteAllPreviouslyConcatenatedMarkdownFiles() {
     # ls -l ${idx_d}/concatenatedSlides.MD;
     rm -f ${idx_d}/concatenatedSlides.MD;
   done
+
 }
+
+declare FILE_HASH="";
+declare FILE_DATE="";
+function getFileStatus() {
+
+  FILE_DATE=$( stat -c %y $1 );
+  FILE_HASH=$( cat $1 | md5sum );
+#  echo "Date is $(echo ${FILE_DATE} | cut -d ' ' -f1) of $1 ( ${FILE_HASH}  )";
+
+};
+
+
+function applyStatusUpdate() {
+
+  NEW_HASH=$( cat $1 | md5sum );
+  if [[  "${NEW_HASH}" != "${FILE_HASH}" ]]; then
+    FILE_DATE=$( stat -c %y $1 );
+#    echo "     File got changed : $(echo ${FILE_DATE} | cut -d ' ' -f1).";
+#  else
+#    echo "     File unchanged : $(echo ${FILE_DATE} | cut -d ' ' -f1).";
+  fi;
+  OLD=".*last_update:.*";
+  NEW="last_update: $(echo ${FILE_DATE} | cut -d ' ' -f1)";
+  sed -i $"s|${OLD}|${NEW}|" $1;
+
+  touch -t $(date --date="${FILE_DATE}" +"%y%m%d%H%M")  $1;
+
+}
+
+
 
 function applyManualVsAutomaticIndicator() {
 
@@ -118,6 +149,7 @@ function substituteFieldsInSlide() {
 
 makeJavaScriptSectionList;
 assembleMapsOfDirectoryAndFileNames;
+
 # echo ${TUTSPATHS};
 # exit;
 
@@ -155,9 +187,11 @@ for idx_d in "${FILEPATHS[@]}"
 do
   FP="${idx_d}";
   FPA=(${FP//|/ });
+  getFileStatus ${FPA[0]}${FPA[1]}/${FPA[2]}.md;
 #  echo "FPA :: |- ${FPA[0]} -|- ${FPA[1]} -|- ${FPA[2]}";
   AFP="${FPA[0]}${FPA[1]}/${FPA[2]}.md"; # The complete path of the markdown file.
 #  ls -l ${AFP};
+
   SCRIPT_FILE_NAME="${FPA[0]}${FPA[1]}";
   SCRIPT_FILE="${SCRIPT_FILE_NAME}.sh" # The name of the end user script
 #  ls -l ${SCRIPT_FILE};
@@ -180,6 +214,7 @@ do
   esac
 
   applyManualVsAutomaticIndicator ${SKIP};
+  applyStatusUpdate ${FPA[0]}${FPA[1]}/${FPA[2]}.md;
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -190,9 +225,12 @@ do
 done
 
 
-
-
-if  ${SKIP} ;  then  echo "  - o 0 o - "; exit 0; fi;  #  Exit if we aren't going to commit to gh-pages branch
+if  ${SKIP} ;  then
+  echo "  - o 0 o - ";
+  ##  touch -t 1212121212  ./Tutorial01_PrepareTheMachine/Java_7_is_required_by_Nightwatch.md;
+  ##  ls -l ./Tutorial01_PrepareTheMachine/Java_7_is_required_by_Nightwatch.md;
+  exit 0;
+fi;  #  Exit if we aren't going to commit to gh-pages branch
 
 git log -1 --pretty=%B > gitlog.txt # Save the most recent commit message, so gh-pages branch can commit with the same.
 

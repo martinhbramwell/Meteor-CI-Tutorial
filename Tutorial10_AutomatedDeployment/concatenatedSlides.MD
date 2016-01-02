@@ -1,5 +1,5 @@
 layout: false
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### PART J Introduction
 
@@ -28,7 +28,7 @@ Get started now by running ...
 
 <!-- B -->]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Android Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -57,7 +57,7 @@ The best way to get dependable documentation is ```android --help```. For exampl
 <!-- B -->]
 
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Android Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -98,7 +98,7 @@ android update sdk -u -a --filter <some plugin identifier> };
 ]
 
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Android Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -129,7 +129,7 @@ When that's finished, we'll be ready to publish our web app to Meteor's servers 
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L126" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -162,7 +162,7 @@ meteor deploy ${PROJECT_NAME}-${GITHUB_ORGANIZATION_NAME}.meteor.com
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L301" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -194,7 +194,7 @@ Continued . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L314" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -225,7 +225,7 @@ curl -s -X POST -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGA
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L394" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -245,7 +245,7 @@ Table of Contents](./)
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L432" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -265,7 +265,7 @@ Table of Contents](./)
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L480" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
     ### End Of Part #F
 .footnote[.red.bold[] [

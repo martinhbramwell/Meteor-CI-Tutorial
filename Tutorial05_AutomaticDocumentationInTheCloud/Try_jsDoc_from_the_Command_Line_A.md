@@ -1,6 +1,6 @@
 ---
 name: TryJSDocFromTheCommandLine_A
-last_update: 2015-12-18
+last_update: 2016-01-02
  .left-column[
   ### Command Line jsDoc (Step #1)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
