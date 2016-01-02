@@ -1,8 +1,14 @@
 layout: false
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### PART G Introduction
 
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -24,10 +30,16 @@ Now run ...
 
 <!-- B -->]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Console.log is bad!
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)]
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -49,17 +61,23 @@ However, *esLint* rightfully flags ```console.log()``` as **a bad thing!**  Writ
 
 <!-- B -->]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### NPM module
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Add the NPM logger module Bunyan to your package.
 
-Meteor supports 'npm' modules with the package NPM. 
+Meteor supports 'npm' modules with the package ```Npm```.
 
 Edit ```'${PKG_NAME}-tests.js'``` again adding :
 
@@ -81,10 +99,16 @@ We now need to fix ```"Error: Cannot find module 'bunyan'"!```
 
 <!-- B -->]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Specify Npm modules
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -124,10 +148,16 @@ Npm.depends({
 </a>
 ]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Server Only
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -153,10 +183,16 @@ Npm.depends({
 
 <!-- B -->]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Add Bunyan Logging
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -180,10 +216,16 @@ Tinytest.add('Check Equality', function sanityCheckEQ(test) {
 
 <!-- B -->]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Goodbye Console
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -206,10 +248,16 @@ So, on the server-side, we now have much more control over logging <a href="http
 
 <!-- B -->]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Refactor Bunyan (A)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -240,10 +288,16 @@ You'll get an error ```Logger is not defined```, however ...
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L1" target="_blank">Code for this step.</a>] ]
 ]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Refactor Bunyan (B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -270,10 +324,16 @@ Package.onTest(function(api) {
 Continues ...
 <!-- B -->]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Package Upgrade (A)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -301,10 +361,16 @@ Continues . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L29" target="_blank">Code for this step.</a>] ]
 ]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Package Upgrade (B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -325,9 +391,15 @@ To finish: commit the package, then commit the project and then watch CircleCI f
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L47" target="_blank">Code for this step.</a>] ]
 ]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
     ### End Of Part #G
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~

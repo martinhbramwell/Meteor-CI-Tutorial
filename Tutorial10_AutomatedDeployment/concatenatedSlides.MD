@@ -1,8 +1,14 @@
 layout: false
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### PART J Introduction
 
-.footnote[.red.bold[] [Table of Contents](./)]
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -22,10 +28,16 @@ Get started now by running ...
 
 <!-- B -->]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Android Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)]
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -45,10 +57,16 @@ The best way to get dependable documentation is ```android --help```. For exampl
 <!-- B -->]
 
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Android Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)]
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -58,6 +76,8 @@ The best way to get dependable documentation is ```android --help```. For exampl
 Since Cordova only recently <a href="https://cordova.apache.org/announcements/2015/11/09/cordova-android-5.0.0.html" target="_blank"> announced support for API Level 23</a>, we get <a href="http://developer.android.com/tools/sdk/tools-notes.html" target="_blank">SDK Tools, Revision 23.0.5</a>
 
 The ```android update sdk``` command switch ```--filter``` expects an identifier of a single plugin.   We can get the list of identifier codes with the command... ```android list sdk -a -u --extended``` ...which shows identifiers, eg; *build-tools-23.0.1*. <font size="2">Note that the *numeric* identifiers are NOT reliable.</font>
+
+<a href="http://www.alteridem.net/2014/08/19/using-android-x86-as-an-emulator-in-hyper-v-for-windows/" target="_blank">Using Android-X86 as an Emulator in Hyper-V for Windows</a>
 
 ```ruby
 id: 4 or "build-tools-23.0.1"
@@ -78,10 +98,16 @@ android update sdk -u -a --filter <some plugin identifier> };
 ]
 
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Android Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)]
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -103,10 +129,16 @@ When that's finished, we'll be ready to publish our web app to Meteor's servers 
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L126" target="_blank">Code for this step.</a>] ]
 ]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)]
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -130,10 +162,16 @@ meteor deploy ${PROJECT_NAME}-${GITHUB_ORGANIZATION_NAME}.meteor.com
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L301" target="_blank">Code for this step.</a>] ]
 ]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)]
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -156,10 +194,16 @@ Continued . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L314" target="_blank">Code for this step.</a>] ]
 ]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)]
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -181,10 +225,16 @@ curl -s -X POST -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGA
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L394" target="_blank">Code for this step.</a>] ]
 ]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)]
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -192,13 +242,19 @@ curl -s -X POST -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGA
 #### Prepare Circle CI with Meteor Deployment
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L428" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L432" target="_blank">Code for this step.</a>] ]
 ]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
-.footnote[.red.bold[] [Table of Contents](./)]
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -206,12 +262,18 @@ curl -s -X POST -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGA
 #### Push Final Changes
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L476" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L480" target="_blank">Code for this step.</a>] ]
 ]
 ---
-.left-column[
+last_update: 2016-01-02
+ .left-column[
     ### End Of Part #F
-.footnote[.red.bold[] [Table of Contents](./)]
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
