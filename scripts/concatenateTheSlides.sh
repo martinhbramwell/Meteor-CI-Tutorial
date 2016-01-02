@@ -36,8 +36,8 @@ function assembleMapsOfDirectoryAndFileNames() {
 function deleteAllPreviouslyConcatenatedMarkdownFiles() {
   for idx_d in "${TUTSPATHS[@]}"
   do
-    # ls -l ${idx_d}/concatenatedSlides.MD
-    rm -f ${idx_d}/concatenatedSlides.MD
+    # ls -l ${idx_d}/concatenatedSlides.MD;
+    rm -f ${idx_d}/concatenatedSlides.MD;
   done
 }
 
@@ -192,7 +192,7 @@ done
 
 
 
-if  ${SKIP} ;  then  exit 0; fi;  #  Exit if we aren't going to commit to gh-pages branch
+if  ${SKIP} ;  then  echo "  - o 0 o - "; exit 0; fi;  #  Exit if we aren't going to commit to gh-pages branch
 
 git log -1 --pretty=%B > gitlog.txt # Save the most recent commit message, so gh-pages branch can commit with the same.
 

@@ -1,17 +1,23 @@
 layout: false
+last_update: 2015-12-18
 .left-column[
   ### Part A INTRODUCTION
 
-.footnote[.red.bold[] [Table of Contents](./)] 
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
 <!-- H -->]
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-## Prepare the Machine
+##  Prepare the Machine
 
 These scripts will get you started easily with continuous integration development, testing, documenting, logging, code style linting of Meteor packages.
 
-This first script, run with . . .  
+This first script, run with . . .
 ```terminal
 sudo ./Tutorial01_PrepareTheMachine.sh
 ```
