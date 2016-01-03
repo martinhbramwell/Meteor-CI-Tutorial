@@ -44,31 +44,40 @@ function deleteAllPreviouslyConcatenatedMarkdownFiles() {
 
 declare FILE_HASH="";
 declare FILE_DATE="";
-function getFileStatus() {
+# function getFileStatus() {
 
-  FILE_DATE=$( stat -c %y $1 );
-  FILE_HASH=$( cat $1 | md5sum );
-#  echo "Date is $(echo ${FILE_DATE} | cut -d ' ' -f1) of $1 ( ${FILE_HASH}  )";
+#   FILE_DATE=$( stat -c %y $1 );
+#   FILE_HASH=$( cat $1 | md5sum );
+# #  echo "Date is $(echo ${FILE_DATE} | cut -d ' ' -f1) of $1 ( ${FILE_HASH}  )";
 
-};
+# };
 
+
+# function applyStatusUpdateX() {
+
+#   NEW_HASH=$( cat $1 | md5sum );
+#   if [[  "${NEW_HASH}" != "${FILE_HASH}" ]]; then
+#     FILE_DATE=$( stat -c %y $1 );
+# #    echo "     File got changed : $(echo ${FILE_DATE} | cut -d ' ' -f1).";
+# #  else
+# #    echo "     File unchanged : $(echo ${FILE_DATE} | cut -d ' ' -f1).";
+#   fi;
+#   OLD=".*last_update:.*";
+#   NEW="last_update: $(echo ${FILE_DATE} | cut -d ' ' -f1)";
+#   sed -i $"s|${OLD}|${NEW}|" $1;
+
+#   touch -t $(date --date="${FILE_DATE}" +"%y%m%d%H%M")  $1;
+
+# }
 
 function applyStatusUpdate() {
 
-  NEW_HASH=$( cat $1 | md5sum );
-  if [[  "${NEW_HASH}" != "${FILE_HASH}" ]]; then
-    FILE_DATE=$( stat -c %y $1 );
-#    echo "     File got changed : $(echo ${FILE_DATE} | cut -d ' ' -f1).";
-#  else
-#    echo "     File unchanged : $(echo ${FILE_DATE} | cut -d ' ' -f1).";
-  fi;
   OLD=".*last_update:.*";
-  NEW="last_update: $(echo ${FILE_DATE} | cut -d ' ' -f1)";
+  NEW="$(git log --date=short --pretty=format:"last_update: %cd" -n1 -- $1)";
   sed -i $"s|${OLD}|${NEW}|" $1;
 
-  touch -t $(date --date="${FILE_DATE}" +"%y%m%d%H%M")  $1;
+};
 
-}
 
 
 
@@ -187,7 +196,7 @@ for idx_d in "${FILEPATHS[@]}"
 do
   FP="${idx_d}";
   FPA=(${FP//|/ });
-  getFileStatus ${FPA[0]}${FPA[1]}/${FPA[2]}.md;
+#  getFileStatus ${FPA[0]}${FPA[1]}/${FPA[2]}.md;
 #  echo "FPA :: |- ${FPA[0]} -|- ${FPA[1]} -|- ${FPA[2]}";
   AFP="${FPA[0]}${FPA[1]}/${FPA[2]}.md"; # The complete path of the markdown file.
 #  ls -l ${AFP};
