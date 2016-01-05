@@ -327,7 +327,7 @@ git commit -am "Added code maintenance package iterator and augmented circle.yml
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L213" target="_blank">Code for this step.</a>]  ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-04
  .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -359,75 +359,42 @@ wget -qO- ${NGHTWTCH_RESULT_URL//\"/} | bunyan -o short;
 
 
 <!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L257" target="_blank">Code for this step.</a>]  ]
+]
+---
+
+ .left-column[
+  ### Final Deployment
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Report An Issue
+
+Whenever a build process turns up an error such as the "Unexpected console statement" warning in ```usage_example.js``` you should prepare an issue report.
+
+In GitHub it is possible to hyperlink to the exact specific source code line, but, be aware that the URL of the latest version won't also work for prior versions.  You can refer to the permanent line number of a specific commit by clicking the line of text in GitHub and then typing 'y'.  Github will replace the URL in the browser's address bar with the 'permalink' address.
+
+Copying it, you can make a markdown hyperlink to paste into the issue like this . . . 
+
+```javscript
+[usage_example.js - line #${LINE_NUM}](https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}/blob/${COMMIT_SHA}/usage_example.js#L379${LINE_NUM})
+```
+
+
+
+<!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L255" target="_blank">Code for this step.</a>]  ]
 ]
 ---
-last_update: 2016-01-02
- .left-column[
-  ### Left Title
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
-.footnote[.red.bold[] [
-Table of Contents](./)
-<br />
-<br />&nbsp; &nbsp;Last update
-<br />&nbsp; &nbsp; {{ last_update  }}
-]
-<!-- H -->]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### Friendly Title
-
-... continuing.
-
-
-Continues ...
-
-
-<!-- B -->
-<div id="usage" class="popup_div">
-    <a class="subtle_a" onmouseover="HideContent('usage'); return true;"
-       href="javascript:HideContent('usage')">
-      <p>Note text.</p>
-    </a>
-</div>
-<a
-    class="hover_text"
-    onmouseover="ReverseContentDisplay('usage'); return true;"
-    href="javascript:ReverseContentDisplay('usage')">
-    <i>Hover Note</i>
-</a>
-]
----
-last_update: 2016-01-02
- .left-column[
-  ### Left Title
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
-.footnote[.red.bold[] [
-Table of Contents](./)
-<br />
-<br />&nbsp; &nbsp;Last update
-<br />&nbsp; &nbsp; {{ last_update  }}
-]
-<!-- H -->]
-.right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-#### Friendly Title
-
-
-```javascript
-Package.onUse(function(api) {
-});
-```
-
-Continues ...
-
-<!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Part09_PackageSelfTest.sh#L88" target="_blank">Code for this step.</a>] ]
-]
----
-last_update: 2016-01-02
+last_update: 2016-01-04
  .left-column[
     ### End Of Part #F
 .footnote[.red.bold[] [
@@ -442,7 +409,12 @@ Table of Contents](./)
 
 #### Fin
 
-talk about mobile . . .
+We have successfully built and tested our package in its container project.
+
+Now we need to deploy it to a web server and also serve it out to the public as a mobile app.  In the next section we'll first see how to do this in our development machine and then how to deploy from our continuous integration service.
+
+[Part #J - Automated Deployment](./?part=J)
+
 
 
 
