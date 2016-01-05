@@ -14,7 +14,12 @@ Table of Contents](./)
 
 #### Fin
 
-talk about mobile . . .
+We have successfully built and tested our package in its container project.
+
+Now we need to deploy it to a web server and also serve it out to the public as a mobile app.  In the next section we'll first see how to do this in our development machine and then how to deploy from our continuous integration service.
+
+[Part #J - Automated Deployment](./?part=J)
+
 
 
 

@@ -29,7 +29,10 @@ function verifyFreeSpace() {
   MINFREESPACE=7000000;
   # FREESPACE=$(df / | grep dev | awk '{print $4}');
 
-  FREESPACE=$(df -k .  | grep -v Available  | awk '{print $4}');
+  pushd ${HOME} >/dev/null;
+    FREESPACE=$(df -k .  | grep -v Available  | awk '{print $4}');
+  popd >/dev/null;
+
 
   CHOICE="n";
   while [[ ! "X${CHOICE}X" == "XyX" ]]

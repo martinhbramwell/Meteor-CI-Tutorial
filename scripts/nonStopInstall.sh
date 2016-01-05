@@ -351,11 +351,6 @@ setSection 3;
 # fi;
 
 
-echo -e "\n - o 0 o -|||>>> \n"; #
-PROCESS_THIS=true;
-
-
-
 #    ~    ~    ~    ~    ~    ~    ~    ~    4    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
   ${PROCESS_THIS} && {
@@ -697,20 +692,6 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
-
-    SKIP_CI="";
-
-}
-
-
-#    ~    ~    ~    ~    ~    ~    ~    9 A  ~    ~    ~    ~    ~    ~    ~
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-
-${PROCESS_THIS} && {
-
-    setSection 9;
-
-
     # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
     SKIP_CI="";
@@ -721,22 +702,39 @@ ${PROCESS_THIS} && {
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
 
-    # explain ${BINDIR}/InspectBuildResults.md MORE_ACTION # CODE_BLOCK
-    # if [ "${RUN_RULE}" != "n" ]; then
-    InspectBuildResults;
-    echo -e "\n   Deployed to Meteor Servers.\n          - o 0 o - \n";
-pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
-
-    # explain ${BINDIR}/PrepareAndroidSDK_A.md;
-
-    # explain ${BINDIR}/PrepareAndroidSDK_B.md MORE_ACTION # CODE_BLOCK
-    # if [ "${RUN_RULE}" != "n" ]; then
-    PrepareAndroidSDK_B;
-    echo -e "\n   Prepared Android SDK.\n          - o 0 o - \n";
-pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+    SKIP_CI="";
 
 }
 
+
+
+echo -e "\n - o 0 o -|||>>> \n"; #
+PROCESS_THIS=true;
+
+
+#    ~    ~    ~    ~    ~    ~    ~    9 A  ~    ~    ~    ~    ~    ~    ~
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+
+${PROCESS_THIS} && {
+
+    setSection 9;
+
+
+    # explain ${BINDIR}/InspectBuildResults.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    InspectBuildResults;
+    echo -e "\n   CircleCI build result reported.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+
+    # explain ${BINDIR}/ReportAnIssue.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    ReportAnIssue;
+    echo -e "\n   Issue reporting explained.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+
+}
 
 
 #    ~    ~    ~    ~    ~    ~    10 A ~    ~    ~    ~    ~    ~    ~    ~
@@ -746,6 +744,14 @@ ${PROCESS_THIS} && {
   setSection 10;
 
   SKIP_CI=", but [ci skip].";
+
+    # explain ${BINDIR}/PrepareAndroidSDK_A.md;
+
+    # explain ${BINDIR}/PrepareAndroidSDK_B.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    PrepareAndroidSDK_B;
+    echo -e "\n   Prepared Android SDK.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
 
     # explain ${BINDIR}/?????????????????????????.md MORE_ACTION # CODE_BLOCK

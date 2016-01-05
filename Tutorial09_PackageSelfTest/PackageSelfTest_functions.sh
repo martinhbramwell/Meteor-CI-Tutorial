@@ -251,7 +251,9 @@ function PushDocsToGitHubPagesFromCIBuild_B() {
 
 }
 
-
+export ESLINT_RESULT_URL="";
+export LINT_LINE="";
+export LINT_RPT="";
 function InspectBuildResults() {
 
   echo -e "Checking build status.";
@@ -284,7 +286,7 @@ function InspectBuildResults() {
     BUILD_STATUS=$(eval echo ${BUILD_STATUS});
   #   echo ${BUILD_STATUS};"success";
     BUILD_NUMBER=$( echo ${RESP} | jq '.build_num' );
-    # echo ${BUILD_NUMBER};
+    echo ${BUILD_NUMBER};
 
     tput rc;tput el;
     case "${BUILD_STATUS}" in
@@ -358,7 +360,11 @@ function InspectBuildResults() {
 
   echo -e "\n\n        Here's the linting result :";
   ESLINT_RESULT_URL=$(cat /tmp/circleci_artifacts.json | jq '.[] | .url' | grep esLintReport);
-  wget -qO- ${ESLINT_RESULT_URL//\"/};
+  LINT_RPT=$(wget -qO- ${ESLINT_RESULT_URL//\"/} );
+  echo -e "
+    ${LINT_RPT}
+  ";
+  # wget -qO- ${ESLINT_RESULT_URL//\"/};
   printf "%0.s~" {1..80};
 
   echo -e "\n\n      ...and here's the NightWatch result :";
@@ -366,6 +372,43 @@ function InspectBuildResults() {
   wget -qO- ${NGHTWTCH_RESULT_URL//\"/} | bunyan -o short;
   printf "%0.s~" {1..80};
 
+
+}
+
+
+function ReportAnIssue() {
+
+  LINT_LINE=$( echo -e "
+    ${LINT_RPT}
+  " | grep no-console );
+  LINE_NUM=$(  echo -e "${LINT_LINE}" | sed "s/ //g" | cut -d ':' -f1  );
+  COMMIT_SHA=$( curl -s https://api.github.com/repos/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}/commits/master | jq '.parents[].sha' );
+  COMMIT_SHA="${COMMIT_SHA%\"}"
+  COMMIT_SHA="${COMMIT_SHA#\"}"
+#  echo "${COMMIT_SHA}"
+
+  echo -e "
+
+        esLint warns of a slight defect in ${PROJECT_NAME}/packages/${PKG_NAME}/usage_example.js:
+               ${LINT_LINE}
+
+        You can create a new issue in GitHub at this page :
+            https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}/issues/new
+
+        You can refer to permanent line number of a specific commit by clicking the
+        line of text in GitHub and then typing 'y'.  Github will replace the address
+        with the 'permalink' address, which can then be copied into the body of the
+        issue report.
+
+        Try using this link, to get the permalink :
+            https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}/blob/master/usage_example.js#L${LINE_NUM}
+
+        So, the markdown hyperlink to paste into the GitHub issue body should look like this :
+            [usage_example.js - line #${LINE_NUM}](https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}/blob/${COMMIT_SHA}/usage_example.js#L${LINE_NUM})
+
+        When you're done, click the [Preview] tab in the GitHub issue editor to see the result.
+
+  "
 }
 
 
