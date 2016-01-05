@@ -362,7 +362,7 @@ wget -qO- ${NGHTWTCH_RESULT_URL//\"/} | bunyan -o short;
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L257" target="_blank">Code for this step.</a>]  ]
 ]
 ---
-
+last_update: 2016-01-04
  .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
