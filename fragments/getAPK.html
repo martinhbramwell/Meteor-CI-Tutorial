@@ -1,0 +1,11 @@
+<body>
+  {{> apk_loader}}
+</body>
+
+<template name="apk_loader">
+  {{#unless isMobile}}
+    <a target='_blank' href='./${PROJECT_NAME}.apk'>
+      Download the Android app.
+    </a>
+  {{/unless}}
+</template>
