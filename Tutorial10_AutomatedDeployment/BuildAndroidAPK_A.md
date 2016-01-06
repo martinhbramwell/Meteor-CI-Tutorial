@@ -25,9 +25,9 @@ Fortunately Meteor's ```isCordova``` attribute makes it very easy to avoid the e
 
 ```javascript
 {{#unless isMobile}}
-  <a target='_blank' href='./${PROJECT_NAME}.apk'>
+  ≺a target='_blank' href='./${PROJECT_NAME}.apk'≻
     Download the Android app.
-    :
+       :
 ```
 
 Continued . . .

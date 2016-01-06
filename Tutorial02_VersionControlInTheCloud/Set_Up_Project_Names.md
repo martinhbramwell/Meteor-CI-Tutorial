@@ -21,11 +21,11 @@ You will be asked to supply the following details :
  - Your directory for projects in your ${HOME} directory
  - The exact project name for use in GitHub
  - The exact package name for use in GitHub
- - The exact name for the GitHub organization
+ - The project owner full name to use to publish it in GitHub
  - The project owner user id in GitHub
  - The email address for the project owner in GitHub
- - The project owner name to use within the project
- - The project owner full name to use to publish it in GitHub
+ - The project owner developer machine user id (usually 'whoami')
+ - The exact name for your GitHub organization
 
 
 

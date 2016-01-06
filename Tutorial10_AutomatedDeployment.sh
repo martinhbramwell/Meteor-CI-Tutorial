@@ -27,8 +27,11 @@ explain ${BINDIR}/PrepareAndroidSDK_A.md;
 explain ${BINDIR}/PrepareAndroidSDK_B.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then PrepareAndroidSDK_B; fi;
 
-explain ${BINDIR}/BuildAndroidAPK.md MORE_ACTION # CODE_BLOCK
-if [ "${RUN_RULE}" != "n" ]; then BuildAndroidAPK; fi;
+explain ${BINDIR}/BuildAndroidAPK_A.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then BuildAndroidAPK_A; fi;
+
+explain ${BINDIR}/BuildAndroidAPK_B.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then BuildAndroidAPK_B; fi;
 
 explain ${BINDIR}/DeployToMeteorServers.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then DeployToMeteorServers; fi;

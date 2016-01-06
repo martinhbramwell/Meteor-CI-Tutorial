@@ -286,7 +286,7 @@ function InspectBuildResults() {
     BUILD_STATUS=$(eval echo ${BUILD_STATUS});
   #   echo ${BUILD_STATUS};"success";
     BUILD_NUMBER=$( echo ${RESP} | jq '.build_num' );
-    echo ${BUILD_NUMBER};
+  #  echo ${BUILD_NUMBER};
 
     tput rc;tput el;
     case "${BUILD_STATUS}" in
@@ -382,10 +382,8 @@ function ReportAnIssue() {
     ${LINT_RPT}
   " | grep no-console );
   LINE_NUM=$(  echo -e "${LINT_LINE}" | sed "s/ //g" | cut -d ':' -f1  );
-  COMMIT_SHA=$( curl -s https://api.github.com/repos/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}/commits/master | jq '.parents[].sha' );
-  COMMIT_SHA="${COMMIT_SHA%\"}"
-  COMMIT_SHA="${COMMIT_SHA#\"}"
-#  echo "${COMMIT_SHA}"
+  COMMIT_SHA=$( curl -s https://api.github.com/repos/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}/commits/master | jq '.parents[].sha' | sed 's/"//g' );
+  NC='\033[0m' # No Color
 
   echo -e "
 
@@ -403,148 +401,11 @@ function ReportAnIssue() {
         Try using this link, to get the permalink :
             https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}/blob/master/usage_example.js#L${LINE_NUM}
 
-        So, the markdown hyperlink to paste into the GitHub issue body should look like this :
+        ${NC}So, the markdown hyperlink to paste into the GitHub issue body should look like this :
             [usage_example.js - line #${LINE_NUM}](https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}/blob/${COMMIT_SHA}/usage_example.js#L${LINE_NUM})
 
-        When you're done, click the [Preview] tab in the GitHub issue editor to see the result.
+        ${NC}When you're done, click the [Preview] tab in the GitHub issue editor to see the result.
 
   "
 }
-
-
-# function InspectBuildResults__SCRAP() {
-
-#   echo -e "Checking build status.";
-#   tput sc; # save cursor
-#   BUILD_RUNNING='"running"'; #   running OR success
-#   # :retried, :canceled, :infrastructure_fail, :timedout, :not_run, :running, :failed, :queued, :scheduled, :not_running, :no_tests, :fixed, :success
-#   BUILD_STATUS=${BUILD_RUNNING};
-#   LIM=40;
-#   SLP=15;
-#   CNT=1;
-#   TO=5;
-
-#   while [[ ${BUILD_STATUS} == ${BUILD_RUNNING} ]]; do
-
-#     sleep ${SLP};
-#     CNT=$(( CNT + 1 ));
-#     if [ $CNT -gt ${LIM} ]; then
-#       tput rc;tput el;
-#       echo "Build still running after $((TO/60)) minutes.  Cannot get artifacts.";
-#       exit 1;
-#     fi;
-#   done;
-
-#   while [[ ${BUILD_STATUS} == ${BUILD_RUNNING} ]]; do
-#     RESP=$( curl -s https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}?circle-token=${CIRCLECI_PERSONAL_TOKEN}               -H "Accept: application/json"  | jq '.[0] | {status, build_num}' );
-#     BUILD_STATUS=$( echo ${RESP} | jq '.status' );
-#     # echo ${BUILD_STATUS};"success";
-#     BUILD_NUMBER=$( echo ${RESP} | jq '.build_num' );
-#     # echo ${BUILD_NUMBER};
-#     tput rc;tput el;
-#     printf  "          Build status %s for '%s/%s'; build #%s :: Elapsed %s seconds." ${BUILD_STATUS} ${GITHUB_ORGANIZATION_NAME} ${PROJECT_NAME} ${BUILD_NUMBER} ${TO};
-#     TO=$(( SLP*CNT ));
-#     if [[ ${BUILD_STATUS} == ${BUILD_RUNNING} ]]; then
-#       sleep ${SLP};
-#       CNT=$(( CNT + 1 ));
-#       if [ $CNT -gt ${LIM} ]; then
-#         tput rc;tput el;
-#         echo "Build still running after $((TO/60)) minutes.  Cannot get artifacts.";
-#         exit 1;
-#       fi;
-#     fi;
-#   done;
-#   echo -e "\n           Build is not running. (${BUILD_STATUS})";
-
-#   BUILD_NUM=$(curl -s https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}?circle-token=${CIRCLECI_PERSONAL_TOKEN}  -H "Accept: application/json"  | jq '.[0].build_num');
-#   echo -e "            Collecting artifacts of CircleCI build #${BUILD_NUM};";
-#   curl -s https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/${BUILD_NUM}/artifacts?circle-token=${CIRCLECI_PERSONAL_TOKEN} -H "Accept: application/json" > /tmp/circleci_artifacts.json;
-
-#   echo -e "\n\n        Here's the linting result :";
-#   ESLINT_RESULT_URL=$(cat /tmp/circleci_artifacts.json | jq '.[] | .url' | grep esLintReport);
-#   wget -qO- ${ESLINT_RESULT_URL//\"/};
-#   printf "%0.s~" {1..80};
-
-#   echo -e "\n\n      ...and here's the NightWatch result :";
-#   NGHTWTCH_RESULT_URL=$(cat /tmp/circleci_artifacts.json | jq '.[] | .url' | grep 'result.json');
-#   wget -qO- ${NGHTWTCH_RESULT_URL//\"/} | bunyan -o short;
-#   printf "%0.s~" {1..80};
-
-# }
-
-
-
-# function AllowCircleCIToBeMeInGitHub___SCRAP() {
-#  echo -e "
-#    https://github.com/login/oauth/authorize
-#   ?client_id=78a2ba87f071c28e65bb
-#   &redirect_uri=https%3A%2F%2Fcircleci.com%2Fauth%2Fgithub%3Freturn-to%3D%252Fgh%252Fyourorg%252Fyourproject%252Fedit%2523checkout
-#   &scope=admin%3Apublic_key%2Cuser%3Aemail%2Crepo
-#   &state=SM9aJIYpibO_GLpAq-7GMFthcgXKvP5IGtv-NODLIgLX2Ay12AI4YucFwCNGLur40wbe5G4Se9JKOhMF
-#   ";
-
-#   echo -e "
-#   https://circleci.com/auth/github?return-to=%2Fgh%2Fyourorg%2Fyourproject%2Fedit%23checkout
-#   &scope=admin:public_key,user:email,repo
-#   ";
-
-#   echo -e "
-# /gh/yourorg/yourproject/edit#checkout
-#   ";
-
-#   echo -e "
-#   ";
-# }
-
-
-
-# function CodeMaintenanceHelperFile__SCRAP() {
-
-#   CLEAN="nothing to commit";
-#   UP2DT="Everything up-to-date";
-#   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
-#     pushd ./packages >/dev/null;
-#       pushd ./${PKG_NAME} >/dev/null;
-#         pushd ./tools >/dev/null;
-
-#           wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_ci_tasks.sh
-#           sed -i -e "s/\${YOUR_FULLNAME}/${YOUR_FULLNAME}/" perform_ci_tasks.sh;
-#           sed -i -e "s/\${YOUR_EMAIL}/${YOUR_EMAIL}/" perform_ci_tasks.sh;
-#           chmod a+x perform_ci_tasks.sh;
-
-#         popd >/dev/null;
-#         git add ./tools/perform_ci_tasks.sh;
-#         STS="$(git status)";
-#         if [ "${STS/${CLEAN}}" = "${STS}" ]; then
-#           git commit -am "Added code maintenance tasks";
-#         fi;
-#         PSH=$(git push);
-#         if [ "${PSH/${UP2DT}}" != "${PSH}" ]; then
-#           echo "Pushed ${PKG_NAME}";
-#         fi;
-
-
-#       popd >/dev/null;
-
-#       wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_per_package_ci_tasks.sh
-#       chmod a+x perform_per_package_ci_tasks.sh;
-
-#     popd >/dev/null;
-
-#     git add ./packages/perform_per_package_ci_tasks.sh;
-
-#     wget -O circle.yml https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/circle_T09.yml
-#     git add circle.yml;
-
-#     STS="$(git status)";
-#     if [ "${STS/${CLEAN}}" = "${STS}" ]; then
-#       git commit -am "Added code maintenance tasks and augmented circle.yml";
-#     fi;
-#     PSH=$(git push);
-#     if [ "${PSH/${UP2DT}}" != "${PSH}" ]; then
-#           echo "Pushed ${PROJECT_NAME}";
-#     fi;
-#   popd >/dev/null;
-
-# }
 

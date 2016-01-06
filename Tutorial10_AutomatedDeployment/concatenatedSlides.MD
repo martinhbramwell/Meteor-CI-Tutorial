@@ -77,8 +77,6 @@ Since Cordova only recently <a href="https://cordova.apache.org/announcements/20
 
 The ```android update sdk``` command switch ```--filter``` expects an identifier of a single plugin.   We can get the list of identifier codes with the command... ```android list sdk -a -u --extended``` ...which shows identifiers, eg; *build-tools-23.0.1*. <font size="2">Note that the *numeric* identifiers are NOT reliable.</font>
 
-<a href="http://www.alteridem.net/2014/08/19/using-android-x86-as-an-emulator-in-hyper-v-for-windows/" target="_blank">Using Android-X86 as an Emulator in Hyper-V for Windows</a>
-
 ```ruby
 id: 4 or "build-tools-23.0.1"
      Type: BuildTool
@@ -98,7 +96,7 @@ android update sdk -u -a --filter <some plugin identifier> };
 ]
 
 ---
-last_update: 2016-01-02
+
  .left-column[
   ### Android Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -112,21 +110,54 @@ Table of Contents](./)
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-####  Building the Android Package File
+####  Building the Android Package File (Part A)
 
-Building the APK requires five steps each time, and two preparatory steps the first time:
- 0. Preparation
-     - Use the JDK's ```keytool``` to create a key pair with which to sign your app package
-     - add 'android' platform to your Meteor project
- 1. Use Meteor's ```build``` command to build the APK, specifying the URI of the hosting server.
- 2. Use the JDK's ```jarsigner``` command to claim ownership of the app and prevent impersonation
- 3. Use Android SDK's ```zipalign``` command to maintain compatibility with the unzip utility in Android phones.
- 4. Stuff the signed and aligned APK into the project's *./public* directory
- 5. Add a single-line template with the download link.
+Building the APK requires four steps each time, with three preparatory steps the first time:
 
-When that's finished, we'll be ready to publish our web app to Meteor's servers . . .
+1. Use the JDK's <a href="https://coronalabs.com/blog/2014/08/26/tutorial-understanding-android-app-signing/" target="_blank">keytool</a> to create a key pair with which to sign your app package
+2. Add 'android' platform to your Meteor project
+3. Add a template with the download link.
+
+Fortunately Meteor's ```isCordova``` attribute makes it very easy to avoid the embarrassment of a mobile app displaying a download link for itself.  Adding the template file <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/getAPK.html" target="_blank">getAPK.html</a> and its helper <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/getAPK.js" target="_blank">getAPK.js</a>, to the project root directory is all that's required.  Don't forget to specify the APK's name in the template file.
+
+```javascript
+{{#unless isMobile}}
+  ≺a target='_blank' href='./${PROJECT_NAME}.apk'≻
+    Download the Android app.
+       :
+```
+
+Continued . . .
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L126" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L127" target="_blank">Code for this step.</a>] ]
+]
+---
+
+ .left-column[
+  ### Android Deployment
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+####  Building the Android Package File (Part B)
+
+With the preparatory steps done we can address the steps to take each time the app is changed :
+
+ 1. Use Meteor's <a href="http://docs.meteor.com/#/full/meteorbuild" target="_blank">build</a> command to build the APK, specifying the URI of the hosting server.
+ 2. Use the JDK's <a href="http://www.wewerehere.my/how-to-sign-and-verified-apk-file-to-google-store/" target="_blank">jarsigner</a> command to claim ownership of the app and prevent impersonation
+ 3. Use Android SDK's <a href="http://developer.android.com/tools/help/zipalign.html" target="_blank">zipalign</a> command to maintain compatibility with the unzip utility in Android phones.
+ 4. Stuff the signed and aligned APK into the project's *./public* directory
+
+With that finished, we're ready to submit our app to Meteor's servers . . .
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L175" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-02
@@ -159,7 +190,7 @@ meteor deploy ${PROJECT_NAME}-${GITHUB_ORGANIZATION_NAME}.meteor.com
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L301" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L305" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-02
@@ -191,7 +222,7 @@ https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/fragments/Mobi
 Continued . . . 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L314" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L318" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-02
@@ -222,7 +253,7 @@ curl -s -X POST -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGA
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L394" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L398" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-02
@@ -285,5 +316,5 @@ Thank you!
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L294" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L298" target="_blank">Code for this step.</a>] ]
 ]

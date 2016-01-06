@@ -11,6 +11,10 @@ function installToolsForTheseScripts() {
 
   INST=();
 
+  pushd ${HOME} >/dev/null;
+    sudo apt-get -y update;
+  popd >/dev/null;
+
   X="gawk"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
   X="git"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
   X="python-pygments"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;

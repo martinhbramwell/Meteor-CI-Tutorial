@@ -736,6 +736,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 }
 
+exit;
 
 #    ~    ~    ~    ~    ~    ~    10 A ~    ~    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
@@ -754,11 +755,18 @@ ${PROCESS_THIS} && {
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
 
-    # explain ${BINDIR}/?????????????????????????.md MORE_ACTION # CODE_BLOCK
+    # explain ${BINDIRBuildAndroidAPK_A.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
-    BuildAndroidAPK;
+    BuildAndroidAPK_A;
+    echo -e "\n   Prepared project APK.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+    # explain ${BINDIR}/BuildAndroidAPK_B.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    BuildAndroidAPK_B;
     echo -e "\n   Built project APK.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
 
     # explain ${BINDIR}/PushDocsToGitHubPagesFromCIBuild_B.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then

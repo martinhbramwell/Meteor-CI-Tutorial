@@ -123,7 +123,8 @@ function checkKeyToolPassword() {
 }
 
 
-function BuildAndroidAPK() {
+
+function BuildAndroidAPK_A() {
 
   PARM_NAMES=("KEYSTORE_PWD");
   checkKeyToolPassword;
@@ -156,22 +157,31 @@ function BuildAndroidAPK() {
     echo "Have a key pair for '${PROJECT_NAME}'.";
   fi;
 
-  export TARGET_DIRECTORY=${TMP_DIRECTORY}/${PROJECT_NAME}
+
+  pushd ${BUILD_DIRECTORY} >/dev/null;
+
+    wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/getAPK.js;
+    wget https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/getAPK.html;
+    sed -i -e "s/\${PROJECT_NAME}/${PROJECT_NAME}/" getAPK.html;
+    echo "Obtained Android app download link template and helper.";
+
+    git add getAPK.*;
+    echo "Added Android app download link to git repo.";
+
+    set +e; meteor add-platform android 2>/dev/null; set -e;
+    echo "Added android platform to meteor project";
+
+  popd >/dev/null;
+
+}
+
+function BuildAndroidAPK_B() {
+
+  export TARGET_DIRECTORY=${TMP_DIRECTORY}/${PROJECT_NAME};
   rm -fr ${TARGET_DIRECTORY};
   mkdir -p ${TARGET_DIRECTORY};
 
   pushd ${BUILD_DIRECTORY} >/dev/null;
-
-    rm -f ./getAPK.html;
-    echo "Deleted unwanted Android app download link template copy.";
-
-    mkdir -p public;
-    echo "<body><a target='_blank' href='./${PROJECT_NAME}.apk'>Get the Android app.</a></body>" \
-            > ./public/getAPK.html;
-    echo "Created Android app download link.";
-
-    set +e; meteor add-platform android 2>/dev/null; set -e;
-    echo "Added android platform to meteor project";
 
     meteor build ${TARGET_DIRECTORY}         --server=${TARGET_SERVER_URL};
     echo "Built project : ${BUILD_DIRECTORY} in ${TARGET_DIRECTORY} for server ${TARGET_SERVER_URL}";
@@ -179,9 +189,6 @@ function BuildAndroidAPK() {
     echo "Stashed plain version.";
     meteor build ${TARGET_DIRECTORY} --debug --server=${TARGET_SERVER_URL}
     echo "Built debug version.";
-
-    cp ./public/getAPK.html .;
-    echo "Restored Android app download link template copy.";
 
   popd >/dev/null;
 
@@ -395,7 +402,6 @@ function PrepareCIwithAndroidBuilder() {
 
   pushd ~/${PARENT_DIR} >/dev/null;
     pushd ${PROJECT_NAME} >/dev/null;
-      ls -l ./circle.y*;
       pushd ${ANDROID_TOOLS_DIR} >/dev/null;
 
         echo "Obtain ${ANDROID_BUILD_SCRIPT}";
@@ -405,17 +411,14 @@ function PrepareCIwithAndroidBuilder() {
 
       popd >/dev/null;
 
-      ls -l ./circle.y*;
       addMissingDeploymentSection circle.yml;
 
       echo "Edit circle.yml adding call to ${ANDROID_BUILD_SCRIPT} if not done before.";
-      ls -l ./circle.y*;
       DONE_BEFORE=$(cat circle.yml | grep -c "${ANDROID_BUILD_SCRIPT}" | { grep -v grep || true; });
       if [[  ${DONE_BEFORE} -lt 1 ]]; then
         # Add execution of 'PrepareAndroidSDK' to circle.yml
         sed -i "s/^${MRKd}.*/${BLD_CMNT}\n${BLD_CMD}\n${MRKd}\n/g" circle.yml
         echo "Edited circle.yml.";
-        ls -l ./circle.y*;
       fi;
 
     popd >/dev/null;
