@@ -1,5 +1,5 @@
 ---
-last_update: 2016-01-02
+last_update: 2016-01-05
  .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -28,5 +28,5 @@ https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/fragments/Mobi
 Continued . . . 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L318" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L321" target="_blank">Code for this step.</a>] ]
 ]

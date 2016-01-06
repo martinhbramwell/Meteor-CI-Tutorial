@@ -24,5 +24,5 @@ With the preparatory steps done we can address the steps to take each time the a
 
 With that finished, we're ready to submit our app to Meteor's servers . . .
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L175" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L178" target="_blank">Code for this step.</a>] ]
 ]

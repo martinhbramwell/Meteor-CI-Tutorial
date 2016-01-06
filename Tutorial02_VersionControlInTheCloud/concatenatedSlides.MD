@@ -31,7 +31,7 @@ You should not need to use 'sudo' for this or any of the later parts.  In other 
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-05
  .left-column[
   ### Set Up Project Names
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
