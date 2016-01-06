@@ -349,7 +349,7 @@ function PrepareCIwithAndroidSDK() {
       # DONE_BEFORE=$(cat circle.yml | grep -c "${ANDROID_HOME_PHRASE}" | { grep -v grep || true; });
       # if [[  ${DONE_BEFORE} -lt 1 ]]; then
       #   # Insert 'ANDROID_HOME_PHRASE' to circle.yml
-      #   sed -ie "s/^${MRKv}.*/${ANDROID_HOME_PHRASE}\n${MRKv}/g" circle.yml
+      #   sed -i "s/^${MRKv}.*/${ANDROID_HOME_PHRASE}\n${MRKv}/g" circle.yml
       #   echo "Edited circle.yml.";
       # fi;
 
@@ -453,7 +453,7 @@ function PrepareCIwithMeteorDeployment() {
       DONE_BEFORE=$(cat circle.yml | grep -c "${METEOR_DEPLOY_SCRIPT}" | { grep -v grep || true; });
       if [[  ${DONE_BEFORE} -lt 1 ]]; then
         # Add execution of 'PrepareAndroidSDK' to circle.yml
-        sed -ie "s/^${MRKd}.*/${DPLY_CMNT}\n${DPLY_CMD}\n${MRKd}\n/g" circle.yml
+        sed -i "s/^${MRKd}.*/${DPLY_CMNT}\n${DPLY_CMD}\n${MRKd}\n/g" circle.yml
         echo "Edited circle.yml.";
       fi;
 
@@ -462,7 +462,7 @@ function PrepareCIwithMeteorDeployment() {
       DONE_BEFORE=$(cat circle.yml | grep -c "${TARGET_SERVER_PHRASE}" | { grep -v grep || true; });
       if [[  ${DONE_BEFORE} -lt 1 ]]; then
         # Insert 'TARGET_SERVER_PHRASE' to circle.yml
-        sed -ie "s/^${MRKv}.*/${TARGET_SERVER_PHRASE}\n${MRKv}/g" circle.yml
+        sed -i "s/^${MRKv}.*/${TARGET_SERVER_PHRASE}\n${MRKv}/g" circle.yml
         echo "Edited circle.yml.";
       fi;
 

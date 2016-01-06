@@ -51,7 +51,7 @@ if [ "${RUN_RULE}" != "n" ]; then PushFinalChanges; fi;
 
 ## FLAG FOR INCLUSION IN SLIDES - ${BINDIR}/Fin.md explain
 
-endOfSectionScript ${SECTION_NUM} ${SECTION} ${NEXT_SECTION};
+### endOfSectionScript ${SECTION_NUM} ${SECTION} ${NEXT_SECTION};
 
 
 exit 0;

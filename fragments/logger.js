@@ -1,8 +1,9 @@
 const Bunyan = Npm.require('bunyan'); // !
-Logger = Bunyan.createLogger({
+LoggerSpec={
   'name': '${PKG_NAME}',
-});
+};
+if ( Meteor.settings.LOGDIR && Meteor.settings.LOGDIR.length > 0 ) {
+  LoggerSpec.streams = [{'path': Meteor.settings.LOGDIR,}];
+};
 
-  // 'streams': [{
-  //   'path': '/var/log/meteor/ci4meteor.log',
-  // }],
+Logger = Bunyan.createLogger(LoggerSpec);

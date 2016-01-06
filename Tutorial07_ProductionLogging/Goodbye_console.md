@@ -29,4 +29,7 @@ Tinytest.add('Check Equality', function sanityCheckEQ(test) {
 ```
 So, on the server-side, we now have much more control over logging <a href="https://github.com/trentm/node-bunyan#levels" target="_blank">levels</a> and <a href="https://github.com/trentm/node-bunyan#streams-introduction" target="_blank">output destinations</a>.
 
+Our output destination will depend on the execution environment. In our CI script we redirect log output to ```${CIRCLE_TEST_REPORTS}```, while for production it should go to a file.  We will now see how to specify the destination at run time.
+
+
 <!-- B -->]

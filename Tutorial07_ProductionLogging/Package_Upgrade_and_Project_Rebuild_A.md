@@ -15,15 +15,8 @@ Table of Contents](./)
 
 #### Package Upgrade and Project Rebuild (Part A)
 
-... continuing ... 
-
-Rerun the tests while watching a ```tail``` of the log file.
-```terminal
-tail -f /var/log/meteor/ci4meteor.log  | bunyan -o short
-```
-
 To complete this section, we need to correctly commit our changes and spawn a rebuild in CircleCI.  In the following steps, we're going to see how to : 
-1. Add ```logger.js``` to git version control
+1. Add ```logger.js``` and ```setting.json``` to git version control
 1. Create a ```.gitignore``` file to keep Bunyan's generated module ```.npm``` out of version control
 1. Increment the package version number
 1. Update the app to pick up the version change
@@ -33,5 +26,5 @@ To complete this section, we need to correctly commit our changes and spawn a re
 Continues . . . 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L29" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L45" target="_blank">Code for this step.</a>] ]
 ]

@@ -15,22 +15,20 @@ Table of Contents](./)
 
 #### Refactor Bunyan Instantiation (Part B)
 
-... continuing ... we still need to 'wire' ```Logger``` into our package.
-
-In ```package.js```, in ∗∗both∗∗ the ```onUse``` ∗∗and∗∗ the ```onTest``` sections, we need the "api" to add ```logger.js``` and export the ```Logger``` object.
+... continued.    Remove Bunyan instantiation from ```'${PKG_NAME}-tests.js'```
 ```javascript
-Package.onUse(function(api) {
-       :
-  api.addFiles(['logger.js', '${PKG_NAME}.js'], ['server']);
-  api.export('Logger');
-});
-``` 
-```javascript
-Package.onTest(function(api) {
-       :
-  api.addFiles(['logger.js', '${PKG_NAME}-tests.js'], ['server']);
-  api.export('Logger');
-});
+// const Bunyan = Npm.require('bunyan');
+// const Logger = Bunyan.createLogger({ 'name': 'ci4meteor' });
+Tinytest.add('Check Equality', function sanityCheckEQ(test) {
+    :
 ```
-Continues ...
+Create a ```settings.json``` file in the project root directory :
+```javascript
+{   "LOGDIR": "/var/log/meteor/ci4meteor.log"  }
+```
+
+To save logs to a server-side file under ```/var/log/meteor``` start Meteor with ```meteor --settings settings.json```.  To get prettified logs output on the command line you can use ```meteor | bunyan -o short```.
+
+Unfortunately, left as is, we get a ```Logger is not defined``` error, because ```Logger``` must be 'wired' into our package... 
+
 <!-- B -->]

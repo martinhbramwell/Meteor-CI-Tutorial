@@ -15,25 +15,21 @@ Table of Contents](./)
 
 #### Refactor Bunyan Instantiation (Part A)
 
-<a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/logger.js" target="_blank">Download</a> the file ```'logger.js'``` that separates out Bunyan setup. When it is registered in ```package.js```, logs will be saved to a server-side file under ```/var/log/meteor```.
-```javascript
-const Bunyan = Npm.require('bunyan');
-Logger = Bunyan.createLogger({
-  'name': '${PKG_NAME}',          # EDIT <--
-  'streams': [{
-    'path': '/var/log/meteor/ci4meteor.log',
-  }],
-});
-```
-Remove Bunyan instantiation from ```'${PKG_NAME}-tests.js'```
-```javascript
-// const Bunyan = Npm.require('bunyan');
-// const Logger = Bunyan.createLogger({ 'name': 'ci4meteor' });
-Tinytest.add('Check Equality', function sanityCheckEQ(test) {
-    :
-```
+The file <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/logger.js" target="_blank">logger.js</a> separates Bunyan setup from our tests.
 
-You'll get an error ```Logger is not defined```, however ...
+```javascript
+const Bunyan = Npm.require('bunyan'); // !
+LoggerSpec={  'name': '${PKG_NAME}',  };  //  <--  FIXME !!
+if ( Meteor.settings.LOGDIR && Meteor.settings.LOGDIR.length > 0 ) {
+  LoggerSpec.streams = [{'path': Meteor.settings.LOGDIR,}];
+};
+Logger = Bunyan.createLogger(LoggerSpec);
+```
+There is a lot going on here.  We create a Logger, but only specify a name (to distinguish it from loggers of other packages).  It writes to ```stdout``` **unless** our application specifies a LOGDIR in <a href="https://themeteorchef.com/snippets/making-use-of-settings-json/" target="_blank">Meteor.settings</a>.
+
+For it to work, we must: get rid of our previous ```Logger``` instantiation, create a ```settings.json``` file and, finally, register <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/logger.js" target="_blank">logger.js</a> in ```package.js```.
+
+Continuing . . .
 
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L1" target="_blank">Code for this step.</a>] ]

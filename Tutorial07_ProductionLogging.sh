@@ -47,6 +47,9 @@ if [ "${RUN_RULE}" != "n" ]; then Refactor_Bunyan_InstantiationA; fi;
 RUN_RULE="";
 explain ${BINDIR}/Refactor_Bunyan_InstantiationB.md # MANUAL_INPUT_REQUIRED
 
+RUN_RULE="";
+explain ${BINDIR}/Refactor_Bunyan_InstantiationC.md # MANUAL_INPUT_REQUIRED
+
 explain ${BINDIR}/Package_Upgrade_and_Project_Rebuild_A.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Package_Upgrade_and_Project_Rebuild_A; fi;
 
