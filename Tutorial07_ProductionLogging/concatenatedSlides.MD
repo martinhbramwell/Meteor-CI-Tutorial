@@ -216,7 +216,7 @@ Tinytest.add('Check Equality', function sanityCheckEQ(test) {
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-06
  .left-column[
   ### Goodbye Console
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
@@ -246,9 +246,12 @@ Tinytest.add('Check Equality', function sanityCheckEQ(test) {
 ```
 So, on the server-side, we now have much more control over logging <a href="https://github.com/trentm/node-bunyan#levels" target="_blank">levels</a> and <a href="https://github.com/trentm/node-bunyan#streams-introduction" target="_blank">output destinations</a>.
 
+Our output destination will depend on the execution environment. In our CI script we redirect log output to ```${CIRCLE_TEST_REPORTS}```, while for production it should go to a file.  We will now see how to specify the destination at run time.
+
+
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-06
  .left-column[
   ### Refactor Bunyan (A)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
@@ -264,31 +267,27 @@ Table of Contents](./)
 
 #### Refactor Bunyan Instantiation (Part A)
 
-<a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/logger.js" target="_blank">Download</a> the file ```'logger.js'``` that separates out Bunyan setup. When it is registered in ```package.js```, logs will be saved to a server-side file under ```/var/log/meteor```.
-```javascript
-const Bunyan = Npm.require('bunyan');
-Logger = Bunyan.createLogger({
-  'name': '${PKG_NAME}',          # EDIT <--
-  'streams': [{
-    'path': '/var/log/meteor/ci4meteor.log',
-  }],
-});
-```
-Remove Bunyan instantiation from ```'${PKG_NAME}-tests.js'```
-```javascript
-// const Bunyan = Npm.require('bunyan');
-// const Logger = Bunyan.createLogger({ 'name': 'ci4meteor' });
-Tinytest.add('Check Equality', function sanityCheckEQ(test) {
-    :
-```
+The file <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/logger.js" target="_blank">logger.js</a> separates Bunyan setup from our tests.
 
-You'll get an error ```Logger is not defined```, however ...
+```javascript
+const Bunyan = Npm.require('bunyan'); // !
+LoggerSpec={  'name': '${PKG_NAME}',  };  //  <--  FIXME !!
+if ( Meteor.settings.LOGDIR && Meteor.settings.LOGDIR.length > 0 ) {
+  LoggerSpec.streams = [{'path': Meteor.settings.LOGDIR,}];
+};
+Logger = Bunyan.createLogger(LoggerSpec);
+```
+There is a lot going on here.  We create a Logger, but only specify a name (to distinguish it from loggers of other packages).  It writes to ```stdout``` **unless** our application specifies a LOGDIR in <a href="https://themeteorchef.com/snippets/making-use-of-settings-json/" target="_blank">Meteor.settings</a>.
+
+For it to work, we must: get rid of our previous ```Logger``` instantiation, create a ```settings.json``` file and, finally, register <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/logger.js" target="_blank">logger.js</a> in ```package.js```.
+
+Continuing . . .
 
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L1" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-06
  .left-column[
   ### Refactor Bunyan (B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
@@ -304,9 +303,41 @@ Table of Contents](./)
 
 #### Refactor Bunyan Instantiation (Part B)
 
-... continuing ... we still need to 'wire' ```Logger``` into our package.
+... continued.    Remove Bunyan instantiation from ```'${PKG_NAME}-tests.js'```
+```javascript
+// const Bunyan = Npm.require('bunyan');
+// const Logger = Bunyan.createLogger({ 'name': 'ci4meteor' });
+Tinytest.add('Check Equality', function sanityCheckEQ(test) {
+    :
+```
+Create a ```settings.json``` file in the project root directory :
+```javascript
+{   "LOGDIR": "/var/log/meteor/ci4meteor.log"  }
+```
 
-In ```package.js```, in **both** the ```onUse``` **and** the ```onTest``` sections, we need the "api" to add ```logger.js``` and export the ```Logger``` object.
+To save logs to a server-side file under ```/var/log/meteor``` start Meteor with ```meteor --settings settings.json```.  To get prettified logs output on the command line you can use ```meteor | bunyan -o short```.
+
+Unfortunately, left as is, we get a ```Logger is not defined``` error, because ```Logger``` must be 'wired' into our package... 
+
+<!-- B -->]
+---
+
+ .left-column[
+  ### Refactor Bunyan (C)
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+.footnote[.red.bold[] [
+Table of Contents](./)
+<br />
+<br />&nbsp; &nbsp;Last update
+<br />&nbsp; &nbsp; {{ last_update  }}
+]
+<!-- H -->]
+.right-column[
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+#### Refactor Bunyan Instantiation (Part C)
+
+In ```package.js```, in **both** the ```onUse``` **and** the ```onTest``` sections, the "api" must add ```logger.js``` and export ```Logger```.
 ```javascript
 Package.onUse(function(api) {
        :
@@ -321,10 +352,14 @@ Package.onTest(function(api) {
   api.export('Logger');
 });
 ```
-Continues ...
+Rerun the tests while watching a ```tail``` of the log file.
+```terminal
+tail -f /var/log/meteor/ci4meteor.log  | bunyan -o short
+```
+
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-06
  .left-column[
   ### Package Upgrade (A)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -340,15 +375,8 @@ Table of Contents](./)
 
 #### Package Upgrade and Project Rebuild (Part A)
 
-... continuing ... 
-
-Rerun the tests while watching a ```tail``` of the log file.
-```terminal
-tail -f /var/log/meteor/ci4meteor.log  | bunyan -o short
-```
-
 To complete this section, we need to correctly commit our changes and spawn a rebuild in CircleCI.  In the following steps, we're going to see how to : 
-1. Add ```logger.js``` to git version control
+1. Add ```logger.js``` and ```setting.json``` to git version control
 1. Create a ```.gitignore``` file to keep Bunyan's generated module ```.npm``` out of version control
 1. Increment the package version number
 1. Update the app to pick up the version change
@@ -358,10 +386,10 @@ To complete this section, we need to correctly commit our changes and spawn a re
 Continues . . . 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L29" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L45" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-06
  .left-column[
   ### Package Upgrade (B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -388,7 +416,7 @@ meteor list
 To finish: commit the package, then commit the project and then watch CircleCI for rebuild success.
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L47" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L63" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-02
