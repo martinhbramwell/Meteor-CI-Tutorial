@@ -407,5 +407,8 @@ function ReportAnIssue() {
         ${NC}When you're done, click the [Preview] tab in the GitHub issue editor to see the result.
 
   "
+
+    LINT_RPT="";
+    LINT_LINE="";
 }
 

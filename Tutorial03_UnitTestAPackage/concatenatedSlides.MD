@@ -309,8 +309,8 @@ In this step we :
 
 ##### Example Commands
 ```terminal
-wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.run
-./meteor-tinytest-runner.run
+wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.bin
+./meteor-tinytest-runner.bin
 ./tests/tinyTests/test-all.sh
 ```
 <!-- B -->
