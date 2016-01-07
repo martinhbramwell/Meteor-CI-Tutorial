@@ -251,7 +251,7 @@ Our output destination will depend on the execution environment. In our CI scrip
 
 <!-- B -->]
 ---
-last_update: 2016-01-06
+last_update: 2016-01-07
  .left-column[
   ### Refactor Bunyan (A)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
@@ -271,7 +271,7 @@ The file <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tu
 
 ```javascript
 const Bunyan = Npm.require('bunyan'); // !
-LoggerSpec={  'name': '${PKG_NAME}',  };  //  <--  FIXME !!
+LoggerSpec = {  'name': '${PKG_NAME}'  }  //  <--  FIXME !!
 if ( Meteor.settings.LOGDIR && Meteor.settings.LOGDIR.length > 0 ) {
   LoggerSpec.streams = [{'path': Meteor.settings.LOGDIR,}];
 };
