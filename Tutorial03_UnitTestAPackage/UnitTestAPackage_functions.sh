@@ -238,7 +238,7 @@ function Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line() {
   killMeteorProcess
 
 #  wget https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/7a2bd1916eea40406d3959d55ed465f891c33dcf/meteor-tinytest-runner.bin
-  wget https://github.com/warehouseman/meteor-tinytest-runner/blob/master/meteor-tinytest-runner.bin
+  wget https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/master/meteor-tinytest-runner.bin
   chmod ug+x meteor-tinytest-runner.bin
   ./meteor-tinytest-runner.bin
 
