@@ -61,7 +61,7 @@ ${PROCESS_THIS} && {
 Configure_git_for_GitHub;
 echo -e "\n   Configured git for GitHub\n          - o 0 o - \n";
 
-set +e; killall -qs SIGKILL ssh-agent; set -e;
+set +e; sudo killall -qs SIGKILL ssh-agent; set -e;
 echo -e "\n   Killed extraneous ssh-agent instances\n          - o 0 o - \n";
 
 

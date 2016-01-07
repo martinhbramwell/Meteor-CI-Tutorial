@@ -19,7 +19,7 @@ The file <a href="https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tu
 
 ```javascript
 const Bunyan = Npm.require('bunyan'); // !
-LoggerSpec={  'name': '${PKG_NAME}',  };  //  <--  FIXME !!
+LoggerSpec = {  'name': '${PKG_NAME}'  }  //  <--  FIXME !!
 if ( Meteor.settings.LOGDIR && Meteor.settings.LOGDIR.length > 0 ) {
   LoggerSpec.streams = [{'path': Meteor.settings.LOGDIR,}];
 };

@@ -423,6 +423,11 @@ function EnforceOwnershipAndPermissions() {
   sudo rm -fr /tmp/build;
   sudo rm -fr /tmp/plugins.txt;
   sudo rm -fr /tmp/*_docs.zip;
+  sudo rm -fr /tmp/meteor*;
+  sudo rm -fr /tmp/git;
+  sudo rm -fr /tmp/adb*;
+  sudo rm -fr /tmp/chromedriver*;
+  sudo rm -fr /tmp/google-chrome*;
 
 }
 
