@@ -370,7 +370,7 @@ git push -u ${PROJECT_NAME}_origin master
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L257" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-07
  .left-column[
     ### End Of Part #B
 .footnote[.red.bold[] [

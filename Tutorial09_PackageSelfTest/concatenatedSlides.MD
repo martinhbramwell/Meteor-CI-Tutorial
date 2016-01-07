@@ -394,7 +394,7 @@ Copying it, you can make a markdown hyperlink to paste into the issue like this 
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L255" target="_blank">Code for this step.</a>]  ]
 ]
 ---
-last_update: 2016-01-06
+last_update: 2016-01-07
  .left-column[
     ### End Of Part #I
 .footnote[.red.bold[] [

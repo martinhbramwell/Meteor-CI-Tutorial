@@ -260,7 +260,7 @@ git push
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L491" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-07
  .left-column[
     ### End Of Part #F
 .footnote[.red.bold[] [

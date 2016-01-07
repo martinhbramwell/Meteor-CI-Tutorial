@@ -235,7 +235,7 @@ Great!  All clean!
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial04_CodingStyleAndLinting/CodingStyleAndLinting_functions.sh#L23" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-07
  .left-column[
     ### End Of Part #D
 .footnote[.red.bold[] [

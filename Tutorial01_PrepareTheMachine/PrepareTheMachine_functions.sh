@@ -410,6 +410,7 @@ function Configure_Sublime_A() {
 }
 
 function EnforceOwnershipAndPermissions() {
+
   export BIN_DIR=/usr/local/bin;
   mkdir -p ~/.npm;
   chown -R ${SUDOUSER}:${SUDOUSER} ~/.npm;
@@ -417,5 +418,11 @@ function EnforceOwnershipAndPermissions() {
   sudo touch ${BIN_DIR}/meteor;
   sudo chown -R ${SUDOUSER}:${SUDOUSER} ${BIN_DIR};
   sudo chmod -R a+w ${BIN_DIR};
+  sudo rm -fr /tmp/circleci_artifacts.json;
+  sudo rm -fr /tmp/circleci_dk_spec.json;
+  sudo rm -fr /tmp/build;
+  sudo rm -fr /tmp/plugins.txt;
+  sudo rm -fr /tmp/*_docs.zip;
+
 }
 
