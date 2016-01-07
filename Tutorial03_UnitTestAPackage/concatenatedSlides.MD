@@ -317,7 +317,7 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L233" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-07
  .left-column[
     ### End Of Part #C
 .footnote[.red.bold[] [
@@ -337,7 +337,6 @@ Toegether, the preceding three parts will have left you with a minimal package, 
 The next section will guide you through preparations for ensuring coding standards conformance. 
 
 [Part #D - Code Quality - Coding Style and Linting](./?part=D)
-
 
 
 <!-- B -->]

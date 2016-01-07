@@ -394,7 +394,7 @@ Copying it, you can make a markdown hyperlink to paste into the issue like this 
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L255" target="_blank">Code for this step.</a>]  ]
 ]
 ---
-last_update: 2016-01-06
+last_update: 2016-01-07
  .left-column[
     ### End Of Part #I
 .footnote[.red.bold[] [
@@ -414,7 +414,6 @@ We have successfully built and tested our package in its container project.
 Now we need to deploy it to a web server and also serve it out to the public as a mobile app.  In the next section we'll first see how to do this in our development machine and then how to deploy from our continuous integration service.
 
 [Part #J - Automated Deployment](./?part=J)
-
 
 
 

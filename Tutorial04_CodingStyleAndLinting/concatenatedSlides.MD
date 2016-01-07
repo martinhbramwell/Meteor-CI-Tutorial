@@ -235,7 +235,7 @@ Great!  All clean!
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial04_CodingStyleAndLinting/CodingStyleAndLinting_functions.sh#L23" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-07
  .left-column[
     ### End Of Part #D
 .footnote[.red.bold[] [
@@ -255,7 +255,6 @@ We made unit testing and coding standards assurance as easy as possible.
 In the next section we will address jsDoc and GitHub pages, which together will make it as easy as possible to publish high quality documentation.  We will also be saving our work on our package to GitHub
 
 [Part #E - Code Quality - Automatic Documentation in the Cloud](./?part=E)
-
 
 
 <!-- B -->]

@@ -419,7 +419,7 @@ To finish: commit the package, then commit the project and then watch CircleCI f
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L63" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-07
  .left-column[
     ### End Of Part #G
 .footnote[.red.bold[] [
@@ -439,7 +439,6 @@ The preceding seven parts completed our exploration of a complete development to
 You should now have linting, logging, automated documentation, unit testing, version control, end-to-end testing and continuous integration *in-the-cloud*.
 
 Now we'll look at a more useful package in [Part #H - A Real World Package](./?part=H)
-
 
 
 <!-- B -->]

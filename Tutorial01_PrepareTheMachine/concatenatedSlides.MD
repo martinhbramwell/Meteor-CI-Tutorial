@@ -398,7 +398,7 @@ Table of Contents](./)
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-07
  .left-column[
   ### End Of Part #A
 .footnote[.red.bold[] [
@@ -420,7 +420,6 @@ Your virtual machine should now have all necessary system wide installations.
 The next part will guide you through the minimal basic set up tasks of a Meteor developer's work station with linting, unit testing and version control.
 
 [Part #B - Version Control In The Cloud](./?part=B)
-
 
 
 <!-- B -->]
