@@ -242,7 +242,7 @@ function Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line() {
   chmod ug+x meteor-tinytest-runner.bin
   ./meteor-tinytest-runner.bin
 
-  # cat ./tests/tinyTests/ci/installSeleniumWebdriver.sh;
+  # cat ./tests/tinyTests/ci/installSeleniumWebDriver.sh;
 
   chmod a+rx ./tests/tinyTests/*.sh
   ./tests/tinyTests/test-all.sh

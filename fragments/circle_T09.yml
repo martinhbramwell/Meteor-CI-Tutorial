@@ -24,7 +24,7 @@ dependencies:
   pre:
     # Prepare TinyTest dependencies
     # If WebDriver is already cached, do not need to build it again.
-    - if [ ! -d ${HOME}/node_modules/selenium-webdriver/ ]; then ./tests/tinyTests/ci/installSeleniumWebdriver.sh; else echo "Selenium Webdriver seems to be cached"; fi;
+    - if [ ! -d ${HOME}/node_modules/selenium-webdriver/ ]; then ./tests/tinyTests/ci/installSeleniumWebDriver.sh; else echo "Selenium Webdriver seems to be cached"; fi;
     # Install  Meteor
     - mkdir -p ~/.meteor
     # Make a place for meteor logs
