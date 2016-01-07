@@ -23,5 +23,4 @@ The next part will guide you through the minimal basic set up tasks of a Meteor 
 [Part #B - Version Control In The Cloud](./?part=B)
 
 
-
 <!-- B -->]

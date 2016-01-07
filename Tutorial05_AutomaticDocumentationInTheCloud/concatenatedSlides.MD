@@ -311,5 +311,4 @@ The preceding five parts covered the minimal basic set up tasks of a Meteor deve
 [Part #F - Cloud Continuous Integration](./?part=F)
 
 
-
 <!-- B -->]

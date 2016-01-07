@@ -339,5 +339,4 @@ The next section will guide you through preparations for ensuring coding standar
 [Part #D - Code Quality - Coding Style and Linting](./?part=D)
 
 
-
 <!-- B -->]

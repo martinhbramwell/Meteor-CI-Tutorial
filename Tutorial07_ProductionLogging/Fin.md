@@ -21,5 +21,4 @@ You should now have linting, logging, automated documentation, unit testing, ver
 Now we'll look at a more useful package in [Part #H - A Real World Package](./?part=H)
 
 
-
 <!-- B -->]

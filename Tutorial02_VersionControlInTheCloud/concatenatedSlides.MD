@@ -390,5 +390,4 @@ The preceding two parts covered the minimal basic set up of a Meteor application
 [Part #C - Create and Unit Test a Package](./?part=C)
 
 
-
 <!-- B -->]

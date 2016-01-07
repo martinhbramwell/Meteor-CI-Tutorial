@@ -257,5 +257,4 @@ In the next section we will address jsDoc and GitHub pages, which together will 
 [Part #E - Code Quality - Automatic Documentation in the Cloud](./?part=E)
 
 
-
 <!-- B -->]
