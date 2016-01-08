@@ -27,8 +27,8 @@ function BuildAndroidAPK() {
   ${METEOR_CMD} build ${TARGET_DIRECTORY} --debug --server=${TARGET_SERVER_URL}
   echo "Built.";
 
-  echo "Creating Android app download link.";
-  echo "<body><a target='_blank' href='./${CIRCLE_PROJECT_REPONAME}.apk'>Get the Android app.</a></body>" > ./getAPK.html
+  # echo "Creating Android app download link.";
+  # echo "<body><a target='_blank' href='./${CIRCLE_PROJECT_REPONAME}.apk'>Get the Android app.</a></body>" > ./getAPK.html
 
   pushd ${TARGET_DIRECTORY}/android >/dev/null;
     jarsigner -storepass ${KEYSTORE_PWD} -tsa http://timestamp.digicert.com -digestalg SHA1 ${CIRCLE_PROJECT_REPONAME}_unaligned.apk ${CIRCLE_PROJECT_REPONAME};

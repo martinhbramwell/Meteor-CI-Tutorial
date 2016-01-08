@@ -310,8 +310,8 @@ function Install_Bunyan_Globally() {
 
   export LOG_DIR="/var/log/meteor";
   sudo mkdir -p ${LOG_DIR};
-  sudo chown ${USER}:${USER} ${LOG_DIR};
-  sudo chmod ug+rwx ${LOG_DIR};
+  sudo chown -R ${USER}:${USER} ${LOG_DIR};
+  sudo chmod -R ug+rwx ${LOG_DIR};
   touch ${LOG_DIR}/ci4meteor.log;
 
 }
