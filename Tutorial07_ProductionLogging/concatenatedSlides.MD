@@ -287,7 +287,7 @@ Continuing . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L1" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-06
+last_update: 2016-01-15
  .left-column[
   ### Refactor Bunyan (B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
@@ -315,7 +315,7 @@ Create a ```settings.json``` file in the project root directory :
 {   "LOGDIR": "/var/log/meteor/ci4meteor.log"  }
 ```
 
-To save logs to a server-side file under ```/var/log/meteor``` start Meteor with ```meteor --settings settings.json```.  To get prettified logs output on the command line you can use ```meteor | bunyan -o short```.
+To save logs to a server-side file under ```/var/log/meteor``` start Meteor with ```meteor --settings settings.json```.  To get prettified logs output on the command line you can use ```meteor --raw-logs | bunyan -o short```.
 
 Unfortunately, left as is, we get a ```Logger is not defined``` error, because ```Logger``` must be 'wired' into our package... 
 
