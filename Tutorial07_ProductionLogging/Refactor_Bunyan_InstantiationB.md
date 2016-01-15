@@ -1,5 +1,5 @@
 ---
-last_update: 2016-01-06
+last_update: 2016-01-15
  .left-column[
   ### Refactor Bunyan (B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />

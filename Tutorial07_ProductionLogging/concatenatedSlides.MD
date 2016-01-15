@@ -287,7 +287,7 @@ Continuing . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L1" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-06
+last_update: 2016-01-15
  .left-column[
   ### Refactor Bunyan (B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
