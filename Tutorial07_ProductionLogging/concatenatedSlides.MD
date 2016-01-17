@@ -99,7 +99,7 @@ We now need to fix ```"Error: Cannot find module 'bunyan'"!```
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-17
  .left-column[
   ### Specify Npm modules
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />

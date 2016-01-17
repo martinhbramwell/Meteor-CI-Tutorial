@@ -227,7 +227,7 @@ sed -i "/<head>/c<head>\
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L119" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-17
  .left-column[
   ### Prepare SSH directory
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -303,7 +303,7 @@ Continued . . .
 <!-- B -->]
 ---
 name: CreateRemoteGitHubRepository
-last_update: 2016-01-02
+last_update: 2016-01-17
  .left-column[
   ### GitHub Repo
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -335,7 +335,7 @@ Table of Contents](./)
 ]
 ---
 name: CreateLocalGitHubRepository
-last_update: 2016-01-02
+last_update: 2016-01-17
  .left-column[
   ### Local GitHub Repo
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />

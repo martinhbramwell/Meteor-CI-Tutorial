@@ -125,7 +125,7 @@ In Sublime Text :
 You have reconfigured the ESLint rule ```'quotes'```.  The complete list of configurable rules is available from <a target="blank" href="http://eslint.org/docs/rules/">eslint.org rules documentation</a>
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-17
  .left-column[
   ### Sublime ESLint
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
