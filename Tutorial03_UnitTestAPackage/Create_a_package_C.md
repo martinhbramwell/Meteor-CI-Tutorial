@@ -41,7 +41,7 @@ For editing purposes your package now appears to be part of your project.  But w
     class="hover_text"
     onmouseover="ReverseContentDisplay('symwarn'); return true;"
     href="javascript:ReverseContentDisplay('symwarn')">
-    <i>Hover Note</i>
+    <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note</i>
 </a>
 
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L113" target="_blank">Code for this step.</a>] ]

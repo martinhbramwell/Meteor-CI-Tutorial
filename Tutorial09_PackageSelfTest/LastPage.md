@@ -32,6 +32,6 @@ Continues ...
     class="hover_text"
     onmouseover="ReverseContentDisplay('usage'); return true;"
     href="javascript:ReverseContentDisplay('usage')">
-    <i>Hover Note</i>
+    <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note</i>
 </a>
 ]

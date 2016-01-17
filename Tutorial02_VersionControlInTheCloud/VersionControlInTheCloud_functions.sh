@@ -186,6 +186,13 @@ RDME
 
 # function Create_GitHub_Repo_Deploy_Keys() {
 
+  # *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  #
+  #  THIS IS A GLOBAL FUNCTION USED BY MORE THAN ONE TUTORIAL   #
+  #  IT HAS BEEN MOVED TO :: scripts/util.sh                    #
+  # *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  #
+
+
+
 #   SET_UP_SSH=true;
 
 #   mkdir -p ~/.ssh;

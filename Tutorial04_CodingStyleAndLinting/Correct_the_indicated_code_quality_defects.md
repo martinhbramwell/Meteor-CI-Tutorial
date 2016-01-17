@@ -21,7 +21,7 @@ In Sublime Text, make sure you're editing the same project as you opened in the 
 3. open ```./.eslintrc``` and save it as ```./packages/${PKG_NAME}/.eslintrc```
 4. close and reopen ```./packages/${PKG_NAME}/${PKG_NAME}-tests.js``` and deficiency flags will appear
 5. click on line '3' and notice the status bar has a warning ```func-names``` and an error ```space-before-function-paren```
-6. add ```checkSanity``` after the key word ```function``` to correct both defects
+6. add ```checkSanity``` after ```function``` to correct both defects
 
 ```javascript
 Tinytest.add('example', function checkSanity(test) {
@@ -41,7 +41,7 @@ Tinytest.add('example', function checkSanity(test) {
     class="hover_text"
     onmouseover="ReverseContentDisplay('needineach'); return true;"
     href="javascript:ReverseContentDisplay('needineach')">
-    *¡HOVER NOTE!*
+    <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note</i>
 </a>
 
 

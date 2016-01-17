@@ -50,8 +50,13 @@
     }
     function ReverseContentDisplay(d) {
         if(d.length < 1) { return; }
-        if(document.getElementById(d).style.display == "none") { document.getElementById(d).style.display = "block"; }
-        else { document.getElementById(d).style.display = "none"; }
+        displayStyle = document.getElementById(d).style.display;
+        if(  displayStyle == ""  ||  displayStyle == "none"  )
+        {
+          document.getElementById(d).style.display = "block";
+        } else {
+          document.getElementById(d).style.display = "none";
+        }
     }
     </script>
   </head>
