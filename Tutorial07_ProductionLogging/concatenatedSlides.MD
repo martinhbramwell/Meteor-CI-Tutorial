@@ -99,7 +99,7 @@ We now need to fix ```"Error: Cannot find module 'bunyan'"!```
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-17
  .left-column[
   ### Specify Npm modules
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
@@ -133,7 +133,7 @@ Npm.depends({
 
    ... save, and observe the command line logs and the browser console.
 
-<!-- B -->
+
 <div id="syntaxnote" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('syntaxnote'); return true;"
        href="javascript:HideContent('syntaxnote')">
@@ -144,9 +144,9 @@ Npm.depends({
     class="hover_text"
     onmouseover="ReverseContentDisplay('syntaxnote'); return true;"
     href="javascript:ReverseContentDisplay('syntaxnote')">
-    <i>Hover Note</i>
+    <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note</i>
 </a>
-]
+<!-- B -->]
 ---
 last_update: 2016-01-02
  .left-column[

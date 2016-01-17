@@ -452,7 +452,7 @@ Continues ...
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-17
  .left-column[
   ### Control Example Visibility
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -481,10 +481,9 @@ Of course, left like that, our package will impose itself on the main page of  e
 
 Continues ...
 
-<!-- B -->
 <div id="usage" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('usage'); return true;"
-       href="javascript:HideContent('usage')"><h1>Pet Store Package : Usage Example</h1>
+       href="javascript:HideContent('usage')"><h2>Pet Store Package : Usage Example</h2>
   <button id="nextPet">See Next Pet</button>
   <p id="petNote">Pet #6133627029 is "At last, a 'stay small' family crocodile.".</p>
     </a>
@@ -493,8 +492,11 @@ Continues ...
     class="hover_text"
     onmouseover="ReverseContentDisplay('usage'); return true;"
     href="javascript:ReverseContentDisplay('usage')">
-    <i>Hover Note</i>
+    <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note</i>
 </a>
+
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L98" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-07

@@ -102,7 +102,7 @@ Your package will be part of your project's run time, but not part of it at edit
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L24" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-17
  .left-column[
   ### Create Meteor Packages
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -144,13 +144,13 @@ For editing purposes your package now appears to be part of your project.  But w
     class="hover_text"
     onmouseover="ReverseContentDisplay('symwarn'); return true;"
     href="javascript:ReverseContentDisplay('symwarn')">
-    <i>Hover Note</i>
+    <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note</i>
 </a>
 
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L113" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-01-17
  .left-column[
   ### Prepare SSH directory
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -189,7 +189,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
     class="hover_text"
     onmouseover="ReverseContentDisplay('pubkey'); return true;"
     href="javascript:ReverseContentDisplay('pubkey')">
-    <i>Hover Note</i>
+    <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note</i>
 </a>
 
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L87" target="_blank">Code for this step.</a>] ]
