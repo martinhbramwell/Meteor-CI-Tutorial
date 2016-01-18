@@ -452,7 +452,7 @@ Continues ...
 
 <!-- B -->]
 ---
-last_update: 2016-01-17
+last_update: 2016-01-18
  .left-column[
   ### Control Example Visibility
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -481,6 +481,9 @@ Of course, left like that, our package will impose itself on the main page of  e
 
 Continues ...
 
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L98" target="_blank">Code for this step.</a>] ]
+
 <div id="usage" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('usage'); return true;"
        href="javascript:HideContent('usage')"><h2>Pet Store Package : Usage Example</h2>
@@ -495,8 +498,6 @@ Continues ...
     <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note</i>
 </a>
 
-<!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L98" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-07
