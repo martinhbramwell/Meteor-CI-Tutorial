@@ -452,7 +452,7 @@ Continues ...
 
 <!-- B -->]
 ---
-last_update: 2016-01-17
+last_update: 2016-01-18
  .left-column[
   ### Control Example Visibility
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
