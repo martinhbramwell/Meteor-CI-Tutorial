@@ -77,7 +77,7 @@
 
       <h1>Getting Started with Meteor Continuous Integration</h1>
 
-      <p><strong>These explanatory <a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial">scripts</a>, videos ( Jan 2016 ) and <a target="_blank" href="https://martinhbramwell.github.io/Meteor-CI-Tutorial/">slideshows</a>, will start your Meteor development infrastructure immediately with: package development, testing, documenting, logging, code style linting and continuous integration</strong></p>
+      <p><strong>These explanatory <a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial">scripts</a>, <a target="_blank" href="https://www.youtube.com/playlist?list=PLq7op4J183lXpGr79hjfQVQHB-saVqLBL">videos</a> and <a target="_blank" href="https://martinhbramwell.github.io/Meteor-CI-Tutorial/">slideshows</a>, will start your Meteor development infrastructure immediately with: package development, testing, documenting, logging, code style linting and continuous integration</strong></p>
 
       <p style="margin-right:150px;margin-left:75px"><b>Note</b> : You want to learn the most in the least time, yes?</p>
 
@@ -102,19 +102,36 @@
 
       <p>Another goal is to help developers begin building Meteor applications <strong>as though they were working in multiple teams on multiple projects</strong>! In particular, this means going beyond "normal" configuration of <i>ssh</i> and <i>git</i>, to handle multiple user aliases and GitHub deploy keys.  The end result will be fractionally more difficult in your daily routine, but much more flexible and "future proof".</p>
 
-      <h3>Modus Operandi</h3>
+      <h3>Typical Usage Pattern</h3>
       <p>Most likely you'll want to flip through the slides to get an overview, then watch the videos, then spin up a fresh virtual machine and execute the scripts.  Since the scripts are semi-automatic, you'll have very little typing to do, and so the whole thing shouldn't cost you more than a few hours.  In fact, grouped as it is in spoon-sized doses, you can step through it a little bit at a time, when you have time.</p>
 
-      <p>Other stuff:</p>
+      <p>You will <b>NOT be able to complete this tutorial</b> without these things :</p>
+       <ul>
+
+        <li><b>A GitHub account with SSH keys set up:</b> If you have not signed up, <a target="_blank" href="https://github.com/join">create an GitHub account</a> <i>(free!)</i> .  If you do have a GitHub account you must also <a target="_blank" href="https://github.com/settings/ssh">provide GitHub with your SSH key</a>. Refer their guide to <a target="_blank" href="https://help.github.com/articles/generating-ssh-keys">generating SSH keys</a> or troubleshoot <a target="_blank" href="https://help.github.com/ssh-issues/">common SSH Problems</a>.
+        </li>
+
+        <li><b>A Meteor account:</b>  If you aren't yet signed up you will have to <a target="_blank" href="https://www.meteor.com/">create a Meteor account</a> <i>(also free!)</i> . </li>
+
+        <li><b>A CircleCI account:</b>  You are automatically signed up, <i>for free!</i>, to CircleCI when you have a GitHub account.  When you go to <a target="_blank" href="https://circleci.com/">CircleCI</a> you just click the "Log in" button, and confirm to GitHub that you authorize CircleCI to access your repositories.
+
+        <li><b>Running on a virtual machine:</b>  The scripts that make up the tutorial install a <b>lot</b> of utilities and programs.  I have installed a trap that tries to prohibit execution on a bare hardware machine.  <b>NEVER</b> use these scripts on a machine you fear to lose!
+
+      </ul>
+
+      <h3>Other stuff</h3>
       <ul>
 
-      <li>Please note that the slides change with the keyboard or scroll wheel, but not mouse clicks.  This is because there are "Hover Notes" and hyperlinks to deeper details <i>that are problematic if the slides are also enabled for control by touchscreen taps or mouse click</i>.</li>
+        <li>Please note that the slides change with the keyboard or scroll wheel, but not mouse clicks.  This is because there are "Hover Notes" and hyperlinks to deeper details <i>that are problematic if the slides are also enabled for control by touchscreen taps or mouse click</i>.</li>
 
-      <li>Except where indicated, the bash scripts make every attempt to be 'idempotent' -- you can run them repeatedly without adverse consequences.  Nevertheless, you may want to be liberal with virtual machine snapshots of your work.</li>
+        <li>Except where indicated, the bash scripts make every attempt to be 'idempotent' -- you can run them repeatedly without adverse consequences.  Nevertheless, you may want to be liberal with virtual machine snapshots of your work.</li>
 
-      <li>I haven't been consistent with manual vs. automated.  If the icon in the right margin says "No manual input required here." then it is automatic, otherwise there **may be** a combination of manual and automatic. Start and stop the video to see when you really do need to edit something and when a file is pulled in to do the work for you.  In general, you're going to need to type when it's just a line or two, or when small edits are spread over several slides.</li>
+        <li>I have not been consistent with manual vs. automated.  If the icon in the right margin says "No manual input required here." then it is automatic, otherwise there <b>may be</b> a combination of manual and automatic. Start and stop the video to see when you really do need to edit something and when a file is pulled in to do the work for you.  In general, you're going to need to type when it's just a line or two, or when small edits are spread over several slides.</li>
 
-      <li>The tutorial is designed for a small (10GB) Xubuntu 14.04 virtual machine. It hasn't been tested in any other environment, since the idea is to provide clear proven instructions that can be adapted easily to other circumstances.  Once you see how it works in one environment, adapting to a different one should be trivial.</li>
+        <li>The tutorial is designed for a small (10GB) Xubuntu 14.04 virtual machine (Docker and Qemu/KVM have been used, others should be fine, but haven't been tried). It hasn't been tested in any other environment since the idea is to provide clear proven instructions that can be adapted easily to other circumstances.  Once you see how it works in one environment, adapting to a different one should be trivial.</li>
+
+        <li><b>LEGAL:</b> <i>THIS IS A FREE NON-COMMERCIAL TUTORIAL WITH NO GUARANTEE OF ANY KIND</i>.  Use at your own risk!  Run the tutorial on a disposable, preferably <i>virtual</i>, machine.  Do NOT run the tutorial on a machine with any sensitive or irreplaceable information.
+
       </ul>
 
        <h2><a href="./index.html?part=A">Prepare the Machine</a></h2>
@@ -187,6 +204,7 @@
       <p>
         <ul>
           <li>Tutorial source code - <a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial">https://github.com/martinhbramwell/Meteor-CI-Tutorial/</a></li>
+          <li>Tutorial video play list - <a target="_blank" href="https://www.youtube.com/playlist?list=PLq7op4J183lXpGr79hjfQVQHB-saVqLBL">https://www.youtube.com/playlist?list=PLq7op4J183lXpGr79hjfQVQHB-saVqLBL</a></li>
           <li>Tutorial slide shows - <a target="_blank" href="https://martinhbramwell.github.io/Meteor-CI-Tutorial/">https://martinhbramwell.github.io/Meteor-CI-Tutorial/</a></li>
           <li>Tutorial's individual scripts</li>
           <ul>

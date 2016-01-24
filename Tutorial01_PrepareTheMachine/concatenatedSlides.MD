@@ -63,7 +63,7 @@ Java 7 is required by Selenium, which is required by Nightwatch.  Selenium seems
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L149" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-05
+last_update: 2016-01-24
  .left-column[
   ### Install other tools
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -84,7 +84,7 @@ This sequence installs the following dependencies, if they're not already presen
 - 'libappindicator1' for <a href='https://www.google.com/chrome/browser/desktop/' target='_blank'>Chrome</a>
 - '<a href='http://curl.haxx.se/' target='_blank'>curl</a>' for <a href='https://www.meteor.com/' target='_blank'>Meteor</a>
 - '<a href='https://git-scm.com/' target='_blank'>git</a>' and '<a href='http://www.openssh.com/' target='_blank'>ssh</a>' for version control
-- 'tree' and '<a href='https://pypi.python.org/pypi/pip' target='_blank'>pip</a>' for demo convenience
+'tree', 'virt-what' and '<a href='https://pypi.python.org/pypi/pip' target='_blank'>pip</a>' for demo convenience
 
 ##### Example Commands
 ```terminal
