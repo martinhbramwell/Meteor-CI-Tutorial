@@ -75,6 +75,13 @@
       <!-- br />If you find this tutorial series helpful you can <b>help it get better</b>: disable AdBlock for this URL and check out what our sponsors provide.
       <hr / -->
 
+
+<p style="text-align:left;">
+&#9400; Copyright 2016, Martin Bramwell, Warehouseman
+<span style="float:right;">Last edits : 2016/01/24</span>
+</p>
+
+
       <h1>Getting Started with Meteor Continuous Integration</h1>
 
       <p><strong>These explanatory <a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial">scripts</a>, <a target="_blank" href="https://www.youtube.com/playlist?list=PLq7op4J183lXpGr79hjfQVQHB-saVqLBL">videos</a> and <a target="_blank" href="https://martinhbramwell.github.io/Meteor-CI-Tutorial/">slideshows</a>, will start your Meteor development infrastructure immediately with: package development, testing, documenting, logging, code style linting and continuous integration</strong></p>
@@ -98,7 +105,16 @@
         <li>deployment to web</li>
         <li>deployment to Android</li>
       </ul>
-      <p>The focus is on 'wiring', with very little discussion of what more one can do with each of the various elements once they're wired together -- there are plenty of tutorials about all of that, and I link to some good ones.  'Wiring' refers to the challenge of connecting a variety of different tools together into a integrated whole -- even if the whole doesn't actually do much to begin with.</p>
+      <p>The focus is on 'wiring', with very little discussion of what more one can do with each of the various elements once they're wired together -- there are plenty of tutorials about all of that, and I link to some good ones.  'Wiring' refers to the challenge of connecting a variety of different tools together into a integrated whole -- even if the whole doesn't actually do much to begin with.  Here's the complete "wiring diagram"...  </p>
+
+      <div align="center" style="border:thin solid black">
+        <figure>
+          <img src='./fragments/ContinuousDeliveryWorkFlow.png' alt='CI work flow' />
+          <figcaption>Continuous Delivery Work Flow</figcaption>
+        </figure>
+      </div>
+
+
 
       <p>Another goal is to help developers begin building Meteor applications <strong>as though they were working in multiple teams on multiple projects</strong>! In particular, this means going beyond "normal" configuration of <i>ssh</i> and <i>git</i>, to handle multiple user aliases and GitHub deploy keys.  The end result will be fractionally more difficult in your daily routine, but much more flexible and "future proof".</p>
 
@@ -134,72 +150,78 @@
 
       </ul>
 
-       <h2><a href="./index.html?part=A">Prepare the Machine</a></h2>
-      <p>We start off with a fresh Ubuntu 14.04 LTS virtual machine and install all the platform dependencies.  These are global installs requiring 'sudo'.  Subsequent sections should not require 'sudo'. The script shown can run to completion without intervention, or stop at intermediate steps to view explanations.</p>
+      <h2>Spin up a virtual machine  [<a target="_blank" href="https://www.youtube.com/watch?v=UzA3ddE0XPA">Video</a>]</h2>
 
-      <h2><a href="./index.html?part=B">Version Control In The Cloud</a></h2>
-      <p>Towards the goal of "packages-only-apps", we are mainly interested in version control of each distinct package, but we still need a 'do-nothing' app in which to instantiate the packages.</p>
-      <p>So, we'll prepare a Meteor project and store it in GitHub.</p>
+        <p>This is not strictly part of the tutorial, but I created a Docker image that should make this step very easy for you.</p>
 
-      <h2><a href="./index.html?part=C">Create and Unit Test a Package</a></h2>
-      <p>This section follows the steps to perform to begin testing a Meteor package.</p>
-      <p>We'll prepare a package, secure it in GitHub and run preliminary tests with TinyTest in the browser and on the command line.</p>
+      <h2>Prepare the Machine  [<a target="_blank" href="https://www.youtube.com/watch?v=oMBYTwElMvk">Video</a>] [<a href="./index.html?part=A">Slide Show</a>]  </h2>
 
-      <h2><a href="./index.html?part=D">Code Quality - Coding Style and Linting</a></h2>
-      <p>If you want reusable components, especially if you are working with one or several teams, it's very important to ensure consistent styles and documentation standards from all contributors to all your projects.  In this and the next section we'll set up an environment where standards conformance is easy.</p>
-      <p>The first element is linting with esLint, run in the editor for instant feedback as well as on the command line so conformance can be published and monitored as part of continuous integration.</p>
+        <p>We start off with a fresh Ubuntu 14.04 LTS virtual machine and install all the platform dependencies.  These are global installs requiring 'sudo'.  Subsequent sections should not require 'sudo'. The script shown can run to completion without intervention, or stop at intermediate steps to view explanations.</p>
 
-      <h2><a href="./index.html?part=E">Code Quality - Automatic Documentation in the Cloud</a></h2>
-      <p>The second element exploits two powerful tools: jsDoc and "GitHub Pages".</p>
-      <p>We'll put together a mechanism for easily documenting code files and then publishing them as a browsable manual, automatically, on GitHub.</p>
+      <h2>Version Control In The Cloud  [<a target="_blank" href="https://www.youtube.com/watch?v=meCdBhjnMEg">Video</a>] [<a href="./index.html?part=B">Slide Show</a>]  </h2>
 
-      <h2><a href="./index.html?part=F">Cloud Continuous Integration</a></h2>
-      <p>This section expands on your workstation toolbox to include working with continuous integration in the cloud.  It covers everything involved in setting up linting, automated documentation, unit testing, version control, end-to-end testing and continuous integration <b>in-the-cloud</b>.</p>
+        <p>Towards the goal of "packages-only-apps", we are mainly interested in version control of each distinct package, but we still need a 'do-nothing' app in which to instantiate the packages.</p>
+        <p>So, we'll prepare a Meteor project and store it in GitHub.</p>
 
-      <h2><a href="./index.html?part=G">Code Quality - Production Logging</a></h2>
-      <p>A vital, piece of application architecture is scaleable logging: run-time logs that track critical server-side activity at appropriate levels of detail.  We "require" Bunyan, a toolkit for NodeJS that focuses on very flexible logging with JSON output, that can be readily archived and subsequently "mined", for example, for usage patterns.</p>
+      <h2>Create and Unit Test a Package  [<a target="_blank" href="https://www.youtube.com/watch?v=BBpOz4GXqAw">Video</a>] [<a href="./index.html?part=C">Slide Show</a>]  </h2>
+        <p>This section follows the steps to perform to begin testing a Meteor package.</p>
+        <p>We'll prepare a package, secure it in GitHub and run preliminary tests with TinyTest in the browser and on the command line.</p>
 
+      <h2>Code Quality - Coding Style and Linting  [<a target="_blank" href="https://www.youtube.com/watch?v=C3D3B_jTsY4">Video</a>] [<a href="./index.html?part=D">Slide Show</a>]  </h2>
+        <p>If you want reusable components, especially if you are working with one or several teams, it's very important to ensure consistent styles and documentation standards from all contributors to all your projects.  In this and the next section we'll set up an environment where standards conformance is easy.</p>
+        <p>The first element is linting with esLint, run in the editor for instant feedback as well as on the command line so conformance can be published and monitored as part of continuous integration.</p>
 
-      <h2><a href="./index.html?part=H">A Real World Package</a></h2>
-      <p>Here we create a complete working, tested, documented Meteor package from a pre-exising NodeJS module.  This step also introduces the "impedance mis-match" between the synchronous layer that Meteor builds on top of the asynchronous substrate of NodeJS.</p>
+      <h2>Code Quality - Automatic Documentation in the Cloud  [<a target="_blank" href="https://www.youtube.com/watch?v=sjqtVs1GMac">Video</a>] [<a href="./index.html?part=E">Slide Show</a>]  </h2>
+        <p>The second element exploits two powerful tools: jsDoc and "GitHub Pages".</p>
+        <p>We'll put together a mechanism for easily documenting code files and then publishing them as a browsable manual, automatically, on GitHub.</p>
 
+      <h2>Cloud Continuous Integration  [<a target="_blank" href="https://www.youtube.com/watch?v=RCaXAuyvMcw">Video</a>] [<a href="./index.html?part=F">Slide Show</a>]  </h2>
+        <p>This section expands on your workstation toolbox to include working with continuous integration in the cloud.  It covers everything involved in setting up linting, automated documentation, unit testing, version control, end-to-end testing and continuous integration <b>in-the-cloud</b>.</p>
 
-      <h2><a href="./index.html?part=I">Package Self Test and Publication</a></h2>
-      <p>To close the loop on all the preceding development stage parts we now bring the online documentation up-to-date and automate end-to-end testing of our package in-the-cloud; such that interested users can quickly get started using it.</p>
+      <h2>Code Quality - Production Logging  [<a target="_blank" href="https://www.youtube.com/watch?v=NM12S_fQto0">Video</a>] [<a href="./index.html?part=G">Slide Show</a>]  </h2>
+        <p>A vital, piece of application architecture is scaleable logging: run-time logs that track critical server-side activity at appropriate levels of detail.  We "require" Bunyan, a toolkit for NodeJS that focuses on very flexible logging with JSON output, that can be readily archived and subsequently "mined", for example, for usage patterns.</p>
 
 
-      <h2><a href="./index.html?part=J">Automated Deployment</a></h2>
-      <p>We build our project as an Android app, place it into our project as a download link, then deploy it to Meteor's servers. W e use our understanding of that to complete our CI script to do it all automatically in CircleCI, every time we push a commit to GitHub.</p>
+      <h2>A Real World Package  [<a target="_blank" href="https://www.youtube.com/watch?v=Td_4lqKYohw">Video</a>] [<a href="./index.html?part=H">Slide Show</a>]  </h2>
+        <p>Here we create a complete working, tested, documented Meteor package from a pre-exising NodeJS module.  This step also introduces the "impedance mis-match" between the synchronous layer that Meteor builds on top of the asynchronous substrate of NodeJS.</p>
+
+
+      <h2>Package Self Test and Publication  [<a target="_blank" href="https://www.youtube.com/watch?v=Xvlx-48mH8U">Video</a>] [<a href="./index.html?part=I">Slide Show</a>]  </h2>
+        <p>To close the loop on all the preceding development stage parts we now bring the online documentation up-to-date and automate end-to-end testing of our package in-the-cloud; such that interested users can quickly get started using it.</p>
+
+
+      <h2>Automated Deployment [<a href="./index.html?part=J">Slide Show</a>]  </h2>
+        <p>We build our project as an Android app, place it into our project as a download link, then deploy it to Meteor's servers. W e use our understanding of that to complete our CI script to do it all automatically in CircleCI, every time we push a commit to GitHub.</p>
 
 
       <h2>First steps</h2>
-      <p>To begin, you will need to obtain the tutorial.  Open up a terminal window, then copy'n paste these commands into it:
-      <p class="console">
-              export BRANCH="master" # modularize
-        <br />export URI="https://github.com/martinhbramwell"
-        <br />export TUT="Meteor-CI-Tutorial"
-        <br />export FILE="archive/${BRANCH}.zip"
-        <br />
-        <br />echo "Downloading : \n${URI}/${TUT}/${FILE}"
-        <br />echo " &nbsp; &nbsp; &nbsp; &nbsp;  as : ${TUT}.zip"
-        <br />
-        <br />wget -O ${TUT}.zip ${URI}/${TUT}/${FILE}
-        <br />unzip ${TUT}.zip
-        <br />mv ${TUT}-${BRANCH} ${TUT}
-        <br />cd ${TUT}
-        <br />
-        <br /># Ready to run the first script :
-        <br /># &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ./Tutorial01_PrepareTheMachine.sh
-        <br />
-        <br />
-      </p>
-      <p>The result should look like <a target="_blank" href="./fragments/dldrslt.html">this</a>.</p>
-      <p>Then you can run the first script with: </p>
-      <p class="console">
-               ./Tutorial01_PrepareTheMachine.sh
-        <br />
-        <br />
-      </p>
+        <p>To begin, you will need to obtain the tutorial.  Open up a terminal window, then copy'n paste these commands into it:
+        <p class="console">
+                export BRANCH="master" # modularize
+          <br />export URI="https://github.com/martinhbramwell"
+          <br />export TUT="Meteor-CI-Tutorial"
+          <br />export FILE="archive/${BRANCH}.zip"
+          <br />
+          <br />echo "Downloading : \n${URI}/${TUT}/${FILE}"
+          <br />echo " &nbsp; &nbsp; &nbsp; &nbsp;  as : ${TUT}.zip"
+          <br />
+          <br />wget -O ${TUT}.zip ${URI}/${TUT}/${FILE}
+          <br />unzip ${TUT}.zip
+          <br />mv ${TUT}-${BRANCH} ${TUT}
+          <br />cd ${TUT}
+          <br />
+          <br /># Ready to run the first script :
+          <br /># &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ./Tutorial01_PrepareTheMachine.sh
+          <br />
+          <br />
+        </p>
+        <p>The result should look like <a target="_blank" href="./fragments/dldrslt.html">this</a>.</p>
+        <p>Then you can run the first script with: </p>
+        <p class="console">
+                 ./Tutorial01_PrepareTheMachine.sh
+          <br />
+          <br />
+        </p>
       <h2>Links</h2>
       <p>
         <ul>
