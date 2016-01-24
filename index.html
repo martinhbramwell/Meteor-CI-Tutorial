@@ -124,14 +124,14 @@
       <p>You will <b>NOT be able to complete this tutorial</b> without these things :</p>
        <ul>
 
-        <li><b>A GitHub account with SSH keys set up:</b> If you have not signed up, <a target="_blank" href="https://github.com/join">create an GitHub account</a> <i>(free!)</i> .  If you do have a GitHub account you must also <a target="_blank" href="https://github.com/settings/ssh">provide GitHub with your SSH key</a>. Refer their guide to <a target="_blank" href="https://help.github.com/articles/generating-ssh-keys">generating SSH keys</a> or troubleshoot <a target="_blank" href="https://help.github.com/ssh-issues/">common SSH Problems</a>.
+        <li><b>A GitHub account with SSH keys set up:</b> If you have not signed up, <a target="_blank" href="https://github.com/join">create an GitHub account</a> <i>(Free!)</i> .  If you do have a GitHub account you must also <a target="_blank" href="https://github.com/settings/ssh">provide GitHub with your SSH key</a>. Refer to their guide to <a target="_blank" href="https://help.github.com/articles/generating-ssh-keys">generating SSH keys</a> or troubleshoot <a target="_blank" href="https://help.github.com/ssh-issues/">common SSH Problems</a>.
         </li>
 
-        <li><b>A Meteor account:</b>  If you aren't yet signed up you will have to <a target="_blank" href="https://www.meteor.com/">create a Meteor account</a> <i>(also free!)</i> . </li>
+        <li><b>A Meteor account:</b>  If you aren't yet signed up you will have to <a target="_blank" href="https://www.meteor.com/">create a Meteor account</a> <i>(Also free!)</i> . </li>
 
         <li><b>A CircleCI account:</b>  You are automatically signed up, <i>for free!</i>, to CircleCI when you have a GitHub account.  When you go to <a target="_blank" href="https://circleci.com/">CircleCI</a> you just click the "Log in" button, and confirm to GitHub that you authorize CircleCI to access your repositories.
 
-        <li><b>Running on a virtual machine:</b>  The scripts that make up the tutorial install a <b>lot</b> of utilities and programs.  I have installed a trap that tries to prohibit execution on a bare hardware machine.  <b>NEVER</b> use these scripts on a machine you fear to lose!
+        <li><b>Running on a virtual machine:</b>  The scripts that make up the tutorial install a <b>lot</b> of utilities and programs.  I have included a trap that tries to prohibit execution on a bare hardware machine.  <b>NEVER</b> use these scripts on a machine you fear to lose!  As an added incentive for you to NOT use the tutorial on real hardware, I created a <i>(Yup! Free!)</i> <a target="_blank" href="https://hub.docker.com/r/warehouseman/xubuntu-x2go-phusion/">Docker image of Xubuntu and X2Go</a>, and <a target="_blank" href="https://www.youtube.com/watch?v=UzA3ddE0XPA">a video</a> about how to start it up and use it for the tutorial.  You just need to <a target="_blank" href="https://docs.docker.com/engine/installation/">get Docker installed and running</a>, which is easy <i>(and, well ... free!)</i>
 
       </ul>
 
@@ -164,7 +164,7 @@
         <p>So, we'll prepare a Meteor project and store it in GitHub.</p>
 
       <h2>Create and Unit Test a Package  [<a target="_blank" href="https://www.youtube.com/watch?v=BBpOz4GXqAw">Video</a>] [<a href="./index.html?part=C">Slide Show</a>]  </h2>
-        <p>This section follows the steps to perform to begin testing a Meteor package.</p>
+        <p>This section shows the steps needed to begin testing a Meteor package.</p>
         <p>We'll prepare a package, secure it in GitHub and run preliminary tests with TinyTest in the browser and on the command line.</p>
 
       <h2>Code Quality - Coding Style and Linting  [<a target="_blank" href="https://www.youtube.com/watch?v=C3D3B_jTsY4">Video</a>] [<a href="./index.html?part=D">Slide Show</a>]  </h2>
@@ -172,14 +172,14 @@
         <p>The first element is linting with esLint, run in the editor for instant feedback as well as on the command line so conformance can be published and monitored as part of continuous integration.</p>
 
       <h2>Code Quality - Automatic Documentation in the Cloud  [<a target="_blank" href="https://www.youtube.com/watch?v=sjqtVs1GMac">Video</a>] [<a href="./index.html?part=E">Slide Show</a>]  </h2>
-        <p>The second element exploits two powerful tools: jsDoc and "GitHub Pages".</p>
-        <p>We'll put together a mechanism for easily documenting code files and then publishing them as a browsable manual, automatically, on GitHub.</p>
+        <p>The second part about code quality exploits two powerful tools: jsDoc and "GitHub Pages".</p>
+        <p>We'll put together a mechanism for easily documenting code files and then publishing them as a browsable manual, automatically, and hosted, free of charge, on GitHub.</p>
 
       <h2>Cloud Continuous Integration  [<a target="_blank" href="https://www.youtube.com/watch?v=RCaXAuyvMcw">Video</a>] [<a href="./index.html?part=F">Slide Show</a>]  </h2>
-        <p>This section expands on your workstation toolbox to include working with continuous integration in the cloud.  It covers everything involved in setting up linting, automated documentation, unit testing, version control, end-to-end testing and continuous integration <b>in-the-cloud</b>.</p>
+        <p>This section expands on your workstation toolbox to include working with continuous integration in the cloud.  It covers everything involved in setting up linting, automated documentation, unit testing, version control, end-to-end testing and continuous delivery <b>in-the-cloud</b>.</p>
 
       <h2>Code Quality - Production Logging  [<a target="_blank" href="https://www.youtube.com/watch?v=NM12S_fQto0">Video</a>] [<a href="./index.html?part=G">Slide Show</a>]  </h2>
-        <p>A vital, piece of application architecture is scaleable logging: run-time logs that track critical server-side activity at appropriate levels of detail.  We "require" Bunyan, a toolkit for NodeJS that focuses on very flexible logging with JSON output, that can be readily archived and subsequently "mined", for example, for usage patterns.</p>
+        <p>A vital piece of application architecture is scaleable logging: run-time logs that track critical server-side activity at appropriate levels of detail.  We "require" Bunyan, a toolkit for NodeJS that focuses on very flexible logging with JSON output, that can be readily archived and subsequently "mined", for example, for usage patterns.</p>
 
 
       <h2>A Real World Package  [<a target="_blank" href="https://www.youtube.com/watch?v=Td_4lqKYohw">Video</a>] [<a href="./index.html?part=H">Slide Show</a>]  </h2>
@@ -191,7 +191,7 @@
 
 
       <h2>Automated Deployment [<a href="./index.html?part=J">Slide Show</a>]  </h2>
-        <p>We build our project as an Android app, place it into our project as a download link, then deploy it to Meteor's servers. W e use our understanding of that to complete our CI script to do it all automatically in CircleCI, every time we push a commit to GitHub.</p>
+        <p>We build our project as an Android app, place it into our project as a download link, then deploy it to Meteor's servers. We use our understanding of that to complete our CI script so we can do it all automatically in CircleCI, every time we push a commit to GitHub.</p>
 
 
       <h2>First steps</h2>
