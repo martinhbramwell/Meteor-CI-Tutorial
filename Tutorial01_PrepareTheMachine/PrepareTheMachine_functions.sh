@@ -20,6 +20,7 @@ function installToolsForTheseScripts() {
   X="python-pygments"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
   X="gettext"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
   X="jq"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
+  X="virt-what"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
 
   echo "${#INST[@]} packages not installed.";
   if [[ ${#INST[@]} -lt 1 ]]; then return 0; fi;
@@ -35,7 +36,6 @@ function installToolsForTheseScripts() {
   echo "";
 
   read -p "  'q' or <enter> ::  " -n 1 -r USER_ANSWER;
-
 
   CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]');
   RUN_RULE=${CHOICE};

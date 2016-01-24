@@ -15,7 +15,7 @@ Table of Contents](./)
 
 #### Prepare CircleCI with Android Builder
 
-Exposing the *ANDROID_HOME* variable in the build script poses no risks, but we **do** need to deliver secrets to the build if we want to sign our app package or log in to Meteor's servers.  CircleCI allows <a href="https://circleci.com/docs/environment-variables" target="_blank">private variables</a> to be created for each project <a href="https://circleci.com/docs/api#add-environment-variable" target="_blank">via the REST API</a> or on line by the logged in owner.
+The ```machine:  >>  environment:``` section in circle.yml files is okay for non-sensitive variables, but we **must** be able to deliver secrets to the build, if we want to sign our app package or log in to Meteor's servers.  CircleCI allows <a href="https://circleci.com/docs/environment-variables" target="_blank">private variables</a> to be created for each project <a href="https://circleci.com/docs/api#add-environment-variable" target="_blank">via the REST API</a> or on line by the logged in owner.
 
 
 In this step we append a new ```deployment``` section to our ```circle.yml``` with a call to ```build-android-apk.sh```, as documented <a href="https://circleci.com/docs/configuration#deployment" target="_blank">here</a>.
@@ -27,5 +27,5 @@ curl -s -X POST -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGA
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L401" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L393" target="_blank">Code for this step.</a>] ]
 ]

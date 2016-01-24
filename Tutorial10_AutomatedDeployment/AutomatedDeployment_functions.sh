@@ -240,6 +240,10 @@ function ConnectToMeteor() {
       0)
           echo "Already logged in as '${METEOR_UID}'.";
           ;;
+      1)
+          echo "Getting Meteor user ID and logging in.";
+          logInToMeteor;
+          ;;
       2)
           echo "Logging out from '${WHOAMI}' and logging in as '${METEOR_UID}'.";
           meteor logout;
@@ -248,18 +252,6 @@ function ConnectToMeteor() {
       3)
           echo "Logging in as '${METEOR_UID}'.";
           logInToMeteor;
-          # set +e;
-          # ./fragments/meteorAutoLogin.exp ${METEOR_UID} ${METEOR_PWD};
-          # E=$?;
-          # echo "Result is ${E}";
-          # exit;
-          # until [[ $E -eq 0 ]]; do
-          #   askUserForParameters PARM_NAMES[@];
-          #   ./fragments/meteorAutoLogin.exp ${METEOR_UID} ${METEOR_PWD};
-          #   E=$?;
-          # done;
-          # echo -e "Log in result :: $E";
-          # set -e;
           ;;
       *)
           echo "This can't be happening!"

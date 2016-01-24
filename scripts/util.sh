@@ -622,42 +622,29 @@ function checkForVirtualMachine() {
   echo -e "Analyzing environment . . .";
 
   CPU_WIDTH=$(lshw -class cpu 2>/dev/null | grep width | sed 's/^[ \t]*//' | cut -d' ' -f2);
-  # echo $CPU_WIDTH;
-  VIRTUAL=false;
+  CPU_MSG="CPU type : ${CPU_WIDTH}-bit";
 
-  MSG="Found a '%s' virtual machine.\n";
+  if [[ 0 < $(grep -c docker /proc/1/cgroup) ]]; then
+    echo "Running in a Docker container. ${CPU_MSG}";
+   else
+    VMTST=$(sudo virt-what);
+    if [[ "X${VMTST}X" == "XX" ]]; then
 
-  if [[ -d /proc/vz ]]; then
-    if [[ -f /proc/vz/veinfo ]]; then
-      printf "${MSG}" "Virtuozzo"; VIRTUAL=true;
+      echo " **PLEASE PLEASE PLEASE**";
+      echo " Only run these scripts on a Virtual Machine running Ubuntu 12.04LTS or newer";
+      echo " ";
+      echo " I have made no attempt to validate the script in other environments,";
+      echo " so failure and damage are the likely result if you do not respect this warning.";
+      echo " ";
+      echo " ";
+
+      exit 1;
+
+    else
+
+      echo "Running in a ${VMTST} virtual machine. ${CPU_MSG}";
+
     fi;
-  fi;
-
-  DMESG_CHK=$(dmesg | grep -i -e "docker" -e "virtual");
-  if [[ 0 < $(echo "${DMESG_CHK}" | grep -c drive) ]]; then  printf "${MSG}" "Microsoft VirtualPC"; VIRTUAL=true; fi;
-  if [[ 0 < $(dmesg | grep -i xen) ]]; then  printf "${MSG}" "Xen"; VIRTUAL=true; fi;
-  if [[ 0 < $(echo "${DMESG_CHK}" | grep -c QEMU) ]]; then  printf "${MSG}" "QEMU"; VIRTUAL=true; fi;
-  if [[ 0 < $(echo "${DMESG_CHK}" | grep -c KVM) ]]; then  printf "${MSG}" "KVM"; VIRTUAL=true; fi;
-  if [[ 0 < $(echo "${DMESG_CHK}" | grep -c docker) ]]; then  printf "${MSG}" "Docker"; VIRTUAL=true; fi;
-
-  # if [[ 0 < $(echo "${DMESG_CHK}" | grep -c drive) ]]; then  printf "${MSG}" "Microsoft VirtualPC"; return 0; fi;
-  # if [[ 0 < $(dmesg | grep -i xen) ]]; then  printf "${MSG}" "Xen"; return 0; fi;
-  # if [[ 0 < $(echo "${DMESG_CHK}" | grep -c QEMU) ]]; then  printf "${MSG}" "QEMU"; return 0; fi;
-  # if [[ 0 < $(echo "${DMESG_CHK}" | grep -c KVM) ]]; then  printf "${MSG}" "KVM"; return 0; fi;
-
-  if ${VIRTUAL}; then
-    echo "CPU type : ${CPU_WIDTH}-bit";
-  else
-    echo " **PLEASE PLEASE PLEASE**";
-    echo " Only run these scripts on a Virtual Machine running Ubuntu 12.04LTS or newer";
-    echo " ";
-    echo " I have made no attempt to validate the script in other environments,";
-    echo " so failure and damage are the likely result if you do not respect this warning.";
-    echo " ";
-    echo " ";
-
-    exit 1;
-
   fi;
 
 }

@@ -190,7 +190,7 @@ meteor deploy ${PROJECT_NAME}-${GITHUB_ORGANIZATION_NAME}.meteor.com
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L308" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L300" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-05
@@ -211,7 +211,7 @@ Table of Contents](./)
 
 The next few steps involve additions to our ```circle.yml``` file; in particular a new <a href="https://circleci.com/docs/configuration#deployment" target="_blank">deployment section</a> that CircleCI will only execute if all tests pass. As previously, to keep a clean, readable ```circle.yml``` file we encapsulate most of the work in several bash scripts: <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/fragments/MobileCI/android/install-android-dependencies.sh" target="_blank">install-android-dependencies.sh</a> and <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/fragments/MobileCI/android/build-android-apk.sh" target="_blank">build-android-apk.sh</a>.
 
-We create a ```tools/android``` directory to hold them, and we call them at the right time from our ```circle.yml``` file.  We also create an *ANDROID_HOME* environment variable, in the ```machine: >> environment:``` section (<a href="https://circleci.com/docs/configuration#environment" target="_blank">as explained in the documentation</a>).
+We create a ```tools/android``` directory to hold them, and we call them at the right time from our ```circle.yml``` file.
 
 ##### Example Commands
 ```ruby
@@ -222,7 +222,7 @@ https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/fragments/Mobi
 Continued . . . 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L321" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L313" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-05
@@ -241,7 +241,7 @@ Table of Contents](./)
 
 #### Prepare CircleCI with Android Builder
 
-Exposing the *ANDROID_HOME* variable in the build script poses no risks, but we **do** need to deliver secrets to the build if we want to sign our app package or log in to Meteor's servers.  CircleCI allows <a href="https://circleci.com/docs/environment-variables" target="_blank">private variables</a> to be created for each project <a href="https://circleci.com/docs/api#add-environment-variable" target="_blank">via the REST API</a> or on line by the logged in owner.
+The ```machine:  >>  environment:``` section in circle.yml files is okay for non-sensitive variables, but we **must** be able to deliver secrets to the build, if we want to sign our app package or log in to Meteor's servers.  CircleCI allows <a href="https://circleci.com/docs/environment-variables" target="_blank">private variables</a> to be created for each project <a href="https://circleci.com/docs/api#add-environment-variable" target="_blank">via the REST API</a> or on line by the logged in owner.
 
 
 In this step we append a new ```deployment``` section to our ```circle.yml``` with a call to ```build-android-apk.sh```, as documented <a href="https://circleci.com/docs/configuration#deployment" target="_blank">here</a>.
@@ -253,7 +253,7 @@ curl -s -X POST -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGA
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L401" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L393" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-05
@@ -273,7 +273,7 @@ Table of Contents](./)
 #### Prepare Circle CI with Meteor Deployment
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L435" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L427" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-05
@@ -293,7 +293,7 @@ Table of Contents](./)
 #### Push Final Changes
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L483" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L475" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-07
@@ -315,5 +315,5 @@ Thank you!
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L301" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L293" target="_blank">Code for this step.</a>] ]
 ]
