@@ -253,6 +253,7 @@ scripts/Live.js
 fragments/typer.gif
 fragments/loader.gif
 fragments/favicons.zip
+fragments/ContinuousDeliveryWorkFlow.png
 fFGHPtxt
 
 # Add all the concatenated slides to the list of filesForGHPages.txt
