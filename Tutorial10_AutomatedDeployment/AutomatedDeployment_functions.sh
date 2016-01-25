@@ -348,12 +348,6 @@ function PrepareCIwithAndroidSDK() {
     popd >/dev/null;
   popd >/dev/null;
 
-  echo "Adding environment variable to project in CircleCI.";
-  export HEADER_JSON="--header \"Content-Type: application/json\"";
-  export VAR_JSON="'{\"name\":\"KEYSTORE_PWD\", \"value\":\"${KEYSTORE_PWD}\"}'";
-  eval curl -s -X POST ${HEADER_JSON} -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/envvar?circle-token=${CIRCLECI_PERSONAL_TOKEN};
-  echo -e "\nAdded env var.";
-
  }
 
 export DPLM="deployment:";
@@ -391,6 +385,13 @@ export ANDROID_BUILD_SCRIPT="build-android-apk.sh";
 export BLD_CMNT="      # Build the AndroidAPK.";
 export BLD_CMD="      - source .\/tools\/android\/${ANDROID_BUILD_SCRIPT} \&\& BuildAndroidAPK";
 function PrepareCIwithAndroidBuilder() {
+
+  echo "Adding environment variable to project in CircleCI.";
+  export HEADER_JSON="--header \"Content-Type: application/json\"";
+  export VAR_JSON="'{\"name\":\"KEYSTORE_PWD\", \"value\":\"${KEYSTORE_PWD}\"}'";
+  eval curl -s -X POST ${HEADER_JSON} -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/envvar?circle-token=${CIRCLECI_PERSONAL_TOKEN};
+  echo -e "\nAdded env var.";
+
 
   pushd ~/${PARENT_DIR} >/dev/null;
     pushd ${PROJECT_NAME} >/dev/null;
