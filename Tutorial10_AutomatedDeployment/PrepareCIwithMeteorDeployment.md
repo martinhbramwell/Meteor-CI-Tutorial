@@ -1,5 +1,5 @@
 ---
-last_update: 2016-01-24
+last_update: 2016-01-25
  .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
