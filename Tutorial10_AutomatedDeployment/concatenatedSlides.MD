@@ -272,6 +272,17 @@ Table of Contents](./)
 
 #### Prepare Circle CI with Meteor Deployment
 
+You need to be logged into Meteor's servers to deploy to them.  In this step we bring in two scripts that do this: <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/fragments/MobileCI/meteor/meteorAutoLogin.exp" target="_blank">meteorAutoLogin.exp</a> and <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/fragments/MobileCI/meteor/deploy-to-server.sh" target="_blank">deploy-to-server.sh</a>.  ```meteorAutoLogin.exp``` is not a shell script, it is an ```expect``` script, that handles Meteor's log in sequence using secret variables we write our CircleCI project settings.
+
+To our ```circle.yml``` we add a call to load and run the procedure ```DeployToMeteorServer``` and an environment variable,required by the script, for the Meteor URL : ```TARGET_SERVER_URL:```.
+
+##### Example Commands
+```terminal
+export HEADER_JSON="--header \"Content-Type: application/json\"";
+export VAR_JSON="'{\"name\":\"METEOR_UID\", \"value\":\"${METEOR_UID}\"}'";
+eval curl -s -X POST ${HEADER_JSON} -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/envvar?circle-token=${CIRCLECI_PERSONAL_TOKEN};
+```
+
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L428" target="_blank">Code for this step.</a>] ]
 ]
@@ -292,6 +303,17 @@ Table of Contents](./)
 
 #### Push Final Changes
 
+Our final operation is simple: add our latest files to our local ```git``` repository and commit everything to GitHub.  GitHub will trigger CircleCI's web hook and CircleCI will then pull and rerun the build, test and deploy sequence.
+
+**Tip** :  Suppose you want to commit some documentation changes without triggering the web hook.  How would you do it?  CircleCI provides for a ```[ci skip]``` annotation in commit messages.  The commit shown below will NOT trigger a build due to the presence of that flag.
+
+##### Example Commands
+```terminal
+git add ./tools
+git commit -am "Added support and scripts for Android APK build and Meteor deploy, but [ci skip]";
+git push;
+```
+
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L476" target="_blank">Code for this step.</a>] ]
 ]
@@ -311,7 +333,9 @@ Table of Contents](./)
 
 #### Fin
 
-Thank you!
+Thank you for following this tutorial!
+
+Please watch for the **bonus video**, coming soon, that shows how to avoid the slow Android emulator and debug directly in an <a href="http://www.android-x86.org/" target="_blank">Android x86</a> guest OS in a <a href="http://wiki.qemu.org/KVM" target="_blank">Qemu/KVM</a> virtual machine at equivalent speed to debugging in a physical device.
 
 
 <!-- B -->

@@ -14,7 +14,9 @@ Table of Contents](./)
 
 #### Fin
 
-Thank you!
+Thank you for following this tutorial!
+
+Please watch for the **bonus video**, coming soon, that shows how to avoid the slow Android emulator and debug directly in an <a href="http://www.android-x86.org/" target="_blank">Android x86</a> guest OS in a <a href="http://wiki.qemu.org/KVM" target="_blank">Qemu/KVM</a> virtual machine at equivalent speed to debugging in a physical device.
 
 
 <!-- B -->
