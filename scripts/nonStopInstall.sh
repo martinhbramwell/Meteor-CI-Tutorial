@@ -482,11 +482,6 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 
 
-echo -e "\n - o 0 o -|||>>> \n"; #
-PROCESS_THIS=true;
-
-
-
 #    ~    ~    ~    ~    ~    ~    ~    7    ~    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
   ${PROCESS_THIS} && {
@@ -790,6 +785,27 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
 
+    SKIP_CI="";
+
+}
+
+
+echo -e "\n - o 0 o -|||>>> \n"; #
+exit;
+
+#    ~    ~    ~    ~    ~    ~    10 A ~    ~    ~    ~    ~    ~    ~    ~
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+${PROCESS_THIS} && {
+
+  setSection 10;
+
+    # explain ${BINDIR}/?????????????.md MORE_ACTION # CODE_BLOCK
+    # if [ "${RUN_RULE}" != "n" ]; then
+    ShowStatusSymbol;
+    echo -e "\n   Sport CircleCI Status Symbol on package README.md file.\n          - o 0 o - \n";
+pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+
     # explain ${BINDIR}/?????????????.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
     SKIP_CI="";
@@ -807,9 +823,11 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 
 
-
 echo -e "\n - o 0 o -|||>>> \n"; #
-exit;
+PROCESS_THIS=true;
+
+
+
 
 exit 0;
 

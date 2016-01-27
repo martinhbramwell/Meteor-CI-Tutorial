@@ -42,10 +42,13 @@ if [ "${RUN_RULE}" != "n" ]; then PrepareCIwithAndroidSDK; fi;
 explain ${BINDIR}/PrepareCIwithAndroidBuilder.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 if [ "${RUN_RULE}" != "n" ]; then PrepareCIwithAndroidBuilder; fi;
 
-explain ${BINDIR}/PrepareCIwithMeteorDeployment.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+explain ${BINDIR}/PrepareCIwithMeteorDeployment.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then PrepareCIwithMeteorDeployment; fi;
 
-explain ${BINDIR}/PushFinalChanges.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+explain ${BINDIR}/ShowStatusSymbol.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then ShowStatusSymbol; fi;
+
+explain ${BINDIR}/PushFinalChanges.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then PushFinalChanges; fi;
 
 
