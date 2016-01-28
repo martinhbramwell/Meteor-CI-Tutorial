@@ -253,6 +253,8 @@ scripts/Live.js
 fragments/typer.gif
 fragments/loader.gif
 fragments/favicons.zip
+fragments/passing.svg
+fragments/failing.svg
 fragments/ContinuousDeliveryWorkFlow.png
 fFGHPtxt
 
