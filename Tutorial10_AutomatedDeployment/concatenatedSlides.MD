@@ -287,7 +287,7 @@ eval curl -s -X POST ${HEADER_JSON} -d ${VAR_JSON} https://circleci.com/api/v1/p
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L428" target="_blank">Code for this step.</a>] ]
 ]
 ---
-
+last_update: 2016-01-27
  .left-column[
   ### One Last Thing
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -303,16 +303,13 @@ Table of Contents](./)
 
 #### Show Status Symbol
 
-GitHub repositories often sport "status badges" that indicated the status of the most recent build on a given continuous integration service. Now we'll look at how to get a CircleCI pass <img src='./fragments/failing.svg' /> or fail <img src='./fragments/failing.svg' /> badge on the README.md file of our package.  Remember however that we don't build the package, we build the umbrella project that contains the package.  Nevertheless, we can put the badges anywhere; so we can put the project status badge on the package README.
+Now we'll get a CircleCI ```pass``` <img src='./fragments/failing.svg' /> or ```fail``` <img src='./fragments/failing.svg' /> badge on the README.md file of our package.  Even though we build the umbrella project that contains our package, not the package itself, we can still put the project status badge on the package README.
 
 To show it works, we'll deliberately fail a test, and see what happens to the badge.  We'll fix it before we run our final build and deploy.  One more thing ... we'll add the build number to the app just before building, so we can see the installed version number in mobile devices. 
 
-
 ##### Example Commands
-```terminal
-git add ./tools
-git commit -am "Added support and scripts for Android APK build and Meteor deploy, but [ci skip]";
-git push;
+```http
+Build by [CircleCI](https://circleci.com) :: [![Circle CI](https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.svg?style=shield)](https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME})
 ```
 
 <!-- B -->
@@ -347,7 +344,7 @@ git push;
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L476" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L496" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-26

@@ -473,6 +473,26 @@ function PrepareCIwithMeteorDeployment() {
 }
 
 
+function ShowStatusSymbol() {
+
+  pushd ~/${PARENT_DIR} >/dev/null;
+    pushd ${PROJECT_NAME} >/dev/null;
+      mkdir -p ${METEOR_TOOLS_DIR};
+      pushd ${METEOR_TOOLS_DIR} >/dev/null;
+
+        echo "Obtain ${METEOR_DEPLOY_SCRIPT}";
+        wget -nc ${TUTORIAL_FRAGMENTS}/MobileCI/meteor/${METEOR_DEPLOY_SCRIPT};
+        chmod a+x ${METEOR_DEPLOY_SCRIPT};
+
+      popd >/dev/null;
+
+    popd >/dev/null;
+  popd >/dev/null;
+
+
+}
+
+
 function PushFinalChanges() {
 
   CLEAN="nothing to commit";
