@@ -473,6 +473,7 @@ function PrepareCIwithMeteorDeployment() {
 }
 
 
+
 function ShowStatusSymbol() {
 
   pushd ~/${PARENT_DIR} >/dev/null;

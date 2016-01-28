@@ -24,6 +24,7 @@ To show it works, we'll deliberately fail a test, and see what happens to the ba
 Build by [CircleCI](https://circleci.com) :: [![Circle CI](https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}.svg?style=shield)](https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME})
 ```
 
+
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L476" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L477" target="_blank">Code for this step.</a>] ]
 ]
