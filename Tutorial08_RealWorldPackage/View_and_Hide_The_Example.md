@@ -29,7 +29,7 @@ Of course, left like that, our package will impose itself on the main page of  e
 Continues ...
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L98" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L99" target="_blank">Code for this step.</a>] ]
 
 <div id="usage" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('usage'); return true;"
