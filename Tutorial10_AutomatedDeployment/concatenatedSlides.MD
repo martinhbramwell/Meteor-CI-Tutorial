@@ -287,7 +287,7 @@ eval curl -s -X POST ${HEADER_JSON} -d ${VAR_JSON} https://circleci.com/api/v1/p
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L428" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-27
+last_update: 2016-01-29
  .left-column[
   ### One Last Thing
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -303,9 +303,9 @@ Table of Contents](./)
 
 #### Show Status Symbol
 
-Now we'll get a CircleCI ```pass``` <img src='./fragments/failing.svg' /> or ```fail``` <img src='./fragments/failing.svg' /> badge on the README.md file of our package.  Even though we build the umbrella project that contains our package, not the package itself, we can still put the project status badge on the package README.
+Now we'll get a CircleCI ```pass``` <img src='./fragments/failing.svg' /> or ```fail``` <img src='./fragments/failing.svg' /> badge on the README.md file of our package.  Even though we build the umbrella project that contains our package, not the package itself, we can still put the project status badge on the package README. To show it works, we'll deliberately fail a test, and see what happens to the badge.  We'll fix it before we run our final build and deploy.
 
-To show it works, we'll deliberately fail a test, and see what happens to the badge.  We'll fix it before we run our final build and deploy.  One more thing ... we'll add the build number to the app just before building, so we can see the installed version number in mobile devices. 
+One more thing ... we'll add the build number to the app just before building, so we can see the installed version number in mobile devices. 
 
 ##### Example Commands
 ```http
