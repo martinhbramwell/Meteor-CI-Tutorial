@@ -520,8 +520,15 @@ function ShowStatusSymbol() {
 
         popd >/dev/null;
 
+        # ensure ssh-agent is awake
+        eval "$(ssh-agent -s)";
+
         source ./tools/versionMonitor.sh;
         GetLatestReleaseTag;
+
+        git add ./tools/versionMonitor.*;
+        set +e; git commit -am "add version monitoring"; set -e;
+        git push;
 
       popd >/dev/null;
 

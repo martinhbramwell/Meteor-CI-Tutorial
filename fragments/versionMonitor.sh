@@ -29,6 +29,8 @@ function GetLatestReleaseTag() {
   RELEASE_URL=$(cat ${SCRATCH} | jq -r '.html_url');
   echo "LATEST RELEASE : ${LATEST_RELEASE} Location : ${RELEASE_URL}";
 
+  # ensure ssh-agent is awake
+  eval "$(ssh-agent -s)"
   # ensure release is known to local repo
   git pull;
 
