@@ -1,5 +1,20 @@
 #!/bin/bash
 #
+function GetLatestRelease() {
+
+  curl -s https://api.github.com/repos/${1}/${2}/releases/latest > ${3};
+  REDO=true;
+  II=20;
+  while [[ ${REDO} && $(cat ${3} | grep message | grep -c "Not Found") -gt 0 ]]; do
+    echo "No Release  " ${II};
+    (( II = II - 1 ));
+    REDO=$(( II < 20 ));
+    sleep 15;
+    curl -s https://api.github.com/repos/${1}/${2}/releases/latest > ${3};
+  done
+
+}
+
 function GetLatestReleaseTag() {
 
   PKG_UUID=$(cat package.js | grep name | cut -f 2 -d "'");
@@ -8,11 +23,10 @@ function GetLatestReleaseTag() {
   NAME_PKG=$(echo ${PKG_UUID} | cut -f 2 -d ":");
   echo "Package name : ${NAME_PKG}";
 
-  curl -s https://api.github.com/repos/${OWNER_PKG}/${NAME_PKG}/releases/latest > scrap.json;
-  sleep 2;
-
-  LATEST_RELEASE=$(cat scrap.json | jq -r '.tag_name');
-  RELEASE_URL=$(cat scrap.json | jq -r '.html_url');
+  SCRATCH="scrap.json";
+  GetLatestRelease ${OWNER_PKG} ${NAME_PKG} ${SCRATCH};
+  LATEST_RELEASE=$(cat ${SCRATCH} | jq -r '.tag_name');
+  RELEASE_URL=$(cat ${SCRATCH} | jq -r '.html_url');
   echo "LATEST RELEASE : ${LATEST_RELEASE} Location : ${RELEASE_URL}";
 
   export TAG_SHA=$(git show-ref --tags | grep ${LATEST_RELEASE} | cut -f 1 -d " ");
