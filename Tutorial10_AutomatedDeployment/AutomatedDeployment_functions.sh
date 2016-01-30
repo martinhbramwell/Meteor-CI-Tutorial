@@ -326,6 +326,8 @@ function PrepareCIwithAndroidSDK() {
 
       popd >/dev/null;
 
+      git add ${ANDROID_TOOLS_DIR}/${ANDROID_DEP_SCRIPT};
+
       echo "Edit circle.yml adding call to ${ANDROID_DEP_SCRIPT} if not done before.";
       DONE_BEFORE=$(cat circle.yml | grep -c "${ANDROID_DEP_SCRIPT}" | { grep -v grep || true; });
       if [[  ${DONE_BEFORE} -lt 1 ]]; then
@@ -404,6 +406,8 @@ function PrepareCIwithAndroidBuilder() {
 
       popd >/dev/null;
 
+      git add ${ANDROID_TOOLS_DIR}/${ANDROID_BUILD_SCRIPT};
+
       addMissingDeploymentSection circle.yml;
 
       echo "Edit circle.yml adding call to ${ANDROID_BUILD_SCRIPT} if not done before.";
@@ -416,6 +420,7 @@ function PrepareCIwithAndroidBuilder() {
 
     popd >/dev/null;
   popd >/dev/null;
+
 
 }
 
@@ -441,6 +446,9 @@ function PrepareCIwithMeteorDeployment() {
         chmod a+x ${METEOR_LOGIN_EXPECT};
 
       popd >/dev/null;
+
+      git add ${METEOR_TOOLS_DIR}/${METEOR_DEPLOY_SCRIPT};
+      git add ${METEOR_TOOLS_DIR}/${METEOR_LOGIN_EXPECT};
 
       echo "Edit circle.yml adding call to ${METEOR_DEPLOY_SCRIPT} if not done before.";
       DONE_BEFORE=$(cat circle.yml | grep -c "${METEOR_DEPLOY_SCRIPT}" | { grep -v grep || true; });
@@ -478,18 +486,47 @@ function ShowStatusSymbol() {
 
   pushd ~/${PARENT_DIR} >/dev/null;
     pushd ${PROJECT_NAME} >/dev/null;
-      mkdir -p ${METEOR_TOOLS_DIR};
-      pushd ${METEOR_TOOLS_DIR} >/dev/null;
 
-        echo "Obtain ${METEOR_DEPLOY_SCRIPT}";
-        wget -nc ${TUTORIAL_FRAGMENTS}/MobileCI/meteor/${METEOR_DEPLOY_SCRIPT};
-        chmod a+x ${METEOR_DEPLOY_SCRIPT};
+      pushd ./packages/${PKG_NAME} >/dev/null;
+
+        # get Package_README.md as README.md and substitute
+        wget -O README.md https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/Package_README.md;
+        sed -i -e "s/\${PROJECT_NAME}/${PROJECT_NAME}/" README.md;
+        sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" README.md;
+        sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" README.md;
+
+
+        # get get new files versionMonitor.html and versionMonitor.js
+        wget -O versionMonitor.html https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/versionMonitor.html;
+        wget -O versionMonitor.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/versionMonitor.js;
+
+        git add versionMonitor.*;
+
+        # get package_T10_10.js as package.js and substitute
+        wget -O package.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/package_T10_10.js;
+        sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" package.js;
+        sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" package.js;
+        sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" package.js;
+
+        # get usage_example_T10_10.html as usage_example.html
+        wget -O usage_example.html https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example_T10_10.html;
+        sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" usage_example.html;
+        sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" usage_example.html;
+
+        pushd ./tools >/dev/null;
+          # get perform_ci_tasks_T10_10 as perform_ci_tasks.sh
+          wget -O perform_ci_tasks.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/perform_ci_tasks_T10_10.sh;
+          wget -O versionMonitor.sh https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/versionMonitor.sh;
+
+        popd >/dev/null;
+
+        source ./tools/versionMonitor.sh;
+        GetLatestReleaseTag;
 
       popd >/dev/null;
 
     popd >/dev/null;
   popd >/dev/null;
-
 
 }
 
@@ -499,11 +536,6 @@ function PushFinalChanges() {
   CLEAN="nothing to commit";
   UP2DT="Everything up-to-date";
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
-
-    git add ./tools/android/build-android-apk.sh;
-    git add ./tools/android/install-android-dependencies.sh;
-    git add ./tools/meteor/deploy-to-server.sh;
-    git add ./tools/meteor/meteorAutoLogin.exp;
 
     STS="$(git status)";
     if [ "${STS/${CLEAN}}" = "${STS}" ]; then

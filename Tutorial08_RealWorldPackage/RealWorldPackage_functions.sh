@@ -78,6 +78,7 @@ function Package_Dependencies() {
 
     wget -O package.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/package_T08_11.js;
     sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/g" package.js;
+    sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/g" package.js;
     sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" package.js;
 
   popd >/dev/null;
