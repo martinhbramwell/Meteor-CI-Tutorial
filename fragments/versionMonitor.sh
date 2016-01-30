@@ -29,6 +29,9 @@ function GetLatestReleaseTag() {
   RELEASE_URL=$(cat ${SCRATCH} | jq -r '.html_url');
   echo "LATEST RELEASE : ${LATEST_RELEASE} Location : ${RELEASE_URL}";
 
+  # ensure release is known to local repo
+  git pull;
+
   export TAG_SHA=$(git show-ref --tags | grep ${LATEST_RELEASE} | cut -f 1 -d " ");
   echo "TAG_SHA : " ${TAG_SHA};
 
