@@ -115,4 +115,5 @@ generateDocs;
 
 commitDocsToGitHubPages;
 
-GetLatestReleaseTag
+source ./tools/versionMonitor.sh;
+GetLatestReleaseTag;
