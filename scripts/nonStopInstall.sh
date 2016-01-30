@@ -791,7 +791,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 
 echo -e "\n - o 0 o -|||>>> \n"; #
-exit;
+# exit;
 
 #    ~    ~    ~    ~    ~    ~    10 A ~    ~    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~

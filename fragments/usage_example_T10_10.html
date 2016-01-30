@@ -1,0 +1,11 @@
+<body>
+  <span style="float:right;" font-size="small;"><small>{{> versionMonitor}}</small> </span>
+  <h1>Pet Store Package : Usage Example</h1>
+  {{> petStoreTest}}
+</body>
+
+<template name="petStoreTest">
+  <button id="nextPet">See Next Pet</button>
+  <p id="petNote">Pet #{{idPet}} is "{{namePet}}".</p>
+  <p><i>To hide this example, edit the package.js file of ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME} and comment out the line "api.addFiles(['usage_example.html', 'usage_example.js' ], ['client']);"</i></p>
+</template>
