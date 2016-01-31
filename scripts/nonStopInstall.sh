@@ -2,7 +2,7 @@
 
 set -e;
 
-declare PROCESS_THIS=false;  # true OR false
+declare PROCESS_THIS=true;  # true OR false
 CRP=$(sudo pwd);
 
 
@@ -709,6 +709,22 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     SKIP_CI=", but [ci skip].";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
+
+
+    SKIP_CI="";
+
+}
+
+
+echo -e "\n - o 0 o -|||>>> \n"; #
+PROCESS_THIS=true;
+# exit;
+
+#    ~    ~    ~    ~    ~    ~    10 A ~    ~    ~    ~    ~    ~    ~    ~
+#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
+${PROCESS_THIS} && {
+
+  setSection 9;
 
     # explain ${BINDIR}/InspectBuildResults.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then

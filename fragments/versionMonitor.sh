@@ -3,6 +3,8 @@
 function CheckGitHub() {
 
   curl -s https://api.github.com/repos/${1}/${2}/releases/latest > ${3};
+  OVER_QUOTA=$(cat ${3} | grep -c "API rate limit exceeded");
+  if [[ ${OVER_QUOTA} -gt 0 ]]; then echo "\n\n * * * Exceeded GitHub's limit of 60 calls per hour. * * * \n\n"; fi;
   return $(cat ${3} | grep message | grep -c "Not Found");
 
 }

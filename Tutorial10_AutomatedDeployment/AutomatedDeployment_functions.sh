@@ -491,9 +491,9 @@ function ShowStatusSymbol() {
 
         # get Package_README.md as README.md and substitute
         wget -O README.md https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/Package_README.md;
-        sed -i -e "s/\${PROJECT_NAME}/${PROJECT_NAME}/" README.md;
-        sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" README.md;
-        sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" README.md;
+        sed -i "s|\${PROJECT_NAME}|${PROJECT_NAME}|g" README.md;
+        sed -i "s|\${PKG_NAME}|${PKG_NAME}|g" README.md;
+        sed -i "s|\${GITHUB_ORGANIZATION_NAME}|${GITHUB_ORGANIZATION_NAME}|g" README.md;
 
 
         # get get new files versionMonitor.html and versionMonitor.js
@@ -504,14 +504,13 @@ function ShowStatusSymbol() {
 
         # get package_T10_10.js as package.js and substitute
         wget -O package.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/package_T10_10.js;
-        sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" package.js;
-        sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" package.js;
-        sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" package.js;
+        sed -i "s|\${PKG_NAME}|${PKG_NAME}|g" package.js;
+        sed -i "s|\${GITHUB_ORGANIZATION_NAME}|${GITHUB_ORGANIZATION_NAME}|g" package.js;
 
         # get usage_example_T10_10.html as usage_example.html
         wget -O usage_example.html https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/usage_example_T10_10.html;
-        sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" usage_example.html;
-        sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" usage_example.html;
+        sed -i "s|\${PKG_NAME}|${PKG_NAME}|g" usage_example.html;
+        sed -i "s|\${GITHUB_ORGANIZATION_NAME}|${GITHUB_ORGANIZATION_NAME}|g" usage_example.html;
 
         pushd ./tools >/dev/null;
           # get perform_ci_tasks_T10_10 as perform_ci_tasks.sh
