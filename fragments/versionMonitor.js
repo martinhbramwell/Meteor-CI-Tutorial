@@ -8,11 +8,11 @@
 
 /* -----------------------------------------------*/
 /*  These values are patched by the build process */
-const injectedTagSha = '';
-const injectedBuildNum = '';
-const injectedCommitUrl = '';
-const injectedReleaseTag = '';
-const injectedReleaseUrl = '';
+const injectedTagSha = 'null';
+const injectedBuildNum = 'null';
+const injectedCommitUrl = 'null';
+const injectedReleaseTag = 'null';
+const injectedReleaseUrl = 'null';
 /* -----------------------------------------------*/
 
 
