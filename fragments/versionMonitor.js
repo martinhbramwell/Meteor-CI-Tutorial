@@ -8,11 +8,11 @@
 
 /* -----------------------------------------------*/
 /*  These values are patched by the build process */
-const injected_tag_sha = '';
-const injected_build_num = '';
-const injected_commit_url = '';
-const injected_release_tag = '';
-const injected_release_url = '';
+const injectedTagSha = '';
+const injectedBuildNum = '';
+const injectedCommitUrl = '';
+const injectedReleaseTag = '';
+const injectedReleaseUrl = '';
 /* -----------------------------------------------*/
 
 
@@ -25,35 +25,35 @@ Session.setDefault('release_url', 'unknown');
 
 Template.versionMonitor.helpers({
 
-  build_num: function getBuild_num() {
-    if (injected_build_num == '') {
+  build_num: function getBuildNum() {
+    if (injectedBuildNum === '') {
       return Session.get('build_num');
     }
-    return injected_build_num;
+    return injectedBuildNum;
   },
-  commit_url: function getCommit_url() {
-    if (injected_commit_url == '') {
+  commit_url: function getCommitUrl() {
+    if (injectedCommitUrl === '') {
       return Session.get('commit_url');
     }
-    return injected_commit_url;
+    return injectedCommitUrl;
   },
-  tag_sha: function getTag_sha() {
-    if (injected_tag_sha == '') {
+  tag_sha: function getTagSha() {
+    if (injectedTagSha === '') {
       return Session.get('tag_sha');
     }
-    return injected_tag_sha;
+    return injectedTagSha;
   },
   release_tag: function getReleaseTag() {
-    if (injected_release_tag == '') {
+    if (injectedReleaseTag === '') {
       return Session.get('release_tag');
     }
-    return injected_release_tag;
+    return injectedReleaseTag;
   },
   release_url: function getReleaseUrl() {
-    if (injected_release_url == '') {
+    if (injectedReleaseUrl === '') {
       return Session.get('release_url');
     }
-    return injected_release_url;
+    return injectedReleaseUrl;
   },
 
 });

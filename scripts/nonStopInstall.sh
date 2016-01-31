@@ -2,7 +2,7 @@
 
 set -e;
 
-declare PROCESS_THIS=true;  # true OR false
+declare PROCESS_THIS=false;  # true OR false
 CRP=$(sudo pwd);
 
 
@@ -791,7 +791,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 
 echo -e "\n - o 0 o -|||>>> \n"; #
-# PROCESS_THIS=true;
+PROCESS_THIS=true;
 # exit;
 
 #    ~    ~    ~    ~    ~    ~    10 A ~    ~    ~    ~    ~    ~    ~    ~

@@ -30,7 +30,7 @@ function GetLatestReleaseTag() {
   echo "LATEST RELEASE : ${LATEST_RELEASE} Location : ${RELEASE_URL}";
 
   # ensure ssh-agent is awake
-  eval "$(ssh-agent -s)"
+  eval "$(ssh-agent -s)";
   # ensure release is known to local repo
   git pull;
 
