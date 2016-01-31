@@ -1,17 +1,37 @@
 #!/bin/bash
 #
-function GetLatestRelease() {
+function CheckGitHub() {
 
   curl -s https://api.github.com/repos/${1}/${2}/releases/latest > ${3};
-  REDO=true;
-  II=20;
-  while [[ ${REDO} && $(cat ${3} | grep message | grep -c "Not Found") -gt 0 ]]; do
-    echo "No Release  " ${II};
-    (( II = II - 1 ));
-    REDO=$(( II < 20 ));
-    sleep 15;
-    curl -s https://api.github.com/repos/${1}/${2}/releases/latest > ${3};
+  return $(cat ${3} | grep message | grep -c "Not Found");
+
+}
+
+
+function GetLatestRelease() {
+
+  LIM=10;
+  IDX=${LIM};
+  DLY=30;
+  MSG="\n\n    Checking for at least one formal release of ${1}:${2}.\n
+    Please go to the location 'https://github.com/${1}/${2}/releases' and release a version of the package.\n
+              ";
+
+  CheckGitHub "$1" "$2" "$3"; FOUND_ONE=$?;
+
+  while [[ (${IDX} -gt 0) && (${FOUND_ONE} -gt 0) ]]; do
+    if [[ ${IDX} -eq ${LIM} ]]; then echo -e ${MSG}; fi;
+    printf "Try #%s. (%s sec. remaining).\n\033[1A" $(( LIM - IDX + 1 )) $(( DLY * IDX ));
+    (( IDX = IDX - 1 ));
+    sleep ${DLY};
+    CheckGitHub "$1" "$2" "$3"; FOUND_ONE=$?;
   done
+
+  if [[ ${TEST} -gt 0 ]]; then
+    echo -e "Gave up trying to get release information.\n ";
+  else
+    echo -e "Release information may be found in the file '${3}'.\n ";
+  fi;
 
 }
 
@@ -40,10 +60,10 @@ function GetLatestReleaseTag() {
   export COMMIT_URL=$(curl -s https://api.github.com/repos/${OWNER_PKG}/${NAME_PKG}/commits/${TAG_SHA} | jq -r '.html_url');
   echo "COMMIT_URL : " ${COMMIT_URL} ;
 
-  sed -i "s|const injected_tag_sha = '';|const injected_tag_sha = '${TAG_SHA:0:7}';|g" versionMonitor.js
-  sed -i "s|const injected_build_num = '';|const injected_build_num = '${CIRCLE_BUILD_NUM}';|g" versionMonitor.js
-  sed -i "s|const injected_commit_url = '';|const injected_commit_url = '${COMMIT_URL}';|g" versionMonitor.js
-  sed -i "s|const injected_release_tag = '';|const injected_release_tag = '${LATEST_RELEASE}';|g" versionMonitor.js
-  sed -i "s|const injected_release_url = '';|const injected_release_url = '${RELEASE_URL}';|g" versionMonitor.js
+  sed -i "s|const injectedTagSha = '';|const injectedTagSha = '${TAG_SHA:0:7}';|g" versionMonitor.js
+  sed -i "s|const injectedBuildNum = '';|const injectedBuildNum = '${CIRCLE_BUILD_NUM}';|g" versionMonitor.js
+  sed -i "s|const injectedCommitUrl = '';|const injectedCommitUrl = '${COMMIT_URL}';|g" versionMonitor.js
+  sed -i "s|const injectedReleaseTag = '';|const injectedReleaseTag = '${LATEST_RELEASE}';|g" versionMonitor.js
+  sed -i "s|const injectedReleaseUrl = '';|const injectedReleaseUrl = '${RELEASE_URL}';|g" versionMonitor.js
 
 }
