@@ -48,6 +48,9 @@ if [ "${RUN_RULE}" != "n" ]; then PrepareCIwithMeteorDeployment; fi;
 explain ${BINDIR}/ShowStatusSymbol.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then ShowStatusSymbol; fi;
 
+explain ${BINDIR}/VersionMonitorTemplate.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then VersionMonitorTemplate; fi;
+
 explain ${BINDIR}/PushFinalChanges.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then PushFinalChanges; fi;
 

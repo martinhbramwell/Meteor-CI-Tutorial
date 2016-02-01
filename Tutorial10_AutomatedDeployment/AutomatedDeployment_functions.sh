@@ -495,6 +495,20 @@ function ShowStatusSymbol() {
         sed -i "s|\${PKG_NAME}|${PKG_NAME}|g" README.md;
         sed -i "s|\${GITHUB_ORGANIZATION_NAME}|${GITHUB_ORGANIZATION_NAME}|g" README.md;
 
+      popd >/dev/null;
+
+    popd >/dev/null;
+  popd >/dev/null;
+
+}
+
+
+function VersionMonitorTemplate() {
+
+  pushd ~/${PARENT_DIR} >/dev/null;
+    pushd ${PROJECT_NAME} >/dev/null;
+
+      pushd ./packages/${PKG_NAME} >/dev/null;
 
         # get get new files versionMonitor.html and versionMonitor.js
         wget -O versionMonitor.html https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/versionMonitor.html;
@@ -523,7 +537,7 @@ function ShowStatusSymbol() {
         eval "$(ssh-agent -s)";
 
         source ./tools/versionMonitor.sh;
-        GetLatestReleaseTag;
+        PatchVersionMonitorHelper;
 
         git add ./tools/versionMonitor.*;
         set +e; git commit -am "add version monitoring"; set -e;

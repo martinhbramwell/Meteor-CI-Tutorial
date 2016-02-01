@@ -15,9 +15,11 @@ Table of Contents](./)
 
 #### Show Status Symbol
 
-Now we'll get a CircleCI ```pass``` <img src='./fragments/failing.svg' /> or ```fail``` <img src='./fragments/failing.svg' /> badge on the README.md file of our package.  Even though we build the umbrella project that contains our package, not the package itself, we can still put the project status badge on the package README. To show it works, we'll deliberately fail a test, and see what happens to the badge.  We'll fix it before we run our final build and deploy.
+The presence or lack of build status badges on the main README pages of project repositories testify to their level of development sophistication.
 
-One more thing ... we'll add the build number to the app just before building, so we can see the installed version number in mobile devices. 
+Our nest task is to get a CircleCI ```fail``` <img src='./fragments/failing.svg' /> or ```pass``` <img src='./fragments/passing.svg' /> badge on the README.md file of our package.  Even though we build the umbrella project that contains our package, not the package itself, we can still put the project status badge on the package README.
+
+To show it works, we'll deliberately fail a test, and see what happens to the badge.  We'll fix it before we run our final build and deploy.
 
 ##### Example Commands
 ```http

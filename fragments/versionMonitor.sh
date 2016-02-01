@@ -41,7 +41,7 @@ function GetLatestRelease() {
 
 }
 
-function GetLatestReleaseTag() {
+function PatchVersionMonitorHelper() {
 
   PKG_UUID=$(cat package.js | grep name | cut -f 2 -d "'");
   OWNER_PKG=$(echo ${PKG_UUID} | cut -f 1 -d ":");
