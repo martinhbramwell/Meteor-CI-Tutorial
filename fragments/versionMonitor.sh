@@ -26,8 +26,8 @@ function GetLatestRelease() {
 
   while [[ (${IDX} -gt 0) && (${FOUND_ONE} -gt 0) ]]; do
     if [[ ${IDX} -eq ${LIM} ]]; then echo -e ${MSG}; fi;
-#    printf "Try #%s. (%s sec. remaining).\n\033[1A" $(( LIM - IDX + 1 )) $(( DLY * IDX ));
-    printf "Try #%s. (%s sec. remaining).\n" $(( LIM - IDX + 1 )) $(( DLY * IDX ));
+    printf "Try #%s. (%s sec. remaining).\n\033[1A" $(( LIM - IDX + 1 )) $(( DLY * IDX ));
+#    printf "Try #%s. (%s sec. remaining).\n" $(( LIM - IDX + 1 )) $(( DLY * IDX ));
     (( IDX = IDX - 1 ));
     sleep ${DLY};
     set +e; CheckGitHub "$1" "$2" "$3"; FOUND_ONE=$?; set -e;
