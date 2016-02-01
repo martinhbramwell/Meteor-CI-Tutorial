@@ -19,11 +19,15 @@ function GetLatestRelease() {
     Please go to the location 'https://github.com/${1}/${2}/releases' and release a version of the package.\n
               ";
 
+  echo -e "Trying\ncurl -s https://api.github.com/repos/${1}/${2}/releases/latest\n";
+
   set +e; CheckGitHub "$1" "$2" "$3"; FOUND_ONE=$?; set -e;
+
 
   while [[ (${IDX} -gt 0) && (${FOUND_ONE} -gt 0) ]]; do
     if [[ ${IDX} -eq ${LIM} ]]; then echo -e ${MSG}; fi;
-    printf "Try #%s. (%s sec. remaining).\n\033[1A" $(( LIM - IDX + 1 )) $(( DLY * IDX ));
+#    printf "Try #%s. (%s sec. remaining).\n\033[1A" $(( LIM - IDX + 1 )) $(( DLY * IDX ));
+    printf "Try #%s. (%s sec. remaining).\n" $(( LIM - IDX + 1 )) $(( DLY * IDX ));
     (( IDX = IDX - 1 ));
     sleep ${DLY};
     set +e; CheckGitHub "$1" "$2" "$3"; FOUND_ONE=$?; set -e;
