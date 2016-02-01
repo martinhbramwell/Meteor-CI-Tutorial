@@ -25,7 +25,7 @@ Every piece of software needs to be able to report its version.  To do this in a
  - <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/fragments/perform_ci_tasks_T10_10.sh" target="_blank">perform_ci_tasks.sh</a> We modify this file adding one new command to the existing three to be performed when it is our package's turn in the build process :
 
 ##### Example Commands
-```http
+```terminal
 source ./tools/versionMonitor.sh;
 PatchVersionMonitorHelper;
 ```

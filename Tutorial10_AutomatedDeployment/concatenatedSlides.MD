@@ -287,7 +287,7 @@ eval curl -s -X POST ${HEADER_JSON} -d ${VAR_JSON} https://circleci.com/api/v1/p
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L433" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-30
+last_update: 2016-02-01
  .left-column[
   ### One Last Thing
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -345,7 +345,7 @@ Every piece of software needs to be able to report its version.  To do this in a
  - <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/fragments/perform_ci_tasks_T10_10.sh" target="_blank">perform_ci_tasks.sh</a> We modify this file adding one new command to the existing three to be performed when it is our package's turn in the build process :
 
 ##### Example Commands
-```http
+```terminal
 source ./tools/versionMonitor.sh;
 PatchVersionMonitorHelper;
 ```
@@ -355,7 +355,7 @@ PatchVersionMonitorHelper;
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L506" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-30
+last_update: 2016-02-01
  .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
