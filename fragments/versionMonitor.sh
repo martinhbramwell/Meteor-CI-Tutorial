@@ -62,13 +62,21 @@ function GetLatestReleaseTag() {
   export COMMIT_URL=$(curl -s https://api.github.com/repos/${OWNER_PKG}/${NAME_PKG}/commits/${TAG_SHA} | jq -r '.html_url');
   echo "COMMIT_URL : " ${COMMIT_URL} ;
 
-  sed -i "s|const injectedTagSha = 'null';|const injectedTagSha = '${TAG_SHA:0:7}';|g" versionMonitor.js
-  sed -i "s|const injectedCommitUrl = 'null';|const injectedCommitUrl = '${COMMIT_URL}';|g" versionMonitor.js
-  sed -i "s|const injectedReleaseTag = 'null';|const injectedReleaseTag = '${LATEST_RELEASE}';|g" versionMonitor.js
-  sed -i "s|const injectedReleaseUrl = 'null';|const injectedReleaseUrl = '${RELEASE_URL}';|g" versionMonitor.js
+  sed -i "/tag_sha/c\  tag_sha: function () { return '${TAG_SHA:0:7}'; }," versionMonitor.js;
+  sed -i "/commit_url/c\  commit_url: function () { return '${COMMIT_URL}'; }," versionMonitor.js;
+  sed -i "/release_tag/c\  release_tag: function () { return '${LATEST_RELEASE}'; }," versionMonitor.js;
+  sed -i "/release_url/c\  release_url: function () { return '${RELEASE_URL}'; }," versionMonitor.js;
 
   if [[ ${CIRCLE_BUILD_NUM} != '' ]]; then
-    sed -i "s|const injectedBuildNum = 'null';|const injectedBuildNum = '${CIRCLE_BUILD_NUM}';|g" versionMonitor.js;
+
+    CI_BUILD_URL="https://circleci.com/gh/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/${CIRCLE_BUILD_NUM}";
+    REPO_BUILD_URL="https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/commit/${CIRCLE_SHA1}";
+
+    sed -i "/build_num/c\  build_num: function () { return '${CIRCLE_BUILD_NUM}'; }," versionMonitor.js;
+    sed -i "/build_url/c\  build_url: function () { return '${CI_BUILD_URL}'; }," versionMonitor.js;
+    sed -i "/build_sha/c\  build_sha: function () { return '${CIRCLE_SHA1:0:7}'; }," versionMonitor.js;
+    sed -i "/build_repourl/c\ build_repourl : function () { return '${REPO_BUILD_URL}'; }," versionMonitor.js;
+
   fi;
 
 }

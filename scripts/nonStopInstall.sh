@@ -710,22 +710,6 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
-
-    SKIP_CI="";
-
-}
-
-
-echo -e "\n - o 0 o -|||>>> \n"; #
-PROCESS_THIS=true;
-# exit;
-
-#    ~    ~    ~    ~    ~    ~    10 A ~    ~    ~    ~    ~    ~    ~    ~
-#    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-${PROCESS_THIS} && {
-
-  setSection 9;
-
     # explain ${BINDIR}/InspectBuildResults.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
     InspectBuildResults;
@@ -839,32 +823,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 }
 
 
-
 echo -e "\n - o 0 o -|||>>> \n"; #
 PROCESS_THIS=true;
 
-
-
-
 exit 0;
-
-
-
-
-#     SKIP_CI="";
-
-# }
-
-# echo -e "\n - o 0 o -|||>>> \n"; #
-# PROCESS_THIS=true;
-
-
-# #    ~    ~    ~    ~    ~    ~   10 B  ~    ~    ~    ~    ~    ~    ~    ~
-# #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
-# ${PROCESS_THIS} && {
-
-#   setSection 10;
-
-#   SKIP_CI=", but [ci skip].";
-
-
