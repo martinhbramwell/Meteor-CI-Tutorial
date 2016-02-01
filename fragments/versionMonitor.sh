@@ -63,9 +63,12 @@ function GetLatestReleaseTag() {
   echo "COMMIT_URL : " ${COMMIT_URL} ;
 
   sed -i "s|const injectedTagSha = 'null';|const injectedTagSha = '${TAG_SHA:0:7}';|g" versionMonitor.js
-  sed -i "s|const injectedBuildNum = 'null';|const injectedBuildNum = '${CIRCLE_BUILD_NUM}';|g" versionMonitor.js
   sed -i "s|const injectedCommitUrl = 'null';|const injectedCommitUrl = '${COMMIT_URL}';|g" versionMonitor.js
   sed -i "s|const injectedReleaseTag = 'null';|const injectedReleaseTag = '${LATEST_RELEASE}';|g" versionMonitor.js
   sed -i "s|const injectedReleaseUrl = 'null';|const injectedReleaseUrl = '${RELEASE_URL}';|g" versionMonitor.js
+
+  if [[ ${CIRCLE_BUILD_NUM} != '' ]]; then
+    sed -i "s|const injectedBuildNum = 'null';|const injectedBuildNum = '${CIRCLE_BUILD_NUM}';|g" versionMonitor.js;
+  fi;
 
 }
