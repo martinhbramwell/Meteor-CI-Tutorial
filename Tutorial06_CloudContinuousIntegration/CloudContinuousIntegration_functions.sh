@@ -43,41 +43,6 @@ function ObtainCircleCiPersonalToken() {
     askUserForParameters PARM_NAMES[@];
   done;
 
-
-#   if [ -f ~/.udata.sh ]; then
-#     source ~/.udata.sh
-#   else
-#     export CIRCLECI_PERSONAL_TOKEN="";
-#   fi
-
-#   CHOICE="n"
-#   while [[ ! "X${CHOICE}X" == "XyX" ]]
-#   do
-
-# #    echo -e "${FRAME// /\~}"
-#     echo "CircleCI personal token : ${CIRCLECI_PERSONAL_TOKEN}";
-
-#     read -ep "Is this correct? (y/n/q) ::  " -n 1 -r USER_ANSWER
-#     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
-#     if [[ "X${CHOICE}X" == "XqX" ]]; then
-#       echo skip out
-#       return 1;
-#     elif [[ ! "X${CHOICE}X" == "XyX" ]]; then
-
-#       echo -e "\n Please supply the following details :\n";
-#       read -p "Your CircleCI personal token :: " -e -i "${CIRCLECI_PERSONAL_TOKEN}" INPUT
-#       if [ ! "X${INPUT}X" == "XX" ]; then CIRCLECI_PERSONAL_TOKEN=${INPUT}; fi;
-
-#     elif [[ "X${CHOICE}X" == "XyX" ]]; then
-
-#       if ! ValidateCircleCiPersonalToken; then CHOICE="n"; fi;
-
-#     fi;
-#     echo "   ";
-#   done;
-#   echo "Recording CircleCI token for later use.";
-#   saveUserData;
-
 }
 
 
@@ -206,6 +171,12 @@ function EnsureRepoIsWatched() {
 
   if CheckForRepoWatched; then return 0; fi;
 
+#  echo -e "curl -X POST 'https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/follow?circle-token=${CIRCLECI_PERSONAL_TOKEN}'";
+  curl -X POST https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/follow?circle-token=${CIRCLECI_PERSONAL_TOKEN};
+  sleep 3;
+
+  if CheckForRepoWatched; then return 0; fi;
+
   echo -e "
 
   ####################################################################################################
@@ -307,9 +278,7 @@ function Connect_CircleCI_to_GitHub_B() {
   "
 
   EnsureRepoIsWatched;
-  echo -e "We have a \"GitHub User Key\" that should bestow write privileges from CircleCI to GitHub project: '${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}'.
-     Validity can only be proven during an actual build run.
-  "
+  echo -e "CircleCI is now watching the GitHub project: '${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}'. "
 
   return 0;
 
