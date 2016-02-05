@@ -96,7 +96,7 @@ android update sdk -u -a --filter <some plugin identifier> };
 ]
 
 ---
-last_update: 2016-01-05
+last_update: 2016-02-05
  .left-column[
   ### Android Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -133,7 +133,7 @@ Continued . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L127" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-05
+last_update: 2016-02-05
  .left-column[
   ### Android Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -320,7 +320,7 @@ Build by [CircleCI](https://circleci.com) :: [![Circle CI](https://circleci.com/
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L485" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-01
+last_update: 2016-02-05
  .left-column[
   ### One Last Thing
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />

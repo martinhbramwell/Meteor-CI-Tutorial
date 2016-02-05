@@ -321,7 +321,7 @@ Unfortunately, left as is, we get a ```Logger is not defined``` error, because `
 
 <!-- B -->]
 ---
-last_update: 2016-01-06
+last_update: 2016-02-05
  .left-column[
   ### Refactor Bunyan (C)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
