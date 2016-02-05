@@ -45,7 +45,7 @@ if [ "${RUN_RULE}" != "n" ]; then
   Check_the_meteor_project_will_work;
 fi;
 
-export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc"
+#export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc"
 explain ${BINDIR}/Add_Meteor_application_development_support_files.md MORE_ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then
   Add_Meteor_application_development_support_files;

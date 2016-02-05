@@ -1,14 +1,14 @@
 #!/bin/bash
 #
-function Configure_git_for_GitHub() {
+# function Configure_git_for_GitHub() {
 
-  # echo -e "#    -- Configuring git -- "
+#   # echo -e "#    -- Configuring git -- "
 
-  git config --global user.email "${YOUR_EMAIL}"
-  git config --global user.name "${YOUR_FULLNAME}"
-  git config --global push.default simple
+#   git config --global user.email "${YOUR_EMAIL}"
+#   git config --global user.name "${YOUR_FULLNAME}"
+#   git config --global push.default simple
 
-}
+# }
 
 export FORCE="force";
 function Install_Meteor() {
@@ -41,6 +41,11 @@ function Install_Meteor() {
     chmod a+x /usr/local/bin/meteor;
   fi;
 
+}
+
+function Install_Meteor_NonStop() {
+
+  Install_Meteor ${NONSTOP};
 }
 
 
@@ -115,7 +120,6 @@ function Check_the_meteor_project_will_work() {
 
 }
 
-
 function Add_Meteor_application_development_support_files() {
 
   pushd ~/${PARENT_DIR} >/dev/null;
@@ -182,6 +186,20 @@ RDME
   popd >/dev/null;
 
 }
+
+function Create_GitHub_Repo_Deploy_Keys_for_Project() {
+  Create_GitHub_Repo_Deploy_Keys ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT};
+}
+
+
+function Create_GitHub_Repo_For_Project() {
+  Create_GitHub_Repo ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT};
+}
+
+function Add_GitHub_Repo_Deploy_Key_For_Project() {
+  Add_GitHub_Repo_Deploy_Key ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT};
+}
+
 
 
 # function Create_GitHub_Repo_Deploy_Keys() {
@@ -305,6 +323,11 @@ function Create_local_GitHub_repository() {
   popd >/dev/null;
   popd >/dev/null;
 
+}
+
+
+function Create_local_GitHub_repository_nonstop() {
+  Create_local_GitHub_repository ${NONSTOP};
 }
 
 # function () {}

@@ -14,6 +14,10 @@ function Another_NodeJS_moduleB() {
 
 }
 
+function Another_NodeJS_moduleC_nonstop() {
+  Another_NodeJS_moduleC ${NONSTOP};
+}
+
 function Another_NodeJS_moduleC() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;

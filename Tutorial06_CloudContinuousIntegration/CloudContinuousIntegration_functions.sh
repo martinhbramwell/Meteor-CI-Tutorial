@@ -284,6 +284,10 @@ function Connect_CircleCI_to_GitHub_B() {
 
 }
 
+function Add_a_CircleCI_configuration_file_and_push_to_GitHub_nonstop() {
+  Add_a_CircleCI_configuration_file_and_push_to_GitHub ${NONSTOP};
+}
+
 function Add_a_CircleCI_configuration_file_and_push_to_GitHub() {
 
 
@@ -320,19 +324,9 @@ function Add_a_CircleCI_configuration_file_and_push_to_GitHub() {
 
 }
 
-# function StartCircleCiBuild() {
-
-#   echo -e "\n >>  - - - - - -  ";
-#   # TEMP_PROJECTS_STORE="/tmp/circleci_projects.json";
-#   # curl -s https://circleci.com/api/v1/projects?circle-token=${CIRCLECI_PERSONAL_TOKEN} -H "Accept: application/json" > ${TEMP_PROJECTS_STORE};
-#   # cat ${TEMP_PROJECTS_STORE} | jq ".[].reponame";
-
-#   TEMP_BUILDS_STORE="/tmp/circleci_builds.json";
-#   curl -s https://circleci.com/api/v1/project/${GITHUB_ORGANIZATION_NAME}/prj08?circle-token=${CIRCLECI_PERSONAL_TOKEN} -H "Accept: application/json" > ${TEMP_BUILDS_STORE};
-#   cat ${TEMP_BUILDS_STORE} | jq ".[]";
-#   echo -e "\n- - - - - - <<";
-
-# }
+function Amend_the_configuration_and_push_again_nonstop() {
+  Amend_the_configuration_and_push_again ${NONSTOP};
+}
 
 function Amend_the_configuration_and_push_again() {
 
@@ -396,12 +390,16 @@ function Prepare_for_NightWatch_testing() {
 
 }
 
+function Run_NightWatch_testing_nonstop() {
+  Run_NightWatch_testing ${NONSTOP};
+}
+
 function Run_NightWatch_testing() {
 
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
 
-  killMeteorProcess
+  killMeteorProcess;
 
   METEOR_URL="http://localhost:3000/";
   STARTED=false;
@@ -420,7 +418,8 @@ function Run_NightWatch_testing() {
 
   ./tests/nightwatch/runTests.js | bunyan
 
-  killMeteorProcess
+  echo "Clean up.";
+  killMeteorProcess;
   echo "Done.";
 
 

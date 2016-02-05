@@ -59,6 +59,118 @@ function verifyFreeSpace() {
 }
 
 
+function installToolsForTheseScripts() {
+
+  INST=();
+
+  pushd ${HOME} >/dev/null;
+    sudo apt-get -y update;
+  popd >/dev/null;
+
+  X="gawk"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
+  X="git"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
+  X="python-pygments"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
+  X="gettext"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
+  X="jq"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
+  X="virt-what"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
+
+  echo "${#INST[@]} packages not installed.";
+  if [[ ${#INST[@]} -lt 1 ]]; then return 0; fi;
+
+  printf  "
+          The first step requires installing some missing tools that
+        make these explanations more readable.  These are :  ";
+  echo "";
+  for var in "${INST[@]}";
+  do
+    echo "          - ${var}";
+  done;
+  echo "";
+
+  read -p "  'q' or <enter> ::  " -n 1 -r USER_ANSWER;
+
+  CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]');
+  RUN_RULE=${CHOICE};
+  if [ "X${CHOICE}X" == "XqX" ]; then echo ""; exit 0; fi;
+
+  # Make sure we atart off with the right version of awk.
+  X="git"; if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  if aptNotYetInstalled gawk; then
+    sudo apt-get -y install gawk;
+    sudo update-alternatives --set awk /usr/bin/gawk;
+  fi;
+
+  # These scripts also need "Pygmentize" to colorize text
+  # and "jq" to parse JSON
+  X="python-pygments"; if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="jq"; if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+}
+
+function Install_other_tools() {
+
+  X="build-essential";             # for selenium webdriver
+  if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="libssl-dev";                  # for selenium webdriver
+  if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="libappindicator1";            # for chrome
+  if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="curl";                        # for Meteor
+  if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="ssh";                         # for version control
+  if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="tree";                        # for demo convenience
+  if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="expect";                        # for demo convenience
+  if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="python-pip";                  # for demo convenience
+  if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+
+}
+
+function Configure_git_for_GitHub() {
+
+  # echo -e "#    -- Configuring git -- "
+
+  git config --global user.email "${YOUR_EMAIL}"
+  git config --global user.name "${YOUR_FULLNAME}"
+  git config --global push.default simple
+
+}
+
+
 function aptNotYetInstalled() {
 
   set +e;
@@ -77,7 +189,8 @@ function aptNotYetInSources() {
 
 function npmNotYetInstalled() {
 
-#  echo -e "\n  $1  $2";
+  # echo -e "\n  $1  $2";
+  # npm list $2 $1;
   return $(npm list $2 $1 | grep -c "empty";);
 
 }
@@ -121,222 +234,14 @@ function launchMeteorProcess()
 
 function killMeteorProcess()
 {
-  EXISTING_METEOR_PIDS=$(ps aux | grep meteor  | grep -v grep | grep ~/.meteor/packages | awk '{print $2}')
+  EXISTING_METEOR_PIDS=$(ps aux | grep meteor  | grep -v grep | grep ~/.meteor/packages | awk '{print $2}');
+#  echo ">${IFS}<  ${EXISTING_METEOR_PIDS} ";
   for pid in ${EXISTING_METEOR_PIDS}; do
-    echo "Kill Meteor process : ${pid}";
+    echo "Kill Meteor process : >> ${pid} <<";
     kill -9 ${pid};
   done;
 }
 
-
-# function saveUserData()
-# {
-# cat << UDATA > ~/.udata.sh;
-# export PARENT_DIR="${PARENT_DIR}";
-# export PROJECT_NAME="${PROJECT_NAME}";
-# export PKG_NAME="${PKG_NAME}";
-# export GITHUB_ORGANIZATION_NAME="${GITHUB_ORGANIZATION_NAME}";
-# export PACKAGE_DEVELOPER="${PACKAGE_DEVELOPER}";
-# export YOUR_EMAIL="${YOUR_EMAIL}";
-# export YOUR_UID="${YOUR_UID}";
-# export YOUR_FULLNAME="${YOUR_FULLNAME}";
-# export CIRCLECI_PERSONAL_TOKEN="${CIRCLECI_PERSONAL_TOKEN}";
-# UDATA
-
-# chown ${SUDOUSER}:${SUDOUSER} ~/.udata.sh;
-
-# }
-
-
-
-# function saveNonStopData()
-# {
-# cat << NSDATA > ~/.nsdata.sh
-# export GITHUB_PERSONAL_TOKEN="${GITHUB_PERSONAL_TOKEN}";
-# export REPLACE_EXISTING_PROJECT="${REPLACE_EXISTING_PROJECT}";
-# export REPLACE_EXISTING_PACKAGE="${REPLACE_EXISTING_PACKAGE}";
-# export METEOR_UID="${METEOR_UID}";
-# export METEOR_PWD="${METEOR_PWD}";
-# export KEYSTORE_PWD="${KEYSTORE_PWD}";
-# NSDATA
-
-# chown ${SUDOUSER}:${SUDOUSER} ~/.nsdata.sh;
-# }
-
-
-
-# function didNotGetUserData()
-# {
-
-#     echo -e "#####################################################################"
-#     echo -e "#   The rest of this script will fail without correct values for : "
-#     echo -e "#    - projects directory"
-#     echo -e "#    - project name"
-#     echo -e "#    - package name"
-#     echo -e "#    - github organization name"
-#     echo -e "#    - developer id"
-#     echo -e "#    - developer email."
-#     echo -e "#    - developer name"
-#     echo -e "#    - developer full name"
-#     echo -e "#   Please ensure you have entered these values correctly."
-#     echo -e "#####################################################################"
-#     exit 1;
-
-# }
-
-
-# function didNotGetNSData()
-# {
-
-#     echo -e "#####################################################################"
-#     echo -e "#   The rest of this script will fail without correct values for : "
-#     echo -e "#    - developer personal token"
-#     echo -e "#    - approve to delete and replace project '${PROJECT_NAME}'"
-#     echo -e "#    - approve to delete and replace package '${PKG_NAME}'"
-#     echo -e "#   Please ensure you have entered these values correctly."
-#     echo -e "#####################################################################"
-#     exit 1;
-
-# }
-
-
-
-# function getUserData()
-# {
-#   if [ -f ~/.udata.sh ]; then
-#     source ~/.udata.sh
-#   else
-#     export PARENT_DIR="";
-#     export PROJECT_NAME="";
-#     export PKG_NAME="";
-#     export GITHUB_ORGANIZATION_NAME="";
-#     export PACKAGE_DEVELOPER="";
-#     export YOUR_UID="";
-#     export YOUR_FULLNAME="";
-#     export YOUR_EMAIL="";
-#     export CIRCLECI_PERSONAL_TOKEN="";
-
-#     export PROJECT_URI="${PROJECT_NAME}-${GITHUB_ORGANIZATION_NAME}.meteor.com";
-#   fi
-
-#   CHOICE="n"
-#   while [[ ! "X${CHOICE}X" == "XyX" ]]
-#   do
-
-#     echo -e "${FRAME// /\~}"
-#     echo "Projects folder in ${HOME} directory : ${PARENT_DIR}"
-#     echo "Project name : ${PROJECT_NAME}"
-#     echo "Package name : ${PKG_NAME}"
-#     echo "GitHub organization name : ${GITHUB_ORGANIZATION_NAME}"
-#     echo "GutHub user id: ${PACKAGE_DEVELOPER}"
-#     echo "GutHub user full name : ${YOUR_FULLNAME}"
-#     echo "Project owner local user id : ${YOUR_UID}"
-#     echo "Project owner email : ${YOUR_EMAIL}"
-#     echo "CircleCI personal token : ${CIRCLECI_PERSONAL_TOKEN}";
-
-#     read -ep "Is this correct? (y/n/q) ::  " -n 1 -r USER_ANSWER
-#     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
-#     if [[ "X${CHOICE}X" == "XqX" ]]; then
-#       echo skip out
-#       return 1;
-#     elif [[ ! "X${CHOICE}X" == "XyX" ]]; then
-
-#       echo -e "\n Please supply the following details :\n";
-#       read -p "Your directory for projects in the ${HOME} directory :  :: " -e -i "${PARENT_DIR}" INPUT
-#       if [ ! "X${INPUT}X" == "XX" ]; then PARENT_DIR=${INPUT}; fi;
-
-#       read -p "The exact project name for use in GitHub :: " -e -i "${PROJECT_NAME}" INPUT
-#       if [ ! "X${INPUT}X" == "XX" ]; then PROJECT_NAME=${INPUT}; fi;
-
-#       read -p "The exact package name for use in GitHub :: " -e -i "${PKG_NAME}" INPUT
-#       if [ ! "X${INPUT}X" == "XX" ]; then PKG_NAME=${INPUT}; fi;
-
-#       read -p "The exact name for the GitHub organization :: " -e -i "${GITHUB_ORGANIZATION_NAME}" INPUT
-#       if [ ! "X${INPUT}X" == "XX" ]; then GITHUB_ORGANIZATION_NAME=${INPUT}; fi;
-
-#       read -p "The project owner user id in GitHub :: " -e -i "${PACKAGE_DEVELOPER}" INPUT
-#       if [ ! "X${INPUT}X" == "XX" ]; then PACKAGE_DEVELOPER=${INPUT}; fi;
-
-#       read -p "The project owner name to use within the project :: " -e -i "${YOUR_UID}" INPUT
-#       if [ ! "X${INPUT}X" == "XX" ]; then YOUR_UID=${INPUT}; fi;
-
-#       read -p "The project owner full name to use to publish it in GitHub :: " -e -i "${YOUR_FULLNAME}" INPUT
-#       if [ ! "X${INPUT}X" == "XX" ]; then YOUR_FULLNAME=${INPUT}; fi;
-
-#       read -p "The email address for the project owner in GitHub :: " -e -i "${YOUR_EMAIL}" INPUT
-#       if [ ! "X${INPUT}X" == "XX" ]; then YOUR_EMAIL=${INPUT}; fi;
-
-#       read -p "Your CircleCI personal token (leave blank for now) :: " -e -i "${CIRCLECI_PERSONAL_TOKEN}" INPUT
-#       if [ ! "X${INPUT}X" == "XX" ]; then CIRCLECI_PERSONAL_TOKEN=${INPUT}; fi;
-
-#     fi;
-#     echo "  "
-#   done;
-
-#   saveUserData;
-
-#   return;
-# }
-
-
-# function getNonStopData()
-# {
-#   if [ -f ~/.nsdata.sh ]; then
-#     source ~/.nsdata.sh
-#   else
-#     export GITHUB_PERSONAL_TOKEN="";
-#     export REPLACE_EXISTING_PROJECT="";
-#     export REPLACE_EXISTING_PACKAGE="";
-#     export METEOR_UID="";
-#     export METEOR_PWD="";
-#     export KEYSTORE_PWD="";
-#   fi
-
-
-#   CHOICE="n"
-#   while [[ ! "X${CHOICE}X" == "XyX" ]]
-#   do
-
-#     echo -e "${FRAME// /\~}"
-#     echo "GitHub personal token : ${GITHUB_PERSONAL_TOKEN}";
-#     echo "You approve deleting and replacing project '${PROJECT_NAME}' : ${REPLACE_EXISTING_PROJECT}";
-#     echo "You approve deleting and replacing package '${PKG_NAME}' : ${REPLACE_EXISTING_PACKAGE}";
-#     echo "Meteor server user ID : ${METEOR_UID}";
-#     echo "Meteor server password : ${METEOR_PWD}";
-#     echo "Password for '${KEYSTORE_PATH}' : ${KEYSTORE_PWD}";
-
-#     read -ep "Is this correct? (y/n/q) ::  " -n 1 -r USER_ANSWER
-#     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
-#     if [[ "X${CHOICE}X" == "XqX" ]]; then
-#       echo skip out
-#       return 1;
-#     elif [[ ! "X${CHOICE}X" == "XyX" ]]; then
-
-#       echo -e "\n Please supply the following details :\n";
-#       read -p "Your GitHub personal token :: " -e -i "${GITHUB_PERSONAL_TOKEN}" INPUT
-#       if [ ! "X${INPUT}X" == "XX" ]; then GITHUB_PERSONAL_TOKEN=${INPUT}; fi;
-
-#       read -p "Should the project '${PROJECT_NAME}' be COMPLETELY ERASED? (yes/no) :: " -e -i "${REPLACE_EXISTING_PROJECT}" INPUT
-#       if [ "X${INPUT}X" == "XyesX" ]; then REPLACE_EXISTING_PROJECT="yes"; else REPLACE_EXISTING_PROJECT="no"; fi;
-
-#       read -p "Should the package '${PKG_NAME}' be COMPLETELY ERASED? (yes/no) :: " -e -i "${REPLACE_EXISTING_PACKAGE}" INPUT
-#       if [ "X${INPUT}X" == "XyesX" ]; then REPLACE_EXISTING_PACKAGE="yes"; else REPLACE_EXISTING_PACKAGE="no"; fi;
-
-#       read -p "Meteor account user name for Meteor deployment server :: " -e -i "${METEOR_UID}" INPUT
-#       if [ ! "X${INPUT}X" == "XX" ]; then METEOR_UID=${INPUT}; fi;
-
-#       read -p "Meteor account password for Meteor deployment server :: " -e -i "${METEOR_PWD}" INPUT
-#       if [ ! "X${INPUT}X" == "XX" ]; then METEOR_PWD=${INPUT}; fi;
-
-#       read -p "Password for disposable Android app signature keys :: " -e -i "${KEYSTORE_PWD}" INPUT
-#       if [ ! "X${INPUT}X" == "XX" ]; then KEYSTORE_PWD=${INPUT}; fi;
-
-#     fi;
-#     echo "  "
-#   done;
-#   saveNonStopData;
-#   return;
-# };
 
 
 function getRepo() {
@@ -354,7 +259,7 @@ function makeRepo() {
 }
 
 
-function Create_GitHub_Repo_For_Org() {
+function Create_GitHub_Repo() {
   # echo "Token = ${GITHUB_PERSONAL_TOKEN}";
   # echo "Org = ${GITHUB_ORGANIZATION_NAME}";
   # echo " P1 = ${1}";

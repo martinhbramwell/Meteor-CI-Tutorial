@@ -120,6 +120,20 @@ function Create_a_package_C() {
 
 }
 
+function Create_GitHub_Repo_Deploy_Keys_for_Package() {
+  Create_GitHub_Repo_Deploy_Keys ${PKG_NAME} ${REPLACE_EXISTING_PROJECT};
+}
+
+function Create_GitHub_Repo_For_Package() {
+  Create_GitHub_Repo ${PKG_NAME} ${REPLACE_EXISTING_PROJECT};
+}
+
+
+function Add_GitHub_Repo_Deploy_Key_For_Package() {
+  Add_GitHub_Repo_Deploy_Key ${PKG_NAME} ${REPLACE_EXISTING_PROJECT};
+}
+
+
 
 function Control_a_packages_versions_A() {
 
@@ -144,6 +158,11 @@ function Control_a_packages_versions_A() {
   echo -e " - Key -- fill with :      $(cat ~/.ssh/${REPO_DEPLOY_KEY_TITLE}.pub) \n";
   echo -e " - Allow write access -- checked";
 
+}
+
+
+function Control_a_packages_versions_B_nonstop() {
+  Control_a_packages_versions_B "${NONSTOP}";
 }
 
 
@@ -226,7 +245,11 @@ function TinyTest_a_package() {
   killMeteorProcess
 
   popd >/dev/null;
+}
 
+
+function Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line_nonstop() {
+  Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line ${NONSTOP};
 }
 
 

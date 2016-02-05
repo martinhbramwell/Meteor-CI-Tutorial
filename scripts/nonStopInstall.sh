@@ -8,6 +8,7 @@ CRP=$(sudo pwd);
 
 source ./scripts/manageShellVars.sh;
 source ./scripts/util.sh;
+#source ./scripts/taskRunner.sh
 
 checkForVirtualMachine;
 echo -e "\n   Checked for virtual machine\n          - o 0 o - \n";
@@ -30,40 +31,37 @@ export TARGET_SERVER_URL="https://${PROJECT_URI}/";
 
 export PACKAGES=~/${PARENT_DIR}/packages;
 
-collectSectionNames;
-# Loop through all sections getting their functions
-II=1;
-# echo "Getting functions from: ";
-while [ ${II} -le ${#TUTORIAL_SECTIONS[@]} ]
-do
-  setSection ${II};
-#  echo " - ${BINDIR}/${SECTION}_functions.sh";
-  source "${BINDIR}/${SECTION}_functions.sh";
-  II=$[$II+1]
-done;
+
+# collectSectionNames;
+# # Loop through all sections getting their functions
+# II=1;
+# # echo "Getting functions from: ";
+# while [ ${II} -le ${#TUTORIAL_SECTIONS[@]} ]
+# do
+#   setSection ${II};
+# #  echo " - ${BINDIR}/${SECTION}_functions.sh";
+#   source "${BINDIR}/${SECTION}_functions.sh";
+#   II=$[$II+1]
+# done;
+
 
 
 # ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~
-${PROCESS_THIS} && {
-  installToolsForTheseScripts;
-  echo -e "\n   Installed Tools For These Scripts\n          - o 0 o - \n";
-}
+installToolsForTheseScripts;
+echo -e "\n   Installed Tools For These Scripts\n          - o 0 o - \n";
 
 
 source ./scripts/explain.sh
 RUN_RULE="";
 
-${PROCESS_THIS} && {
-  Install_other_tools;
-  echo -e "\n   Installed Other Tools\n          - o 0 o - \n";
-}
+Install_other_tools;
+echo -e "\n   Installed Other Tools\n          - o 0 o - \n";
 
 Configure_git_for_GitHub;
 echo -e "\n   Configured git for GitHub\n          - o 0 o - \n";
 
 set +e; sudo killall -qs SIGKILL ssh-agent; set -e;
 echo -e "\n   Killed extraneous ssh-agent instances\n          - o 0 o - \n";
-
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    1    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
@@ -79,6 +77,13 @@ echo -e "\n   Killed extraneous ssh-agent instances\n          - o 0 o - \n";
 # echo " C) If you already know Meteor, you can just stuff a copy of this directory in the 'public' directory of a Meteor app."
 # echo ""
 # read -p "Hit <enter> ::  " -n 1 -r REPLY
+
+
+source ./scripts/taskRunner.sh
+#ProcessTasksBetween;
+exit;
+
+
 
 setSection 1;
 
@@ -200,7 +205,7 @@ setSection 2;
 # if [ "${RUN_RULE}" != "n" ]; then
 
   ${PROCESS_THIS} && {
-    Create_GitHub_Repo_For_Org ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT};
+    Create_GitHub_Repo ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT};
     echo -e "\n   Created GitHub Repo For '${PROJECT_NAME}' \n          - o 0 o - \n";
   }
 
@@ -230,7 +235,7 @@ setSection 2;
 # fi;
 
 
-export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc"
+#export GITHUB_RAW="https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc"
 # explain ${BINDIR}/Add_Meteor_application_development_support_files.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
   ${PROCESS_THIS} && {
@@ -306,7 +311,7 @@ setSection 3;
 
 
   ${PROCESS_THIS} && {
-    Create_GitHub_Repo_For_Org ${PKG_NAME} ${REPLACE_EXISTING_PACKAGE};
+    Create_GitHub_Repo ${PKG_NAME} ${REPLACE_EXISTING_PACKAGE};
     echo -e "\n   Created GitHub Repo for '${PKG_NAME}'\n          - o 0 o - \n";
   }
 
@@ -428,6 +433,10 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 #    ~    ~    ~    ~    ~    ~    ~    6    ~    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
 
+echo -e "\n - o 0 o -|||>>> \n"; #
+PROCESS_THIS=true;
+# exit;
+
 
   ${PROCESS_THIS} && {
 
@@ -440,6 +449,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
       Connect_CircleCI_to_GitHub_B;
       echo -e "\n   Verified CircelCI tokens\n          - o 0 o - \n";
     # fi;
+exit;
 
     # explain ${BINDIR}/Add_a_CircleCI_configuration_file_and_push_to_GitHub.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
@@ -789,10 +799,6 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 
 }
 
-
-echo -e "\n - o 0 o -|||>>> \n"; #
-PROCESS_THIS=true;
-# exit;
 
 #    ~    ~    ~    ~    ~    ~    10 A ~    ~    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
