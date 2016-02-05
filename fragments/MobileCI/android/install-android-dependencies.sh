@@ -1,8 +1,8 @@
 #!/bin/bash
 #
 
-#  This is a helper script for continuous integration
-#  It pulls together just the Android SDK elementsd required by Meteor
+#  This is a helper script for continuous deployment
+#  It pulls together just the Android SDK elements required by Meteor
 #
 function getPlugin() {
 

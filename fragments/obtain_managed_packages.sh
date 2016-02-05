@@ -1,10 +1,10 @@
 #!/bin/bash
 #
 
-#  This is a helper script for continuous integration
+#  This is a helper script for continuous deployment
 #  It clones our packages from GitHub into a local directory and
-#  then sets up a hyperlink from our project's packages directory 
-#  
+#  then sets up a hyperlink from our project's packages directory
+#
 
 LOCAL_PACKAGES="${HOME}/packages";
 

@@ -16,7 +16,7 @@ Table of Contents](./)
 
 ##  Prepare the Machine
 
-These scripts will get you started easily with continuous integration development, testing, documenting, logging, code style linting of Meteor packages.
+These scripts will get you started easily with continuous deployment development, testing, documenting, logging, code style linting of Meteor packages.
 
 This first script, run with . . .
 ```terminal

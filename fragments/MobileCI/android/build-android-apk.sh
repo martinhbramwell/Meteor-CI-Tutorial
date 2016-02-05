@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 
-#  This is a helper script for continuous integration
+#  This is a helper script for continuous deployment
 #  It uses the Android SDK elements to build a Android APK for our Meteor project
 #
 function BuildAndroidAPK() {

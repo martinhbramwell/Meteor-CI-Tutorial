@@ -44,7 +44,7 @@ Table of Contents](./)
 
 #### Prepare Android SDK (Part A)
 
-<a href='http://developer.android.com/sdk/index.html' target='_blank'>Google's documentation</a> for building an APK (Android app PacKage) is enormous and aimed at GUI-users and Android Studio; while <a href='https://github.com/meteor/meteor/wiki/Mobile-Dev-Install:-Android-on-Linux' target='_blank'>Meteor's documentation</a> is, well ... skimpy. We on the other hand, doing continuous integration, need Google's <a href='http://developer.android.com/sdk/installing/index.html?pkg=tools' target='_blank'>'command-line-only' tools</a>. To get proficient, we also need to learn about <a href='https://circleci.com/docs/android' target='_blank'>the help CircleCI provides</a>, and be aware of <a href='https://cordova.apache.org/docs/en/latest/guide/overview/' target='_blank'>Cordova</a>.
+<a href='http://developer.android.com/sdk/index.html' target='_blank'>Google's documentation</a> for building an APK (Android app PacKage) is enormous and aimed at GUI-users and Android Studio; while <a href='https://github.com/meteor/meteor/wiki/Mobile-Dev-Install:-Android-on-Linux' target='_blank'>Meteor's documentation</a> is, well ... skimpy. We on the other hand, doing continuous deployment, need Google's <a href='http://developer.android.com/sdk/installing/index.html?pkg=tools' target='_blank'>'command-line-only' tools</a>. To get proficient, we also need to learn about <a href='https://circleci.com/docs/android' target='_blank'>the help CircleCI provides</a>, and be aware of <a href='https://cordova.apache.org/docs/en/latest/guide/overview/' target='_blank'>Cordova</a>.
 
 Our immediate goal is to get going with the minimum necessary. The basic steps are :
  - get the main package: "Android SDK Tools"
