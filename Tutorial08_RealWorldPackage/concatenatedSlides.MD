@@ -333,7 +333,7 @@ Tinytest.add('Pet #' + petNum + ' is : ' + expected, function obtainPetById(test
 Continues ...
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-05
  .left-column[
   ### Calling Package Methods
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
@@ -370,7 +370,7 @@ Start ```meteor``` now (not ```meteor test-packages```).  Continues ...
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L61" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L65" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-02
@@ -452,7 +452,7 @@ Continues ...
 
 <!-- B -->]
 ---
-last_update: 2016-01-30
+last_update: 2016-02-05
  .left-column[
   ### Control Example Visibility
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -482,7 +482,7 @@ Of course, left like that, our package will impose itself on the main page of  e
 Continues ...
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L99" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L103" target="_blank">Code for this step.</a>] ]
 
 <div id="usage" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('usage'); return true;"
