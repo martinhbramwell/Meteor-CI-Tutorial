@@ -51,7 +51,7 @@ Once CircleCI <a href="http://i.imgur.com/DtaBko1.png" target="_blank">has analy
 Continued . . .
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-05
  .left-column[
   ### Configure CircleCI
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -82,7 +82,7 @@ Our next task is to commit/push '```circle.yml```', a build definition file.
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L267" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-05
  .left-column[
   ### Configure CircleCI
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -120,7 +120,7 @@ git commit -am 'Added circle.yml and unit testing' && git push
 ]
 ---
 name: AmendTheConfigurationAndPushAgain
-last_update: 2016-01-02
+last_update: 2016-02-05
  .left-column[
   ### Configure CircleCI
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -157,7 +157,7 @@ git commit -am 'Add script to clone packages and symlink to them';
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L327" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-05
  .left-column[
   ### Set Up Nightwatch
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -188,7 +188,7 @@ The installer prepares a Nightwatch test directory and then deletes itself, leav
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L380" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-05
  .left-column[
   ### Run NightWatch
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -226,7 +226,7 @@ This command group starts Meteor in a background process, (stopping any already 
 ]
 ---
 name: ConfigureCircleCIforNightwatchTesting
-last_update: 2016-01-02
+last_update: 2016-02-05
  .left-column[
   ### Commit Nightwatch
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />

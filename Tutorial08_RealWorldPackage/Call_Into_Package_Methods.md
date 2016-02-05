@@ -1,5 +1,5 @@
 ---
-last_update: 2016-01-02
+last_update: 2016-02-05
  .left-column[
   ### Calling Package Methods
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />

@@ -333,7 +333,7 @@ Tinytest.add('Pet #' + petNum + ' is : ' + expected, function obtainPetById(test
 Continues ...
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-05
  .left-column[
   ### Calling Package Methods
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -452,7 +452,7 @@ Continues ...
 
 <!-- B -->]
 ---
-last_update: 2016-01-30
+last_update: 2016-02-05
  .left-column[
   ### Control Example Visibility
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
