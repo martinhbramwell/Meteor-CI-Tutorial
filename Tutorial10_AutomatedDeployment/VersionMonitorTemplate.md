@@ -1,5 +1,5 @@
 ---
-
+last_update: 2016-02-01
  .left-column[
   ### One Last Thing
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -20,6 +20,7 @@ Every piece of software needs to be able to report its version.  To do this in a
  - <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/fragments/versionMonitor.js" target="_blank">versionMonitor.js</a> A helper script that delivers the version information for the template.
  - <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/fragments/versionMonitor.sh" target="_blank">versionMonitor.sh</a> A build time shell script that patches versioning information into the helper script
  - <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/fragments/perform_ci_tasks_T10_10.sh" target="_blank">perform_ci_tasks.sh</a> We modify this file adding one new command to the existing three to be performed when it is our package's turn in the build process :
+
 
 ##### Example Commands
 ```terminal

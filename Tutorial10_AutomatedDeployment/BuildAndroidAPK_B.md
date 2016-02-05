@@ -1,5 +1,5 @@
 ---
-
+last_update: 2016-01-05
  .left-column[
   ### Android Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -22,7 +22,7 @@ With the preparatory steps done we can address the steps to take each time the a
  3. Use Android SDK's <a href="http://developer.android.com/tools/help/zipalign.html" target="_blank">zipalign</a> command to maintain compatibility with the unzip utility in Android phones.
  4. Stuff the signed and aligned APK into the project's *./public* directory
 
-With that finished, we're ready to submit our app to Meteor's servers . . .
+Now that that is out of the way, we're ready to submit our app to Meteor's servers . . .
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L178" target="_blank">Code for this step.</a>] ]
 ]

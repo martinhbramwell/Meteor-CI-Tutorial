@@ -1,5 +1,5 @@
 ---
-
+last_update: 2016-01-05
  .left-column[
   ### Android Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -31,6 +31,7 @@ Fortunately Meteor's ```isCordova``` attribute makes it very easy to avoid the e
 ```
 
 Continued . . .
+
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L127" target="_blank">Code for this step.</a>] ]
 ]

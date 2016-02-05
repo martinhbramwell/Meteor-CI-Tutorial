@@ -96,7 +96,7 @@ android update sdk -u -a --filter <some plugin identifier> };
 ]
 
 ---
-
+last_update: 2016-01-05
  .left-column[
   ### Android Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -128,11 +128,12 @@ Fortunately Meteor's ```isCordova``` attribute makes it very easy to avoid the e
 ```
 
 Continued . . .
+
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L127" target="_blank">Code for this step.</a>] ]
 ]
 ---
-
+last_update: 2016-01-05
  .left-column[
   ### Android Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -155,7 +156,7 @@ With the preparatory steps done we can address the steps to take each time the a
  3. Use Android SDK's <a href="http://developer.android.com/tools/help/zipalign.html" target="_blank">zipalign</a> command to maintain compatibility with the unzip utility in Android phones.
  4. Stuff the signed and aligned APK into the project's *./public* directory
 
-With that finished, we're ready to submit our app to Meteor's servers . . .
+Now that that is out of the way, we're ready to submit our app to Meteor's servers . . .
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L178" target="_blank">Code for this step.</a>] ]
 ]
@@ -319,7 +320,7 @@ Build by [CircleCI](https://circleci.com) :: [![Circle CI](https://circleci.com/
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial10_AutomatedDeployment/AutomatedDeployment_functions.sh#L485" target="_blank">Code for this step.</a>] ]
 ]
 ---
-
+last_update: 2016-02-01
  .left-column[
   ### One Last Thing
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -340,6 +341,7 @@ Every piece of software needs to be able to report its version.  To do this in a
  - <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/fragments/versionMonitor.js" target="_blank">versionMonitor.js</a> A helper script that delivers the version information for the template.
  - <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/fragments/versionMonitor.sh" target="_blank">versionMonitor.sh</a> A build time shell script that patches versioning information into the helper script
  - <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/fragments/perform_ci_tasks_T10_10.sh" target="_blank">perform_ci_tasks.sh</a> We modify this file adding one new command to the existing three to be performed when it is our package's turn in the build process :
+
 
 ##### Example Commands
 ```terminal
