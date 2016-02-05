@@ -149,7 +149,7 @@ Continued . . .
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-05
  .left-column[
   ### Helper File - Arbitrary # of Packages.
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -182,7 +182,7 @@ Delegating to 1 package in '../../packages'.
 I will perform CI tasks on ${PKG_NAME}.
 ```
 
-As long as a package has a valid bash executable at ```./tools/perform_ci_tasks.sh``` then linting, documenting and other tasks will be executed as part of continuous integration.
+As long as a package has a valid bash executable at ```./tools/perform_ci_tasks.sh``` then linting, documenting and other tasks will be executed as part of continuous deployment.
 
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L103" target="_blank">Code for this step.</a>] ]

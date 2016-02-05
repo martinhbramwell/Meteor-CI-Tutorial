@@ -1,5 +1,5 @@
 layout: false
-last_update: 2016-01-02
+last_update: 2016-02-05
  .left-column[
   ### PART B INTRODUCTION
 
@@ -15,7 +15,7 @@ Table of Contents](./)
 
 ## Version Control In The Cloud
 
-These scripts will get you started easily with Meteor package development, testing, documenting, logging, code style linting and continuous integration.
+These scripts will get you started easily with Meteor package development, testing, documenting, logging, code style linting and continuous deployment.
 
 The previous script, 'Tutorial01_PrepareTheMachine.sh', set up necessary preconditions for the remaining scripts, (basically all tasks that require root access). 
 

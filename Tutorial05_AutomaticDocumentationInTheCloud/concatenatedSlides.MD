@@ -1,5 +1,5 @@
 layout: false
-last_update: 2016-01-02
+last_update: 2016-02-05
  .left-column[
   ### PART E INTRODUCTION
 
@@ -15,7 +15,7 @@ Table of Contents](./)
 
 ## Code Quality - Automatic Documentation in the Cloud
 
-These scripts will get you started easily with Meteor package development, testing, documenting, logging, code style linting and continuous integration.
+These scripts will get you started easily with Meteor package development, testing, documenting, logging, code style linting and continuous deployment.
 
 The previous script, 'Tutorial04_CodingStyleAndLinting.sh', set up code quality checks.
 
@@ -291,7 +291,7 @@ git push
 ]
 
 ---
-last_update: 2016-01-07
+last_update: 2016-02-05
  .left-column[
     ### End Of Part #E
 .footnote[.red.bold[] [
@@ -306,9 +306,9 @@ Table of Contents](./)
 
 #### Go to the next section . . . 
 
-The preceding five parts covered the minimal basic set up tasks of a Meteor developer's work station with linting, automated documentation, unit testing and version control.  The next section will guide you through preparations for end-to-end testing and continuous integration *in-the-cloud*. 
+The preceding five parts covered the minimal basic set up tasks of a Meteor developer's work station with linting, automated documentation, unit testing and version control.  The next section will guide you through preparations for end-to-end testing and continuous deployment *in-the-cloud*. 
 
-[Part #F - Cloud Continuous Integration](./?part=F)
+[Part #F - Cloud Continuous Deployment](./?part=F)
 
 
 <!-- B -->]

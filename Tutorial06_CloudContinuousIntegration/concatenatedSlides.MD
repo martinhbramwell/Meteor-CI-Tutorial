@@ -260,7 +260,7 @@ git push
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L459" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-07
+last_update: 2016-02-05
  .left-column[
     ### End Of Part #F
 .footnote[.red.bold[] [
@@ -275,7 +275,7 @@ Table of Contents](./)
 
 #### Go to the next section . . . 
 
-The preceding six parts covered everything involved in setting up linting, automated documentation, unit testing, version control, end-to-end testing and continuous integration *in-the-cloud*.
+The preceding six parts covered everything involved in setting up linting, automated documentation, unit testing, version control, end-to-end testing and continuous deployment *in-the-cloud*.
 
 An important missing piece is production grade logging -- logging that can be scaled up and down in localized bits of code, to inspect behaviour unobtrusively.  That's [Part #G - Production Logging](./?part=G)
 
