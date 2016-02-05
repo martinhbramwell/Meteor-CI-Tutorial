@@ -192,7 +192,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
     <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L87" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L123" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-02
@@ -222,7 +222,7 @@ That's beyond the scope of this tutorial.  However, we must, in any case, repeat
 Continues . . . 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L124" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L138" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-02
@@ -252,7 +252,7 @@ git push -u ${PKG_NAME}_origin master
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L150" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L164" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-02
@@ -282,7 +282,7 @@ tree
 ```
 To stop Meteor and move on to the next step in the tutorial script, after you have confirmed that it ran successful tests, just hit ```<enter>```.
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L205" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L224" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-07
@@ -314,7 +314,7 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 ./tests/tinyTests/test-all.sh
 ```
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L233" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L251" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-01-07
