@@ -1,5 +1,5 @@
 layout: false
-last_update: 2016-01-02
+last_update: 2016-02-05
  .left-column[
   ### PART D INTRODUCTION
 
@@ -30,7 +30,7 @@ This is useful for an individual developer, but increases in importance with the
 <!-- B -->]
 ---
 name: UseESLintOnTheCommandLine
-last_update: 2016-01-02
+last_update: 2016-02-05
  .left-column[
   ### Command Line ESLint
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />

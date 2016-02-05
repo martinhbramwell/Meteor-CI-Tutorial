@@ -420,7 +420,7 @@ To finish: commit the package, then commit the project and then watch CircleCI f
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L63" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-07
+last_update: 2016-02-05
  .left-column[
     ### End Of Part #G
 .footnote[.red.bold[] [
