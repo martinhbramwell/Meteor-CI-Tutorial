@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Meteor Development Infrastructure</title>
 
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-touch-icon-57x57.png?v=1.0">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/icons/apple-touch-icon-60x60.png?v=1.0">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/icons/apple-touch-icon-72x72.png?v=1.0">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/icons/apple-touch-icon-76x76.png?v=1.0">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/icons/apple-touch-icon-114x114.png?v=1.0">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/icons/apple-touch-icon-120x120.png?v=1.0">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/icons/apple-touch-icon-144x144.png?v=1.0">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/apple-touch-icon-152x152.png?v=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon-180x180.png?v=1.0">
+    <link rel="icon" type="image/png" href="assets/icons/favicon-32x32.png?v=1.0" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/icons/favicon-194x194.png?v=1.0" sizes="194x194">
+    <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png?v=1.0" sizes="96x96">
+    <link rel="icon" type="image/png" href="assets/icons/android-chrome-192x192.png?v=1.0" sizes="192x192">
+    <link rel="icon" type="image/png" href="assets/icons/favicon-16x16.png?v=1.0" sizes="16x16">
+    <link rel="manifest" href="assets/icons/manifest.json?v=1.0">
+    <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg?v=1.0" color="#5bbad5">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico?v=1.0">
+    <meta name="apple-mobile-web-app-title" content="Warehouseman">
+    <meta name="application-name" content="Warehouseman">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-TileImage" content="assets/icons/mstile-144x144.png?v=1.0">
+    <meta name="msapplication-config" content="assets/icons/browserconfig.xml?v=1.0">
+    <meta name="theme-color" content="#3f6060">
+
     <!-- script src="./scripts/Live.js#html"></script -->
 
     <!-- Bootstrap
@@ -54,7 +78,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#home"> Warehouseman</a>
+          <a class="navbar-brand" target="_blank" href="https://github.com/warehouseman"> Warehouseman</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar">
@@ -361,7 +385,7 @@
 
             <li><b>A Meteor account:</b>  If you aren't yet signed up you will have to <a target="_blank" href="https://www.meteor.com/">create a Meteor account</a> <i>(Also free!)</i> . </li>
 
-            <li><b>A CircleCI account:</b>  You are automatically signed up, <i>for free!</i>, to CircleCI when you have a GitHub account.  When you go to <a target="_blank" href="https://circleci.com/">CircleCI</a> you just click the "Log in" button, and confirm to GitHub that you authorize CircleCI to access your repositories.
+            <li><b>A CircleCI account:</b>  You are automatically signed up, <i>for free!</i>, to CircleCI when you have a GitHub account.  When you go to <a target="_blank" href="https://circleci.com/">CircleCI</a> you just click the "Log in" button, and confirm to GitHub that you authorize CircleCI to access your repositories.<span id="details" /></li>
 
             <li><b>Running on a virtual machine:</b>  The scripts that make up the tutorial install a <b>lot</b> of utilities and programs.  I have included a trap that tries to prohibit execution on a bare hardware machine.  <b>NEVER</b> use these scripts on a machine you fear to lose!  As an added incentive for you to NOT use the tutorial on real hardware, I created a <i>(Yup! Free!)</i> <a target="_blank" href="https://hub.docker.com/r/warehouseman/xubuntu-x2go-phusion/">Docker image of Xubuntu and X2Go</a>, and <a target="_blank" href="https://www.youtube.com/watch?v=UzA3ddE0XPA">a video</a> about how to start it up and use it for the tutorial.  You just need to <a target="_blank" href="https://docs.docker.com/engine/installation/">get Docker installed and running</a>, which is easy <i>(and, well ... free!)</i>
 
@@ -465,7 +489,7 @@
 
           <p>To begin, you will need to obtain the tutorial.</p>
           <p>Open up a terminal window, then copy'n paste these commands into it:</p>
-          <h2>Source Links</h2>
+
           <p class="console">
                   export BRANCH="master" # modularize
             <br />export URI=<wbr>"https://github.com/<wbr>martinhbramwell"
@@ -486,7 +510,7 @@
             <br />
           </p>
           <p>The result should look like <a target="_blank" href="./fragments/dldrslt.html">this</a>.</p>
-          <p>Then you can run the first script with: </p>
+          <p id="links">Then you can run the first script with: </p>
           <p class="console">
                    ./Tutorial01_<wbr>PrepareTheMachine.sh
             <br />
