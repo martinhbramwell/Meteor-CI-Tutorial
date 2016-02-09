@@ -1,5 +1,5 @@
 layout: false
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### PART G Introduction
 
@@ -30,7 +30,7 @@ Now run ...
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Console.log is bad!
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -61,7 +61,7 @@ However, *esLint* rightfully flags ```console.log()``` as **a bad thing!**  Writ
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### NPM module
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -99,7 +99,7 @@ We now need to fix ```"Error: Cannot find module 'bunyan'"!```
 
 <!-- B -->]
 ---
-last_update: 2016-01-18
+last_update: 2016-02-09
  .left-column[
   ### Specify Npm modules
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -148,7 +148,7 @@ Npm.depends({
 </a>
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Server Only
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -183,7 +183,7 @@ Npm.depends({
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Add Bunyan Logging
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -216,7 +216,7 @@ Tinytest.add('Check Equality', function sanityCheckEQ(test) {
 
 <!-- B -->]
 ---
-last_update: 2016-01-06
+last_update: 2016-02-09
  .left-column[
   ### Goodbye Console
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -251,7 +251,7 @@ Our output destination will depend on the execution environment. In our CI scrip
 
 <!-- B -->]
 ---
-last_update: 2016-01-07
+last_update: 2016-02-09
  .left-column[
   ### Refactor Bunyan (A)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -287,7 +287,7 @@ Continuing . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L1" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-15
+last_update: 2016-02-09
  .left-column[
   ### Refactor Bunyan (B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -321,7 +321,7 @@ Unfortunately, left as is, we get a ```Logger is not defined``` error, because `
 
 <!-- B -->]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Refactor Bunyan (C)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -360,7 +360,7 @@ tail -f /var/log/meteor/ci4meteor.log  | bunyan -o short
 
 <!-- B -->]
 ---
-last_update: 2016-01-06
+last_update: 2016-02-09
  .left-column[
   ### Package Upgrade (A)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -390,7 +390,7 @@ Continues . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L45" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-06
+last_update: 2016-02-09
  .left-column[
   ### Package Upgrade (B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -420,7 +420,7 @@ To finish: commit the package, then commit the project and then watch CircleCI f
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L63" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
     ### End Of Part #G
 .footnote[.red.bold[] [

@@ -1,5 +1,5 @@
 layout: false
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### PART D INTRODUCTION
 
@@ -30,7 +30,7 @@ This is useful for an individual developer, but increases in importance with the
 <!-- B -->]
 ---
 name: UseESLintOnTheCommandLine
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Command Line ESLint
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -66,7 +66,7 @@ eslint ${PROJECT_NAME}.js
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial04_CodingStyleAndLinting/CodingStyleAndLinting_functions.sh#L1" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### ESLint for ST3
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -94,7 +94,7 @@ Steps to perform :
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Sublime ESLint
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -126,7 +126,7 @@ In Sublime Text :
 You have reconfigured the ESLint rule ```'quotes'```.  The complete list of configurable rules is available from <a target="blank" href="http://eslint.org/docs/rules/">eslint.org rules documentation</a>
 <!-- B -->]
 ---
-last_update: 2016-01-17
+last_update: 2016-02-09
  .left-column[
   ### Sublime ESLint
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -174,7 +174,7 @@ Tinytest.add('example', function checkSanity(test) {
 
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Command Line ESLint
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -207,7 +207,7 @@ echo "./backup" >> .eslintignore
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial04_CodingStyleAndLinting/CodingStyleAndLinting_functions.sh#L12" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Command Line ESLint
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -236,7 +236,7 @@ Great!  All clean!
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial04_CodingStyleAndLinting/CodingStyleAndLinting_functions.sh#L23" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-07
+last_update: 2016-02-09
  .left-column[
     ### End Of Part #D
 .footnote[.red.bold[] [

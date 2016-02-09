@@ -1,5 +1,5 @@
 layout: false
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### PART C INTRODUCTION
 
@@ -29,7 +29,7 @@ This one . . .
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Create Meteor Packages
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -64,7 +64,7 @@ Continued . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L4" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Create Meteor Packages
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -102,7 +102,7 @@ Your package will be part of your project's run time, but not part of it at edit
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L24" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-17
+last_update: 2016-02-09
  .left-column[
   ### Create Meteor Packages
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -150,7 +150,7 @@ For editing purposes your package now appears to be part of your project.  But w
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L113" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Prepare SSH directory
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -195,7 +195,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L123" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Package Version Control
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -225,7 +225,7 @@ Continues . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L138" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Package Version Control
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -255,7 +255,7 @@ git push -u ${PKG_NAME}_origin master
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L164" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Test a Meteor Package
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -285,7 +285,7 @@ To stop Meteor and move on to the next step in the tutorial script, after you ha
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L224" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Runner for TinyTest
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -317,7 +317,7 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L251" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-07
+last_update: 2016-02-09
  .left-column[
     ### End Of Part #C
 .footnote[.red.bold[] [

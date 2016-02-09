@@ -221,6 +221,7 @@ git log -1 --pretty=%B > gitlog.txt # Save the most recent commit message, so gh
 # Add all the supporting files to the list of filesForGHPages.txt
   cat << fFGHPtxt > filesForGHPages.txt
 index.html
+toc.html
 styles.css
 gitlog.txt
 scripts/tutorial_sections.js
@@ -231,6 +232,21 @@ fragments/favicons.zip
 fragments/passing.svg
 fragments/failing.svg
 fragments/ContinuousDeliveryWorkFlow.png
+assets/css/main.css
+assets/css/responsive.css
+assets/extras/animate.css
+assets/img/circle-logo-horizontal.svg
+assets/img/ClockMan.png
+assets/img/ContinuousDeployment.svg
+assets/img/docker.svg
+assets/img/eslint.svg
+assets/img/GitHub_Logo.svg
+assets/img/meteor-logo.svg
+assets/img/nightwatch-logo.png
+assets/img/Node.js_logo.svg
+assets/img/swagger-logo.png
+assets/js/smooth-scroll.js
+
 fFGHPtxt
 
 # Add all the concatenated slides to the list of filesForGHPages.txt
