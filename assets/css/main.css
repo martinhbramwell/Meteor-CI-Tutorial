@@ -351,25 +351,6 @@ a:hover {
   color: #FFFF00;
 }
 
-#details {
-  background: #f1f1f1;
-}
-
-#details .subtitle {
-  color: #34495e;
-}
-
-/*
-#details p {
-  line-height: 30px;
-  font-size: 20px;
-  margin-right: 4%;
-  margin-left: 4%;
-} */
-#details li {
-  font: normal 1.4em Arial, Helvetica, sans-serif;
-  margin: 10px 0;
-}
 
 .doubleUnderline {
     text-decoration:underline;
