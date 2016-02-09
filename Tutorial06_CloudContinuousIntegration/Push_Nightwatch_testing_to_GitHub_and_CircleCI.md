@@ -5,7 +5,7 @@ last_update: 2015-12-18
   ### Commit Nightwatch
   <!-- input_type_indicator -->
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}

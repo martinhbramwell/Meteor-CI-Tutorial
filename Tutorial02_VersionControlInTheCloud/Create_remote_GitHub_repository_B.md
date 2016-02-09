@@ -5,7 +5,7 @@ last_update: 2016-02-05
   ### GitHub Repo
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -16,7 +16,7 @@ Table of Contents](./)
 
 #### Create the **remote** GitHub repository.
 
-... continuing.  This procedure will be more understandable if you watch the video series mentioned on the [Table of Contents](./) page. The steps are :
+... continuing.  This procedure will be more understandable if you watch the video series mentioned on the [Table of Contents](./toc.html) page. The steps are :
 
 1. Log in to [GitHub](https://github.com/) as ```${PACKAGE_DEVELOPER}```
 1. **Either** create the ```${GITHUB_ORGANIZATION_NAME}``` organization if it *does not exist*, **or** <a href='http://i.imgur.com/7wHRARZ.png' target='_blank'>switch to operate in that role</a> if it *does exist*.

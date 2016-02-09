@@ -3,7 +3,7 @@ last_update: 2016-01-26
  .left-column[
     ### End Of Part #J
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}

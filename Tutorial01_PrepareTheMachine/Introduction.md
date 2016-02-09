@@ -5,7 +5,7 @@ last_update: 2016-02-05
   ### Part A INTRODUCTION
 
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
