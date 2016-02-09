@@ -1,10 +1,10 @@
 layout: false
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### PART H Introduction
 
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -30,12 +30,12 @@ Get started now by running ...
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Another NodeJS Module (A)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -67,12 +67,12 @@ Continues ...
 
 <!-- B -->]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Another NodeJS Module (B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -101,12 +101,12 @@ Continues ...
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L2" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Another NodeJS Module (C)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -146,12 +146,12 @@ Continues ...
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L17" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### The Async Problem (A)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -181,12 +181,12 @@ Continues ...
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### The Async Problem (B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -221,12 +221,12 @@ Continues ...
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Export to Meteor
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -256,12 +256,12 @@ Continues ...
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### The Async Problem (D)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -292,12 +292,12 @@ It inserts a ```sync``` namespace to PetStore, to which we can add sync versions
 Continues ...
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### The Async Problem (E)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -333,12 +333,12 @@ Tinytest.add('Pet #' + petNum + ' is : ' + expected, function obtainPetById(test
 Continues ...
 <!-- B -->]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Calling Package Methods
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -373,12 +373,12 @@ Start ```meteor``` now (not ```meteor test-packages```).  Continues ...
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L65" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Make Package Method Callable
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -410,12 +410,12 @@ Continues ...
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Make Package Method Callable
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -452,12 +452,12 @@ Continues ...
 
 <!-- B -->]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Control Example Visibility
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -500,11 +500,11 @@ Continues ...
 
 ]
 ---
-last_update: 2016-01-07
+last_update: 2016-02-09
  .left-column[
     ### End Of Part #H
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}

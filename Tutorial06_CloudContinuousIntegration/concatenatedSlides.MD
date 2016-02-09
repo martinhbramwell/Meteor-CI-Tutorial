@@ -1,10 +1,10 @@
 layout: false
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### PART F Introduction
 
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -26,12 +26,12 @@ Now, this script . . .
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Configure CircleCI
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -51,12 +51,12 @@ Once CircleCI <a href="http://i.imgur.com/DtaBko1.png" target="_blank">has analy
 Continued . . .
 <!-- B -->]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Configure CircleCI
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -82,12 +82,12 @@ Our next task is to commit/push '```circle.yml```', a build definition file.
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L267" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Configure CircleCI
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -120,12 +120,12 @@ git commit -am 'Added circle.yml and unit testing' && git push
 ]
 ---
 name: AmendTheConfigurationAndPushAgain
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Configure CircleCI
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -157,12 +157,12 @@ git commit -am 'Add script to clone packages and symlink to them';
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L327" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Set Up Nightwatch
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -188,12 +188,12 @@ The installer prepares a Nightwatch test directory and then deletes itself, leav
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L380" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Run NightWatch
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -226,12 +226,12 @@ This command group starts Meteor in a background process, (stopping any already 
 ]
 ---
 name: ConfigureCircleCIforNightwatchTesting
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Commit Nightwatch
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -260,11 +260,11 @@ git push
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial06_CloudContinuousIntegration/CloudContinuousIntegration_functions.sh#L459" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
     ### End Of Part #F
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}

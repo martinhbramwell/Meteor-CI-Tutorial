@@ -1,10 +1,10 @@
 layout: false
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### PART E INTRODUCTION
 
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -30,12 +30,12 @@ This one . . .
 <!-- B -->]
 ---
 name: TryJSDocFromTheCommandLine_A
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Command Line jsDoc (Step #1)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -70,12 +70,12 @@ continued ...
 ]
 ---
 name: TryJSDocFromTheCommandLine_B
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Command Line jsDoc (Step #2)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -99,12 +99,12 @@ If you open the index file in your browser from its file system location . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial05_AutomaticDocumentationInTheCloud/AutomaticDocumentationInTheCloud_functions.sh#L16" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### jsDoc for ST3
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -126,12 +126,12 @@ Steps to perform :
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### jsDoc for ST3
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -158,12 +158,12 @@ Continues . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial05_AutomaticDocumentationInTheCloud/AutomaticDocumentationInTheCloud_functions.sh#L24" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### jsDoc for ST3
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -194,12 +194,12 @@ Continues . . .
 <!-- B -->
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### jsDoc for ST3
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -224,12 +224,12 @@ Click on the ```TinyTest``` link in the Home page of the documentation, and you 
 ]
 ---
 name: PublishJsDocsToGitHub_A
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### 'GitHub Pages' Web Site
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -258,12 +258,12 @@ Continued . . .
 <!-- B -->]
 ---
 name: PublishJsDocsToGitHub_B
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### 'GitHub Pages' Web Site
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -291,11 +291,11 @@ git push
 ]
 
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
     ### End Of Part #E
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}

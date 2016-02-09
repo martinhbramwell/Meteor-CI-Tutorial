@@ -1,11 +1,11 @@
 layout: false
-last_update: 2016-02-05
-last_update: 2016-02-05
+last_update: 2016-02-09
+last_update: 2016-02-09
  .left-column[
   ### Part A INTRODUCTION
 
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -31,12 +31,12 @@ You can hit the 'a' key at any of the pause points to have it run **a**ll the re
 <!-- B -->]
 ---
 layout: false
-last_update: 2016-01-05
+last_update: 2016-02-09
  .left-column[
   ### Java required
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -63,12 +63,12 @@ Java 7 is required by Selenium, which is required by Nightwatch.  Selenium seems
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L149" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-24
+last_update: 2016-02-09
  .left-column[
   ### Install other tools
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -100,12 +100,12 @@ sudo apt-get install -y tree expect python-pip      # for demo convenience
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L176" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-05
+last_update: 2016-02-09
  .left-column[
   ### Install NodeJS
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -134,12 +134,12 @@ sudo apt-get -y autoremove
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L221" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-05
+last_update: 2016-02-09
  .left-column[
   ### Selenium Web Driver for NodeJS
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -166,12 +166,12 @@ npm install -y --prefix ${HOME} selenium-webdriver
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L235" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-05
+last_update: 2016-02-09
  .left-column[
   ### Install Selenium Web Driver
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -199,12 +199,12 @@ sudo dpkg -i google-chrome-stable_current_amd${CPU_WIDTH}.deb
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L254" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-05
+last_update: 2016-02-09
  .left-column[
   ### Install Bunyan
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -230,12 +230,12 @@ For ongoing server side logging during development or production we need a perma
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L292" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-05
+last_update: 2016-02-09
  .left-column[
   ### Install Sublime Text 3 editor
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -266,12 +266,12 @@ sudo pip install -y beautifulsoup4 requests
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L320" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-05
+last_update: 2016-02-09
  .left-column[
   ### Set Up Linting
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -301,12 +301,12 @@ There is a closely related ESLint package for Sublime Text.  We will install it 
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L360" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-05
+last_update: 2016-02-09
  .left-column[
   ### Set Up Automatic Documentation
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -334,12 +334,12 @@ There is a closely related JSDoc package for Sublime Text, which we will install
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L390" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-05
+last_update: 2016-02-09
  .left-column[
   ### Prepare Sublime Text (Step #1)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -370,12 +370,12 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L406" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Prepare Sublime Text (Step #2)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -398,11 +398,11 @@ Table of Contents](./)
 
 <!-- B -->]
 ---
-last_update: 2016-01-07
+last_update: 2016-02-09
  .left-column[
   ### End Of Part #A
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}

@@ -1,10 +1,10 @@
 layout: false
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### PART I Introduction
 
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -28,12 +28,12 @@ Get started now by running ...
 
 <!-- B -->]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Revisit End-To-End Testing
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -62,12 +62,12 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L2" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Finish Documentation
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -97,12 +97,12 @@ Continues ...
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L38" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Integrating Everything
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -123,12 +123,12 @@ Our focus for the rest of this part is going to be on <a href="https://circleci.
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L65" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Helper File - Package Iterator
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -141,7 +141,7 @@ Table of Contents](./)
 
 Let's take a step back and a fresh look at what we are doing here.
 
-Our project only exists to act as an integration and test harness for our package -- but, we might want multiple packages.  Back in  <a href="./index.html?part=F#4" target="_blank">Tutorial 6</a> we introduced the file ```obtain_managed_packages.sh``` that iterates through a list of packages in ```managed_packages.sh```, cloning each in turn from GitHub into CircleCI.
+Our project only exists to act as an integration and test harness for our package -- but, we might want multiple packages.  Back in  <a href="./toc.html?part=F#4" target="_blank">Tutorial 6</a> we introduced the file ```obtain_managed_packages.sh``` that iterates through a list of packages in ```managed_packages.sh```, cloning each in turn from GitHub into CircleCI.
 
 Linting code and publishing docs are just two out of N additional integration tasks we might want to perform.  Since we know in advance neither the number of packages, nor the number of tasks for each package, we'll offer each one an opportunity to **run it's own** maintenance tasks. So, we'll introduce two more files; at the project level ```perform_per_package_ci_tasks.sh``` will iterate through our ```managed_packages.sh``` list calling ```perform_ci_tasks.sh``` in each package.
 
@@ -149,12 +149,12 @@ Continued . . .
 
 <!-- B -->]
 ---
-last_update: 2016-02-05
+last_update: 2016-02-09
  .left-column[
   ### Helper File - Arbitrary # of Packages.
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -188,12 +188,12 @@ As long as a package has a valid bash executable at ```./tools/perform_ci_tasks.
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L103" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Helper File - Arbitrary # of Tasks.
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -220,12 +220,12 @@ Executing, ```perform_per_package_ci_tasks.sh```, now will show ```esLint``` and
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L128" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Helper File - GitHub "UserKey"
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -250,12 +250,12 @@ https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/edit#checkou
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L154" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Helper File - Commit gh-pages Branch (Part A)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -288,12 +288,12 @@ test:
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L172" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-01-02
+last_update: 2016-02-09
  .left-column[
   ### Helper File - Commit gh-pages Branch (Part B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -327,12 +327,12 @@ git commit -am "Added code maintenance package iterator and augmented circle.yml
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L213" target="_blank">Code for this step.</a>]  ]
 ]
 ---
-last_update: 2016-01-04
+last_update: 2016-02-09
  .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -362,12 +362,12 @@ wget -qO- ${NGHTWTCH_RESULT_URL//\"/} | bunyan -o short;
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L257" target="_blank">Code for this step.</a>]  ]
 ]
 ---
-last_update: 2016-01-04
+last_update: 2016-02-09
  .left-column[
   ### Final Deployment
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
@@ -394,11 +394,11 @@ Copying it, you can make a markdown hyperlink to paste into the issue like this 
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L255" target="_blank">Code for this step.</a>]  ]
 ]
 ---
-last_update: 2016-01-07
+last_update: 2016-02-09
  .left-column[
     ### End Of Part #I
 .footnote[.red.bold[] [
-Table of Contents](./)
+Table of Contents](./toc.html)
 <br />
 <br />&nbsp; &nbsp;Last update
 <br />&nbsp; &nbsp; {{ last_update  }}
