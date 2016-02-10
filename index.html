@@ -29,7 +29,9 @@
     <meta name="msapplication-config" content="assets/icons/browserconfig.xml?v=1.0">
     <meta name="theme-color" content="#3f6060">
 
-    <!-- script src="./scripts/Live.js#html"></script -->
+      <!--
+      -->
+      <script src="./scripts/Live.js#html"></script>
 
     <!-- Bootstrap
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" -->
@@ -499,6 +501,7 @@
             <br />echo "Downloading : \n${URI}/<wbr>${TUT}/<wbr>${FILE}"
             <br />echo " &nbsp; &nbsp; &nbsp; &nbsp;  as : ${TUT}.zip"
             <br />
+            <br />cd ${HOME}
             <br />wget -O ${TUT}.zip ${URI}/<wbr>${TUT}/<wbr>${FILE}
             <br />unzip ${TUT}.zip
             <br />mv ${TUT}-<wbr>${BRANCH} ${TUT}
@@ -516,12 +519,36 @@
             <br />
             <br />
           </p>
+
+          <div style="text-align: left;">
+            <p>After some preparatory steps, you will see a plain text version of the first slide of the "executable slideshow" in your terminal.</p>
+            <p>My idea, however, is it that you should follow the terminal action while viewing the slides in a browser in any one of the following ways:</p>
+            <ul>
+              <li>Open your browser to <a target="_blank" href="https://martinhbramwell.github.io/Meteor-CI-Tutorial/toc.html?part=A#1">the GitHub copy of the slideshow</a>.</li>
+              <li>If you already know Meteor, you can just stuff a copy of this directory in the 'public' directory of a Meteor app and view the table of contents at http:// your host:3000/toc.html.</li>
+              <li>If you think you have Python in your machine, you can open a second terminal window and, into it, copy'n paste the following; </li>
+            </ul>
+          </div>
+
+          <p class="console">
+            echo Your Python version is : $(python -c "import sys;<wbr>t='{v[0]}.{v[1]}'<wbr>.format<wbr>(v=list(sys<wbr>.version_<wbr>info[:2]<wbr>));sys<wbr>.stdout.<wbr>write(t)";).
+            <br />export TUT=<wbr>"Meteor-CI-Tutorial"
+            <br />cd ${HOME}/${TUT}
+            <br />./scripts/<wbr>concatenateTheSlides.sh n
+            <br />python -m <wbr>SimpleHTTPServer<wbr> 8080 &
+            <br />echo -e "\n\n    Please open your browser to http://localhost:8080/toc.html?part=A#1   \n\n";
+            <br />fg
+            <br />
+            <br />
+          </p>
+
+
           <h2>Source Links</h2>
           <p>
             <ul>
               <li>Tutorial source code - <a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial">https://github.com/&shy;martinhbramwell/&shy;Meteor-CI-Tutorial/</a></li>
               <li>Tutorial video play list - <a target="_blank" href="https://www.youtube.com/playlist?list=PLq7op4J183lXpGr79hjfQVQHB-saVqLBL">https://www.&shy;youtube.com&shy;/playlist?list=&shy;PLq7op4J183lXpGr79hj&shy;fQVQHB-saVqLBL</a></li>
-              <li>Tutorial slide shows - <a target="_blank" href="https://martinhbramwell.github.io/Meteor-CI-Tutorial/">https://&shy;martinhbramwell&shy;.github&shy;.io/&shy;Meteor-&shy;CI-Tutorial/</a></li>
+              <li>Tutorial slide shows - <a target="_blank" href="https://martinhbramwell.github.io/Meteor-CI-Tutorial/toc.html">https://&shy;martinhbramwell&shy;.github&shy;.io/&shy;Meteor-&shy;CI-Tutorial/&shy;toc.html</a></li>
               <li>Tutorial's individual scripts
                 <ul>
                   <li><a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine.sh">Tutorial01_&shy;Prepare&shy;The&shy;Machine&shy;.sh</a>
