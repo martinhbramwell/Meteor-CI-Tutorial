@@ -246,7 +246,36 @@ assets/img/nightwatch-logo.png
 assets/img/Node.js_logo.svg
 assets/img/swagger-logo.png
 assets/js/smooth-scroll.js
-
+assets/icons/android-chrome-144x144.png
+assets/icons/android-chrome-72x72.png
+assets/icons/apple-touch-icon-144x144.png
+assets/icons/apple-touch-icon-60x60.png
+assets/icons/apple-touch-icon-precomposed.png
+assets/icons/favicon-32x32.png
+assets/icons/mstile-144x144.png
+assets/icons/mstile-70x70.png
+assets/icons/android-chrome-192x192.png
+assets/icons/android-chrome-96x96.png
+assets/icons/apple-touch-icon-152x152.png
+assets/icons/apple-touch-icon-72x72.png
+assets/icons/browserconfig.xml
+assets/icons/favicon-96x96.png
+assets/icons/mstile-150x150.png
+assets/icons/safari-pinned-tab.svg
+assets/icons/android-chrome-36x36.png
+assets/icons/apple-touch-icon-114x114.png
+assets/icons/apple-touch-icon-180x180.png
+assets/icons/apple-touch-icon-76x76.png
+assets/icons/favicon-16x16.png
+assets/icons/favicon.ico
+assets/icons/mstile-310x150.png
+assets/icons/android-chrome-48x48.png
+assets/icons/apple-touch-icon-120x120.png
+assets/icons/apple-touch-icon-57x57.png
+assets/icons/apple-touch-icon.png
+assets/icons/favicon-194x194.png
+assets/icons/manifest.json
+assets/icons/mstile-310x310.png
 fFGHPtxt
 
 # Add all the concatenated slides to the list of filesForGHPages.txt
