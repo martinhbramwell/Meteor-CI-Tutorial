@@ -11,7 +11,7 @@ Table of Contents](./toc.html)
 ]
 <!-- H -->]
 .right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 ## Code Quality - Coding Style and Linting
 
@@ -42,7 +42,7 @@ Table of Contents](./toc.html)
 ]
 <!-- H -->]
 .right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Use ESLint on the Command Line
 
@@ -78,7 +78,7 @@ Table of Contents](./toc.html)
 ]
 <!-- H -->]
 .right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Configure Sublime Text to use the '.eslintrc' file
 
@@ -106,7 +106,7 @@ Table of Contents](./toc.html)
 ]
 <!-- H -->]
 .right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Customize the '.eslintrc' file
 
@@ -138,7 +138,7 @@ Table of Contents](./toc.html)
 ]
 <!-- H -->]
 .right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Correct the indicated code-quality defects
 
@@ -186,7 +186,7 @@ Table of Contents](./toc.html)
 ]
 <!-- H -->]
 .right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Ignore Files
 
@@ -219,7 +219,7 @@ Table of Contents](./toc.html)
 ]
 <!-- H -->]
 .right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Test again for code-quality defects
 
@@ -247,7 +247,7 @@ Table of Contents](./toc.html)
 ]
 <!-- H -->]
 .right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Go to the next section . . . 
 
@@ -255,7 +255,7 @@ We made unit testing and coding standards assurance as easy as possible.
 
 In the next section we will address jsDoc and GitHub pages, which together will make it as easy as possible to publish high quality documentation.  We will also be saving our work on our package to GitHub
 
-[Part #E - Code Quality - Automatic Documentation in the Cloud](./?part=E)
+[Part #E - Code Quality - Automatic Documentation in the Cloud](./toc.html?part=E)
 
 
 <!-- B -->]
