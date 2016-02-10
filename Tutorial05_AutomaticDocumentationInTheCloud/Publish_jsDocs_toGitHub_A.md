@@ -12,7 +12,7 @@ Table of Contents](./toc.html)
 ]
 <!-- H -->]
 .right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 #### Your jsDoc Documents as a GitHub Pages Website
 <a href="https://help.github.com/articles/what-are-github-pages/" target="_blank">The user guide for "GitHub Pages"</a>, shows how GitHub can publish <a href="https://help.github.com/articles/creating-project-pages-manually/" target="_blank">a special branch of your repository</a> as a web site.
 

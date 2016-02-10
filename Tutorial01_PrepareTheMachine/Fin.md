@@ -10,7 +10,7 @@ Table of Contents](./toc.html)
 ]
 <!-- H -->]
 .right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Go to the next section ...
 
@@ -20,7 +20,7 @@ Your virtual machine should now have all necessary system wide installations.
 
 The next part will guide you through the minimal basic set up tasks of a Meteor developer's work station with linting, unit testing and version control.
 
-[Part #B - Version Control In The Cloud](./?part=B)
+[Part #B - Version Control In The Cloud](./toc.html?part=B)
 
 
 <!-- B -->]

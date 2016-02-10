@@ -10,7 +10,7 @@ Table of Contents](./toc.html)
 ]
 <!-- H -->]
 .right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Go to the next section . . . 
 
@@ -18,7 +18,7 @@ Toegether, the preceding three parts will have left you with a minimal package, 
 
 The next section will guide you through preparations for ensuring coding standards conformance. 
 
-[Part #D - Code Quality - Coding Style and Linting](./?part=D)
+[Part #D - Code Quality - Coding Style and Linting](./toc.html?part=D)
 
 
 <!-- B -->]

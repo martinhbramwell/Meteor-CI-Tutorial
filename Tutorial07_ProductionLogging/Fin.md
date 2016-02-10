@@ -10,7 +10,7 @@ Table of Contents](./toc.html)
 ]
 <!-- H -->]
 .right-column[
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 #### Go to the next section . . . 
 
@@ -18,7 +18,7 @@ The preceding seven parts completed our exploration of a complete development to
 
 You should now have linting, logging, automated documentation, unit testing, version control, end-to-end testing and continuous deployment *in-the-cloud*.
 
-Now we'll look at a more useful package in [Part #H - A Real World Package](./?part=H)
+Now we'll look at a more useful package in [Part #H - A Real World Package](./toc.html?part=H)
 
 
 <!-- B -->]
