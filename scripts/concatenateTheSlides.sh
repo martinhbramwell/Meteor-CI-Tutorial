@@ -167,6 +167,8 @@ printf -v GITHUB_DIR "https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob
 printf "
    We're building for the %s branch of the repository.\n\n" ${CURRENT_BRANCH_OF_GIT};
 
+IS_REPO=$(ls -la | grep -c ".git");
+
 for idx_d in "${FILEPATHS[@]}"
 do
   FP="${idx_d}";
@@ -198,7 +200,7 @@ do
   esac
 
   applyManualVsAutomaticIndicator ${SKIP};
-  applyStatusUpdate ${FPA[0]}${FPA[1]}/${FPA[2]}.md;
+  if [[ ${IS_REPO} -gt 1 ]]; then applyStatusUpdate ${FPA[0]}${FPA[1]}/${FPA[2]}.md; fi;
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

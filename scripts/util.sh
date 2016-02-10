@@ -46,8 +46,8 @@ function verifyFreeSpace() {
       read -ep "Have you cleared enough space? (y/r/q) ::  " -n 1 -r USER_ANSWER
       CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
       if [[ "X${CHOICE}X" == "XqX" ]]; then
-        echo "Continuing . . . "
-        return 1;
+        echo "Quitting . . . "
+        exit 1;
       elif [[ ! "X${CHOICE}X" == "XrX" ]]; then
         FREESPACE=$(df / | grep dev | awk '{print $4}');
       fi;
@@ -110,6 +110,10 @@ function installToolsForTheseScripts() {
   fi;
 
   X="jq"; if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="virt-what"; if aptNotYetInstalled "${X}"; then
     sudo apt-get -y install "${X}";
   fi;
 
@@ -525,6 +529,10 @@ function checkNotRoot() {
 export CPU_WIDTH=;
 function checkForVirtualMachine() {
   echo -e "Analyzing environment . . .";
+
+  X="virt-what"; if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
 
   CPU_WIDTH=$(lshw -class cpu 2>/dev/null | grep width | sed 's/^[ \t]*//' | cut -d' ' -f2);
   CPU_MSG="CPU type : ${CPU_WIDTH}-bit";
