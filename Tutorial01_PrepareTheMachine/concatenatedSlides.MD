@@ -1,5 +1,5 @@
 layout: false
-last_update: 2016-02-09
+last_update: 2016-02-11
  .left-column[
   ### Part A INTRODUCTION
 
@@ -14,10 +14,10 @@ Table of Contents](./toc.html)
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 ##  Prepare the Machine
 
-These scripts will get you started easily with continuous deployment development, testing, documenting, logging, code style linting of Meteor packages.
+These scripts will get you started easily with: package development, testing, documenting, logging, code style linting and more, all on a platform of continuous integration, delivery and deployment.
 
 This first script, run with . . .
-```terminal
+```ruby
 sudo ./Tutorial01_PrepareTheMachine.sh
 ```
 . . . sets up all necessary preconditions for the remaining scripts.  As much as possible, this first step handles all tasks that require root access.
@@ -29,7 +29,7 @@ You can hit the 'a' key at any of the pause points to have it run **a**ll the re
 <!-- B -->]
 ---
 layout: false
-last_update: 2016-02-09
+last_update: 2016-02-11
  .left-column[
   ### Java required
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -51,17 +51,17 @@ Java 7 is required by Selenium, which is required by Nightwatch.  Selenium seems
 **Legal Notice** : Normally, the PPA installer will prompt you to accept Oracle's license.  If you run this step . . . **you accept the license agreement, implicitly!**
 
 ##### Example Commands
-```terminal
-  sudo add-apt-repository -y ppa:webupd8team/java
-  sudo apt-get update
-  sudo apt-get -y install oracle-java7-installer
+```ruby
+sudo add-apt-repository -y ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get -y install oracle-java7-installer
 ```
 
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L149" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-02-11
  .left-column[
   ### Install other tools
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -80,11 +80,11 @@ This sequence installs the following dependencies, if they're not already presen
 - 'build-essential' and 'libssl-dev' are required by <a href="http://www.seleniumhq.org/projects/webdriver/" target="_blank">Selenium Webdriver</a>
 - 'libappindicator1' for <a href='https://www.google.com/chrome/browser/desktop/' target='_blank'>Chrome</a>
 - '<a href='http://curl.haxx.se/' target='_blank'>curl</a>' for <a href='https://www.meteor.com/' target='_blank'>Meteor</a>
-- '<a href='https://git-scm.com/' target='_blank'>git</a>' and '<a href='http://www.openssh.com/' target='_blank'>ssh</a>' for version control
+- '<a href='https://git-scm.com/' target='_blank'>git</a>' and '<a href='http://www.openssh.com/' target='_blank'>ssh</a>' for version control.
 'tree', 'virt-what' and '<a href='https://pypi.python.org/pypi/pip' target='_blank'>pip</a>' for demo convenience
 
 ##### Example Commands
-```terminal
+```ruby
 sudo apt-get install -y build-essential libssl-dev  # for selenium webdriver
 sudo apt-get install -y libappindicator1            # for chrome
 sudo apt-get install -y curl                        # for Meteor
@@ -97,7 +97,7 @@ sudo apt-get install -y tree expect python-pip      # for demo convenience
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L176" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-02-11
  .left-column[
   ### Install NodeJS
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -119,7 +119,7 @@ You must have NodeJS to do Nightwatch testing.
 It can run on a separate computer from <a href='https://www.meteor.com/' target='_blank'>Meteor</a>, (but we'll do it all in this one).
 
 ##### Example Commands
-```terminal
+```ruby
 curl -sL https://deb.nodesource.com/setup | sudo bash -
 sudo apt-get install -y nodejs
 sudo apt-get -y autoremove
@@ -130,7 +130,7 @@ sudo apt-get -y autoremove
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L221" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-02-11
  .left-column[
   ### Selenium Web Driver for NodeJS
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -151,7 +151,7 @@ The <a href='https://nodejs.org/' target='_blank'>NodeJS</a> module <a href='htt
 We must first ensure that root has not taken ownership of the local .npm directory *(that can happen if you ran npm with sudo when you didn't need to)*.
 
 ##### Example Commands
-```terminal
+```ruby
 sudo chown -R ${USER}:${USER} ~/.npm
 sudo chown -R ${SUDOUSER}:${SUDOUSER} ~/node_modules
 npm install -y --prefix ${HOME} selenium-webdriver
@@ -162,7 +162,7 @@ npm install -y --prefix ${HOME} selenium-webdriver
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L235" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-02-11
  .left-column[
   ### Install Selenium Web Driver
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -183,7 +183,7 @@ Table of Contents](./toc.html)
 The <a href='https://code.google.com/p/selenium/wiki/ChromeDriver' target='_blank'>Chrome Driver</a> is the most convenient.  **Note**: This is not the Selenium Webdriver for NodeJS installed in the previous step.
 
 ##### Example Commands
-```terminal
+```ruby
 wget http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux${CPU_WIDTH}.zip
 sudo unzip -o chromedriver_linux${CPU_WIDTH}.zip -d /usr/local/bin
 sudo chmod a+rx /usr/local/bin/chromedriver
@@ -226,7 +226,7 @@ For ongoing server side logging during development or production we need a perma
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L292" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-02-11
  .left-column[
   ### Install Sublime Text 3 editor
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -251,7 +251,7 @@ Steps performed :
 If you just want to quickly follow the tutorial, then *do* execute this group of commands, otherwise install your usual editor/IDE.
 
 ##### Example Commands
-```terminal
+```ruby
 sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
 sudo apt-get update
 sudo apt-get install -y sublime-text-installer
@@ -262,7 +262,7 @@ sudo pip install -y beautifulsoup4 requests
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L320" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-02-11
  .left-column[
   ### Set Up Linting
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -285,7 +285,7 @@ Linting detects code style contraventions, improves maintainability, and flags m
   - preferred by Facebook, AirBnB and many other big names
 
 ##### Example Commands
-```terminal
+```ruby
 sudo npm install -y eslint
 sudo npm install -y eslint-plugin-react
 sudo npm install -y babel-eslint
@@ -297,7 +297,7 @@ There is a closely related ESLint package for Sublime Text.  We will install it 
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L360" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-02-11
  .left-column[
   ### Set Up Automatic Documentation
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -320,7 +320,7 @@ JSDoc can generate a very sophisticated documentation web site for you, directly
   - used by Google for controlling data types in <a href="https://developers.google.com/closure/compiler/docs/js-for-compiler" target="_blank">their JavaScript compiler.</a>
 
 ##### Example Commands
-```terminal
+```ruby
 sudo npm install -y jsdoc
 ```
 
@@ -330,7 +330,7 @@ There is a closely related JSDoc package for Sublime Text, which we will install
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L390" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-02-11
  .left-column[
   ### Prepare Sublime Text (Step #1)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
@@ -344,25 +344,37 @@ Table of Contents](./toc.html)
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-### Preparation of Sublime Text
-#### First step - add '<a href='https://packagecontrol.io/' target='_blank'>Package Control</a>'
+### Add 'Package Control' to Sublime Text
 
 We need <a href='http://www.sublimetext.com/3' target='_blank'>Sublime Text 3</a> configured as follows :
 
  - In your browser, go to the <a href='https://packagecontrol.io/installation' target='_blank'>Package Control installer URL</a>
  - Copy the code snippet for **Sublime Text 3**
- - Find Sublime Text in ```Start >> Development```, add it to the panel and start it up.
+ - Find the Sublime Text icon in your machine at ```Start >> Development```, add it to the panel and start it up (cancel update note if shown).
  - Go to ```View >> Show Console```, to open the Console
  - Paste the snippet into ST3's console, hit enter and respond to the two prompts.
  - Go to ```View >> Hide Console```, to close the Console
 
 ##### Example Commands
-```terminal
+```ruby
 export ST3URL="https://packagecontrol.io/installation#st3";
 python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print BeautifulSoup(requests.get('${ST3URL}').content, 'html.parser').findAll('p', class_='code st3')[0].code.contents[0].lstrip();print '<<<';"
 ```
 
 <!-- B -->
+<div id="gotkey" class="popup_div">
+    <a class="subtle_a" onmouseover="HideContent('gotkey'); return true;"
+       href="javascript:HideContent('gotkey')">
+        <p>If you find this slide hard to understand, watch <a target="_blank" href="https://www.youtube.com/watch?v=oMBYTwElMvk#t=3m13s.">the video beginning at 3:16.</a></p>
+    </a>
+</div>
+<a
+    class="hover_text"
+    onmouseover="ReverseContentDisplay('gotkey'); return true;"
+    href="javascript:ReverseContentDisplay('gotkey')">
+    <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note</i>
+</a>
+
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L406" target="_blank">Code for this step.</a>] ]
 ]
 ---
