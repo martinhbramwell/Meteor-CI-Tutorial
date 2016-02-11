@@ -14,10 +14,10 @@ Table of Contents](./toc.html)
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 ##  Prepare the Machine
 
-These scripts will get you started easily with continuous deployment development, testing, documenting, logging, code style linting of Meteor packages.
+These scripts will get you started easily with: package development, testing, documenting, logging, code style linting and more, all on a platform of continuous integration, delivery and deployment.
 
 This first script, run with . . .
-```terminal
+```ruby
 sudo ./Tutorial01_PrepareTheMachine.sh
 ```
 . . . sets up all necessary preconditions for the remaining scripts.  As much as possible, this first step handles all tasks that require root access.

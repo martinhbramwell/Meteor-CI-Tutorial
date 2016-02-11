@@ -22,7 +22,7 @@ Linting detects code style contraventions, improves maintainability, and flags m
   - preferred by Facebook, AirBnB and many other big names
 
 ##### Example Commands
-```terminal
+```ruby
 sudo npm install -y eslint
 sudo npm install -y eslint-plugin-react
 sudo npm install -y babel-eslint

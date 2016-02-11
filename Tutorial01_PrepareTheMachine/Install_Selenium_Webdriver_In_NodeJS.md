@@ -20,7 +20,7 @@ The <a href='https://nodejs.org/' target='_blank'>NodeJS</a> module <a href='htt
 We must first ensure that root has not taken ownership of the local .npm directory *(that can happen if you ran npm with sudo when you didn't need to)*.
 
 ##### Example Commands
-```terminal
+```ruby
 sudo chown -R ${USER}:${USER} ~/.npm
 sudo chown -R ${SUDOUSER}:${SUDOUSER} ~/node_modules
 npm install -y --prefix ${HOME} selenium-webdriver

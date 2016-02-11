@@ -20,7 +20,7 @@ Table of Contents](./toc.html)
 The <a href='https://code.google.com/p/selenium/wiki/ChromeDriver' target='_blank'>Chrome Driver</a> is the most convenient.  **Note**: This is not the Selenium Webdriver for NodeJS installed in the previous step.
 
 ##### Example Commands
-```terminal
+```ruby
 wget http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux${CPU_WIDTH}.zip
 sudo unzip -o chromedriver_linux${CPU_WIDTH}.zip -d /usr/local/bin
 sudo chmod a+rx /usr/local/bin/chromedriver

@@ -21,7 +21,7 @@ You must have NodeJS to do Nightwatch testing.
 It can run on a separate computer from <a href='https://www.meteor.com/' target='_blank'>Meteor</a>, (but we'll do it all in this one).
 
 ##### Example Commands
-```terminal
+```ruby
 curl -sL https://deb.nodesource.com/setup | sudo bash -
 sudo apt-get install -y nodejs
 sudo apt-get -y autoremove

@@ -413,7 +413,7 @@ function EnforceOwnershipAndPermissions() {
 
   export BIN_DIR=/usr/local/bin;
   mkdir -p ~/.npm;
-  chown -R ${SUDOUSER}:${SUDOUSER} ~/.npm;
+  sudo chown -R ${SUDOUSER}:${SUDOUSER} ~/.npm;
   mkdir -p ${BIN_DIR};
   sudo touch ${BIN_DIR}/meteor;
   sudo chown -R ${SUDOUSER}:${SUDOUSER} ${BIN_DIR};

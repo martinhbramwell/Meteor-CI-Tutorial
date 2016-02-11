@@ -22,10 +22,10 @@ Java 7 is required by Selenium, which is required by Nightwatch.  Selenium seems
 **Legal Notice** : Normally, the PPA installer will prompt you to accept Oracle's license.  If you run this step . . . **you accept the license agreement, implicitly!**
 
 ##### Example Commands
-```terminal
-  sudo add-apt-repository -y ppa:webupd8team/java
-  sudo apt-get update
-  sudo apt-get -y install oracle-java7-installer
+```ruby
+sudo add-apt-repository -y ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get -y install oracle-java7-installer
 ```
 
 <!-- B -->
