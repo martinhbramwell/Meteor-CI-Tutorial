@@ -406,7 +406,7 @@ Table of Contents](./toc.html)
 
 <!-- B -->]
 ---
-last_update: 2016-02-09
+last_update: 2016-02-11
  .left-column[
   ### End Of Part #A
 .footnote[.red.bold[] [
@@ -425,7 +425,7 @@ The preceding section required 'sudo' at nearly every step. Following sections, 
 
 Your virtual machine should now have all necessary system wide installations.
 
-The next part will guide you through the minimal basic set up tasks of a Meteor developer's work station with linting, unit testing and version control.
+The next part will guide you through the minimal basic set up tasks of a Meteor developer's work station coordinated with version control in GitHub.
 
 [Part #B - Version Control In The Cloud](./toc.html?part=B)
 
