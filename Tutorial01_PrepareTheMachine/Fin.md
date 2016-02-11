@@ -18,7 +18,7 @@ The preceding section required 'sudo' at nearly every step. Following sections, 
 
 Your virtual machine should now have all necessary system wide installations.
 
-The next part will guide you through the minimal basic set up tasks of a Meteor developer's work station with linting, unit testing and version control.
+The next part will guide you through the minimal basic set up tasks of a Meteor developer's work station coordinated with version control in GitHub.
 
 [Part #B - Version Control In The Cloud](./toc.html?part=B)
 

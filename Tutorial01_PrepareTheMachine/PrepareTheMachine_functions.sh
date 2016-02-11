@@ -417,7 +417,8 @@ function EnforceOwnershipAndPermissions() {
   mkdir -p ${BIN_DIR};
   sudo touch ${BIN_DIR}/meteor;
   sudo chown -R ${SUDOUSER}:${SUDOUSER} ${BIN_DIR};
-  sudo chmod -R a+w ${BIN_DIR};
+  sudo chmod -R ug+w ${BIN_DIR};
+  sudo chmod ug+rwx ${BIN_DIR}/meteor;
   sudo rm -fr /tmp/circleci_artifacts.json;
   sudo rm -fr /tmp/circleci_dk_spec.json;
   sudo rm -fr /tmp/build;
