@@ -22,17 +22,15 @@ Package.onUse(function(api) {
   api.addFiles(['logger.js', '${PKG_NAME}.js'], ['server']);
   api.export('Logger');
 });
-``` 
-```javascript
 Package.onTest(function(api) {
        :
   api.addFiles(['logger.js', '${PKG_NAME}-tests.js'], ['server']);
   api.export('Logger');
 });
 ```
-Rerun the tests while watching a ```tail``` of the log file.
+Rerun the tests with ```meteor --settings settings.json test-packages``` while watching the ```tail``` of the log file.
 ```terminal
-tail -f /var/log/meteor/ci4meteor.log  | bunyan -o short
+tail -f /var/log/meteor/ci4meteor.log | bunyan -o short
 ```
 
 

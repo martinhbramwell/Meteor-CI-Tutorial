@@ -315,9 +315,9 @@ Create a ```settings.json``` file in the project root directory :
 {   "LOGDIR": "/var/log/meteor/ci4meteor.log"  }
 ```
 
-To save logs to a server-side file under ```/var/log/meteor``` start Meteor with ```meteor --settings settings.json```.  To get prettified logs output on the command line you can use ```meteor --raw-logs | bunyan -o short```.
+In future, to save logs to a server-side file under ```/var/log/meteor``` start Meteor with ```meteor --settings settings.json``` and to get prettified logs output on the command line you can use ```meteor --raw-logs | bunyan -o short```.
 
-Unfortunately, left as is, we get a ```Logger is not defined``` error, because ```Logger``` must be 'wired' into our package... 
+Unfortunately, however, as it is, we get a ```Logger is not defined``` error, because ```Logger``` must be 'wired' into our package... 
 
 <!-- B -->]
 ---
@@ -344,17 +344,15 @@ Package.onUse(function(api) {
   api.addFiles(['logger.js', '${PKG_NAME}.js'], ['server']);
   api.export('Logger');
 });
-``` 
-```javascript
 Package.onTest(function(api) {
        :
   api.addFiles(['logger.js', '${PKG_NAME}-tests.js'], ['server']);
   api.export('Logger');
 });
 ```
-Rerun the tests while watching a ```tail``` of the log file.
+Rerun the tests with ```meteor --settings settings.json test-packages``` while watching the ```tail``` of the log file.
 ```terminal
-tail -f /var/log/meteor/ci4meteor.log  | bunyan -o short
+tail -f /var/log/meteor/ci4meteor.log | bunyan -o short
 ```
 
 
