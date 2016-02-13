@@ -27,20 +27,6 @@ function Refactor_Bunyan_InstantiationB() {
 
 
 
-function Refactor_Bunyan_InstantiationC0() {
-
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
-
-    wget -O package.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/package_T07_10.js
-    sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" package.js
-    sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" package.js
-
-  popd >/dev/null;
-
-}
-
-
-
 function Refactor_Bunyan_InstantiationC() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
@@ -59,6 +45,20 @@ function Refactor_Bunyan_InstantiationC() {
 
 }
 
+
+
+
+function Refactor_Bunyan_InstantiationC0() {
+
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
+
+    wget -O package.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/package_T07_10.js
+    sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" package.js
+    sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" package.js
+
+  popd >/dev/null;
+
+}
 
 
 function Package_Upgrade_and_Project_Rebuild_A() {

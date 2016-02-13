@@ -25,7 +25,7 @@ function Another_NodeJS_moduleC() {
     pushd ./packages/${PKG_NAME} >/dev/null;
 
       source ./tools/testing/reloadSwaggerPetStore.sh
-      reloadSwaggerPetStore
+      # reloadSwaggerPetStore;
       wget -O ${PKG_NAME}.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js
 
     popd >/dev/null;

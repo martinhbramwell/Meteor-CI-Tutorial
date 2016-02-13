@@ -45,10 +45,17 @@ function explain()
     	echo -e "Hit : '${RED}y${NC}es'  or '${RED}<enter>${NC}' to execute the group, '${RED}q${NC}uit' OR '${RED}<ctrl-c>${NC}' to quit"
     	read -p "  ${LAST}'n', 'q' or <enter> ::  " -n 1 -r USER_ANSWER
 
-    	CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
-      RUN_RULE=${CHOICE};
-    	if [ "X${CHOICE}X" == "XnX" ]; then return 0; fi;
-      if [ "X${CHOICE}X" == "XqX" ]; then echo ""; exit 0; fi;
+      while [[ 0 -eq 0 ]]; do
+        CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
+        RUN_RULE=${CHOICE};
+        if [[ "X${CHOICE}X" == "XX"  ||
+              "X${CHOICE}X" == "XnX" ||
+              "X${CHOICE}X" == "XyX" ||
+              "X${CHOICE}X" == "XaX" ]]; then return 0; fi;
+        if [ "X${CHOICE}X" == "XqX" ]; then echo ""; exit 0; fi;
+        echo "";
+        read -p "  ${LAST}'n', 'q' or <enter> ::  " -n 1 -r USER_ANSWER
+      done;
 
     fi;
   fi;

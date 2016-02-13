@@ -17,7 +17,7 @@ Table of Contents](./toc.html)
 
 ... continuing.
 
-<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Obtain a new</a> ```'${PKG_NAME}.js'``` file, that's improved like this :
+<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Obtain a new</a> ```'${PKG_NAME}.js'```, that's improved like this:
 
 ```javascript
 const Client = Npm.require('swagger-client');

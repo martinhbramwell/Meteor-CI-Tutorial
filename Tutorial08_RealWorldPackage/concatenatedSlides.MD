@@ -56,7 +56,7 @@ Npm.depends({
 });
 ```
 
-<a href='http://petstore.swagger.io/#!/pet/getPetById' target='_blank'>Swagger Client</a> gives instant connectivity to remote REST APIs, based solely on  <a href='http://petstore.swagger.io/v2/swagger.json' target='_blank'>a machine readable API specification :  ```'swagger.json'```</a>.
+<a href='http://petstore.swagger.io/#!/pet/getPetById' target='_blank'>Swagger Client</a> gives instant connectivity to remote REST APIs, based solely on <a href='http://petstore.swagger.io/v2/swagger.json' target='_blank'>a machine readable API specification :  ```'swagger.json'```</a>.
 
 We are going to develop and test a Swagger client package.
 
@@ -119,7 +119,7 @@ Table of Contents](./toc.html)
 
 ... continuing.
 
-<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Obtain a new</a> ```'${PKG_NAME}.js'``` file, that's improved like this :
+<a href='https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/yourpackage.js' target='_blank'>Obtain a new</a> ```'${PKG_NAME}.js'```, that's improved like this:
 
 ```javascript
 const Client = Npm.require('swagger-client');
