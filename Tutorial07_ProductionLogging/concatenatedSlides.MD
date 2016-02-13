@@ -287,7 +287,7 @@ Continuing . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L1" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-12
+last_update: 2016-02-13
  .left-column[
   ### Refactor Bunyan (B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
@@ -321,10 +321,10 @@ Unfortunately, however, as it is, we get a ```Logger is not defined``` error, be
 
 <!-- B -->]
 ---
-last_update: 2016-02-12
+last_update: 2016-02-13
  .left-column[
   ### Refactor Bunyan (C)
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -356,7 +356,9 @@ tail -f /var/log/meteor/ci4meteor.log | bunyan -o short
 ```
 
 
-<!-- B -->]
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L30" target="_blank">Code for this step.</a>] ]
+]
 ---
 last_update: 2016-02-09
  .left-column[
@@ -388,7 +390,7 @@ Continues . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L45" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-02-13
  .left-column[
   ### Package Upgrade (B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -415,7 +417,7 @@ meteor list
 To finish: commit the package, then commit the project and then watch CircleCI for rebuild success.
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L63" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L70" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-02-09
