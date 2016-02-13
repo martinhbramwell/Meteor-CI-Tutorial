@@ -1,5 +1,5 @@
 ---
-last_update: 2016-02-09
+last_update: 2016-02-13
  .left-column[
   ### Package Upgrade (B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -26,5 +26,5 @@ meteor list
 To finish: commit the package, then commit the project and then watch CircleCI for rebuild success.
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L71" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L70" target="_blank">Code for this step.</a>] ]
 ]
