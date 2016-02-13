@@ -1,8 +1,8 @@
 ---
-last_update: 2016-02-09
+last_update: 2016-02-12
  .left-column[
   ### Refactor Bunyan (C)
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -34,4 +34,6 @@ tail -f /var/log/meteor/ci4meteor.log | bunyan -o short
 ```
 
 
-<!-- B -->]
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L31" target="_blank">Code for this step.</a>] ]
+]

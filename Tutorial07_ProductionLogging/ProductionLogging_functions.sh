@@ -10,7 +10,6 @@ function Refactor_Bunyan_InstantiationA() {
 }
 
 
-
 function Refactor_Bunyan_InstantiationB() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
@@ -28,7 +27,7 @@ function Refactor_Bunyan_InstantiationB() {
 
 
 
-function Refactor_Bunyan_InstantiationC() {
+function Refactor_Bunyan_InstantiationC0() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME} >/dev/null;
 
@@ -42,7 +41,7 @@ function Refactor_Bunyan_InstantiationC() {
 
 
 
-function Package_Upgrade_and_Project_Rebuild_A() {
+function Refactor_Bunyan_InstantiationC() {
 
   pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
 
@@ -57,6 +56,14 @@ function Package_Upgrade_and_Project_Rebuild_A() {
 
   killMeteorProcess
   read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
+
+}
+
+
+
+function Package_Upgrade_and_Project_Rebuild_A() {
+
+   echo -e "\n\nThis should be skipped.\n\n";
 
 }
 

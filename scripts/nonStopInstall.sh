@@ -3,12 +3,11 @@
 set -e;
 
 declare PROCESS_THIS=true;  # true OR false
-CRP=$(sudo pwd);
 
+source ./tasksRange.sh;
 
 source ./scripts/manageShellVars.sh;
 source ./scripts/util.sh;
-#source ./scripts/taskRunner.sh
 
 checkForVirtualMachine;
 echo -e "\n   Checked for virtual machine\n          - o 0 o - \n";
@@ -32,24 +31,10 @@ export TARGET_SERVER_URL="https://${PROJECT_URI}/";
 export PACKAGES=~/${PARENT_DIR}/packages;
 
 
-# collectSectionNames;
-# # Loop through all sections getting their functions
-# II=1;
-# # echo "Getting functions from: ";
-# while [ ${II} -le ${#TUTORIAL_SECTIONS[@]} ]
-# do
-#   setSection ${II};
-# #  echo " - ${BINDIR}/${SECTION}_functions.sh";
-#   source "${BINDIR}/${SECTION}_functions.sh";
-#   II=$[$II+1]
-# done;
-
-
-
 # ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~
-installToolsForTheseScripts;
-echo -e "\n   Installed Tools For These Scripts\n          - o 0 o - \n";
 
+#installToolsForTheseScripts;
+echo -e "\n   Installed Tools For These Scripts\n          - o 0 o - \n";
 
 source ./scripts/explain.sh
 RUN_RULE="";
@@ -60,8 +45,11 @@ echo -e "\n   Installed Other Tools\n          - o 0 o - \n";
 Configure_git_for_GitHub;
 echo -e "\n   Configured git for GitHub\n          - o 0 o - \n";
 
-set +e; sudo killall -qs SIGKILL ssh-agent; set -e;
-echo -e "\n   Killed extraneous ssh-agent instances\n          - o 0 o - \n";
+#
+if [[ $(ps aux | grep -v grep | grep -c ssh-agent) -gt 0 ]]; then
+  set +e; sudo killall -qs SIGKILL ssh-agent; set -e;
+  echo -e "\n   Killed extraneous ssh-agent instances\n          - o 0 o - \n";
+fi;
 
 #    ~    ~    ~    ~    ~    ~    ~    ~    1    ~    ~    ~    ~    ~    ~
 #    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~    ~
@@ -80,7 +68,7 @@ echo -e "\n   Killed extraneous ssh-agent instances\n          - o 0 o - \n";
 
 
 source ./scripts/taskRunner.sh
-#ProcessTasksBetween;
+
 exit;
 
 

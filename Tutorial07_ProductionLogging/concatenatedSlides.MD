@@ -287,7 +287,7 @@ Continuing . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L1" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-02-12
  .left-column[
   ### Refactor Bunyan (B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -317,14 +317,14 @@ Create a ```settings.json``` file in the project root directory :
 
 In future, to save logs to a server-side file under ```/var/log/meteor``` start Meteor with ```meteor --settings settings.json``` and to get prettified logs output on the command line you can use ```meteor --raw-logs | bunyan -o short```.
 
-Unfortunately, however, as it is, we get a ```Logger is not defined``` error, because ```Logger``` must be 'wired' into our package... 
+Unfortunately, however, as it is, we get a ```Logger is not defined``` error, because ```Logger``` must be 'wired' into our package...
 
 <!-- B -->]
 ---
-last_update: 2016-02-09
+last_update: 2016-02-12
  .left-column[
   ### Refactor Bunyan (C)
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -356,7 +356,9 @@ tail -f /var/log/meteor/ci4meteor.log | bunyan -o short
 ```
 
 
-<!-- B -->]
+<!-- B -->
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L31" target="_blank">Code for this step.</a>] ]
+]
 ---
 last_update: 2016-02-09
  .left-column[
@@ -415,7 +417,7 @@ meteor list
 To finish: commit the package, then commit the project and then watch CircleCI for rebuild success.
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L63" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial07_ProductionLogging/ProductionLogging_functions.sh#L71" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-02-09
