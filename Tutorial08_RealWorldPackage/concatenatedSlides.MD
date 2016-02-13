@@ -30,7 +30,7 @@ Get started now by running ...
 
 <!-- B -->]
 ---
-last_update: 2016-02-09
+last_update: 2016-02-13
  .left-column[
   ### Another NodeJS Module (A)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -101,7 +101,7 @@ Continues ...
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial08_RealWorldPackage/RealWorldPackage_functions.sh#L2" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-02-13
  .left-column[
   ### Another NodeJS Module (C)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
