@@ -403,6 +403,28 @@ function Install_jsdoc() {
 
 }
 
+function Install_Android_Dependencies() {
+
+  X="lib32ncurses5-dev"; if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="lib32ncurses5";     if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="lib32stdc++6";      if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+  X="lib32z1";           if aptNotYetInstalled "${X}"; then
+    sudo apt-get -y install "${X}";
+  fi;
+
+}
+
+ # ?? ia32-libs lib32asound2 lib32gcc1 libc6-i386 ??
+
 function Configure_Sublime_A() {
   export ST3URL="https://packagecontrol.io/installation#st3";
   echo "If there is no networking error, then the following text will be the snippet obtained from  : ${ST3URL}";

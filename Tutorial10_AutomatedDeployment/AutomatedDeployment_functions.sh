@@ -207,18 +207,23 @@ function BuildAndroidAPK_B() {
 
 }
 
+export METEOR_LOGIN_EXPECT="meteorAutoLogin.exp";
+export METEOR_FRAGS="MobileCI/meteor";
+export PROCESS_TO_SPAWN="${HOME}/.meteor/meteor";
 function logInToMeteor() {
 
   set +e;
-  ./fragments/meteorAutoLogin.exp ${METEOR_UID} ${METEOR_PWD};
+  echo -e "./fragments/${METEOR_FRAGS}/${METEOR_LOGIN_EXPECT}  ${PROCESS_TO_SPAWN} ${METEOR_UID} ${METEOR_PWD};"
+  ./fragments/${METEOR_FRAGS}/${METEOR_LOGIN_EXPECT} ${PROCESS_TO_SPAWN} ${METEOR_UID} ${METEOR_PWD};
   E=$?;
-#  echo "Result is ${E}";
+  echo "Result is ${E}";
   until [[ $E -eq 0 ]]; do
     askUserForParameters PARM_NAMES[@];
-    ./fragments/meteorAutoLogin.exp ${METEOR_UID} ${METEOR_PWD};
+    if [[ $? -gt 0 ]]; then return 1; fi;
+    ./fragments/${METEOR_FRAGS}/${METEOR_LOGIN_EXPECT} ${PROCESS_TO_SPAWN} ${METEOR_UID} ${METEOR_PWD};
     E=$?;
   done;
-#  echo -e "Log in result :: $E";
+  #  echo -e "Log in result :: $E";
   set -e;
 
 }
@@ -256,6 +261,7 @@ function ConnectToMeteor() {
       *)
           echo "This can't be happening!"
   esac;
+  if [[ $? -gt 0 ]]; then exit 1; fi;
   echo -e "
     Done connecting to Meteor."
 
@@ -427,7 +433,6 @@ function PrepareCIwithAndroidBuilder() {
 
 export TARGET_SERVER_PHRASE="    TARGET_SERVER_URL: \${CIRCLE_PROJECT_REPONAME}-\${CIRCLE_PROJECT_USERNAME}.meteor.com";
 export METEOR_DEPLOY_SCRIPT="deploy-to-server.sh";
-export METEOR_LOGIN_EXPECT="meteorAutoLogin.exp";
 export DPLY_CMNT="      # Deploying to meteor.com";
 export  DPLY_CMD="      - source .\/tools\/meteor\/deploy-to-server.sh \&\& DeployToMeteorServer";
 function PrepareCIwithMeteorDeployment() {
@@ -438,11 +443,11 @@ function PrepareCIwithMeteorDeployment() {
       pushd ${METEOR_TOOLS_DIR} >/dev/null;
 
         echo "Obtain ${METEOR_DEPLOY_SCRIPT}";
-        wget -nc ${TUTORIAL_FRAGMENTS}/MobileCI/meteor/${METEOR_DEPLOY_SCRIPT};
+        wget -nc ${TUTORIAL_FRAGMENTS}/${METEOR_FRAGS}//${METEOR_DEPLOY_SCRIPT};
         chmod a+x ${METEOR_DEPLOY_SCRIPT};
 
         echo "Obtain ${METEOR_LOGIN_EXPECT}";
-        wget -nc ${TUTORIAL_FRAGMENTS}/MobileCI/meteor/${METEOR_LOGIN_EXPECT};
+        wget -nc ${TUTORIAL_FRAGMENTS}/${METEOR_FRAGS}//${METEOR_LOGIN_EXPECT};
         chmod a+x ${METEOR_LOGIN_EXPECT};
 
       popd >/dev/null;

@@ -84,6 +84,9 @@ if [ "${RUN_RULE}" != "n" ]; then Install_eslint; fi;
 explain ${BINDIR}/Install_jsdoc.md ACTION # CODE_BLOCK
 if [ "${RUN_RULE}" != "n" ]; then Install_jsdoc; fi;
 
+explain ${BINDIR}/Install_Android_Dependencies.md MORE_ACTION # CODE_BLOCK
+if [ "${RUN_RULE}" != "n" ]; then Install_Android_Dependencies; fi;
+
 highlight ${BINDIR}/Configure_Sublime_A.md # CODE_BLOCK explain MANUAL_INPUT_REQUIRED
 echo "";
 Configure_Sublime_A;

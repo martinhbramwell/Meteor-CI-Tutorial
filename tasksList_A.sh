@@ -10,13 +10,13 @@ export arrFunctionDefinitions=(
   "01|PrepareTheMachine|This_tutorial_expects_to_use_the_Sublime_Text_3_editor_A|Got Sublime Text 3 Installer|, but [ci skip].|"
   "01|PrepareTheMachine|Install_NodeJS|NodeJS has been installed|, but [ci skip].|"
   "01|PrepareTheMachine|Java_7_is_required_by_Nightwatch_B|Java has been installed|, but [ci skip].|"
-  "01|PrepareTheMachine|Ready_for_Android_Studio|Verified ready for Android Studio.|, but [ci skip].|"
   "01|PrepareTheMachine|Install_Selenium_Webdriver_In_NodeJS|Install Selenium Webdriver In NodeJS|, but [ci skip].|"
   "01|PrepareTheMachine|Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome|Installed Google Chrome and the Selenium Web Driver for Chrome|, but [ci skip].|"
   "01|PrepareTheMachine|Install_Bunyan_Globally|Installed Bunyan Globally|, but [ci skip].|"
   "01|PrepareTheMachine|This_tutorial_expects_to_use_the_Sublime_Text_3_editor_B|Prepared the Sublime Text editor|, but [ci skip].|"
   "01|PrepareTheMachine|Install_eslint|Installed ESLint|, but [ci skip].|"
   "01|PrepareTheMachine|Install_jsdoc|Installed JSDoc|, but [ci skip].|"
+  "01|PrepareTheMachine|Install_Android_Dependencies|Installed  Android Dependencies|, but [ci skip].|"
   "01|PrepareTheMachine|EnforceOwnershipAndPermissions|Enforced Ownership and Permissions|, but [ci skip].|"
   "02|VersionControlInTheCloud|Install_Meteor_NonStop|Installed Meteor|, but [ci skip].|"
   "02|VersionControlInTheCloud|Create_GitHub_Repo_Deploy_Keys_for_Project|Created GitHub Repo Deploy Keys for '${PROJECT_NAME}'?|, but [ci skip].|"
@@ -97,7 +97,9 @@ reminder=(
 
 );
 
+# Probably obsolete items
 scrap=(
+  "01|PrepareTheMachine|Ready_for_Android_Studio|Verified ready for Android Studio.|, but [ci skip].|"
 );
 
 
