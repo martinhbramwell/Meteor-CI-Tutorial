@@ -13,4 +13,14 @@ send "${PASSWORD}\r";
 sleep 3;
 expect "Logged in as ${USERNAME}.";
 
+foreach {pid spawnid os_error_flag value} [wait] break
+
+if {$os_error_flag == 0} {
+  puts "exit status: $value"
+  exit $value
+} else {
+  puts "system error : $value"
+  exit $value
+}
+
 exit;
