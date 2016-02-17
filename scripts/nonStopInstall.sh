@@ -33,7 +33,7 @@ export PACKAGES=~/${PARENT_DIR}/packages;
 
 # ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~
 
-#installToolsForTheseScripts;
+installToolsForTheseScripts;
 echo -e "\n   Installed Tools For These Scripts\n          - o 0 o - \n";
 
 source ./scripts/explain.sh

@@ -72,7 +72,6 @@ function installToolsForTheseScripts() {
   X="python-pygments"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
   X="gettext"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
   X="jq"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
-  X="virt-what"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
 
   echo "${#INST[@]} packages not installed.";
   if [[ ${#INST[@]} -lt 1 ]]; then return 0; fi;
@@ -110,10 +109,6 @@ function installToolsForTheseScripts() {
   fi;
 
   X="jq"; if aptNotYetInstalled "${X}"; then
-    sudo apt-get -y install "${X}";
-  fi;
-
-  X="virt-what"; if aptNotYetInstalled "${X}"; then
     sudo apt-get -y install "${X}";
   fi;
 
@@ -534,15 +529,17 @@ function checkForVirtualMachine() {
   else
     echo -e "Analyzing environment . . .";
 
-    X="virt-what"; if aptNotYetInstalled "${X}"; then
-      sudo apt-get -y install "${X}";
-    fi;
     CPU_WIDTH=$(lshw -class cpu 2>/dev/null | grep width | sed 's/^[ \t]*//' | cut -d' ' -f2);
     CPU_MSG="CPU type : ${CPU_WIDTH}-bit";
 
     if [[ 0 < $(grep -c docker /proc/1/cgroup) ]]; then
       echo "Running in a Docker container. ${CPU_MSG}";
      else
+
+      X="virt-what"; if aptNotYetInstalled "${X}"; then
+        sudo apt-get -y install "${X}";
+      fi;
+
       VMTST=$(sudo virt-what);
       if [[ "X${VMTST}X" == "XX" ]]; then
 
@@ -565,7 +562,7 @@ function checkForVirtualMachine() {
 
     sudo tee /usr/local/MeteorCITutorialVmFlag <<<"Virtual environment detected previously." >/dev/null;
   fi;
-  
+
 }
 
 

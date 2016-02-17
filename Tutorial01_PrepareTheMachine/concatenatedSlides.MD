@@ -58,7 +58,7 @@ sudo apt-get -y install oracle-java7-installer
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L149" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L94" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-02-11
@@ -81,15 +81,15 @@ This sequence installs the following dependencies, if they're not already presen
 - 'libappindicator1' for <a href='https://www.google.com/chrome/browser/desktop/' target='_blank'>Chrome</a>
 - '<a href='http://curl.haxx.se/' target='_blank'>curl</a>' for <a href='https://www.meteor.com/' target='_blank'>Meteor</a>
 - '<a href='https://git-scm.com/' target='_blank'>git</a>' and '<a href='http://www.openssh.com/' target='_blank'>ssh</a>' for version control.
-'tree', 'virt-what' and '<a href='https://pypi.python.org/pypi/pip' target='_blank'>pip</a>' for demo convenience
+'tree', 'expect', 'virt-what' and '<a href='https://pypi.python.org/pypi/pip' target='_blank'>pip</a>' for demo convenience
 
 ##### Example Commands
 ```ruby
-sudo apt-get install -y build-essential libssl-dev  # for selenium webdriver
-sudo apt-get install -y libappindicator1            # for chrome
-sudo apt-get install -y curl                        # for Meteor
-sudo apt-get install -y git ssh                     # for version control
-sudo apt-get install -y tree expect python-pip      # for demo convenience
+sudo apt-get install -y build-essential libssl-dev       # for selenium webdriver
+sudo apt-get install -y libappindicator1                 # for chrome
+sudo apt-get install -y curl                             # for Meteor
+sudo apt-get install -y git ssh                          # for version control
+sudo apt-get install -y tree expect virt-what python-pip # for demo convenience
 ```
 
 
@@ -127,7 +127,7 @@ sudo apt-get -y autoremove
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L221" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L123" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-02-11
@@ -159,7 +159,7 @@ npm install -y --prefix ${HOME} selenium-webdriver
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L235" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L137" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-02-11
@@ -192,7 +192,7 @@ sudo dpkg -i google-chrome-stable_current_amd${CPU_WIDTH}.deb
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L254" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L156" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-02-09
@@ -223,7 +223,7 @@ For ongoing server side logging during development or production we need a perma
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L292" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L194" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-02-11
@@ -259,7 +259,7 @@ sudo pip install -y beautifulsoup4 requests
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L320" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L222" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-02-11
@@ -294,7 +294,7 @@ sudo npm install -y babel-eslint
 There is a closely related ESLint package for Sublime Text.  We will install it in the next section.
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L360" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L262" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-02-11
@@ -327,7 +327,7 @@ sudo npm install -y jsdoc
 There is a closely related JSDoc package for Sublime Text, which we will install in the next section.
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L390" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L292" target="_blank">Code for this step.</a>] ]
 ]
 ---
 
@@ -357,7 +357,7 @@ sudo apt-get install -y libncurses5-dev
 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L406" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L308" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-02-14
@@ -405,7 +405,7 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
     <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L428" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L330" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-02-09

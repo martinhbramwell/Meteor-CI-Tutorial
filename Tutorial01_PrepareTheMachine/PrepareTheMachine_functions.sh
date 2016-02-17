@@ -7,61 +7,6 @@ function verifyRootUser() {
 }
 
 
-# function installToolsForTheseScripts() {
-
-#   INST=();
-
-#   pushd ${HOME} >/dev/null;
-#     sudo apt-get -y update;
-#   popd >/dev/null;
-
-#   X="gawk"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
-#   X="git"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
-#   X="python-pygments"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
-#   X="gettext"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
-#   X="jq"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
-#   X="virt-what"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;
-
-#   echo "${#INST[@]} packages not installed.";
-#   if [[ ${#INST[@]} -lt 1 ]]; then return 0; fi;
-
-#   printf  "
-#           The first step requires installing some missing tools that
-#         make these explanations more readable.  These are :  ";
-#   echo "";
-#   for var in "${INST[@]}";
-#   do
-#     echo "          - ${var}";
-#   done;
-#   echo "";
-
-#   read -p "  'q' or <enter> ::  " -n 1 -r USER_ANSWER;
-
-#   CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]');
-#   RUN_RULE=${CHOICE};
-#   if [ "X${CHOICE}X" == "XqX" ]; then echo ""; exit 0; fi;
-
-#   # Make sure we atart off with the right version of awk.
-#   X="git"; if aptNotYetInstalled "${X}"; then
-#     sudo apt-get -y install "${X}";
-#   fi;
-
-#   if aptNotYetInstalled gawk; then
-#     sudo apt-get -y install gawk;
-#     sudo update-alternatives --set awk /usr/bin/gawk;
-#   fi;
-
-#   # These scripts also need "Pygmentize" to colorize text
-#   # and "jq" to parse JSON
-#   X="python-pygments"; if aptNotYetInstalled "${X}"; then
-#     sudo apt-get -y install "${X}";
-#   fi;
-
-#   X="jq"; if aptNotYetInstalled "${X}"; then
-#     sudo apt-get -y install "${X}";
-#   fi;
-
-# }
 
 
 function Ready_for_Android_Studio() {
@@ -173,50 +118,7 @@ function Java_7_is_required_by_Nightwatch_B() {
 
 }
 
-# function Install_other_tools() {
 
-#   X="build-essential";             # for selenium webdriver
-#   if aptNotYetInstalled "${X}"; then
-#     sudo apt-get -y install "${X}";
-#   fi;
-
-#   X="libssl-dev";                  # for selenium webdriver
-#   if aptNotYetInstalled "${X}"; then
-#     sudo apt-get -y install "${X}";
-#   fi;
-
-#   X="libappindicator1";            # for chrome
-#   if aptNotYetInstalled "${X}"; then
-#     sudo apt-get -y install "${X}";
-#   fi;
-
-#   X="curl";                        # for Meteor
-#   if aptNotYetInstalled "${X}"; then
-#     sudo apt-get -y install "${X}";
-#   fi;
-
-#   X="ssh";                         # for version control
-#   if aptNotYetInstalled "${X}"; then
-#     sudo apt-get -y install "${X}";
-#   fi;
-
-#   X="tree";                        # for demo convenience
-#   if aptNotYetInstalled "${X}"; then
-#     sudo apt-get -y install "${X}";
-#   fi;
-
-#   X="expect";                        # for demo convenience
-#   if aptNotYetInstalled "${X}"; then
-#     sudo apt-get -y install "${X}";
-#   fi;
-
-#   X="python-pip";                  # for demo convenience
-#   if aptNotYetInstalled "${X}"; then
-#     sudo apt-get -y install "${X}";
-#   fi;
-
-
-# }
 
 function Install_NodeJS() {
 
