@@ -41,8 +41,9 @@ function Refactor_Bunyan_InstantiationC() {
   popd >/dev/null;
 
   killMeteorProcess
-  read -p "To continue hit <enter> ::  " -n 1 -r USER_ANSWER
-
+  if [[ "X${NONSTOP}X" == "XX" ]]; then
+    read -p "To continue hit :: ${NONSTOP}" -n 1 -r USER_ANSWER
+  fi;
 }
 
 

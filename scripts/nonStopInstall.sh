@@ -3,6 +3,7 @@
 set -e;
 
 declare PROCESS_THIS=true;  # true OR false
+declare NONSTOP="yes";
 
 source ./tasksRange.sh;
 
