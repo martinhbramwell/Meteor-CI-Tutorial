@@ -8,7 +8,8 @@ function verifyRootUser() {
 
 function Install_other_tools_old() {
 
-  # this function was moved to https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/8c08f1493b954e23f6b0283e3edc32679fc7767a/scripts/util.sh#L117
+  echo "This function was moved to https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/8c08f1493b954e23f6b0283e3edc32679fc7767a/scripts/util.sh#L117";
+
 }
 
 
