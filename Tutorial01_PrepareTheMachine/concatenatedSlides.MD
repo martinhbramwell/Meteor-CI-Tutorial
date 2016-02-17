@@ -29,7 +29,7 @@ You can hit the 'a' key at any of the pause points to have it run **a**ll the re
 <!-- B -->]
 ---
 layout: false
-last_update: 2016-02-11
+last_update: 2016-02-17
  .left-column[
   ### Java required
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -61,7 +61,7 @@ sudo apt-get -y install oracle-java7-installer
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L94" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-11
+last_update: 2016-02-17
  .left-column[
   ### Install other tools
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -97,7 +97,7 @@ sudo apt-get install -y tree expect virt-what python-pip # for demo convenience
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L176" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-11
+last_update: 2016-02-17
  .left-column[
   ### Install NodeJS
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -130,7 +130,7 @@ sudo apt-get -y autoremove
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L123" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-11
+last_update: 2016-02-17
  .left-column[
   ### Selenium Web Driver for NodeJS
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -162,7 +162,7 @@ npm install -y --prefix ${HOME} selenium-webdriver
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L137" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-11
+last_update: 2016-02-17
  .left-column[
   ### Install Selenium Web Driver
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -195,7 +195,7 @@ sudo dpkg -i google-chrome-stable_current_amd${CPU_WIDTH}.deb
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L156" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-02-17
  .left-column[
   ### Install Bunyan
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -226,7 +226,7 @@ For ongoing server side logging during development or production we need a perma
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L194" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-11
+last_update: 2016-02-17
  .left-column[
   ### Install Sublime Text 3 editor
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -262,7 +262,7 @@ sudo pip install -y beautifulsoup4 requests
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L222" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-11
+last_update: 2016-02-17
  .left-column[
   ### Set Up Linting
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -297,7 +297,7 @@ There is a closely related ESLint package for Sublime Text.  We will install it 
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L262" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-11
+last_update: 2016-02-17
  .left-column[
   ### Set Up Automatic Documentation
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -360,7 +360,7 @@ sudo apt-get install -y libncurses5-dev
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L308" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-14
+last_update: 2016-02-17
  .left-column[
   ### Prepare Sublime Text (Step #1)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
