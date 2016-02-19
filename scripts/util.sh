@@ -521,50 +521,53 @@ function checkNotRoot() {
   fi;
 }
 
+
 export CPU_WIDTH=;
 function checkForVirtualMachine() {
 
   if [ -f  /usr/local/MeteorCITutorialVmFlag ]; then
     cat /usr/local/MeteorCITutorialVmFlag;
+    CPU_WIDTH=$(cat /usr/local/MeteorCITutorialVmFlag | cut -d'|' -f2);
+    # echo "-<|${CPU_WIDTH}|>-";
   else
     echo -e "Analyzing environment . . .";
 
-    CPU_WIDTH=$(lshw -class cpu 2>/dev/null | grep width | sed 's/^[ \t]*//' | cut -d' ' -f2);
-    CPU_MSG="CPU type : ${CPU_WIDTH}-bit";
+    CPU_WIDTH=$(lshw -class cpu 2>/dev/null | grep -m 1 width | sed 's/^[ \t]*//' | cut -d' ' -f2);
+    CPU_MSG="CPU bit width : |${CPU_WIDTH}|.";
 
     if [[ 0 < $(grep -c docker /proc/1/cgroup) ]]; then
       echo "Running in a Docker container. ${CPU_MSG}";
      else
 
       X="virt-what"; if aptNotYetInstalled "${X}"; then
-        sudo apt-get -y install "${X}";
+    sudo apt-get -y install "${X}";
       fi;
 
       VMTST=$(sudo virt-what);
       if [[ "X${VMTST}X" == "XX" ]]; then
 
-        echo " **PLEASE PLEASE PLEASE**";
-        echo " Only run these scripts on a Virtual Machine running Ubuntu 12.04LTS or newer";
-        echo " ";
-        echo " I have made no attempt to validate the script in other environments,";
-        echo " so failure and damage are the likely result if you do not respect this warning.";
-        echo " ";
-        echo " ";
+    echo " **PLEASE PLEASE PLEASE**";
+    echo " Only run these scripts on a Virtual Machine running Ubuntu 12.04LTS or newer";
+    echo " ";
+    echo " I have made no attempt to validate the script in other environments,";
+    echo " so failure and damage are the likely result if you do not respect this warning.";
+    echo " ";
+    echo " ";
 
-        exit 1;
+    exit 1;
 
       else
 
-        echo "Running in a ${VMTST} virtual machine. ${CPU_MSG}";
+    echo "Running in a ${VMTST} virtual machine. ${CPU_MSG}";
 
       fi;
     fi;
 
-    sudo tee /usr/local/MeteorCITutorialVmFlag <<<"Virtual environment detected previously." >/dev/null;
+    sudo tee /usr/local/MeteorCITutorialVmFlag <<<"Virtual environment detected previously. ${CPU_MSG}" >/dev/null;
+
   fi;
 
 }
-
 
 
 declare -a TUTORIAL_SECTIONS=();
