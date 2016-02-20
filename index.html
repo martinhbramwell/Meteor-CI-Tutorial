@@ -317,7 +317,7 @@
           </div>
         </div>
 
-        <p><br />The focus is on 'wiring', with very little discussion of what more one can do with each of the various elements once they're wired together -- there are plenty of tutorials about all of that, and I link to some good ones.  'Wiring' refers to the challenge of connecting a variety of different tools together into a integrated whole -- even if the whole doesn't actually do much to begin with.</p>
+        <p><br />The focus is on 'wiring', with very little discussion of what more one can do with each of the various elements once they're wired together -- there are plenty of tutorials about all of that, and I link to some good ones.  'Wiring' refers to the challenge of connecting a variety of different tools together into an integrated whole -- even if the whole doesn't actually do much to begin with.</p>
         <br />
         <p>Here's the complete "wiring diagram"...  </p>
         <br />
@@ -480,6 +480,10 @@
 
           <h2>Automated Deployment [<a target="_blank" href="https://www.youtube.com/watch?v=Ks0mT5zpV3g">Video</a>] [<a target="_blank" href="./toc.html?part=J">Slide Show</a>]  </h2>
             <p>We build our project as an Android app, place it into our project as a download link, then deploy it to Meteor's servers. We use our understanding of that to complete our CI script so we can do it all automatically in CircleCI, every time we push a commit to GitHub.</p>
+
+          <h2>Avoid the horrible Android emulator  [<a target="_blank" href="https://youtu.be/xB3wWvK5YT0">Video</a>]</h2>
+
+            <p>You cannot run the Android emulator in the Docker machine we created earlier.  It's very slow anyway.  In this video I show how to install Android KitKat x86 in a Qemu/KVM virtual machine and then connect to it from Meteor in order to "run android-device".  You get most of the advantages of the emulator and most of the advantages of connected physical devices, with the downside of neither.</p>
 
         </div>
 
