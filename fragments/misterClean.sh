@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-MYAUTH="Authorization: token 777dc0a67e5787e5ea55692325f3d283d38dec4d"; #  Ci4Meteor
+MYAUTH="Authorization: token 777dc0a67e5................f3d283d38dec4d"; #  Ci4Meteor
 GITHUB="https://api.github.com/repos/0ur0rg";
 #
 OLD_PROJECTS=();

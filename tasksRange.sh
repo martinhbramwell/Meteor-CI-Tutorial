@@ -16,6 +16,6 @@ StopExecuting="${RANGE_LIMITS[1]}";
 
 START_SECTION=$(echo ${StartExecuting} | cut -f1 -d"|");
 export SUDO_REQUIRED=1;
-if [[ ${START_SECTION} -eq 1 ]]; then
+if [[ ${START_SECTION#0} -eq 1 ]]; then
   CRP=$(sudo pwd);
 fi;

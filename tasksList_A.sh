@@ -2,10 +2,6 @@
 #
 export arrFunctionDefinitions=(
 
-  "14|D|p|"
-  "13|C|l|"
-  "14|D|n|"
-  "14|D|m|"
   "01|PrepareTheMachine|Java_7_is_required_by_Nightwatch_A|Got Java Installer|, but [ci skip].|"
   "01|PrepareTheMachine|This_tutorial_expects_to_use_the_Sublime_Text_3_editor_A|Got Sublime Text 3 Installer|, but [ci skip].|"
   "01|PrepareTheMachine|Install_NodeJS|NodeJS has been installed|, but [ci skip].|"
