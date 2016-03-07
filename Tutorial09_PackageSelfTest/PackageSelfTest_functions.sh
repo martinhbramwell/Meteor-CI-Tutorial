@@ -378,6 +378,7 @@ function InspectBuildResults() {
 
 function ReportAnIssue() {
 
+  set +e;
   LINT_LINE=$( echo -e "
     ${LINT_RPT}
   " | grep no-console );
@@ -410,5 +411,8 @@ function ReportAnIssue() {
 
     LINT_RPT="";
     LINT_LINE="";
+
+  set -e;
+
 }
 
