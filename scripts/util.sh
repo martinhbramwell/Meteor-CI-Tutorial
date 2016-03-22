@@ -532,6 +532,12 @@ function checkForVirtualMachine() {
   else
     echo -e "Analyzing environment . . .";
 
+    # For confirming CPU width
+    X="lshw"; if aptNotYetInstalled "${X}"; then
+      sudo apt-get -y install "${X}";
+    fi;
+
+
     CPU_WIDTH=$(lshw -class cpu 2>/dev/null | grep -m 1 width | sed 's/^[ \t]*//' | cut -d' ' -f2);
     CPU_MSG="CPU bit width : |${CPU_WIDTH}|.";
 

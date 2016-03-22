@@ -60,7 +60,7 @@ function askUserForParameters()
     read -ep "Is this correct? (y/n/q) ::  " -n 1 -r USER_ANSWER
     CHOICE=$(echo ${USER_ANSWER:0:1} | tr '[:upper:]' '[:lower:]')
     if [[ "X${CHOICE}X" == "XqX" ]]; then
-      echo "Skipping this operation."; return 1;
+      echo "Skipping this operation."; exit 1;
     elif [[ ! "X${CHOICE}X" == "XyX" ]]; then
 
       for varkey in "${VARS_TO_UPDATE[@]}"; do

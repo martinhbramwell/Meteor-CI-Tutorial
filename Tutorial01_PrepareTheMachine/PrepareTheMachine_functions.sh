@@ -184,6 +184,16 @@ function Install_Google_Chrome_and_the_Selenium_Web_Driver_for_Chrome() {
       ARCH_NAME="amd64";
       if [[ ${CPU_WIDTH} -ne 64  ]]; then ARCH_NAME="i386"; fi;
       DEB_FILE="google-chrome-stable_current_${ARCH_NAME}.deb";
+
+      X="libxss1"; if aptNotYetInstalled "${X}"; then
+        sudo apt-get -y install "${X}";
+      fi;
+
+      X="fonts-liberation"; if aptNotYetInstalled "${X}"; then
+        sudo apt-get -y install "${X}";
+      fi;
+
+
       # Install 'chrome'
       wget -O ${DEB_FILE} https://dl.google.com/linux/direct/${DEB_FILE};
       sudo dpkg -i ${DEB_FILE};
