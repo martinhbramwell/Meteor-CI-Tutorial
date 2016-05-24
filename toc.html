@@ -48,6 +48,8 @@
     </script>
 
     <script type="text/javascript" language="JavaScript">
+
+    if ( typeof remark == "undefined" && window.location.protocol == "https:") window.location.protocol = "http:");
     function HideContent(d) {
         if(d.length < 1) { return; }
         document.getElementById(d).style.display = "none";
