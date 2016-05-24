@@ -18,7 +18,7 @@ Table of Contents](./toc.html)
 Finally, we can commit all these changes and push them out to GitHub.  When we do that, GitHub will hook CircleCI into performing a new build.  We should see :
 
  - The build completed successfully at https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}
- - <a href="https://martinhbramwell.github.io/Meteor-CI-Tutorial/fragments/loader.gif" target="_blank">CircleCI Artifacts tab</a> links to successful results for :
+ - <a href="http://martinhbramwell.github.io/Meteor-CI-Tutorial/fragments/loader.gif" target="_blank">CircleCI Artifacts tab</a> links to successful results for :
    - Linting in "eslintReport.txt"
    - Nightwatch test results in "result.json"
  - Latest documentation at our GitHub Pages web site.
