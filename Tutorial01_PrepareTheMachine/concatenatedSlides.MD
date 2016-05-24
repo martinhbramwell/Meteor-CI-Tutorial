@@ -32,7 +32,7 @@ layout: false
 last_update: 2016-02-17
  .left-column[
   ### Java required
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -64,7 +64,7 @@ sudo apt-get -y install oracle-java7-installer
 last_update: 2016-02-17
  .left-column[
   ### Install other tools
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -100,7 +100,7 @@ sudo apt-get install -y tree expect virt-what python-pip # for demo convenience
 last_update: 2016-02-17
  .left-column[
   ### Install NodeJS
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -133,7 +133,7 @@ sudo apt-get -y autoremove
 last_update: 2016-02-17
  .left-column[
   ### Selenium Web Driver for NodeJS
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -165,7 +165,7 @@ npm install -y --prefix ${HOME} selenium-webdriver
 last_update: 2016-02-17
  .left-column[
   ### Install Selenium Web Driver
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -195,10 +195,10 @@ sudo dpkg -i google-chrome-stable_current_amd${CPU_WIDTH}.deb
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L162" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-17
+last_update: 2016-05-24
  .left-column[
   ### Install Bunyan
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -226,10 +226,10 @@ For ongoing server side logging during development or production we need a perma
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L210" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-17
+last_update: 2016-05-24
  .left-column[
   ### Install Sublime Text 3 editor
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -262,10 +262,10 @@ sudo pip install -y beautifulsoup4 requests
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L238" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-17
+last_update: 2016-05-24
  .left-column[
   ### Set Up Linting
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -297,10 +297,10 @@ There is a closely related ESLint package for Sublime Text.  We will install it 
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L278" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-17
+last_update: 2016-05-24
  .left-column[
   ### Set Up Automatic Documentation
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -333,7 +333,7 @@ There is a closely related JSDoc package for Sublime Text, which we will install
 
  .left-column[
   ### Install other tools
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -360,10 +360,10 @@ sudo apt-get install -y libncurses5-dev
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L324" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-17
+last_update: 2016-05-24
  .left-column[
   ### Prepare Sublime Text (Step #1)
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -411,7 +411,7 @@ python -c "import requests;from bs4 import BeautifulSoup;print '>>>';print Beaut
 last_update: 2016-02-09
  .left-column[
   ### Prepare Sublime Text (Step #2)
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />

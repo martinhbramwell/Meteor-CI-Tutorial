@@ -31,7 +31,7 @@ Get started now by running ...
 last_update: 2016-02-09
  .left-column[
   ### Android Deployment
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -60,7 +60,7 @@ The best way to get dependable documentation is ```android --help```. For exampl
 last_update: 2016-02-09
  .left-column[
   ### Android Deployment
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -99,7 +99,7 @@ android update sdk -u -a --filter <some plugin identifier> };
 last_update: 2016-02-09
  .left-column[
   ### Android Deployment
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -136,7 +136,7 @@ Continued . . .
 last_update: 2016-02-09
  .left-column[
   ### Android Deployment
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -164,7 +164,7 @@ Now that that is out of the way, we're ready to submit our app to Meteor's serve
 last_update: 2016-02-14
  .left-column[
   ### Final Deployment
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -197,7 +197,7 @@ meteor deploy ${PROJECT_NAME}-${GITHUB_ORGANIZATION_NAME}.meteor.com
 last_update: 2016-02-14
  .left-column[
   ### Final Deployment
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -229,7 +229,7 @@ Continued . . .
 last_update: 2016-02-14
  .left-column[
   ### Final Deployment
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -260,7 +260,7 @@ curl -s -X POST -d ${VAR_JSON} https://circleci.com/api/v1/project/${GITHUB_ORGA
 last_update: 2016-02-14
  .left-column[
   ### Final Deployment
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -291,7 +291,7 @@ eval curl -s -X POST ${HEADER_JSON} -d ${VAR_JSON} https://circleci.com/api/v1/p
 last_update: 2016-02-14
  .left-column[
   ### One Last Thing
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -323,7 +323,7 @@ Build by [CircleCI](https://circleci.com) :: [![Circle CI](https://circleci.com/
 last_update: 2016-02-14
  .left-column[
   ### One Last Thing
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -357,7 +357,7 @@ PatchVersionMonitorHelper;
 last_update: 2016-02-14
  .left-column[
   ### Final Deployment
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />

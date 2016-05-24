@@ -34,7 +34,7 @@ You should not need to use 'sudo' for this or any of the later parts.  In other 
 last_update: 2016-02-09
  .left-column[
   ### Set Up Project Names
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -66,7 +66,7 @@ You will be asked to supply the following details :
 last_update: 2016-02-09
  .left-column[
   ### Configure git for GitHub
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -101,7 +101,7 @@ git config --global push.default simple
 last_update: 2016-02-09
  .left-column[
   ### Install Meteor
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -129,7 +129,7 @@ curl https://install.meteor.com/ | sh
 last_update: 2016-02-09
  .left-column[
   ### Create Meteor Project
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -161,7 +161,7 @@ name: Check Meteor Works
 last_update: 2016-02-09
  .left-column[
   ### Check Meteor Works
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -193,7 +193,7 @@ echo $A_METEOR_PID;
 last_update: 2016-02-09
  .left-column[
   ### Meteor App Metadata
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -230,7 +230,7 @@ sed -i "/<head>/c<head>\
 last_update: 2016-02-09
  .left-column[
   ### Prepare SSH directory
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -278,7 +278,7 @@ name: CreateRemoteGitHubRepository
 last_update: 2016-02-09
  .left-column[
   ### GitHub Repo
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -306,7 +306,7 @@ name: CreateRemoteGitHubRepository
 last_update: 2016-02-17
  .left-column[
   ### GitHub Repo
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -338,7 +338,7 @@ name: CreateLocalGitHubRepository
 last_update: 2016-02-09
  .left-column[
   ### Local GitHub Repo
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />

@@ -33,7 +33,7 @@ name: UseESLintOnTheCommandLine
 last_update: 2016-02-09
  .left-column[
   ### Command Line ESLint
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -69,7 +69,7 @@ eslint ${PROJECT_NAME}.js
 last_update: 2016-02-09
  .left-column[
   ### ESLint for ST3
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -97,7 +97,7 @@ Steps to perform :
 last_update: 2016-02-09
  .left-column[
   ### Sublime ESLint
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -129,7 +129,7 @@ You have reconfigured the ESLint rule ```'quotes'```.  The complete list of conf
 last_update: 2016-02-09
  .left-column[
   ### Sublime ESLint
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -177,7 +177,7 @@ Tinytest.add('example', function checkSanity(test) {
 last_update: 2016-02-09
  .left-column[
   ### Command Line ESLint
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -210,7 +210,7 @@ echo "./backup" >> .eslintignore
 last_update: 2016-02-09
  .left-column[
   ### Command Line ESLint
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
