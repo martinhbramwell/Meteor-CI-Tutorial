@@ -1,5 +1,5 @@
 ---
-last_update: 2016-02-17
+last_update: 2016-05-24
  .left-column[
   ### Prepare Sublime Text (Step #1)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />

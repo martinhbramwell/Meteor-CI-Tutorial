@@ -31,7 +31,7 @@ Get started now by running ...
 last_update: 2016-02-09
  .left-column[
   ### Revisit End-To-End Testing
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -65,7 +65,7 @@ wget -O test_usage_example.js https://raw.githubusercontent.com/martinhbramwell/
 last_update: 2016-02-09
  .left-column[
   ### Finish Documentation
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -100,7 +100,7 @@ Continues ...
 last_update: 2016-02-09
  .left-column[
   ### Integrating Everything
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -126,7 +126,7 @@ Our focus for the rest of this part is going to be on <a href="https://circleci.
 last_update: 2016-02-09
  .left-column[
   ### Helper File - Package Iterator
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -152,7 +152,7 @@ Continued . . .
 last_update: 2016-02-09
  .left-column[
   ### Helper File - Arbitrary # of Packages.
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -191,7 +191,7 @@ As long as a package has a valid bash executable at ```./tools/perform_ci_tasks.
 last_update: 2016-02-09
  .left-column[
   ### Helper File - Arbitrary # of Tasks.
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -223,7 +223,7 @@ Executing, ```perform_per_package_ci_tasks.sh```, now will show ```esLint``` and
 last_update: 2016-02-09
  .left-column[
   ### Helper File - GitHub "UserKey"
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -253,7 +253,7 @@ https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}/edit#checkou
 last_update: 2016-02-09
  .left-column[
   ### Helper File - Commit gh-pages Branch (Part A)
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -291,7 +291,7 @@ test:
 last_update: 2016-05-24
  .left-column[
   ### Helper File - Commit gh-pages Branch (Part B)
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -330,7 +330,7 @@ git commit -am "Added code maintenance package iterator and augmented circle.yml
 last_update: 2016-02-09
  .left-column[
   ### Final Deployment
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -365,7 +365,7 @@ wget -qO- ${NGHTWTCH_RESULT_URL//\"/} | bunyan -o short;
 last_update: 2016-02-09
  .left-column[
   ### Final Deployment
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />

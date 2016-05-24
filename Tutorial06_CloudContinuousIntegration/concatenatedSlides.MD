@@ -29,7 +29,7 @@ Now, this script . . .
 last_update: 2016-02-09
  .left-column[
   ### Configure CircleCI
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -54,7 +54,7 @@ Continued . . .
 last_update: 2016-02-09
  .left-column[
   ### Configure CircleCI
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -85,7 +85,7 @@ Our next task is to commit/push '```circle.yml```', a build definition file.
 last_update: 2016-02-09
  .left-column[
   ### Configure CircleCI
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -123,7 +123,7 @@ name: AmendTheConfigurationAndPushAgain
 last_update: 2016-02-09
  .left-column[
   ### Configure CircleCI
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -160,7 +160,7 @@ git commit -am 'Add script to clone packages and symlink to them';
 last_update: 2016-02-09
  .left-column[
   ### Set Up Nightwatch
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -191,7 +191,7 @@ The installer prepares a Nightwatch test directory and then deletes itself, leav
 last_update: 2016-02-09
  .left-column[
   ### Run NightWatch
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -229,7 +229,7 @@ name: ConfigureCircleCIforNightwatchTesting
 last_update: 2016-02-09
  .left-column[
   ### Commit Nightwatch
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />

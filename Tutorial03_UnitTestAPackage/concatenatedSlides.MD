@@ -32,7 +32,7 @@ This one . . .
 last_update: 2016-02-09
  .left-column[
   ### Create Meteor Packages
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -67,7 +67,7 @@ Continued . . .
 last_update: 2016-02-09
  .left-column[
   ### Create Meteor Packages
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -105,7 +105,7 @@ Your package will be part of your project's run time, but not part of it at edit
 last_update: 2016-02-09
  .left-column[
   ### Create Meteor Packages
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -153,7 +153,7 @@ For editing purposes your package now appears to be part of your project.  But w
 last_update: 2016-02-09
  .left-column[
   ### Prepare SSH directory
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -198,7 +198,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
 last_update: 2016-02-09
  .left-column[
   ### Package Version Control
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -228,7 +228,7 @@ Continues . . .
 last_update: 2016-02-09
  .left-column[
   ### Package Version Control
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -258,7 +258,7 @@ git push -u ${PKG_NAME}_origin master
 last_update: 2016-02-09
  .left-column[
   ### Test a Meteor Package
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -288,7 +288,7 @@ To stop Meteor and move on to the next step in the tutorial script, after you ha
 last_update: 2016-02-09
  .left-column[
   ### Runner for TinyTest
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />

@@ -33,7 +33,7 @@ Now run ...
 last_update: 2016-02-09
  .left-column[
   ### Console.log is bad!
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -64,7 +64,7 @@ However, *esLint* rightfully flags ```console.log()``` as **a bad thing!**  Writ
 last_update: 2016-02-09
  .left-column[
   ### NPM module
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -102,7 +102,7 @@ We now need to fix ```"Error: Cannot find module 'bunyan'"!```
 last_update: 2016-02-09
  .left-column[
   ### Specify Npm modules
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -151,7 +151,7 @@ Npm.depends({
 last_update: 2016-02-09
  .left-column[
   ### Server Only
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -186,7 +186,7 @@ Npm.depends({
 last_update: 2016-02-09
  .left-column[
   ### Add Bunyan Logging
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -219,7 +219,7 @@ Tinytest.add('Check Equality', function sanityCheckEQ(test) {
 last_update: 2016-02-09
  .left-column[
   ### Goodbye Console
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -254,7 +254,7 @@ Our output destination will depend on the execution environment. In our CI scrip
 last_update: 2016-02-09
  .left-column[
   ### Refactor Bunyan (A)
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -290,7 +290,7 @@ Continuing . . .
 last_update: 2016-02-13
  .left-column[
   ### Refactor Bunyan (B)
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -324,7 +324,7 @@ Unfortunately, however, as it is, we get a ```Logger is not defined``` error, be
 last_update: 2016-02-13
  .left-column[
   ### Refactor Bunyan (C)
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -363,7 +363,7 @@ tail -f /var/log/meteor/ci4meteor.log | bunyan -o short
 last_update: 2016-02-13
  .left-column[
   ### Package Upgrade (A)
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
@@ -391,7 +391,7 @@ Continues . . .
 last_update: 2016-02-17
  .left-column[
   ### Package Upgrade (B)
-  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
+  <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
 .footnote[.red.bold[] [
 Table of Contents](./toc.html)
 <br />
