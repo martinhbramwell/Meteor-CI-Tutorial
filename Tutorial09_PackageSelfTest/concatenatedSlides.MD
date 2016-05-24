@@ -288,7 +288,7 @@ test:
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial09_PackageSelfTest/PackageSelfTest_functions.sh#L172" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-05-24
  .left-column[
   ### Helper File - Commit gh-pages Branch (Part B)
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -307,7 +307,7 @@ Table of Contents](./toc.html)
 Finally, we can commit all these changes and push them out to GitHub.  When we do that, GitHub will hook CircleCI into performing a new build.  We should see :
 
  - The build completed successfully at https://circleci.com/gh/${GITHUB_ORGANIZATION_NAME}/${PROJECT_NAME}
- - <a href="https://martinhbramwell.github.io/Meteor-CI-Tutorial/fragments/loader.gif" target="_blank">CircleCI Artifacts tab</a> links to successful results for :
+ - <a href="http://martinhbramwell.github.io/Meteor-CI-Tutorial/fragments/loader.gif" target="_blank">CircleCI Artifacts tab</a> links to successful results for :
    - Linting in "eslintReport.txt"
    - Nightwatch test results in "result.json"
  - Latest documentation at our GitHub Pages web site.

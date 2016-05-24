@@ -38,7 +38,7 @@
 			"density": 4
 		}
 	],
-	"start_url": "https:\/\/martinhbramwell.github.io\/Meteor-CI-Tutorial\/",
+	"start_url": "http:\/\/martinhbramwell.github.io\/Meteor-CI-Tutorial\/",
 	"display": "standalone",
 	"orientation": "portrait"
 }

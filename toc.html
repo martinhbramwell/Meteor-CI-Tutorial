@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Meteor Development Infrastructure.</title>
+    <title>Meteor Development Infrastructure</title>
     <meta charset="utf-8">
 
     <link rel="stylesheet" type="text/css" href="styles.css">
@@ -41,11 +41,15 @@
 
     </script>
 
-    <script src="//gnab.github.io/remark/downloads/remark-0.11.0.min.js" type="text/javascript"> </script>
+    <!-- script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js">
+    </script -->
+
+    <script src="//gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
 
     <script type="text/javascript" language="JavaScript">
-    if ( typeof remark == "undefined" ) alert("This site depends on [ //gnab.github.io/remark/downloads/remark-0.11.0.min.js ], but it did not load!");
-    
+
+    if ( typeof remark == "undefined" && window.location.protocol == "https:") window.location.protocol = "http:");
     function HideContent(d) {
         if(d.length < 1) { return; }
         document.getElementById(d).style.display = "none";
@@ -103,7 +107,7 @@
 
       <h1>Getting Started with Meteor Continuous Deployment</h1>
 
-      <p><strong>These explanatory <a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial">scripts</a>, <a target="_blank" href="https://www.youtube.com/playlist?list=PLq7op4J183lXpGr79hjfQVQHB-saVqLBL">videos</a> and <a target="_blank" href="https://martinhbramwell.github.io/Meteor-CI-Tutorial/">slideshows</a>, will start your Meteor development infrastructure immediately with: package development, testing, documenting, logging, code style linting and continuous integration and deployment</strong></p>
+      <p><strong>These explanatory <a target="_blank" href="http://github.com/martinhbramwell/Meteor-CI-Tutorial">scripts</a>, <a target="_blank" href="https://www.youtube.com/playlist?list=PLq7op4J183lXpGr79hjfQVQHB-saVqLBL">videos</a> and <a target="_blank" href="http://martinhbramwell.github.io/Meteor-CI-Tutorial/">slideshows</a>, will start your Meteor development infrastructure immediately with: package development, testing, documenting, logging, code style linting and continuous integration and deployment</strong></p>
 
       <h1>Table of Contents</h1>
 
@@ -147,8 +151,14 @@
         <p>To close the loop on all the preceding development stage parts we now bring the online documentation up-to-date and automate end-to-end testing of our package in-the-cloud; such that interested users can quickly get started using it.</p>
 
 
-      <h2>Automated Deployment [<a href="./toc.html?part=J">Slide Show</a>]  </h2>
-        <p>We build our project as an Android app, place it into our project as a download link, then deploy it to Meteor's servers. We use our understanding of that to complete our CI script so we can do it all automatically in CircleCI, every time we push a commit to GitHub.</p>
+
+
+      <h2>Automated Deployment [<a target="_blank" href="https://www.youtube.com/watch?v=Ks0mT5zpV3g">Video</a>] [<a target="_blank" href="./toc.html?part=J">Slide Show</a>]  </h2>
+            <p>We build our project as an Android app, place it into our project as a download link, then deploy it to Meteor's servers. We use our understanding of that to complete our CI script so we can do it all automatically in CircleCI, every time we push a commit to GitHub.</p>
+
+      <h2>Avoid the horrible Android emulator  [<a target="_blank" href="https://youtu.be/xB3wWvK5YT0">Video</a>]</h2>
+
+            <p>You cannot run the Android emulator in the Docker machine we created earlier.  It's very slow anyway.  In this video I show how to install Android KitKat x86 in a Qemu/KVM virtual machine and then connect to it from Meteor in order to "run android-device".  You get most of the advantages of the emulator and most of the advantages of connected physical devices, with the downside of neither.</p>
 
 
       <h1>Meta-information</h1>
@@ -163,7 +173,7 @@
 
       <h3>Copyright Information</h3>
       <p>
-        Please use only in accordance with <a target="_blank" href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/LICENSE">The License</a>.
+        Please use only in accordance with <a target="_blank" href="http://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/LICENSE">The License</a>.
       </p>
       <br />
       <br />
