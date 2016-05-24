@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ANSI Colour</title>
+    <meta charset="utf-8" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+    <script>
+      // this code is necessary only for showing source in example
+      $(window).load(function() {
+        // position source box in center
+        $('#source').position({
+          of: $('#slideshow')
+        });
+
+        // show source box
+        $('.show-source > a, #overlay').click(function(e) {
+          e.preventDefault();
+          $('#overlay, #source').toggle(300);
+        });
+
+        // open source links in new tab/window
+        $('.show-source > a').attr('target', '_blank');
+      });
+    </script>
+
+    <style>
+      @import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+
+      body {
+        font-family: 'Droid Serif';
+        font-size: medium;
+      }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      .small * {
+        font-size: small !important;
+      }
+      code {
+        border-radius: 5px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
+      .footnote {
+        position: absolute;
+        font-size: small;
+        bottom: 3em;
+        right: 3em;
+      }
+      /* styling only necessary for displaying source */
+      #source {
+        position: absolute;
+        display: none;
+        font-family: monospace;
+        font-size: medium;
+        background: #333333;
+        color: white;
+        padding: 10px;
+        text-align: left;
+        width: 65%;
+        height: 70%;
+        z-index: 1000;
+      }
+      #overlay {
+        position: absolute;
+        display: none;
+        background: black;
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+        z-index: 999;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source" readonly>
+
+
+class: center, middle, inverse
+
+# Coloured Terminal Listings
+# in remark
+
+.footnote[
+  created with [remark](http://github.com/gnab/remark)
+]
+
+---
+
+# Challenge
+How do we capture ANSI coloured console output and display it in remark?
+
+.small[
+```terminal
+josh@brick ~ $ ls -l --color
+total 20363
+drwxrwxr-x+ 96 root admin     3264 Feb 14 13:05 <span style="color:#3333FF;font-weight:bold;">Applications</span>
+drwxrwxr-x  18 root admin      612 Aug 14  2011 <span style="color:#3333FF;font-weight:bold;">Developer</span>
+drwxrwxr-t+ 63 root admin     2142 Apr 28  2012 <span style="color:white;background-color:#3333FF;">Library</span>
+drwxr-xr-x   2 root wheel       68 Jul 10  2009 <span style="color:#3333FF;font-weight:bold;">Network</span>
+drwxr-xr-x   4 root wheel      136 Jul 30  2011 <span style="color:#3333FF;font-weight:bold;">System</span>
+drwxr-xr-x   6 root admin      204 Jun 27  2012 <span style="color:#3333FF;font-weight:bold;">Users</span>
+drwxrwxrwt+  3 root admin      102 Feb 14 18:12 <span style="color:black;background-color:lime;">Volumes</span>
+drwxr-xr-x  39 root wheel     1326 Oct 23 19:41 <span style="color:#3333FF;font-weight:bold;">bin</span>
+drwxrwxr-t   2 root admin       68 Jul 10  2009 <span style="color:white;background-color:#3333FF;">cores</span>
+dr-xr-xr-x   3 root wheel     4350 Jan 18 20:54 <span style="color:#3333FF;font-weight:bold;">dev</span>
+lrwxr-xr-x   1 root wheel       11 Sep 24  2009 <span style="color:aqua;font-weight:bold;">etc</span> -&gt; private/etc
+dr-xr-xr-x   2 root wheel        1 Jan 18 20:55 <span style="color:#3333FF;font-weight:bold;">home</span>
+-rw-r--r--   1 root wheel 20828964 Jun  8  2011 mach_kernel
+dr-xr-xr-x   2 root wheel        1 Jan 18 20:55 <span style="color:#3333FF;font-weight:bold;">net</span>
+drwxr-xr-x   4 root wheel      136 Jan 10 22:26 <span style="color:#3333FF;font-weight:bold;">opt</span>
+drwxr-xr-x   6 root wheel      204 Sep 24  2009 <span style="color:#3333FF;font-weight:bold;">private</span>
+drwxr-xr-x  70 root wheel     2380 Oct 23 19:41 <span style="color:#3333FF;font-weight:bold;">sbin</span>
+lrwxr-xr-x   1 root wheel       11 Sep 24  2009 <span style="color:aqua;font-weight:bold;">tmp</span> -&gt; private/tmp
+drwxr-xr-x  15 root wheel      510 Apr 28  2012 <span style="color:#3333FF;font-weight:bold;">usr</span>
+lrwxr-xr-x   1 root wheel       11 Sep 24  2009 <span style="color:aqua;font-weight:bold;">var</span> -&gt; private/var
+```
+]
+
+# Solution
+
+Use the `aha` Ansi HTML Adaptor to capture output and paste the result as code
+to be interpreted by the highlight.js engine used in remark.
+
+---
+name: code
+
+# The Code
+
+The results produced by `aha` are translated via the highlight.js engine (using
+the [language definition](terminal.language.js)) and a small jQuery script to
+substitute the embedded style elements after the page has rendered.
+
+To achieve this, add the following to the end of the remark presentation:
+
+```html
+    ...
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="terminal.language.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+        highlightStyle: 'solarized_dark'
+      });
+      // extract the embedded styling from ansi spans
+      $('code.terminal > span.hljs-ansi').replaceWith(function(i, x) {
+        return x.replace(/&lt;(\/?(\w+).*?)&gt;/g, '<$1>')
+      });
+    </script>
+    ...
+```
+
+The terminal language definition assumes a prompt of the form:
+
+```terminal
+user@host /path/x $ 
+```
+
+If you would like a different prompt style, get your regex on and alter it in
+the [language definition](terminal.language.js).
+
+---
+
+# Worked Example to Capture Coloured Command Output (e.g. `git`)
+
+1. Build and install [aha](https://github.com/theZiz/aha):
+.small[
+```terminal
+josh@brick ~/repos $ git clone https://github.com/theZiz/aha; cd aha
+josh@brick ~/repos/aha $ make && cp aha /usr/local/bin
+```
+]
+
+2. Capture output with `aha` (for dark background highlight.js styles such as
+   solarized_dark, use `aha -b`):
+.small[
+```terminal
+josh@brick ~/repos/aha $ git log -2 --color | aha -b -n | pbcopy
+```
+]
+To capture directly to clipboard, use:
+  - `pbcopy` for OS X
+  - `xsel --clipboard` for Linux
+  - `getclip` for Cygwin
+
+3. Paste into remark document with the [header code](#code) (see .show-source[[source](#)] for more details):
+.small[
+```no-highlight
+```terminal
+josh@brick ~/repos/aha $ git log -2
+<span style="color:olive;">commit 36b0a3af174e204c8d0a7a993ad467cd7be39bca</span>
+Author: Ziz &lt;zizsdl@googlemail.com&gt;
+Date:   Fri Aug 3 10:29:43 2012 +0200
+
+    Small version changes, make clean, merging, etc.
+...
+```
+```
+]
+Note: code must be in a
+[GFM](http://github.github.com/github-flavored-markdown/) fenced block with
+"terminal" as the syntax-type as above.
+
+---
+
+# The Result
+
+Putting it all together, we have the desired result:
+
+.small[
+```terminal
+josh@brick ~/repos/aha $ git log -2
+<span style="color:olive;">commit 36b0a3af174e204c8d0a7a993ad467cd7be39bca</span>
+Author: Ziz &lt;zizsdl@googlemail.com&gt;
+Date:   Fri Aug 3 10:29:43 2012 +0200
+
+    Small version changes, make clean, merging, etc.
+
+<span style="color:olive;">commit 86abaa46c786c1e5dca33ad5907b8067d0e47a20</span>
+Merge: ed4f29b d0dc6c1
+Author: Ziz &lt;zizsdl@googlemail.com&gt;
+Date:   Fri Aug 3 10:28:59 2012 +0200
+
+    Merge branch 'master' of github.com:theZiz/aha
+```
+]
+
+# Bold and Reverse
+
+Bold and reverse work nicely, too (be careful of the background colour of your
+highlight.js theme):
+
+```terminal
+josh@brick ~ $ zsh -c "print -P '%Bbold%Sreverse%b%s'"
+<span style="font-weight:bold;">bold</span><span style="color:black;background-color:white;font-weight:bold;">reverse</span><span style="color:black;background-color:white;"></span><span style="color:white;background-color:black;"></span>
+```
+
+---
+
+# The Colourful `aha` Help Message
+
+The output of `aha -h` give a good example of the results of this method:
+
+.small[
+```terminal
+josh@brick ~/repos/aha $ aha -h
+<span style="color:red;font-weight:bold;">Ansi Html Adapter</span> Version 0.4.6.1
+<span style="font-weight:bold;">aha</span> takes SGR-colored Input and prints W3C conform HTML-Code
+use: <span style="font-weight:bold;">aha</span> &lt;<span style="text-decoration:underline;">options</span>&gt; [<span style="text-decoration:underline;">-f file</span>]
+     <span style="font-weight:bold;">aha</span> (<span style="text-decoration:underline;">--help</span>|<span style="text-decoration:underline;">-h</span>|<span style="text-decoration:underline;">-?</span>)
+<span style="font-weight:bold;">aha</span> reads the Input from a file or stdin and writes HTML-Code to stdout
+<span style="text-decoration:underline;">options</span>: --black,     -b: <span style="color:black;font-weight:bold;"></span><span style="color:black;background-color:white;font-weight:bold;">Black</span> Background and <span style="color:white;font-weight:bold;">White</span> &quot;standard color&quot;
+         --pink,      -p: <span style="color:fuchsia;font-weight:bold;">Pink</span> Background
+         --iso X,   -i X: Uses ISO 8859-X instead of utf-8. X must be 1..16
+         --title X, -t X: Gives the html output the title &quot;X&quot; instead of &quot;stdin&quot;
+                          or the filename
+         --line-fix,  -l: Uses a fix for inputs using control sequences to
+                          change the cursor position like htop. It's a hot fix,
+                          it may not work with any program like htop. Example:
+                          <span style="font-weight:bold;">echo</span> q | <span style="font-weight:bold;">htop</span> | <span style="font-weight:bold;">aha</span> -l &gt; htop.htm
+         --word-wrap, -w: Wrap long lines in the html file. This works with
+                          CSS3 supporting browsers as well as many older ones.
+         --no-header, -n: Don't include header into generated HTML,
+                          useful for inclusion in full HTML files.
+Example: <span style="font-weight:bold;">aha</span> --help | <span style="font-weight:bold;">aha</span> --black &gt; aha-help.htm
+         Writes this help text to the file aha-help.htm
+
+Copyleft <span style="color:lime;font-weight:bold;">Alexander Matthes</span> aka <span style="text-decoration:underline;">Ziz</span> 2012
+         <span style="color:aqua;text-decoration:blink;">zizsdl@googlemail.com</span>
+         <span style="color:aqua;text-decoration:blink;">http://ziz.delphigl.com/tool_aha.php</span>
+This application is subject to the <span style="color:#3333FF;font-weight:bold;">MPL</span> or <span style="color:#3333FF;font-weight:bold;">LGPL</span>.
+```
+]
+    </textarea>
+    <div id="slideshow"></div>
+    <div id="overlay"></div>
+
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js"></script>
+    <script type="text/javascript">
+      var hljs = remark.highlighter.engine;
+    </script>
+    <script src="terminal.language.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+        highlightStyle: 'solarized_dark'
+      });
+      // extract the embedded styling from ansi spans
+      $('code.terminal > span.hljs-ansi').replaceWith(function(i, x) {
+        return x.replace(/&lt;(\/?(\w+).*?)&gt;/g, '<$1>')
+      });
+    </script>
+
+  </body>
+</html>
+
+<!--
+  vim:filetype=markdown
+-->
