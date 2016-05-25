@@ -87,6 +87,9 @@ function Create_Meteor_project() {
     echo "creating project ${PROJECT_NAME} . . . ";
     # Start a Meteor project
     meteor create ${PROJECT_NAME}
+    pushd ${PROJECT_NAME}
+    meteor npm install
+    popd
 
   else
     echo "Skipped";
@@ -130,10 +133,9 @@ function Add_Meteor_application_development_support_files() {
   wget -O ./public/${MARKER} https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/${MARKER}
   # Add execution of obtain_managed_packages.sh to circle.yml
 
-
-  if [[ $(grep -c "${MARKER}" ${PROJECT_NAME}.html) -lt 1 ]]; then
+  if [[ $(grep -c "${MARKER}" ./client/main.html) -lt 1 ]]; then
     sed -i "/<head>/c<head>\
-    \\n  <link rel=\"shortcut icon\" href=\"/${MARKER}\" type=\"image/x-icon\" />" ${PROJECT_NAME}.html
+    \\n  <link rel=\"shortcut icon\" href=\"/${MARKER}\" type=\"image/x-icon\" />" ./client/main.html
   else
     echo "Previously patched."
   fi;
@@ -168,6 +170,7 @@ LICMIT
 .meteor/meteorite
 example_circle.yml
 backup
+node_modules
 GITIG
 
   cat << RDME > README.md

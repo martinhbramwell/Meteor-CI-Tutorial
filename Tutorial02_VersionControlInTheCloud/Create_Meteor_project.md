@@ -23,6 +23,8 @@ If the project was created earlier you'll be invited to delete it and start a ne
 ```terminal
 mkdir -p ~/${PARENT_DIR}
 meteor create ${PROJECT_NAME}
+cd ${PROJECT_NAME}
+meteor npm install
 ```
 
 <!-- B -->

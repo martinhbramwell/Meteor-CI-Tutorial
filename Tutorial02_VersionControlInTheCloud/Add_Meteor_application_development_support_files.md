@@ -29,7 +29,7 @@ The .eslintrc file is borrowed from the project <a href='https://raw.githubuserc
 wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
 wget -O ./public/favicon-32x32.png https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/favicon-32x32.png
 sed -i "/<head>/c<head>\
-    \\n  <link rel=\"shortcut icon\" href=\"/favicon-32x32.png\" type=\"image/x-icon\" />" ${PROJECT_NAME}.html
+    \\n  <link rel=\"shortcut icon\" href=\"/favicon-32x32.png\" type=\"image/x-icon\" />" ./client/main.html
 ```
 
 <!-- B -->
