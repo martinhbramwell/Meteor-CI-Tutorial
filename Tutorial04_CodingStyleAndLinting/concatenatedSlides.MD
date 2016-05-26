@@ -126,7 +126,7 @@ In Sublime Text :
 You have reconfigured the ESLint rule ```'quotes'```.  The complete list of configurable rules is available from <a target="blank" href="http://eslint.org/docs/rules/">eslint.org rules documentation</a>
 <!-- B -->]
 ---
-last_update: 2016-02-09
+last_update: 2016-05-26
  .left-column[
   ### Sublime ESLint
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -207,7 +207,7 @@ echo "./backup" >> .eslintignore
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial04_CodingStyleAndLinting/CodingStyleAndLinting_functions.sh#L12" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-05-26
  .left-column[
   ### Command Line ESLint
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
