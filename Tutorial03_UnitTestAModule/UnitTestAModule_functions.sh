@@ -1,3 +1,5 @@
+#!/bin/bash
+#
 export MODULES=~/${PARENT_DIR}/modules;
 export MODULE_DIRS=${MODULES}/thirdparty:${MODULES}/${YOUR_UID}
 
@@ -21,6 +23,7 @@ function Create_a_module_A() {
 }
 
 
+declare EXPORT_NAME="${MODULE_NAME}Log";
 function Create_a_module_B() {
 
   pushd ${MODULES}/${YOUR_UID} >/dev/null;
@@ -83,35 +86,27 @@ function Create_a_module_B() {
 }
 PKGJSN
 
-    declare EXPORT_NAME="${MODULE_NAME}Log";
     cat << IDXJS > index.js
 // ${MODULE_NAME}/index.js
 exports.${EXPORT_NAME} = function() {
   console.log("logged from module '${MODULE_NAME}'" );
-};  
+};
 IDXJS
+
+    cat << MDRDMD > README.md
+# This is an example Meteor 1.3 module.  You should describe it here . . . 
+MDRDMD
+
+    cat << MDGITIG > .gitignore
+example_circle.yml
+node_modules
+MDGITIG
+
+# echo "SCRIPT_DIR  -- ${SCRIPT_DIR}";
+    cp ${SCRIPT_DIR}/../LICENSE .;
+
     popd >/dev/null;
   fi
-
-  popd >/dev/null;
-
-
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
-
-  echo -e "Linking to new module \n\n";
-
-  meteor npm link ${MODULES}/${YOUR_UID}/${MODULE_NAME};
-
-  MAIN_FILE="./client/main.js";
-  declare CNT=$(grep -c 'mdlirbl02' ${MAIN_FILE});
-  if [[ ${CNT} -lt 1 ]]; then
-    declare MTCH="import './main.html';";
-    declare  ADD="import { ${EXPORT_NAME} } from '${MODULE_NAME}';";
-    sed -i -e "s|${MTCH}|${MTCH}\n${ADD}|g" ${MAIN_FILE};
-    declare MTCH="    // increment the counter when button is clicked";
-    declare  ADD="    ${EXPORT_NAME}(); // > logged from module '${MODULE_NAME}'";
-    sed -i -e "s|${MTCH}|${MTCH}\n${ADD}|g" ${MAIN_FILE};
-  fi;
 
   popd >/dev/null;
 
@@ -120,10 +115,25 @@ IDXJS
 
 function Create_a_module_C() {
 
-  mkdir -p ~/${PARENT_DIR}/${PROJECT_NAME}/modules;
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/modules >/dev/null;
-  rm -f ${MODULE_NAME};
-  ln -s ${MODULES}/${YOUR_UID}/${MODULE_NAME};
+  echo -e "Building new module directory \n\n";
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME} >/dev/null;
+
+    mkdir -p ./node_modules;
+    echo -e "Linking to new module \n\n";
+
+    meteor npm link ${MODULES}/${YOUR_UID}/${MODULE_NAME};
+
+    MAIN_FILE="./client/main.js";
+    declare CNT=$(grep -c 'mdlirbl02' ${MAIN_FILE});
+    if [[ ${CNT} -lt 1 ]]; then
+      declare MTCH="import './main.html';";
+      declare  ADD="import { ${EXPORT_NAME} } from '${MODULE_NAME}';";
+      sed -i -e "s|${MTCH}|${MTCH}\n${ADD}|g" ${MAIN_FILE};
+      declare MTCH="    // increment the counter when button is clicked";
+      declare  ADD="    ${EXPORT_NAME}(); // > logged from module '${MODULE_NAME}'";
+      sed -i -e "s|${MTCH}|${MTCH}\n${ADD}|g" ${MAIN_FILE};
+    fi;
+
   popd >/dev/null;
 
 }

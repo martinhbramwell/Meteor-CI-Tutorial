@@ -6,7 +6,7 @@ FileSuffix="_functions.sh";
 
 RANGE_LIMITS=(
 
-  "03|UnitTestAModule|Create_a_module_C|Created module '${MODULE_NAME}' : (C)|, but [ci skip].|"
+  "03|UnitTestAModule|Create_a_module_A|Created module '${MODULE_NAME}': (A)|, but [ci skip].|"
   "03|UnitTestAModule|Create_a_module_C|Created module '${MODULE_NAME}' : (C)|, but [ci skip].|"
 
 );

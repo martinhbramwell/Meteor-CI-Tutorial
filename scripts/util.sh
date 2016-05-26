@@ -3,6 +3,8 @@
 
 declare NONSTOP="nonstop";
 
+export SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )";
+
 export TMP_DIRECTORY="${HOME}/tmp";
 mkdir -p ${TMP_DIRECTORY};
 
