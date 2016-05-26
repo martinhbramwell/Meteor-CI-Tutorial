@@ -1,3 +1,4 @@
+last_update: 2016-05-26
 layout: false
 
  .left-column[
@@ -23,7 +24,7 @@ This one . . .
 ```terminal
 ./Tutorial03_UnitTestAModule.sh
 ```
-. . . prepares a Meteor project with an associated external module, tested with TinyTest, and **stored separately in GitHub**.
+. . . prepares a Meteor project with an associated NodeJS compatible external module, tested with TinyTest, and **stored separately in GitHub**.
 
 
 <!-- B -->

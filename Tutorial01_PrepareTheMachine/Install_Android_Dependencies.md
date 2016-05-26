@@ -1,5 +1,5 @@
 ---
-
+last_update: 2016-05-26
  .left-column[
   ### Install other tools
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -23,7 +23,6 @@ sudo apt-get install -y lib32stdc++6
 sudo apt-get install -y libncurses5
 sudo apt-get install -y libncurses5-dev
 ```
-
 
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial01_PrepareTheMachine/PrepareTheMachine_functions.sh#L324" target="_blank">Code for this step.</a>] ]
