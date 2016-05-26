@@ -58,13 +58,26 @@ function verifyFreeSpace() {
   done;
 }
 
+function get_date() {
+
+  date --date="$1" +"%Y-%m-%d %H:%M:%S";
+
+}
 
 function installToolsForTheseScripts() {
 
   INST=();
 
   pushd ${HOME} >/dev/null;
-    sudo apt-get -y update;
+  declare NEXT_APT=$(cat ~/.last_apt_update);
+  if [[ ! -f ~/.last_apt_update || $(get_date "${NEXT_APT}") < $(get_date "$(date)") ]]; then
+
+    echo "Updating apt registry . . . ";
+    sudo apt -y update;
+    date -d "$(date) 4 hours" > ~/.last_apt_update;
+  else
+    echo "Next 'apt update' needed after $(cat ~/.last_apt_update)"
+  fi;
   popd >/dev/null;
 
   X="gawk"; if aptNotYetInstalled "${X}"; then INST=("${INST[@]}" "${X}"); else echo "${X} is installed"; fi;

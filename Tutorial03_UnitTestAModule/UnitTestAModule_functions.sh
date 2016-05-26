@@ -115,8 +115,6 @@ IDXJS
 
   popd >/dev/null;
 
-exit;
-
 }
 
 
