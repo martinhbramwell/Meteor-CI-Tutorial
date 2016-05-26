@@ -1,5 +1,5 @@
 ---
-last_update: 2016-02-09
+
  .left-column[
   ### Create Meteor Packages
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -13,20 +13,20 @@ Table of Contents](./toc.html)
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Working on your Meteor package.
+#### Working on your Meteor module.
 
-One disadvantage of keeping packages outside your project directory is that you lose Meteor's automatic refresh on saving changes.
+One disadvantage of keeping modules outside your project directory is that you lose Meteor's automatic refresh on saving changes.
 
-That's easily fixed.  You simply need to establish a symbolic link from your packages directory to the real package :
-1. step into the packages directory of your project
+That's easily fixed.  You simply need to establish a symbolic link from your modules directory to the real module :
+1. step into the modules directory of your project
 2. create a symbolic link
 
 ##### Example Commands
 ```terminal
-cd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
-ln -s ${PACKAGES}/${YOUR_UID}/${PKG_NAME} ${PKG_NAME}
+cd ~/${PARENT_DIR}/${PROJECT_NAME}/modules
+ln -s ${PACKAGES}/${YOUR_UID}/${MODULE_NAME} ${MODULE_NAME}
 ```
-For editing purposes your package now appears to be part of your project.  But wait!  It won't be "git managed", will it?!
+For editing purposes your module now appears to be part of your project.  But wait!  It won't be "git managed", will it?!
 
 
 
@@ -41,8 +41,8 @@ For editing purposes your package now appears to be part of your project.  But w
     class="hover_text"
     onmouseover="ReverseContentDisplay('symwarn'); return true;"
     href="javascript:ReverseContentDisplay('symwarn')">
-    <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note</i>
+    <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note ::> Spurious warning ??</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L113" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L123" target="_blank">Code for this step.</a>] ]
 ]

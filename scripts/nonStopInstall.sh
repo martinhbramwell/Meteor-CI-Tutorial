@@ -19,7 +19,7 @@ echo -e "\n   Verified Free Space (${FREESPACE})\n          - o 0 o - \n";
 checkNotRoot;
 
 loadShellVars;
-PARM_NAMES=("PARENT_DIR" "PROJECT_NAME" "PKG_NAME" "YOUR_FULLNAME" \
+PARM_NAMES=("PARENT_DIR" "PROJECT_NAME" "MODULE_NAME" "YOUR_FULLNAME" \
   "PACKAGE_DEVELOPER" "YOUR_EMAIL" "YOUR_UID" "GITHUB_ORGANIZATION_NAME" \
    "CIRCLECI_PERSONAL_TOKEN" "METEOR_UID" "METEOR_PWD" "KEYSTORE_PWD" \
    "GITHUB_PERSONAL_TOKEN" "REPLACE_EXISTING_PROJECT" "REPLACE_EXISTING_PACKAGE");
@@ -29,7 +29,7 @@ export BUILD_DIRECTORY="${HOME}/${PARENT_DIR}/${PROJECT_NAME}";
 export PROJECT_URI="${PROJECT_NAME}-${GITHUB_ORGANIZATION_NAME}.meteor.com";
 export TARGET_SERVER_URL="https://${PROJECT_URI}/";
 
-export PACKAGES=~/${PARENT_DIR}/packages;
+export PACKAGES=~/${PARENT_DIR}/modules;
 
 
 # ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~   ~
@@ -260,29 +260,29 @@ setSection 2;
 
 setSection 3;
 
-# explain ${BINDIR}/Create_a_package_A.md MORE_ACTION # CODE_BLOCK
+# explain ${BINDIR}/Create_a_module_A.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
   ${PROCESS_THIS} && {
-    Create_a_package_A;
-    echo -e "\n   Created package '${PKG_NAME}': (A)\n          - o 0 o - \n";
+    Create_a_module_A;
+    echo -e "\n   Created module '${MODULE_NAME}': (A)\n          - o 0 o - \n";
   }
 # fi;
 
 
 
-# explain ${BINDIR}/Create_a_package_B.md MORE_ACTION # CODE_BLOCK
+# explain ${BINDIR}/Create_a_module_B.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
   ${PROCESS_THIS} && {
-    Create_a_package_B;
-    echo -e "\n   Created package '${PKG_NAME}' : (B)\n          - o 0 o - \n";
+    Create_a_module_B;
+    echo -e "\n   Created module '${MODULE_NAME}' : (B)\n          - o 0 o - \n";
   }
 # fi;
 
-# explain ${BINDIR}/Create_a_package_C.md MORE_ACTION # CODE_BLOCK
+# explain ${BINDIR}/Create_a_module_C.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
   ${PROCESS_THIS} && {
-    Create_a_package_C;
-    echo -e "\n   Created package '${PKG_NAME}' : (C)\n          - o 0 o - \n";
+    Create_a_module_C;
+    echo -e "\n   Created module '${MODULE_NAME}' : (C)\n          - o 0 o - \n";
   }
 # fi;
 
@@ -294,46 +294,46 @@ setSection 3;
 #   Create_GitHub_Repo_Deploy_Keys;
 # fi;
   ${PROCESS_THIS} && {
-    Create_GitHub_Repo_Deploy_Keys ${PKG_NAME} ${REPLACE_EXISTING_PACKAGE};
-    echo -e "\n   Created GitHub Repo Deploy Keys for '${PKG_NAME}'\n          - o 0 o - \n";
+    Create_GitHub_Repo_Deploy_Keys ${MODULE_NAME} ${REPLACE_EXISTING_PACKAGE};
+    echo -e "\n   Created GitHub Repo Deploy Keys for '${MODULE_NAME}'\n          - o 0 o - \n";
   }
 
 
   ${PROCESS_THIS} && {
-    Create_GitHub_Repo ${PKG_NAME} ${REPLACE_EXISTING_PACKAGE};
-    echo -e "\n   Created GitHub Repo for '${PKG_NAME}'\n          - o 0 o - \n";
+    Create_GitHub_Repo ${MODULE_NAME} ${REPLACE_EXISTING_PACKAGE};
+    echo -e "\n   Created GitHub Repo for '${MODULE_NAME}'\n          - o 0 o - \n";
   }
 
 
 
 # RUN_RULE="";
-# explain ${BINDIR}/Control_a_packages_versions_A.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
+# explain ${BINDIR}/Control_a_modules_versions_A.md MORE_ACTION # CODE_BLOCK MANUAL_INPUT_REQUIRED
 # if [ "${RUN_RULE}" != "n" ]; then
   # ${PROCESS_THIS} && {
-  #   Control_a_packages_versions_A ${NONSTOP};
-  #   echo -e "\n   Controlling '${PKG_NAME}' package's versions : A\n          - o 0 o - \n";
+  #   Control_a_modules_versions_A ${NONSTOP};
+  #   echo -e "\n   Controlling '${MODULE_NAME}' module's versions : A\n          - o 0 o - \n";
   # }
 # fi;
 
   ${PROCESS_THIS} && {
-    Add_GitHub_Repo_Deploy_Key ${PKG_NAME}  ${REPLACE_EXISTING_PACKAGE};
-    echo -e "\n   Added GitHub Repo Deploy Key for '${PKG_NAME}' \n          - o 0 o - \n";
+    Add_GitHub_Repo_Deploy_Key ${MODULE_NAME}  ${REPLACE_EXISTING_PACKAGE};
+    echo -e "\n   Added GitHub Repo Deploy Key for '${MODULE_NAME}' \n          - o 0 o - \n";
   }
 
 
-# explain ${BINDIR}/Control_a_packages_versions_B.md  MORE_ACTION # CODE_BLOCK
+# explain ${BINDIR}/Control_a_modules_versions_B.md  MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
   ${PROCESS_THIS} && {
-    Control_a_packages_versions_B "${NONSTOP}";
-    echo -e "\n   Controlled '${PKG_NAME}' package's versions : B\n          - o 0 o - \n";
+    Control_a_modules_versions_B "${NONSTOP}";
+    echo -e "\n   Controlled '${MODULE_NAME}' module's versions : B\n          - o 0 o - \n";
   }
 # fi;
 
 
 
-# explain ${BINDIR}/TinyTest_a_package.md MORE_ACTION # CODE_BLOCK
+# explain ${BINDIR}/TinyTest_a_module.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
-#   TinyTest_a_package;
+#   TinyTest_a_module;
 # fi;
 
 # explain ${BINDIR}/Add_a_test_runner_for_getting_TinyTest_output_on_the_command_line.md MORE_ACTION # CODE_BLOCK
@@ -377,7 +377,7 @@ setSection 3;
 # explain ${BINDIR}/Try_jsDoc_from_the_Command_Line_A.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
     Try_jsDoc_from_the_Command_Line_A;
-    echo -e "\n   Ran jsDoc against ./packages/${PKG_NAME}\n          - o 0 o - \n";
+    echo -e "\n   Ran jsDoc against ./modules/${MODULE_NAME}\n          - o 0 o - \n";
 # fi;
 
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
@@ -392,14 +392,14 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 # explain ${BINDIR}/Use_Sublime_Text_jsDoc_plugin_A.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
     Use_Sublime_Text_jsDoc_plugin_A;
-    echo -e "\n   Patched ./packages/${PKG_NAME}/${PKG_NAME}-tests.js for slide 5\n          - o 0 o - \n";
+    echo -e "\n   Patched ./packages/${MODULE_NAME}/${MODULE_NAME}-tests.js for slide 5\n          - o 0 o - \n";
 # fi;
 
 # RUN_RULE="";
 # explain ${BINDIR}/Use_Sublime_Text_jsDoc_plugin_B.md # MANUAL_INPUT_REQUIRED
 # if [ "${RUN_RULE}" != "n" ]; then
     Use_Sublime_Text_jsDoc_plugin_B;
-    echo -e "\n   Patched ./packages/${PKG_NAME}/${PKG_NAME}-tests.js for slide 6\n          - o 0 o - \n";
+    echo -e "\n   Patched ./packages/${MODULE_NAME}/${MODULE_NAME}-tests.js for slide 6\n          - o 0 o - \n";
 
 # explain ${BINDIR}/Use_Sublime_Text_jsDoc_plugin_C.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
@@ -410,7 +410,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
 # RUN_RULE="";
 # explain ${BINDIR}/Publish_jsDocs_toGitHub_A.md
 
-# TEMP_ZIP="/tmp/${PKG_NAME}_BINDIR.zip"
+# TEMP_ZIP="/tmp/${MODULE_NAME}_BINDIR.zip"
 # explain ${BINDIR}/Publish_jsDocs_toGitHub_B.md MORE_ACTION # CODE_BLOCK
 # if [ "${RUN_RULE}" != "n" ]; then
     Publish_jsDocs_toGitHub_B;
@@ -519,13 +519,13 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     # explain ${BINDIR}/Refactor_Bunyan_InstantiationB.md # MANUAL_INPUT_REQUIRED
 
     Refactor_Bunyan_InstantiationB;
-    echo -e "\n   Brought in edited 'package.js' and '${PKG_NAME}-tests.js' files.\n          - o 0 o - \n";
+    echo -e "\n   Brought in edited 'package.js' and '${MODULE_NAME}-tests.js' files.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
     # RUN_RULE="";
     # explain ${BINDIR}/Refactor_Bunyan_InstantiationC.md # MANUAL_INPUT_REQUIRED
 
     Refactor_Bunyan_InstantiationC;
-    echo -e "\n   Brought in edited 'package.js' and '${PKG_NAME}-tests.js' files.\n          - o 0 o - \n";
+    echo -e "\n   Brought in edited 'package.js' and '${MODULE_NAME}-tests.js' files.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # explain ${BINDIR}/Package_Upgrade_and_Project_Rebuild_A.md MORE_ACTION # CODE_BLOCK
@@ -603,7 +603,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     # RUN_RULE="";
     # explain ${BINDIR}/Async_Problem_TinyTest_A.md # MANUAL_INPUT_REQUIRED
     Async_Problem_TinyTest_A;
-    echo -e "\n   Brought in a '${PKG_NAME}-tests.js' file, edited for the Async problem example.\n          - o 0 o - \n";
+    echo -e "\n   Brought in a '${MODULE_NAME}-tests.js' file, edited for the Async problem example.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # echo ""
@@ -629,7 +629,7 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     # RUN_RULE="";
     # explain ${BINDIR}/Declare_Callable_Method.md # MANUAL_INPUT_REQUIRED
     Declare_Callable_Method;
-    echo -e "\n   Brought in a '${PKG_NAME}.js' file, edited for the Async problem example.\n          - o 0 o - \n";
+    echo -e "\n   Brought in a '${MODULE_NAME}.js' file, edited for the Async problem example.\n          - o 0 o - \n";
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # echo ""
@@ -667,14 +667,14 @@ pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWM
     # explain ${BINDIR}/FinishDocumentation.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
     FinishDocumentation;
-    echo -e "\n   Brought in '${PKG_NAME}.js' and 'usage_example.js' files edited  with jsDoc annotations.\n          - o 0 o - \n";
+    echo -e "\n   Brought in '${MODULE_NAME}.js' and 'usage_example.js' files edited  with jsDoc annotations.\n          - o 0 o - \n";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 
     # explain ${BINDIR}/IntegratingEverything.md MORE_ACTION # CODE_BLOCK
     # if [ "${RUN_RULE}" != "n" ]; then
     IntegratingEverything;
-    echo -e "\n   Committed latest changes to project '${PROJECT_NAME}' and package '${PKG_NAME}'.\n          - o 0 o - \n";
+    echo -e "\n   Committed latest changes to project '${PROJECT_NAME}' and package '${MODULE_NAME}'.\n          - o 0 o - \n";
     # fi;
 pwd; echo "MWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMWMW";
 

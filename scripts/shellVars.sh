@@ -35,9 +35,9 @@ addShellVar 'PROJECT_NAME' \
             'Project name : ${PROJECT_NAME}' \
             '2';
 
-addShellVar 'PKG_NAME' \
+addShellVar 'MODULE_NAME' \
             'The exact package name for use in GitHub  :: ' \
-            'Package name : ${PKG_NAME}' \
+            'Package name : ${MDL_NAME}' \
             '3';
 
 addShellVar 'GITHUB_ORGANIZATION_NAME' \
@@ -96,8 +96,8 @@ addShellVar 'REPLACE_EXISTING_PROJECT' \
             '14';
 
 addShellVar 'REPLACE_EXISTING_PACKAGE' \
-            'Should the package "${PKG_NAME}" be COMPLETELY ERASED? (yes/no)  :: ' \
-            'You approve deleting and replacing package "${PKG_NAME}" : ${REPLACE_EXISTING_PACKAGE};' \
+            'Should the package "${MDL_NAME}" be COMPLETELY ERASED? (yes/no)  :: ' \
+            'You approve deleting and replacing package "${MDL_NAME}" : ${REPLACE_EXISTING_PACKAGE};' \
             '15';
 
 # addShellVar 'METEOR_UID' \

@@ -20,7 +20,7 @@ function loadShellVars() {
 
   # echo "From source ... ";
   # echo "PROJECT_NAME = ${PROJECT_NAME}";
-  # echo "PKG_NAME = ${PKG_NAME}";
+  # echo "MODULE_NAME = ${MODULE_NAME}";
   # echo -e "GITHUB_ORGANIZATION_NAME = ${GITHUB_ORGANIZATION_NAME}\n";
 
 }
@@ -80,7 +80,7 @@ function askUserForParameters()
 
 # loadShellVars;
 
-# PARM_NAMES=("PKG_NAME" "GITHUB_ORGANIZATION_NAME");
+# PARM_NAMES=("MODULE_NAME" "GITHUB_ORGANIZATION_NAME");
 # askUserForParameters PARM_NAMES[@];
 # exit;
 # echo -e "

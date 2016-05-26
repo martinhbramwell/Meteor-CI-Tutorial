@@ -342,7 +342,7 @@ function Amend_the_configuration_and_push_again() {
 
   # Fix project specific flag variables
   sed -i -e "s/\${GITHUB_ORGANIZATION_NAME}/${GITHUB_ORGANIZATION_NAME}/" ./packages/managed_packages.sh
-  sed -i -e "s/\${PKG_NAME}/${PKG_NAME}/" ./packages/managed_packages.sh
+  sed -i -e "s/\${MODULE_NAME}/${MODULE_NAME}/" ./packages/managed_packages.sh
   sed -i -e "s/\${YOUR_UID}/${YOUR_UID}/" ./packages/managed_packages.sh
 
   chmod a+x ./packages/obtain_managed_packages.sh

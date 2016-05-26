@@ -18,15 +18,15 @@ Table of Contents](./toc.html)
 
 . . . continued.
 
-Now edit ```circle.yml``` to re-enable use of ${PKG_NAME}, (not forgetting substitutions), then commit to GitHub -- hooking CircleCI for a rebuild :
+Now edit ```circle.yml``` to re-enable use of ${MODULE_NAME}, (not forgetting substitutions), then commit to GitHub -- hooking CircleCI for a rebuild :
 
 ```ruby
-    - mkdir -p ~/packages/${YOUR_UID};  # ensure dir exists
-    - pushd ~/packages/${YOUR_UID};
-        git clone https://github.com/${GITHUB_ORGANIZATION_NAME}/${PKG_NAME};
+    - mkdir -p ~/modules/${YOUR_UID};  # ensure dir exists
+    - pushd ~/modules/${YOUR_UID};
+        git clone https://github.com/${GITHUB_ORGANIZATION_NAME}/${MODULE_NAME};
       popd;
-    - pushd ./packages;
-        rm -fr ${PKG_NAME};   ln -s ~/packages/${YOUR_UID}/${PKG_NAME} ${PKG_NAME};
+    - pushd ./modules;
+        rm -fr ${MODULE_NAME};   ln -s ~/modules/${YOUR_UID}/${MODULE_NAME} ${MODULE_NAME};
       popd;
 ```
 ##### Example Commands

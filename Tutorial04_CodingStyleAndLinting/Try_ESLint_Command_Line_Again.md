@@ -17,7 +17,7 @@ Table of Contents](./toc.html)
 
 Return to the command line and rerun . . . 
 ```terminal
-eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
+eslint ~/${PARENT_DIR}/modules/${USER}/${MODULE_NAME}/${MODULE_NAME}-tests.js
 ```
 . . . as you did for the earlier step ["Command Line ESLint"](#UseESLintOnTheCommandLine).
 

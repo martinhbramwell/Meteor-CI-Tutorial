@@ -1,5 +1,5 @@
 layout: false
-last_update: 2016-02-09
+
  .left-column[
   ### PART C INTRODUCTION
 
@@ -13,23 +13,37 @@ Table of Contents](./toc.html)
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-## Create and Unit Test a Package
+## Create and Unit Test a Module
 
-These scripts will get you started easily with Meteor package development, testing, logging, documenting, code style linting and continuous deployment.
+These scripts will get you started easily with Meteor module development, testing, logging, documenting, code style linting and continuous deployment.
 
 The previous script, 'Tutorial02_VersionControlInTheCloud.sh', set up a Meteor application with version control in the cloud. 
 
 This one . . .  
 ```terminal
-./Tutorial03_UnitTestAPackage.sh
+./Tutorial03_UnitTestAModule.sh
 ```
-. . . prepares a Meteor project with an associated external package, tested with TinyTest, and **stored separately in GitHub**.
+. . . prepares a Meteor project with an associated external module, tested with TinyTest, and **stored separately in GitHub**.
 
 
+<!-- B -->
+<div id="pkg2mod" class="popup_div">
+    <a class="subtle_a" onmouseover="HideContent('pkg2mod'); return true;"
+       href="javascript:HideContent('pkg2mod')">
+        <p>We use the terms 'package' and 'module' interchangeably.  However, 'package' is Meteor's old name and 'module' is its new name, for replaceable self-sufficient components.</p>
+    </a>
+</div>
+<a
+    class="hover_text"
+    onmouseover="ReverseContentDisplay('pkg2mod'); return true;"
+    href="javascript:ReverseContentDisplay('pkg2mod')">
+    <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note ::> 'package or 'module' ??</i>
+</a>
 
-<!-- B -->]
+
+]
 ---
-last_update: 2016-02-09
+
  .left-column[
   ### Create Meteor Packages
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -43,19 +57,19 @@ Table of Contents](./toc.html)
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Create a Meteor package development directory.
+#### Create a Meteor module development directory.
 
-If you aim for "package only applications", if packages are to be reusable, your packages need independent version control, and to reside in a directory outside of the project, that you specify with Meteor's shell variable ```PACKAGE_DIRS```.
+If you aim for "module only applications", if modules are to be reusable, your modules need independent version control, and to reside in a directory outside of the project, that you specify with Meteor's shell variable ```MODULE_DIRS```.
 
-To create self-sufficient packages, begin by defining ```PACKAGE_DIRS``` as a permanent fixture of your user profile, pointing to the place where you will keep your packages.
+To create self-sufficient modules, begin by defining ```MODULE_DIRS``` as a permanent fixture of your user profile, pointing to the place where you will keep your modules.
 
 ##### Example Commands
 ```terminal
-export PACKAGES=~/${PARENT_DIR}/packages;
-export PACKAGE_DIRS=${PACKAGES}/thirdparty:${PACKAGES}/${YOUR_UID};
-mkdir -p ${PACKAGES}/${YOUR_UID}; mkdir -p ${PACKAGES}/thirdparty;
-export HAS_PACKAGE_DIRS=$(grep PACKAGE_DIRS ~/.profile | grep -c ${PACKAGES} ~/.profile);
-[[ ${HAS_PACKAGE_DIRS} -lt 1 ]] && echo -e "\n#\nexport PACKAGE_DIRS=${PACKAGE_DIRS}" >> ~/.profile;
+export MODULES=~/${PARENT_DIR}/modules;
+export MODULE_DIRS=${MODULES}/thirdparty:${MODULES}/${YOUR_UID};
+mkdir -p ${MODULES}/${YOUR_UID}; mkdir -p ${MODULES}/thirdparty;
+export HAS_MODULE_DIRS=$(grep MODULE_DIRS ~/.profile | grep -c ${MODULES} ~/.profile);
+[[ ${HAS_MODULE_DIRS} -lt 1 ]] && echo -e "\n#\nexport MODULE_DIRS=${MODULE_DIRS}" >> ~/.profile;
 source ~/.profile;
 ```
 Continued . . . 
@@ -64,7 +78,7 @@ Continued . . .
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L4" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+
  .left-column[
   ### Create Meteor Packages
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -78,31 +92,31 @@ Table of Contents](./toc.html)
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Create a "self-sufficient" Meteor package.
+#### Create a "self-sufficient" Meteor module.
 
 ... continuing.
 
-Now that Meteor can find your packages, you can create one and install it in your project :
+Now that Meteor can find your modules, you can create one and install it in your project :
 1. step into the directory you created earlier
-2. use ```meteor create``` to create your package
-3. use ```add``` to add the package to your project
-4. use ```list``` to confirm the package was added.
+2. use ```meteor create``` to create your module
+3. use ```add``` to add the module to your project
+4. use ```list``` to confirm the module was added.
 
 ##### Example Commands
 ```terminal
-cd ~/${PARENT_DIR}/packages/${YOUR_UID}
-meteor create --package ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}
+cd ~/${PARENT_DIR}/modules/${YOUR_UID}
+meteor create --package ${GITHUB_ORGANIZATION_NAME}:${MODULE_NAME}
 cd ~/${PARENT_DIR}/${PROJECT_NAME}
-meteor add ${GITHUB_ORGANIZATION_NAME}:${PKG_NAME}
+meteor add ${GITHUB_ORGANIZATION_NAME}:${MODULE_NAME}
 meteor list
 ```
-Your package will be part of your project's run time, but not part of it at edit time. That's next . . .
+Your module will be part of your project's run time, but not part of it at edit time. That's next . . .
 
 <!-- B -->
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L24" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+
  .left-column[
   ### Create Meteor Packages
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -116,20 +130,20 @@ Table of Contents](./toc.html)
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Working on your Meteor package.
+#### Working on your Meteor module.
 
-One disadvantage of keeping packages outside your project directory is that you lose Meteor's automatic refresh on saving changes.
+One disadvantage of keeping modules outside your project directory is that you lose Meteor's automatic refresh on saving changes.
 
-That's easily fixed.  You simply need to establish a symbolic link from your packages directory to the real package :
-1. step into the packages directory of your project
+That's easily fixed.  You simply need to establish a symbolic link from your modules directory to the real module :
+1. step into the modules directory of your project
 2. create a symbolic link
 
 ##### Example Commands
 ```terminal
-cd ~/${PARENT_DIR}/${PROJECT_NAME}/packages
-ln -s ${PACKAGES}/${YOUR_UID}/${PKG_NAME} ${PKG_NAME}
+cd ~/${PARENT_DIR}/${PROJECT_NAME}/modules
+ln -s ${PACKAGES}/${YOUR_UID}/${MODULE_NAME} ${MODULE_NAME}
 ```
-For editing purposes your package now appears to be part of your project.  But wait!  It won't be "git managed", will it?!
+For editing purposes your module now appears to be part of your project.  But wait!  It won't be "git managed", will it?!
 
 
 
@@ -144,13 +158,13 @@ For editing purposes your package now appears to be part of your project.  But w
     class="hover_text"
     onmouseover="ReverseContentDisplay('symwarn'); return true;"
     href="javascript:ReverseContentDisplay('symwarn')">
-    <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note</i>
+    <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note ::> Spurious warning ??</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L113" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L123" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+
  .left-column[
   ### Prepare SSH directory
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -169,12 +183,12 @@ Table of Contents](./toc.html)
 This step is a repeat of the equivalent operation from the previous part.
 Names are made to be distinct, deliberately, so *git* meets no ambiguity about connecting local repos to the correct remote repo.
 
-In this step we prepare an aliased key for ```${PKG_NAME}```.
+In this step we prepare an aliased key for ```${MODULE_NAME}```.
 ##### Example Commands
 ```terminal
-ssh-keygen -t rsa -b 4096 -C "github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}" -N "" -f "${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}"
-printf 'Host github-%s-%s\nHostName github.com\nUser git\nIdentityFile ~/.ssh/%s-%s\n\n' "${GITHUB_ORGANIZATION_NAME}" "${PKG_NAME}"  "${GITHUB_ORGANIZATION_NAME}" "${PKG_NAME}" >> config
-ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
+ssh-keygen -t rsa -b 4096 -C "github-${GITHUB_ORGANIZATION_NAME}-${MODULE_NAME}" -N "" -f "${GITHUB_ORGANIZATION_NAME}-${MODULE_NAME}"
+printf 'Host github-%s-%s\nHostName github.com\nUser git\nIdentityFile ~/.ssh/%s-%s\n\n' "${GITHUB_ORGANIZATION_NAME}" "${MODULE_NAME}"  "${GITHUB_ORGANIZATION_NAME}" "${MODULE_NAME}" >> config
+ssh-add ${GITHUB_ORGANIZATION_NAME}-${MODULE_NAME}
 ```
 
 
@@ -182,20 +196,20 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}
 <div id="pubkey" class="popup_div">
     <a class="subtle_a" onmouseover="HideContent('pubkey'); return true;"
        href="javascript:HideContent('pubkey')">
-        <p>If a file '~/.ssh/${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}.pub' already exists, then this command group will do nothing.</p>
+        <p>If a file '~/.ssh/${GITHUB_ORGANIZATION_NAME}-${MODULE_NAME}.pub' already exists, then this command group will do nothing.</p>
     </a>
 </div>
 <a
     class="hover_text"
     onmouseover="ReverseContentDisplay('pubkey'); return true;"
     href="javascript:ReverseContentDisplay('pubkey')">
-    <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note</i>
+    <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note ::> Non-destructive !</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L123" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L133" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+
  .left-column[
   ### Package Version Control
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.png' /><br />Manual input is required here.</div><br />
@@ -209,23 +223,23 @@ Table of Contents](./toc.html)
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Controlling Versions of your Meteor package.
+#### Controlling Versions of your Meteor module.
 
-Another consequence of keeping packages outside your project directory is the need for a separate version control repository for each one.
+Another consequence of keeping modules outside your project directory is the need for a separate version control repository for each one.
 
 The resulting modularity is benefical and the multiplication of git commands can be mitigated by using <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank">git submodules</a> *("Submodules allow you to keep a Git repository as a subdirectory of another Git repository.")*.
 
-That's beyond the scope of this tutorial.  However, we must, in any case, repeat the earlier steps to create [remote](./toc.html?part=B#9) and [local](./toc.html?part=B#11) repositories -- this time for ```${PKG_NAME}```.
+That's beyond the scope of this tutorial.  However, we must, in any case, repeat the earlier steps to create [remote](./toc.html?part=B#9) and [local](./toc.html?part=B#11) repositories -- this time for ```${MODULE_NAME}```.
 
-**Be sure to prepare a GitHub repo called ```${PKG_NAME}``` with its own deploy key in the same way you did for ```${PROJECT_NAME}```**
+**Be sure to prepare a GitHub repo called ```${MODULE_NAME}``` with its own deploy key in the same way you did for ```${PROJECT_NAME}```**
 
 Continues . . . 
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L138" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L148" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+
  .left-column[
   ### Package Version Control
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -239,7 +253,7 @@ Table of Contents](./toc.html)
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### Controlling Versions of your Meteor package
+#### Controlling Versions of your Meteor module
 . . . continued.
 
 ##### Example Commands
@@ -247,15 +261,15 @@ Table of Contents](./toc.html)
 git init
 git add .
 git commit -am 'First commit'
-git remote add ${PKG_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${PKG_NAME}:${GITHUB_ORGANIZATION_NAME}/${PKG_NAME}.git
-git push -u ${PKG_NAME}_origin master
+git remote add ${MODULE_NAME}_origin git@github-${GITHUB_ORGANIZATION_NAME}-${MODULE_NAME}:${GITHUB_ORGANIZATION_NAME}/${MODULE_NAME}.git
+git push -u ${MODULE_NAME}_origin master
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L164" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L174" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+
  .left-column[
   ### Test a Meteor Package
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -269,9 +283,9 @@ Table of Contents](./toc.html)
 .right-column[
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ - o 0 o - ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-#### TinyTest a package.
+#### TinyTest a module.
 
-Meteor makes unit testing of packages very easy. One command and we see test results each time we save a file.
+Meteor makes unit testing of modules very easy. One command and we see test results each time we save a file.
 
 In the accompanying script, the ampersand ```"&"``` causes Meteor package testing to start up as a background process.  In a browser, open the URL [localhost:3000](http://localhost:3000/) to confirm that it is working.
 
@@ -282,10 +296,10 @@ tree
 ```
 To stop Meteor and move on to the next step in the tutorial script, after you have confirmed that it ran successful tests, just hit ```<enter>```.
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L224" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L234" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+
  .left-column[
   ### Runner for TinyTest
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -314,10 +328,10 @@ wget -N https://raw.githubusercontent.com/warehouseman/meteor-tinytest-runner/ma
 ./tests/tinyTests/test-all.sh
 ```
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L251" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial03_UnitTestAPackage/UnitTestAPackage_functions.sh#L261" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+
  .left-column[
     ### End Of Part #C
 .footnote[.red.bold[] [
@@ -332,7 +346,7 @@ Table of Contents](./toc.html)
 
 #### Go to the next section . . . 
 
-Toegether, the preceding three parts will have left you with a minimal package, version managed apart from the app, but testable inside the app. 
+Toegether, the preceding three parts will have left you with a minimal module, version managed apart from the app, but testable inside the app. 
 
 The next section will guide you through preparations for ensuring coding standards conformance. 
 

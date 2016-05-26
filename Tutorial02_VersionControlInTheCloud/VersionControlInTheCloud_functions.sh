@@ -127,7 +127,7 @@ function Add_Meteor_application_development_support_files() {
 
   pushd ~/${PARENT_DIR} >/dev/null;
   pushd ${PROJECT_NAME} >/dev/null;
-  mkdir -p public
+  mkdir -p public;
 
   MARKER=favicon-32x32.png
   wget -O ./public/${MARKER} https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/${MARKER}
@@ -203,57 +203,6 @@ function Add_GitHub_Repo_Deploy_Key_For_Project() {
   Add_GitHub_Repo_Deploy_Key ${PROJECT_NAME} ${REPLACE_EXISTING_PROJECT};
 }
 
-
-
-# function Create_GitHub_Repo_Deploy_Keys() {
-
-  # *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  #
-  #  THIS IS A GLOBAL FUNCTION USED BY MORE THAN ONE TUTORIAL   #
-  #  IT HAS BEEN MOVED TO :: scripts/util.sh                    #
-  # *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  *  #
-
-
-
-#   SET_UP_SSH=true;
-
-#   mkdir -p ~/.ssh;
-#   chmod 700 ~/.ssh
-#   pushd  ~/.ssh  >/dev/null;
-
-#     eval `ssh-agent -s`;
-
-#     touch config;
-
-
-#     if [ -f github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME} ]; then SET_UP_SSH=false;  fi
-#     if [ -f github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}.pub ]; then SET_UP_SSH=false;  fi
-
-#     if cat config | grep -c "Host github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}"; then
-#       SET_UP_SSH=false;
-#     fi
-
-#     if [ ${SET_UP_SSH} == true ]; then
-#       echo "Creating deploy key for ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}";
-#       ssh-keygen -t rsa -b 4096 -C "github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}" -N "" -f "${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}"
-
-#       echo "Appending git host alias 'github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}' to $(pwd)/config";
-#       printf 'Host github-%s-%s\nHostName github.com\nUser git\nIdentityFile ~/.ssh/%s-%s\n\n' "${GITHUB_ORGANIZATION_NAME}" "${PROJECT_NAME}"  "${GITHUB_ORGANIZATION_NAME}" "${PROJECT_NAME}" >> config
-#       ls -la
-
-#       echo "Adding 'github-${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}' to the ssh agent";
-#       ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
-#       ssh-add -l
-
-#     else
-#       echo -e "#########################################################################################"
-#       echo -e "#   Found deploy keys for ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME} already present.  Will NOT overwrite."
-#       echo -e "#   Please ensure you have a correctly configured SSH directory for use with GitHub."
-#       echo -e "#########################################################################################"
-#     fi
-
-#   popd >/dev/null;
-
-# }
 
 
 function Create_remote_GitHub_repository_B() {

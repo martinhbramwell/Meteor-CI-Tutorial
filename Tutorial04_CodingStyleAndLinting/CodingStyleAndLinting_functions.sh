@@ -11,7 +11,7 @@ function Try_ESLint_from_the_Command_Line() {
 
 function Ignore_Some_Files() {
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/ >/dev/null;
+  pushd ~/${PARENT_DIR}/modules/${USER}/${MODULE_NAME}/ >/dev/null;
 
     echo "./docs" > .eslintignore
     echo "./backup" >> .eslintignore
@@ -22,11 +22,11 @@ function Ignore_Some_Files() {
 
 function Try_ESLint_Command_Line_Again() {
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/ >/dev/null;
+  pushd ~/${PARENT_DIR}/modules/${USER}/ >/dev/null;
 
     set +e;
 
-      eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js;
+      eslint ./${MODULE_NAME}/${MODULE_NAME}-tests.js;
 
     set -e;
     
@@ -39,7 +39,7 @@ function Customize_ESLint_in_Sublime_Text() {
   pushd ~/${PARENT_DIR}/${PROJECT_NAME}/ >/dev/null;
 
     wget -O .eslintrc https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/modified_eslintrc;
-    cp .eslintrc ./packages/${PKG_NAME}/
+    cp .eslintrc ./packages/${MODULE_NAME}/
 
   popd >/dev/null;
 
@@ -48,9 +48,9 @@ function Customize_ESLint_in_Sublime_Text() {
 
 function Correct_the_indicated_code_quality_defects() {
 
-  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${PKG_NAME}/ >/dev/null;
+  pushd ~/${PARENT_DIR}/${PROJECT_NAME}/packages/${MODULE_NAME}/ >/dev/null;
 
-    wget -O ${PKG_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/package-tests_T04_05.js;
+    wget -O ${MODULE_NAME}-tests.js https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/package-tests_T04_05.js;
 
   popd >/dev/null;
 

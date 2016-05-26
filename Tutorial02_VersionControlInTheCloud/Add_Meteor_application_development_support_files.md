@@ -1,5 +1,5 @@
 ---
-last_update: 2016-02-09
+last_update: 2016-05-25
  .left-column[
   ### Meteor App Metadata
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.png' /><br />No manual input required here.</div><br />
@@ -21,6 +21,7 @@ In this step we create some of the project meta data files :
  -  .gitignore
  -  .eslintrc
  -  public/favicon-32x32.png
+ -  imports/README.md
 
 The .eslintrc file is borrowed from the project <a href='https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc' target='_blank'>warehouseman:meteor-swagger-client</a>
 
@@ -33,5 +34,5 @@ sed -i "/<head>/c<head>\
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L123" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L126" target="_blank">Code for this step.</a>] ]
 ]

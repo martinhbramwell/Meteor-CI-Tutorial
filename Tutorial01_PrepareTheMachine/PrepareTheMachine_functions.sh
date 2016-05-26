@@ -263,14 +263,14 @@ function This_tutorial_expects_to_use_the_Sublime_Text_3_editor_B() {
   if python -c "from bs4 import BeautifulSoup" 2>/dev/null; then
     echo "${X} is already installed";
   else
-    sudo pip install "${X}";
+    sudo -H pip install "${X}";
   fi;
 
   echo -e # -- Install HTML requester for obtaining installer for ST3 Package Control  --
   X="requests"; if python -c "import ${X}[security]" 2>/dev/null; then
     echo "${X} is already installed";
   else
-    sudo pip install "${X}";
+    sudo -H pip install "${X}";
   fi;
 
 }

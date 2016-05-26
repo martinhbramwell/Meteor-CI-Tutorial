@@ -1,5 +1,5 @@
 ---
-last_update: 2016-02-09
+
  .left-column[
     ### End Of Part #C
 .footnote[.red.bold[] [
@@ -14,7 +14,7 @@ Table of Contents](./toc.html)
 
 #### Go to the next section . . . 
 
-Toegether, the preceding three parts will have left you with a minimal package, version managed apart from the app, but testable inside the app. 
+Toegether, the preceding three parts will have left you with a minimal module, version managed apart from the app, but testable inside the app. 
 
 The next section will guide you through preparations for ensuring coding standards conformance. 
 

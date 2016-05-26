@@ -152,9 +152,12 @@ function Install_other_tools() {
   fi;
 
   X="python-pip";                  # for demo convenience
+  mkdir -p /home/$(whoami)/.cache/pip/http
   if aptNotYetInstalled "${X}"; then
     sudo apt-get -y install "${X}";
   fi;
+
+  sudo -H pip install --upgrade pip
 
 
 }

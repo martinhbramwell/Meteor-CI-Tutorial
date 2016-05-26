@@ -2,10 +2,10 @@
 #
 # Use the array 'MANAGED_PACKAGES' to specify the packages to clone.
 # 
-#    ORG_NAME  |  PKG_NAME  |  SUB_DIR  
+#    ORG_NAME  |  MODULE_NAME  |  SUB_DIR  
 #
 MANAGED_PACKAGES=(
   "dude-awap|dummy|thirdparty/dudeAwap" \
-  "${GITHUB_ORGANIZATION_NAME}|${PKG_NAME}|${YOUR_UID}"
+  "${GITHUB_ORGANIZATION_NAME}|${MODULE_NAME}|${YOUR_UID}"
 );
 

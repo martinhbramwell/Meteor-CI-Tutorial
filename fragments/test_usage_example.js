@@ -1,5 +1,5 @@
 /**
- * @fileOverview The unit tests for "${PKG_NAME}".
+ * @fileOverview The unit tests for "${MODULE_NAME}".
  * @author ${YOUR_FULLNAME} <${YOUR_EMAIL}>
  * @version v0.0.1
  * @license MIT
