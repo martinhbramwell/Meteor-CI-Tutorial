@@ -126,7 +126,7 @@ curl https://install.meteor.com/ | sh
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L14" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-05-26
  .left-column[
   ### Create Meteor Project
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -150,6 +150,8 @@ If the project was created earlier you'll be invited to delete it and start a ne
 ```terminal
 mkdir -p ~/${PARENT_DIR}
 meteor create ${PROJECT_NAME}
+cd ${PROJECT_NAME}
+meteor npm install
 ```
 
 <!-- B -->
@@ -158,7 +160,7 @@ meteor create ${PROJECT_NAME}
 ---
 name: Check Meteor Works
 
-last_update: 2016-02-09
+last_update: 2016-05-26
  .left-column[
   ### Check Meteor Works
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -187,10 +189,10 @@ echo $A_METEOR_PID;
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L101" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L104" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-05-26
  .left-column[
   ### Meteor App Metadata
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -212,6 +214,7 @@ In this step we create some of the project meta data files :
  -  .gitignore
  -  .eslintrc
  -  public/favicon-32x32.png
+ -  imports/README.md
 
 The .eslintrc file is borrowed from the project <a href='https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc' target='_blank'>warehouseman:meteor-swagger-client</a>
 
@@ -220,14 +223,14 @@ The .eslintrc file is borrowed from the project <a href='https://raw.githubuserc
 wget -N https://raw.githubusercontent.com/warehouseman/meteor-swagger-client/master/.eslintrc
 wget -O ./public/favicon-32x32.png https://raw.githubusercontent.com/martinhbramwell/Meteor-CI-Tutorial/master/fragments/favicon-32x32.png
 sed -i "/<head>/c<head>\
-    \\n  <link rel=\"shortcut icon\" href=\"/favicon-32x32.png\" type=\"image/x-icon\" />" ${PROJECT_NAME}.html
+    \\n  <link rel=\"shortcut icon\" href=\"/favicon-32x32.png\" type=\"image/x-icon\" />" ./client/main.html
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L123" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L126" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-05-26
  .left-column[
   ### Prepare SSH directory
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -271,7 +274,7 @@ ssh-add ${GITHUB_ORGANIZATION_NAME}-${PROJECT_NAME}
     <i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Hover Note</i>
 </a>
 
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L190" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L193" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateRemoteGitHubRepository
@@ -303,7 +306,7 @@ Continued . . .
 <!-- B -->]
 ---
 name: CreateRemoteGitHubRepository
-last_update: 2016-02-17
+last_update: 2016-05-26
  .left-column[
   ### GitHub Repo
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
@@ -331,11 +334,11 @@ Table of Contents](./toc.html)
 1. Click ```Add key```.
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L256" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L208" target="_blank">Code for this step.</a>] ]
 ]
 ---
 name: CreateLocalGitHubRepository
-last_update: 2016-02-09
+last_update: 2016-05-26
  .left-column[
   ### Local GitHub Repo
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -367,7 +370,7 @@ git push -u ${PROJECT_NAME}_origin master
 ```
 
 <!-- B -->
-.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L282" target="_blank">Code for this step.</a>] ]
+.center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial02_VersionControlInTheCloud/VersionControlInTheCloud_functions.sh#L234" target="_blank">Code for this step.</a>] ]
 ]
 ---
 last_update: 2016-02-09

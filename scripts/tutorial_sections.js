@@ -5,7 +5,7 @@
 var sections = {
     A: "Tutorial01_PrepareTheMachine"
   , B: "Tutorial02_VersionControlInTheCloud"
-  , C: "Tutorial03_UnitTestAPackage"
+  , C: "Tutorial03_UnitTestAModule"
   , D: "Tutorial04_CodingStyleAndLinting"
   , E: "Tutorial05_AutomaticDocumentationInTheCloud"
   , F: "Tutorial06_CloudContinuousIntegration"

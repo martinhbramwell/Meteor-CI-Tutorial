@@ -126,7 +126,7 @@ In Sublime Text :
 You have reconfigured the ESLint rule ```'quotes'```.  The complete list of configurable rules is available from <a target="blank" href="http://eslint.org/docs/rules/">eslint.org rules documentation</a>
 <!-- B -->]
 ---
-last_update: 2016-02-09
+last_update: 2016-05-26
  .left-column[
   ### Sublime ESLint
   <br /><br /><div class='input_type_indicator'><img src='./fragments/typer.gif' /><br />Manual input is required here.</div><br />
@@ -143,10 +143,10 @@ Table of Contents](./toc.html)
 #### Correct the indicated code-quality defects
 
 In Sublime Text, make sure you're editing the same project as you opened in the previous slide, then :
-1. begin editing the files ```./${PROJECT_NAME}.js``` and ```./packages/${PKG_NAME}/${PKG_NAME}-tests.js```
+1. begin editing the files ```./${PROJECT_NAME}.js``` and ```${PARENT_DIR}/modules/${USER}/${MODULE_NAME}/${MODULE_NAME}-tests.js```
 2. the former has ESLint deficiencies indicated, while the latter does not.
-3. open ```./.eslintrc``` and save it as ```./packages/${PKG_NAME}/.eslintrc```
-4. close and reopen ```./packages/${PKG_NAME}/${PKG_NAME}-tests.js``` and deficiency flags will appear
+3. open ```./.eslintrc``` and save it as ```./packages/${MODULE_NAME}/.eslintrc```
+4. close and reopen ```${PARENT_DIR}/modules/${USER}/${MODULE_NAME}/${MODULE_NAME}-tests.js``` and deficiency flags will appear
 5. click on line '3' and notice the status bar has a warning ```func-names``` and an error ```space-before-function-paren```
 6. add ```checkSanity``` after ```function``` to correct both defects
 
@@ -207,7 +207,7 @@ echo "./backup" >> .eslintignore
 .center[.footnote[.red.bold[] <a href="https://github.com/martinhbramwell/Meteor-CI-Tutorial/blob/master/Tutorial04_CodingStyleAndLinting/CodingStyleAndLinting_functions.sh#L12" target="_blank">Code for this step.</a>] ]
 ]
 ---
-last_update: 2016-02-09
+last_update: 2016-05-26
  .left-column[
   ### Command Line ESLint
   <br /><br /><div class='input_type_indicator'><img src='./fragments/loader.gif' /><br />No manual input required here.</div><br />
@@ -225,7 +225,7 @@ Table of Contents](./toc.html)
 
 Return to the command line and rerun . . . 
 ```terminal
-eslint ./packages/${PKG_NAME}/${PKG_NAME}-tests.js
+eslint ~/${PARENT_DIR}/modules/${USER}/${MODULE_NAME}/${MODULE_NAME}-tests.js
 ```
 . . . as you did for the earlier step ["Command Line ESLint"](#UseESLintOnTheCommandLine).
 
